@@ -14,6 +14,7 @@ resource "aws_vpc_endpoint_service" "example" {
     service_type = "{{ service_type }}"
     state = "{{ state }}"
     supported_ip_address_types = "{{ supported_ip_address_types }}"
+    supported_regions = "{{ supported_regions }}"
     tags = "{{ tags }}"
     tags_all = "{{ tags_all }}"
 }

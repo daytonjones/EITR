@@ -1,0 +1,12 @@
+ephemeral_resource "aws_lambda_invocation" "example" {
+    client_context = "{{ client_context }}"
+    executed_version = "{{ executed_version }}"
+    function_error = "{{ function_error }}"
+    function_name = "{{ function_name }}"
+    log_result = "{{ log_result }}"
+    log_type = "{{ log_type }}"
+    payload = "{{ payload }}"
+    qualifier = "{{ qualifier }}"
+    result = "{{ result }}"
+    status_code = "{{ status_code }}"
+}

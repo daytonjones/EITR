@@ -1,0 +1,9 @@
+resource "aws_vpc_block_public_access_exclusion" "example" {
+    id = "{{ id }}"
+    internet_gateway_exclusion_mode = "{{ internet_gateway_exclusion_mode }}"
+    resource_arn = "{{ resource_arn }}"
+    subnet_id = "{{ subnet_id }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    vpc_id = "{{ vpc_id }}"
+}

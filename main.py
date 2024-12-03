@@ -20,20 +20,34 @@ with open("config/provider_schemas.json") as f:
 @app.get("/", response_class=HTMLResponse)
 async def get_index(request: Request):
     providers_with_resource_names = []
-    # Combine providers and their resource names into one structured object
+
+    # List of keys to include in the response
+    schema_keys = [
+        "resource_schemas",
+        "data_source_schemas",
+        "ephemeral_resource_schemas",
+        "functions",
+        "provider"
+    ]
+
+    # Combine providers and their schemas into one structured object
     for provider in PROVIDERS:
         provider_name = provider["name"]
         provider_key = f"registry.terraform.io/hashicorp/{provider_name}"
-        resources = SCHEMAS["provider_schemas"].get(provider_key, {}).get("resource_schemas", {})
-        resource_names = list(resources.keys())  # Extract keys if they exist
+
+        # Extract data for each schema key
+        schema_data = {}
+        for key in schema_keys:
+            schema_data[key] = list(SCHEMAS["provider_schemas"].get(provider_key, {}).get(key, {}).keys())
+
         providers_with_resource_names.append({
             "name": provider_name,
             "description": provider["description"],
-            "resource_names": resource_names
+            "schemas": schema_data
         })
 
     total_providers = len(providers_with_resource_names)
-    total_resources = sum(len(provider["resource_names"]) for provider in providers_with_resource_names)
+    total_resources = sum(len(provider["schemas"]["resource_schemas"]) for provider in providers_with_resource_names)
 
     return templates.TemplateResponse("index.html", {
         "request": request,
@@ -47,8 +61,11 @@ async def load_templates(provider: str, resource: str):
     templates_path = f"templates/terraform/{provider}/"
     resource_templates = {}
 
-    for template_type in ["data", "resource"]:
-        template_file = os.path.join(templates_path, f"{resource}-{template_type}.tf.j2")
+    for template_type in ["data", "resource", "function", "provider", "ephemeral"]:
+        if template_type == 'provider':
+            template_file = os.path.join(templates_path, f"provider.tf.j2")
+        else:
+            template_file = os.path.join(templates_path, f"{resource}-{template_type}.tf.j2")
         if os.path.exists(template_file):
             with open(template_file, "r") as f:
                 resource_templates[template_type] = f.read()

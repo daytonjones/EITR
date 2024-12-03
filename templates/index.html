@@ -70,19 +70,29 @@
                         :aria-expanded="open.toString()">
                         {{ provider.description }}
                     </button>
-
-                    <!-- Toggling resource display -->
-                    <div x-show="open" x-transition class="mt-2 pl-4 space-y-2">
-                        {% for resource in provider.resource_names %}
+                
+                    <!-- Toggling schema display -->
+                    <div x-show="open" x-transition class="mt-2 pl-4 space-y-4">
+                        {% for schema_type, items in provider.schemas.items() %}
+                        {% if items|length > 0 %}
                         <div>
-                            <label class="flex items-center space-x-2">
-                                <input type="checkbox" name="{{ provider.name }}_resources" value="{{ resource }}" 
-                                       class="resource-checkbox" 
-                                       data-resource="{{ resource }}"
-				       data-provider="{{ provider.name }}" >
-                                <span>{{ resource }}</span>
-                            </label>
+                            <!-- Header for schema type -->
+                            <h4 class="text-gray-400 font-semibold capitalize">{{ schema_type.replace('_', ' ') }}</h4>
+                            <div class="pl-4 space-y-2">
+                                {% for item in items %}
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox" 
+                                           name="{{ provider.name }}_{{ schema_type }}" 
+                                           value="{{ item }}" 
+                                           class="resource-checkbox" 
+                                           data-resource="{{ item }}" 
+                                           data-provider="{{ provider.name }}">
+                                    <span>{{ item }}</span>
+                                </label>
+                                {% endfor %}
+                            </div>
                         </div>
+                        {% endif %}
                         {% endfor %}
                     </div>
                 </div>
@@ -125,7 +135,6 @@
             hoverText.classList.add("hidden");
         });
 
-<!-- testing -->
 document.addEventListener("DOMContentLoaded", () => {
     const resourceCheckboxes = document.querySelectorAll(".resource-checkbox");
     const configDisplay = document.getElementById("config-display");
@@ -180,9 +189,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-
-<!-- testing -->
-
     </script>
 </body>
 </html>
