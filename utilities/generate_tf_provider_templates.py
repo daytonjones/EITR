@@ -221,7 +221,6 @@ resource "{{ resource_type }}" "{{ resource_name }}" {
 
     data_source_template = Template(
         """\
-# {{ data_type }}-data.tf.j2
 data "{{ data_type }}" "{{ data_name }}" {
     {% for attribute, details in attributes.items() %}
     {{ attribute }} = "{{ details['type_var'] }}"
@@ -232,7 +231,6 @@ data "{{ data_type }}" "{{ data_name }}" {
 
     ephemeral_resource_template = Template(
         """\
-# {{ ephemeral_type }}-ephemeral.tf.j2
 ephemeral_resource "{{ ephemeral_type }}" "{{ ephemeral_name }}" {
     {% for attribute, details in attributes.items() %}
     {{ attribute }} = "{{ details['type_var'] }}"
@@ -243,7 +241,6 @@ ephemeral_resource "{{ ephemeral_type }}" "{{ ephemeral_name }}" {
 
     function_template = Template(
         """\
-# {{ function_name }}-function.tf.j2
 function "{{ function_name }}" {
     {% for attribute, details in attributes.items() %}
     {{ attribute }} = "{{ details['type_var'] }}"
@@ -254,7 +251,6 @@ function "{{ function_name }}" {
 
     provider_template = Template(
         """\
-# provider-{{ provider_key }}.tf.j2
 provider "{{ provider_key }}" {
     {% for attribute, details in attributes.items() %}
     {{ attribute }} = "{{ details['type_var'] }}"
