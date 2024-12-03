@@ -199,8 +199,11 @@ def process_provider(schema, provider_key, template_dir):
     provider_schema = schema["provider_schemas"].get(provider_key, {})
     resources = provider_schema.get("resource_schemas", {})
     data_sources = provider_schema.get("data_source_schemas", {})
+    ephemeral_resources = provider_schema.get("ephemeral_resource_schemas", {})
+    functions = provider_schema.get("functions", {})
+    provider_attributes = provider_schema.get("provider", {}).get("block", {}).get("attributes", {})
 
-    print(f"\n{Fore.GREEN}Processing {Fore.BLUE}{provider_key}{Fore.GREEN}: Found {Fore.MAGENTA}{len(resources)}{Fore.GREEN} resources and {Fore.MAGENTA}{len(data_sources)}{Fore.GREEN} data sources.{Fore.RESET}")
+    print(f"\n{Fore.GREEN}Processing {Fore.BLUE}{provider_key}{Fore.GREEN}: Found {Fore.MAGENTA}{len(resources)}{Fore.GREEN} resources, {Fore.MAGENTA}{len(data_sources)}{Fore.GREEN} data sources, {Fore.MAGENTA}{len(ephemeral_resources)}{Fore.GREEN} ephemeral resources, and {Fore.MAGENTA}{len(functions)}{Fore.GREEN} functions.{Fore.RESET}")
 
     # Create provider-specific directory
     os.makedirs(template_dir, exist_ok=True)
@@ -227,6 +230,39 @@ data "{{ data_type }}" "{{ data_name }}" {
 """, trim_blocks=True, lstrip_blocks=True
     )
 
+    ephemeral_resource_template = Template(
+        """\
+# {{ ephemeral_type }}-ephemeral.tf.j2
+ephemeral_resource "{{ ephemeral_type }}" "{{ ephemeral_name }}" {
+    {% for attribute, details in attributes.items() %}
+    {{ attribute }} = "{{ details['type_var'] }}"
+    {% endfor %}
+}
+""", trim_blocks=True, lstrip_blocks=True
+    )
+
+    function_template = Template(
+        """\
+# {{ function_name }}-function.tf.j2
+function "{{ function_name }}" {
+    {% for attribute, details in attributes.items() %}
+    {{ attribute }} = "{{ details['type_var'] }}"
+    {% endfor %}
+}
+""", trim_blocks=True, lstrip_blocks=True
+    )
+
+    provider_template = Template(
+        """\
+# provider-{{ provider_key }}.tf.j2
+provider "{{ provider_key }}" {
+    {% for attribute, details in attributes.items() %}
+    {{ attribute }} = "{{ details['type_var'] }}"
+    {% endfor %}
+}
+""", trim_blocks=True, lstrip_blocks=True
+    )
+
     # Helper to convert attribute types to template variables, handling nested types
     def convert_to_template_variable(attribute_details, key=None):
         if "type" in attribute_details:  # Normal attribute with a type
@@ -240,8 +276,8 @@ data "{{ data_type }}" "{{ data_name }}" {
             return "{\n" + "\n".join(nested_template) + "\n}"
         else:  # Fallback for unsupported cases
             return f"{{{{ unsupported_{key} }}}}"
-    
-    # Updated logic for resource templates
+
+    # Generate resource templates
     for resource_name, resource_details in resources.items():
         attributes = resource_details["block"].get("attributes", {})
         for attribute, details in attributes.items():
@@ -256,22 +292,19 @@ data "{{ data_type }}" "{{ data_name }}" {
                 }
                 error_log.append(error_message)
                 details["type_var"] = f"{{{{ unsupported_{attribute} }}}}"
-    
+
         rendered_resource = resource_template.render(
             resource_type=resource_name,
             resource_name="example",
             attributes=attributes,
         )
         write_template_to_file(os.path.join(template_dir, f"{resource_name}-resource.tf.j2"), rendered_resource)
-    
-    
-    # Generate data source templates
+
     # Generate data source templates
     for data_name, data_details in data_sources.items():
         attributes = data_details["block"].get("attributes", {})
         for attribute, details in attributes.items():
             try:
-                # Use the updated convert_to_template_variable function
                 details["type_var"] = convert_to_template_variable(details, attribute)
             except KeyError:
                 error_message = {
@@ -282,14 +315,78 @@ data "{{ data_type }}" "{{ data_name }}" {
                 }
                 error_log.append(error_message)
                 details["type_var"] = f"{{{{ unsupported_{attribute} }}}}"
-    
+
         rendered_data_source = data_source_template.render(
             data_type=data_name,
             data_name="example",
             attributes=attributes,
         )
         write_template_to_file(os.path.join(template_dir, f"{data_name}-data.tf.j2"), rendered_data_source)
-    
+
+    # Generate ephemeral resource templates
+    for ephemeral_name, ephemeral_details in ephemeral_resources.items():
+        attributes = ephemeral_details["block"].get("attributes", {})
+        for attribute, details in attributes.items():
+            try:
+                details["type_var"] = convert_to_template_variable(details, attribute)
+            except KeyError:
+                error_message = {
+                    "provider": provider_key,
+                    "ephemeral_resource": ephemeral_name,
+                    "attribute": attribute,
+                    "error": "Missing 'type' key"
+                }
+                error_log.append(error_message)
+                details["type_var"] = f"{{{{ unsupported_{attribute} }}}}"
+
+        rendered_ephemeral = ephemeral_resource_template.render(
+            ephemeral_type=ephemeral_name,
+            ephemeral_name="example",
+            attributes=attributes,
+        )
+        write_template_to_file(os.path.join(template_dir, f"{ephemeral_name}-ephemeral.tf.j2"), rendered_ephemeral)
+
+    # Generate function templates
+    for function_name, function_details in functions.items():
+        attributes = function_details.get("block", {}).get("attributes", {})
+        for attribute, details in attributes.items():
+            try:
+                details["type_var"] = convert_to_template_variable(details, attribute)
+            except KeyError:
+                error_message = {
+                    "provider": provider_key,
+                    "function": function_name,
+                    "attribute": attribute,
+                    "error": "Missing 'type' key"
+                }
+                error_log.append(error_message)
+                details["type_var"] = f"{{{{ unsupported_{attribute} }}}}"
+
+        rendered_function = function_template.render(
+            function_name=function_name,
+            attributes=attributes,
+        )
+        write_template_to_file(os.path.join(template_dir, f"{function_name}-function.tf.j2"), rendered_function)
+
+    # Generate provider templates
+    provider_attributes = provider_attributes or {}
+    for attribute, details in provider_attributes.items():
+        try:
+            details["type_var"] = convert_to_template_variable(details, attribute)
+        except KeyError:
+            error_message = {
+                "provider": provider_key,
+                "attribute": attribute,
+                "error": "Missing 'type' key"
+            }
+            error_log.append(error_message)
+            details["type_var"] = f"{{{{ unsupported_{attribute} }}}}"
+
+    rendered_provider = provider_template.render(
+        provider_key=provider_key.split("/")[-1],
+        attributes=provider_attributes,
+    )
+    write_template_to_file(os.path.join(template_dir, "provider.tf.j2"), rendered_provider)
 
 # Write errors to a file
 def write_errors_to_file(errors, file_path="errors.json"):
