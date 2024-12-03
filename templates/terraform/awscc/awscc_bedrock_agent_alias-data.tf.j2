@@ -1,0 +1,22 @@
+data "awscc_bedrock_agent_alias" "example" {
+    agent_alias_arn = "{{ agent_alias_arn }}"
+    agent_alias_history_events = "{
+    end_date = {{ end_date }}
+    routing_configuration = {
+    agent_version = {{ agent_version }}
+}
+    start_date = {{ start_date }}
+}"
+    agent_alias_id = "{{ agent_alias_id }}"
+    agent_alias_name = "{{ agent_alias_name }}"
+    agent_alias_status = "{{ agent_alias_status }}"
+    agent_id = "{{ agent_id }}"
+    created_at = "{{ created_at }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    routing_configuration = "{
+    agent_version = {{ agent_version }}
+}"
+    tags = "{{ tags }}"
+    updated_at = "{{ updated_at }}"
+}

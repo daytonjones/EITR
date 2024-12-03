@@ -1,0 +1,11 @@
+resource "awscc_iot_dimension" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    string_values = "{{ string_values }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+}

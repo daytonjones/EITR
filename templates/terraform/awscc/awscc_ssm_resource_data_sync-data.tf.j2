@@ -1,0 +1,26 @@
+data "awscc_ssm_resource_data_sync" "example" {
+    bucket_name = "{{ bucket_name }}"
+    bucket_prefix = "{{ bucket_prefix }}"
+    bucket_region = "{{ bucket_region }}"
+    id = "{{ id }}"
+    kms_key_arn = "{{ kms_key_arn }}"
+    s3_destination = "{
+    bucket_name = {{ bucket_name }}
+    bucket_prefix = {{ bucket_prefix }}
+    bucket_region = {{ bucket_region }}
+    kms_key_arn = {{ kms_key_arn }}
+    sync_format = {{ sync_format }}
+}"
+    sync_format = "{{ sync_format }}"
+    sync_name = "{{ sync_name }}"
+    sync_source = "{
+    aws_organizations_source = {
+    organization_source_type = {{ organization_source_type }}
+    organizational_units = {{ organizational_units }}
+}
+    include_future_regions = {{ include_future_regions }}
+    source_regions = {{ source_regions }}
+    source_type = {{ source_type }}
+}"
+    sync_type = "{{ sync_type }}"
+}

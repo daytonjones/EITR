@@ -1,0 +1,695 @@
+data "awscc_kinesisfirehose_delivery_stream" "example" {
+    amazon_open_search_serverless_destination_configuration = "{
+    buffering_hints = {
+    interval_in_seconds = {{ interval_in_seconds }}
+    size_in_m_bs = {{ size_in_m_bs }}
+}
+    cloudwatch_logging_options = {
+    enabled = {{ enabled }}
+    log_group_name = {{ log_group_name }}
+    log_stream_name = {{ log_stream_name }}
+}
+    collection_endpoint = {{ collection_endpoint }}
+    index_name = {{ index_name }}
+    processing_configuration = {
+    enabled = {{ enabled }}
+    processors = {
+    parameters = {
+    parameter_name = {{ parameter_name }}
+    parameter_value = {{ parameter_value }}
+}
+    type = {{ type }}
+}
+}
+    retry_options = {
+    duration_in_seconds = {{ duration_in_seconds }}
+}
+    role_arn = {{ role_arn }}
+    s3_backup_mode = {{ s3_backup_mode }}
+    s3_configuration = {
+    bucket_arn = {{ bucket_arn }}
+    buffering_hints = {
+    interval_in_seconds = {{ interval_in_seconds }}
+    size_in_m_bs = {{ size_in_m_bs }}
+}
+    cloudwatch_logging_options = {
+    enabled = {{ enabled }}
+    log_group_name = {{ log_group_name }}
+    log_stream_name = {{ log_stream_name }}
+}
+    compression_format = {{ compression_format }}
+    encryption_configuration = {
+    kms_encryption_config = {
+    awskms_key_arn = {{ awskms_key_arn }}
+}
+    no_encryption_config = {{ no_encryption_config }}
+}
+    error_output_prefix = {{ error_output_prefix }}
+    prefix = {{ prefix }}
+    role_arn = {{ role_arn }}
+}
+    vpc_configuration = {
+    role_arn = {{ role_arn }}
+    security_group_ids = {{ security_group_ids }}
+    subnet_ids = {{ subnet_ids }}
+}
+}"
+    amazonopensearchservice_destination_configuration = "{
+    buffering_hints = {
+    interval_in_seconds = {{ interval_in_seconds }}
+    size_in_m_bs = {{ size_in_m_bs }}
+}
+    cloudwatch_logging_options = {
+    enabled = {{ enabled }}
+    log_group_name = {{ log_group_name }}
+    log_stream_name = {{ log_stream_name }}
+}
+    cluster_endpoint = {{ cluster_endpoint }}
+    document_id_options = {
+    default_document_id_format = {{ default_document_id_format }}
+}
+    domain_arn = {{ domain_arn }}
+    index_name = {{ index_name }}
+    index_rotation_period = {{ index_rotation_period }}
+    processing_configuration = {
+    enabled = {{ enabled }}
+    processors = {
+    parameters = {
+    parameter_name = {{ parameter_name }}
+    parameter_value = {{ parameter_value }}
+}
+    type = {{ type }}
+}
+}
+    retry_options = {
+    duration_in_seconds = {{ duration_in_seconds }}
+}
+    role_arn = {{ role_arn }}
+    s3_backup_mode = {{ s3_backup_mode }}
+    s3_configuration = {
+    bucket_arn = {{ bucket_arn }}
+    buffering_hints = {
+    interval_in_seconds = {{ interval_in_seconds }}
+    size_in_m_bs = {{ size_in_m_bs }}
+}
+    cloudwatch_logging_options = {
+    enabled = {{ enabled }}
+    log_group_name = {{ log_group_name }}
+    log_stream_name = {{ log_stream_name }}
+}
+    compression_format = {{ compression_format }}
+    encryption_configuration = {
+    kms_encryption_config = {
+    awskms_key_arn = {{ awskms_key_arn }}
+}
+    no_encryption_config = {{ no_encryption_config }}
+}
+    error_output_prefix = {{ error_output_prefix }}
+    prefix = {{ prefix }}
+    role_arn = {{ role_arn }}
+}
+    type_name = {{ type_name }}
+    vpc_configuration = {
+    role_arn = {{ role_arn }}
+    security_group_ids = {{ security_group_ids }}
+    subnet_ids = {{ subnet_ids }}
+}
+}"
+    arn = "{{ arn }}"
+    database_source_configuration = "{
+    columns = {
+    exclude = {{ exclude }}
+    include = {{ include }}
+}
+    database_source_authentication_configuration = {
+    secrets_manager_configuration = {
+    enabled = {{ enabled }}
+    role_arn = {{ role_arn }}
+    secret_arn = {{ secret_arn }}
+}
+}
+    database_source_vpc_configuration = {
+    vpc_endpoint_service_name = {{ vpc_endpoint_service_name }}
+}
+    databases = {
+    exclude = {{ exclude }}
+    include = {{ include }}
+}
+    digest = {{ digest }}
+    endpoint = {{ endpoint }}
+    port = {{ port }}
+    public_certificate = {{ public_certificate }}
+    snapshot_watermark_table = {{ snapshot_watermark_table }}
+    ssl_mode = {{ ssl_mode }}
+    surrogate_keys = {{ surrogate_keys }}
+    tables = {
+    exclude = {{ exclude }}
+    include = {{ include }}
+}
+    type = {{ type }}
+}"
+    delivery_stream_encryption_configuration_input = "{
+    key_arn = {{ key_arn }}
+    key_type = {{ key_type }}
+}"
+    delivery_stream_name = "{{ delivery_stream_name }}"
+    delivery_stream_type = "{{ delivery_stream_type }}"
+    elasticsearch_destination_configuration = "{
+    buffering_hints = {
+    interval_in_seconds = {{ interval_in_seconds }}
+    size_in_m_bs = {{ size_in_m_bs }}
+}
+    cloudwatch_logging_options = {
+    enabled = {{ enabled }}
+    log_group_name = {{ log_group_name }}
+    log_stream_name = {{ log_stream_name }}
+}
+    cluster_endpoint = {{ cluster_endpoint }}
+    document_id_options = {
+    default_document_id_format = {{ default_document_id_format }}
+}
+    domain_arn = {{ domain_arn }}
+    index_name = {{ index_name }}
+    index_rotation_period = {{ index_rotation_period }}
+    processing_configuration = {
+    enabled = {{ enabled }}
+    processors = {
+    parameters = {
+    parameter_name = {{ parameter_name }}
+    parameter_value = {{ parameter_value }}
+}
+    type = {{ type }}
+}
+}
+    retry_options = {
+    duration_in_seconds = {{ duration_in_seconds }}
+}
+    role_arn = {{ role_arn }}
+    s3_backup_mode = {{ s3_backup_mode }}
+    s3_configuration = {
+    bucket_arn = {{ bucket_arn }}
+    buffering_hints = {
+    interval_in_seconds = {{ interval_in_seconds }}
+    size_in_m_bs = {{ size_in_m_bs }}
+}
+    cloudwatch_logging_options = {
+    enabled = {{ enabled }}
+    log_group_name = {{ log_group_name }}
+    log_stream_name = {{ log_stream_name }}
+}
+    compression_format = {{ compression_format }}
+    encryption_configuration = {
+    kms_encryption_config = {
+    awskms_key_arn = {{ awskms_key_arn }}
+}
+    no_encryption_config = {{ no_encryption_config }}
+}
+    error_output_prefix = {{ error_output_prefix }}
+    prefix = {{ prefix }}
+    role_arn = {{ role_arn }}
+}
+    type_name = {{ type_name }}
+    vpc_configuration = {
+    role_arn = {{ role_arn }}
+    security_group_ids = {{ security_group_ids }}
+    subnet_ids = {{ subnet_ids }}
+}
+}"
+    extended_s3_destination_configuration = "{
+    bucket_arn = {{ bucket_arn }}
+    buffering_hints = {
+    interval_in_seconds = {{ interval_in_seconds }}
+    size_in_m_bs = {{ size_in_m_bs }}
+}
+    cloudwatch_logging_options = {
+    enabled = {{ enabled }}
+    log_group_name = {{ log_group_name }}
+    log_stream_name = {{ log_stream_name }}
+}
+    compression_format = {{ compression_format }}
+    custom_time_zone = {{ custom_time_zone }}
+    data_format_conversion_configuration = {
+    enabled = {{ enabled }}
+    input_format_configuration = {
+    deserializer = {
+    hive_json_ser_de = {
+    timestamp_formats = {{ timestamp_formats }}
+}
+    open_x_json_ser_de = {
+    case_insensitive = {{ case_insensitive }}
+    column_to_json_key_mappings = {{ column_to_json_key_mappings }}
+    convert_dots_in_json_keys_to_underscores = {{ convert_dots_in_json_keys_to_underscores }}
+}
+}
+}
+    output_format_configuration = {
+    serializer = {
+    orc_ser_de = {
+    block_size_bytes = {{ block_size_bytes }}
+    bloom_filter_columns = {{ bloom_filter_columns }}
+    bloom_filter_false_positive_probability = {{ bloom_filter_false_positive_probability }}
+    compression = {{ compression }}
+    dictionary_key_threshold = {{ dictionary_key_threshold }}
+    enable_padding = {{ enable_padding }}
+    format_version = {{ format_version }}
+    padding_tolerance = {{ padding_tolerance }}
+    row_index_stride = {{ row_index_stride }}
+    stripe_size_bytes = {{ stripe_size_bytes }}
+}
+    parquet_ser_de = {
+    block_size_bytes = {{ block_size_bytes }}
+    compression = {{ compression }}
+    enable_dictionary_compression = {{ enable_dictionary_compression }}
+    max_padding_bytes = {{ max_padding_bytes }}
+    page_size_bytes = {{ page_size_bytes }}
+    writer_version = {{ writer_version }}
+}
+}
+}
+    schema_configuration = {
+    catalog_id = {{ catalog_id }}
+    database_name = {{ database_name }}
+    region = {{ region }}
+    role_arn = {{ role_arn }}
+    table_name = {{ table_name }}
+    version_id = {{ version_id }}
+}
+}
+    dynamic_partitioning_configuration = {
+    enabled = {{ enabled }}
+    retry_options = {
+    duration_in_seconds = {{ duration_in_seconds }}
+}
+}
+    encryption_configuration = {
+    kms_encryption_config = {
+    awskms_key_arn = {{ awskms_key_arn }}
+}
+    no_encryption_config = {{ no_encryption_config }}
+}
+    error_output_prefix = {{ error_output_prefix }}
+    file_extension = {{ file_extension }}
+    prefix = {{ prefix }}
+    processing_configuration = {
+    enabled = {{ enabled }}
+    processors = {
+    parameters = {
+    parameter_name = {{ parameter_name }}
+    parameter_value = {{ parameter_value }}
+}
+    type = {{ type }}
+}
+}
+    role_arn = {{ role_arn }}
+    s3_backup_configuration = {
+    bucket_arn = {{ bucket_arn }}
+    buffering_hints = {
+    interval_in_seconds = {{ interval_in_seconds }}
+    size_in_m_bs = {{ size_in_m_bs }}
+}
+    cloudwatch_logging_options = {
+    enabled = {{ enabled }}
+    log_group_name = {{ log_group_name }}
+    log_stream_name = {{ log_stream_name }}
+}
+    compression_format = {{ compression_format }}
+    encryption_configuration = {
+    kms_encryption_config = {
+    awskms_key_arn = {{ awskms_key_arn }}
+}
+    no_encryption_config = {{ no_encryption_config }}
+}
+    error_output_prefix = {{ error_output_prefix }}
+    prefix = {{ prefix }}
+    role_arn = {{ role_arn }}
+}
+    s3_backup_mode = {{ s3_backup_mode }}
+}"
+    http_endpoint_destination_configuration = "{
+    buffering_hints = {
+    interval_in_seconds = {{ interval_in_seconds }}
+    size_in_m_bs = {{ size_in_m_bs }}
+}
+    cloudwatch_logging_options = {
+    enabled = {{ enabled }}
+    log_group_name = {{ log_group_name }}
+    log_stream_name = {{ log_stream_name }}
+}
+    endpoint_configuration = {
+    access_key = {{ access_key }}
+    name = {{ name }}
+    url = {{ url }}
+}
+    processing_configuration = {
+    enabled = {{ enabled }}
+    processors = {
+    parameters = {
+    parameter_name = {{ parameter_name }}
+    parameter_value = {{ parameter_value }}
+}
+    type = {{ type }}
+}
+}
+    request_configuration = {
+    common_attributes = {
+    attribute_name = {{ attribute_name }}
+    attribute_value = {{ attribute_value }}
+}
+    content_encoding = {{ content_encoding }}
+}
+    retry_options = {
+    duration_in_seconds = {{ duration_in_seconds }}
+}
+    role_arn = {{ role_arn }}
+    s3_backup_mode = {{ s3_backup_mode }}
+    s3_configuration = {
+    bucket_arn = {{ bucket_arn }}
+    buffering_hints = {
+    interval_in_seconds = {{ interval_in_seconds }}
+    size_in_m_bs = {{ size_in_m_bs }}
+}
+    cloudwatch_logging_options = {
+    enabled = {{ enabled }}
+    log_group_name = {{ log_group_name }}
+    log_stream_name = {{ log_stream_name }}
+}
+    compression_format = {{ compression_format }}
+    encryption_configuration = {
+    kms_encryption_config = {
+    awskms_key_arn = {{ awskms_key_arn }}
+}
+    no_encryption_config = {{ no_encryption_config }}
+}
+    error_output_prefix = {{ error_output_prefix }}
+    prefix = {{ prefix }}
+    role_arn = {{ role_arn }}
+}
+    secrets_manager_configuration = {
+    enabled = {{ enabled }}
+    role_arn = {{ role_arn }}
+    secret_arn = {{ secret_arn }}
+}
+}"
+    iceberg_destination_configuration = "{
+    buffering_hints = {
+    interval_in_seconds = {{ interval_in_seconds }}
+    size_in_m_bs = {{ size_in_m_bs }}
+}
+    catalog_configuration = {
+    catalog_arn = {{ catalog_arn }}
+}
+    cloudwatch_logging_options = {
+    enabled = {{ enabled }}
+    log_group_name = {{ log_group_name }}
+    log_stream_name = {{ log_stream_name }}
+}
+    destination_table_configuration_list = {
+    destination_database_name = {{ destination_database_name }}
+    destination_table_name = {{ destination_table_name }}
+    s3_error_output_prefix = {{ s3_error_output_prefix }}
+    unique_keys = {{ unique_keys }}
+}
+    processing_configuration = {
+    enabled = {{ enabled }}
+    processors = {
+    parameters = {
+    parameter_name = {{ parameter_name }}
+    parameter_value = {{ parameter_value }}
+}
+    type = {{ type }}
+}
+}
+    retry_options = {
+    duration_in_seconds = {{ duration_in_seconds }}
+}
+    role_arn = {{ role_arn }}
+    s3_configuration = {
+    bucket_arn = {{ bucket_arn }}
+    buffering_hints = {
+    interval_in_seconds = {{ interval_in_seconds }}
+    size_in_m_bs = {{ size_in_m_bs }}
+}
+    cloudwatch_logging_options = {
+    enabled = {{ enabled }}
+    log_group_name = {{ log_group_name }}
+    log_stream_name = {{ log_stream_name }}
+}
+    compression_format = {{ compression_format }}
+    encryption_configuration = {
+    kms_encryption_config = {
+    awskms_key_arn = {{ awskms_key_arn }}
+}
+    no_encryption_config = {{ no_encryption_config }}
+}
+    error_output_prefix = {{ error_output_prefix }}
+    prefix = {{ prefix }}
+    role_arn = {{ role_arn }}
+}
+    s_3_backup_mode = {{ s_3_backup_mode }}
+}"
+    id = "{{ id }}"
+    kinesis_stream_source_configuration = "{
+    kinesis_stream_arn = {{ kinesis_stream_arn }}
+    role_arn = {{ role_arn }}
+}"
+    msk_source_configuration = "{
+    authentication_configuration = {
+    connectivity = {{ connectivity }}
+    role_arn = {{ role_arn }}
+}
+    msk_cluster_arn = {{ msk_cluster_arn }}
+    read_from_timestamp = {{ read_from_timestamp }}
+    topic_name = {{ topic_name }}
+}"
+    redshift_destination_configuration = "{
+    cloudwatch_logging_options = {
+    enabled = {{ enabled }}
+    log_group_name = {{ log_group_name }}
+    log_stream_name = {{ log_stream_name }}
+}
+    cluster_jdbcurl = {{ cluster_jdbcurl }}
+    copy_command = {
+    copy_options = {{ copy_options }}
+    data_table_columns = {{ data_table_columns }}
+    data_table_name = {{ data_table_name }}
+}
+    password = {{ password }}
+    processing_configuration = {
+    enabled = {{ enabled }}
+    processors = {
+    parameters = {
+    parameter_name = {{ parameter_name }}
+    parameter_value = {{ parameter_value }}
+}
+    type = {{ type }}
+}
+}
+    retry_options = {
+    duration_in_seconds = {{ duration_in_seconds }}
+}
+    role_arn = {{ role_arn }}
+    s3_backup_configuration = {
+    bucket_arn = {{ bucket_arn }}
+    buffering_hints = {
+    interval_in_seconds = {{ interval_in_seconds }}
+    size_in_m_bs = {{ size_in_m_bs }}
+}
+    cloudwatch_logging_options = {
+    enabled = {{ enabled }}
+    log_group_name = {{ log_group_name }}
+    log_stream_name = {{ log_stream_name }}
+}
+    compression_format = {{ compression_format }}
+    encryption_configuration = {
+    kms_encryption_config = {
+    awskms_key_arn = {{ awskms_key_arn }}
+}
+    no_encryption_config = {{ no_encryption_config }}
+}
+    error_output_prefix = {{ error_output_prefix }}
+    prefix = {{ prefix }}
+    role_arn = {{ role_arn }}
+}
+    s3_backup_mode = {{ s3_backup_mode }}
+    s3_configuration = {
+    bucket_arn = {{ bucket_arn }}
+    buffering_hints = {
+    interval_in_seconds = {{ interval_in_seconds }}
+    size_in_m_bs = {{ size_in_m_bs }}
+}
+    cloudwatch_logging_options = {
+    enabled = {{ enabled }}
+    log_group_name = {{ log_group_name }}
+    log_stream_name = {{ log_stream_name }}
+}
+    compression_format = {{ compression_format }}
+    encryption_configuration = {
+    kms_encryption_config = {
+    awskms_key_arn = {{ awskms_key_arn }}
+}
+    no_encryption_config = {{ no_encryption_config }}
+}
+    error_output_prefix = {{ error_output_prefix }}
+    prefix = {{ prefix }}
+    role_arn = {{ role_arn }}
+}
+    secrets_manager_configuration = {
+    enabled = {{ enabled }}
+    role_arn = {{ role_arn }}
+    secret_arn = {{ secret_arn }}
+}
+    username = {{ username }}
+}"
+    s3_destination_configuration = "{
+    bucket_arn = {{ bucket_arn }}
+    buffering_hints = {
+    interval_in_seconds = {{ interval_in_seconds }}
+    size_in_m_bs = {{ size_in_m_bs }}
+}
+    cloudwatch_logging_options = {
+    enabled = {{ enabled }}
+    log_group_name = {{ log_group_name }}
+    log_stream_name = {{ log_stream_name }}
+}
+    compression_format = {{ compression_format }}
+    encryption_configuration = {
+    kms_encryption_config = {
+    awskms_key_arn = {{ awskms_key_arn }}
+}
+    no_encryption_config = {{ no_encryption_config }}
+}
+    error_output_prefix = {{ error_output_prefix }}
+    prefix = {{ prefix }}
+    role_arn = {{ role_arn }}
+}"
+    snowflake_destination_configuration = "{
+    account_url = {{ account_url }}
+    buffering_hints = {
+    interval_in_seconds = {{ interval_in_seconds }}
+    size_in_m_bs = {{ size_in_m_bs }}
+}
+    cloudwatch_logging_options = {
+    enabled = {{ enabled }}
+    log_group_name = {{ log_group_name }}
+    log_stream_name = {{ log_stream_name }}
+}
+    content_column_name = {{ content_column_name }}
+    data_loading_option = {{ data_loading_option }}
+    database = {{ database }}
+    key_passphrase = {{ key_passphrase }}
+    meta_data_column_name = {{ meta_data_column_name }}
+    private_key = {{ private_key }}
+    processing_configuration = {
+    enabled = {{ enabled }}
+    processors = {
+    parameters = {
+    parameter_name = {{ parameter_name }}
+    parameter_value = {{ parameter_value }}
+}
+    type = {{ type }}
+}
+}
+    retry_options = {
+    duration_in_seconds = {{ duration_in_seconds }}
+}
+    role_arn = {{ role_arn }}
+    s3_backup_mode = {{ s3_backup_mode }}
+    s3_configuration = {
+    bucket_arn = {{ bucket_arn }}
+    buffering_hints = {
+    interval_in_seconds = {{ interval_in_seconds }}
+    size_in_m_bs = {{ size_in_m_bs }}
+}
+    cloudwatch_logging_options = {
+    enabled = {{ enabled }}
+    log_group_name = {{ log_group_name }}
+    log_stream_name = {{ log_stream_name }}
+}
+    compression_format = {{ compression_format }}
+    encryption_configuration = {
+    kms_encryption_config = {
+    awskms_key_arn = {{ awskms_key_arn }}
+}
+    no_encryption_config = {{ no_encryption_config }}
+}
+    error_output_prefix = {{ error_output_prefix }}
+    prefix = {{ prefix }}
+    role_arn = {{ role_arn }}
+}
+    schema = {{ schema }}
+    secrets_manager_configuration = {
+    enabled = {{ enabled }}
+    role_arn = {{ role_arn }}
+    secret_arn = {{ secret_arn }}
+}
+    snowflake_role_configuration = {
+    enabled = {{ enabled }}
+    snowflake_role = {{ snowflake_role }}
+}
+    snowflake_vpc_configuration = {
+    private_link_vpce_id = {{ private_link_vpce_id }}
+}
+    table = {{ table }}
+    user = {{ user }}
+}"
+    splunk_destination_configuration = "{
+    buffering_hints = {
+    interval_in_seconds = {{ interval_in_seconds }}
+    size_in_m_bs = {{ size_in_m_bs }}
+}
+    cloudwatch_logging_options = {
+    enabled = {{ enabled }}
+    log_group_name = {{ log_group_name }}
+    log_stream_name = {{ log_stream_name }}
+}
+    hec_acknowledgment_timeout_in_seconds = {{ hec_acknowledgment_timeout_in_seconds }}
+    hec_endpoint = {{ hec_endpoint }}
+    hec_endpoint_type = {{ hec_endpoint_type }}
+    hec_token = {{ hec_token }}
+    processing_configuration = {
+    enabled = {{ enabled }}
+    processors = {
+    parameters = {
+    parameter_name = {{ parameter_name }}
+    parameter_value = {{ parameter_value }}
+}
+    type = {{ type }}
+}
+}
+    retry_options = {
+    duration_in_seconds = {{ duration_in_seconds }}
+}
+    s3_backup_mode = {{ s3_backup_mode }}
+    s3_configuration = {
+    bucket_arn = {{ bucket_arn }}
+    buffering_hints = {
+    interval_in_seconds = {{ interval_in_seconds }}
+    size_in_m_bs = {{ size_in_m_bs }}
+}
+    cloudwatch_logging_options = {
+    enabled = {{ enabled }}
+    log_group_name = {{ log_group_name }}
+    log_stream_name = {{ log_stream_name }}
+}
+    compression_format = {{ compression_format }}
+    encryption_configuration = {
+    kms_encryption_config = {
+    awskms_key_arn = {{ awskms_key_arn }}
+}
+    no_encryption_config = {{ no_encryption_config }}
+}
+    error_output_prefix = {{ error_output_prefix }}
+    prefix = {{ prefix }}
+    role_arn = {{ role_arn }}
+}
+    secrets_manager_configuration = {
+    enabled = {{ enabled }}
+    role_arn = {{ role_arn }}
+    secret_arn = {{ secret_arn }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

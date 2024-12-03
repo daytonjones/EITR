@@ -1,0 +1,8 @@
+resource "azurerm_log_analytics_datasource_windows_event" "example" {
+    event_log_name = "{{ event_log_name }}"
+    event_types = "{{ event_types }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    workspace_name = "{{ workspace_name }}"
+}

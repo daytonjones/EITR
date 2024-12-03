@@ -1,0 +1,33 @@
+data "awscc_timestream_influx_db_instance" "example" {
+    allocated_storage = "{{ allocated_storage }}"
+    arn = "{{ arn }}"
+    availability_zone = "{{ availability_zone }}"
+    bucket = "{{ bucket }}"
+    db_instance_type = "{{ db_instance_type }}"
+    db_parameter_group_identifier = "{{ db_parameter_group_identifier }}"
+    db_storage_type = "{{ db_storage_type }}"
+    deployment_type = "{{ deployment_type }}"
+    endpoint = "{{ endpoint }}"
+    id = "{{ id }}"
+    influx_auth_parameters_secret_arn = "{{ influx_auth_parameters_secret_arn }}"
+    influx_db_instance_id = "{{ influx_db_instance_id }}"
+    log_delivery_configuration = "{
+    s3_configuration = {
+    bucket_name = {{ bucket_name }}
+    enabled = {{ enabled }}
+}
+}"
+    name = "{{ name }}"
+    organization = "{{ organization }}"
+    password = "{{ password }}"
+    publicly_accessible = "{{ publicly_accessible }}"
+    secondary_availability_zone = "{{ secondary_availability_zone }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    username = "{{ username }}"
+    vpc_security_group_ids = "{{ vpc_security_group_ids }}"
+    vpc_subnet_ids = "{{ vpc_subnet_ids }}"
+}

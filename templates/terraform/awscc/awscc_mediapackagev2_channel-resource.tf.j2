@@ -1,0 +1,19 @@
+resource "awscc_mediapackagev2_channel" "example" {
+    arn = "{{ arn }}"
+    channel_group_name = "{{ channel_group_name }}"
+    channel_name = "{{ channel_name }}"
+    created_at = "{{ created_at }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    ingest_endpoint_urls = "{{ ingest_endpoint_urls }}"
+    ingest_endpoints = "{
+    id = {{ id }}
+    url = {{ url }}
+}"
+    input_type = "{{ input_type }}"
+    modified_at = "{{ modified_at }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

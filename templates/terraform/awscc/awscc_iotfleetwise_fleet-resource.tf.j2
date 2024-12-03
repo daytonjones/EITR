@@ -1,0 +1,13 @@
+resource "awscc_iotfleetwise_fleet" "example" {
+    arn = "{{ arn }}"
+    creation_time = "{{ creation_time }}"
+    description = "{{ description }}"
+    fleet_id = "{{ fleet_id }}"
+    id = "{{ id }}"
+    last_modification_time = "{{ last_modification_time }}"
+    signal_catalog_arn = "{{ signal_catalog_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,16 @@
+resource "awscc_apigatewayv2_route" "example" {
+    api_id = "{{ api_id }}"
+    api_key_required = "{{ api_key_required }}"
+    authorization_scopes = "{{ authorization_scopes }}"
+    authorization_type = "{{ authorization_type }}"
+    authorizer_id = "{{ authorizer_id }}"
+    id = "{{ id }}"
+    model_selection_expression = "{{ model_selection_expression }}"
+    operation_name = "{{ operation_name }}"
+    request_models = "{{ request_models }}"
+    request_parameters = "{{ request_parameters }}"
+    route_id = "{{ route_id }}"
+    route_key = "{{ route_key }}"
+    route_response_selection_expression = "{{ route_response_selection_expression }}"
+    target = "{{ target }}"
+}

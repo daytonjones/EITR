@@ -1,0 +1,11 @@
+resource "aws_ec2_transit_gateway_multicast_domain" "example" {
+    arn = "{{ arn }}"
+    auto_accept_shared_associations = "{{ auto_accept_shared_associations }}"
+    id = "{{ id }}"
+    igmpv2_support = "{{ igmpv2_support }}"
+    owner_id = "{{ owner_id }}"
+    static_sources_support = "{{ static_sources_support }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    transit_gateway_id = "{{ transit_gateway_id }}"
+}

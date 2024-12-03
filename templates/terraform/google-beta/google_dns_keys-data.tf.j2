@@ -1,0 +1,7 @@
+data "google_dns_keys" "example" {
+    id = "{{ id }}"
+    key_signing_keys = "{{ key_signing_keys }}"
+    managed_zone = "{{ managed_zone }}"
+    project = "{{ project }}"
+    zone_signing_keys = "{{ zone_signing_keys }}"
+}

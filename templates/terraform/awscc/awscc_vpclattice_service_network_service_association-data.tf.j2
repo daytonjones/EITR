@@ -1,0 +1,23 @@
+data "awscc_vpclattice_service_network_service_association" "example" {
+    arn = "{{ arn }}"
+    created_at = "{{ created_at }}"
+    dns_entry = "{
+    domain_name = {{ domain_name }}
+    hosted_zone_id = {{ hosted_zone_id }}
+}"
+    id = "{{ id }}"
+    service_arn = "{{ service_arn }}"
+    service_id = "{{ service_id }}"
+    service_identifier = "{{ service_identifier }}"
+    service_name = "{{ service_name }}"
+    service_network_arn = "{{ service_network_arn }}"
+    service_network_id = "{{ service_network_id }}"
+    service_network_identifier = "{{ service_network_identifier }}"
+    service_network_name = "{{ service_network_name }}"
+    service_network_service_association_id = "{{ service_network_service_association_id }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

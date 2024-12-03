@@ -1,0 +1,13 @@
+data "google_container_engine_versions" "example" {
+    default_cluster_version = "{{ default_cluster_version }}"
+    id = "{{ id }}"
+    latest_master_version = "{{ latest_master_version }}"
+    latest_node_version = "{{ latest_node_version }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    release_channel_default_version = "{{ release_channel_default_version }}"
+    release_channel_latest_version = "{{ release_channel_latest_version }}"
+    valid_master_versions = "{{ valid_master_versions }}"
+    valid_node_versions = "{{ valid_node_versions }}"
+    version_prefix = "{{ version_prefix }}"
+}

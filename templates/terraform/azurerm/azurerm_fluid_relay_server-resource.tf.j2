@@ -1,0 +1,14 @@
+resource "azurerm_fluid_relay_server" "example" {
+    frs_tenant_id = "{{ frs_tenant_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    orderer_endpoints = "{{ orderer_endpoints }}"
+    primary_key = "{{ primary_key }}"
+    resource_group_name = "{{ resource_group_name }}"
+    secondary_key = "{{ secondary_key }}"
+    service_endpoints = "{{ service_endpoints }}"
+    storage_endpoints = "{{ storage_endpoints }}"
+    storage_sku = "{{ storage_sku }}"
+    tags = "{{ tags }}"
+}

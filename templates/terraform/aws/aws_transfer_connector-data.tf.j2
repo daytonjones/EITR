@@ -1,0 +1,12 @@
+data "aws_transfer_connector" "example" {
+    access_role = "{{ access_role }}"
+    arn = "{{ arn }}"
+    as2_config = "{{ as2_config }}"
+    id = "{{ id }}"
+    logging_role = "{{ logging_role }}"
+    security_policy_name = "{{ security_policy_name }}"
+    service_managed_egress_ip_addresses = "{{ service_managed_egress_ip_addresses }}"
+    sftp_config = "{{ sftp_config }}"
+    tags = "{{ tags }}"
+    url = "{{ url }}"
+}

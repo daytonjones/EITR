@@ -1,0 +1,13 @@
+data "aws_ecs_container_definition" "example" {
+    container_name = "{{ container_name }}"
+    cpu = "{{ cpu }}"
+    disable_networking = "{{ disable_networking }}"
+    docker_labels = "{{ docker_labels }}"
+    environment = "{{ environment }}"
+    id = "{{ id }}"
+    image = "{{ image }}"
+    image_digest = "{{ image_digest }}"
+    memory = "{{ memory }}"
+    memory_reservation = "{{ memory_reservation }}"
+    task_definition = "{{ task_definition }}"
+}

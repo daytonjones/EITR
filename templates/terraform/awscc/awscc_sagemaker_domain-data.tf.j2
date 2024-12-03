@@ -1,0 +1,227 @@
+data "awscc_sagemaker_domain" "example" {
+    app_network_access_type = "{{ app_network_access_type }}"
+    app_security_group_management = "{{ app_security_group_management }}"
+    auth_mode = "{{ auth_mode }}"
+    default_space_settings = "{
+    custom_file_system_configs = {
+    efs_file_system_config = {
+    file_system_id = {{ file_system_id }}
+    file_system_path = {{ file_system_path }}
+}
+}
+    custom_posix_user_config = {
+    gid = {{ gid }}
+    uid = {{ uid }}
+}
+    execution_role = {{ execution_role }}
+    jupyter_lab_app_settings = {
+    app_lifecycle_management = {
+    idle_settings = {
+    idle_timeout_in_minutes = {{ idle_timeout_in_minutes }}
+    lifecycle_management = {{ lifecycle_management }}
+    max_idle_timeout_in_minutes = {{ max_idle_timeout_in_minutes }}
+    min_idle_timeout_in_minutes = {{ min_idle_timeout_in_minutes }}
+}
+}
+    code_repositories = {
+    repository_url = {{ repository_url }}
+}
+    custom_images = {
+    app_image_config_name = {{ app_image_config_name }}
+    image_name = {{ image_name }}
+    image_version_number = {{ image_version_number }}
+}
+    default_resource_spec = {
+    instance_type = {{ instance_type }}
+    lifecycle_config_arn = {{ lifecycle_config_arn }}
+    sage_maker_image_arn = {{ sage_maker_image_arn }}
+    sage_maker_image_version_arn = {{ sage_maker_image_version_arn }}
+}
+    lifecycle_config_arns = {{ lifecycle_config_arns }}
+}
+    jupyter_server_app_settings = {
+    default_resource_spec = {
+    instance_type = {{ instance_type }}
+    lifecycle_config_arn = {{ lifecycle_config_arn }}
+    sage_maker_image_arn = {{ sage_maker_image_arn }}
+    sage_maker_image_version_arn = {{ sage_maker_image_version_arn }}
+}
+    lifecycle_config_arns = {{ lifecycle_config_arns }}
+}
+    kernel_gateway_app_settings = {
+    custom_images = {
+    app_image_config_name = {{ app_image_config_name }}
+    image_name = {{ image_name }}
+    image_version_number = {{ image_version_number }}
+}
+    default_resource_spec = {
+    instance_type = {{ instance_type }}
+    lifecycle_config_arn = {{ lifecycle_config_arn }}
+    sage_maker_image_arn = {{ sage_maker_image_arn }}
+    sage_maker_image_version_arn = {{ sage_maker_image_version_arn }}
+}
+    lifecycle_config_arns = {{ lifecycle_config_arns }}
+}
+    security_groups = {{ security_groups }}
+    space_storage_settings = {
+    default_ebs_storage_settings = {
+    default_ebs_volume_size_in_gb = {{ default_ebs_volume_size_in_gb }}
+    maximum_ebs_volume_size_in_gb = {{ maximum_ebs_volume_size_in_gb }}
+}
+}
+}"
+    default_user_settings = "{
+    code_editor_app_settings = {
+    app_lifecycle_management = {
+    idle_settings = {
+    idle_timeout_in_minutes = {{ idle_timeout_in_minutes }}
+    lifecycle_management = {{ lifecycle_management }}
+    max_idle_timeout_in_minutes = {{ max_idle_timeout_in_minutes }}
+    min_idle_timeout_in_minutes = {{ min_idle_timeout_in_minutes }}
+}
+}
+    custom_images = {
+    app_image_config_name = {{ app_image_config_name }}
+    image_name = {{ image_name }}
+    image_version_number = {{ image_version_number }}
+}
+    default_resource_spec = {
+    instance_type = {{ instance_type }}
+    lifecycle_config_arn = {{ lifecycle_config_arn }}
+    sage_maker_image_arn = {{ sage_maker_image_arn }}
+    sage_maker_image_version_arn = {{ sage_maker_image_version_arn }}
+}
+    lifecycle_config_arns = {{ lifecycle_config_arns }}
+}
+    custom_file_system_configs = {
+    efs_file_system_config = {
+    file_system_id = {{ file_system_id }}
+    file_system_path = {{ file_system_path }}
+}
+}
+    custom_posix_user_config = {
+    gid = {{ gid }}
+    uid = {{ uid }}
+}
+    default_landing_uri = {{ default_landing_uri }}
+    execution_role = {{ execution_role }}
+    jupyter_lab_app_settings = {
+    app_lifecycle_management = {
+    idle_settings = {
+    idle_timeout_in_minutes = {{ idle_timeout_in_minutes }}
+    lifecycle_management = {{ lifecycle_management }}
+    max_idle_timeout_in_minutes = {{ max_idle_timeout_in_minutes }}
+    min_idle_timeout_in_minutes = {{ min_idle_timeout_in_minutes }}
+}
+}
+    code_repositories = {
+    repository_url = {{ repository_url }}
+}
+    custom_images = {
+    app_image_config_name = {{ app_image_config_name }}
+    image_name = {{ image_name }}
+    image_version_number = {{ image_version_number }}
+}
+    default_resource_spec = {
+    instance_type = {{ instance_type }}
+    lifecycle_config_arn = {{ lifecycle_config_arn }}
+    sage_maker_image_arn = {{ sage_maker_image_arn }}
+    sage_maker_image_version_arn = {{ sage_maker_image_version_arn }}
+}
+    lifecycle_config_arns = {{ lifecycle_config_arns }}
+}
+    jupyter_server_app_settings = {
+    default_resource_spec = {
+    instance_type = {{ instance_type }}
+    lifecycle_config_arn = {{ lifecycle_config_arn }}
+    sage_maker_image_arn = {{ sage_maker_image_arn }}
+    sage_maker_image_version_arn = {{ sage_maker_image_version_arn }}
+}
+    lifecycle_config_arns = {{ lifecycle_config_arns }}
+}
+    kernel_gateway_app_settings = {
+    custom_images = {
+    app_image_config_name = {{ app_image_config_name }}
+    image_name = {{ image_name }}
+    image_version_number = {{ image_version_number }}
+}
+    default_resource_spec = {
+    instance_type = {{ instance_type }}
+    lifecycle_config_arn = {{ lifecycle_config_arn }}
+    sage_maker_image_arn = {{ sage_maker_image_arn }}
+    sage_maker_image_version_arn = {{ sage_maker_image_version_arn }}
+}
+    lifecycle_config_arns = {{ lifecycle_config_arns }}
+}
+    r_session_app_settings = {
+    custom_images = {
+    app_image_config_name = {{ app_image_config_name }}
+    image_name = {{ image_name }}
+    image_version_number = {{ image_version_number }}
+}
+    default_resource_spec = {
+    instance_type = {{ instance_type }}
+    lifecycle_config_arn = {{ lifecycle_config_arn }}
+    sage_maker_image_arn = {{ sage_maker_image_arn }}
+    sage_maker_image_version_arn = {{ sage_maker_image_version_arn }}
+}
+}
+    r_studio_server_pro_app_settings = {
+    access_status = {{ access_status }}
+    user_group = {{ user_group }}
+}
+    security_groups = {{ security_groups }}
+    sharing_settings = {
+    notebook_output_option = {{ notebook_output_option }}
+    s3_kms_key_id = {{ s3_kms_key_id }}
+    s3_output_path = {{ s3_output_path }}
+}
+    space_storage_settings = {
+    default_ebs_storage_settings = {
+    default_ebs_volume_size_in_gb = {{ default_ebs_volume_size_in_gb }}
+    maximum_ebs_volume_size_in_gb = {{ maximum_ebs_volume_size_in_gb }}
+}
+}
+    studio_web_portal = {{ studio_web_portal }}
+    studio_web_portal_settings = {
+    hidden_app_types = {{ hidden_app_types }}
+    hidden_ml_tools = {{ hidden_ml_tools }}
+}
+}"
+    domain_arn = "{{ domain_arn }}"
+    domain_id = "{{ domain_id }}"
+    domain_name = "{{ domain_name }}"
+    domain_settings = "{
+    docker_settings = {
+    enable_docker_access = {{ enable_docker_access }}
+    vpc_only_trusted_accounts = {{ vpc_only_trusted_accounts }}
+}
+    execution_role_identity_config = {{ execution_role_identity_config }}
+    r_studio_server_pro_domain_settings = {
+    default_resource_spec = {
+    instance_type = {{ instance_type }}
+    lifecycle_config_arn = {{ lifecycle_config_arn }}
+    sage_maker_image_arn = {{ sage_maker_image_arn }}
+    sage_maker_image_version_arn = {{ sage_maker_image_version_arn }}
+}
+    domain_execution_role_arn = {{ domain_execution_role_arn }}
+    r_studio_connect_url = {{ r_studio_connect_url }}
+    r_studio_package_manager_url = {{ r_studio_package_manager_url }}
+}
+    security_group_ids = {{ security_group_ids }}
+}"
+    home_efs_file_system_id = "{{ home_efs_file_system_id }}"
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    security_group_id_for_domain_boundary = "{{ security_group_id_for_domain_boundary }}"
+    single_sign_on_application_arn = "{{ single_sign_on_application_arn }}"
+    single_sign_on_managed_application_instance_id = "{{ single_sign_on_managed_application_instance_id }}"
+    subnet_ids = "{{ subnet_ids }}"
+    tag_propagation = "{{ tag_propagation }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    url = "{{ url }}"
+    vpc_id = "{{ vpc_id }}"
+}

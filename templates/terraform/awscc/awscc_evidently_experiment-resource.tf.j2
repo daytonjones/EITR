@@ -1,0 +1,42 @@
+resource "awscc_evidently_experiment" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    metric_goals = "{
+    desired_change = {{ desired_change }}
+    entity_id_key = {{ entity_id_key }}
+    event_pattern = {{ event_pattern }}
+    metric_name = {{ metric_name }}
+    unit_label = {{ unit_label }}
+    value_key = {{ value_key }}
+}"
+    name = "{{ name }}"
+    online_ab_config = "{
+    control_treatment_name = {{ control_treatment_name }}
+    treatment_weights = {
+    split_weight = {{ split_weight }}
+    treatment = {{ treatment }}
+}
+}"
+    project = "{{ project }}"
+    randomization_salt = "{{ randomization_salt }}"
+    remove_segment = "{{ remove_segment }}"
+    running_status = "{
+    analysis_complete_time = {{ analysis_complete_time }}
+    desired_state = {{ desired_state }}
+    reason = {{ reason }}
+    status = {{ status }}
+}"
+    sampling_rate = "{{ sampling_rate }}"
+    segment = "{{ segment }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    treatments = "{
+    description = {{ description }}
+    feature = {{ feature }}
+    treatment_name = {{ treatment_name }}
+    variation = {{ variation }}
+}"
+}

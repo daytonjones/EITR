@@ -1,0 +1,11 @@
+resource "azurerm_monitor_scheduled_query_rules_log" "example" {
+    authorized_resource_ids = "{{ authorized_resource_ids }}"
+    data_source_id = "{{ data_source_id }}"
+    description = "{{ description }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

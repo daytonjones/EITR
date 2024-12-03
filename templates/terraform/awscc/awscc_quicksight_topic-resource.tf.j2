@@ -1,0 +1,200 @@
+resource "awscc_quicksight_topic" "example" {
+    arn = "{{ arn }}"
+    aws_account_id = "{{ aws_account_id }}"
+    data_sets = "{
+    calculated_fields = {
+    aggregation = {{ aggregation }}
+    allowed_aggregations = {{ allowed_aggregations }}
+    calculated_field_description = {{ calculated_field_description }}
+    calculated_field_name = {{ calculated_field_name }}
+    calculated_field_synonyms = {{ calculated_field_synonyms }}
+    cell_value_synonyms = {
+    cell_value = {{ cell_value }}
+    synonyms = {{ synonyms }}
+}
+    column_data_role = {{ column_data_role }}
+    comparative_order = {
+    specifed_order = {{ specifed_order }}
+    treat_undefined_specified_values = {{ treat_undefined_specified_values }}
+    use_ordering = {{ use_ordering }}
+}
+    default_formatting = {
+    display_format = {{ display_format }}
+    display_format_options = {
+    blank_cell_format = {{ blank_cell_format }}
+    currency_symbol = {{ currency_symbol }}
+    date_format = {{ date_format }}
+    decimal_separator = {{ decimal_separator }}
+    fraction_digits = {{ fraction_digits }}
+    grouping_separator = {{ grouping_separator }}
+    negative_format = {
+    prefix = {{ prefix }}
+    suffix = {{ suffix }}
+}
+    prefix = {{ prefix }}
+    suffix = {{ suffix }}
+    unit_scaler = {{ unit_scaler }}
+    use_blank_cell_format = {{ use_blank_cell_format }}
+    use_grouping = {{ use_grouping }}
+}
+}
+    disable_indexing = {{ disable_indexing }}
+    expression = {{ expression }}
+    is_included_in_topic = {{ is_included_in_topic }}
+    never_aggregate_in_filter = {{ never_aggregate_in_filter }}
+    non_additive = {{ non_additive }}
+    not_allowed_aggregations = {{ not_allowed_aggregations }}
+    semantic_type = {
+    falsey_cell_value = {{ falsey_cell_value }}
+    falsey_cell_value_synonyms = {{ falsey_cell_value_synonyms }}
+    sub_type_name = {{ sub_type_name }}
+    truthy_cell_value = {{ truthy_cell_value }}
+    truthy_cell_value_synonyms = {{ truthy_cell_value_synonyms }}
+    type_name = {{ type_name }}
+    type_parameters = {{ type_parameters }}
+}
+    time_granularity = {{ time_granularity }}
+}
+    columns = {
+    aggregation = {{ aggregation }}
+    allowed_aggregations = {{ allowed_aggregations }}
+    cell_value_synonyms = {
+    cell_value = {{ cell_value }}
+    synonyms = {{ synonyms }}
+}
+    column_data_role = {{ column_data_role }}
+    column_description = {{ column_description }}
+    column_friendly_name = {{ column_friendly_name }}
+    column_name = {{ column_name }}
+    column_synonyms = {{ column_synonyms }}
+    comparative_order = {
+    specifed_order = {{ specifed_order }}
+    treat_undefined_specified_values = {{ treat_undefined_specified_values }}
+    use_ordering = {{ use_ordering }}
+}
+    default_formatting = {
+    display_format = {{ display_format }}
+    display_format_options = {
+    blank_cell_format = {{ blank_cell_format }}
+    currency_symbol = {{ currency_symbol }}
+    date_format = {{ date_format }}
+    decimal_separator = {{ decimal_separator }}
+    fraction_digits = {{ fraction_digits }}
+    grouping_separator = {{ grouping_separator }}
+    negative_format = {
+    prefix = {{ prefix }}
+    suffix = {{ suffix }}
+}
+    prefix = {{ prefix }}
+    suffix = {{ suffix }}
+    unit_scaler = {{ unit_scaler }}
+    use_blank_cell_format = {{ use_blank_cell_format }}
+    use_grouping = {{ use_grouping }}
+}
+}
+    disable_indexing = {{ disable_indexing }}
+    is_included_in_topic = {{ is_included_in_topic }}
+    never_aggregate_in_filter = {{ never_aggregate_in_filter }}
+    non_additive = {{ non_additive }}
+    not_allowed_aggregations = {{ not_allowed_aggregations }}
+    semantic_type = {
+    falsey_cell_value = {{ falsey_cell_value }}
+    falsey_cell_value_synonyms = {{ falsey_cell_value_synonyms }}
+    sub_type_name = {{ sub_type_name }}
+    truthy_cell_value = {{ truthy_cell_value }}
+    truthy_cell_value_synonyms = {{ truthy_cell_value_synonyms }}
+    type_name = {{ type_name }}
+    type_parameters = {{ type_parameters }}
+}
+    time_granularity = {{ time_granularity }}
+}
+    data_aggregation = {
+    dataset_row_date_granularity = {{ dataset_row_date_granularity }}
+    default_date_column_name = {{ default_date_column_name }}
+}
+    dataset_arn = {{ dataset_arn }}
+    dataset_description = {{ dataset_description }}
+    dataset_name = {{ dataset_name }}
+    filters = {
+    category_filter = {
+    category_filter_function = {{ category_filter_function }}
+    category_filter_type = {{ category_filter_type }}
+    constant = {
+    collective_constant = {
+    value_list = {{ value_list }}
+}
+    constant_type = {{ constant_type }}
+    singular_constant = {{ singular_constant }}
+}
+    inverse = {{ inverse }}
+}
+    date_range_filter = {
+    constant = {
+    constant_type = {{ constant_type }}
+    range_constant = {
+    maximum = {{ maximum }}
+    minimum = {{ minimum }}
+}
+}
+    inclusive = {{ inclusive }}
+}
+    filter_class = {{ filter_class }}
+    filter_description = {{ filter_description }}
+    filter_name = {{ filter_name }}
+    filter_synonyms = {{ filter_synonyms }}
+    filter_type = {{ filter_type }}
+    numeric_equality_filter = {
+    aggregation = {{ aggregation }}
+    constant = {
+    constant_type = {{ constant_type }}
+    singular_constant = {{ singular_constant }}
+}
+}
+    numeric_range_filter = {
+    aggregation = {{ aggregation }}
+    constant = {
+    constant_type = {{ constant_type }}
+    range_constant = {
+    maximum = {{ maximum }}
+    minimum = {{ minimum }}
+}
+}
+    inclusive = {{ inclusive }}
+}
+    operand_field_name = {{ operand_field_name }}
+    relative_date_filter = {
+    constant = {
+    constant_type = {{ constant_type }}
+    singular_constant = {{ singular_constant }}
+}
+    relative_date_filter_function = {{ relative_date_filter_function }}
+    time_granularity = {{ time_granularity }}
+}
+}
+    named_entities = {
+    definition = {
+    field_name = {{ field_name }}
+    metric = {
+    aggregation = {{ aggregation }}
+    aggregation_function_parameters = {{ aggregation_function_parameters }}
+}
+    property_name = {{ property_name }}
+    property_role = {{ property_role }}
+    property_usage = {{ property_usage }}
+}
+    entity_description = {{ entity_description }}
+    entity_name = {{ entity_name }}
+    entity_synonyms = {{ entity_synonyms }}
+    semantic_entity_type = {
+    sub_type_name = {{ sub_type_name }}
+    type_name = {{ type_name }}
+    type_parameters = {{ type_parameters }}
+}
+}
+}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    topic_id = "{{ topic_id }}"
+    user_experience_version = "{{ user_experience_version }}"
+}

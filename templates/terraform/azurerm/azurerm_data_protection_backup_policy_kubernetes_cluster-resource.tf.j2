@@ -1,0 +1,8 @@
+resource "azurerm_data_protection_backup_policy_kubernetes_cluster" "example" {
+    backup_repeating_time_intervals = "{{ backup_repeating_time_intervals }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    time_zone = "{{ time_zone }}"
+    vault_name = "{{ vault_name }}"
+}

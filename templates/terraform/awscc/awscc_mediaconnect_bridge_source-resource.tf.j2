@@ -1,0 +1,17 @@
+resource "awscc_mediaconnect_bridge_source" "example" {
+    bridge_arn = "{{ bridge_arn }}"
+    flow_source = "{
+    flow_arn = {{ flow_arn }}
+    flow_vpc_interface_attachment = {
+    vpc_interface_name = {{ vpc_interface_name }}
+}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    network_source = "{
+    multicast_ip = {{ multicast_ip }}
+    network_name = {{ network_name }}
+    port = {{ port }}
+    protocol = {{ protocol }}
+}"
+}

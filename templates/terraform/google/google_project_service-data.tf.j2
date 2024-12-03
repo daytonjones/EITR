@@ -1,0 +1,7 @@
+data "google_project_service" "example" {
+    disable_dependent_services = "{{ disable_dependent_services }}"
+    disable_on_destroy = "{{ disable_on_destroy }}"
+    id = "{{ id }}"
+    project = "{{ project }}"
+    service = "{{ service }}"
+}

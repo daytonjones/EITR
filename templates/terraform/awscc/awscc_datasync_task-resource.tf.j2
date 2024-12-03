@@ -1,0 +1,83 @@
+resource "awscc_datasync_task" "example" {
+    cloudwatch_log_group_arn = "{{ cloudwatch_log_group_arn }}"
+    destination_location_arn = "{{ destination_location_arn }}"
+    destination_network_interface_arns = "{{ destination_network_interface_arns }}"
+    excludes = "{
+    filter_type = {{ filter_type }}
+    value = {{ value }}
+}"
+    id = "{{ id }}"
+    includes = "{
+    filter_type = {{ filter_type }}
+    value = {{ value }}
+}"
+    manifest_config = "{
+    action = {{ action }}
+    format = {{ format }}
+    source = {
+    s3 = {
+    bucket_access_role_arn = {{ bucket_access_role_arn }}
+    manifest_object_path = {{ manifest_object_path }}
+    manifest_object_version_id = {{ manifest_object_version_id }}
+    s3_bucket_arn = {{ s3_bucket_arn }}
+}
+}
+}"
+    name = "{{ name }}"
+    options = "{
+    atime = {{ atime }}
+    bytes_per_second = {{ bytes_per_second }}
+    gid = {{ gid }}
+    log_level = {{ log_level }}
+    mtime = {{ mtime }}
+    object_tags = {{ object_tags }}
+    overwrite_mode = {{ overwrite_mode }}
+    posix_permissions = {{ posix_permissions }}
+    preserve_deleted_files = {{ preserve_deleted_files }}
+    preserve_devices = {{ preserve_devices }}
+    security_descriptor_copy_flags = {{ security_descriptor_copy_flags }}
+    task_queueing = {{ task_queueing }}
+    transfer_mode = {{ transfer_mode }}
+    uid = {{ uid }}
+    verify_mode = {{ verify_mode }}
+}"
+    schedule = "{
+    schedule_expression = {{ schedule_expression }}
+    status = {{ status }}
+}"
+    source_location_arn = "{{ source_location_arn }}"
+    source_network_interface_arns = "{{ source_network_interface_arns }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    task_arn = "{{ task_arn }}"
+    task_mode = "{{ task_mode }}"
+    task_report_config = "{
+    destination = {
+    s3 = {
+    bucket_access_role_arn = {{ bucket_access_role_arn }}
+    s3_bucket_arn = {{ s3_bucket_arn }}
+    subdirectory = {{ subdirectory }}
+}
+}
+    object_version_ids = {{ object_version_ids }}
+    output_type = {{ output_type }}
+    overrides = {
+    deleted = {
+    report_level = {{ report_level }}
+}
+    skipped = {
+    report_level = {{ report_level }}
+}
+    transferred = {
+    report_level = {{ report_level }}
+}
+    verified = {
+    report_level = {{ report_level }}
+}
+}
+    report_level = {{ report_level }}
+}"
+}

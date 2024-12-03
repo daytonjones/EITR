@@ -1,0 +1,10 @@
+data "azurerm_netapp_pool" "example" {
+    account_name = "{{ account_name }}"
+    encryption_type = "{{ encryption_type }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    service_level = "{{ service_level }}"
+    size_in_tb = "{{ size_in_tb }}"
+}

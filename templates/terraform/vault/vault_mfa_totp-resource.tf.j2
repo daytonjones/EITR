@@ -1,0 +1,12 @@
+resource "vault_mfa_totp" "example" {
+    algorithm = "{{ algorithm }}"
+    digits = "{{ digits }}"
+    id = "{{ id }}"
+    issuer = "{{ issuer }}"
+    key_size = "{{ key_size }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    period = "{{ period }}"
+    qr_size = "{{ qr_size }}"
+    skew = "{{ skew }}"
+}

@@ -1,0 +1,26 @@
+resource "awscc_aps_scraper" "example" {
+    alias = "{{ alias }}"
+    arn = "{{ arn }}"
+    destination = "{
+    amp_configuration = {
+    workspace_arn = {{ workspace_arn }}
+}
+}"
+    id = "{{ id }}"
+    role_arn = "{{ role_arn }}"
+    scrape_configuration = "{
+    configuration_blob = {{ configuration_blob }}
+}"
+    scraper_id = "{{ scraper_id }}"
+    source = "{
+    eks_configuration = {
+    cluster_arn = {{ cluster_arn }}
+    security_group_ids = {{ security_group_ids }}
+    subnet_ids = {{ subnet_ids }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

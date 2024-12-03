@@ -1,0 +1,18 @@
+resource "aws_kms_replica_external_key" "example" {
+    arn = "{{ arn }}"
+    bypass_policy_lockout_safety_check = "{{ bypass_policy_lockout_safety_check }}"
+    deletion_window_in_days = "{{ deletion_window_in_days }}"
+    description = "{{ description }}"
+    enabled = "{{ enabled }}"
+    expiration_model = "{{ expiration_model }}"
+    id = "{{ id }}"
+    key_id = "{{ key_id }}"
+    key_material_base64 = "{{ key_material_base64 }}"
+    key_state = "{{ key_state }}"
+    key_usage = "{{ key_usage }}"
+    policy = "{{ policy }}"
+    primary_key_arn = "{{ primary_key_arn }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    valid_to = "{{ valid_to }}"
+}

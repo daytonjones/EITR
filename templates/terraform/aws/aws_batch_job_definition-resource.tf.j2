@@ -1,0 +1,18 @@
+resource "aws_batch_job_definition" "example" {
+    arn = "{{ arn }}"
+    arn_prefix = "{{ arn_prefix }}"
+    container_properties = "{{ container_properties }}"
+    deregister_on_new_revision = "{{ deregister_on_new_revision }}"
+    ecs_properties = "{{ ecs_properties }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    node_properties = "{{ node_properties }}"
+    parameters = "{{ parameters }}"
+    platform_capabilities = "{{ platform_capabilities }}"
+    propagate_tags = "{{ propagate_tags }}"
+    revision = "{{ revision }}"
+    scheduling_priority = "{{ scheduling_priority }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    type = "{{ type }}"
+}

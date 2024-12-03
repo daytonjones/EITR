@@ -1,0 +1,31 @@
+data "awscc_datapipeline_pipeline" "example" {
+    activate = "{{ activate }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    parameter_objects = "{
+    attributes = {
+    key = {{ key }}
+    string_value = {{ string_value }}
+}
+    id = {{ id }}
+}"
+    parameter_values = "{
+    id = {{ id }}
+    string_value = {{ string_value }}
+}"
+    pipeline_id = "{{ pipeline_id }}"
+    pipeline_objects = "{
+    fields = {
+    key = {{ key }}
+    ref_value = {{ ref_value }}
+    string_value = {{ string_value }}
+}
+    id = {{ id }}
+    name = {{ name }}
+}"
+    pipeline_tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

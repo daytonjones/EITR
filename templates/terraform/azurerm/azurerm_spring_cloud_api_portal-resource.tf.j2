@@ -1,0 +1,11 @@
+resource "azurerm_spring_cloud_api_portal" "example" {
+    api_try_out_enabled = "{{ api_try_out_enabled }}"
+    gateway_ids = "{{ gateway_ids }}"
+    https_only_enabled = "{{ https_only_enabled }}"
+    id = "{{ id }}"
+    instance_count = "{{ instance_count }}"
+    name = "{{ name }}"
+    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    spring_cloud_service_id = "{{ spring_cloud_service_id }}"
+    url = "{{ url }}"
+}

@@ -1,0 +1,9 @@
+resource "aws_prometheus_scraper" "example" {
+    alias = "{{ alias }}"
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    role_arn = "{{ role_arn }}"
+    scrape_configuration = "{{ scrape_configuration }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

@@ -1,0 +1,37 @@
+data "awscc_cloudtrail_event_data_store" "example" {
+    advanced_event_selectors = "{
+    field_selectors = {
+    ends_with = {{ ends_with }}
+    equals = {{ equals }}
+    field = {{ field }}
+    not_ends_with = {{ not_ends_with }}
+    not_equals = {{ not_equals }}
+    not_starts_with = {{ not_starts_with }}
+    starts_with = {{ starts_with }}
+}
+    name = {{ name }}
+}"
+    billing_mode = "{{ billing_mode }}"
+    created_timestamp = "{{ created_timestamp }}"
+    event_data_store_arn = "{{ event_data_store_arn }}"
+    federation_enabled = "{{ federation_enabled }}"
+    federation_role_arn = "{{ federation_role_arn }}"
+    id = "{{ id }}"
+    ingestion_enabled = "{{ ingestion_enabled }}"
+    insight_selectors = "{
+    insight_type = {{ insight_type }}
+}"
+    insights_destination = "{{ insights_destination }}"
+    kms_key_id = "{{ kms_key_id }}"
+    multi_region_enabled = "{{ multi_region_enabled }}"
+    name = "{{ name }}"
+    organization_enabled = "{{ organization_enabled }}"
+    retention_period = "{{ retention_period }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    termination_protection_enabled = "{{ termination_protection_enabled }}"
+    updated_timestamp = "{{ updated_timestamp }}"
+}

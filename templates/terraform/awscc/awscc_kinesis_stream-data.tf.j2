@@ -1,0 +1,18 @@
+data "awscc_kinesis_stream" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    retention_period_hours = "{{ retention_period_hours }}"
+    shard_count = "{{ shard_count }}"
+    stream_encryption = "{
+    encryption_type = {{ encryption_type }}
+    key_id = {{ key_id }}
+}"
+    stream_mode_details = "{
+    stream_mode = {{ stream_mode }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

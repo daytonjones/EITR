@@ -1,0 +1,10 @@
+resource "azurestack_template_deployment" "example" {
+    deployment_mode = "{{ deployment_mode }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    outputs = "{{ outputs }}"
+    parameters = "{{ parameters }}"
+    parameters_body = "{{ parameters_body }}"
+    resource_group_name = "{{ resource_group_name }}"
+    template_body = "{{ template_body }}"
+}

@@ -1,0 +1,6 @@
+resource "aws_s3_bucket_replication_configuration" "example" {
+    bucket = "{{ bucket }}"
+    id = "{{ id }}"
+    role = "{{ role }}"
+    token = "{{ token }}"
+}

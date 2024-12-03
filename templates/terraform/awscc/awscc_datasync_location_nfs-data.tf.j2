@@ -1,0 +1,17 @@
+data "awscc_datasync_location_nfs" "example" {
+    id = "{{ id }}"
+    location_arn = "{{ location_arn }}"
+    location_uri = "{{ location_uri }}"
+    mount_options = "{
+    version = {{ version }}
+}"
+    on_prem_config = "{
+    agent_arns = {{ agent_arns }}
+}"
+    server_hostname = "{{ server_hostname }}"
+    subdirectory = "{{ subdirectory }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

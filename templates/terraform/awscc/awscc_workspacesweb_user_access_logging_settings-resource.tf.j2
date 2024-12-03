@@ -1,0 +1,10 @@
+resource "awscc_workspacesweb_user_access_logging_settings" "example" {
+    associated_portal_arns = "{{ associated_portal_arns }}"
+    id = "{{ id }}"
+    kinesis_stream_arn = "{{ kinesis_stream_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    user_access_logging_settings_arn = "{{ user_access_logging_settings_arn }}"
+}

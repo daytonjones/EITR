@@ -1,0 +1,12 @@
+resource "aws_dms_event_subscription" "example" {
+    arn = "{{ arn }}"
+    enabled = "{{ enabled }}"
+    event_categories = "{{ event_categories }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    sns_topic_arn = "{{ sns_topic_arn }}"
+    source_ids = "{{ source_ids }}"
+    source_type = "{{ source_type }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

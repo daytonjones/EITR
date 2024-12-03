@@ -1,0 +1,26 @@
+data "awscc_vpclattice_listener" "example" {
+    arn = "{{ arn }}"
+    default_action = "{
+    fixed_response = {
+    status_code = {{ status_code }}
+}
+    forward = {
+    target_groups = {
+    target_group_identifier = {{ target_group_identifier }}
+    weight = {{ weight }}
+}
+}
+}"
+    id = "{{ id }}"
+    listener_id = "{{ listener_id }}"
+    name = "{{ name }}"
+    port = "{{ port }}"
+    protocol = "{{ protocol }}"
+    service_arn = "{{ service_arn }}"
+    service_id = "{{ service_id }}"
+    service_identifier = "{{ service_identifier }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

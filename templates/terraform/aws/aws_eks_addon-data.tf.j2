@@ -1,0 +1,13 @@
+data "aws_eks_addon" "example" {
+    addon_name = "{{ addon_name }}"
+    addon_version = "{{ addon_version }}"
+    arn = "{{ arn }}"
+    cluster_name = "{{ cluster_name }}"
+    configuration_values = "{{ configuration_values }}"
+    created_at = "{{ created_at }}"
+    id = "{{ id }}"
+    modified_at = "{{ modified_at }}"
+    pod_identity_association = "{{ pod_identity_association }}"
+    service_account_role_arn = "{{ service_account_role_arn }}"
+    tags = "{{ tags }}"
+}

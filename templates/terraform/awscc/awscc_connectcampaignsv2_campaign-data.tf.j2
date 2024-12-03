@@ -1,0 +1,132 @@
+data "awscc_connectcampaignsv2_campaign" "example" {
+    arn = "{{ arn }}"
+    channel_subtype_config = "{
+    email = {
+    capacity = {{ capacity }}
+    default_outbound_config = {
+    connect_source_email_address = {{ connect_source_email_address }}
+    source_email_address_display_name = {{ source_email_address_display_name }}
+    wisdom_template_arn = {{ wisdom_template_arn }}
+}
+    outbound_mode = {
+    agentless_config = {{ agentless_config }}
+}
+}
+    sms = {
+    capacity = {{ capacity }}
+    default_outbound_config = {
+    connect_source_phone_number_arn = {{ connect_source_phone_number_arn }}
+    wisdom_template_arn = {{ wisdom_template_arn }}
+}
+    outbound_mode = {
+    agentless_config = {{ agentless_config }}
+}
+}
+    telephony = {
+    capacity = {{ capacity }}
+    connect_queue_id = {{ connect_queue_id }}
+    default_outbound_config = {
+    answer_machine_detection_config = {
+    await_answer_machine_prompt = {{ await_answer_machine_prompt }}
+    enable_answer_machine_detection = {{ enable_answer_machine_detection }}
+}
+    connect_contact_flow_id = {{ connect_contact_flow_id }}
+    connect_source_phone_number = {{ connect_source_phone_number }}
+}
+    outbound_mode = {
+    agentless_config = {{ agentless_config }}
+    predictive_config = {
+    bandwidth_allocation = {{ bandwidth_allocation }}
+}
+    progressive_config = {
+    bandwidth_allocation = {{ bandwidth_allocation }}
+}
+}
+}
+}"
+    communication_limits_override = "{
+    all_channels_subtypes = {
+    communication_limit_list = {
+    frequency = {{ frequency }}
+    max_count_per_recipient = {{ max_count_per_recipient }}
+    unit = {{ unit }}
+}
+}
+}"
+    communication_time_config = "{
+    email = {
+    open_hours = {
+    daily_hours = {
+    key = {{ key }}
+    value = {
+    end_time = {{ end_time }}
+    start_time = {{ start_time }}
+}
+}
+}
+    restricted_periods = {
+    restricted_period_list = {
+    end_date = {{ end_date }}
+    name = {{ name }}
+    start_date = {{ start_date }}
+}
+}
+}
+    local_time_zone_config = {
+    default_time_zone = {{ default_time_zone }}
+    local_time_zone_detection = {{ local_time_zone_detection }}
+}
+    sms = {
+    open_hours = {
+    daily_hours = {
+    key = {{ key }}
+    value = {
+    end_time = {{ end_time }}
+    start_time = {{ start_time }}
+}
+}
+}
+    restricted_periods = {
+    restricted_period_list = {
+    end_date = {{ end_date }}
+    name = {{ name }}
+    start_date = {{ start_date }}
+}
+}
+}
+    telephony = {
+    open_hours = {
+    daily_hours = {
+    key = {{ key }}
+    value = {
+    end_time = {{ end_time }}
+    start_time = {{ start_time }}
+}
+}
+}
+    restricted_periods = {
+    restricted_period_list = {
+    end_date = {{ end_date }}
+    name = {{ name }}
+    start_date = {{ start_date }}
+}
+}
+}
+}"
+    connect_campaign_flow_arn = "{{ connect_campaign_flow_arn }}"
+    connect_instance_id = "{{ connect_instance_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    schedule = "{
+    end_time = {{ end_time }}
+    refresh_frequency = {{ refresh_frequency }}
+    start_time = {{ start_time }}
+}"
+    source = "{
+    customer_profiles_segment_arn = {{ customer_profiles_segment_arn }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

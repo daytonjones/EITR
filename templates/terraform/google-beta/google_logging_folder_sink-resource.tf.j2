@@ -1,0 +1,12 @@
+resource "google_logging_folder_sink" "example" {
+    description = "{{ description }}"
+    destination = "{{ destination }}"
+    disabled = "{{ disabled }}"
+    filter = "{{ filter }}"
+    folder = "{{ folder }}"
+    id = "{{ id }}"
+    include_children = "{{ include_children }}"
+    intercept_children = "{{ intercept_children }}"
+    name = "{{ name }}"
+    writer_identity = "{{ writer_identity }}"
+}

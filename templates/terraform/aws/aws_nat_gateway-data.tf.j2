@@ -1,0 +1,16 @@
+data "aws_nat_gateway" "example" {
+    allocation_id = "{{ allocation_id }}"
+    association_id = "{{ association_id }}"
+    connectivity_type = "{{ connectivity_type }}"
+    id = "{{ id }}"
+    network_interface_id = "{{ network_interface_id }}"
+    private_ip = "{{ private_ip }}"
+    public_ip = "{{ public_ip }}"
+    secondary_allocation_ids = "{{ secondary_allocation_ids }}"
+    secondary_private_ip_address_count = "{{ secondary_private_ip_address_count }}"
+    secondary_private_ip_addresses = "{{ secondary_private_ip_addresses }}"
+    state = "{{ state }}"
+    subnet_id = "{{ subnet_id }}"
+    tags = "{{ tags }}"
+    vpc_id = "{{ vpc_id }}"
+}

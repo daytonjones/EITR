@@ -1,0 +1,21 @@
+resource "awscc_entityresolution_schema_mapping" "example" {
+    created_at = "{{ created_at }}"
+    description = "{{ description }}"
+    has_workflows = "{{ has_workflows }}"
+    id = "{{ id }}"
+    mapped_input_fields = "{
+    field_name = {{ field_name }}
+    group_name = {{ group_name }}
+    hashed = {{ hashed }}
+    match_key = {{ match_key }}
+    sub_type = {{ sub_type }}
+    type = {{ type }}
+}"
+    schema_arn = "{{ schema_arn }}"
+    schema_name = "{{ schema_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    updated_at = "{{ updated_at }}"
+}

@@ -1,0 +1,7 @@
+data "aws_lambda_invocation" "example" {
+    function_name = "{{ function_name }}"
+    id = "{{ id }}"
+    input = "{{ input }}"
+    qualifier = "{{ qualifier }}"
+    result = "{{ result }}"
+}

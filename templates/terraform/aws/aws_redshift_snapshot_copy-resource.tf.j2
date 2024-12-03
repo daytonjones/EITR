@@ -1,0 +1,8 @@
+resource "aws_redshift_snapshot_copy" "example" {
+    cluster_identifier = "{{ cluster_identifier }}"
+    destination_region = "{{ destination_region }}"
+    id = "{{ id }}"
+    manual_snapshot_retention_period = "{{ manual_snapshot_retention_period }}"
+    retention_period = "{{ retention_period }}"
+    snapshot_copy_grant_name = "{{ snapshot_copy_grant_name }}"
+}

@@ -1,0 +1,45 @@
+data "awscc_nimblestudio_studio_component" "example" {
+    configuration = "{
+    active_directory_configuration = {
+    computer_attributes = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    directory_id = {{ directory_id }}
+    organizational_unit_distinguished_name = {{ organizational_unit_distinguished_name }}
+}
+    compute_farm_configuration = {
+    active_directory_user = {{ active_directory_user }}
+    endpoint = {{ endpoint }}
+}
+    license_service_configuration = {
+    endpoint = {{ endpoint }}
+}
+    shared_file_system_configuration = {
+    endpoint = {{ endpoint }}
+    file_system_id = {{ file_system_id }}
+    linux_mount_point = {{ linux_mount_point }}
+    share_name = {{ share_name }}
+    windows_mount_drive = {{ windows_mount_drive }}
+}
+}"
+    description = "{{ description }}"
+    ec_2_security_group_ids = "{{ ec_2_security_group_ids }}"
+    id = "{{ id }}"
+    initialization_scripts = "{
+    launch_profile_protocol_version = {{ launch_profile_protocol_version }}
+    platform = {{ platform }}
+    run_context = {{ run_context }}
+    script = {{ script }}
+}"
+    name = "{{ name }}"
+    script_parameters = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    studio_component_id = "{{ studio_component_id }}"
+    studio_id = "{{ studio_id }}"
+    subtype = "{{ subtype }}"
+    tags = "{{ tags }}"
+    type = "{{ type }}"
+}

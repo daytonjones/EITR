@@ -1,0 +1,31 @@
+data "awscc_deadline_queue" "example" {
+    allowed_storage_profile_ids = "{{ allowed_storage_profile_ids }}"
+    arn = "{{ arn }}"
+    default_budget_action = "{{ default_budget_action }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    farm_id = "{{ farm_id }}"
+    id = "{{ id }}"
+    job_attachment_settings = "{
+    root_prefix = {{ root_prefix }}
+    s3_bucket_name = {{ s3_bucket_name }}
+}"
+    job_run_as_user = "{
+    posix = {
+    group = {{ group }}
+    user = {{ user }}
+}
+    run_as = {{ run_as }}
+    windows = {
+    password_arn = {{ password_arn }}
+    user = {{ user }}
+}
+}"
+    queue_id = "{{ queue_id }}"
+    required_file_system_location_names = "{{ required_file_system_location_names }}"
+    role_arn = "{{ role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

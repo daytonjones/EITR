@@ -1,0 +1,37 @@
+resource "awscc_glue_job" "example" {
+    allocated_capacity = "{{ allocated_capacity }}"
+    command = "{
+    name = {{ name }}
+    python_version = {{ python_version }}
+    runtime = {{ runtime }}
+    script_location = {{ script_location }}
+}"
+    connections = "{
+    connections = {{ connections }}
+}"
+    default_arguments = "{{ default_arguments }}"
+    description = "{{ description }}"
+    execution_class = "{{ execution_class }}"
+    execution_property = "{
+    max_concurrent_runs = {{ max_concurrent_runs }}
+}"
+    glue_version = "{{ glue_version }}"
+    id = "{{ id }}"
+    job_mode = "{{ job_mode }}"
+    job_run_queuing_enabled = "{{ job_run_queuing_enabled }}"
+    log_uri = "{{ log_uri }}"
+    maintenance_window = "{{ maintenance_window }}"
+    max_capacity = "{{ max_capacity }}"
+    max_retries = "{{ max_retries }}"
+    name = "{{ name }}"
+    non_overridable_arguments = "{{ non_overridable_arguments }}"
+    notification_property = "{
+    notify_delay_after = {{ notify_delay_after }}
+}"
+    number_of_workers = "{{ number_of_workers }}"
+    role = "{{ role }}"
+    security_configuration = "{{ security_configuration }}"
+    tags = "{{ tags }}"
+    timeout = "{{ timeout }}"
+    worker_type = "{{ worker_type }}"
+}

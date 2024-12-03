@@ -1,0 +1,12 @@
+data "aws_ecs_service" "example" {
+    arn = "{{ arn }}"
+    availability_zone_rebalancing = "{{ availability_zone_rebalancing }}"
+    cluster_arn = "{{ cluster_arn }}"
+    desired_count = "{{ desired_count }}"
+    id = "{{ id }}"
+    launch_type = "{{ launch_type }}"
+    scheduling_strategy = "{{ scheduling_strategy }}"
+    service_name = "{{ service_name }}"
+    tags = "{{ tags }}"
+    task_definition = "{{ task_definition }}"
+}

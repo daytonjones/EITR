@@ -1,0 +1,8 @@
+resource "aws_rekognition_stream_processor" "example" {
+    kms_key_id = "{{ kms_key_id }}"
+    name = "{{ name }}"
+    role_arn = "{{ role_arn }}"
+    stream_processor_arn = "{{ stream_processor_arn }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

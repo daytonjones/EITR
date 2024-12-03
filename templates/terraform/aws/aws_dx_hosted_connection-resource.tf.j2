@@ -1,0 +1,18 @@
+resource "aws_dx_hosted_connection" "example" {
+    aws_device = "{{ aws_device }}"
+    bandwidth = "{{ bandwidth }}"
+    connection_id = "{{ connection_id }}"
+    has_logical_redundancy = "{{ has_logical_redundancy }}"
+    id = "{{ id }}"
+    jumbo_frame_capable = "{{ jumbo_frame_capable }}"
+    lag_id = "{{ lag_id }}"
+    loa_issue_time = "{{ loa_issue_time }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    owner_account_id = "{{ owner_account_id }}"
+    partner_name = "{{ partner_name }}"
+    provider_name = "{{ provider_name }}"
+    region = "{{ region }}"
+    state = "{{ state }}"
+    vlan = "{{ vlan }}"
+}

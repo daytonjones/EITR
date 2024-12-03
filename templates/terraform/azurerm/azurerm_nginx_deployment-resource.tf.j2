@@ -1,0 +1,15 @@
+resource "azurerm_nginx_deployment" "example" {
+    automatic_upgrade_channel = "{{ automatic_upgrade_channel }}"
+    capacity = "{{ capacity }}"
+    diagnose_support_enabled = "{{ diagnose_support_enabled }}"
+    email = "{{ email }}"
+    id = "{{ id }}"
+    ip_address = "{{ ip_address }}"
+    location = "{{ location }}"
+    managed_resource_group = "{{ managed_resource_group }}"
+    name = "{{ name }}"
+    nginx_version = "{{ nginx_version }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku = "{{ sku }}"
+    tags = "{{ tags }}"
+}

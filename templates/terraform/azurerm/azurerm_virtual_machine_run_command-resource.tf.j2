@@ -1,0 +1,12 @@
+resource "azurerm_virtual_machine_run_command" "example" {
+    error_blob_uri = "{{ error_blob_uri }}"
+    id = "{{ id }}"
+    instance_view = "{{ instance_view }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    output_blob_uri = "{{ output_blob_uri }}"
+    run_as_password = "{{ run_as_password }}"
+    run_as_user = "{{ run_as_user }}"
+    tags = "{{ tags }}"
+    virtual_machine_id = "{{ virtual_machine_id }}"
+}

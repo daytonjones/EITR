@@ -1,0 +1,14 @@
+data "awscc_backupgateway_hypervisor" "example" {
+    host = "{{ host }}"
+    hypervisor_arn = "{{ hypervisor_arn }}"
+    id = "{{ id }}"
+    kms_key_arn = "{{ kms_key_arn }}"
+    log_group_arn = "{{ log_group_arn }}"
+    name = "{{ name }}"
+    password = "{{ password }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    username = "{{ username }}"
+}

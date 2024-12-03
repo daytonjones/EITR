@@ -1,0 +1,12 @@
+resource "azurestack_lb_probe" "example" {
+    id = "{{ id }}"
+    interval_in_seconds = "{{ interval_in_seconds }}"
+    load_balancer_rules = "{{ load_balancer_rules }}"
+    loadbalancer_id = "{{ loadbalancer_id }}"
+    name = "{{ name }}"
+    number_of_probes = "{{ number_of_probes }}"
+    port = "{{ port }}"
+    protocol = "{{ protocol }}"
+    request_path = "{{ request_path }}"
+    resource_group_name = "{{ resource_group_name }}"
+}

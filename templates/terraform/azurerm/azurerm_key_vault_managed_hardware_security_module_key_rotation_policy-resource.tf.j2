@@ -1,0 +1,7 @@
+resource "azurerm_key_vault_managed_hardware_security_module_key_rotation_policy" "example" {
+    expire_after = "{{ expire_after }}"
+    id = "{{ id }}"
+    managed_hsm_key_id = "{{ managed_hsm_key_id }}"
+    time_after_creation = "{{ time_after_creation }}"
+    time_before_expiry = "{{ time_before_expiry }}"
+}

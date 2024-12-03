@@ -1,0 +1,29 @@
+resource "awscc_qbusiness_web_experience" "example" {
+    application_id = "{{ application_id }}"
+    created_at = "{{ created_at }}"
+    default_endpoint = "{{ default_endpoint }}"
+    id = "{{ id }}"
+    identity_provider_configuration = "{
+    open_id_connect_configuration = {
+    secrets_arn = {{ secrets_arn }}
+    secrets_role = {{ secrets_role }}
+}
+    saml_configuration = {
+    authentication_url = {{ authentication_url }}
+}
+}"
+    origins = "{{ origins }}"
+    role_arn = "{{ role_arn }}"
+    sample_prompts_control_mode = "{{ sample_prompts_control_mode }}"
+    status = "{{ status }}"
+    subtitle = "{{ subtitle }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    title = "{{ title }}"
+    updated_at = "{{ updated_at }}"
+    web_experience_arn = "{{ web_experience_arn }}"
+    web_experience_id = "{{ web_experience_id }}"
+    welcome_message = "{{ welcome_message }}"
+}

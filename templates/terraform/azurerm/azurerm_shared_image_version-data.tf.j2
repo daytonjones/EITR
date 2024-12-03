@@ -1,0 +1,15 @@
+data "azurerm_shared_image_version" "example" {
+    exclude_from_latest = "{{ exclude_from_latest }}"
+    gallery_name = "{{ gallery_name }}"
+    id = "{{ id }}"
+    image_name = "{{ image_name }}"
+    location = "{{ location }}"
+    managed_image_id = "{{ managed_image_id }}"
+    name = "{{ name }}"
+    os_disk_image_size_gb = "{{ os_disk_image_size_gb }}"
+    os_disk_snapshot_id = "{{ os_disk_snapshot_id }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sort_versions_by_semver = "{{ sort_versions_by_semver }}"
+    tags = "{{ tags }}"
+    target_region = "{{ target_region }}"
+}

@@ -1,0 +1,27 @@
+data "awscc_apigateway_usage_plan" "example" {
+    api_stages = "{
+    api_id = {{ api_id }}
+    stage = {{ stage }}
+    throttle = {
+    burst_limit = {{ burst_limit }}
+    rate_limit = {{ rate_limit }}
+}
+}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    quota = "{
+    limit = {{ limit }}
+    offset = {{ offset }}
+    period = {{ period }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    throttle = "{
+    burst_limit = {{ burst_limit }}
+    rate_limit = {{ rate_limit }}
+}"
+    usage_plan_id = "{{ usage_plan_id }}"
+    usage_plan_name = "{{ usage_plan_name }}"
+}

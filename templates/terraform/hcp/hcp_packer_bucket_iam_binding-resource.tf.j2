@@ -1,0 +1,5 @@
+resource "hcp_packer_bucket_iam_binding" "example" {
+    principal_id = "{{ principal_id }}"
+    resource_name = "{{ resource_name }}"
+    role = "{{ role }}"
+}

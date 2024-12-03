@@ -1,0 +1,20 @@
+resource "awscc_backup_restore_testing_selection" "example" {
+    iam_role_arn = "{{ iam_role_arn }}"
+    id = "{{ id }}"
+    protected_resource_arns = "{{ protected_resource_arns }}"
+    protected_resource_conditions = "{
+    string_equals = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    string_not_equals = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}"
+    protected_resource_type = "{{ protected_resource_type }}"
+    restore_metadata_overrides = "{{ restore_metadata_overrides }}"
+    restore_testing_plan_name = "{{ restore_testing_plan_name }}"
+    restore_testing_selection_name = "{{ restore_testing_selection_name }}"
+    validation_window_hours = "{{ validation_window_hours }}"
+}

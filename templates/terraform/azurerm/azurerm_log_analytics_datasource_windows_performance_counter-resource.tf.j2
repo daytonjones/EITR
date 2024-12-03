@@ -1,0 +1,10 @@
+resource "azurerm_log_analytics_datasource_windows_performance_counter" "example" {
+    counter_name = "{{ counter_name }}"
+    id = "{{ id }}"
+    instance_name = "{{ instance_name }}"
+    interval_seconds = "{{ interval_seconds }}"
+    name = "{{ name }}"
+    object_name = "{{ object_name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    workspace_name = "{{ workspace_name }}"
+}

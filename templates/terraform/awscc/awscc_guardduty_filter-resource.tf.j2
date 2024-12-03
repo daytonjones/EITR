@@ -1,0 +1,28 @@
+resource "awscc_guardduty_filter" "example" {
+    action = "{{ action }}"
+    description = "{{ description }}"
+    detector_id = "{{ detector_id }}"
+    finding_criteria = "{
+    criterion = {
+    eq = {{ eq }}
+    equals = {{ equals }}
+    greater_than = {{ greater_than }}
+    greater_than_or_equal = {{ greater_than_or_equal }}
+    gt = {{ gt }}
+    gte = {{ gte }}
+    less_than = {{ less_than }}
+    less_than_or_equal = {{ less_than_or_equal }}
+    lt = {{ lt }}
+    lte = {{ lte }}
+    neq = {{ neq }}
+    not_equals = {{ not_equals }}
+}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    rank = "{{ rank }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

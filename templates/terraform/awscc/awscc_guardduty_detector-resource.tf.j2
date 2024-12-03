@@ -1,0 +1,33 @@
+resource "awscc_guardduty_detector" "example" {
+    data_sources = "{
+    kubernetes = {
+    audit_logs = {
+    enable = {{ enable }}
+}
+}
+    malware_protection = {
+    scan_ec_2_instance_with_findings = {
+    ebs_volumes = {{ ebs_volumes }}
+}
+}
+    s3_logs = {
+    enable = {{ enable }}
+}
+}"
+    detector_id = "{{ detector_id }}"
+    enable = "{{ enable }}"
+    features = "{
+    additional_configuration = {
+    name = {{ name }}
+    status = {{ status }}
+}
+    name = {{ name }}
+    status = {{ status }}
+}"
+    finding_publishing_frequency = "{{ finding_publishing_frequency }}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

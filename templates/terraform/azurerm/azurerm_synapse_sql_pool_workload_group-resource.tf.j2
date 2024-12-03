@@ -1,0 +1,11 @@
+resource "azurerm_synapse_sql_pool_workload_group" "example" {
+    id = "{{ id }}"
+    importance = "{{ importance }}"
+    max_resource_percent = "{{ max_resource_percent }}"
+    max_resource_percent_per_request = "{{ max_resource_percent_per_request }}"
+    min_resource_percent = "{{ min_resource_percent }}"
+    min_resource_percent_per_request = "{{ min_resource_percent_per_request }}"
+    name = "{{ name }}"
+    query_execution_timeout_in_seconds = "{{ query_execution_timeout_in_seconds }}"
+    sql_pool_id = "{{ sql_pool_id }}"
+}

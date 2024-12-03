@@ -1,0 +1,14 @@
+resource "awscc_ivs_stage" "example" {
+    active_session_id = "{{ active_session_id }}"
+    arn = "{{ arn }}"
+    auto_participant_recording_configuration = "{
+    media_types = {{ media_types }}
+    storage_configuration_arn = {{ storage_configuration_arn }}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

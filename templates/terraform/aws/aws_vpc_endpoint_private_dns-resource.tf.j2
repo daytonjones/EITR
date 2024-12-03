@@ -1,0 +1,4 @@
+resource "aws_vpc_endpoint_private_dns" "example" {
+    private_dns_enabled = "{{ private_dns_enabled }}"
+    vpc_endpoint_id = "{{ vpc_endpoint_id }}"
+}

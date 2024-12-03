@@ -1,0 +1,7 @@
+resource "aws_ses_identity_notification_topic" "example" {
+    id = "{{ id }}"
+    identity = "{{ identity }}"
+    include_original_headers = "{{ include_original_headers }}"
+    notification_type = "{{ notification_type }}"
+    topic_arn = "{{ topic_arn }}"
+}

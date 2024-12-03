@@ -1,0 +1,71 @@
+data "awscc_appsync_graph_ql_api" "example" {
+    additional_authentication_providers = "{
+    authentication_type = {{ authentication_type }}
+    lambda_authorizer_config = {
+    authorizer_result_ttl_in_seconds = {{ authorizer_result_ttl_in_seconds }}
+    authorizer_uri = {{ authorizer_uri }}
+    identity_validation_expression = {{ identity_validation_expression }}
+}
+    open_id_connect_config = {
+    auth_ttl = {{ auth_ttl }}
+    client_id = {{ client_id }}
+    iat_ttl = {{ iat_ttl }}
+    issuer = {{ issuer }}
+}
+    user_pool_config = {
+    app_id_client_regex = {{ app_id_client_regex }}
+    aws_region = {{ aws_region }}
+    user_pool_id = {{ user_pool_id }}
+}
+}"
+    api_id = "{{ api_id }}"
+    api_type = "{{ api_type }}"
+    arn = "{{ arn }}"
+    authentication_type = "{{ authentication_type }}"
+    enhanced_metrics_config = "{
+    data_source_level_metrics_behavior = {{ data_source_level_metrics_behavior }}
+    operation_level_metrics_config = {{ operation_level_metrics_config }}
+    resolver_level_metrics_behavior = {{ resolver_level_metrics_behavior }}
+}"
+    environment_variables = "{{ environment_variables }}"
+    graph_ql_dns = "{{ graph_ql_dns }}"
+    graph_ql_endpoint_arn = "{{ graph_ql_endpoint_arn }}"
+    graph_ql_url = "{{ graph_ql_url }}"
+    id = "{{ id }}"
+    introspection_config = "{{ introspection_config }}"
+    lambda_authorizer_config = "{
+    authorizer_result_ttl_in_seconds = {{ authorizer_result_ttl_in_seconds }}
+    authorizer_uri = {{ authorizer_uri }}
+    identity_validation_expression = {{ identity_validation_expression }}
+}"
+    log_config = "{
+    cloudwatch_logs_role_arn = {{ cloudwatch_logs_role_arn }}
+    exclude_verbose_content = {{ exclude_verbose_content }}
+    field_log_level = {{ field_log_level }}
+}"
+    merged_api_execution_role_arn = "{{ merged_api_execution_role_arn }}"
+    name = "{{ name }}"
+    open_id_connect_config = "{
+    auth_ttl = {{ auth_ttl }}
+    client_id = {{ client_id }}
+    iat_ttl = {{ iat_ttl }}
+    issuer = {{ issuer }}
+}"
+    owner_contact = "{{ owner_contact }}"
+    query_depth_limit = "{{ query_depth_limit }}"
+    realtime_dns = "{{ realtime_dns }}"
+    realtime_url = "{{ realtime_url }}"
+    resolver_count_limit = "{{ resolver_count_limit }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    user_pool_config = "{
+    app_id_client_regex = {{ app_id_client_regex }}
+    aws_region = {{ aws_region }}
+    default_action = {{ default_action }}
+    user_pool_id = {{ user_pool_id }}
+}"
+    visibility = "{{ visibility }}"
+    xray_enabled = "{{ xray_enabled }}"
+}

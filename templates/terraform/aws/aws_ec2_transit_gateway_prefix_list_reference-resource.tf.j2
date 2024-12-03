@@ -1,0 +1,8 @@
+resource "aws_ec2_transit_gateway_prefix_list_reference" "example" {
+    blackhole = "{{ blackhole }}"
+    id = "{{ id }}"
+    prefix_list_id = "{{ prefix_list_id }}"
+    prefix_list_owner_id = "{{ prefix_list_owner_id }}"
+    transit_gateway_attachment_id = "{{ transit_gateway_attachment_id }}"
+    transit_gateway_route_table_id = "{{ transit_gateway_route_table_id }}"
+}

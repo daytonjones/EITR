@@ -1,0 +1,23 @@
+data "awscc_datazone_subscription_target" "example" {
+    applicable_asset_types = "{{ applicable_asset_types }}"
+    authorized_principals = "{{ authorized_principals }}"
+    created_at = "{{ created_at }}"
+    created_by = "{{ created_by }}"
+    domain_id = "{{ domain_id }}"
+    domain_identifier = "{{ domain_identifier }}"
+    environment_id = "{{ environment_id }}"
+    environment_identifier = "{{ environment_identifier }}"
+    id = "{{ id }}"
+    manage_access_role = "{{ manage_access_role }}"
+    name = "{{ name }}"
+    project_id = "{{ project_id }}"
+    provider_name = "{{ provider_name }}"
+    subscription_target_config = "{
+    content = {{ content }}
+    form_name = {{ form_name }}
+}"
+    subscription_target_id = "{{ subscription_target_id }}"
+    type = "{{ type }}"
+    updated_at = "{{ updated_at }}"
+    updated_by = "{{ updated_by }}"
+}

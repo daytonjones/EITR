@@ -1,0 +1,30 @@
+resource "awscc_ec2_subnet" "example" {
+    assign_ipv_6_address_on_creation = "{{ assign_ipv_6_address_on_creation }}"
+    availability_zone = "{{ availability_zone }}"
+    availability_zone_id = "{{ availability_zone_id }}"
+    cidr_block = "{{ cidr_block }}"
+    enable_dns_64 = "{{ enable_dns_64 }}"
+    enable_lni_at_device_index = "{{ enable_lni_at_device_index }}"
+    id = "{{ id }}"
+    ipv_4_ipam_pool_id = "{{ ipv_4_ipam_pool_id }}"
+    ipv_4_netmask_length = "{{ ipv_4_netmask_length }}"
+    ipv_6_cidr_block = "{{ ipv_6_cidr_block }}"
+    ipv_6_cidr_blocks = "{{ ipv_6_cidr_blocks }}"
+    ipv_6_ipam_pool_id = "{{ ipv_6_ipam_pool_id }}"
+    ipv_6_native = "{{ ipv_6_native }}"
+    ipv_6_netmask_length = "{{ ipv_6_netmask_length }}"
+    map_public_ip_on_launch = "{{ map_public_ip_on_launch }}"
+    network_acl_association_id = "{{ network_acl_association_id }}"
+    outpost_arn = "{{ outpost_arn }}"
+    private_dns_name_options_on_launch = "{
+    enable_resource_name_dns_a_record = {{ enable_resource_name_dns_a_record }}
+    enable_resource_name_dns_aaaa_record = {{ enable_resource_name_dns_aaaa_record }}
+    hostname_type = {{ hostname_type }}
+}"
+    subnet_id = "{{ subnet_id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    vpc_id = "{{ vpc_id }}"
+}

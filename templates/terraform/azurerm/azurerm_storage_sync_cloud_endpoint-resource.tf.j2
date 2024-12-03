@@ -1,0 +1,8 @@
+resource "azurerm_storage_sync_cloud_endpoint" "example" {
+    file_share_name = "{{ file_share_name }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    storage_account_id = "{{ storage_account_id }}"
+    storage_account_tenant_id = "{{ storage_account_tenant_id }}"
+    storage_sync_group_id = "{{ storage_sync_group_id }}"
+}

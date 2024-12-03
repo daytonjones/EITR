@@ -1,0 +1,16 @@
+resource "aws_cloudwatch_event_rule" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    event_bus_name = "{{ event_bus_name }}"
+    event_pattern = "{{ event_pattern }}"
+    force_destroy = "{{ force_destroy }}"
+    id = "{{ id }}"
+    is_enabled = "{{ is_enabled }}"
+    name = "{{ name }}"
+    name_prefix = "{{ name_prefix }}"
+    role_arn = "{{ role_arn }}"
+    schedule_expression = "{{ schedule_expression }}"
+    state = "{{ state }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

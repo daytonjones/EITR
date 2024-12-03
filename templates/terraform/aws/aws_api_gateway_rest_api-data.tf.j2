@@ -1,0 +1,14 @@
+data "aws_api_gateway_rest_api" "example" {
+    api_key_source = "{{ api_key_source }}"
+    arn = "{{ arn }}"
+    binary_media_types = "{{ binary_media_types }}"
+    description = "{{ description }}"
+    endpoint_configuration = "{{ endpoint_configuration }}"
+    execution_arn = "{{ execution_arn }}"
+    id = "{{ id }}"
+    minimum_compression_size = "{{ minimum_compression_size }}"
+    name = "{{ name }}"
+    policy = "{{ policy }}"
+    root_resource_id = "{{ root_resource_id }}"
+    tags = "{{ tags }}"
+}

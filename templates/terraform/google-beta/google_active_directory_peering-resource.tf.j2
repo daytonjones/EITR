@@ -1,0 +1,13 @@
+resource "google_active_directory_peering" "example" {
+    authorized_network = "{{ authorized_network }}"
+    domain_resource = "{{ domain_resource }}"
+    effective_labels = "{{ effective_labels }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    name = "{{ name }}"
+    peering_id = "{{ peering_id }}"
+    project = "{{ project }}"
+    status = "{{ status }}"
+    status_message = "{{ status_message }}"
+    terraform_labels = "{{ terraform_labels }}"
+}

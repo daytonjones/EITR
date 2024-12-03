@@ -1,0 +1,10 @@
+data "azurerm_lb_backend_address_pool" "example" {
+    backend_address = "{{ backend_address }}"
+    backend_ip_configurations = "{{ backend_ip_configurations }}"
+    id = "{{ id }}"
+    inbound_nat_rules = "{{ inbound_nat_rules }}"
+    load_balancing_rules = "{{ load_balancing_rules }}"
+    loadbalancer_id = "{{ loadbalancer_id }}"
+    name = "{{ name }}"
+    outbound_rules = "{{ outbound_rules }}"
+}

@@ -1,0 +1,15 @@
+data "azurerm_storage_account_blob_container_sas" "example" {
+    cache_control = "{{ cache_control }}"
+    connection_string = "{{ connection_string }}"
+    container_name = "{{ container_name }}"
+    content_disposition = "{{ content_disposition }}"
+    content_encoding = "{{ content_encoding }}"
+    content_language = "{{ content_language }}"
+    content_type = "{{ content_type }}"
+    expiry = "{{ expiry }}"
+    https_only = "{{ https_only }}"
+    id = "{{ id }}"
+    ip_address = "{{ ip_address }}"
+    sas = "{{ sas }}"
+    start = "{{ start }}"
+}

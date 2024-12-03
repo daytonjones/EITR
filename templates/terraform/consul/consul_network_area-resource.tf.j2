@@ -1,0 +1,8 @@
+resource "consul_network_area" "example" {
+    datacenter = "{{ datacenter }}"
+    id = "{{ id }}"
+    peer_datacenter = "{{ peer_datacenter }}"
+    retry_join = "{{ retry_join }}"
+    token = "{{ token }}"
+    use_tls = "{{ use_tls }}"
+}

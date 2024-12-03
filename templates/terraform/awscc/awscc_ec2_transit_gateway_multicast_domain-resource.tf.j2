@@ -1,0 +1,17 @@
+resource "awscc_ec2_transit_gateway_multicast_domain" "example" {
+    creation_time = "{{ creation_time }}"
+    id = "{{ id }}"
+    options = "{
+    auto_accept_shared_associations = {{ auto_accept_shared_associations }}
+    igmpv_2_support = {{ igmpv_2_support }}
+    static_sources_support = {{ static_sources_support }}
+}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    transit_gateway_id = "{{ transit_gateway_id }}"
+    transit_gateway_multicast_domain_arn = "{{ transit_gateway_multicast_domain_arn }}"
+    transit_gateway_multicast_domain_id = "{{ transit_gateway_multicast_domain_id }}"
+}

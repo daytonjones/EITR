@@ -1,0 +1,11 @@
+data "azurerm_express_route_circuit" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    peerings = "{{ peerings }}"
+    resource_group_name = "{{ resource_group_name }}"
+    service_key = "{{ service_key }}"
+    service_provider_properties = "{{ service_provider_properties }}"
+    service_provider_provisioning_state = "{{ service_provider_provisioning_state }}"
+    sku = "{{ sku }}"
+}

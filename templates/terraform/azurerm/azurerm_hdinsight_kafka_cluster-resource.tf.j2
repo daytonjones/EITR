@@ -1,0 +1,14 @@
+resource "azurerm_hdinsight_kafka_cluster" "example" {
+    cluster_version = "{{ cluster_version }}"
+    encryption_in_transit_enabled = "{{ encryption_in_transit_enabled }}"
+    https_endpoint = "{{ https_endpoint }}"
+    id = "{{ id }}"
+    kafka_rest_proxy_endpoint = "{{ kafka_rest_proxy_endpoint }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    ssh_endpoint = "{{ ssh_endpoint }}"
+    tags = "{{ tags }}"
+    tier = "{{ tier }}"
+    tls_min_version = "{{ tls_min_version }}"
+}

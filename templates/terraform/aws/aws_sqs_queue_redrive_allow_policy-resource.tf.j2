@@ -1,0 +1,5 @@
+resource "aws_sqs_queue_redrive_allow_policy" "example" {
+    id = "{{ id }}"
+    queue_url = "{{ queue_url }}"
+    redrive_allow_policy = "{{ redrive_allow_policy }}"
+}

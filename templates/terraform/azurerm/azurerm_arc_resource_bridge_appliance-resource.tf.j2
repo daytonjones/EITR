@@ -1,0 +1,10 @@
+resource "azurerm_arc_resource_bridge_appliance" "example" {
+    distro = "{{ distro }}"
+    id = "{{ id }}"
+    infrastructure_provider = "{{ infrastructure_provider }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    public_key_base64 = "{{ public_key_base64 }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

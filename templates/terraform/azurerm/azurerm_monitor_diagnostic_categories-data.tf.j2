@@ -1,0 +1,7 @@
+data "azurerm_monitor_diagnostic_categories" "example" {
+    id = "{{ id }}"
+    log_category_groups = "{{ log_category_groups }}"
+    log_category_types = "{{ log_category_types }}"
+    metrics = "{{ metrics }}"
+    resource_id = "{{ resource_id }}"
+}

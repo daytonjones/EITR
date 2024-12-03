@@ -1,0 +1,18 @@
+resource "opc_compute_vpn_endpoint_v2" "example" {
+    customer_vpn_gateway = "{{ customer_vpn_gateway }}"
+    description = "{{ description }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    ike_identifier = "{{ ike_identifier }}"
+    ip_network = "{{ ip_network }}"
+    local_gateway_ip_address = "{{ local_gateway_ip_address }}"
+    local_gateway_private_ip_address = "{{ local_gateway_private_ip_address }}"
+    name = "{{ name }}"
+    pre_shared_key = "{{ pre_shared_key }}"
+    reachable_routes = "{{ reachable_routes }}"
+    require_perfect_forward_secrecy = "{{ require_perfect_forward_secrecy }}"
+    tags = "{{ tags }}"
+    tunnel_status = "{{ tunnel_status }}"
+    uri = "{{ uri }}"
+    vnic_sets = "{{ vnic_sets }}"
+}

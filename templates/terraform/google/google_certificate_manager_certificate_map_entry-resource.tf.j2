@@ -1,0 +1,16 @@
+resource "google_certificate_manager_certificate_map_entry" "example" {
+    certificates = "{{ certificates }}"
+    create_time = "{{ create_time }}"
+    description = "{{ description }}"
+    effective_labels = "{{ effective_labels }}"
+    hostname = "{{ hostname }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    map = "{{ map }}"
+    matcher = "{{ matcher }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    state = "{{ state }}"
+    terraform_labels = "{{ terraform_labels }}"
+    update_time = "{{ update_time }}"
+}

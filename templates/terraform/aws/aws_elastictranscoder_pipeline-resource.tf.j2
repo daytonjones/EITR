@@ -1,0 +1,9 @@
+resource "aws_elastictranscoder_pipeline" "example" {
+    arn = "{{ arn }}"
+    aws_kms_key_arn = "{{ aws_kms_key_arn }}"
+    id = "{{ id }}"
+    input_bucket = "{{ input_bucket }}"
+    name = "{{ name }}"
+    output_bucket = "{{ output_bucket }}"
+    role = "{{ role }}"
+}

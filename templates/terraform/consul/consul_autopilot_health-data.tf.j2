@@ -1,0 +1,7 @@
+data "consul_autopilot_health" "example" {
+    datacenter = "{{ datacenter }}"
+    failure_tolerance = "{{ failure_tolerance }}"
+    healthy = "{{ healthy }}"
+    id = "{{ id }}"
+    servers = "{{ servers }}"
+}

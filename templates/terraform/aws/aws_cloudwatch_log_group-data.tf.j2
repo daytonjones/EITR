@@ -1,0 +1,10 @@
+data "aws_cloudwatch_log_group" "example" {
+    arn = "{{ arn }}"
+    creation_time = "{{ creation_time }}"
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    log_group_class = "{{ log_group_class }}"
+    name = "{{ name }}"
+    retention_in_days = "{{ retention_in_days }}"
+    tags = "{{ tags }}"
+}

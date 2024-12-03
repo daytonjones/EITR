@@ -1,0 +1,15 @@
+resource "google_gke_backup_restore_plan" "example" {
+    backup_plan = "{{ backup_plan }}"
+    cluster = "{{ cluster }}"
+    description = "{{ description }}"
+    effective_labels = "{{ effective_labels }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    state = "{{ state }}"
+    state_reason = "{{ state_reason }}"
+    terraform_labels = "{{ terraform_labels }}"
+    uid = "{{ uid }}"
+}

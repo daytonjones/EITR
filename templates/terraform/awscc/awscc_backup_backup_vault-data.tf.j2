@@ -1,0 +1,17 @@
+data "awscc_backup_backup_vault" "example" {
+    access_policy = "{{ access_policy }}"
+    backup_vault_arn = "{{ backup_vault_arn }}"
+    backup_vault_name = "{{ backup_vault_name }}"
+    backup_vault_tags = "{{ backup_vault_tags }}"
+    encryption_key_arn = "{{ encryption_key_arn }}"
+    id = "{{ id }}"
+    lock_configuration = "{
+    changeable_for_days = {{ changeable_for_days }}
+    max_retention_days = {{ max_retention_days }}
+    min_retention_days = {{ min_retention_days }}
+}"
+    notifications = "{
+    backup_vault_events = {{ backup_vault_events }}
+    sns_topic_arn = {{ sns_topic_arn }}
+}"
+}

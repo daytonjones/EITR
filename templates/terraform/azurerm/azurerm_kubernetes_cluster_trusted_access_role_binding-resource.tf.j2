@@ -1,0 +1,7 @@
+resource "azurerm_kubernetes_cluster_trusted_access_role_binding" "example" {
+    id = "{{ id }}"
+    kubernetes_cluster_id = "{{ kubernetes_cluster_id }}"
+    name = "{{ name }}"
+    roles = "{{ roles }}"
+    source_resource_id = "{{ source_resource_id }}"
+}

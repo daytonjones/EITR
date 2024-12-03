@@ -1,0 +1,13 @@
+resource "google_netapp_kmsconfig" "example" {
+    crypto_key_name = "{{ crypto_key_name }}"
+    description = "{{ description }}"
+    effective_labels = "{{ effective_labels }}"
+    id = "{{ id }}"
+    instructions = "{{ instructions }}"
+    labels = "{{ labels }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    service_account = "{{ service_account }}"
+    terraform_labels = "{{ terraform_labels }}"
+}

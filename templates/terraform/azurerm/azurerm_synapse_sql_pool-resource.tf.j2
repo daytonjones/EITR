@@ -1,0 +1,13 @@
+resource "azurerm_synapse_sql_pool" "example" {
+    collation = "{{ collation }}"
+    create_mode = "{{ create_mode }}"
+    data_encrypted = "{{ data_encrypted }}"
+    geo_backup_policy_enabled = "{{ geo_backup_policy_enabled }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    recovery_database_id = "{{ recovery_database_id }}"
+    sku_name = "{{ sku_name }}"
+    storage_account_type = "{{ storage_account_type }}"
+    synapse_workspace_id = "{{ synapse_workspace_id }}"
+    tags = "{{ tags }}"
+}

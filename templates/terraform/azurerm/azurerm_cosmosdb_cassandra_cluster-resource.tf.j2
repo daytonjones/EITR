@@ -1,0 +1,16 @@
+resource "azurerm_cosmosdb_cassandra_cluster" "example" {
+    authentication_method = "{{ authentication_method }}"
+    client_certificate_pems = "{{ client_certificate_pems }}"
+    default_admin_password = "{{ default_admin_password }}"
+    delegated_management_subnet_id = "{{ delegated_management_subnet_id }}"
+    external_gossip_certificate_pems = "{{ external_gossip_certificate_pems }}"
+    external_seed_node_ip_addresses = "{{ external_seed_node_ip_addresses }}"
+    hours_between_backups = "{{ hours_between_backups }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    repair_enabled = "{{ repair_enabled }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    version = "{{ version }}"
+}

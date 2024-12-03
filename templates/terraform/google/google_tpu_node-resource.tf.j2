@@ -1,0 +1,17 @@
+resource "google_tpu_node" "example" {
+    accelerator_type = "{{ accelerator_type }}"
+    cidr_block = "{{ cidr_block }}"
+    description = "{{ description }}"
+    effective_labels = "{{ effective_labels }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    name = "{{ name }}"
+    network = "{{ network }}"
+    network_endpoints = "{{ network_endpoints }}"
+    project = "{{ project }}"
+    service_account = "{{ service_account }}"
+    tensorflow_version = "{{ tensorflow_version }}"
+    terraform_labels = "{{ terraform_labels }}"
+    use_service_networking = "{{ use_service_networking }}"
+    zone = "{{ zone }}"
+}

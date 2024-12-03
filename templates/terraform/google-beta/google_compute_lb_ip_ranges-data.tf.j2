@@ -1,0 +1,5 @@
+data "google_compute_lb_ip_ranges" "example" {
+    http_ssl_tcp_internal = "{{ http_ssl_tcp_internal }}"
+    id = "{{ id }}"
+    network = "{{ network }}"
+}

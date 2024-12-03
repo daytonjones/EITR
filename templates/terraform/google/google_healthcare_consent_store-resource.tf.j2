@@ -1,0 +1,10 @@
+resource "google_healthcare_consent_store" "example" {
+    dataset = "{{ dataset }}"
+    default_consent_ttl = "{{ default_consent_ttl }}"
+    effective_labels = "{{ effective_labels }}"
+    enable_consent_create_on_update = "{{ enable_consent_create_on_update }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    name = "{{ name }}"
+    terraform_labels = "{{ terraform_labels }}"
+}

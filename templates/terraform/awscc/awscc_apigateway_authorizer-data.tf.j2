@@ -1,0 +1,14 @@
+data "awscc_apigateway_authorizer" "example" {
+    auth_type = "{{ auth_type }}"
+    authorizer_credentials = "{{ authorizer_credentials }}"
+    authorizer_id = "{{ authorizer_id }}"
+    authorizer_result_ttl_in_seconds = "{{ authorizer_result_ttl_in_seconds }}"
+    authorizer_uri = "{{ authorizer_uri }}"
+    id = "{{ id }}"
+    identity_source = "{{ identity_source }}"
+    identity_validation_expression = "{{ identity_validation_expression }}"
+    name = "{{ name }}"
+    provider_ar_ns = "{{ provider_ar_ns }}"
+    rest_api_id = "{{ rest_api_id }}"
+    type = "{{ type }}"
+}

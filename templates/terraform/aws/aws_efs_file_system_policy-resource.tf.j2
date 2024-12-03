@@ -1,0 +1,6 @@
+resource "aws_efs_file_system_policy" "example" {
+    bypass_policy_lockout_safety_check = "{{ bypass_policy_lockout_safety_check }}"
+    file_system_id = "{{ file_system_id }}"
+    id = "{{ id }}"
+    policy = "{{ policy }}"
+}

@@ -1,0 +1,11 @@
+resource "aws_ses_receipt_rule" "example" {
+    after = "{{ after }}"
+    arn = "{{ arn }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    recipients = "{{ recipients }}"
+    rule_set_name = "{{ rule_set_name }}"
+    scan_enabled = "{{ scan_enabled }}"
+    tls_policy = "{{ tls_policy }}"
+}

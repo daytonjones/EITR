@@ -1,0 +1,16 @@
+resource "awscc_backup_logically_air_gapped_backup_vault" "example" {
+    access_policy = "{{ access_policy }}"
+    backup_vault_arn = "{{ backup_vault_arn }}"
+    backup_vault_name = "{{ backup_vault_name }}"
+    backup_vault_tags = "{{ backup_vault_tags }}"
+    encryption_key_arn = "{{ encryption_key_arn }}"
+    id = "{{ id }}"
+    max_retention_days = "{{ max_retention_days }}"
+    min_retention_days = "{{ min_retention_days }}"
+    notifications = "{
+    backup_vault_events = {{ backup_vault_events }}
+    sns_topic_arn = {{ sns_topic_arn }}
+}"
+    vault_state = "{{ vault_state }}"
+    vault_type = "{{ vault_type }}"
+}

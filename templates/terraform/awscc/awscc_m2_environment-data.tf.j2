@@ -1,0 +1,29 @@
+data "awscc_m2_environment" "example" {
+    description = "{{ description }}"
+    engine_type = "{{ engine_type }}"
+    engine_version = "{{ engine_version }}"
+    environment_arn = "{{ environment_arn }}"
+    environment_id = "{{ environment_id }}"
+    high_availability_config = "{
+    desired_capacity = {{ desired_capacity }}
+}"
+    id = "{{ id }}"
+    instance_type = "{{ instance_type }}"
+    kms_key_id = "{{ kms_key_id }}"
+    name = "{{ name }}"
+    preferred_maintenance_window = "{{ preferred_maintenance_window }}"
+    publicly_accessible = "{{ publicly_accessible }}"
+    security_group_ids = "{{ security_group_ids }}"
+    storage_configurations = "{
+    efs = {
+    file_system_id = {{ file_system_id }}
+    mount_point = {{ mount_point }}
+}
+    fsx = {
+    file_system_id = {{ file_system_id }}
+    mount_point = {{ mount_point }}
+}
+}"
+    subnet_ids = "{{ subnet_ids }}"
+    tags = "{{ tags }}"
+}

@@ -1,0 +1,9 @@
+resource "vault_identity_oidc_key" "example" {
+    algorithm = "{{ algorithm }}"
+    allowed_client_ids = "{{ allowed_client_ids }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    rotation_period = "{{ rotation_period }}"
+    verification_ttl = "{{ verification_ttl }}"
+}

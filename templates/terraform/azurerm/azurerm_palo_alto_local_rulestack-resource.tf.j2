@@ -1,0 +1,13 @@
+resource "azurerm_palo_alto_local_rulestack" "example" {
+    anti_spyware_profile = "{{ anti_spyware_profile }}"
+    anti_virus_profile = "{{ anti_virus_profile }}"
+    description = "{{ description }}"
+    dns_subscription = "{{ dns_subscription }}"
+    file_blocking_profile = "{{ file_blocking_profile }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    url_filtering_profile = "{{ url_filtering_profile }}"
+    vulnerability_profile = "{{ vulnerability_profile }}"
+}

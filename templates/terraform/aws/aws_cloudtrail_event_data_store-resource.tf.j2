@@ -1,0 +1,13 @@
+resource "aws_cloudtrail_event_data_store" "example" {
+    arn = "{{ arn }}"
+    billing_mode = "{{ billing_mode }}"
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    multi_region_enabled = "{{ multi_region_enabled }}"
+    name = "{{ name }}"
+    organization_enabled = "{{ organization_enabled }}"
+    retention_period = "{{ retention_period }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    termination_protection_enabled = "{{ termination_protection_enabled }}"
+}

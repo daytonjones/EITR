@@ -1,0 +1,7 @@
+resource "azurerm_postgresql_flexible_server_virtual_endpoint" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    replica_server_id = "{{ replica_server_id }}"
+    source_server_id = "{{ source_server_id }}"
+    type = "{{ type }}"
+}

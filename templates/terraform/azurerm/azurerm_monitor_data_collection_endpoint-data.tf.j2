@@ -1,0 +1,13 @@
+data "azurerm_monitor_data_collection_endpoint" "example" {
+    configuration_access_endpoint = "{{ configuration_access_endpoint }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    immutable_id = "{{ immutable_id }}"
+    kind = "{{ kind }}"
+    location = "{{ location }}"
+    logs_ingestion_endpoint = "{{ logs_ingestion_endpoint }}"
+    name = "{{ name }}"
+    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

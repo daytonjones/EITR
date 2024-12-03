@@ -1,0 +1,17 @@
+data "awscc_connect_agent_status" "example" {
+    agent_status_arn = "{{ agent_status_arn }}"
+    description = "{{ description }}"
+    display_order = "{{ display_order }}"
+    id = "{{ id }}"
+    instance_arn = "{{ instance_arn }}"
+    last_modified_region = "{{ last_modified_region }}"
+    last_modified_time = "{{ last_modified_time }}"
+    name = "{{ name }}"
+    reset_order_number = "{{ reset_order_number }}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+}

@@ -1,0 +1,42 @@
+resource "awscc_medialive_multiplexprogram" "example" {
+    channel_id = "{{ channel_id }}"
+    id = "{{ id }}"
+    multiplex_id = "{{ multiplex_id }}"
+    multiplex_program_settings = "{
+    preferred_channel_pipeline = {{ preferred_channel_pipeline }}
+    program_number = {{ program_number }}
+    service_descriptor = {
+    provider_name = {{ provider_name }}
+    service_name = {{ service_name }}
+}
+    video_settings = {
+    constant_bitrate = {{ constant_bitrate }}
+    statmux_settings = {
+    maximum_bitrate = {{ maximum_bitrate }}
+    minimum_bitrate = {{ minimum_bitrate }}
+    priority = {{ priority }}
+}
+}
+}"
+    packet_identifiers_map = "{
+    audio_pids = {{ audio_pids }}
+    dvb_sub_pids = {{ dvb_sub_pids }}
+    dvb_teletext_pid = {{ dvb_teletext_pid }}
+    etv_platform_pid = {{ etv_platform_pid }}
+    etv_signal_pid = {{ etv_signal_pid }}
+    klv_data_pids = {{ klv_data_pids }}
+    pcr_pid = {{ pcr_pid }}
+    pmt_pid = {{ pmt_pid }}
+    private_metadata_pid = {{ private_metadata_pid }}
+    scte_27_pids = {{ scte_27_pids }}
+    scte_35_pid = {{ scte_35_pid }}
+    timed_metadata_pid = {{ timed_metadata_pid }}
+    video_pid = {{ video_pid }}
+}"
+    pipeline_details = "{
+    active_channel_pipeline = {{ active_channel_pipeline }}
+    pipeline_id = {{ pipeline_id }}
+}"
+    preferred_channel_pipeline = "{{ preferred_channel_pipeline }}"
+    program_name = "{{ program_name }}"
+}

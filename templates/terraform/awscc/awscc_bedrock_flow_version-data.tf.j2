@@ -1,0 +1,117 @@
+data "awscc_bedrock_flow_version" "example" {
+    created_at = "{{ created_at }}"
+    customer_encryption_key_arn = "{{ customer_encryption_key_arn }}"
+    definition = "{
+    connections = {
+    configuration = {
+    conditional = {
+    condition = {{ condition }}
+}
+    data = {
+    source_output = {{ source_output }}
+    target_input = {{ target_input }}
+}
+}
+    name = {{ name }}
+    source = {{ source }}
+    target = {{ target }}
+    type = {{ type }}
+}
+    nodes = {
+    configuration = {
+    agent = {
+    agent_alias_arn = {{ agent_alias_arn }}
+}
+    collector = {{ collector }}
+    condition = {
+    conditions = {
+    expression = {{ expression }}
+    name = {{ name }}
+}
+}
+    input = {{ input }}
+    iterator = {{ iterator }}
+    knowledge_base = {
+    guardrail_configuration = {
+    guardrail_identifier = {{ guardrail_identifier }}
+    guardrail_version = {{ guardrail_version }}
+}
+    knowledge_base_id = {{ knowledge_base_id }}
+    model_id = {{ model_id }}
+}
+    lambda_function = {
+    lambda_arn = {{ lambda_arn }}
+}
+    lex = {
+    bot_alias_arn = {{ bot_alias_arn }}
+    locale_id = {{ locale_id }}
+}
+    output = {{ output }}
+    prompt = {
+    guardrail_configuration = {
+    guardrail_identifier = {{ guardrail_identifier }}
+    guardrail_version = {{ guardrail_version }}
+}
+    source_configuration = {
+    inline = {
+    inference_configuration = {
+    text = {
+    max_tokens = {{ max_tokens }}
+    stop_sequences = {{ stop_sequences }}
+    temperature = {{ temperature }}
+    top_p = {{ top_p }}
+}
+}
+    model_id = {{ model_id }}
+    template_configuration = {
+    text = {
+    input_variables = {
+    name = {{ name }}
+}
+    text = {{ text }}
+}
+}
+    template_type = {{ template_type }}
+}
+    resource = {
+    prompt_arn = {{ prompt_arn }}
+}
+}
+}
+    retrieval = {
+    service_configuration = {
+    s3 = {
+    bucket_name = {{ bucket_name }}
+}
+}
+}
+    storage = {
+    service_configuration = {
+    s3 = {
+    bucket_name = {{ bucket_name }}
+}
+}
+}
+}
+    inputs = {
+    expression = {{ expression }}
+    name = {{ name }}
+    type = {{ type }}
+}
+    name = {{ name }}
+    outputs = {
+    name = {{ name }}
+    type = {{ type }}
+}
+    type = {{ type }}
+}
+}"
+    description = "{{ description }}"
+    execution_role_arn = "{{ execution_role_arn }}"
+    flow_arn = "{{ flow_arn }}"
+    flow_id = "{{ flow_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    status = "{{ status }}"
+    version = "{{ version }}"
+}

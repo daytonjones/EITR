@@ -1,0 +1,9 @@
+resource "azurerm_data_protection_backup_instance_postgresql" "example" {
+    backup_policy_id = "{{ backup_policy_id }}"
+    database_credential_key_vault_secret_id = "{{ database_credential_key_vault_secret_id }}"
+    database_id = "{{ database_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    vault_id = "{{ vault_id }}"
+}

@@ -1,0 +1,11 @@
+resource "awscc_iot_certificate_provider" "example" {
+    account_default_for_operations = "{{ account_default_for_operations }}"
+    arn = "{{ arn }}"
+    certificate_provider_name = "{{ certificate_provider_name }}"
+    id = "{{ id }}"
+    lambda_function_arn = "{{ lambda_function_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

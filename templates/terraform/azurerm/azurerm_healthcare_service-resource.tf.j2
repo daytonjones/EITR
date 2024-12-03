@@ -1,0 +1,13 @@
+resource "azurerm_healthcare_service" "example" {
+    access_policy_object_ids = "{{ access_policy_object_ids }}"
+    configuration_export_storage_account_name = "{{ configuration_export_storage_account_name }}"
+    cosmosdb_key_vault_key_versionless_id = "{{ cosmosdb_key_vault_key_versionless_id }}"
+    cosmosdb_throughput = "{{ cosmosdb_throughput }}"
+    id = "{{ id }}"
+    kind = "{{ kind }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

@@ -1,0 +1,15 @@
+resource "awscc_bedrock_flow_alias" "example" {
+    arn = "{{ arn }}"
+    created_at = "{{ created_at }}"
+    description = "{{ description }}"
+    flow_alias_id = "{{ flow_alias_id }}"
+    flow_arn = "{{ flow_arn }}"
+    flow_id = "{{ flow_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    routing_configuration = "{
+    flow_version = {{ flow_version }}
+}"
+    tags = "{{ tags }}"
+    updated_at = "{{ updated_at }}"
+}

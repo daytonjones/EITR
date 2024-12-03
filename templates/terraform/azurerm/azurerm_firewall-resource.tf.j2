@@ -1,0 +1,15 @@
+resource "azurerm_firewall" "example" {
+    dns_proxy_enabled = "{{ dns_proxy_enabled }}"
+    dns_servers = "{{ dns_servers }}"
+    firewall_policy_id = "{{ firewall_policy_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    private_ip_ranges = "{{ private_ip_ranges }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku_name = "{{ sku_name }}"
+    sku_tier = "{{ sku_tier }}"
+    tags = "{{ tags }}"
+    threat_intel_mode = "{{ threat_intel_mode }}"
+    zones = "{{ zones }}"
+}

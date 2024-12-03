@@ -1,0 +1,9 @@
+resource "google_iap_tunnel_dest_group" "example" {
+    cidrs = "{{ cidrs }}"
+    fqdns = "{{ fqdns }}"
+    group_name = "{{ group_name }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+}

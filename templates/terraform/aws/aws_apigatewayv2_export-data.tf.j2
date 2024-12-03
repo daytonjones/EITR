@@ -1,0 +1,10 @@
+data "aws_apigatewayv2_export" "example" {
+    api_id = "{{ api_id }}"
+    body = "{{ body }}"
+    export_version = "{{ export_version }}"
+    id = "{{ id }}"
+    include_extensions = "{{ include_extensions }}"
+    output_type = "{{ output_type }}"
+    specification = "{{ specification }}"
+    stage_name = "{{ stage_name }}"
+}

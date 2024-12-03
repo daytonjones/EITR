@@ -1,0 +1,12 @@
+data "awscc_connect_email_address" "example" {
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    email_address = "{{ email_address }}"
+    email_address_arn = "{{ email_address_arn }}"
+    id = "{{ id }}"
+    instance_arn = "{{ instance_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

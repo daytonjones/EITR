@@ -1,0 +1,9 @@
+resource "azurerm_data_protection_backup_policy_postgresql" "example" {
+    backup_repeating_time_intervals = "{{ backup_repeating_time_intervals }}"
+    default_retention_duration = "{{ default_retention_duration }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    time_zone = "{{ time_zone }}"
+    vault_name = "{{ vault_name }}"
+}

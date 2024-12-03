@@ -1,0 +1,50 @@
+data "awscc_cloudformation_stack_set" "example" {
+    administration_role_arn = "{{ administration_role_arn }}"
+    auto_deployment = "{
+    enabled = {{ enabled }}
+    retain_stacks_on_account_removal = {{ retain_stacks_on_account_removal }}
+}"
+    call_as = "{{ call_as }}"
+    capabilities = "{{ capabilities }}"
+    description = "{{ description }}"
+    execution_role_name = "{{ execution_role_name }}"
+    id = "{{ id }}"
+    managed_execution = "{
+    active = {{ active }}
+}"
+    operation_preferences = "{
+    concurrency_mode = {{ concurrency_mode }}
+    failure_tolerance_count = {{ failure_tolerance_count }}
+    failure_tolerance_percentage = {{ failure_tolerance_percentage }}
+    max_concurrent_count = {{ max_concurrent_count }}
+    max_concurrent_percentage = {{ max_concurrent_percentage }}
+    region_concurrency_type = {{ region_concurrency_type }}
+    region_order = {{ region_order }}
+}"
+    parameters = "{
+    parameter_key = {{ parameter_key }}
+    parameter_value = {{ parameter_value }}
+}"
+    permission_model = "{{ permission_model }}"
+    stack_instances_group = "{
+    deployment_targets = {
+    account_filter_type = {{ account_filter_type }}
+    accounts = {{ accounts }}
+    accounts_url = {{ accounts_url }}
+    organizational_unit_ids = {{ organizational_unit_ids }}
+}
+    parameter_overrides = {
+    parameter_key = {{ parameter_key }}
+    parameter_value = {{ parameter_value }}
+}
+    regions = {{ regions }}
+}"
+    stack_set_id = "{{ stack_set_id }}"
+    stack_set_name = "{{ stack_set_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    template_body = "{{ template_body }}"
+    template_url = "{{ template_url }}"
+}

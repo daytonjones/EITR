@@ -1,0 +1,26 @@
+data "awscc_amplify_domain" "example" {
+    app_id = "{{ app_id }}"
+    arn = "{{ arn }}"
+    auto_sub_domain_creation_patterns = "{{ auto_sub_domain_creation_patterns }}"
+    auto_sub_domain_iam_role = "{{ auto_sub_domain_iam_role }}"
+    certificate = "{
+    certificate_arn = {{ certificate_arn }}
+    certificate_type = {{ certificate_type }}
+    certificate_verification_dns_record = {{ certificate_verification_dns_record }}
+}"
+    certificate_record = "{{ certificate_record }}"
+    certificate_settings = "{
+    certificate_type = {{ certificate_type }}
+    custom_certificate_arn = {{ custom_certificate_arn }}
+}"
+    domain_name = "{{ domain_name }}"
+    domain_status = "{{ domain_status }}"
+    enable_auto_sub_domain = "{{ enable_auto_sub_domain }}"
+    id = "{{ id }}"
+    status_reason = "{{ status_reason }}"
+    sub_domain_settings = "{
+    branch_name = {{ branch_name }}
+    prefix = {{ prefix }}
+}"
+    update_status = "{{ update_status }}"
+}

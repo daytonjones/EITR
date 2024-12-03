@@ -1,0 +1,11 @@
+resource "google_storage_notification" "example" {
+    bucket = "{{ bucket }}"
+    custom_attributes = "{{ custom_attributes }}"
+    event_types = "{{ event_types }}"
+    id = "{{ id }}"
+    notification_id = "{{ notification_id }}"
+    object_name_prefix = "{{ object_name_prefix }}"
+    payload_format = "{{ payload_format }}"
+    self_link = "{{ self_link }}"
+    topic = "{{ topic }}"
+}

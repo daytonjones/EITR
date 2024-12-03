@@ -1,0 +1,67 @@
+resource "awscc_lightsail_instance" "example" {
+    add_ons = "{
+    add_on_type = {{ add_on_type }}
+    auto_snapshot_add_on_request = {
+    snapshot_time_of_day = {{ snapshot_time_of_day }}
+}
+    status = {{ status }}
+}"
+    availability_zone = "{{ availability_zone }}"
+    blueprint_id = "{{ blueprint_id }}"
+    bundle_id = "{{ bundle_id }}"
+    hardware = "{
+    cpu_count = {{ cpu_count }}
+    disks = {
+    attached_to = {{ attached_to }}
+    attachment_state = {{ attachment_state }}
+    disk_name = {{ disk_name }}
+    iops = {{ iops }}
+    is_system_disk = {{ is_system_disk }}
+    path = {{ path }}
+    size_in_gb = {{ size_in_gb }}
+}
+    ram_size_in_gb = {{ ram_size_in_gb }}
+}"
+    id = "{{ id }}"
+    instance_arn = "{{ instance_arn }}"
+    instance_name = "{{ instance_name }}"
+    ipv_6_addresses = "{{ ipv_6_addresses }}"
+    is_static_ip = "{{ is_static_ip }}"
+    key_pair_name = "{{ key_pair_name }}"
+    location = "{
+    availability_zone = {{ availability_zone }}
+    region_name = {{ region_name }}
+}"
+    networking = "{
+    monthly_transfer = {
+    gb_per_month_allocated = {{ gb_per_month_allocated }}
+}
+    ports = {
+    access_direction = {{ access_direction }}
+    access_from = {{ access_from }}
+    access_type = {{ access_type }}
+    cidr_list_aliases = {{ cidr_list_aliases }}
+    cidrs = {{ cidrs }}
+    common_name = {{ common_name }}
+    from_port = {{ from_port }}
+    ipv_6_cidrs = {{ ipv_6_cidrs }}
+    protocol = {{ protocol }}
+    to_port = {{ to_port }}
+}
+}"
+    private_ip_address = "{{ private_ip_address }}"
+    public_ip_address = "{{ public_ip_address }}"
+    resource_type = "{{ resource_type }}"
+    ssh_key_name = "{{ ssh_key_name }}"
+    state = "{
+    code = {{ code }}
+    name = {{ name }}
+}"
+    support_code = "{{ support_code }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    user_data = "{{ user_data }}"
+    user_name = "{{ user_name }}"
+}

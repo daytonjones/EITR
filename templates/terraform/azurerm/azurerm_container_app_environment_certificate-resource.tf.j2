@@ -1,0 +1,13 @@
+resource "azurerm_container_app_environment_certificate" "example" {
+    certificate_blob_base64 = "{{ certificate_blob_base64 }}"
+    certificate_password = "{{ certificate_password }}"
+    container_app_environment_id = "{{ container_app_environment_id }}"
+    expiration_date = "{{ expiration_date }}"
+    id = "{{ id }}"
+    issue_date = "{{ issue_date }}"
+    issuer = "{{ issuer }}"
+    name = "{{ name }}"
+    subject_name = "{{ subject_name }}"
+    tags = "{{ tags }}"
+    thumbprint = "{{ thumbprint }}"
+}

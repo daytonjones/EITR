@@ -1,0 +1,13 @@
+resource "aws_applicationinsights_application" "example" {
+    arn = "{{ arn }}"
+    auto_config_enabled = "{{ auto_config_enabled }}"
+    auto_create = "{{ auto_create }}"
+    cwe_monitor_enabled = "{{ cwe_monitor_enabled }}"
+    grouping_type = "{{ grouping_type }}"
+    id = "{{ id }}"
+    ops_center_enabled = "{{ ops_center_enabled }}"
+    ops_item_sns_topic_arn = "{{ ops_item_sns_topic_arn }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

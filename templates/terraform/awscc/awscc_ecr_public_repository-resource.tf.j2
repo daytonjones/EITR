@@ -1,0 +1,17 @@
+resource "awscc_ecr_public_repository" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    repository_catalog_data = "{
+    about_text = {{ about_text }}
+    architectures = {{ architectures }}
+    operating_systems = {{ operating_systems }}
+    repository_description = {{ repository_description }}
+    usage_text = {{ usage_text }}
+}"
+    repository_name = "{{ repository_name }}"
+    repository_policy_text = "{{ repository_policy_text }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

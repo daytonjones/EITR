@@ -1,0 +1,19 @@
+resource "awscc_gamelift_script" "example" {
+    arn = "{{ arn }}"
+    creation_time = "{{ creation_time }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    script_id = "{{ script_id }}"
+    size_on_disk = "{{ size_on_disk }}"
+    storage_location = "{
+    bucket = {{ bucket }}
+    key = {{ key }}
+    object_version = {{ object_version }}
+    role_arn = {{ role_arn }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    version = "{{ version }}"
+}

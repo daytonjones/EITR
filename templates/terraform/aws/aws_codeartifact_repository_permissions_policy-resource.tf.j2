@@ -1,0 +1,9 @@
+resource "aws_codeartifact_repository_permissions_policy" "example" {
+    domain = "{{ domain }}"
+    domain_owner = "{{ domain_owner }}"
+    id = "{{ id }}"
+    policy_document = "{{ policy_document }}"
+    policy_revision = "{{ policy_revision }}"
+    repository = "{{ repository }}"
+    resource_arn = "{{ resource_arn }}"
+}

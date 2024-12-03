@@ -1,0 +1,10 @@
+data "azurerm_database_migration_project" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    service_name = "{{ service_name }}"
+    source_platform = "{{ source_platform }}"
+    tags = "{{ tags }}"
+    target_platform = "{{ target_platform }}"
+}

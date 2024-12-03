@@ -1,0 +1,10 @@
+data "awscc_ses_template" "example" {
+    id = "{{ id }}"
+    template = "{
+    html_part = {{ html_part }}
+    subject_part = {{ subject_part }}
+    template_name = {{ template_name }}
+    text_part = {{ text_part }}
+}"
+    template_id = "{{ template_id }}"
+}

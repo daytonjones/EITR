@@ -1,0 +1,9 @@
+data "azurerm_redis_enterprise_database" "example" {
+    cluster_id = "{{ cluster_id }}"
+    id = "{{ id }}"
+    linked_database_group_nickname = "{{ linked_database_group_nickname }}"
+    linked_database_id = "{{ linked_database_id }}"
+    name = "{{ name }}"
+    primary_access_key = "{{ primary_access_key }}"
+    secondary_access_key = "{{ secondary_access_key }}"
+}

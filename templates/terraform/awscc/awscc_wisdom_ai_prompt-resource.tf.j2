@@ -1,0 +1,19 @@
+resource "awscc_wisdom_ai_prompt" "example" {
+    ai_prompt_arn = "{{ ai_prompt_arn }}"
+    ai_prompt_id = "{{ ai_prompt_id }}"
+    api_format = "{{ api_format }}"
+    assistant_arn = "{{ assistant_arn }}"
+    assistant_id = "{{ assistant_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    model_id = "{{ model_id }}"
+    name = "{{ name }}"
+    tags = "{{ tags }}"
+    template_configuration = "{
+    text_full_ai_prompt_edit_template_configuration = {
+    text = {{ text }}
+}
+}"
+    template_type = "{{ template_type }}"
+    type = "{{ type }}"
+}

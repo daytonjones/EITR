@@ -1,0 +1,13 @@
+data "kubernetes_server_version" "example" {
+    build_date = "{{ build_date }}"
+    compiler = "{{ compiler }}"
+    git_commit = "{{ git_commit }}"
+    git_tree_state = "{{ git_tree_state }}"
+    git_version = "{{ git_version }}"
+    go_version = "{{ go_version }}"
+    id = "{{ id }}"
+    major = "{{ major }}"
+    minor = "{{ minor }}"
+    platform = "{{ platform }}"
+    version = "{{ version }}"
+}

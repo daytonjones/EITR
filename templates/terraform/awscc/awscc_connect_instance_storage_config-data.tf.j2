@@ -1,0 +1,29 @@
+data "awscc_connect_instance_storage_config" "example" {
+    association_id = "{{ association_id }}"
+    id = "{{ id }}"
+    instance_arn = "{{ instance_arn }}"
+    kinesis_firehose_config = "{
+    firehose_arn = {{ firehose_arn }}
+}"
+    kinesis_stream_config = "{
+    stream_arn = {{ stream_arn }}
+}"
+    kinesis_video_stream_config = "{
+    encryption_config = {
+    encryption_type = {{ encryption_type }}
+    key_id = {{ key_id }}
+}
+    prefix = {{ prefix }}
+    retention_period_hours = {{ retention_period_hours }}
+}"
+    resource_type = "{{ resource_type }}"
+    s3_config = "{
+    bucket_name = {{ bucket_name }}
+    bucket_prefix = {{ bucket_prefix }}
+    encryption_config = {
+    encryption_type = {{ encryption_type }}
+    key_id = {{ key_id }}
+}
+}"
+    storage_type = "{{ storage_type }}"
+}

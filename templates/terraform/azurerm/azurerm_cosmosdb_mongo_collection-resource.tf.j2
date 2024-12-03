@@ -1,0 +1,12 @@
+resource "azurerm_cosmosdb_mongo_collection" "example" {
+    account_name = "{{ account_name }}"
+    analytical_storage_ttl = "{{ analytical_storage_ttl }}"
+    database_name = "{{ database_name }}"
+    default_ttl_seconds = "{{ default_ttl_seconds }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    shard_key = "{{ shard_key }}"
+    system_indexes = "{{ system_indexes }}"
+    throughput = "{{ throughput }}"
+}

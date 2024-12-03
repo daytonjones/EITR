@@ -1,0 +1,19 @@
+resource "hcp_notifications_webhook" "example" {
+    config = "{
+    hmac_key = {{ hmac_key }}
+    url = {{ url }}
+}"
+    description = "{{ description }}"
+    enabled = "{{ enabled }}"
+    name = "{{ name }}"
+    project_id = "{{ project_id }}"
+    resource_id = "{{ resource_id }}"
+    resource_name = "{{ resource_name }}"
+    subscriptions = "{
+    events = {
+    actions = {{ actions }}
+    source = {{ source }}
+}
+    resource_id = {{ resource_id }}
+}"
+}

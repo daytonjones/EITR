@@ -1,0 +1,25 @@
+data "awscc_medialive_multiplex" "example" {
+    arn = "{{ arn }}"
+    availability_zones = "{{ availability_zones }}"
+    destinations = "{
+    multiplex_media_connect_output_destination_settings = {
+    entitlement_arn = {{ entitlement_arn }}
+}
+}"
+    id = "{{ id }}"
+    multiplex_id = "{{ multiplex_id }}"
+    multiplex_settings = "{
+    maximum_video_buffer_delay_milliseconds = {{ maximum_video_buffer_delay_milliseconds }}
+    transport_stream_bitrate = {{ transport_stream_bitrate }}
+    transport_stream_id = {{ transport_stream_id }}
+    transport_stream_reserved_bitrate = {{ transport_stream_reserved_bitrate }}
+}"
+    name = "{{ name }}"
+    pipelines_running_count = "{{ pipelines_running_count }}"
+    program_count = "{{ program_count }}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

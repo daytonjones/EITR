@@ -1,0 +1,14 @@
+resource "aws_api_gateway_method" "example" {
+    api_key_required = "{{ api_key_required }}"
+    authorization = "{{ authorization }}"
+    authorization_scopes = "{{ authorization_scopes }}"
+    authorizer_id = "{{ authorizer_id }}"
+    http_method = "{{ http_method }}"
+    id = "{{ id }}"
+    operation_name = "{{ operation_name }}"
+    request_models = "{{ request_models }}"
+    request_parameters = "{{ request_parameters }}"
+    request_validator_id = "{{ request_validator_id }}"
+    resource_id = "{{ resource_id }}"
+    rest_api_id = "{{ rest_api_id }}"
+}

@@ -1,0 +1,22 @@
+data "awscc_forecast_dataset" "example" {
+    arn = "{{ arn }}"
+    data_frequency = "{{ data_frequency }}"
+    dataset_name = "{{ dataset_name }}"
+    dataset_type = "{{ dataset_type }}"
+    domain = "{{ domain }}"
+    encryption_config = "{
+    kms_key_arn = {{ kms_key_arn }}
+    role_arn = {{ role_arn }}
+}"
+    id = "{{ id }}"
+    schema = "{
+    attributes = {
+    attribute_name = {{ attribute_name }}
+    attribute_type = {{ attribute_type }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

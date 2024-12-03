@@ -1,0 +1,16 @@
+resource "azurerm_blueprint_assignment" "example" {
+    blueprint_name = "{{ blueprint_name }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    lock_exclude_actions = "{{ lock_exclude_actions }}"
+    lock_exclude_principals = "{{ lock_exclude_principals }}"
+    lock_mode = "{{ lock_mode }}"
+    name = "{{ name }}"
+    parameter_values = "{{ parameter_values }}"
+    resource_groups = "{{ resource_groups }}"
+    target_subscription_id = "{{ target_subscription_id }}"
+    type = "{{ type }}"
+    version_id = "{{ version_id }}"
+}

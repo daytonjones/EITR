@@ -1,0 +1,14 @@
+resource "azurerm_arc_machine_extension" "example" {
+    arc_machine_id = "{{ arc_machine_id }}"
+    automatic_upgrade_enabled = "{{ automatic_upgrade_enabled }}"
+    force_update_tag = "{{ force_update_tag }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    protected_settings = "{{ protected_settings }}"
+    publisher = "{{ publisher }}"
+    settings = "{{ settings }}"
+    tags = "{{ tags }}"
+    type = "{{ type }}"
+    type_handler_version = "{{ type_handler_version }}"
+}

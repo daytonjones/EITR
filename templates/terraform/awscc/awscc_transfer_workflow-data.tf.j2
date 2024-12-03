@@ -1,0 +1,106 @@
+data "awscc_transfer_workflow" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    on_exception_steps = "{
+    copy_step_details = {
+    destination_file_location = {
+    s3_file_location = {
+    bucket = {{ bucket }}
+    key = {{ key }}
+}
+}
+    name = {{ name }}
+    overwrite_existing = {{ overwrite_existing }}
+    source_file_location = {{ source_file_location }}
+}
+    custom_step_details = {
+    name = {{ name }}
+    source_file_location = {{ source_file_location }}
+    target = {{ target }}
+    timeout_seconds = {{ timeout_seconds }}
+}
+    decrypt_step_details = {
+    destination_file_location = {
+    efs_file_location = {
+    file_system_id = {{ file_system_id }}
+    path = {{ path }}
+}
+    s3_file_location = {
+    bucket = {{ bucket }}
+    key = {{ key }}
+}
+}
+    name = {{ name }}
+    overwrite_existing = {{ overwrite_existing }}
+    source_file_location = {{ source_file_location }}
+    type = {{ type }}
+}
+    delete_step_details = {
+    name = {{ name }}
+    source_file_location = {{ source_file_location }}
+}
+    tag_step_details = {
+    name = {{ name }}
+    source_file_location = {{ source_file_location }}
+    tags = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}
+    type = {{ type }}
+}"
+    steps = "{
+    copy_step_details = {
+    destination_file_location = {
+    s3_file_location = {
+    bucket = {{ bucket }}
+    key = {{ key }}
+}
+}
+    name = {{ name }}
+    overwrite_existing = {{ overwrite_existing }}
+    source_file_location = {{ source_file_location }}
+}
+    custom_step_details = {
+    name = {{ name }}
+    source_file_location = {{ source_file_location }}
+    target = {{ target }}
+    timeout_seconds = {{ timeout_seconds }}
+}
+    decrypt_step_details = {
+    destination_file_location = {
+    efs_file_location = {
+    file_system_id = {{ file_system_id }}
+    path = {{ path }}
+}
+    s3_file_location = {
+    bucket = {{ bucket }}
+    key = {{ key }}
+}
+}
+    name = {{ name }}
+    overwrite_existing = {{ overwrite_existing }}
+    source_file_location = {{ source_file_location }}
+    type = {{ type }}
+}
+    delete_step_details = {
+    name = {{ name }}
+    source_file_location = {{ source_file_location }}
+}
+    tag_step_details = {
+    name = {{ name }}
+    source_file_location = {{ source_file_location }}
+    tags = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}
+    type = {{ type }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    workflow_id = "{{ workflow_id }}"
+}

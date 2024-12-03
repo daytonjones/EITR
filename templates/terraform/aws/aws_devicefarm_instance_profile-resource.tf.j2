@@ -1,0 +1,11 @@
+resource "aws_devicefarm_instance_profile" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    exclude_app_packages_from_cleanup = "{{ exclude_app_packages_from_cleanup }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    package_cleanup = "{{ package_cleanup }}"
+    reboot_after_use = "{{ reboot_after_use }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

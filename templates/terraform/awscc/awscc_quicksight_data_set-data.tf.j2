@@ -1,0 +1,140 @@
+data "awscc_quicksight_data_set" "example" {
+    arn = "{{ arn }}"
+    aws_account_id = "{{ aws_account_id }}"
+    column_groups = "{
+    geo_spatial_column_group = {
+    columns = {{ columns }}
+    country_code = {{ country_code }}
+    name = {{ name }}
+}
+}"
+    column_level_permission_rules = "{
+    column_names = {{ column_names }}
+    principals = {{ principals }}
+}"
+    consumed_spice_capacity_in_bytes = "{{ consumed_spice_capacity_in_bytes }}"
+    created_time = "{{ created_time }}"
+    data_set_id = "{{ data_set_id }}"
+    data_set_usage_configuration = "{
+    disable_use_as_direct_query_source = {{ disable_use_as_direct_query_source }}
+    disable_use_as_imported_source = {{ disable_use_as_imported_source }}
+}"
+    field_folders = "{
+    columns = {{ columns }}
+    description = {{ description }}
+}"
+    id = "{{ id }}"
+    import_mode = "{{ import_mode }}"
+    ingestion_wait_policy = "{
+    ingestion_wait_time_in_hours = {{ ingestion_wait_time_in_hours }}
+    wait_for_spice_ingestion = {{ wait_for_spice_ingestion }}
+}"
+    last_updated_time = "{{ last_updated_time }}"
+    logical_table_map = "{
+    alias = {{ alias }}
+    data_transforms = {
+    cast_column_type_operation = {
+    column_name = {{ column_name }}
+    format = {{ format }}
+    new_column_type = {{ new_column_type }}
+}
+    create_columns_operation = {
+    columns = {
+    column_id = {{ column_id }}
+    column_name = {{ column_name }}
+    expression = {{ expression }}
+}
+}
+    filter_operation = {
+    condition_expression = {{ condition_expression }}
+}
+    project_operation = {
+    projected_columns = {{ projected_columns }}
+}
+    rename_column_operation = {
+    column_name = {{ column_name }}
+    new_column_name = {{ new_column_name }}
+}
+    tag_column_operation = {
+    column_name = {{ column_name }}
+    tags = {
+    column_description = {
+    text = {{ text }}
+}
+    column_geographic_role = {{ column_geographic_role }}
+}
+}
+}
+    source = {
+    data_set_arn = {{ data_set_arn }}
+    join_instruction = {
+    left_join_key_properties = {
+    unique_key = {{ unique_key }}
+}
+    left_operand = {{ left_operand }}
+    on_clause = {{ on_clause }}
+    right_join_key_properties = {
+    unique_key = {{ unique_key }}
+}
+    right_operand = {{ right_operand }}
+    type = {{ type }}
+}
+    physical_table_id = {{ physical_table_id }}
+}
+}"
+    name = "{{ name }}"
+    output_columns = "{
+    description = {{ description }}
+    name = {{ name }}
+    type = {{ type }}
+}"
+    permissions = "{
+    actions = {{ actions }}
+    principal = {{ principal }}
+}"
+    physical_table_map = "{
+    custom_sql = {
+    columns = {
+    name = {{ name }}
+    type = {{ type }}
+}
+    data_source_arn = {{ data_source_arn }}
+    name = {{ name }}
+    sql_query = {{ sql_query }}
+}
+    relational_table = {
+    catalog = {{ catalog }}
+    data_source_arn = {{ data_source_arn }}
+    input_columns = {
+    name = {{ name }}
+    type = {{ type }}
+}
+    name = {{ name }}
+    schema = {{ schema }}
+}
+    s3_source = {
+    data_source_arn = {{ data_source_arn }}
+    input_columns = {
+    name = {{ name }}
+    type = {{ type }}
+}
+    upload_settings = {
+    contains_header = {{ contains_header }}
+    delimiter = {{ delimiter }}
+    format = {{ format }}
+    start_from_row = {{ start_from_row }}
+    text_qualifier = {{ text_qualifier }}
+}
+}
+}"
+    row_level_permission_data_set = "{
+    arn = {{ arn }}
+    format_version = {{ format_version }}
+    namespace = {{ namespace }}
+    permission_policy = {{ permission_policy }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

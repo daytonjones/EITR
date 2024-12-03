@@ -1,0 +1,6 @@
+resource "aws_acmpca_certificate_authority_certificate" "example" {
+    certificate = "{{ certificate }}"
+    certificate_authority_arn = "{{ certificate_authority_arn }}"
+    certificate_chain = "{{ certificate_chain }}"
+    id = "{{ id }}"
+}

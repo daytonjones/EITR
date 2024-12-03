@@ -1,0 +1,18 @@
+resource "google_compute_network_firewall_policy_rule" "example" {
+    action = "{{ action }}"
+    creation_timestamp = "{{ creation_timestamp }}"
+    description = "{{ description }}"
+    direction = "{{ direction }}"
+    disabled = "{{ disabled }}"
+    enable_logging = "{{ enable_logging }}"
+    firewall_policy = "{{ firewall_policy }}"
+    id = "{{ id }}"
+    kind = "{{ kind }}"
+    priority = "{{ priority }}"
+    project = "{{ project }}"
+    rule_name = "{{ rule_name }}"
+    rule_tuple_count = "{{ rule_tuple_count }}"
+    security_profile_group = "{{ security_profile_group }}"
+    target_service_accounts = "{{ target_service_accounts }}"
+    tls_inspect = "{{ tls_inspect }}"
+}

@@ -1,0 +1,9 @@
+resource "azurerm_cosmosdb_sql_role_assignment" "example" {
+    account_name = "{{ account_name }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    principal_id = "{{ principal_id }}"
+    resource_group_name = "{{ resource_group_name }}"
+    role_definition_id = "{{ role_definition_id }}"
+    scope = "{{ scope }}"
+}

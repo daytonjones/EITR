@@ -1,0 +1,55 @@
+resource "awscc_appsync_data_source" "example" {
+    api_id = "{{ api_id }}"
+    data_source_arn = "{{ data_source_arn }}"
+    description = "{{ description }}"
+    dynamo_db_config = "{
+    aws_region = {{ aws_region }}
+    delta_sync_config = {
+    base_table_ttl = {{ base_table_ttl }}
+    delta_sync_table_name = {{ delta_sync_table_name }}
+    delta_sync_table_ttl = {{ delta_sync_table_ttl }}
+}
+    table_name = {{ table_name }}
+    use_caller_credentials = {{ use_caller_credentials }}
+    versioned = {{ versioned }}
+}"
+    elasticsearch_config = "{
+    aws_region = {{ aws_region }}
+    endpoint = {{ endpoint }}
+}"
+    event_bridge_config = "{
+    event_bus_arn = {{ event_bus_arn }}
+}"
+    http_config = "{
+    authorization_config = {
+    authorization_type = {{ authorization_type }}
+    aws_iam_config = {
+    signing_region = {{ signing_region }}
+    signing_service_name = {{ signing_service_name }}
+}
+}
+    endpoint = {{ endpoint }}
+}"
+    id = "{{ id }}"
+    lambda_config = "{
+    lambda_function_arn = {{ lambda_function_arn }}
+}"
+    metrics_config = "{{ metrics_config }}"
+    name = "{{ name }}"
+    open_search_service_config = "{
+    aws_region = {{ aws_region }}
+    endpoint = {{ endpoint }}
+}"
+    relational_database_config = "{
+    rds_http_endpoint_config = {
+    aws_region = {{ aws_region }}
+    aws_secret_store_arn = {{ aws_secret_store_arn }}
+    database_name = {{ database_name }}
+    db_cluster_identifier = {{ db_cluster_identifier }}
+    schema = {{ schema }}
+}
+    relational_database_source_type = {{ relational_database_source_type }}
+}"
+    service_role_arn = "{{ service_role_arn }}"
+    type = "{{ type }}"
+}

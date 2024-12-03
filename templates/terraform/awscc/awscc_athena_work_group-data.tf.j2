@@ -1,0 +1,70 @@
+data "awscc_athena_work_group" "example" {
+    creation_time = "{{ creation_time }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    recursive_delete_option = "{{ recursive_delete_option }}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    work_group_configuration = "{
+    additional_configuration = {{ additional_configuration }}
+    bytes_scanned_cutoff_per_query = {{ bytes_scanned_cutoff_per_query }}
+    customer_content_encryption_configuration = {
+    kms_key = {{ kms_key }}
+}
+    enforce_work_group_configuration = {{ enforce_work_group_configuration }}
+    engine_version = {
+    effective_engine_version = {{ effective_engine_version }}
+    selected_engine_version = {{ selected_engine_version }}
+}
+    execution_role = {{ execution_role }}
+    publish_cloudwatch_metrics_enabled = {{ publish_cloudwatch_metrics_enabled }}
+    requester_pays_enabled = {{ requester_pays_enabled }}
+    result_configuration = {
+    acl_configuration = {
+    s3_acl_option = {{ s3_acl_option }}
+}
+    encryption_configuration = {
+    encryption_option = {{ encryption_option }}
+    kms_key = {{ kms_key }}
+}
+    expected_bucket_owner = {{ expected_bucket_owner }}
+    output_location = {{ output_location }}
+}
+}"
+    work_group_configuration_updates = "{
+    additional_configuration = {{ additional_configuration }}
+    bytes_scanned_cutoff_per_query = {{ bytes_scanned_cutoff_per_query }}
+    customer_content_encryption_configuration = {
+    kms_key = {{ kms_key }}
+}
+    enforce_work_group_configuration = {{ enforce_work_group_configuration }}
+    engine_version = {
+    effective_engine_version = {{ effective_engine_version }}
+    selected_engine_version = {{ selected_engine_version }}
+}
+    execution_role = {{ execution_role }}
+    publish_cloudwatch_metrics_enabled = {{ publish_cloudwatch_metrics_enabled }}
+    remove_bytes_scanned_cutoff_per_query = {{ remove_bytes_scanned_cutoff_per_query }}
+    remove_customer_content_encryption_configuration = {{ remove_customer_content_encryption_configuration }}
+    requester_pays_enabled = {{ requester_pays_enabled }}
+    result_configuration_updates = {
+    acl_configuration = {
+    s3_acl_option = {{ s3_acl_option }}
+}
+    encryption_configuration = {
+    encryption_option = {{ encryption_option }}
+    kms_key = {{ kms_key }}
+}
+    expected_bucket_owner = {{ expected_bucket_owner }}
+    output_location = {{ output_location }}
+    remove_acl_configuration = {{ remove_acl_configuration }}
+    remove_encryption_configuration = {{ remove_encryption_configuration }}
+    remove_expected_bucket_owner = {{ remove_expected_bucket_owner }}
+    remove_output_location = {{ remove_output_location }}
+}
+}"
+}

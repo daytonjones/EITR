@@ -1,0 +1,7 @@
+resource "aws_ec2_client_vpn_network_association" "example" {
+    association_id = "{{ association_id }}"
+    client_vpn_endpoint_id = "{{ client_vpn_endpoint_id }}"
+    id = "{{ id }}"
+    subnet_id = "{{ subnet_id }}"
+    vpc_id = "{{ vpc_id }}"
+}

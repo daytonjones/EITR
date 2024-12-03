@@ -1,0 +1,41 @@
+data "awscc_neptune_db_cluster" "example" {
+    associated_roles = "{
+    feature_name = {{ feature_name }}
+    role_arn = {{ role_arn }}
+}"
+    availability_zones = "{{ availability_zones }}"
+    backup_retention_period = "{{ backup_retention_period }}"
+    cluster_resource_id = "{{ cluster_resource_id }}"
+    copy_tags_to_snapshot = "{{ copy_tags_to_snapshot }}"
+    db_cluster_identifier = "{{ db_cluster_identifier }}"
+    db_cluster_parameter_group_name = "{{ db_cluster_parameter_group_name }}"
+    db_instance_parameter_group_name = "{{ db_instance_parameter_group_name }}"
+    db_port = "{{ db_port }}"
+    db_subnet_group_name = "{{ db_subnet_group_name }}"
+    deletion_protection = "{{ deletion_protection }}"
+    enable_cloudwatch_logs_exports = "{{ enable_cloudwatch_logs_exports }}"
+    endpoint = "{{ endpoint }}"
+    engine_version = "{{ engine_version }}"
+    iam_auth_enabled = "{{ iam_auth_enabled }}"
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    port = "{{ port }}"
+    preferred_backup_window = "{{ preferred_backup_window }}"
+    preferred_maintenance_window = "{{ preferred_maintenance_window }}"
+    read_endpoint = "{{ read_endpoint }}"
+    restore_to_time = "{{ restore_to_time }}"
+    restore_type = "{{ restore_type }}"
+    serverless_scaling_configuration = "{
+    max_capacity = {{ max_capacity }}
+    min_capacity = {{ min_capacity }}
+}"
+    snapshot_identifier = "{{ snapshot_identifier }}"
+    source_db_cluster_identifier = "{{ source_db_cluster_identifier }}"
+    storage_encrypted = "{{ storage_encrypted }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    use_latest_restorable_time = "{{ use_latest_restorable_time }}"
+    vpc_security_group_ids = "{{ vpc_security_group_ids }}"
+}

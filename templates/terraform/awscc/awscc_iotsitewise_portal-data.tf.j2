@@ -1,0 +1,25 @@
+data "awscc_iotsitewise_portal" "example" {
+    alarms = "{
+    alarm_role_arn = {{ alarm_role_arn }}
+    notification_lambda_arn = {{ notification_lambda_arn }}
+}"
+    id = "{{ id }}"
+    notification_sender_email = "{{ notification_sender_email }}"
+    portal_arn = "{{ portal_arn }}"
+    portal_auth_mode = "{{ portal_auth_mode }}"
+    portal_client_id = "{{ portal_client_id }}"
+    portal_contact_email = "{{ portal_contact_email }}"
+    portal_description = "{{ portal_description }}"
+    portal_id = "{{ portal_id }}"
+    portal_name = "{{ portal_name }}"
+    portal_start_url = "{{ portal_start_url }}"
+    portal_type = "{{ portal_type }}"
+    portal_type_configuration = "{
+    portal_tools = {{ portal_tools }}
+}"
+    role_arn = "{{ role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

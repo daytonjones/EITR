@@ -1,0 +1,8 @@
+resource "aws_ec2_client_vpn_authorization_rule" "example" {
+    access_group_id = "{{ access_group_id }}"
+    authorize_all_groups = "{{ authorize_all_groups }}"
+    client_vpn_endpoint_id = "{{ client_vpn_endpoint_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    target_network_cidr = "{{ target_network_cidr }}"
+}

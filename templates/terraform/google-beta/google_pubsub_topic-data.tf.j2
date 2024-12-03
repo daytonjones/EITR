@@ -1,0 +1,13 @@
+data "google_pubsub_topic" "example" {
+    effective_labels = "{{ effective_labels }}"
+    id = "{{ id }}"
+    ingestion_data_source_settings = "{{ ingestion_data_source_settings }}"
+    kms_key_name = "{{ kms_key_name }}"
+    labels = "{{ labels }}"
+    message_retention_duration = "{{ message_retention_duration }}"
+    message_storage_policy = "{{ message_storage_policy }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    schema_settings = "{{ schema_settings }}"
+    terraform_labels = "{{ terraform_labels }}"
+}

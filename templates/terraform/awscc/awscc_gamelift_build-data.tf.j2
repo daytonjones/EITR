@@ -1,0 +1,14 @@
+data "awscc_gamelift_build" "example" {
+    build_id = "{{ build_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    operating_system = "{{ operating_system }}"
+    server_sdk_version = "{{ server_sdk_version }}"
+    storage_location = "{
+    bucket = {{ bucket }}
+    key = {{ key }}
+    object_version = {{ object_version }}
+    role_arn = {{ role_arn }}
+}"
+    version = "{{ version }}"
+}

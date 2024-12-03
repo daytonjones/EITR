@@ -1,0 +1,10 @@
+resource "awscc_redshift_cluster_subnet_group" "example" {
+    cluster_subnet_group_name = "{{ cluster_subnet_group_name }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    subnet_ids = "{{ subnet_ids }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

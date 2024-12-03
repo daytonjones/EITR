@@ -1,0 +1,13 @@
+resource "azurerm_data_factory_trigger_custom_event" "example" {
+    activated = "{{ activated }}"
+    additional_properties = "{{ additional_properties }}"
+    annotations = "{{ annotations }}"
+    data_factory_id = "{{ data_factory_id }}"
+    description = "{{ description }}"
+    eventgrid_topic_id = "{{ eventgrid_topic_id }}"
+    events = "{{ events }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    subject_begins_with = "{{ subject_begins_with }}"
+    subject_ends_with = "{{ subject_ends_with }}"
+}

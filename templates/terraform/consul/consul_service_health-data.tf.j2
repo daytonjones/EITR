@@ -1,0 +1,12 @@
+data "consul_service_health" "example" {
+    datacenter = "{{ datacenter }}"
+    filter = "{{ filter }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    near = "{{ near }}"
+    node_meta = "{{ node_meta }}"
+    passing = "{{ passing }}"
+    results = "{{ results }}"
+    tag = "{{ tag }}"
+    wait_for = "{{ wait_for }}"
+}

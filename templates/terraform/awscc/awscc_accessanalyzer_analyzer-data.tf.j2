@@ -1,0 +1,25 @@
+data "awscc_accessanalyzer_analyzer" "example" {
+    analyzer_configuration = "{
+    unused_access_configuration = {
+    unused_access_age = {{ unused_access_age }}
+}
+}"
+    analyzer_name = "{{ analyzer_name }}"
+    archive_rules = "{
+    filter = {
+    contains = {{ contains }}
+    eq = {{ eq }}
+    exists = {{ exists }}
+    neq = {{ neq }}
+    property = {{ property }}
+}
+    rule_name = {{ rule_name }}
+}"
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+}

@@ -1,0 +1,15 @@
+resource "aws_securitylake_subscriber" "example" {
+    access_type = "{{ access_type }}"
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    resource_share_arn = "{{ resource_share_arn }}"
+    resource_share_name = "{{ resource_share_name }}"
+    role_arn = "{{ role_arn }}"
+    s3_bucket_arn = "{{ s3_bucket_arn }}"
+    subscriber_description = "{{ subscriber_description }}"
+    subscriber_endpoint = "{{ subscriber_endpoint }}"
+    subscriber_name = "{{ subscriber_name }}"
+    subscriber_status = "{{ subscriber_status }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

@@ -1,0 +1,6 @@
+resource "kubernetes_manifest" "example" {
+    computed_fields = "{{ computed_fields }}"
+    manifest = "{{ manifest }}"
+    object = "{{ object }}"
+    wait_for = "{{ wait_for }}"
+}

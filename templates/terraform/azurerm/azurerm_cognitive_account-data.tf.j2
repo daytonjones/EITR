@@ -1,0 +1,15 @@
+data "azurerm_cognitive_account" "example" {
+    endpoint = "{{ endpoint }}"
+    id = "{{ id }}"
+    identity = "{{ identity }}"
+    kind = "{{ kind }}"
+    local_auth_enabled = "{{ local_auth_enabled }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    primary_access_key = "{{ primary_access_key }}"
+    qna_runtime_endpoint = "{{ qna_runtime_endpoint }}"
+    resource_group_name = "{{ resource_group_name }}"
+    secondary_access_key = "{{ secondary_access_key }}"
+    sku_name = "{{ sku_name }}"
+    tags = "{{ tags }}"
+}

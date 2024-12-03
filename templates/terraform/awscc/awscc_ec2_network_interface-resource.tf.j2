@@ -1,0 +1,41 @@
+resource "awscc_ec2_network_interface" "example" {
+    connection_tracking_specification = "{
+    tcp_established_timeout = {{ tcp_established_timeout }}
+    udp_stream_timeout = {{ udp_stream_timeout }}
+    udp_timeout = {{ udp_timeout }}
+}"
+    description = "{{ description }}"
+    enable_primary_ipv_6 = "{{ enable_primary_ipv_6 }}"
+    group_set = "{{ group_set }}"
+    id = "{{ id }}"
+    interface_type = "{{ interface_type }}"
+    ipv_4_prefix_count = "{{ ipv_4_prefix_count }}"
+    ipv_4_prefixes = "{
+    ipv_4_prefix = {{ ipv_4_prefix }}
+}"
+    ipv_6_address_count = "{{ ipv_6_address_count }}"
+    ipv_6_addresses = "{
+    ipv_6_address = {{ ipv_6_address }}
+}"
+    ipv_6_prefix_count = "{{ ipv_6_prefix_count }}"
+    ipv_6_prefixes = "{
+    ipv_6_prefix = {{ ipv_6_prefix }}
+}"
+    network_interface_id = "{{ network_interface_id }}"
+    primary_ipv_6_address = "{{ primary_ipv_6_address }}"
+    primary_private_ip_address = "{{ primary_private_ip_address }}"
+    private_ip_address = "{{ private_ip_address }}"
+    private_ip_addresses = "{
+    primary = {{ primary }}
+    private_ip_address = {{ private_ip_address }}
+}"
+    secondary_private_ip_address_count = "{{ secondary_private_ip_address_count }}"
+    secondary_private_ip_addresses = "{{ secondary_private_ip_addresses }}"
+    source_dest_check = "{{ source_dest_check }}"
+    subnet_id = "{{ subnet_id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    vpc_id = "{{ vpc_id }}"
+}

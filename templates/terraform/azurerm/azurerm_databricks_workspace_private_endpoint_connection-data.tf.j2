@@ -1,0 +1,6 @@
+data "azurerm_databricks_workspace_private_endpoint_connection" "example" {
+    connections = "{{ connections }}"
+    id = "{{ id }}"
+    private_endpoint_id = "{{ private_endpoint_id }}"
+    workspace_id = "{{ workspace_id }}"
+}

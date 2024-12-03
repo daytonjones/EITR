@@ -1,0 +1,10 @@
+data "azurerm_cdn_frontdoor_firewall_policy" "example" {
+    enabled = "{{ enabled }}"
+    frontend_endpoint_ids = "{{ frontend_endpoint_ids }}"
+    id = "{{ id }}"
+    mode = "{{ mode }}"
+    name = "{{ name }}"
+    redirect_url = "{{ redirect_url }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku_name = "{{ sku_name }}"
+}

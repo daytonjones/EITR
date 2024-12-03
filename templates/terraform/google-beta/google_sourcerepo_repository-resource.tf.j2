@@ -1,0 +1,8 @@
+resource "google_sourcerepo_repository" "example" {
+    create_ignore_already_exists = "{{ create_ignore_already_exists }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    size = "{{ size }}"
+    url = "{{ url }}"
+}

@@ -1,0 +1,11 @@
+resource "awscc_memorydb_acl" "example" {
+    acl_name = "{{ acl_name }}"
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    user_names = "{{ user_names }}"
+}

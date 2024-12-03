@@ -1,0 +1,18 @@
+data "aws_vpc_endpoint_service" "example" {
+    acceptance_required = "{{ acceptance_required }}"
+    arn = "{{ arn }}"
+    availability_zones = "{{ availability_zones }}"
+    base_endpoint_dns_names = "{{ base_endpoint_dns_names }}"
+    id = "{{ id }}"
+    manages_vpc_endpoints = "{{ manages_vpc_endpoints }}"
+    owner = "{{ owner }}"
+    private_dns_name = "{{ private_dns_name }}"
+    private_dns_names = "{{ private_dns_names }}"
+    service = "{{ service }}"
+    service_id = "{{ service_id }}"
+    service_name = "{{ service_name }}"
+    service_type = "{{ service_type }}"
+    supported_ip_address_types = "{{ supported_ip_address_types }}"
+    tags = "{{ tags }}"
+    vpc_endpoint_policy_supported = "{{ vpc_endpoint_policy_supported }}"
+}

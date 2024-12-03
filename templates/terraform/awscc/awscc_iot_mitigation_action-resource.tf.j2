@@ -1,0 +1,33 @@
+resource "awscc_iot_mitigation_action" "example" {
+    action_name = "{{ action_name }}"
+    action_params = "{
+    add_things_to_thing_group_params = {
+    override_dynamic_groups = {{ override_dynamic_groups }}
+    thing_group_names = {{ thing_group_names }}
+}
+    enable_io_t_logging_params = {
+    log_level = {{ log_level }}
+    role_arn_for_logging = {{ role_arn_for_logging }}
+}
+    publish_finding_to_sns_params = {
+    topic_arn = {{ topic_arn }}
+}
+    replace_default_policy_version_params = {
+    template_name = {{ template_name }}
+}
+    update_ca_certificate_params = {
+    action = {{ action }}
+}
+    update_device_certificate_params = {
+    action = {{ action }}
+}
+}"
+    id = "{{ id }}"
+    mitigation_action_arn = "{{ mitigation_action_arn }}"
+    mitigation_action_id = "{{ mitigation_action_id }}"
+    role_arn = "{{ role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

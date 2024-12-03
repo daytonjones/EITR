@@ -1,0 +1,11 @@
+data "awscc_evidently_segment" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    pattern = "{{ pattern }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

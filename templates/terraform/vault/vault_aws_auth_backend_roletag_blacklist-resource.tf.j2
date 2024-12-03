@@ -1,0 +1,7 @@
+resource "vault_aws_auth_backend_roletag_blacklist" "example" {
+    backend = "{{ backend }}"
+    disable_periodic_tidy = "{{ disable_periodic_tidy }}"
+    id = "{{ id }}"
+    namespace = "{{ namespace }}"
+    safety_buffer = "{{ safety_buffer }}"
+}

@@ -1,0 +1,11 @@
+resource "awscc_gamelift_matchmaking_rule_set" "example" {
+    arn = "{{ arn }}"
+    creation_time = "{{ creation_time }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    rule_set_body = "{{ rule_set_body }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

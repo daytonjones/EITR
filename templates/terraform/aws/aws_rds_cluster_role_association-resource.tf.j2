@@ -1,0 +1,6 @@
+resource "aws_rds_cluster_role_association" "example" {
+    db_cluster_identifier = "{{ db_cluster_identifier }}"
+    feature_name = "{{ feature_name }}"
+    id = "{{ id }}"
+    role_arn = "{{ role_arn }}"
+}

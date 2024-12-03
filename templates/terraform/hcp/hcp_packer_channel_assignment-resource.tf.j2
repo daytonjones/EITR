@@ -1,0 +1,8 @@
+resource "hcp_packer_channel_assignment" "example" {
+    bucket_name = "{{ bucket_name }}"
+    channel_name = "{{ channel_name }}"
+    id = "{{ id }}"
+    organization_id = "{{ organization_id }}"
+    project_id = "{{ project_id }}"
+    version_fingerprint = "{{ version_fingerprint }}"
+}

@@ -1,0 +1,14 @@
+resource "azurerm_iothub_shared_access_policy" "example" {
+    device_connect = "{{ device_connect }}"
+    id = "{{ id }}"
+    iothub_name = "{{ iothub_name }}"
+    name = "{{ name }}"
+    primary_connection_string = "{{ primary_connection_string }}"
+    primary_key = "{{ primary_key }}"
+    registry_read = "{{ registry_read }}"
+    registry_write = "{{ registry_write }}"
+    resource_group_name = "{{ resource_group_name }}"
+    secondary_connection_string = "{{ secondary_connection_string }}"
+    secondary_key = "{{ secondary_key }}"
+    service_connect = "{{ service_connect }}"
+}

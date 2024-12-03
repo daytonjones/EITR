@@ -1,0 +1,14 @@
+data "awscc_wafv2_ip_set" "example" {
+    addresses = "{{ addresses }}"
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    ip_address_version = "{{ ip_address_version }}"
+    ip_set_id = "{{ ip_set_id }}"
+    name = "{{ name }}"
+    scope = "{{ scope }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

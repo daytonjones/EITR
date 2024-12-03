@@ -1,0 +1,6 @@
+resource "aws_vpc_endpoint_connection_accepter" "example" {
+    id = "{{ id }}"
+    vpc_endpoint_id = "{{ vpc_endpoint_id }}"
+    vpc_endpoint_service_id = "{{ vpc_endpoint_service_id }}"
+    vpc_endpoint_state = "{{ vpc_endpoint_state }}"
+}

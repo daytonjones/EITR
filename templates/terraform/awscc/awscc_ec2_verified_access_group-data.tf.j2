@@ -1,0 +1,20 @@
+data "awscc_ec2_verified_access_group" "example" {
+    creation_time = "{{ creation_time }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    last_updated_time = "{{ last_updated_time }}"
+    owner = "{{ owner }}"
+    policy_document = "{{ policy_document }}"
+    policy_enabled = "{{ policy_enabled }}"
+    sse_specification = "{
+    customer_managed_key_enabled = {{ customer_managed_key_enabled }}
+    kms_key_arn = {{ kms_key_arn }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    verified_access_group_arn = "{{ verified_access_group_arn }}"
+    verified_access_group_id = "{{ verified_access_group_id }}"
+    verified_access_instance_id = "{{ verified_access_instance_id }}"
+}

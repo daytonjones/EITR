@@ -1,0 +1,12 @@
+resource "azurerm_new_relic_monitor" "example" {
+    account_creation_source = "{{ account_creation_source }}"
+    account_id = "{{ account_id }}"
+    id = "{{ id }}"
+    ingestion_key = "{{ ingestion_key }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    org_creation_source = "{{ org_creation_source }}"
+    organization_id = "{{ organization_id }}"
+    resource_group_name = "{{ resource_group_name }}"
+    user_id = "{{ user_id }}"
+}

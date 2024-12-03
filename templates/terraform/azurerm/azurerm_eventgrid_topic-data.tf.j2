@@ -1,0 +1,10 @@
+data "azurerm_eventgrid_topic" "example" {
+    endpoint = "{{ endpoint }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    primary_access_key = "{{ primary_access_key }}"
+    resource_group_name = "{{ resource_group_name }}"
+    secondary_access_key = "{{ secondary_access_key }}"
+    tags = "{{ tags }}"
+}

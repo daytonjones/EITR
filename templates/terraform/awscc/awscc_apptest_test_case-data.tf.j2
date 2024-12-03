@@ -1,0 +1,92 @@
+data "awscc_apptest_test_case" "example" {
+    creation_time = "{{ creation_time }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    last_update_time = "{{ last_update_time }}"
+    latest_version = "{
+    status = {{ status }}
+    version = {{ version }}
+}"
+    name = "{{ name }}"
+    status = "{{ status }}"
+    steps = "{
+    action = {
+    compare_action = {
+    input = {
+    file = {
+    file_metadata = {
+    data_sets = {
+    ccsid = {{ ccsid }}
+    format = {{ format }}
+    length = {{ length }}
+    name = {{ name }}
+    type = {{ type }}
+}
+    database_cdc = {
+    source_metadata = {
+    capture_tool = {{ capture_tool }}
+    type = {{ type }}
+}
+    target_metadata = {
+    capture_tool = {{ capture_tool }}
+    type = {{ type }}
+}
+}
+}
+    source_location = {{ source_location }}
+    target_location = {{ target_location }}
+}
+}
+    output = {
+    file = {
+    file_location = {{ file_location }}
+}
+}
+}
+    mainframe_action = {
+    action_type = {
+    batch = {
+    batch_job_name = {{ batch_job_name }}
+    batch_job_parameters = {{ batch_job_parameters }}
+    export_data_set_names = {{ export_data_set_names }}
+}
+    tn_3270 = {
+    export_data_set_names = {{ export_data_set_names }}
+    script = {
+    script_location = {{ script_location }}
+    type = {{ type }}
+}
+}
+}
+    properties = {
+    dms_task_arn = {{ dms_task_arn }}
+}
+    resource = {{ resource }}
+}
+    resource_action = {
+    cloudformation_action = {
+    action_type = {{ action_type }}
+    resource = {{ resource }}
+}
+    m2_managed_application_action = {
+    action_type = {{ action_type }}
+    properties = {
+    force_stop = {{ force_stop }}
+    import_data_set_location = {{ import_data_set_location }}
+}
+    resource = {{ resource }}
+}
+    m2_non_managed_application_action = {
+    action_type = {{ action_type }}
+    resource = {{ resource }}
+}
+}
+}
+    description = {{ description }}
+    name = {{ name }}
+}"
+    tags = "{{ tags }}"
+    test_case_arn = "{{ test_case_arn }}"
+    test_case_id = "{{ test_case_id }}"
+    test_case_version = "{{ test_case_version }}"
+}

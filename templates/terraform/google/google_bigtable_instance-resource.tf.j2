@@ -1,0 +1,12 @@
+resource "google_bigtable_instance" "example" {
+    deletion_protection = "{{ deletion_protection }}"
+    display_name = "{{ display_name }}"
+    effective_labels = "{{ effective_labels }}"
+    force_destroy = "{{ force_destroy }}"
+    id = "{{ id }}"
+    instance_type = "{{ instance_type }}"
+    labels = "{{ labels }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    terraform_labels = "{{ terraform_labels }}"
+}

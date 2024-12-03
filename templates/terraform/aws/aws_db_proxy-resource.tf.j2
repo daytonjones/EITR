@@ -1,0 +1,15 @@
+resource "aws_db_proxy" "example" {
+    arn = "{{ arn }}"
+    debug_logging = "{{ debug_logging }}"
+    endpoint = "{{ endpoint }}"
+    engine_family = "{{ engine_family }}"
+    id = "{{ id }}"
+    idle_client_timeout = "{{ idle_client_timeout }}"
+    name = "{{ name }}"
+    require_tls = "{{ require_tls }}"
+    role_arn = "{{ role_arn }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    vpc_security_group_ids = "{{ vpc_security_group_ids }}"
+    vpc_subnet_ids = "{{ vpc_subnet_ids }}"
+}

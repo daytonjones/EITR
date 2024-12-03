@@ -1,0 +1,8 @@
+resource "aws_securitylake_custom_log_source" "example" {
+    attributes = "{{ attributes }}"
+    event_classes = "{{ event_classes }}"
+    id = "{{ id }}"
+    provider_details = "{{ provider_details }}"
+    source_name = "{{ source_name }}"
+    source_version = "{{ source_version }}"
+}

@@ -1,0 +1,18 @@
+resource "azurerm_synapse_spark_pool" "example" {
+    cache_size = "{{ cache_size }}"
+    compute_isolation_enabled = "{{ compute_isolation_enabled }}"
+    dynamic_executor_allocation_enabled = "{{ dynamic_executor_allocation_enabled }}"
+    id = "{{ id }}"
+    max_executors = "{{ max_executors }}"
+    min_executors = "{{ min_executors }}"
+    name = "{{ name }}"
+    node_count = "{{ node_count }}"
+    node_size = "{{ node_size }}"
+    node_size_family = "{{ node_size_family }}"
+    session_level_packages_enabled = "{{ session_level_packages_enabled }}"
+    spark_events_folder = "{{ spark_events_folder }}"
+    spark_log_folder = "{{ spark_log_folder }}"
+    spark_version = "{{ spark_version }}"
+    synapse_workspace_id = "{{ synapse_workspace_id }}"
+    tags = "{{ tags }}"
+}

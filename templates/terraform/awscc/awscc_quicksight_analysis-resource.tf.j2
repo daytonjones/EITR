@@ -1,0 +1,55 @@
+resource "awscc_quicksight_analysis" "example" {
+    analysis_id = "{{ analysis_id }}"
+    arn = "{{ arn }}"
+    aws_account_id = "{{ aws_account_id }}"
+    created_time = "{{ created_time }}"
+    data_set_arns = "{{ data_set_arns }}"
+    errors = "{
+    message = {{ message }}
+    type = {{ type }}
+}"
+    id = "{{ id }}"
+    last_updated_time = "{{ last_updated_time }}"
+    name = "{{ name }}"
+    parameters = "{
+    date_time_parameters = {
+    name = {{ name }}
+    values = {{ values }}
+}
+    decimal_parameters = {
+    name = {{ name }}
+    values = {{ values }}
+}
+    integer_parameters = {
+    name = {{ name }}
+    values = {{ values }}
+}
+    string_parameters = {
+    name = {{ name }}
+    values = {{ values }}
+}
+}"
+    permissions = "{
+    actions = {{ actions }}
+    principal = {{ principal }}
+}"
+    sheets = "{
+    name = {{ name }}
+    sheet_id = {{ sheet_id }}
+}"
+    source_entity = "{
+    source_template = {
+    arn = {{ arn }}
+    data_set_references = {
+    data_set_arn = {{ data_set_arn }}
+    data_set_placeholder = {{ data_set_placeholder }}
+}
+}
+}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    theme_arn = "{{ theme_arn }}"
+}

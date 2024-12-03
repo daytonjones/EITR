@@ -1,0 +1,11 @@
+resource "aws_batch_job_queue" "example" {
+    arn = "{{ arn }}"
+    compute_environments = "{{ compute_environments }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    priority = "{{ priority }}"
+    scheduling_policy_arn = "{{ scheduling_policy_arn }}"
+    state = "{{ state }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

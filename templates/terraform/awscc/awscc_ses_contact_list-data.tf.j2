@@ -1,0 +1,15 @@
+data "awscc_ses_contact_list" "example" {
+    contact_list_name = "{{ contact_list_name }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    topics = "{
+    default_subscription_status = {{ default_subscription_status }}
+    description = {{ description }}
+    display_name = {{ display_name }}
+    topic_name = {{ topic_name }}
+}"
+}

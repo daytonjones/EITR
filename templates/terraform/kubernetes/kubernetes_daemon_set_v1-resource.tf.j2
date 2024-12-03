@@ -1,0 +1,4 @@
+resource "kubernetes_daemon_set_v1" "example" {
+    id = "{{ id }}"
+    wait_for_rollout = "{{ wait_for_rollout }}"
+}

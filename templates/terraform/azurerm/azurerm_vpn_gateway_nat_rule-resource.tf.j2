@@ -1,0 +1,8 @@
+resource "azurerm_vpn_gateway_nat_rule" "example" {
+    id = "{{ id }}"
+    ip_configuration_id = "{{ ip_configuration_id }}"
+    mode = "{{ mode }}"
+    name = "{{ name }}"
+    type = "{{ type }}"
+    vpn_gateway_id = "{{ vpn_gateway_id }}"
+}

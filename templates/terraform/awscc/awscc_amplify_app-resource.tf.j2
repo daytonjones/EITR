@@ -1,0 +1,59 @@
+resource "awscc_amplify_app" "example" {
+    access_token = "{{ access_token }}"
+    app_id = "{{ app_id }}"
+    app_name = "{{ app_name }}"
+    arn = "{{ arn }}"
+    auto_branch_creation_config = "{
+    auto_branch_creation_patterns = {{ auto_branch_creation_patterns }}
+    basic_auth_config = {
+    enable_basic_auth = {{ enable_basic_auth }}
+    password = {{ password }}
+    username = {{ username }}
+}
+    build_spec = {{ build_spec }}
+    enable_auto_branch_creation = {{ enable_auto_branch_creation }}
+    enable_auto_build = {{ enable_auto_build }}
+    enable_performance_mode = {{ enable_performance_mode }}
+    enable_pull_request_preview = {{ enable_pull_request_preview }}
+    environment_variables = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    framework = {{ framework }}
+    pull_request_environment_name = {{ pull_request_environment_name }}
+    stage = {{ stage }}
+}"
+    basic_auth_config = "{
+    enable_basic_auth = {{ enable_basic_auth }}
+    password = {{ password }}
+    username = {{ username }}
+}"
+    build_spec = "{{ build_spec }}"
+    cache_config = "{
+    type = {{ type }}
+}"
+    custom_headers = "{{ custom_headers }}"
+    custom_rules = "{
+    condition = {{ condition }}
+    source = {{ source }}
+    status = {{ status }}
+    target = {{ target }}
+}"
+    default_domain = "{{ default_domain }}"
+    description = "{{ description }}"
+    enable_branch_auto_deletion = "{{ enable_branch_auto_deletion }}"
+    environment_variables = "{
+    name = {{ name }}
+    value = {{ value }}
+}"
+    iam_service_role = "{{ iam_service_role }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    oauth_token = "{{ oauth_token }}"
+    platform = "{{ platform }}"
+    repository = "{{ repository }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

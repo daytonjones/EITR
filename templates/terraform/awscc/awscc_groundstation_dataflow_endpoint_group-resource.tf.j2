@@ -1,0 +1,48 @@
+resource "awscc_groundstation_dataflow_endpoint_group" "example" {
+    arn = "{{ arn }}"
+    contact_post_pass_duration_seconds = "{{ contact_post_pass_duration_seconds }}"
+    contact_pre_pass_duration_seconds = "{{ contact_pre_pass_duration_seconds }}"
+    dataflow_endpoint_group_id = "{{ dataflow_endpoint_group_id }}"
+    endpoint_details = "{
+    aws_ground_station_agent_endpoint = {
+    agent_status = {{ agent_status }}
+    audit_results = {{ audit_results }}
+    egress_address = {
+    mtu = {{ mtu }}
+    socket_address = {
+    name = {{ name }}
+    port = {{ port }}
+}
+}
+    ingress_address = {
+    mtu = {{ mtu }}
+    socket_address = {
+    name = {{ name }}
+    port_range = {
+    maximum = {{ maximum }}
+    minimum = {{ minimum }}
+}
+}
+}
+    name = {{ name }}
+}
+    endpoint = {
+    address = {
+    name = {{ name }}
+    port = {{ port }}
+}
+    mtu = {{ mtu }}
+    name = {{ name }}
+}
+    security_details = {
+    role_arn = {{ role_arn }}
+    security_group_ids = {{ security_group_ids }}
+    subnet_ids = {{ subnet_ids }}
+}
+}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

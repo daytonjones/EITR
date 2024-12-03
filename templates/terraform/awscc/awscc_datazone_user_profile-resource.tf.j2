@@ -1,0 +1,20 @@
+resource "awscc_datazone_user_profile" "example" {
+    details = "{
+    iam = {
+    arn = {{ arn }}
+}
+    sso = {
+    first_name = {{ first_name }}
+    last_name = {{ last_name }}
+    username = {{ username }}
+}
+}"
+    domain_id = "{{ domain_id }}"
+    domain_identifier = "{{ domain_identifier }}"
+    id = "{{ id }}"
+    status = "{{ status }}"
+    type = "{{ type }}"
+    user_identifier = "{{ user_identifier }}"
+    user_profile_id = "{{ user_profile_id }}"
+    user_type = "{{ user_type }}"
+}

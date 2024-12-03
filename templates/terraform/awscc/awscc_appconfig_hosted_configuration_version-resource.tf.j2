@@ -1,0 +1,11 @@
+resource "awscc_appconfig_hosted_configuration_version" "example" {
+    application_id = "{{ application_id }}"
+    configuration_profile_id = "{{ configuration_profile_id }}"
+    content = "{{ content }}"
+    content_type = "{{ content_type }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    latest_version_number = "{{ latest_version_number }}"
+    version_label = "{{ version_label }}"
+    version_number = "{{ version_number }}"
+}

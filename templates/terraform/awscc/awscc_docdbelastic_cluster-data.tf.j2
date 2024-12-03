@@ -1,0 +1,22 @@
+data "awscc_docdbelastic_cluster" "example" {
+    admin_user_name = "{{ admin_user_name }}"
+    admin_user_password = "{{ admin_user_password }}"
+    auth_type = "{{ auth_type }}"
+    backup_retention_period = "{{ backup_retention_period }}"
+    cluster_arn = "{{ cluster_arn }}"
+    cluster_endpoint = "{{ cluster_endpoint }}"
+    cluster_name = "{{ cluster_name }}"
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    preferred_backup_window = "{{ preferred_backup_window }}"
+    preferred_maintenance_window = "{{ preferred_maintenance_window }}"
+    shard_capacity = "{{ shard_capacity }}"
+    shard_count = "{{ shard_count }}"
+    shard_instance_count = "{{ shard_instance_count }}"
+    subnet_ids = "{{ subnet_ids }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    vpc_security_group_ids = "{{ vpc_security_group_ids }}"
+}

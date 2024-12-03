@@ -1,0 +1,23 @@
+data "awscc_eks_identity_provider_config" "example" {
+    cluster_name = "{{ cluster_name }}"
+    id = "{{ id }}"
+    identity_provider_config_arn = "{{ identity_provider_config_arn }}"
+    identity_provider_config_name = "{{ identity_provider_config_name }}"
+    oidc = "{
+    client_id = {{ client_id }}
+    groups_claim = {{ groups_claim }}
+    groups_prefix = {{ groups_prefix }}
+    issuer_url = {{ issuer_url }}
+    required_claims = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    username_claim = {{ username_claim }}
+    username_prefix = {{ username_prefix }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+}

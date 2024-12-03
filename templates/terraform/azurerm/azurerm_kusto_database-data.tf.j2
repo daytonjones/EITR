@@ -1,0 +1,10 @@
+data "azurerm_kusto_database" "example" {
+    cluster_name = "{{ cluster_name }}"
+    hot_cache_period = "{{ hot_cache_period }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    size = "{{ size }}"
+    soft_delete_period = "{{ soft_delete_period }}"
+}

@@ -1,0 +1,9 @@
+data "consul_agent_config" "example" {
+    datacenter = "{{ datacenter }}"
+    id = "{{ id }}"
+    node_id = "{{ node_id }}"
+    node_name = "{{ node_name }}"
+    revision = "{{ revision }}"
+    server = "{{ server }}"
+    version = "{{ version }}"
+}

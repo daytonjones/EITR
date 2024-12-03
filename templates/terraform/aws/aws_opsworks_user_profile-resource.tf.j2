@@ -1,0 +1,7 @@
+resource "aws_opsworks_user_profile" "example" {
+    allow_self_management = "{{ allow_self_management }}"
+    id = "{{ id }}"
+    ssh_public_key = "{{ ssh_public_key }}"
+    ssh_username = "{{ ssh_username }}"
+    user_arn = "{{ user_arn }}"
+}

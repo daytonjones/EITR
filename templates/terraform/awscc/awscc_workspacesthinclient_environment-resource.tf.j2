@@ -1,0 +1,37 @@
+resource "awscc_workspacesthinclient_environment" "example" {
+    activation_code = "{{ activation_code }}"
+    arn = "{{ arn }}"
+    created_at = "{{ created_at }}"
+    desired_software_set_id = "{{ desired_software_set_id }}"
+    desktop_arn = "{{ desktop_arn }}"
+    desktop_endpoint = "{{ desktop_endpoint }}"
+    desktop_type = "{{ desktop_type }}"
+    device_creation_tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    environment_id = "{{ environment_id }}"
+    id = "{{ id }}"
+    kms_key_arn = "{{ kms_key_arn }}"
+    maintenance_window = "{
+    apply_time_of = {{ apply_time_of }}
+    days_of_the_week = {{ days_of_the_week }}
+    end_time_hour = {{ end_time_hour }}
+    end_time_minute = {{ end_time_minute }}
+    start_time_hour = {{ start_time_hour }}
+    start_time_minute = {{ start_time_minute }}
+    type = {{ type }}
+}"
+    name = "{{ name }}"
+    pending_software_set_id = "{{ pending_software_set_id }}"
+    pending_software_set_version = "{{ pending_software_set_version }}"
+    registered_devices_count = "{{ registered_devices_count }}"
+    software_set_compliance_status = "{{ software_set_compliance_status }}"
+    software_set_update_mode = "{{ software_set_update_mode }}"
+    software_set_update_schedule = "{{ software_set_update_schedule }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    updated_at = "{{ updated_at }}"
+}

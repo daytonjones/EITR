@@ -1,0 +1,8 @@
+data "azurerm_public_ips" "example" {
+    allocation_type = "{{ allocation_type }}"
+    attachment_status = "{{ attachment_status }}"
+    id = "{{ id }}"
+    name_prefix = "{{ name_prefix }}"
+    public_ips = "{{ public_ips }}"
+    resource_group_name = "{{ resource_group_name }}"
+}

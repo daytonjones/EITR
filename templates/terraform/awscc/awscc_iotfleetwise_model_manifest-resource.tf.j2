@@ -1,0 +1,15 @@
+resource "awscc_iotfleetwise_model_manifest" "example" {
+    arn = "{{ arn }}"
+    creation_time = "{{ creation_time }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    last_modification_time = "{{ last_modification_time }}"
+    name = "{{ name }}"
+    nodes = "{{ nodes }}"
+    signal_catalog_arn = "{{ signal_catalog_arn }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

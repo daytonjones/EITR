@@ -1,0 +1,6 @@
+resource "awscc_xray_resource_policy" "example" {
+    bypass_policy_lockout_check = "{{ bypass_policy_lockout_check }}"
+    id = "{{ id }}"
+    policy_document = "{{ policy_document }}"
+    policy_name = "{{ policy_name }}"
+}

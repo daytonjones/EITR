@@ -1,0 +1,17 @@
+resource "aws_sns_platform_application" "example" {
+    apple_platform_bundle_id = "{{ apple_platform_bundle_id }}"
+    apple_platform_team_id = "{{ apple_platform_team_id }}"
+    arn = "{{ arn }}"
+    event_delivery_failure_topic_arn = "{{ event_delivery_failure_topic_arn }}"
+    event_endpoint_created_topic_arn = "{{ event_endpoint_created_topic_arn }}"
+    event_endpoint_deleted_topic_arn = "{{ event_endpoint_deleted_topic_arn }}"
+    event_endpoint_updated_topic_arn = "{{ event_endpoint_updated_topic_arn }}"
+    failure_feedback_role_arn = "{{ failure_feedback_role_arn }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    platform = "{{ platform }}"
+    platform_credential = "{{ platform_credential }}"
+    platform_principal = "{{ platform_principal }}"
+    success_feedback_role_arn = "{{ success_feedback_role_arn }}"
+    success_feedback_sample_rate = "{{ success_feedback_sample_rate }}"
+}

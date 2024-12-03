@@ -1,0 +1,11 @@
+resource "consul_intention" "example" {
+    action = "{{ action }}"
+    datacenter = "{{ datacenter }}"
+    description = "{{ description }}"
+    destination_name = "{{ destination_name }}"
+    destination_namespace = "{{ destination_namespace }}"
+    id = "{{ id }}"
+    meta = "{{ meta }}"
+    source_name = "{{ source_name }}"
+    source_namespace = "{{ source_namespace }}"
+}

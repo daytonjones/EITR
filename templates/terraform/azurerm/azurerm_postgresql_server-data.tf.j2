@@ -1,0 +1,12 @@
+data "azurerm_postgresql_server" "example" {
+    administrator_login = "{{ administrator_login }}"
+    fqdn = "{{ fqdn }}"
+    id = "{{ id }}"
+    identity = "{{ identity }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku_name = "{{ sku_name }}"
+    tags = "{{ tags }}"
+    version = "{{ version }}"
+}

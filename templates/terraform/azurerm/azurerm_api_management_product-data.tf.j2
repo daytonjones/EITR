@@ -1,0 +1,13 @@
+data "azurerm_api_management_product" "example" {
+    api_management_name = "{{ api_management_name }}"
+    approval_required = "{{ approval_required }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    product_id = "{{ product_id }}"
+    published = "{{ published }}"
+    resource_group_name = "{{ resource_group_name }}"
+    subscription_required = "{{ subscription_required }}"
+    subscriptions_limit = "{{ subscriptions_limit }}"
+    terms = "{{ terms }}"
+}

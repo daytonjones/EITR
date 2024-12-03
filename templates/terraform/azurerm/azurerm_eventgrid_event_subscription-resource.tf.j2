@@ -1,0 +1,14 @@
+resource "azurerm_eventgrid_event_subscription" "example" {
+    advanced_filtering_on_arrays_enabled = "{{ advanced_filtering_on_arrays_enabled }}"
+    event_delivery_schema = "{{ event_delivery_schema }}"
+    eventhub_endpoint_id = "{{ eventhub_endpoint_id }}"
+    expiration_time_utc = "{{ expiration_time_utc }}"
+    hybrid_connection_endpoint_id = "{{ hybrid_connection_endpoint_id }}"
+    id = "{{ id }}"
+    included_event_types = "{{ included_event_types }}"
+    labels = "{{ labels }}"
+    name = "{{ name }}"
+    scope = "{{ scope }}"
+    service_bus_queue_endpoint_id = "{{ service_bus_queue_endpoint_id }}"
+    service_bus_topic_endpoint_id = "{{ service_bus_topic_endpoint_id }}"
+}

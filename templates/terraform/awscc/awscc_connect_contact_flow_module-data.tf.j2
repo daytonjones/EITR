@@ -1,0 +1,14 @@
+data "awscc_connect_contact_flow_module" "example" {
+    contact_flow_module_arn = "{{ contact_flow_module_arn }}"
+    content = "{{ content }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    instance_arn = "{{ instance_arn }}"
+    name = "{{ name }}"
+    state = "{{ state }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

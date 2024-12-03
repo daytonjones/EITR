@@ -1,0 +1,12 @@
+resource "azurerm_private_endpoint" "example" {
+    custom_dns_configs = "{{ custom_dns_configs }}"
+    custom_network_interface_name = "{{ custom_network_interface_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    network_interface = "{{ network_interface }}"
+    private_dns_zone_configs = "{{ private_dns_zone_configs }}"
+    resource_group_name = "{{ resource_group_name }}"
+    subnet_id = "{{ subnet_id }}"
+    tags = "{{ tags }}"
+}

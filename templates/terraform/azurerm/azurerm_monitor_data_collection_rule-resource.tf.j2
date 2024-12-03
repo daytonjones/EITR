@@ -1,0 +1,11 @@
+resource "azurerm_monitor_data_collection_rule" "example" {
+    data_collection_endpoint_id = "{{ data_collection_endpoint_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    immutable_id = "{{ immutable_id }}"
+    kind = "{{ kind }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

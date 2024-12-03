@@ -1,0 +1,47 @@
+data "awscc_mediaconnect_bridge" "example" {
+    bridge_arn = "{{ bridge_arn }}"
+    bridge_state = "{{ bridge_state }}"
+    egress_gateway_bridge = "{
+    max_bitrate = {{ max_bitrate }}
+}"
+    id = "{{ id }}"
+    ingress_gateway_bridge = "{
+    max_bitrate = {{ max_bitrate }}
+    max_outputs = {{ max_outputs }}
+}"
+    name = "{{ name }}"
+    outputs = "{
+    network_output = {
+    ip_address = {{ ip_address }}
+    name = {{ name }}
+    network_name = {{ network_name }}
+    port = {{ port }}
+    protocol = {{ protocol }}
+    ttl = {{ ttl }}
+}
+}"
+    placement_arn = "{{ placement_arn }}"
+    source_failover_config = "{
+    failover_mode = {{ failover_mode }}
+    source_priority = {
+    primary_source = {{ primary_source }}
+}
+    state = {{ state }}
+}"
+    sources = "{
+    flow_source = {
+    flow_arn = {{ flow_arn }}
+    flow_vpc_interface_attachment = {
+    vpc_interface_name = {{ vpc_interface_name }}
+}
+    name = {{ name }}
+}
+    network_source = {
+    multicast_ip = {{ multicast_ip }}
+    name = {{ name }}
+    network_name = {{ network_name }}
+    port = {{ port }}
+    protocol = {{ protocol }}
+}
+}"
+}

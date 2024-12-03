@@ -1,0 +1,9 @@
+resource "azurerm_proximity_placement_group" "example" {
+    allowed_vm_sizes = "{{ allowed_vm_sizes }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    zone = "{{ zone }}"
+}

@@ -1,0 +1,11 @@
+resource "azurerm_log_analytics_saved_search" "example" {
+    category = "{{ category }}"
+    display_name = "{{ display_name }}"
+    function_alias = "{{ function_alias }}"
+    function_parameters = "{{ function_parameters }}"
+    id = "{{ id }}"
+    log_analytics_workspace_id = "{{ log_analytics_workspace_id }}"
+    name = "{{ name }}"
+    query = "{{ query }}"
+    tags = "{{ tags }}"
+}

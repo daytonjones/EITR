@@ -1,0 +1,16 @@
+resource "azurerm_batch_pool" "example" {
+    account_name = "{{ account_name }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    inter_node_communication = "{{ inter_node_communication }}"
+    license_type = "{{ license_type }}"
+    max_tasks_per_node = "{{ max_tasks_per_node }}"
+    metadata = "{{ metadata }}"
+    name = "{{ name }}"
+    node_agent_sku_id = "{{ node_agent_sku_id }}"
+    os_disk_placement = "{{ os_disk_placement }}"
+    resource_group_name = "{{ resource_group_name }}"
+    stop_pending_resize_operation = "{{ stop_pending_resize_operation }}"
+    target_node_communication_mode = "{{ target_node_communication_mode }}"
+    vm_size = "{{ vm_size }}"
+}

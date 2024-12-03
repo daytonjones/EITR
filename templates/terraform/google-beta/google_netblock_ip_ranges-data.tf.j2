@@ -1,0 +1,7 @@
+data "google_netblock_ip_ranges" "example" {
+    cidr_blocks = "{{ cidr_blocks }}"
+    cidr_blocks_ipv4 = "{{ cidr_blocks_ipv4 }}"
+    cidr_blocks_ipv6 = "{{ cidr_blocks_ipv6 }}"
+    id = "{{ id }}"
+    range_type = "{{ range_type }}"
+}

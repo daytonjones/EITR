@@ -1,0 +1,11 @@
+data "azurerm_iothub_dps" "example" {
+    allocation_policy = "{{ allocation_policy }}"
+    device_provisioning_host_name = "{{ device_provisioning_host_name }}"
+    id = "{{ id }}"
+    id_scope = "{{ id_scope }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    service_operations_host_name = "{{ service_operations_host_name }}"
+    tags = "{{ tags }}"
+}

@@ -1,0 +1,10 @@
+resource "aws_lambda_invocation" "example" {
+    function_name = "{{ function_name }}"
+    id = "{{ id }}"
+    input = "{{ input }}"
+    lifecycle_scope = "{{ lifecycle_scope }}"
+    qualifier = "{{ qualifier }}"
+    result = "{{ result }}"
+    terraform_key = "{{ terraform_key }}"
+    triggers = "{{ triggers }}"
+}

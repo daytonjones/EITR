@@ -1,0 +1,40 @@
+data "awscc_sagemaker_cluster" "example" {
+    cluster_arn = "{{ cluster_arn }}"
+    cluster_name = "{{ cluster_name }}"
+    cluster_status = "{{ cluster_status }}"
+    creation_time = "{{ creation_time }}"
+    failure_message = "{{ failure_message }}"
+    id = "{{ id }}"
+    instance_groups = "{
+    current_count = {{ current_count }}
+    execution_role = {{ execution_role }}
+    instance_count = {{ instance_count }}
+    instance_group_name = {{ instance_group_name }}
+    instance_storage_configs = {
+    ebs_volume_config = {
+    volume_size_in_gb = {{ volume_size_in_gb }}
+}
+}
+    instance_type = {{ instance_type }}
+    life_cycle_config = {
+    on_create = {{ on_create }}
+    source_s3_uri = {{ source_s3_uri }}
+}
+    on_start_deep_health_checks = {{ on_start_deep_health_checks }}
+    threads_per_core = {{ threads_per_core }}
+}"
+    node_recovery = "{{ node_recovery }}"
+    orchestrator = "{
+    eks = {
+    cluster_arn = {{ cluster_arn }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    vpc_config = "{
+    security_group_ids = {{ security_group_ids }}
+    subnets = {{ subnets }}
+}"
+}

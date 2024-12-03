@@ -1,0 +1,6 @@
+resource "aws_networkmanager_core_network_policy_attachment" "example" {
+    core_network_id = "{{ core_network_id }}"
+    id = "{{ id }}"
+    policy_document = "{{ policy_document }}"
+    state = "{{ state }}"
+}

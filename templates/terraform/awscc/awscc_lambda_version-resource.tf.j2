@@ -1,0 +1,15 @@
+resource "awscc_lambda_version" "example" {
+    code_sha_256 = "{{ code_sha_256 }}"
+    description = "{{ description }}"
+    function_arn = "{{ function_arn }}"
+    function_name = "{{ function_name }}"
+    id = "{{ id }}"
+    provisioned_concurrency_config = "{
+    provisioned_concurrent_executions = {{ provisioned_concurrent_executions }}
+}"
+    runtime_policy = "{
+    runtime_version_arn = {{ runtime_version_arn }}
+    update_runtime_on = {{ update_runtime_on }}
+}"
+    version = "{{ version }}"
+}

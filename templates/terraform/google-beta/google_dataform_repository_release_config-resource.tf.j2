@@ -1,0 +1,11 @@
+resource "google_dataform_repository_release_config" "example" {
+    cron_schedule = "{{ cron_schedule }}"
+    git_commitish = "{{ git_commitish }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    recent_scheduled_release_records = "{{ recent_scheduled_release_records }}"
+    region = "{{ region }}"
+    repository = "{{ repository }}"
+    time_zone = "{{ time_zone }}"
+}

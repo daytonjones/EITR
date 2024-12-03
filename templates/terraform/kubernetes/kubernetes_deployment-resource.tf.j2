@@ -1,0 +1,4 @@
+resource "kubernetes_deployment" "example" {
+    id = "{{ id }}"
+    wait_for_rollout = "{{ wait_for_rollout }}"
+}

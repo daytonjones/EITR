@@ -1,0 +1,6 @@
+resource "aws_s3_bucket_accelerate_configuration" "example" {
+    bucket = "{{ bucket }}"
+    expected_bucket_owner = "{{ expected_bucket_owner }}"
+    id = "{{ id }}"
+    status = "{{ status }}"
+}

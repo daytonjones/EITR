@@ -1,0 +1,15 @@
+resource "azurerm_arc_kubernetes_cluster" "example" {
+    agent_public_key_certificate = "{{ agent_public_key_certificate }}"
+    agent_version = "{{ agent_version }}"
+    distribution = "{{ distribution }}"
+    id = "{{ id }}"
+    infrastructure = "{{ infrastructure }}"
+    kubernetes_version = "{{ kubernetes_version }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    offering = "{{ offering }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    total_core_count = "{{ total_core_count }}"
+    total_node_count = "{{ total_node_count }}"
+}

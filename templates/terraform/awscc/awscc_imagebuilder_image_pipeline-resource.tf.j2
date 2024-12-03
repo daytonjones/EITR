@@ -1,0 +1,38 @@
+resource "awscc_imagebuilder_image_pipeline" "example" {
+    arn = "{{ arn }}"
+    container_recipe_arn = "{{ container_recipe_arn }}"
+    description = "{{ description }}"
+    distribution_configuration_arn = "{{ distribution_configuration_arn }}"
+    enhanced_image_metadata_enabled = "{{ enhanced_image_metadata_enabled }}"
+    execution_role = "{{ execution_role }}"
+    id = "{{ id }}"
+    image_recipe_arn = "{{ image_recipe_arn }}"
+    image_scanning_configuration = "{
+    ecr_configuration = {
+    container_tags = {{ container_tags }}
+    repository_name = {{ repository_name }}
+}
+    image_scanning_enabled = {{ image_scanning_enabled }}
+}"
+    image_tests_configuration = "{
+    image_tests_enabled = {{ image_tests_enabled }}
+    timeout_minutes = {{ timeout_minutes }}
+}"
+    infrastructure_configuration_arn = "{{ infrastructure_configuration_arn }}"
+    name = "{{ name }}"
+    schedule = "{
+    pipeline_execution_start_condition = {{ pipeline_execution_start_condition }}
+    schedule_expression = {{ schedule_expression }}
+}"
+    status = "{{ status }}"
+    tags = "{{ tags }}"
+    workflows = "{
+    on_failure = {{ on_failure }}
+    parallel_group = {{ parallel_group }}
+    parameters = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    workflow_arn = {{ workflow_arn }}
+}"
+}

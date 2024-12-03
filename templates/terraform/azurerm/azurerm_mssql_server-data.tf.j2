@@ -1,0 +1,13 @@
+data "azurerm_mssql_server" "example" {
+    administrator_login = "{{ administrator_login }}"
+    fully_qualified_domain_name = "{{ fully_qualified_domain_name }}"
+    id = "{{ id }}"
+    identity = "{{ identity }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    restorable_dropped_database_ids = "{{ restorable_dropped_database_ids }}"
+    tags = "{{ tags }}"
+    transparent_data_encryption_key_vault_key_id = "{{ transparent_data_encryption_key_vault_key_id }}"
+    version = "{{ version }}"
+}

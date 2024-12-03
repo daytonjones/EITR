@@ -1,0 +1,19 @@
+resource "awscc_location_tracker" "example" {
+    arn = "{{ arn }}"
+    create_time = "{{ create_time }}"
+    description = "{{ description }}"
+    event_bridge_enabled = "{{ event_bridge_enabled }}"
+    id = "{{ id }}"
+    kms_key_enable_geospatial_queries = "{{ kms_key_enable_geospatial_queries }}"
+    kms_key_id = "{{ kms_key_id }}"
+    position_filtering = "{{ position_filtering }}"
+    pricing_plan = "{{ pricing_plan }}"
+    pricing_plan_data_source = "{{ pricing_plan_data_source }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    tracker_arn = "{{ tracker_arn }}"
+    tracker_name = "{{ tracker_name }}"
+    update_time = "{{ update_time }}"
+}

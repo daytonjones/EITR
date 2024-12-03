@@ -1,0 +1,18 @@
+data "awscc_nimblestudio_streaming_image" "example" {
+    description = "{{ description }}"
+    ec_2_image_id = "{{ ec_2_image_id }}"
+    encryption_configuration = "{
+    key_arn = {{ key_arn }}
+    key_type = {{ key_type }}
+}"
+    encryption_configuration_key_arn = "{{ encryption_configuration_key_arn }}"
+    encryption_configuration_key_type = "{{ encryption_configuration_key_type }}"
+    eula_ids = "{{ eula_ids }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    owner = "{{ owner }}"
+    platform = "{{ platform }}"
+    streaming_image_id = "{{ streaming_image_id }}"
+    studio_id = "{{ studio_id }}"
+    tags = "{{ tags }}"
+}

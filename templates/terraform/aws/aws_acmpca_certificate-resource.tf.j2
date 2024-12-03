@@ -1,0 +1,11 @@
+resource "aws_acmpca_certificate" "example" {
+    api_passthrough = "{{ api_passthrough }}"
+    arn = "{{ arn }}"
+    certificate = "{{ certificate }}"
+    certificate_authority_arn = "{{ certificate_authority_arn }}"
+    certificate_chain = "{{ certificate_chain }}"
+    certificate_signing_request = "{{ certificate_signing_request }}"
+    id = "{{ id }}"
+    signing_algorithm = "{{ signing_algorithm }}"
+    template_arn = "{{ template_arn }}"
+}

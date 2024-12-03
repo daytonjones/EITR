@@ -1,0 +1,9 @@
+resource "awscc_iot_thing" "example" {
+    arn = "{{ arn }}"
+    attribute_payload = "{
+    attributes = {{ attributes }}
+}"
+    id = "{{ id }}"
+    thing_id = "{{ thing_id }}"
+    thing_name = "{{ thing_name }}"
+}

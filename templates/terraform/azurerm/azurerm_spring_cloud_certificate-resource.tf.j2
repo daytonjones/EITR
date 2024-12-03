@@ -1,0 +1,10 @@
+resource "azurerm_spring_cloud_certificate" "example" {
+    certificate_content = "{{ certificate_content }}"
+    exclude_private_key = "{{ exclude_private_key }}"
+    id = "{{ id }}"
+    key_vault_certificate_id = "{{ key_vault_certificate_id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    service_name = "{{ service_name }}"
+    thumbprint = "{{ thumbprint }}"
+}

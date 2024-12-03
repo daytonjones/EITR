@@ -1,0 +1,10 @@
+resource "aws_dms_replication_subnet_group" "example" {
+    id = "{{ id }}"
+    replication_subnet_group_arn = "{{ replication_subnet_group_arn }}"
+    replication_subnet_group_description = "{{ replication_subnet_group_description }}"
+    replication_subnet_group_id = "{{ replication_subnet_group_id }}"
+    subnet_ids = "{{ subnet_ids }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    vpc_id = "{{ vpc_id }}"
+}

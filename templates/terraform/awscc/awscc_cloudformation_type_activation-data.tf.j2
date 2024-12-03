@@ -1,0 +1,17 @@
+data "awscc_cloudformation_type_activation" "example" {
+    arn = "{{ arn }}"
+    auto_update = "{{ auto_update }}"
+    execution_role_arn = "{{ execution_role_arn }}"
+    id = "{{ id }}"
+    logging_config = "{
+    log_group_name = {{ log_group_name }}
+    log_role_arn = {{ log_role_arn }}
+}"
+    major_version = "{{ major_version }}"
+    public_type_arn = "{{ public_type_arn }}"
+    publisher_id = "{{ publisher_id }}"
+    type = "{{ type }}"
+    type_name = "{{ type_name }}"
+    type_name_alias = "{{ type_name_alias }}"
+    version_bump = "{{ version_bump }}"
+}

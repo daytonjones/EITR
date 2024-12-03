@@ -1,0 +1,7 @@
+resource "aws_api_gateway_request_validator" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    rest_api_id = "{{ rest_api_id }}"
+    validate_request_body = "{{ validate_request_body }}"
+    validate_request_parameters = "{{ validate_request_parameters }}"
+}

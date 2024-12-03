@@ -1,0 +1,17 @@
+resource "azurestack_lb_rule" "example" {
+    backend_address_pool_id = "{{ backend_address_pool_id }}"
+    backend_port = "{{ backend_port }}"
+    disable_outbound_snat = "{{ disable_outbound_snat }}"
+    enable_floating_ip = "{{ enable_floating_ip }}"
+    frontend_ip_configuration_id = "{{ frontend_ip_configuration_id }}"
+    frontend_ip_configuration_name = "{{ frontend_ip_configuration_name }}"
+    frontend_port = "{{ frontend_port }}"
+    id = "{{ id }}"
+    idle_timeout_in_minutes = "{{ idle_timeout_in_minutes }}"
+    load_distribution = "{{ load_distribution }}"
+    loadbalancer_id = "{{ loadbalancer_id }}"
+    name = "{{ name }}"
+    probe_id = "{{ probe_id }}"
+    protocol = "{{ protocol }}"
+    resource_group_name = "{{ resource_group_name }}"
+}

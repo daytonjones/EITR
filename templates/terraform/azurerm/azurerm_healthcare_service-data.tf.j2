@@ -1,0 +1,13 @@
+data "azurerm_healthcare_service" "example" {
+    access_policy_object_ids = "{{ access_policy_object_ids }}"
+    authentication_configuration = "{{ authentication_configuration }}"
+    cors_configuration = "{{ cors_configuration }}"
+    cosmosdb_key_vault_key_versionless_id = "{{ cosmosdb_key_vault_key_versionless_id }}"
+    cosmosdb_throughput = "{{ cosmosdb_throughput }}"
+    id = "{{ id }}"
+    kind = "{{ kind }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

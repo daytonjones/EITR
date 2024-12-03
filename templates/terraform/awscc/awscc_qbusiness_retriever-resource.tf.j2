@@ -1,0 +1,24 @@
+resource "awscc_qbusiness_retriever" "example" {
+    application_id = "{{ application_id }}"
+    configuration = "{
+    kendra_index_configuration = {
+    index_id = {{ index_id }}
+}
+    native_index_configuration = {
+    index_id = {{ index_id }}
+}
+}"
+    created_at = "{{ created_at }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    retriever_arn = "{{ retriever_arn }}"
+    retriever_id = "{{ retriever_id }}"
+    role_arn = "{{ role_arn }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+    updated_at = "{{ updated_at }}"
+}

@@ -1,0 +1,138 @@
+data "awscc_autoscaling_scaling_policy" "example" {
+    adjustment_type = "{{ adjustment_type }}"
+    arn = "{{ arn }}"
+    auto_scaling_group_name = "{{ auto_scaling_group_name }}"
+    cooldown = "{{ cooldown }}"
+    estimated_instance_warmup = "{{ estimated_instance_warmup }}"
+    id = "{{ id }}"
+    metric_aggregation_type = "{{ metric_aggregation_type }}"
+    min_adjustment_magnitude = "{{ min_adjustment_magnitude }}"
+    policy_name = "{{ policy_name }}"
+    policy_type = "{{ policy_type }}"
+    predictive_scaling_configuration = "{
+    max_capacity_breach_behavior = {{ max_capacity_breach_behavior }}
+    max_capacity_buffer = {{ max_capacity_buffer }}
+    metric_specifications = {
+    customized_capacity_metric_specification = {
+    metric_data_queries = {
+    expression = {{ expression }}
+    id = {{ id }}
+    label = {{ label }}
+    metric_stat = {
+    metric = {
+    dimensions = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    metric_name = {{ metric_name }}
+    namespace = {{ namespace }}
+}
+    stat = {{ stat }}
+    unit = {{ unit }}
+}
+    return_data = {{ return_data }}
+}
+}
+    customized_load_metric_specification = {
+    metric_data_queries = {
+    expression = {{ expression }}
+    id = {{ id }}
+    label = {{ label }}
+    metric_stat = {
+    metric = {
+    dimensions = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    metric_name = {{ metric_name }}
+    namespace = {{ namespace }}
+}
+    stat = {{ stat }}
+    unit = {{ unit }}
+}
+    return_data = {{ return_data }}
+}
+}
+    customized_scaling_metric_specification = {
+    metric_data_queries = {
+    expression = {{ expression }}
+    id = {{ id }}
+    label = {{ label }}
+    metric_stat = {
+    metric = {
+    dimensions = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    metric_name = {{ metric_name }}
+    namespace = {{ namespace }}
+}
+    stat = {{ stat }}
+    unit = {{ unit }}
+}
+    return_data = {{ return_data }}
+}
+}
+    predefined_load_metric_specification = {
+    predefined_metric_type = {{ predefined_metric_type }}
+    resource_label = {{ resource_label }}
+}
+    predefined_metric_pair_specification = {
+    predefined_metric_type = {{ predefined_metric_type }}
+    resource_label = {{ resource_label }}
+}
+    predefined_scaling_metric_specification = {
+    predefined_metric_type = {{ predefined_metric_type }}
+    resource_label = {{ resource_label }}
+}
+    target_value = {{ target_value }}
+}
+    mode = {{ mode }}
+    scheduling_buffer_time = {{ scheduling_buffer_time }}
+}"
+    scaling_adjustment = "{{ scaling_adjustment }}"
+    step_adjustments = "{
+    metric_interval_lower_bound = {{ metric_interval_lower_bound }}
+    metric_interval_upper_bound = {{ metric_interval_upper_bound }}
+    scaling_adjustment = {{ scaling_adjustment }}
+}"
+    target_tracking_configuration = "{
+    customized_metric_specification = {
+    dimensions = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    metric_name = {{ metric_name }}
+    metrics = {
+    expression = {{ expression }}
+    id = {{ id }}
+    label = {{ label }}
+    metric_stat = {
+    metric = {
+    dimensions = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    metric_name = {{ metric_name }}
+    namespace = {{ namespace }}
+}
+    period = {{ period }}
+    stat = {{ stat }}
+    unit = {{ unit }}
+}
+    period = {{ period }}
+    return_data = {{ return_data }}
+}
+    namespace = {{ namespace }}
+    period = {{ period }}
+    statistic = {{ statistic }}
+    unit = {{ unit }}
+}
+    disable_scale_in = {{ disable_scale_in }}
+    predefined_metric_specification = {
+    predefined_metric_type = {{ predefined_metric_type }}
+    resource_label = {{ resource_label }}
+}
+    target_value = {{ target_value }}
+}"
+}

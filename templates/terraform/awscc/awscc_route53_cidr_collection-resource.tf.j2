@@ -1,0 +1,10 @@
+resource "awscc_route53_cidr_collection" "example" {
+    arn = "{{ arn }}"
+    cidr_collection_id = "{{ cidr_collection_id }}"
+    id = "{{ id }}"
+    locations = "{
+    cidr_list = {{ cidr_list }}
+    location_name = {{ location_name }}
+}"
+    name = "{{ name }}"
+}

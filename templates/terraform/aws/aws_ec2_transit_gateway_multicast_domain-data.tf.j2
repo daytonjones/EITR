@@ -1,0 +1,16 @@
+data "aws_ec2_transit_gateway_multicast_domain" "example" {
+    arn = "{{ arn }}"
+    associations = "{{ associations }}"
+    auto_accept_shared_associations = "{{ auto_accept_shared_associations }}"
+    id = "{{ id }}"
+    igmpv2_support = "{{ igmpv2_support }}"
+    members = "{{ members }}"
+    owner_id = "{{ owner_id }}"
+    sources = "{{ sources }}"
+    state = "{{ state }}"
+    static_sources_support = "{{ static_sources_support }}"
+    tags = "{{ tags }}"
+    transit_gateway_attachment_id = "{{ transit_gateway_attachment_id }}"
+    transit_gateway_id = "{{ transit_gateway_id }}"
+    transit_gateway_multicast_domain_id = "{{ transit_gateway_multicast_domain_id }}"
+}

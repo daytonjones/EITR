@@ -1,0 +1,6 @@
+resource "aws_s3_bucket_lifecycle_configuration" "example" {
+    bucket = "{{ bucket }}"
+    expected_bucket_owner = "{{ expected_bucket_owner }}"
+    id = "{{ id }}"
+    transition_default_minimum_object_size = "{{ transition_default_minimum_object_size }}"
+}

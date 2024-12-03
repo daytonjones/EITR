@@ -1,0 +1,12 @@
+resource "azurerm_batch_certificate" "example" {
+    account_name = "{{ account_name }}"
+    certificate = "{{ certificate }}"
+    format = "{{ format }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    password = "{{ password }}"
+    public_data = "{{ public_data }}"
+    resource_group_name = "{{ resource_group_name }}"
+    thumbprint = "{{ thumbprint }}"
+    thumbprint_algorithm = "{{ thumbprint_algorithm }}"
+}

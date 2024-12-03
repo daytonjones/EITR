@@ -1,0 +1,15 @@
+resource "awscc_rds_db_proxy_target_group" "example" {
+    connection_pool_configuration_info = "{
+    connection_borrow_timeout = {{ connection_borrow_timeout }}
+    init_query = {{ init_query }}
+    max_connections_percent = {{ max_connections_percent }}
+    max_idle_connections_percent = {{ max_idle_connections_percent }}
+    session_pinning_filters = {{ session_pinning_filters }}
+}"
+    db_cluster_identifiers = "{{ db_cluster_identifiers }}"
+    db_instance_identifiers = "{{ db_instance_identifiers }}"
+    db_proxy_name = "{{ db_proxy_name }}"
+    id = "{{ id }}"
+    target_group_arn = "{{ target_group_arn }}"
+    target_group_name = "{{ target_group_name }}"
+}

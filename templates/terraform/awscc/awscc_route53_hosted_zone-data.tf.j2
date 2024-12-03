@@ -1,0 +1,20 @@
+data "awscc_route53_hosted_zone" "example" {
+    hosted_zone_config = "{
+    comment = {{ comment }}
+}"
+    hosted_zone_id = "{{ hosted_zone_id }}"
+    hosted_zone_tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    name_servers = "{{ name_servers }}"
+    query_logging_config = "{
+    cloudwatch_logs_log_group_arn = {{ cloudwatch_logs_log_group_arn }}
+}"
+    vp_cs = "{
+    vpc_id = {{ vpc_id }}
+    vpc_region = {{ vpc_region }}
+}"
+}

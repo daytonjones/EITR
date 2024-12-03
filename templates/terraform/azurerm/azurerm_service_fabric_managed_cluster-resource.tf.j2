@@ -1,0 +1,16 @@
+resource "azurerm_service_fabric_managed_cluster" "example" {
+    backup_service_enabled = "{{ backup_service_enabled }}"
+    client_connection_port = "{{ client_connection_port }}"
+    dns_name = "{{ dns_name }}"
+    dns_service_enabled = "{{ dns_service_enabled }}"
+    http_gateway_port = "{{ http_gateway_port }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    password = "{{ password }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku = "{{ sku }}"
+    tags = "{{ tags }}"
+    upgrade_wave = "{{ upgrade_wave }}"
+    username = "{{ username }}"
+}

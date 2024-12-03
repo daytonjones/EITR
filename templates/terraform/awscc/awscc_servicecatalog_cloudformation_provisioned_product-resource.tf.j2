@@ -1,0 +1,33 @@
+resource "awscc_servicecatalog_cloudformation_provisioned_product" "example" {
+    accept_language = "{{ accept_language }}"
+    cloudformation_stack_arn = "{{ cloudformation_stack_arn }}"
+    id = "{{ id }}"
+    notification_arns = "{{ notification_arns }}"
+    outputs = "{{ outputs }}"
+    path_id = "{{ path_id }}"
+    path_name = "{{ path_name }}"
+    product_id = "{{ product_id }}"
+    product_name = "{{ product_name }}"
+    provisioned_product_id = "{{ provisioned_product_id }}"
+    provisioned_product_name = "{{ provisioned_product_name }}"
+    provisioning_artifact_id = "{{ provisioning_artifact_id }}"
+    provisioning_artifact_name = "{{ provisioning_artifact_name }}"
+    provisioning_parameters = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    provisioning_preferences = "{
+    stack_set_accounts = {{ stack_set_accounts }}
+    stack_set_failure_tolerance_count = {{ stack_set_failure_tolerance_count }}
+    stack_set_failure_tolerance_percentage = {{ stack_set_failure_tolerance_percentage }}
+    stack_set_max_concurrency_count = {{ stack_set_max_concurrency_count }}
+    stack_set_max_concurrency_percentage = {{ stack_set_max_concurrency_percentage }}
+    stack_set_operation_type = {{ stack_set_operation_type }}
+    stack_set_regions = {{ stack_set_regions }}
+}"
+    record_id = "{{ record_id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,16 @@
+data "azurerm_private_dns_soa_record" "example" {
+    email = "{{ email }}"
+    expire_time = "{{ expire_time }}"
+    fqdn = "{{ fqdn }}"
+    host_name = "{{ host_name }}"
+    id = "{{ id }}"
+    minimum_ttl = "{{ minimum_ttl }}"
+    name = "{{ name }}"
+    refresh_time = "{{ refresh_time }}"
+    resource_group_name = "{{ resource_group_name }}"
+    retry_time = "{{ retry_time }}"
+    serial_number = "{{ serial_number }}"
+    tags = "{{ tags }}"
+    ttl = "{{ ttl }}"
+    zone_name = "{{ zone_name }}"
+}

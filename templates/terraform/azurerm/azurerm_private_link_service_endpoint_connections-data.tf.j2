@@ -1,0 +1,8 @@
+data "azurerm_private_link_service_endpoint_connections" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    private_endpoint_connections = "{{ private_endpoint_connections }}"
+    resource_group_name = "{{ resource_group_name }}"
+    service_id = "{{ service_id }}"
+    service_name = "{{ service_name }}"
+}

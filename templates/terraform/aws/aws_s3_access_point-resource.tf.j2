@@ -1,0 +1,14 @@
+resource "aws_s3_access_point" "example" {
+    account_id = "{{ account_id }}"
+    alias = "{{ alias }}"
+    arn = "{{ arn }}"
+    bucket = "{{ bucket }}"
+    bucket_account_id = "{{ bucket_account_id }}"
+    domain_name = "{{ domain_name }}"
+    endpoints = "{{ endpoints }}"
+    has_public_access_policy = "{{ has_public_access_policy }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    network_origin = "{{ network_origin }}"
+    policy = "{{ policy }}"
+}

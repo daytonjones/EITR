@@ -1,0 +1,10 @@
+resource "azurerm_express_route_gateway" "example" {
+    allow_non_virtual_wan_traffic = "{{ allow_non_virtual_wan_traffic }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    scale_units = "{{ scale_units }}"
+    tags = "{{ tags }}"
+    virtual_hub_id = "{{ virtual_hub_id }}"
+}

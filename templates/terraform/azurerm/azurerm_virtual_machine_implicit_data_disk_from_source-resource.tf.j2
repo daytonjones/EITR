@@ -1,0 +1,11 @@
+resource "azurerm_virtual_machine_implicit_data_disk_from_source" "example" {
+    caching = "{{ caching }}"
+    create_option = "{{ create_option }}"
+    disk_size_gb = "{{ disk_size_gb }}"
+    id = "{{ id }}"
+    lun = "{{ lun }}"
+    name = "{{ name }}"
+    source_resource_id = "{{ source_resource_id }}"
+    virtual_machine_id = "{{ virtual_machine_id }}"
+    write_accelerator_enabled = "{{ write_accelerator_enabled }}"
+}

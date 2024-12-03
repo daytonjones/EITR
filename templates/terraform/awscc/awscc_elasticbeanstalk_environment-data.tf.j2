@@ -1,0 +1,28 @@
+data "awscc_elasticbeanstalk_environment" "example" {
+    application_name = "{{ application_name }}"
+    cname_prefix = "{{ cname_prefix }}"
+    description = "{{ description }}"
+    endpoint_url = "{{ endpoint_url }}"
+    environment_name = "{{ environment_name }}"
+    id = "{{ id }}"
+    operations_role = "{{ operations_role }}"
+    option_settings = "{
+    namespace = {{ namespace }}
+    option_name = {{ option_name }}
+    resource_name = {{ resource_name }}
+    value = {{ value }}
+}"
+    platform_arn = "{{ platform_arn }}"
+    solution_stack_name = "{{ solution_stack_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    template_name = "{{ template_name }}"
+    tier = "{
+    name = {{ name }}
+    type = {{ type }}
+    version = {{ version }}
+}"
+    version_label = "{{ version_label }}"
+}

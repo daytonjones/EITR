@@ -1,0 +1,15 @@
+resource "awscc_datasync_location_fsx_windows" "example" {
+    domain = "{{ domain }}"
+    fsx_filesystem_arn = "{{ fsx_filesystem_arn }}"
+    id = "{{ id }}"
+    location_arn = "{{ location_arn }}"
+    location_uri = "{{ location_uri }}"
+    password = "{{ password }}"
+    security_group_arns = "{{ security_group_arns }}"
+    subdirectory = "{{ subdirectory }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    user = "{{ user }}"
+}

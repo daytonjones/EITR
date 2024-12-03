@@ -1,0 +1,10 @@
+resource "google_compute_attached_disk" "example" {
+    device_name = "{{ device_name }}"
+    disk = "{{ disk }}"
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    interface = "{{ interface }}"
+    mode = "{{ mode }}"
+    project = "{{ project }}"
+    zone = "{{ zone }}"
+}

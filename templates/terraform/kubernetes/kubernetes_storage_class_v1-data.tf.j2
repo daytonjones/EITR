@@ -1,0 +1,9 @@
+data "kubernetes_storage_class_v1" "example" {
+    allow_volume_expansion = "{{ allow_volume_expansion }}"
+    id = "{{ id }}"
+    mount_options = "{{ mount_options }}"
+    parameters = "{{ parameters }}"
+    reclaim_policy = "{{ reclaim_policy }}"
+    storage_provisioner = "{{ storage_provisioner }}"
+    volume_binding_mode = "{{ volume_binding_mode }}"
+}

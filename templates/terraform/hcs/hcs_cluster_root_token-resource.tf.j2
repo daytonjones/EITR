@@ -1,0 +1,8 @@
+resource "hcs_cluster_root_token" "example" {
+    accessor_id = "{{ accessor_id }}"
+    id = "{{ id }}"
+    kubernetes_secret = "{{ kubernetes_secret }}"
+    managed_application_name = "{{ managed_application_name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    secret_id = "{{ secret_id }}"
+}

@@ -1,0 +1,7 @@
+resource "aws_app_cookie_stickiness_policy" "example" {
+    cookie_name = "{{ cookie_name }}"
+    id = "{{ id }}"
+    lb_port = "{{ lb_port }}"
+    load_balancer = "{{ load_balancer }}"
+    name = "{{ name }}"
+}

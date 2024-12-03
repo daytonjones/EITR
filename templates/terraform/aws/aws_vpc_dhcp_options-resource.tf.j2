@@ -1,0 +1,13 @@
+resource "aws_vpc_dhcp_options" "example" {
+    arn = "{{ arn }}"
+    domain_name = "{{ domain_name }}"
+    domain_name_servers = "{{ domain_name_servers }}"
+    id = "{{ id }}"
+    ipv6_address_preferred_lease_time = "{{ ipv6_address_preferred_lease_time }}"
+    netbios_name_servers = "{{ netbios_name_servers }}"
+    netbios_node_type = "{{ netbios_node_type }}"
+    ntp_servers = "{{ ntp_servers }}"
+    owner_id = "{{ owner_id }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

@@ -1,0 +1,37 @@
+resource "awscc_backup_backup_plan" "example" {
+    backup_plan = "{
+    advanced_backup_settings = {
+    backup_options = {{ backup_options }}
+    resource_type = {{ resource_type }}
+}
+    backup_plan_name = {{ backup_plan_name }}
+    backup_plan_rule = {
+    completion_window_minutes = {{ completion_window_minutes }}
+    copy_actions = {
+    destination_backup_vault_arn = {{ destination_backup_vault_arn }}
+    lifecycle = {
+    delete_after_days = {{ delete_after_days }}
+    move_to_cold_storage_after_days = {{ move_to_cold_storage_after_days }}
+    opt_in_to_archive_for_supported_resources = {{ opt_in_to_archive_for_supported_resources }}
+}
+}
+    enable_continuous_backup = {{ enable_continuous_backup }}
+    lifecycle = {
+    delete_after_days = {{ delete_after_days }}
+    move_to_cold_storage_after_days = {{ move_to_cold_storage_after_days }}
+    opt_in_to_archive_for_supported_resources = {{ opt_in_to_archive_for_supported_resources }}
+}
+    recovery_point_tags = {{ recovery_point_tags }}
+    rule_name = {{ rule_name }}
+    schedule_expression = {{ schedule_expression }}
+    schedule_expression_timezone = {{ schedule_expression_timezone }}
+    start_window_minutes = {{ start_window_minutes }}
+    target_backup_vault = {{ target_backup_vault }}
+}
+}"
+    backup_plan_arn = "{{ backup_plan_arn }}"
+    backup_plan_id = "{{ backup_plan_id }}"
+    backup_plan_tags = "{{ backup_plan_tags }}"
+    id = "{{ id }}"
+    version_id = "{{ version_id }}"
+}

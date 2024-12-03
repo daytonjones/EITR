@@ -1,0 +1,12 @@
+resource "azurerm_cosmosdb_gremlin_graph" "example" {
+    account_name = "{{ account_name }}"
+    analytical_storage_ttl = "{{ analytical_storage_ttl }}"
+    database_name = "{{ database_name }}"
+    default_ttl = "{{ default_ttl }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    partition_key_path = "{{ partition_key_path }}"
+    partition_key_version = "{{ partition_key_version }}"
+    resource_group_name = "{{ resource_group_name }}"
+    throughput = "{{ throughput }}"
+}

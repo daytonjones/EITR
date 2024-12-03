@@ -1,0 +1,66 @@
+resource "awscc_iotanalytics_pipeline" "example" {
+    id = "{{ id }}"
+    pipeline_activities = "{
+    add_attributes = {
+    attributes = {{ attributes }}
+    name = {{ name }}
+    next = {{ next }}
+}
+    channel = {
+    channel_name = {{ channel_name }}
+    name = {{ name }}
+    next = {{ next }}
+}
+    datastore = {
+    datastore_name = {{ datastore_name }}
+    name = {{ name }}
+}
+    device_registry_enrich = {
+    attribute = {{ attribute }}
+    name = {{ name }}
+    next = {{ next }}
+    role_arn = {{ role_arn }}
+    thing_name = {{ thing_name }}
+}
+    device_shadow_enrich = {
+    attribute = {{ attribute }}
+    name = {{ name }}
+    next = {{ next }}
+    role_arn = {{ role_arn }}
+    thing_name = {{ thing_name }}
+}
+    filter = {
+    filter = {{ filter }}
+    name = {{ name }}
+    next = {{ next }}
+}
+    lambda = {
+    batch_size = {{ batch_size }}
+    lambda_name = {{ lambda_name }}
+    name = {{ name }}
+    next = {{ next }}
+}
+    math = {
+    attribute = {{ attribute }}
+    math = {{ math }}
+    name = {{ name }}
+    next = {{ next }}
+}
+    remove_attributes = {
+    attributes = {{ attributes }}
+    name = {{ name }}
+    next = {{ next }}
+}
+    select_attributes = {
+    attributes = {{ attributes }}
+    name = {{ name }}
+    next = {{ next }}
+}
+}"
+    pipeline_id = "{{ pipeline_id }}"
+    pipeline_name = "{{ pipeline_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

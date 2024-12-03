@@ -1,0 +1,15 @@
+resource "google_vertex_ai_tensorboard" "example" {
+    blob_storage_path_prefix = "{{ blob_storage_path_prefix }}"
+    create_time = "{{ create_time }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    effective_labels = "{{ effective_labels }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    run_count = "{{ run_count }}"
+    terraform_labels = "{{ terraform_labels }}"
+    update_time = "{{ update_time }}"
+}

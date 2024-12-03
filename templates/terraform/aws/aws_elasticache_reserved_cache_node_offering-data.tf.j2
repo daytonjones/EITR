@@ -1,0 +1,8 @@
+data "aws_elasticache_reserved_cache_node_offering" "example" {
+    cache_node_type = "{{ cache_node_type }}"
+    duration = "{{ duration }}"
+    fixed_price = "{{ fixed_price }}"
+    offering_id = "{{ offering_id }}"
+    offering_type = "{{ offering_type }}"
+    product_description = "{{ product_description }}"
+}

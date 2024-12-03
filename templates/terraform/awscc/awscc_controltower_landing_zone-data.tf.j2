@@ -1,0 +1,14 @@
+data "awscc_controltower_landing_zone" "example" {
+    arn = "{{ arn }}"
+    drift_status = "{{ drift_status }}"
+    id = "{{ id }}"
+    landing_zone_identifier = "{{ landing_zone_identifier }}"
+    latest_available_version = "{{ latest_available_version }}"
+    manifest = "{{ manifest }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    version = "{{ version }}"
+}

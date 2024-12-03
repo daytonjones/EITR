@@ -1,0 +1,9 @@
+resource "google_service_networking_connection" "example" {
+    deletion_policy = "{{ deletion_policy }}"
+    id = "{{ id }}"
+    network = "{{ network }}"
+    peering = "{{ peering }}"
+    reserved_peering_ranges = "{{ reserved_peering_ranges }}"
+    service = "{{ service }}"
+    update_on_creation_fail = "{{ update_on_creation_fail }}"
+}

@@ -1,0 +1,11 @@
+data "awscc_securityhub_policy_association" "example" {
+    association_identifier = "{{ association_identifier }}"
+    association_status = "{{ association_status }}"
+    association_status_message = "{{ association_status_message }}"
+    association_type = "{{ association_type }}"
+    configuration_policy_id = "{{ configuration_policy_id }}"
+    id = "{{ id }}"
+    target_id = "{{ target_id }}"
+    target_type = "{{ target_type }}"
+    updated_at = "{{ updated_at }}"
+}

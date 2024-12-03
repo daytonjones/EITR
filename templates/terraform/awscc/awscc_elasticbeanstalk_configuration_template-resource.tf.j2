@@ -1,0 +1,19 @@
+resource "awscc_elasticbeanstalk_configuration_template" "example" {
+    application_name = "{{ application_name }}"
+    description = "{{ description }}"
+    environment_id = "{{ environment_id }}"
+    id = "{{ id }}"
+    option_settings = "{
+    namespace = {{ namespace }}
+    option_name = {{ option_name }}
+    resource_name = {{ resource_name }}
+    value = {{ value }}
+}"
+    platform_arn = "{{ platform_arn }}"
+    solution_stack_name = "{{ solution_stack_name }}"
+    source_configuration = "{
+    application_name = {{ application_name }}
+    template_name = {{ template_name }}
+}"
+    template_name = "{{ template_name }}"
+}

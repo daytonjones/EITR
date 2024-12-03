@@ -1,0 +1,10 @@
+data "awscc_s3outposts_access_point" "example" {
+    arn = "{{ arn }}"
+    bucket = "{{ bucket }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    policy = "{{ policy }}"
+    vpc_configuration = "{
+    vpc_id = {{ vpc_id }}
+}"
+}

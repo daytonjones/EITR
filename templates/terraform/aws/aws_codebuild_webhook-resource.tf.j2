@@ -1,0 +1,9 @@
+resource "aws_codebuild_webhook" "example" {
+    branch_filter = "{{ branch_filter }}"
+    build_type = "{{ build_type }}"
+    id = "{{ id }}"
+    payload_url = "{{ payload_url }}"
+    project_name = "{{ project_name }}"
+    secret = "{{ secret }}"
+    url = "{{ url }}"
+}

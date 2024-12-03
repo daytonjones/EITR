@@ -1,0 +1,24 @@
+resource "awscc_sqs_queue" "example" {
+    arn = "{{ arn }}"
+    content_based_deduplication = "{{ content_based_deduplication }}"
+    deduplication_scope = "{{ deduplication_scope }}"
+    delay_seconds = "{{ delay_seconds }}"
+    fifo_queue = "{{ fifo_queue }}"
+    fifo_throughput_limit = "{{ fifo_throughput_limit }}"
+    id = "{{ id }}"
+    kms_data_key_reuse_period_seconds = "{{ kms_data_key_reuse_period_seconds }}"
+    kms_master_key_id = "{{ kms_master_key_id }}"
+    maximum_message_size = "{{ maximum_message_size }}"
+    message_retention_period = "{{ message_retention_period }}"
+    queue_name = "{{ queue_name }}"
+    queue_url = "{{ queue_url }}"
+    receive_message_wait_time_seconds = "{{ receive_message_wait_time_seconds }}"
+    redrive_allow_policy = "{{ redrive_allow_policy }}"
+    redrive_policy = "{{ redrive_policy }}"
+    sqs_managed_sse_enabled = "{{ sqs_managed_sse_enabled }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    visibility_timeout = "{{ visibility_timeout }}"
+}

@@ -1,0 +1,7 @@
+data "consul_catalog_nodes" "example" {
+    datacenter = "{{ datacenter }}"
+    id = "{{ id }}"
+    node_ids = "{{ node_ids }}"
+    node_names = "{{ node_names }}"
+    nodes = "{{ nodes }}"
+}

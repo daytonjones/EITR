@@ -1,0 +1,8 @@
+resource "google_project_service" "example" {
+    check_if_service_has_usage_on_destroy = "{{ check_if_service_has_usage_on_destroy }}"
+    disable_dependent_services = "{{ disable_dependent_services }}"
+    disable_on_destroy = "{{ disable_on_destroy }}"
+    id = "{{ id }}"
+    project = "{{ project }}"
+    service = "{{ service }}"
+}

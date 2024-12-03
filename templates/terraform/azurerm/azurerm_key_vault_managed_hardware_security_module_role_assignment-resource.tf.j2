@@ -1,0 +1,9 @@
+resource "azurerm_key_vault_managed_hardware_security_module_role_assignment" "example" {
+    id = "{{ id }}"
+    managed_hsm_id = "{{ managed_hsm_id }}"
+    name = "{{ name }}"
+    principal_id = "{{ principal_id }}"
+    resource_id = "{{ resource_id }}"
+    role_definition_id = "{{ role_definition_id }}"
+    scope = "{{ scope }}"
+}

@@ -1,0 +1,19 @@
+resource "awscc_ec2_volume" "example" {
+    auto_enable_io = "{{ auto_enable_io }}"
+    availability_zone = "{{ availability_zone }}"
+    encrypted = "{{ encrypted }}"
+    id = "{{ id }}"
+    iops = "{{ iops }}"
+    kms_key_id = "{{ kms_key_id }}"
+    multi_attach_enabled = "{{ multi_attach_enabled }}"
+    outpost_arn = "{{ outpost_arn }}"
+    size = "{{ size }}"
+    snapshot_id = "{{ snapshot_id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    throughput = "{{ throughput }}"
+    volume_id = "{{ volume_id }}"
+    volume_type = "{{ volume_type }}"
+}

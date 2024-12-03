@@ -1,0 +1,13 @@
+resource "vault_kubernetes_auth_backend_config" "example" {
+    backend = "{{ backend }}"
+    disable_iss_validation = "{{ disable_iss_validation }}"
+    disable_local_ca_jwt = "{{ disable_local_ca_jwt }}"
+    id = "{{ id }}"
+    issuer = "{{ issuer }}"
+    kubernetes_ca_cert = "{{ kubernetes_ca_cert }}"
+    kubernetes_host = "{{ kubernetes_host }}"
+    namespace = "{{ namespace }}"
+    pem_keys = "{{ pem_keys }}"
+    token_reviewer_jwt = "{{ token_reviewer_jwt }}"
+    use_annotations_as_alias_metadata = "{{ use_annotations_as_alias_metadata }}"
+}

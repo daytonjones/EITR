@@ -1,0 +1,12 @@
+resource "azurestack_lb_nat_pool" "example" {
+    backend_port = "{{ backend_port }}"
+    frontend_ip_configuration_id = "{{ frontend_ip_configuration_id }}"
+    frontend_ip_configuration_name = "{{ frontend_ip_configuration_name }}"
+    frontend_port_end = "{{ frontend_port_end }}"
+    frontend_port_start = "{{ frontend_port_start }}"
+    id = "{{ id }}"
+    loadbalancer_id = "{{ loadbalancer_id }}"
+    name = "{{ name }}"
+    protocol = "{{ protocol }}"
+    resource_group_name = "{{ resource_group_name }}"
+}

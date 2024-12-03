@@ -1,0 +1,14 @@
+data "azurerm_healthcare_fhir_service" "example" {
+    access_policy_object_ids = "{{ access_policy_object_ids }}"
+    authentication = "{{ authentication }}"
+    configuration_export_storage_account_name = "{{ configuration_export_storage_account_name }}"
+    container_registry_login_server_url = "{{ container_registry_login_server_url }}"
+    cors = "{{ cors }}"
+    id = "{{ id }}"
+    identity = "{{ identity }}"
+    kind = "{{ kind }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    tags = "{{ tags }}"
+    workspace_id = "{{ workspace_id }}"
+}

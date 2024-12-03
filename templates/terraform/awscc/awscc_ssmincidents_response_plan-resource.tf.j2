@@ -1,0 +1,54 @@
+resource "awscc_ssmincidents_response_plan" "example" {
+    actions = "{
+    ssm_automation = {
+    document_name = {{ document_name }}
+    document_version = {{ document_version }}
+    dynamic_parameters = {
+    key = {{ key }}
+    value = {
+    variable = {{ variable }}
+}
+}
+    parameters = {
+    key = {{ key }}
+    values = {{ values }}
+}
+    role_arn = {{ role_arn }}
+    target_account = {{ target_account }}
+}
+}"
+    arn = "{{ arn }}"
+    chat_channel = "{
+    chatbot_sns = {{ chatbot_sns }}
+}"
+    display_name = "{{ display_name }}"
+    engagements = "{{ engagements }}"
+    id = "{{ id }}"
+    incident_template = "{
+    dedupe_string = {{ dedupe_string }}
+    impact = {{ impact }}
+    incident_tags = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    notification_targets = {
+    sns_topic_arn = {{ sns_topic_arn }}
+}
+    summary = {{ summary }}
+    title = {{ title }}
+}"
+    integrations = "{
+    pager_duty_configuration = {
+    name = {{ name }}
+    pager_duty_incident_configuration = {
+    service_id = {{ service_id }}
+}
+    secret_id = {{ secret_id }}
+}
+}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

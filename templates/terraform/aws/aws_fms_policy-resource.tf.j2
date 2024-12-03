@@ -1,0 +1,17 @@
+resource "aws_fms_policy" "example" {
+    arn = "{{ arn }}"
+    delete_all_policy_resources = "{{ delete_all_policy_resources }}"
+    delete_unused_fm_managed_resources = "{{ delete_unused_fm_managed_resources }}"
+    description = "{{ description }}"
+    exclude_resource_tags = "{{ exclude_resource_tags }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    policy_update_token = "{{ policy_update_token }}"
+    remediation_enabled = "{{ remediation_enabled }}"
+    resource_set_ids = "{{ resource_set_ids }}"
+    resource_tags = "{{ resource_tags }}"
+    resource_type = "{{ resource_type }}"
+    resource_type_list = "{{ resource_type_list }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

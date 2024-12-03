@@ -1,0 +1,9 @@
+resource "aws_apprunner_custom_domain_association" "example" {
+    certificate_validation_records = "{{ certificate_validation_records }}"
+    dns_target = "{{ dns_target }}"
+    domain_name = "{{ domain_name }}"
+    enable_www_subdomain = "{{ enable_www_subdomain }}"
+    id = "{{ id }}"
+    service_arn = "{{ service_arn }}"
+    status = "{{ status }}"
+}

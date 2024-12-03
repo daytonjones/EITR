@@ -1,0 +1,12 @@
+resource "aws_dx_gateway_association" "example" {
+    allowed_prefixes = "{{ allowed_prefixes }}"
+    associated_gateway_id = "{{ associated_gateway_id }}"
+    associated_gateway_owner_account_id = "{{ associated_gateway_owner_account_id }}"
+    associated_gateway_type = "{{ associated_gateway_type }}"
+    dx_gateway_association_id = "{{ dx_gateway_association_id }}"
+    dx_gateway_id = "{{ dx_gateway_id }}"
+    dx_gateway_owner_account_id = "{{ dx_gateway_owner_account_id }}"
+    id = "{{ id }}"
+    proposal_id = "{{ proposal_id }}"
+    vpn_gateway_id = "{{ vpn_gateway_id }}"
+}

@@ -1,0 +1,13 @@
+data "awscc_proton_service_template" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    encryption_key = "{{ encryption_key }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    pipeline_provisioning = "{{ pipeline_provisioning }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

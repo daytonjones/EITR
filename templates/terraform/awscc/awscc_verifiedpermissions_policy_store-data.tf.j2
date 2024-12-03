@@ -1,0 +1,12 @@
+data "awscc_verifiedpermissions_policy_store" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    policy_store_id = "{{ policy_store_id }}"
+    schema = "{
+    cedar_json = {{ cedar_json }}
+}"
+    validation_settings = "{
+    mode = {{ mode }}
+}"
+}

@@ -1,0 +1,8 @@
+resource "azurerm_log_analytics_workspace_table" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    plan = "{{ plan }}"
+    retention_in_days = "{{ retention_in_days }}"
+    total_retention_in_days = "{{ total_retention_in_days }}"
+    workspace_id = "{{ workspace_id }}"
+}

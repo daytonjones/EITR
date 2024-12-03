@@ -1,0 +1,12 @@
+resource "google_kms_key_ring_import_job" "example" {
+    attestation = "{{ attestation }}"
+    expire_time = "{{ expire_time }}"
+    id = "{{ id }}"
+    import_job_id = "{{ import_job_id }}"
+    import_method = "{{ import_method }}"
+    key_ring = "{{ key_ring }}"
+    name = "{{ name }}"
+    protection_level = "{{ protection_level }}"
+    public_key = "{{ public_key }}"
+    state = "{{ state }}"
+}

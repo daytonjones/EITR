@@ -1,0 +1,7 @@
+data "awscc_macie_session" "example" {
+    aws_account_id = "{{ aws_account_id }}"
+    finding_publishing_frequency = "{{ finding_publishing_frequency }}"
+    id = "{{ id }}"
+    service_role = "{{ service_role }}"
+    status = "{{ status }}"
+}

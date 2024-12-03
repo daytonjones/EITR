@@ -1,0 +1,16 @@
+resource "vault_alicloud_auth_backend_role" "example" {
+    arn = "{{ arn }}"
+    backend = "{{ backend }}"
+    id = "{{ id }}"
+    namespace = "{{ namespace }}"
+    role = "{{ role }}"
+    token_bound_cidrs = "{{ token_bound_cidrs }}"
+    token_explicit_max_ttl = "{{ token_explicit_max_ttl }}"
+    token_max_ttl = "{{ token_max_ttl }}"
+    token_no_default_policy = "{{ token_no_default_policy }}"
+    token_num_uses = "{{ token_num_uses }}"
+    token_period = "{{ token_period }}"
+    token_policies = "{{ token_policies }}"
+    token_ttl = "{{ token_ttl }}"
+    token_type = "{{ token_type }}"
+}

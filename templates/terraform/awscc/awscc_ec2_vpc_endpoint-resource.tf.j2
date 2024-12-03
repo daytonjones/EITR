@@ -1,0 +1,15 @@
+resource "awscc_ec2_vpc_endpoint" "example" {
+    creation_timestamp = "{{ creation_timestamp }}"
+    dns_entries = "{{ dns_entries }}"
+    id = "{{ id }}"
+    network_interface_ids = "{{ network_interface_ids }}"
+    policy_document = "{{ policy_document }}"
+    private_dns_enabled = "{{ private_dns_enabled }}"
+    route_table_ids = "{{ route_table_ids }}"
+    security_group_ids = "{{ security_group_ids }}"
+    service_name = "{{ service_name }}"
+    subnet_ids = "{{ subnet_ids }}"
+    vpc_endpoint_id = "{{ vpc_endpoint_id }}"
+    vpc_endpoint_type = "{{ vpc_endpoint_type }}"
+    vpc_id = "{{ vpc_id }}"
+}

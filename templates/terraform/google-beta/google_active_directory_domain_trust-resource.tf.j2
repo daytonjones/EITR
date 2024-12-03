@@ -1,0 +1,11 @@
+resource "google_active_directory_domain_trust" "example" {
+    domain = "{{ domain }}"
+    id = "{{ id }}"
+    project = "{{ project }}"
+    selective_authentication = "{{ selective_authentication }}"
+    target_dns_ip_addresses = "{{ target_dns_ip_addresses }}"
+    target_domain_name = "{{ target_domain_name }}"
+    trust_direction = "{{ trust_direction }}"
+    trust_handshake_secret = "{{ trust_handshake_secret }}"
+    trust_type = "{{ trust_type }}"
+}

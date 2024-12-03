@@ -1,0 +1,12 @@
+data "aws_ec2_capacity_block_offering" "example" {
+    availability_zone = "{{ availability_zone }}"
+    capacity_block_offering_id = "{{ capacity_block_offering_id }}"
+    capacity_duration_hours = "{{ capacity_duration_hours }}"
+    currency_code = "{{ currency_code }}"
+    end_date_range = "{{ end_date_range }}"
+    instance_count = "{{ instance_count }}"
+    instance_type = "{{ instance_type }}"
+    start_date_range = "{{ start_date_range }}"
+    tenancy = "{{ tenancy }}"
+    upfront_fee = "{{ upfront_fee }}"
+}

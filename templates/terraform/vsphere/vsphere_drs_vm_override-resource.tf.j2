@@ -1,0 +1,7 @@
+resource "vsphere_drs_vm_override" "example" {
+    compute_cluster_id = "{{ compute_cluster_id }}"
+    drs_automation_level = "{{ drs_automation_level }}"
+    drs_enabled = "{{ drs_enabled }}"
+    id = "{{ id }}"
+    virtual_machine_id = "{{ virtual_machine_id }}"
+}

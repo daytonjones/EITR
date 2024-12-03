@@ -1,0 +1,15 @@
+data "aws_kinesis_stream" "example" {
+    arn = "{{ arn }}"
+    closed_shards = "{{ closed_shards }}"
+    creation_timestamp = "{{ creation_timestamp }}"
+    encryption_type = "{{ encryption_type }}"
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    name = "{{ name }}"
+    open_shards = "{{ open_shards }}"
+    retention_period = "{{ retention_period }}"
+    shard_level_metrics = "{{ shard_level_metrics }}"
+    status = "{{ status }}"
+    stream_mode_details = "{{ stream_mode_details }}"
+    tags = "{{ tags }}"
+}

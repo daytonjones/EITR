@@ -1,0 +1,7 @@
+resource "azurerm_static_site_custom_domain" "example" {
+    domain_name = "{{ domain_name }}"
+    id = "{{ id }}"
+    static_site_id = "{{ static_site_id }}"
+    validation_token = "{{ validation_token }}"
+    validation_type = "{{ validation_type }}"
+}

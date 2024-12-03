@@ -1,0 +1,9 @@
+resource "aws_amplify_domain_association" "example" {
+    app_id = "{{ app_id }}"
+    arn = "{{ arn }}"
+    certificate_verification_dns_record = "{{ certificate_verification_dns_record }}"
+    domain_name = "{{ domain_name }}"
+    enable_auto_sub_domain = "{{ enable_auto_sub_domain }}"
+    id = "{{ id }}"
+    wait_for_verification = "{{ wait_for_verification }}"
+}

@@ -1,0 +1,9 @@
+resource "azurerm_digital_twins_endpoint_eventgrid" "example" {
+    dead_letter_storage_secret = "{{ dead_letter_storage_secret }}"
+    digital_twins_id = "{{ digital_twins_id }}"
+    eventgrid_topic_endpoint = "{{ eventgrid_topic_endpoint }}"
+    eventgrid_topic_primary_access_key = "{{ eventgrid_topic_primary_access_key }}"
+    eventgrid_topic_secondary_access_key = "{{ eventgrid_topic_secondary_access_key }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+}

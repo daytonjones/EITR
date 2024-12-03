@@ -1,0 +1,32 @@
+resource "awscc_connect_user_hierarchy_structure" "example" {
+    id = "{{ id }}"
+    instance_arn = "{{ instance_arn }}"
+    user_hierarchy_structure = "{
+    level_five = {
+    hierarchy_level_arn = {{ hierarchy_level_arn }}
+    hierarchy_level_id = {{ hierarchy_level_id }}
+    name = {{ name }}
+}
+    level_four = {
+    hierarchy_level_arn = {{ hierarchy_level_arn }}
+    hierarchy_level_id = {{ hierarchy_level_id }}
+    name = {{ name }}
+}
+    level_one = {
+    hierarchy_level_arn = {{ hierarchy_level_arn }}
+    hierarchy_level_id = {{ hierarchy_level_id }}
+    name = {{ name }}
+}
+    level_three = {
+    hierarchy_level_arn = {{ hierarchy_level_arn }}
+    hierarchy_level_id = {{ hierarchy_level_id }}
+    name = {{ name }}
+}
+    level_two = {
+    hierarchy_level_arn = {{ hierarchy_level_arn }}
+    hierarchy_level_id = {{ hierarchy_level_id }}
+    name = {{ name }}
+}
+}"
+    user_hierarchy_structure_arn = "{{ user_hierarchy_structure_arn }}"
+}

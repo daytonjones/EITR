@@ -1,0 +1,46 @@
+resource "awscc_lightsail_distribution" "example" {
+    able_to_update_bundle = "{{ able_to_update_bundle }}"
+    bundle_id = "{{ bundle_id }}"
+    cache_behavior_settings = "{
+    allowed_http_methods = {{ allowed_http_methods }}
+    cached_http_methods = {{ cached_http_methods }}
+    default_ttl = {{ default_ttl }}
+    forwarded_cookies = {
+    cookies_allow_list = {{ cookies_allow_list }}
+    option = {{ option }}
+}
+    forwarded_headers = {
+    headers_allow_list = {{ headers_allow_list }}
+    option = {{ option }}
+}
+    forwarded_query_strings = {
+    option = {{ option }}
+    query_strings_allow_list = {{ query_strings_allow_list }}
+}
+    maximum_ttl = {{ maximum_ttl }}
+    minimum_ttl = {{ minimum_ttl }}
+}"
+    cache_behaviors = "{
+    behavior = {{ behavior }}
+    path = {{ path }}
+}"
+    certificate_name = "{{ certificate_name }}"
+    default_cache_behavior = "{
+    behavior = {{ behavior }}
+}"
+    distribution_arn = "{{ distribution_arn }}"
+    distribution_name = "{{ distribution_name }}"
+    id = "{{ id }}"
+    ip_address_type = "{{ ip_address_type }}"
+    is_enabled = "{{ is_enabled }}"
+    origin = "{
+    name = {{ name }}
+    protocol_policy = {{ protocol_policy }}
+    region_name = {{ region_name }}
+}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

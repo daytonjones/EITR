@@ -1,0 +1,17 @@
+resource "awscc_launchwizard_deployment" "example" {
+    arn = "{{ arn }}"
+    created_at = "{{ created_at }}"
+    deleted_at = "{{ deleted_at }}"
+    deployment_id = "{{ deployment_id }}"
+    deployment_pattern_name = "{{ deployment_pattern_name }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_group = "{{ resource_group }}"
+    specifications = "{{ specifications }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    workload_name = "{{ workload_name }}"
+}

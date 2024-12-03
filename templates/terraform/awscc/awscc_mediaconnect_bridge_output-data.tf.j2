@@ -1,0 +1,12 @@
+data "awscc_mediaconnect_bridge_output" "example" {
+    bridge_arn = "{{ bridge_arn }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    network_output = "{
+    ip_address = {{ ip_address }}
+    network_name = {{ network_name }}
+    port = {{ port }}
+    protocol = {{ protocol }}
+    ttl = {{ ttl }}
+}"
+}

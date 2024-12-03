@@ -1,0 +1,8 @@
+resource "azurerm_storage_encryption_scope" "example" {
+    id = "{{ id }}"
+    infrastructure_encryption_required = "{{ infrastructure_encryption_required }}"
+    key_vault_key_id = "{{ key_vault_key_id }}"
+    name = "{{ name }}"
+    source = "{{ source }}"
+    storage_account_id = "{{ storage_account_id }}"
+}

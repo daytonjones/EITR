@@ -1,0 +1,10 @@
+resource "awscc_databrew_schedule" "example" {
+    cron_expression = "{{ cron_expression }}"
+    id = "{{ id }}"
+    job_names = "{{ job_names }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,8 @@
+data "awscc_efs_mount_target" "example" {
+    file_system_id = "{{ file_system_id }}"
+    id = "{{ id }}"
+    ip_address = "{{ ip_address }}"
+    mount_target_id = "{{ mount_target_id }}"
+    security_groups = "{{ security_groups }}"
+    subnet_id = "{{ subnet_id }}"
+}

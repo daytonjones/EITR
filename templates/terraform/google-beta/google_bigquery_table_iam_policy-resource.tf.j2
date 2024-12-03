@@ -1,0 +1,8 @@
+resource "google_bigquery_table_iam_policy" "example" {
+    dataset_id = "{{ dataset_id }}"
+    etag = "{{ etag }}"
+    id = "{{ id }}"
+    policy_data = "{{ policy_data }}"
+    project = "{{ project }}"
+    table_id = "{{ table_id }}"
+}

@@ -1,0 +1,37 @@
+resource "awscc_securityhub_configuration_policy" "example" {
+    arn = "{{ arn }}"
+    configuration_policy = "{
+    security_hub = {
+    enabled_standard_identifiers = {{ enabled_standard_identifiers }}
+    security_controls_configuration = {
+    disabled_security_control_identifiers = {{ disabled_security_control_identifiers }}
+    enabled_security_control_identifiers = {{ enabled_security_control_identifiers }}
+    security_control_custom_parameters = {
+    parameters = {
+    value = {
+    boolean = {{ boolean }}
+    double = {{ double }}
+    enum = {{ enum }}
+    enum_list = {{ enum_list }}
+    integer = {{ integer }}
+    integer_list = {{ integer_list }}
+    string = {{ string }}
+    string_list = {{ string_list }}
+}
+    value_type = {{ value_type }}
+}
+    security_control_id = {{ security_control_id }}
+}
+}
+    service_enabled = {{ service_enabled }}
+}
+}"
+    configuration_policy_id = "{{ configuration_policy_id }}"
+    created_at = "{{ created_at }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    service_enabled = "{{ service_enabled }}"
+    tags = "{{ tags }}"
+    updated_at = "{{ updated_at }}"
+}

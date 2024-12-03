@@ -1,0 +1,29 @@
+data "awscc_codeartifact_package_group" "example" {
+    arn = "{{ arn }}"
+    contact_info = "{{ contact_info }}"
+    description = "{{ description }}"
+    domain_name = "{{ domain_name }}"
+    domain_owner = "{{ domain_owner }}"
+    id = "{{ id }}"
+    origin_configuration = "{
+    restrictions = {
+    external_upstream = {
+    repositories = {{ repositories }}
+    restriction_mode = {{ restriction_mode }}
+}
+    internal_upstream = {
+    repositories = {{ repositories }}
+    restriction_mode = {{ restriction_mode }}
+}
+    publish = {
+    repositories = {{ repositories }}
+    restriction_mode = {{ restriction_mode }}
+}
+}
+}"
+    pattern = "{{ pattern }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

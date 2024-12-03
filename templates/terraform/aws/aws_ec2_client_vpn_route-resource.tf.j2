@@ -1,0 +1,9 @@
+resource "aws_ec2_client_vpn_route" "example" {
+    client_vpn_endpoint_id = "{{ client_vpn_endpoint_id }}"
+    description = "{{ description }}"
+    destination_cidr_block = "{{ destination_cidr_block }}"
+    id = "{{ id }}"
+    origin = "{{ origin }}"
+    target_vpc_subnet_id = "{{ target_vpc_subnet_id }}"
+    type = "{{ type }}"
+}

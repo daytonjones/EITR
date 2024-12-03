@@ -1,0 +1,474 @@
+data "awscc_securityhub_insight" "example" {
+    filters = "{
+    aws_account_id = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    aws_account_name = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    company_name = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    compliance_associated_standards_id = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    compliance_security_control_id = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    compliance_security_control_parameters_name = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    compliance_security_control_parameters_value = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    compliance_status = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    confidence = {
+    eq = {{ eq }}
+    gte = {{ gte }}
+    lte = {{ lte }}
+}
+    created_at = {
+    date_range = {
+    unit = {{ unit }}
+    value = {{ value }}
+}
+    end = {{ end }}
+    start = {{ start }}
+}
+    criticality = {
+    eq = {{ eq }}
+    gte = {{ gte }}
+    lte = {{ lte }}
+}
+    description = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    finding_provider_fields_confidence = {
+    eq = {{ eq }}
+    gte = {{ gte }}
+    lte = {{ lte }}
+}
+    finding_provider_fields_criticality = {
+    eq = {{ eq }}
+    gte = {{ gte }}
+    lte = {{ lte }}
+}
+    finding_provider_fields_related_findings_id = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    finding_provider_fields_related_findings_product_arn = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    finding_provider_fields_severity_label = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    finding_provider_fields_severity_original = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    finding_provider_fields_types = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    first_observed_at = {
+    date_range = {
+    unit = {{ unit }}
+    value = {{ value }}
+}
+    end = {{ end }}
+    start = {{ start }}
+}
+    generator_id = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    id = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    keyword = {
+    value = {{ value }}
+}
+    last_observed_at = {
+    date_range = {
+    unit = {{ unit }}
+    value = {{ value }}
+}
+    end = {{ end }}
+    start = {{ start }}
+}
+    malware_name = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    malware_path = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    malware_state = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    malware_type = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    network_destination_domain = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    network_destination_ip_v4 = {
+    cidr = {{ cidr }}
+}
+    network_destination_ip_v6 = {
+    cidr = {{ cidr }}
+}
+    network_destination_port = {
+    eq = {{ eq }}
+    gte = {{ gte }}
+    lte = {{ lte }}
+}
+    network_direction = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    network_protocol = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    network_source_domain = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    network_source_ip_v4 = {
+    cidr = {{ cidr }}
+}
+    network_source_ip_v6 = {
+    cidr = {{ cidr }}
+}
+    network_source_mac = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    network_source_port = {
+    eq = {{ eq }}
+    gte = {{ gte }}
+    lte = {{ lte }}
+}
+    note_text = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    note_updated_at = {
+    date_range = {
+    unit = {{ unit }}
+    value = {{ value }}
+}
+    end = {{ end }}
+    start = {{ start }}
+}
+    note_updated_by = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    process_launched_at = {
+    date_range = {
+    unit = {{ unit }}
+    value = {{ value }}
+}
+    end = {{ end }}
+    start = {{ start }}
+}
+    process_name = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    process_parent_pid = {
+    eq = {{ eq }}
+    gte = {{ gte }}
+    lte = {{ lte }}
+}
+    process_path = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    process_pid = {
+    eq = {{ eq }}
+    gte = {{ gte }}
+    lte = {{ lte }}
+}
+    process_terminated_at = {
+    date_range = {
+    unit = {{ unit }}
+    value = {{ value }}
+}
+    end = {{ end }}
+    start = {{ start }}
+}
+    product_arn = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    product_fields = {
+    comparison = {{ comparison }}
+    key = {{ key }}
+    value = {{ value }}
+}
+    product_name = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    recommendation_text = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    record_state = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    region = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    related_findings_id = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    related_findings_product_arn = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_application_arn = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_application_name = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_aws_ec_2_instance_iam_instance_profile_arn = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_aws_ec_2_instance_image_id = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_aws_ec_2_instance_ip_v4_addresses = {
+    cidr = {{ cidr }}
+}
+    resource_aws_ec_2_instance_ip_v6_addresses = {
+    cidr = {{ cidr }}
+}
+    resource_aws_ec_2_instance_key_name = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_aws_ec_2_instance_launched_at = {
+    date_range = {
+    unit = {{ unit }}
+    value = {{ value }}
+}
+    end = {{ end }}
+    start = {{ start }}
+}
+    resource_aws_ec_2_instance_subnet_id = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_aws_ec_2_instance_type = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_aws_ec_2_instance_vpc_id = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_aws_iam_access_key_created_at = {
+    date_range = {
+    unit = {{ unit }}
+    value = {{ value }}
+}
+    end = {{ end }}
+    start = {{ start }}
+}
+    resource_aws_iam_access_key_principal_name = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_aws_iam_access_key_status = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_aws_iam_access_key_user_name = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_aws_iam_user_user_name = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_aws_s3_bucket_owner_id = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_aws_s3_bucket_owner_name = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_container_image_id = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_container_image_name = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_container_launched_at = {
+    date_range = {
+    unit = {{ unit }}
+    value = {{ value }}
+}
+    end = {{ end }}
+    start = {{ start }}
+}
+    resource_container_name = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_details_other = {
+    comparison = {{ comparison }}
+    key = {{ key }}
+    value = {{ value }}
+}
+    resource_id = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_partition = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_region = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_tags = {
+    comparison = {{ comparison }}
+    key = {{ key }}
+    value = {{ value }}
+}
+    resource_type = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    sample = {
+    value = {{ value }}
+}
+    severity_label = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    severity_normalized = {
+    eq = {{ eq }}
+    gte = {{ gte }}
+    lte = {{ lte }}
+}
+    severity_product = {
+    eq = {{ eq }}
+    gte = {{ gte }}
+    lte = {{ lte }}
+}
+    source_url = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    threat_intel_indicator_category = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    threat_intel_indicator_last_observed_at = {
+    date_range = {
+    unit = {{ unit }}
+    value = {{ value }}
+}
+    end = {{ end }}
+    start = {{ start }}
+}
+    threat_intel_indicator_source = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    threat_intel_indicator_source_url = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    threat_intel_indicator_type = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    threat_intel_indicator_value = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    title = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    type = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    updated_at = {
+    date_range = {
+    unit = {{ unit }}
+    value = {{ value }}
+}
+    end = {{ end }}
+    start = {{ start }}
+}
+    user_defined_fields = {
+    comparison = {{ comparison }}
+    key = {{ key }}
+    value = {{ value }}
+}
+    verification_state = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    vulnerabilities_exploit_available = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    vulnerabilities_fix_available = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    workflow_state = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    workflow_status = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+}"
+    group_by_attribute = "{{ group_by_attribute }}"
+    id = "{{ id }}"
+    insight_arn = "{{ insight_arn }}"
+    name = "{{ name }}"
+}

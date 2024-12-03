@@ -1,0 +1,14 @@
+resource "azurerm_eventgrid_topic" "example" {
+    endpoint = "{{ endpoint }}"
+    id = "{{ id }}"
+    inbound_ip_rule = "{{ inbound_ip_rule }}"
+    input_schema = "{{ input_schema }}"
+    local_auth_enabled = "{{ local_auth_enabled }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    primary_access_key = "{{ primary_access_key }}"
+    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    resource_group_name = "{{ resource_group_name }}"
+    secondary_access_key = "{{ secondary_access_key }}"
+    tags = "{{ tags }}"
+}

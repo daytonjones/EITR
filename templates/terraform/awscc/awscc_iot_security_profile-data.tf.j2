@@ -1,0 +1,57 @@
+data "awscc_iot_security_profile" "example" {
+    additional_metrics_to_retain_v2 = "{
+    export_metric = {{ export_metric }}
+    metric = {{ metric }}
+    metric_dimension = {
+    dimension_name = {{ dimension_name }}
+    operator = {{ operator }}
+}
+}"
+    alert_targets = "{
+    alert_target_arn = {{ alert_target_arn }}
+    role_arn = {{ role_arn }}
+}"
+    behaviors = "{
+    criteria = {
+    comparison_operator = {{ comparison_operator }}
+    consecutive_datapoints_to_alarm = {{ consecutive_datapoints_to_alarm }}
+    consecutive_datapoints_to_clear = {{ consecutive_datapoints_to_clear }}
+    duration_seconds = {{ duration_seconds }}
+    ml_detection_config = {
+    confidence_level = {{ confidence_level }}
+}
+    statistical_threshold = {
+    statistic = {{ statistic }}
+}
+    value = {
+    cidrs = {{ cidrs }}
+    count = {{ count }}
+    number = {{ number }}
+    numbers = {{ numbers }}
+    ports = {{ ports }}
+    strings = {{ strings }}
+}
+}
+    export_metric = {{ export_metric }}
+    metric = {{ metric }}
+    metric_dimension = {
+    dimension_name = {{ dimension_name }}
+    operator = {{ operator }}
+}
+    name = {{ name }}
+    suppress_alerts = {{ suppress_alerts }}
+}"
+    id = "{{ id }}"
+    metrics_export_config = "{
+    mqtt_topic = {{ mqtt_topic }}
+    role_arn = {{ role_arn }}
+}"
+    security_profile_arn = "{{ security_profile_arn }}"
+    security_profile_description = "{{ security_profile_description }}"
+    security_profile_name = "{{ security_profile_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    target_arns = "{{ target_arns }}"
+}

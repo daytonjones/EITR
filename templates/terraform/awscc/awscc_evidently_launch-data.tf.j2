@@ -1,0 +1,45 @@
+data "awscc_evidently_launch" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    execution_status = "{
+    desired_state = {{ desired_state }}
+    reason = {{ reason }}
+    status = {{ status }}
+}"
+    groups = "{
+    description = {{ description }}
+    feature = {{ feature }}
+    group_name = {{ group_name }}
+    variation = {{ variation }}
+}"
+    id = "{{ id }}"
+    metric_monitors = "{
+    entity_id_key = {{ entity_id_key }}
+    event_pattern = {{ event_pattern }}
+    metric_name = {{ metric_name }}
+    unit_label = {{ unit_label }}
+    value_key = {{ value_key }}
+}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    randomization_salt = "{{ randomization_salt }}"
+    scheduled_splits_config = "{
+    group_weights = {
+    group_name = {{ group_name }}
+    split_weight = {{ split_weight }}
+}
+    segment_overrides = {
+    evaluation_order = {{ evaluation_order }}
+    segment = {{ segment }}
+    weights = {
+    group_name = {{ group_name }}
+    split_weight = {{ split_weight }}
+}
+}
+    start_time = {{ start_time }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

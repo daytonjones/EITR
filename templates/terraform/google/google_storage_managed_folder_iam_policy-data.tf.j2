@@ -1,0 +1,7 @@
+data "google_storage_managed_folder_iam_policy" "example" {
+    bucket = "{{ bucket }}"
+    etag = "{{ etag }}"
+    id = "{{ id }}"
+    managed_folder = "{{ managed_folder }}"
+    policy_data = "{{ policy_data }}"
+}

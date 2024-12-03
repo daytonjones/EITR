@@ -1,0 +1,5 @@
+resource "azurerm_network_interface_application_security_group_association" "example" {
+    application_security_group_id = "{{ application_security_group_id }}"
+    id = "{{ id }}"
+    network_interface_id = "{{ network_interface_id }}"
+}

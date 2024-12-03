@@ -1,0 +1,7 @@
+resource "awscc_acmpca_permission" "example" {
+    actions = "{{ actions }}"
+    certificate_authority_arn = "{{ certificate_authority_arn }}"
+    id = "{{ id }}"
+    principal = "{{ principal }}"
+    source_account = "{{ source_account }}"
+}

@@ -1,0 +1,10 @@
+resource "aws_redshift_scheduled_action" "example" {
+    description = "{{ description }}"
+    enable = "{{ enable }}"
+    end_time = "{{ end_time }}"
+    iam_role = "{{ iam_role }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    schedule = "{{ schedule }}"
+    start_time = "{{ start_time }}"
+}

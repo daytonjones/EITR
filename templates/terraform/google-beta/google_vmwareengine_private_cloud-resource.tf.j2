@@ -1,0 +1,15 @@
+resource "google_vmwareengine_private_cloud" "example" {
+    deletion_delay_hours = "{{ deletion_delay_hours }}"
+    description = "{{ description }}"
+    hcx = "{{ hcx }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    nsx = "{{ nsx }}"
+    project = "{{ project }}"
+    send_deletion_delay_hours_if_zero = "{{ send_deletion_delay_hours_if_zero }}"
+    state = "{{ state }}"
+    type = "{{ type }}"
+    uid = "{{ uid }}"
+    vcenter = "{{ vcenter }}"
+}

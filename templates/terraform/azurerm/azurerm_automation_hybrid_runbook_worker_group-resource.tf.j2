@@ -1,0 +1,7 @@
+resource "azurerm_automation_hybrid_runbook_worker_group" "example" {
+    automation_account_name = "{{ automation_account_name }}"
+    credential_name = "{{ credential_name }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+}

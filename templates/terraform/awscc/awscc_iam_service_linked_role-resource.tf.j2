@@ -1,0 +1,7 @@
+resource "awscc_iam_service_linked_role" "example" {
+    aws_service_name = "{{ aws_service_name }}"
+    custom_suffix = "{{ custom_suffix }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    role_name = "{{ role_name }}"
+}

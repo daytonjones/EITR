@@ -1,0 +1,45 @@
+data "awscc_imagebuilder_container_recipe" "example" {
+    arn = "{{ arn }}"
+    components = "{
+    component_arn = {{ component_arn }}
+    parameters = {
+    name = {{ name }}
+    value = {{ value }}
+}
+}"
+    container_type = "{{ container_type }}"
+    description = "{{ description }}"
+    dockerfile_template_data = "{{ dockerfile_template_data }}"
+    dockerfile_template_uri = "{{ dockerfile_template_uri }}"
+    id = "{{ id }}"
+    image_os_version_override = "{{ image_os_version_override }}"
+    instance_configuration = "{
+    block_device_mappings = {
+    device_name = {{ device_name }}
+    ebs = {
+    delete_on_termination = {{ delete_on_termination }}
+    encrypted = {{ encrypted }}
+    iops = {{ iops }}
+    kms_key_id = {{ kms_key_id }}
+    snapshot_id = {{ snapshot_id }}
+    throughput = {{ throughput }}
+    volume_size = {{ volume_size }}
+    volume_type = {{ volume_type }}
+}
+    no_device = {{ no_device }}
+    virtual_name = {{ virtual_name }}
+}
+    image = {{ image }}
+}"
+    kms_key_id = "{{ kms_key_id }}"
+    name = "{{ name }}"
+    parent_image = "{{ parent_image }}"
+    platform_override = "{{ platform_override }}"
+    tags = "{{ tags }}"
+    target_repository = "{
+    repository_name = {{ repository_name }}
+    service = {{ service }}
+}"
+    version = "{{ version }}"
+    working_directory = "{{ working_directory }}"
+}

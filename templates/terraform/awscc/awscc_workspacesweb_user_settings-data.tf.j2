@@ -1,0 +1,31 @@
+data "awscc_workspacesweb_user_settings" "example" {
+    additional_encryption_context = "{{ additional_encryption_context }}"
+    associated_portal_arns = "{{ associated_portal_arns }}"
+    cookie_synchronization_configuration = "{
+    allowlist = {
+    domain = {{ domain }}
+    name = {{ name }}
+    path = {{ path }}
+}
+    blocklist = {
+    domain = {{ domain }}
+    name = {{ name }}
+    path = {{ path }}
+}
+}"
+    copy_allowed = "{{ copy_allowed }}"
+    customer_managed_key = "{{ customer_managed_key }}"
+    deep_link_allowed = "{{ deep_link_allowed }}"
+    disconnect_timeout_in_minutes = "{{ disconnect_timeout_in_minutes }}"
+    download_allowed = "{{ download_allowed }}"
+    id = "{{ id }}"
+    idle_disconnect_timeout_in_minutes = "{{ idle_disconnect_timeout_in_minutes }}"
+    paste_allowed = "{{ paste_allowed }}"
+    print_allowed = "{{ print_allowed }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    upload_allowed = "{{ upload_allowed }}"
+    user_settings_arn = "{{ user_settings_arn }}"
+}

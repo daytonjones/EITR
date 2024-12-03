@@ -1,0 +1,14 @@
+resource "awscc_kendraranking_execution_plan" "example" {
+    arn = "{{ arn }}"
+    capacity_units = "{
+    rescore_capacity_units = {{ rescore_capacity_units }}
+}"
+    description = "{{ description }}"
+    execution_plan_id = "{{ execution_plan_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,7 @@
+resource "awscc_certificatemanager_account" "example" {
+    account_id = "{{ account_id }}"
+    expiry_events_configuration = "{
+    days_before_expiry = {{ days_before_expiry }}
+}"
+    id = "{{ id }}"
+}

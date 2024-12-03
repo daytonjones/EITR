@@ -1,0 +1,39 @@
+resource "awscc_qbusiness_plugin" "example" {
+    application_id = "{{ application_id }}"
+    auth_configuration = "{
+    basic_auth_configuration = {
+    role_arn = {{ role_arn }}
+    secret_arn = {{ secret_arn }}
+}
+    no_auth_configuration = {{ no_auth_configuration }}
+    o_auth_2_client_credential_configuration = {
+    role_arn = {{ role_arn }}
+    secret_arn = {{ secret_arn }}
+}
+}"
+    build_status = "{{ build_status }}"
+    created_at = "{{ created_at }}"
+    custom_plugin_configuration = "{
+    api_schema = {
+    payload = {{ payload }}
+    s3 = {
+    bucket = {{ bucket }}
+    key = {{ key }}
+}
+}
+    api_schema_type = {{ api_schema_type }}
+    description = {{ description }}
+}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    plugin_arn = "{{ plugin_arn }}"
+    plugin_id = "{{ plugin_id }}"
+    server_url = "{{ server_url }}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+    updated_at = "{{ updated_at }}"
+}

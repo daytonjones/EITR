@@ -1,0 +1,10 @@
+data "azuread_groups" "example" {
+    display_name_prefix = "{{ display_name_prefix }}"
+    display_names = "{{ display_names }}"
+    id = "{{ id }}"
+    ignore_missing = "{{ ignore_missing }}"
+    mail_enabled = "{{ mail_enabled }}"
+    object_ids = "{{ object_ids }}"
+    return_all = "{{ return_all }}"
+    security_enabled = "{{ security_enabled }}"
+}

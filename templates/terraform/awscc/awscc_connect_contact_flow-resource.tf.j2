@@ -1,0 +1,14 @@
+resource "awscc_connect_contact_flow" "example" {
+    contact_flow_arn = "{{ contact_flow_arn }}"
+    content = "{{ content }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    instance_arn = "{{ instance_arn }}"
+    name = "{{ name }}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+}

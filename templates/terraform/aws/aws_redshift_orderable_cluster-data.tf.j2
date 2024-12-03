@@ -1,0 +1,8 @@
+data "aws_redshift_orderable_cluster" "example" {
+    availability_zones = "{{ availability_zones }}"
+    cluster_type = "{{ cluster_type }}"
+    cluster_version = "{{ cluster_version }}"
+    id = "{{ id }}"
+    node_type = "{{ node_type }}"
+    preferred_node_types = "{{ preferred_node_types }}"
+}

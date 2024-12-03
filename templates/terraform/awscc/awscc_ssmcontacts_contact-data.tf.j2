@@ -1,0 +1,21 @@
+data "awscc_ssmcontacts_contact" "example" {
+    alias = "{{ alias }}"
+    arn = "{{ arn }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    plan = "{
+    duration_in_minutes = {{ duration_in_minutes }}
+    rotation_ids = {{ rotation_ids }}
+    targets = {
+    channel_target_info = {
+    channel_id = {{ channel_id }}
+    retry_interval_in_minutes = {{ retry_interval_in_minutes }}
+}
+    contact_target_info = {
+    contact_id = {{ contact_id }}
+    is_essential = {{ is_essential }}
+}
+}
+}"
+    type = "{{ type }}"
+}

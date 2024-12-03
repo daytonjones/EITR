@@ -1,0 +1,13 @@
+resource "awscc_omics_reference_store" "example" {
+    arn = "{{ arn }}"
+    creation_time = "{{ creation_time }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    reference_store_id = "{{ reference_store_id }}"
+    sse_config = "{
+    key_arn = {{ key_arn }}
+    type = {{ type }}
+}"
+    tags = "{{ tags }}"
+}

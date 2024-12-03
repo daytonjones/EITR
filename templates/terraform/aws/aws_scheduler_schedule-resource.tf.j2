@@ -1,0 +1,14 @@
+resource "aws_scheduler_schedule" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    end_date = "{{ end_date }}"
+    group_name = "{{ group_name }}"
+    id = "{{ id }}"
+    kms_key_arn = "{{ kms_key_arn }}"
+    name = "{{ name }}"
+    name_prefix = "{{ name_prefix }}"
+    schedule_expression = "{{ schedule_expression }}"
+    schedule_expression_timezone = "{{ schedule_expression_timezone }}"
+    start_date = "{{ start_date }}"
+    state = "{{ state }}"
+}

@@ -1,0 +1,12 @@
+resource "google_logging_project_bucket_config" "example" {
+    bucket_id = "{{ bucket_id }}"
+    description = "{{ description }}"
+    enable_analytics = "{{ enable_analytics }}"
+    id = "{{ id }}"
+    lifecycle_state = "{{ lifecycle_state }}"
+    location = "{{ location }}"
+    locked = "{{ locked }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    retention_days = "{{ retention_days }}"
+}

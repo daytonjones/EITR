@@ -1,0 +1,7 @@
+resource "aws_auditmanager_account_registration" "example" {
+    delegated_admin_account = "{{ delegated_admin_account }}"
+    deregister_on_destroy = "{{ deregister_on_destroy }}"
+    id = "{{ id }}"
+    kms_key = "{{ kms_key }}"
+    status = "{{ status }}"
+}

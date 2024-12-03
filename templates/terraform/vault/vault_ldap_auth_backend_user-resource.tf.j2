@@ -1,0 +1,8 @@
+resource "vault_ldap_auth_backend_user" "example" {
+    backend = "{{ backend }}"
+    groups = "{{ groups }}"
+    id = "{{ id }}"
+    namespace = "{{ namespace }}"
+    policies = "{{ policies }}"
+    username = "{{ username }}"
+}

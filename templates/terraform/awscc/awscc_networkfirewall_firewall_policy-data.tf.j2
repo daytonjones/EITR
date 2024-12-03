@@ -1,0 +1,50 @@
+data "awscc_networkfirewall_firewall_policy" "example" {
+    description = "{{ description }}"
+    firewall_policy = "{
+    policy_variables = {
+    rule_variables = {
+    definition = {{ definition }}
+}
+}
+    stateful_default_actions = {{ stateful_default_actions }}
+    stateful_engine_options = {
+    flow_timeouts = {
+    tcp_idle_timeout_seconds = {{ tcp_idle_timeout_seconds }}
+}
+    rule_order = {{ rule_order }}
+    stream_exception_policy = {{ stream_exception_policy }}
+}
+    stateful_rule_group_references = {
+    override = {
+    action = {{ action }}
+}
+    priority = {{ priority }}
+    resource_arn = {{ resource_arn }}
+}
+    stateless_custom_actions = {
+    action_definition = {
+    publish_metric_action = {
+    dimensions = {
+    value = {{ value }}
+}
+}
+}
+    action_name = {{ action_name }}
+}
+    stateless_default_actions = {{ stateless_default_actions }}
+    stateless_fragment_default_actions = {{ stateless_fragment_default_actions }}
+    stateless_rule_group_references = {
+    priority = {{ priority }}
+    resource_arn = {{ resource_arn }}
+}
+    tls_inspection_configuration_arn = {{ tls_inspection_configuration_arn }}
+}"
+    firewall_policy_arn = "{{ firewall_policy_arn }}"
+    firewall_policy_id = "{{ firewall_policy_id }}"
+    firewall_policy_name = "{{ firewall_policy_name }}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

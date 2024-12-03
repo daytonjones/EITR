@@ -1,0 +1,17 @@
+resource "google_network_services_edge_cache_service" "example" {
+    description = "{{ description }}"
+    disable_http2 = "{{ disable_http2 }}"
+    disable_quic = "{{ disable_quic }}"
+    edge_security_policy = "{{ edge_security_policy }}"
+    edge_ssl_certificates = "{{ edge_ssl_certificates }}"
+    effective_labels = "{{ effective_labels }}"
+    id = "{{ id }}"
+    ipv4_addresses = "{{ ipv4_addresses }}"
+    ipv6_addresses = "{{ ipv6_addresses }}"
+    labels = "{{ labels }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    require_tls = "{{ require_tls }}"
+    ssl_policy = "{{ ssl_policy }}"
+    terraform_labels = "{{ terraform_labels }}"
+}

@@ -1,0 +1,40 @@
+resource "awscc_networkfirewall_tls_inspection_configuration" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    tls_inspection_configuration = "{
+    server_certificate_configurations = {
+    certificate_authority_arn = {{ certificate_authority_arn }}
+    check_certificate_revocation_status = {
+    revoked_status_action = {{ revoked_status_action }}
+    unknown_status_action = {{ unknown_status_action }}
+}
+    scopes = {
+    destination_ports = {
+    from_port = {{ from_port }}
+    to_port = {{ to_port }}
+}
+    destinations = {
+    address_definition = {{ address_definition }}
+}
+    protocols = {{ protocols }}
+    source_ports = {
+    from_port = {{ from_port }}
+    to_port = {{ to_port }}
+}
+    sources = {
+    address_definition = {{ address_definition }}
+}
+}
+    server_certificates = {
+    resource_arn = {{ resource_arn }}
+}
+}
+}"
+    tls_inspection_configuration_arn = "{{ tls_inspection_configuration_arn }}"
+    tls_inspection_configuration_id = "{{ tls_inspection_configuration_id }}"
+    tls_inspection_configuration_name = "{{ tls_inspection_configuration_name }}"
+}

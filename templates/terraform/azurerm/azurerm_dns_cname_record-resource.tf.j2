@@ -1,0 +1,11 @@
+resource "azurerm_dns_cname_record" "example" {
+    fqdn = "{{ fqdn }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    record = "{{ record }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    target_resource_id = "{{ target_resource_id }}"
+    ttl = "{{ ttl }}"
+    zone_name = "{{ zone_name }}"
+}

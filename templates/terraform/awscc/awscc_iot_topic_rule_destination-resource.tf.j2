@@ -1,0 +1,15 @@
+resource "awscc_iot_topic_rule_destination" "example" {
+    arn = "{{ arn }}"
+    http_url_properties = "{
+    confirmation_url = {{ confirmation_url }}
+}"
+    id = "{{ id }}"
+    status = "{{ status }}"
+    status_reason = "{{ status_reason }}"
+    vpc_properties = "{
+    role_arn = {{ role_arn }}
+    security_groups = {{ security_groups }}
+    subnet_ids = {{ subnet_ids }}
+    vpc_id = {{ vpc_id }}
+}"
+}

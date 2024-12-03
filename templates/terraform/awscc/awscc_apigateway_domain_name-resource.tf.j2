@@ -1,0 +1,23 @@
+resource "awscc_apigateway_domain_name" "example" {
+    certificate_arn = "{{ certificate_arn }}"
+    distribution_domain_name = "{{ distribution_domain_name }}"
+    distribution_hosted_zone_id = "{{ distribution_hosted_zone_id }}"
+    domain_name = "{{ domain_name }}"
+    endpoint_configuration = "{
+    types = {{ types }}
+}"
+    id = "{{ id }}"
+    mutual_tls_authentication = "{
+    truststore_uri = {{ truststore_uri }}
+    truststore_version = {{ truststore_version }}
+}"
+    ownership_verification_certificate_arn = "{{ ownership_verification_certificate_arn }}"
+    regional_certificate_arn = "{{ regional_certificate_arn }}"
+    regional_domain_name = "{{ regional_domain_name }}"
+    regional_hosted_zone_id = "{{ regional_hosted_zone_id }}"
+    security_policy = "{{ security_policy }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

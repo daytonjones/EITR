@@ -1,0 +1,13 @@
+resource "azurerm_monitor_smart_detector_alert_rule" "example" {
+    description = "{{ description }}"
+    detector_type = "{{ detector_type }}"
+    enabled = "{{ enabled }}"
+    frequency = "{{ frequency }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    scope_resource_ids = "{{ scope_resource_ids }}"
+    severity = "{{ severity }}"
+    tags = "{{ tags }}"
+    throttling_duration = "{{ throttling_duration }}"
+}

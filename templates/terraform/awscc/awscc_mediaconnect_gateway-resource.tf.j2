@@ -1,0 +1,11 @@
+resource "awscc_mediaconnect_gateway" "example" {
+    egress_cidr_blocks = "{{ egress_cidr_blocks }}"
+    gateway_arn = "{{ gateway_arn }}"
+    gateway_state = "{{ gateway_state }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    networks = "{
+    cidr_block = {{ cidr_block }}
+    name = {{ name }}
+}"
+}

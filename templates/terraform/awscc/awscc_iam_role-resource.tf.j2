@@ -1,0 +1,20 @@
+resource "awscc_iam_role" "example" {
+    arn = "{{ arn }}"
+    assume_role_policy_document = "{{ assume_role_policy_document }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    managed_policy_arns = "{{ managed_policy_arns }}"
+    max_session_duration = "{{ max_session_duration }}"
+    path = "{{ path }}"
+    permissions_boundary = "{{ permissions_boundary }}"
+    policies = "{
+    policy_document = {{ policy_document }}
+    policy_name = {{ policy_name }}
+}"
+    role_id = "{{ role_id }}"
+    role_name = "{{ role_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

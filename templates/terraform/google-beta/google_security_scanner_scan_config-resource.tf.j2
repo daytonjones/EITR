@@ -1,0 +1,12 @@
+resource "google_security_scanner_scan_config" "example" {
+    blacklist_patterns = "{{ blacklist_patterns }}"
+    display_name = "{{ display_name }}"
+    export_to_security_command_center = "{{ export_to_security_command_center }}"
+    id = "{{ id }}"
+    max_qps = "{{ max_qps }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    starting_urls = "{{ starting_urls }}"
+    target_platforms = "{{ target_platforms }}"
+    user_agent = "{{ user_agent }}"
+}

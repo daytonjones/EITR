@@ -1,0 +1,15 @@
+resource "azurerm_spring_cloud_new_relic_application_performance_monitoring" "example" {
+    agent_enabled = "{{ agent_enabled }}"
+    app_name = "{{ app_name }}"
+    app_server_port = "{{ app_server_port }}"
+    audit_mode_enabled = "{{ audit_mode_enabled }}"
+    auto_app_naming_enabled = "{{ auto_app_naming_enabled }}"
+    auto_transaction_naming_enabled = "{{ auto_transaction_naming_enabled }}"
+    custom_tracing_enabled = "{{ custom_tracing_enabled }}"
+    globally_enabled = "{{ globally_enabled }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    license_key = "{{ license_key }}"
+    name = "{{ name }}"
+    spring_cloud_service_id = "{{ spring_cloud_service_id }}"
+}

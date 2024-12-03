@@ -1,0 +1,17 @@
+resource "awscc_codeguruprofiler_profiling_group" "example" {
+    agent_permissions = "{
+    principals = {{ principals }}
+}"
+    anomaly_detection_notification_configuration = "{
+    channel_id = {{ channel_id }}
+    channel_uri = {{ channel_uri }}
+}"
+    arn = "{{ arn }}"
+    compute_platform = "{{ compute_platform }}"
+    id = "{{ id }}"
+    profiling_group_name = "{{ profiling_group_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

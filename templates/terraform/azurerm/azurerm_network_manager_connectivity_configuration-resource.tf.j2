@@ -1,0 +1,9 @@
+resource "azurerm_network_manager_connectivity_configuration" "example" {
+    connectivity_topology = "{{ connectivity_topology }}"
+    delete_existing_peering_enabled = "{{ delete_existing_peering_enabled }}"
+    description = "{{ description }}"
+    global_mesh_enabled = "{{ global_mesh_enabled }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    network_manager_id = "{{ network_manager_id }}"
+}

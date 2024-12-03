@@ -1,0 +1,6 @@
+resource "azurerm_mssql_server_dns_alias" "example" {
+    dns_record = "{{ dns_record }}"
+    id = "{{ id }}"
+    mssql_server_id = "{{ mssql_server_id }}"
+    name = "{{ name }}"
+}

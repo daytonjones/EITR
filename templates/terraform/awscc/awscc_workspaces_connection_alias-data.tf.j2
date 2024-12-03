@@ -1,0 +1,16 @@
+data "awscc_workspaces_connection_alias" "example" {
+    alias_id = "{{ alias_id }}"
+    associations = "{
+    associated_account_id = {{ associated_account_id }}
+    association_status = {{ association_status }}
+    connection_identifier = {{ connection_identifier }}
+    resource_id = {{ resource_id }}
+}"
+    connection_alias_state = "{{ connection_alias_state }}"
+    connection_string = "{{ connection_string }}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

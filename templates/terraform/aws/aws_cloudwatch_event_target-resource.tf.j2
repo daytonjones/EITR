@@ -1,0 +1,11 @@
+resource "aws_cloudwatch_event_target" "example" {
+    arn = "{{ arn }}"
+    event_bus_name = "{{ event_bus_name }}"
+    force_destroy = "{{ force_destroy }}"
+    id = "{{ id }}"
+    input = "{{ input }}"
+    input_path = "{{ input_path }}"
+    role_arn = "{{ role_arn }}"
+    rule = "{{ rule }}"
+    target_id = "{{ target_id }}"
+}

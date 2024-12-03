@@ -1,0 +1,13 @@
+data "aws_batch_job_queue" "example" {
+    arn = "{{ arn }}"
+    compute_environment_order = "{{ compute_environment_order }}"
+    id = "{{ id }}"
+    job_state_time_limit_action = "{{ job_state_time_limit_action }}"
+    name = "{{ name }}"
+    priority = "{{ priority }}"
+    scheduling_policy_arn = "{{ scheduling_policy_arn }}"
+    state = "{{ state }}"
+    status = "{{ status }}"
+    status_reason = "{{ status_reason }}"
+    tags = "{{ tags }}"
+}

@@ -1,0 +1,14 @@
+resource "aws_budgets_budget_action" "example" {
+    account_id = "{{ account_id }}"
+    action_id = "{{ action_id }}"
+    action_type = "{{ action_type }}"
+    approval_model = "{{ approval_model }}"
+    arn = "{{ arn }}"
+    budget_name = "{{ budget_name }}"
+    execution_role_arn = "{{ execution_role_arn }}"
+    id = "{{ id }}"
+    notification_type = "{{ notification_type }}"
+    status = "{{ status }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

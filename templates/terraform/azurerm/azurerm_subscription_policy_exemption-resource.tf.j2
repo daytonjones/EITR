@@ -1,0 +1,12 @@
+resource "azurerm_subscription_policy_exemption" "example" {
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    exemption_category = "{{ exemption_category }}"
+    expires_on = "{{ expires_on }}"
+    id = "{{ id }}"
+    metadata = "{{ metadata }}"
+    name = "{{ name }}"
+    policy_assignment_id = "{{ policy_assignment_id }}"
+    policy_definition_reference_ids = "{{ policy_definition_reference_ids }}"
+    subscription_id = "{{ subscription_id }}"
+}

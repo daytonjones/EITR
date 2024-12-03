@@ -1,0 +1,18 @@
+resource "vsphere_ha_vm_override" "example" {
+    compute_cluster_id = "{{ compute_cluster_id }}"
+    ha_datastore_apd_recovery_action = "{{ ha_datastore_apd_recovery_action }}"
+    ha_datastore_apd_response = "{{ ha_datastore_apd_response }}"
+    ha_datastore_apd_response_delay = "{{ ha_datastore_apd_response_delay }}"
+    ha_datastore_pdl_response = "{{ ha_datastore_pdl_response }}"
+    ha_host_isolation_response = "{{ ha_host_isolation_response }}"
+    ha_vm_failure_interval = "{{ ha_vm_failure_interval }}"
+    ha_vm_maximum_failure_window = "{{ ha_vm_maximum_failure_window }}"
+    ha_vm_maximum_resets = "{{ ha_vm_maximum_resets }}"
+    ha_vm_minimum_uptime = "{{ ha_vm_minimum_uptime }}"
+    ha_vm_monitoring = "{{ ha_vm_monitoring }}"
+    ha_vm_monitoring_use_cluster_defaults = "{{ ha_vm_monitoring_use_cluster_defaults }}"
+    ha_vm_restart_priority = "{{ ha_vm_restart_priority }}"
+    ha_vm_restart_timeout = "{{ ha_vm_restart_timeout }}"
+    id = "{{ id }}"
+    virtual_machine_id = "{{ virtual_machine_id }}"
+}

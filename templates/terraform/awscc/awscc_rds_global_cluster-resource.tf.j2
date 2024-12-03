@@ -1,0 +1,17 @@
+resource "awscc_rds_global_cluster" "example" {
+    deletion_protection = "{{ deletion_protection }}"
+    engine = "{{ engine }}"
+    engine_lifecycle_support = "{{ engine_lifecycle_support }}"
+    engine_version = "{{ engine_version }}"
+    global_cluster_identifier = "{{ global_cluster_identifier }}"
+    global_endpoint = "{
+    address = {{ address }}
+}"
+    id = "{{ id }}"
+    source_db_cluster_identifier = "{{ source_db_cluster_identifier }}"
+    storage_encrypted = "{{ storage_encrypted }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,9 @@
+data "kubernetes_resources" "example" {
+    api_version = "{{ api_version }}"
+    field_selector = "{{ field_selector }}"
+    kind = "{{ kind }}"
+    label_selector = "{{ label_selector }}"
+    limit = "{{ limit }}"
+    namespace = "{{ namespace }}"
+    objects = "{{ objects }}"
+}

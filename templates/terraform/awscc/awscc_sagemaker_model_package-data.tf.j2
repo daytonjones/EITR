@@ -1,0 +1,281 @@
+data "awscc_sagemaker_model_package" "example" {
+    additional_inference_specifications = "{
+    containers = {
+    container_hostname = {{ container_hostname }}
+    environment = {{ environment }}
+    framework = {{ framework }}
+    framework_version = {{ framework_version }}
+    image = {{ image }}
+    image_digest = {{ image_digest }}
+    model_data_source = {
+    s3_data_source = {
+    compression_type = {{ compression_type }}
+    model_access_config = {
+    accept_eula = {{ accept_eula }}
+}
+    s3_data_type = {{ s3_data_type }}
+    s3_uri = {{ s3_uri }}
+}
+}
+    model_data_url = {{ model_data_url }}
+    model_input = {
+    data_input_config = {{ data_input_config }}
+}
+    nearest_model_name = {{ nearest_model_name }}
+}
+    description = {{ description }}
+    name = {{ name }}
+    supported_content_types = {{ supported_content_types }}
+    supported_realtime_inference_instance_types = {{ supported_realtime_inference_instance_types }}
+    supported_response_mime_types = {{ supported_response_mime_types }}
+    supported_transform_instance_types = {{ supported_transform_instance_types }}
+}"
+    additional_inference_specifications_to_add = "{
+    containers = {
+    container_hostname = {{ container_hostname }}
+    environment = {{ environment }}
+    framework = {{ framework }}
+    framework_version = {{ framework_version }}
+    image = {{ image }}
+    image_digest = {{ image_digest }}
+    model_data_source = {
+    s3_data_source = {
+    compression_type = {{ compression_type }}
+    model_access_config = {
+    accept_eula = {{ accept_eula }}
+}
+    s3_data_type = {{ s3_data_type }}
+    s3_uri = {{ s3_uri }}
+}
+}
+    model_data_url = {{ model_data_url }}
+    model_input = {
+    data_input_config = {{ data_input_config }}
+}
+    nearest_model_name = {{ nearest_model_name }}
+}
+    description = {{ description }}
+    name = {{ name }}
+    supported_content_types = {{ supported_content_types }}
+    supported_realtime_inference_instance_types = {{ supported_realtime_inference_instance_types }}
+    supported_response_mime_types = {{ supported_response_mime_types }}
+    supported_transform_instance_types = {{ supported_transform_instance_types }}
+}"
+    approval_description = "{{ approval_description }}"
+    certify_for_marketplace = "{{ certify_for_marketplace }}"
+    client_token = "{{ client_token }}"
+    creation_time = "{{ creation_time }}"
+    customer_metadata_properties = "{{ customer_metadata_properties }}"
+    domain = "{{ domain }}"
+    drift_check_baselines = "{
+    bias = {
+    config_file = {
+    content_digest = {{ content_digest }}
+    content_type = {{ content_type }}
+    s3_uri = {{ s3_uri }}
+}
+    post_training_constraints = {
+    content_digest = {{ content_digest }}
+    content_type = {{ content_type }}
+    s3_uri = {{ s3_uri }}
+}
+    pre_training_constraints = {
+    content_digest = {{ content_digest }}
+    content_type = {{ content_type }}
+    s3_uri = {{ s3_uri }}
+}
+}
+    explainability = {
+    config_file = {
+    content_digest = {{ content_digest }}
+    content_type = {{ content_type }}
+    s3_uri = {{ s3_uri }}
+}
+    constraints = {
+    content_digest = {{ content_digest }}
+    content_type = {{ content_type }}
+    s3_uri = {{ s3_uri }}
+}
+}
+    model_data_quality = {
+    constraints = {
+    content_digest = {{ content_digest }}
+    content_type = {{ content_type }}
+    s3_uri = {{ s3_uri }}
+}
+    statistics = {
+    content_digest = {{ content_digest }}
+    content_type = {{ content_type }}
+    s3_uri = {{ s3_uri }}
+}
+}
+    model_quality = {
+    constraints = {
+    content_digest = {{ content_digest }}
+    content_type = {{ content_type }}
+    s3_uri = {{ s3_uri }}
+}
+    statistics = {
+    content_digest = {{ content_digest }}
+    content_type = {{ content_type }}
+    s3_uri = {{ s3_uri }}
+}
+}
+}"
+    id = "{{ id }}"
+    inference_specification = "{
+    containers = {
+    container_hostname = {{ container_hostname }}
+    environment = {{ environment }}
+    framework = {{ framework }}
+    framework_version = {{ framework_version }}
+    image = {{ image }}
+    image_digest = {{ image_digest }}
+    model_data_source = {
+    s3_data_source = {
+    compression_type = {{ compression_type }}
+    model_access_config = {
+    accept_eula = {{ accept_eula }}
+}
+    s3_data_type = {{ s3_data_type }}
+    s3_uri = {{ s3_uri }}
+}
+}
+    model_data_url = {{ model_data_url }}
+    model_input = {
+    data_input_config = {{ data_input_config }}
+}
+    nearest_model_name = {{ nearest_model_name }}
+}
+    supported_content_types = {{ supported_content_types }}
+    supported_realtime_inference_instance_types = {{ supported_realtime_inference_instance_types }}
+    supported_response_mime_types = {{ supported_response_mime_types }}
+    supported_transform_instance_types = {{ supported_transform_instance_types }}
+}"
+    last_modified_time = "{{ last_modified_time }}"
+    metadata_properties = "{
+    commit_id = {{ commit_id }}
+    generated_by = {{ generated_by }}
+    project_id = {{ project_id }}
+    repository = {{ repository }}
+}"
+    model_approval_status = "{{ model_approval_status }}"
+    model_card = "{
+    model_card_content = {{ model_card_content }}
+    model_card_status = {{ model_card_status }}
+}"
+    model_metrics = "{
+    bias = {
+    post_training_report = {
+    content_digest = {{ content_digest }}
+    content_type = {{ content_type }}
+    s3_uri = {{ s3_uri }}
+}
+    pre_training_report = {
+    content_digest = {{ content_digest }}
+    content_type = {{ content_type }}
+    s3_uri = {{ s3_uri }}
+}
+    report = {
+    content_digest = {{ content_digest }}
+    content_type = {{ content_type }}
+    s3_uri = {{ s3_uri }}
+}
+}
+    explainability = {
+    report = {
+    content_digest = {{ content_digest }}
+    content_type = {{ content_type }}
+    s3_uri = {{ s3_uri }}
+}
+}
+    model_data_quality = {
+    constraints = {
+    content_digest = {{ content_digest }}
+    content_type = {{ content_type }}
+    s3_uri = {{ s3_uri }}
+}
+    statistics = {
+    content_digest = {{ content_digest }}
+    content_type = {{ content_type }}
+    s3_uri = {{ s3_uri }}
+}
+}
+    model_quality = {
+    constraints = {
+    content_digest = {{ content_digest }}
+    content_type = {{ content_type }}
+    s3_uri = {{ s3_uri }}
+}
+    statistics = {
+    content_digest = {{ content_digest }}
+    content_type = {{ content_type }}
+    s3_uri = {{ s3_uri }}
+}
+}
+}"
+    model_package_arn = "{{ model_package_arn }}"
+    model_package_description = "{{ model_package_description }}"
+    model_package_group_name = "{{ model_package_group_name }}"
+    model_package_name = "{{ model_package_name }}"
+    model_package_status = "{{ model_package_status }}"
+    model_package_status_details = "{
+    validation_statuses = {
+    failure_reason = {{ failure_reason }}
+    name = {{ name }}
+    status = {{ status }}
+}
+}"
+    model_package_version = "{{ model_package_version }}"
+    sample_payload_url = "{{ sample_payload_url }}"
+    security_config = "{
+    kms_key_id = {{ kms_key_id }}
+}"
+    skip_model_validation = "{{ skip_model_validation }}"
+    source_algorithm_specification = "{
+    source_algorithms = {
+    algorithm_name = {{ algorithm_name }}
+    model_data_url = {{ model_data_url }}
+}
+}"
+    source_uri = "{{ source_uri }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    task = "{{ task }}"
+    validation_specification = "{
+    validation_profiles = {
+    profile_name = {{ profile_name }}
+    transform_job_definition = {
+    batch_strategy = {{ batch_strategy }}
+    environment = {{ environment }}
+    max_concurrent_transforms = {{ max_concurrent_transforms }}
+    max_payload_in_mb = {{ max_payload_in_mb }}
+    transform_input = {
+    compression_type = {{ compression_type }}
+    content_type = {{ content_type }}
+    data_source = {
+    s3_data_source = {
+    s3_data_type = {{ s3_data_type }}
+    s3_uri = {{ s3_uri }}
+}
+}
+    split_type = {{ split_type }}
+}
+    transform_output = {
+    accept = {{ accept }}
+    assemble_with = {{ assemble_with }}
+    kms_key_id = {{ kms_key_id }}
+    s3_output_path = {{ s3_output_path }}
+}
+    transform_resources = {
+    instance_count = {{ instance_count }}
+    instance_type = {{ instance_type }}
+    volume_kms_key_id = {{ volume_kms_key_id }}
+}
+}
+}
+    validation_role = {{ validation_role }}
+}"
+}

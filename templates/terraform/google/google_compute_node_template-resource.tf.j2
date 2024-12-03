@@ -1,0 +1,12 @@
+resource "google_compute_node_template" "example" {
+    cpu_overcommit_type = "{{ cpu_overcommit_type }}"
+    creation_timestamp = "{{ creation_timestamp }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    node_affinity_labels = "{{ node_affinity_labels }}"
+    node_type = "{{ node_type }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    self_link = "{{ self_link }}"
+}

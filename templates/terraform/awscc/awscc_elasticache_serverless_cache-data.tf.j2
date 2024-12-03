@@ -1,0 +1,42 @@
+data "awscc_elasticache_serverless_cache" "example" {
+    arn = "{{ arn }}"
+    cache_usage_limits = "{
+    data_storage = {
+    maximum = {{ maximum }}
+    minimum = {{ minimum }}
+    unit = {{ unit }}
+}
+    ecpu_per_second = {
+    maximum = {{ maximum }}
+    minimum = {{ minimum }}
+}
+}"
+    create_time = "{{ create_time }}"
+    daily_snapshot_time = "{{ daily_snapshot_time }}"
+    description = "{{ description }}"
+    endpoint = "{
+    address = {{ address }}
+    port = {{ port }}
+}"
+    engine = "{{ engine }}"
+    final_snapshot_name = "{{ final_snapshot_name }}"
+    full_engine_version = "{{ full_engine_version }}"
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    major_engine_version = "{{ major_engine_version }}"
+    reader_endpoint = "{
+    address = {{ address }}
+    port = {{ port }}
+}"
+    security_group_ids = "{{ security_group_ids }}"
+    serverless_cache_name = "{{ serverless_cache_name }}"
+    snapshot_arns_to_restore = "{{ snapshot_arns_to_restore }}"
+    snapshot_retention_limit = "{{ snapshot_retention_limit }}"
+    status = "{{ status }}"
+    subnet_ids = "{{ subnet_ids }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    user_group_id = "{{ user_group_id }}"
+}

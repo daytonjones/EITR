@@ -1,0 +1,6 @@
+resource "aws_load_balancer_backend_server_policy" "example" {
+    id = "{{ id }}"
+    instance_port = "{{ instance_port }}"
+    load_balancer_name = "{{ load_balancer_name }}"
+    policy_names = "{{ policy_names }}"
+}

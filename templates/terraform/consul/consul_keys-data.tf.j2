@@ -1,0 +1,9 @@
+data "consul_keys" "example" {
+    datacenter = "{{ datacenter }}"
+    error_on_missing_keys = "{{ error_on_missing_keys }}"
+    id = "{{ id }}"
+    namespace = "{{ namespace }}"
+    partition = "{{ partition }}"
+    token = "{{ token }}"
+    var = "{{ var }}"
+}

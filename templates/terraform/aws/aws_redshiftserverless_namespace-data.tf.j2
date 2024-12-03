@@ -1,0 +1,12 @@
+data "aws_redshiftserverless_namespace" "example" {
+    admin_username = "{{ admin_username }}"
+    arn = "{{ arn }}"
+    db_name = "{{ db_name }}"
+    default_iam_role_arn = "{{ default_iam_role_arn }}"
+    iam_roles = "{{ iam_roles }}"
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    log_exports = "{{ log_exports }}"
+    namespace_id = "{{ namespace_id }}"
+    namespace_name = "{{ namespace_name }}"
+}

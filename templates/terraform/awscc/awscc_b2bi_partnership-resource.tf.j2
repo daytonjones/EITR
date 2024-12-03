@@ -1,0 +1,45 @@
+resource "awscc_b2bi_partnership" "example" {
+    capabilities = "{{ capabilities }}"
+    capability_options = "{
+    outbound_edi = {
+    x12 = {
+    common = {
+    delimiters = {
+    component_separator = {{ component_separator }}
+    data_element_separator = {{ data_element_separator }}
+    segment_terminator = {{ segment_terminator }}
+}
+    functional_group_headers = {
+    application_receiver_code = {{ application_receiver_code }}
+    application_sender_code = {{ application_sender_code }}
+    responsible_agency_code = {{ responsible_agency_code }}
+}
+    interchange_control_headers = {
+    acknowledgment_requested_code = {{ acknowledgment_requested_code }}
+    receiver_id = {{ receiver_id }}
+    receiver_id_qualifier = {{ receiver_id_qualifier }}
+    repetition_separator = {{ repetition_separator }}
+    sender_id = {{ sender_id }}
+    sender_id_qualifier = {{ sender_id_qualifier }}
+    usage_indicator_code = {{ usage_indicator_code }}
+}
+    validate_edi = {{ validate_edi }}
+}
+}
+}
+}"
+    created_at = "{{ created_at }}"
+    email = "{{ email }}"
+    id = "{{ id }}"
+    modified_at = "{{ modified_at }}"
+    name = "{{ name }}"
+    partnership_arn = "{{ partnership_arn }}"
+    partnership_id = "{{ partnership_id }}"
+    phone = "{{ phone }}"
+    profile_id = "{{ profile_id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    trading_partner_id = "{{ trading_partner_id }}"
+}

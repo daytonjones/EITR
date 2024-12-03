@@ -1,0 +1,52 @@
+resource "awscc_redshiftserverless_workgroup" "example" {
+    base_capacity = "{{ base_capacity }}"
+    config_parameters = "{
+    parameter_key = {{ parameter_key }}
+    parameter_value = {{ parameter_value }}
+}"
+    enhanced_vpc_routing = "{{ enhanced_vpc_routing }}"
+    id = "{{ id }}"
+    max_capacity = "{{ max_capacity }}"
+    namespace_name = "{{ namespace_name }}"
+    port = "{{ port }}"
+    publicly_accessible = "{{ publicly_accessible }}"
+    security_group_ids = "{{ security_group_ids }}"
+    subnet_ids = "{{ subnet_ids }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    workgroup = "{
+    base_capacity = {{ base_capacity }}
+    config_parameters = {
+    parameter_key = {{ parameter_key }}
+    parameter_value = {{ parameter_value }}
+}
+    creation_date = {{ creation_date }}
+    endpoint = {
+    address = {{ address }}
+    port = {{ port }}
+    vpc_endpoints = {
+    network_interfaces = {
+    availability_zone = {{ availability_zone }}
+    network_interface_id = {{ network_interface_id }}
+    private_ip_address = {{ private_ip_address }}
+    subnet_id = {{ subnet_id }}
+}
+    vpc_endpoint_id = {{ vpc_endpoint_id }}
+    vpc_id = {{ vpc_id }}
+}
+}
+    enhanced_vpc_routing = {{ enhanced_vpc_routing }}
+    max_capacity = {{ max_capacity }}
+    namespace_name = {{ namespace_name }}
+    publicly_accessible = {{ publicly_accessible }}
+    security_group_ids = {{ security_group_ids }}
+    status = {{ status }}
+    subnet_ids = {{ subnet_ids }}
+    workgroup_arn = {{ workgroup_arn }}
+    workgroup_id = {{ workgroup_id }}
+    workgroup_name = {{ workgroup_name }}
+}"
+    workgroup_name = "{{ workgroup_name }}"
+}

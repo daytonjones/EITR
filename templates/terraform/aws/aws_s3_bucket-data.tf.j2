@@ -1,0 +1,11 @@
+data "aws_s3_bucket" "example" {
+    arn = "{{ arn }}"
+    bucket = "{{ bucket }}"
+    bucket_domain_name = "{{ bucket_domain_name }}"
+    bucket_regional_domain_name = "{{ bucket_regional_domain_name }}"
+    hosted_zone_id = "{{ hosted_zone_id }}"
+    id = "{{ id }}"
+    region = "{{ region }}"
+    website_domain = "{{ website_domain }}"
+    website_endpoint = "{{ website_endpoint }}"
+}

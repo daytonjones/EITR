@@ -1,0 +1,6 @@
+resource "azurerm_cognitive_account_customer_managed_key" "example" {
+    cognitive_account_id = "{{ cognitive_account_id }}"
+    id = "{{ id }}"
+    identity_client_id = "{{ identity_client_id }}"
+    key_vault_key_id = "{{ key_vault_key_id }}"
+}

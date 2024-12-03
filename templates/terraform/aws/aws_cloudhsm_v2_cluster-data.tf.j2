@@ -1,0 +1,9 @@
+data "aws_cloudhsm_v2_cluster" "example" {
+    cluster_certificates = "{{ cluster_certificates }}"
+    cluster_id = "{{ cluster_id }}"
+    cluster_state = "{{ cluster_state }}"
+    id = "{{ id }}"
+    security_group_id = "{{ security_group_id }}"
+    subnet_ids = "{{ subnet_ids }}"
+    vpc_id = "{{ vpc_id }}"
+}

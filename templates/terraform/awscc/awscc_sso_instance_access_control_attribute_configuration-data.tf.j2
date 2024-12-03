@@ -1,0 +1,18 @@
+data "awscc_sso_instance_access_control_attribute_configuration" "example" {
+    access_control_attributes = "{
+    key = {{ key }}
+    value = {
+    source = {{ source }}
+}
+}"
+    id = "{{ id }}"
+    instance_access_control_attribute_configuration = "{
+    access_control_attributes = {
+    key = {{ key }}
+    value = {
+    source = {{ source }}
+}
+}
+}"
+    instance_arn = "{{ instance_arn }}"
+}

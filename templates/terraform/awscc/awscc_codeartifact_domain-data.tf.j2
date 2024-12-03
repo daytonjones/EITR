@@ -1,0 +1,13 @@
+data "awscc_codeartifact_domain" "example" {
+    arn = "{{ arn }}"
+    domain_name = "{{ domain_name }}"
+    encryption_key = "{{ encryption_key }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    owner = "{{ owner }}"
+    permissions_policy_document = "{{ permissions_policy_document }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

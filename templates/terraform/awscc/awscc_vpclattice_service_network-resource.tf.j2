@@ -1,0 +1,16 @@
+resource "awscc_vpclattice_service_network" "example" {
+    arn = "{{ arn }}"
+    auth_type = "{{ auth_type }}"
+    created_at = "{{ created_at }}"
+    id = "{{ id }}"
+    last_updated_at = "{{ last_updated_at }}"
+    name = "{{ name }}"
+    service_network_id = "{{ service_network_id }}"
+    sharing_config = "{
+    enabled = {{ enabled }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

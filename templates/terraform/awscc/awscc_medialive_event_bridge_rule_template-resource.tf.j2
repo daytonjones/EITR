@@ -1,0 +1,17 @@
+resource "awscc_medialive_event_bridge_rule_template" "example" {
+    arn = "{{ arn }}"
+    created_at = "{{ created_at }}"
+    description = "{{ description }}"
+    event_bridge_rule_template_id = "{{ event_bridge_rule_template_id }}"
+    event_targets = "{
+    arn = {{ arn }}
+}"
+    event_type = "{{ event_type }}"
+    group_id = "{{ group_id }}"
+    group_identifier = "{{ group_identifier }}"
+    id = "{{ id }}"
+    identifier = "{{ identifier }}"
+    modified_at = "{{ modified_at }}"
+    name = "{{ name }}"
+    tags = "{{ tags }}"
+}

@@ -1,0 +1,9 @@
+data "vault_transit_decrypt" "example" {
+    backend = "{{ backend }}"
+    ciphertext = "{{ ciphertext }}"
+    context = "{{ context }}"
+    id = "{{ id }}"
+    key = "{{ key }}"
+    namespace = "{{ namespace }}"
+    plaintext = "{{ plaintext }}"
+}

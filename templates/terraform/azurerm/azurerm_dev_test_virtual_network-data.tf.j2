@@ -1,0 +1,9 @@
+data "azurerm_dev_test_virtual_network" "example" {
+    allowed_subnets = "{{ allowed_subnets }}"
+    id = "{{ id }}"
+    lab_name = "{{ lab_name }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    subnet_overrides = "{{ subnet_overrides }}"
+    unique_identifier = "{{ unique_identifier }}"
+}

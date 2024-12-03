@@ -1,0 +1,11 @@
+resource "azurerm_storage_account_customer_managed_key" "example" {
+    federated_identity_client_id = "{{ federated_identity_client_id }}"
+    id = "{{ id }}"
+    key_name = "{{ key_name }}"
+    key_vault_id = "{{ key_vault_id }}"
+    key_vault_uri = "{{ key_vault_uri }}"
+    key_version = "{{ key_version }}"
+    managed_hsm_key_id = "{{ managed_hsm_key_id }}"
+    storage_account_id = "{{ storage_account_id }}"
+    user_assigned_identity_id = "{{ user_assigned_identity_id }}"
+}

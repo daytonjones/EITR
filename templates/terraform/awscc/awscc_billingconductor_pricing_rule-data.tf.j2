@@ -1,0 +1,25 @@
+data "awscc_billingconductor_pricing_rule" "example" {
+    arn = "{{ arn }}"
+    associated_pricing_plan_count = "{{ associated_pricing_plan_count }}"
+    billing_entity = "{{ billing_entity }}"
+    creation_time = "{{ creation_time }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    last_modified_time = "{{ last_modified_time }}"
+    modifier_percentage = "{{ modifier_percentage }}"
+    name = "{{ name }}"
+    operation = "{{ operation }}"
+    scope = "{{ scope }}"
+    service = "{{ service }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    tiering = "{
+    free_tier = {
+    activated = {{ activated }}
+}
+}"
+    type = "{{ type }}"
+    usage_type = "{{ usage_type }}"
+}

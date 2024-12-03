@@ -1,0 +1,14 @@
+resource "awscc_datasync_agent" "example" {
+    activation_key = "{{ activation_key }}"
+    agent_arn = "{{ agent_arn }}"
+    agent_name = "{{ agent_name }}"
+    endpoint_type = "{{ endpoint_type }}"
+    id = "{{ id }}"
+    security_group_arns = "{{ security_group_arns }}"
+    subnet_arns = "{{ subnet_arns }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    vpc_endpoint_id = "{{ vpc_endpoint_id }}"
+}

@@ -1,0 +1,15 @@
+resource "awscc_databrew_project" "example" {
+    dataset_name = "{{ dataset_name }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    recipe_name = "{{ recipe_name }}"
+    role_arn = "{{ role_arn }}"
+    sample = "{
+    size = {{ size }}
+    type = {{ type }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

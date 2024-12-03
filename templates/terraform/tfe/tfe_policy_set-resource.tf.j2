@@ -1,0 +1,15 @@
+resource "tfe_policy_set" "example" {
+    agent_enabled = "{{ agent_enabled }}"
+    description = "{{ description }}"
+    global = "{{ global }}"
+    id = "{{ id }}"
+    kind = "{{ kind }}"
+    name = "{{ name }}"
+    organization = "{{ organization }}"
+    overridable = "{{ overridable }}"
+    policies_path = "{{ policies_path }}"
+    policy_ids = "{{ policy_ids }}"
+    policy_tool_version = "{{ policy_tool_version }}"
+    slug = "{{ slug }}"
+    workspace_ids = "{{ workspace_ids }}"
+}

@@ -1,0 +1,8 @@
+resource "aws_api_gateway_account" "example" {
+    api_key_version = "{{ api_key_version }}"
+    cloudwatch_role_arn = "{{ cloudwatch_role_arn }}"
+    features = "{{ features }}"
+    id = "{{ id }}"
+    reset_on_delete = "{{ reset_on_delete }}"
+    throttle_settings = "{{ throttle_settings }}"
+}

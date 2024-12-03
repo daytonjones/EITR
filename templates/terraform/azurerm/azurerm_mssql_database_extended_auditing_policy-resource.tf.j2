@@ -1,0 +1,10 @@
+resource "azurerm_mssql_database_extended_auditing_policy" "example" {
+    database_id = "{{ database_id }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    log_monitoring_enabled = "{{ log_monitoring_enabled }}"
+    retention_in_days = "{{ retention_in_days }}"
+    storage_account_access_key = "{{ storage_account_access_key }}"
+    storage_account_access_key_is_secondary = "{{ storage_account_access_key_is_secondary }}"
+    storage_endpoint = "{{ storage_endpoint }}"
+}

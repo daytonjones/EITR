@@ -1,0 +1,7 @@
+resource "azurerm_application_load_balancer_subnet_association" "example" {
+    application_load_balancer_id = "{{ application_load_balancer_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    subnet_id = "{{ subnet_id }}"
+    tags = "{{ tags }}"
+}

@@ -1,0 +1,48 @@
+resource "awscc_dms_data_provider" "example" {
+    data_provider_arn = "{{ data_provider_arn }}"
+    data_provider_creation_time = "{{ data_provider_creation_time }}"
+    data_provider_identifier = "{{ data_provider_identifier }}"
+    data_provider_name = "{{ data_provider_name }}"
+    description = "{{ description }}"
+    engine = "{{ engine }}"
+    exact_settings = "{{ exact_settings }}"
+    id = "{{ id }}"
+    settings = "{
+    microsoft_sql_server_settings = {
+    certificate_arn = {{ certificate_arn }}
+    database_name = {{ database_name }}
+    port = {{ port }}
+    server_name = {{ server_name }}
+    ssl_mode = {{ ssl_mode }}
+}
+    my_sql_settings = {
+    certificate_arn = {{ certificate_arn }}
+    port = {{ port }}
+    server_name = {{ server_name }}
+    ssl_mode = {{ ssl_mode }}
+}
+    oracle_settings = {
+    asm_server = {{ asm_server }}
+    certificate_arn = {{ certificate_arn }}
+    database_name = {{ database_name }}
+    port = {{ port }}
+    secrets_manager_oracle_asm_access_role_arn = {{ secrets_manager_oracle_asm_access_role_arn }}
+    secrets_manager_oracle_asm_secret_id = {{ secrets_manager_oracle_asm_secret_id }}
+    secrets_manager_security_db_encryption_access_role_arn = {{ secrets_manager_security_db_encryption_access_role_arn }}
+    secrets_manager_security_db_encryption_secret_id = {{ secrets_manager_security_db_encryption_secret_id }}
+    server_name = {{ server_name }}
+    ssl_mode = {{ ssl_mode }}
+}
+    postgre_sql_settings = {
+    certificate_arn = {{ certificate_arn }}
+    database_name = {{ database_name }}
+    port = {{ port }}
+    server_name = {{ server_name }}
+    ssl_mode = {{ ssl_mode }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

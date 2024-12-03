@@ -1,0 +1,6 @@
+resource "aws_glue_partition_index" "example" {
+    catalog_id = "{{ catalog_id }}"
+    database_name = "{{ database_name }}"
+    id = "{{ id }}"
+    table_name = "{{ table_name }}"
+}

@@ -1,0 +1,15 @@
+resource "aws_cloud9_environment_ec2" "example" {
+    arn = "{{ arn }}"
+    automatic_stop_time_minutes = "{{ automatic_stop_time_minutes }}"
+    connection_type = "{{ connection_type }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    image_id = "{{ image_id }}"
+    instance_type = "{{ instance_type }}"
+    name = "{{ name }}"
+    owner_arn = "{{ owner_arn }}"
+    subnet_id = "{{ subnet_id }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    type = "{{ type }}"
+}

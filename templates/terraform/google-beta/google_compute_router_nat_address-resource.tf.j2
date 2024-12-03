@@ -1,0 +1,9 @@
+resource "google_compute_router_nat_address" "example" {
+    drain_nat_ips = "{{ drain_nat_ips }}"
+    id = "{{ id }}"
+    nat_ips = "{{ nat_ips }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    router = "{{ router }}"
+    router_nat = "{{ router_nat }}"
+}

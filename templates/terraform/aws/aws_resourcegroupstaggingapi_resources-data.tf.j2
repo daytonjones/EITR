@@ -1,0 +1,8 @@
+data "aws_resourcegroupstaggingapi_resources" "example" {
+    exclude_compliant_resources = "{{ exclude_compliant_resources }}"
+    id = "{{ id }}"
+    include_compliance_details = "{{ include_compliance_details }}"
+    resource_arn_list = "{{ resource_arn_list }}"
+    resource_tag_mapping_list = "{{ resource_tag_mapping_list }}"
+    resource_type_filters = "{{ resource_type_filters }}"
+}

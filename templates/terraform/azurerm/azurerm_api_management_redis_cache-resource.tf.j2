@@ -1,0 +1,9 @@
+resource "azurerm_api_management_redis_cache" "example" {
+    api_management_id = "{{ api_management_id }}"
+    cache_location = "{{ cache_location }}"
+    connection_string = "{{ connection_string }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    redis_cache_id = "{{ redis_cache_id }}"
+}

@@ -1,0 +1,13 @@
+data "google_monitoring_cluster_istio_service" "example" {
+    cluster_name = "{{ cluster_name }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    service_id = "{{ service_id }}"
+    service_name = "{{ service_name }}"
+    service_namespace = "{{ service_namespace }}"
+    telemetry = "{{ telemetry }}"
+    user_labels = "{{ user_labels }}"
+}

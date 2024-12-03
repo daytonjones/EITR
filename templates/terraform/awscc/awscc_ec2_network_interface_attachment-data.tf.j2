@@ -1,0 +1,14 @@
+data "awscc_ec2_network_interface_attachment" "example" {
+    attachment_id = "{{ attachment_id }}"
+    delete_on_termination = "{{ delete_on_termination }}"
+    device_index = "{{ device_index }}"
+    ena_srd_specification = "{
+    ena_srd_enabled = {{ ena_srd_enabled }}
+    ena_srd_udp_specification = {
+    ena_srd_udp_enabled = {{ ena_srd_udp_enabled }}
+}
+}"
+    id = "{{ id }}"
+    instance_id = "{{ instance_id }}"
+    network_interface_id = "{{ network_interface_id }}"
+}

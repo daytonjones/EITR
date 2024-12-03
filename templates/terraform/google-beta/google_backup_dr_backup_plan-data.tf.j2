@@ -1,0 +1,14 @@
+data "google_backup_dr_backup_plan" "example" {
+    backup_plan_id = "{{ backup_plan_id }}"
+    backup_rules = "{{ backup_rules }}"
+    backup_vault = "{{ backup_vault }}"
+    backup_vault_service_account = "{{ backup_vault_service_account }}"
+    create_time = "{{ create_time }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    resource_type = "{{ resource_type }}"
+    update_time = "{{ update_time }}"
+}

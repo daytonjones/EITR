@@ -1,0 +1,24 @@
+data "awscc_evidently_feature" "example" {
+    arn = "{{ arn }}"
+    default_variation = "{{ default_variation }}"
+    description = "{{ description }}"
+    entity_overrides = "{
+    entity_id = {{ entity_id }}
+    variation = {{ variation }}
+}"
+    evaluation_strategy = "{{ evaluation_strategy }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    variations = "{
+    boolean_value = {{ boolean_value }}
+    double_value = {{ double_value }}
+    long_value = {{ long_value }}
+    string_value = {{ string_value }}
+    variation_name = {{ variation_name }}
+}"
+}

@@ -1,0 +1,16 @@
+resource "azurestack_managed_disk" "example" {
+    create_option = "{{ create_option }}"
+    disk_size_gb = "{{ disk_size_gb }}"
+    hyper_v_generation = "{{ hyper_v_generation }}"
+    id = "{{ id }}"
+    image_reference_id = "{{ image_reference_id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    os_type = "{{ os_type }}"
+    resource_group_name = "{{ resource_group_name }}"
+    source_resource_id = "{{ source_resource_id }}"
+    source_uri = "{{ source_uri }}"
+    storage_account_id = "{{ storage_account_id }}"
+    storage_account_type = "{{ storage_account_type }}"
+    tags = "{{ tags }}"
+}

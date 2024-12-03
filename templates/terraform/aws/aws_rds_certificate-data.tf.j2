@@ -1,0 +1,11 @@
+data "aws_rds_certificate" "example" {
+    arn = "{{ arn }}"
+    certificate_type = "{{ certificate_type }}"
+    customer_override = "{{ customer_override }}"
+    customer_override_valid_till = "{{ customer_override_valid_till }}"
+    id = "{{ id }}"
+    latest_valid_till = "{{ latest_valid_till }}"
+    thumbprint = "{{ thumbprint }}"
+    valid_from = "{{ valid_from }}"
+    valid_till = "{{ valid_till }}"
+}

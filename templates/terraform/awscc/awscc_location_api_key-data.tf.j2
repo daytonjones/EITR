@@ -1,0 +1,22 @@
+data "awscc_location_api_key" "example" {
+    arn = "{{ arn }}"
+    create_time = "{{ create_time }}"
+    description = "{{ description }}"
+    expire_time = "{{ expire_time }}"
+    force_delete = "{{ force_delete }}"
+    force_update = "{{ force_update }}"
+    id = "{{ id }}"
+    key_arn = "{{ key_arn }}"
+    key_name = "{{ key_name }}"
+    no_expiry = "{{ no_expiry }}"
+    restrictions = "{
+    allow_actions = {{ allow_actions }}
+    allow_referers = {{ allow_referers }}
+    allow_resources = {{ allow_resources }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    update_time = "{{ update_time }}"
+}

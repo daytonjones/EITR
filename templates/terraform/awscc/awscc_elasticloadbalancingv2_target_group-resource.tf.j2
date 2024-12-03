@@ -1,0 +1,39 @@
+resource "awscc_elasticloadbalancingv2_target_group" "example" {
+    health_check_enabled = "{{ health_check_enabled }}"
+    health_check_interval_seconds = "{{ health_check_interval_seconds }}"
+    health_check_path = "{{ health_check_path }}"
+    health_check_port = "{{ health_check_port }}"
+    health_check_protocol = "{{ health_check_protocol }}"
+    health_check_timeout_seconds = "{{ health_check_timeout_seconds }}"
+    healthy_threshold_count = "{{ healthy_threshold_count }}"
+    id = "{{ id }}"
+    ip_address_type = "{{ ip_address_type }}"
+    load_balancer_arns = "{{ load_balancer_arns }}"
+    matcher = "{
+    grpc_code = {{ grpc_code }}
+    http_code = {{ http_code }}
+}"
+    name = "{{ name }}"
+    port = "{{ port }}"
+    protocol = "{{ protocol }}"
+    protocol_version = "{{ protocol_version }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    target_group_arn = "{{ target_group_arn }}"
+    target_group_attributes = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    target_group_full_name = "{{ target_group_full_name }}"
+    target_group_name = "{{ target_group_name }}"
+    target_type = "{{ target_type }}"
+    targets = "{
+    availability_zone = {{ availability_zone }}
+    id = {{ id }}
+    port = {{ port }}
+}"
+    unhealthy_threshold_count = "{{ unhealthy_threshold_count }}"
+    vpc_id = "{{ vpc_id }}"
+}

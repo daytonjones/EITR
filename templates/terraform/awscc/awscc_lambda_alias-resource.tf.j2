@@ -1,0 +1,17 @@
+resource "awscc_lambda_alias" "example" {
+    alias_arn = "{{ alias_arn }}"
+    description = "{{ description }}"
+    function_name = "{{ function_name }}"
+    function_version = "{{ function_version }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    provisioned_concurrency_config = "{
+    provisioned_concurrent_executions = {{ provisioned_concurrent_executions }}
+}"
+    routing_config = "{
+    additional_version_weights = {
+    function_version = {{ function_version }}
+    function_weight = {{ function_weight }}
+}
+}"
+}

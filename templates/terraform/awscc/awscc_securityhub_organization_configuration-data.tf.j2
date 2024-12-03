@@ -1,0 +1,10 @@
+data "awscc_securityhub_organization_configuration" "example" {
+    auto_enable = "{{ auto_enable }}"
+    auto_enable_standards = "{{ auto_enable_standards }}"
+    configuration_type = "{{ configuration_type }}"
+    id = "{{ id }}"
+    member_account_limit_reached = "{{ member_account_limit_reached }}"
+    organization_configuration_identifier = "{{ organization_configuration_identifier }}"
+    status = "{{ status }}"
+    status_message = "{{ status_message }}"
+}

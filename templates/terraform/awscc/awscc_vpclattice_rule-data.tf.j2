@@ -1,0 +1,45 @@
+data "awscc_vpclattice_rule" "example" {
+    action = "{
+    fixed_response = {
+    status_code = {{ status_code }}
+}
+    forward = {
+    target_groups = {
+    target_group_identifier = {{ target_group_identifier }}
+    weight = {{ weight }}
+}
+}
+}"
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    listener_identifier = "{{ listener_identifier }}"
+    match = "{
+    http_match = {
+    header_matches = {
+    case_sensitive = {{ case_sensitive }}
+    match = {
+    contains = {{ contains }}
+    exact = {{ exact }}
+    prefix = {{ prefix }}
+}
+    name = {{ name }}
+}
+    method = {{ method }}
+    path_match = {
+    case_sensitive = {{ case_sensitive }}
+    match = {
+    exact = {{ exact }}
+    prefix = {{ prefix }}
+}
+}
+}
+}"
+    name = "{{ name }}"
+    priority = "{{ priority }}"
+    rule_id = "{{ rule_id }}"
+    service_identifier = "{{ service_identifier }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

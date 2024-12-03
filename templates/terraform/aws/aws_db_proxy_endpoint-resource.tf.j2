@@ -1,0 +1,14 @@
+resource "aws_db_proxy_endpoint" "example" {
+    arn = "{{ arn }}"
+    db_proxy_endpoint_name = "{{ db_proxy_endpoint_name }}"
+    db_proxy_name = "{{ db_proxy_name }}"
+    endpoint = "{{ endpoint }}"
+    id = "{{ id }}"
+    is_default = "{{ is_default }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    target_role = "{{ target_role }}"
+    vpc_id = "{{ vpc_id }}"
+    vpc_security_group_ids = "{{ vpc_security_group_ids }}"
+    vpc_subnet_ids = "{{ vpc_subnet_ids }}"
+}

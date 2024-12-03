@@ -1,0 +1,13 @@
+resource "aws_redshiftserverless_snapshot" "example" {
+    accounts_with_provisioned_restore_access = "{{ accounts_with_provisioned_restore_access }}"
+    accounts_with_restore_access = "{{ accounts_with_restore_access }}"
+    admin_username = "{{ admin_username }}"
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    namespace_arn = "{{ namespace_arn }}"
+    namespace_name = "{{ namespace_name }}"
+    owner_account = "{{ owner_account }}"
+    retention_period = "{{ retention_period }}"
+    snapshot_name = "{{ snapshot_name }}"
+}

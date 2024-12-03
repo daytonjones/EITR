@@ -1,0 +1,11 @@
+resource "aws_datasync_location_s3" "example" {
+    agent_arns = "{{ agent_arns }}"
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    s3_bucket_arn = "{{ s3_bucket_arn }}"
+    s3_storage_class = "{{ s3_storage_class }}"
+    subdirectory = "{{ subdirectory }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    uri = "{{ uri }}"
+}

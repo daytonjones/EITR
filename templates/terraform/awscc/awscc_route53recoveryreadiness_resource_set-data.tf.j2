@@ -1,0 +1,30 @@
+data "awscc_route53recoveryreadiness_resource_set" "example" {
+    id = "{{ id }}"
+    resource_set_arn = "{{ resource_set_arn }}"
+    resource_set_name = "{{ resource_set_name }}"
+    resource_set_type = "{{ resource_set_type }}"
+    resources = "{
+    component_id = {{ component_id }}
+    dns_target_resource = {
+    domain_name = {{ domain_name }}
+    hosted_zone_arn = {{ hosted_zone_arn }}
+    record_set_id = {{ record_set_id }}
+    record_type = {{ record_type }}
+    target_resource = {
+    nlb_resource = {
+    arn = {{ arn }}
+}
+    r53_resource = {
+    domain_name = {{ domain_name }}
+    record_set_id = {{ record_set_id }}
+}
+}
+}
+    readiness_scopes = {{ readiness_scopes }}
+    resource_arn = {{ resource_arn }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

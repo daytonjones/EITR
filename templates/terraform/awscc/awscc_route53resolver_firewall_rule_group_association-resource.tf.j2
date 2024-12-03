@@ -1,0 +1,20 @@
+resource "awscc_route53resolver_firewall_rule_group_association" "example" {
+    arn = "{{ arn }}"
+    creation_time = "{{ creation_time }}"
+    creator_request_id = "{{ creator_request_id }}"
+    firewall_rule_group_association_id = "{{ firewall_rule_group_association_id }}"
+    firewall_rule_group_id = "{{ firewall_rule_group_id }}"
+    id = "{{ id }}"
+    managed_owner_name = "{{ managed_owner_name }}"
+    modification_time = "{{ modification_time }}"
+    mutation_protection = "{{ mutation_protection }}"
+    name = "{{ name }}"
+    priority = "{{ priority }}"
+    status = "{{ status }}"
+    status_message = "{{ status_message }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    vpc_id = "{{ vpc_id }}"
+}

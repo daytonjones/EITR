@@ -1,0 +1,15 @@
+resource "awscc_appconfig_extension_association" "example" {
+    arn = "{{ arn }}"
+    extension_arn = "{{ extension_arn }}"
+    extension_association_id = "{{ extension_association_id }}"
+    extension_identifier = "{{ extension_identifier }}"
+    extension_version_number = "{{ extension_version_number }}"
+    id = "{{ id }}"
+    parameters = "{{ parameters }}"
+    resource_arn = "{{ resource_arn }}"
+    resource_identifier = "{{ resource_identifier }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

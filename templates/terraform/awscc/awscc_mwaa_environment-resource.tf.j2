@@ -1,0 +1,62 @@
+resource "awscc_mwaa_environment" "example" {
+    airflow_configuration_options = "{{ airflow_configuration_options }}"
+    airflow_version = "{{ airflow_version }}"
+    arn = "{{ arn }}"
+    celery_executor_queue = "{{ celery_executor_queue }}"
+    dag_s3_path = "{{ dag_s3_path }}"
+    database_vpc_endpoint_service = "{{ database_vpc_endpoint_service }}"
+    endpoint_management = "{{ endpoint_management }}"
+    environment_class = "{{ environment_class }}"
+    execution_role_arn = "{{ execution_role_arn }}"
+    id = "{{ id }}"
+    kms_key = "{{ kms_key }}"
+    logging_configuration = "{
+    dag_processing_logs = {
+    cloudwatch_log_group_arn = {{ cloudwatch_log_group_arn }}
+    enabled = {{ enabled }}
+    log_level = {{ log_level }}
+}
+    scheduler_logs = {
+    cloudwatch_log_group_arn = {{ cloudwatch_log_group_arn }}
+    enabled = {{ enabled }}
+    log_level = {{ log_level }}
+}
+    task_logs = {
+    cloudwatch_log_group_arn = {{ cloudwatch_log_group_arn }}
+    enabled = {{ enabled }}
+    log_level = {{ log_level }}
+}
+    webserver_logs = {
+    cloudwatch_log_group_arn = {{ cloudwatch_log_group_arn }}
+    enabled = {{ enabled }}
+    log_level = {{ log_level }}
+}
+    worker_logs = {
+    cloudwatch_log_group_arn = {{ cloudwatch_log_group_arn }}
+    enabled = {{ enabled }}
+    log_level = {{ log_level }}
+}
+}"
+    max_webservers = "{{ max_webservers }}"
+    max_workers = "{{ max_workers }}"
+    min_webservers = "{{ min_webservers }}"
+    min_workers = "{{ min_workers }}"
+    name = "{{ name }}"
+    network_configuration = "{
+    security_group_ids = {{ security_group_ids }}
+    subnet_ids = {{ subnet_ids }}
+}"
+    plugins_s3_object_version = "{{ plugins_s3_object_version }}"
+    plugins_s3_path = "{{ plugins_s3_path }}"
+    requirements_s3_object_version = "{{ requirements_s3_object_version }}"
+    requirements_s3_path = "{{ requirements_s3_path }}"
+    schedulers = "{{ schedulers }}"
+    source_bucket_arn = "{{ source_bucket_arn }}"
+    startup_script_s3_object_version = "{{ startup_script_s3_object_version }}"
+    startup_script_s3_path = "{{ startup_script_s3_path }}"
+    tags = "{{ tags }}"
+    webserver_access_mode = "{{ webserver_access_mode }}"
+    webserver_url = "{{ webserver_url }}"
+    webserver_vpc_endpoint_service = "{{ webserver_vpc_endpoint_service }}"
+    weekly_maintenance_window_start = "{{ weekly_maintenance_window_start }}"
+}

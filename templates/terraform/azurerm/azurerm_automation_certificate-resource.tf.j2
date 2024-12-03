@@ -1,0 +1,10 @@
+resource "azurerm_automation_certificate" "example" {
+    automation_account_name = "{{ automation_account_name }}"
+    base64 = "{{ base64 }}"
+    description = "{{ description }}"
+    exportable = "{{ exportable }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    thumbprint = "{{ thumbprint }}"
+}

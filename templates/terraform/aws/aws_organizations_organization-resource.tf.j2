@@ -1,0 +1,14 @@
+resource "aws_organizations_organization" "example" {
+    accounts = "{{ accounts }}"
+    arn = "{{ arn }}"
+    aws_service_access_principals = "{{ aws_service_access_principals }}"
+    enabled_policy_types = "{{ enabled_policy_types }}"
+    feature_set = "{{ feature_set }}"
+    id = "{{ id }}"
+    master_account_arn = "{{ master_account_arn }}"
+    master_account_email = "{{ master_account_email }}"
+    master_account_id = "{{ master_account_id }}"
+    master_account_name = "{{ master_account_name }}"
+    non_master_accounts = "{{ non_master_accounts }}"
+    roots = "{{ roots }}"
+}

@@ -1,0 +1,12 @@
+resource "azurerm_app_service_source_control_slot" "example" {
+    branch = "{{ branch }}"
+    id = "{{ id }}"
+    repo_url = "{{ repo_url }}"
+    rollback_enabled = "{{ rollback_enabled }}"
+    scm_type = "{{ scm_type }}"
+    slot_id = "{{ slot_id }}"
+    use_local_git = "{{ use_local_git }}"
+    use_manual_integration = "{{ use_manual_integration }}"
+    use_mercurial = "{{ use_mercurial }}"
+    uses_github_action = "{{ uses_github_action }}"
+}

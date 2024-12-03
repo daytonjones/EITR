@@ -1,0 +1,6 @@
+resource "aws_db_instance_role_association" "example" {
+    db_instance_identifier = "{{ db_instance_identifier }}"
+    feature_name = "{{ feature_name }}"
+    id = "{{ id }}"
+    role_arn = "{{ role_arn }}"
+}

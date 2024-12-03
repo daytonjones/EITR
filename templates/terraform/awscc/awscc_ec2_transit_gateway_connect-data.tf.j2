@@ -1,0 +1,15 @@
+data "awscc_ec2_transit_gateway_connect" "example" {
+    creation_time = "{{ creation_time }}"
+    id = "{{ id }}"
+    options = "{
+    protocol = {{ protocol }}
+}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    transit_gateway_attachment_id = "{{ transit_gateway_attachment_id }}"
+    transit_gateway_id = "{{ transit_gateway_id }}"
+    transport_transit_gateway_attachment_id = "{{ transport_transit_gateway_attachment_id }}"
+}

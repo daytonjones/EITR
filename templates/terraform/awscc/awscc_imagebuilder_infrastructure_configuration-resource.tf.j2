@@ -1,0 +1,31 @@
+resource "awscc_imagebuilder_infrastructure_configuration" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    instance_metadata_options = "{
+    http_put_response_hop_limit = {{ http_put_response_hop_limit }}
+    http_tokens = {{ http_tokens }}
+}"
+    instance_profile_name = "{{ instance_profile_name }}"
+    instance_types = "{{ instance_types }}"
+    key_pair = "{{ key_pair }}"
+    logging = "{
+    s3_logs = {
+    s3_bucket_name = {{ s3_bucket_name }}
+    s3_key_prefix = {{ s3_key_prefix }}
+}
+}"
+    name = "{{ name }}"
+    placement = "{
+    availability_zone = {{ availability_zone }}
+    host_id = {{ host_id }}
+    host_resource_group_arn = {{ host_resource_group_arn }}
+    tenancy = {{ tenancy }}
+}"
+    resource_tags = "{{ resource_tags }}"
+    security_group_ids = "{{ security_group_ids }}"
+    sns_topic_arn = "{{ sns_topic_arn }}"
+    subnet_id = "{{ subnet_id }}"
+    tags = "{{ tags }}"
+    terminate_instance_on_failure = "{{ terminate_instance_on_failure }}"
+}

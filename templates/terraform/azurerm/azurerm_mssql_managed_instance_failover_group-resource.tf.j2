@@ -1,0 +1,10 @@
+resource "azurerm_mssql_managed_instance_failover_group" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    managed_instance_id = "{{ managed_instance_id }}"
+    name = "{{ name }}"
+    partner_managed_instance_id = "{{ partner_managed_instance_id }}"
+    partner_region = "{{ partner_region }}"
+    readonly_endpoint_failover_policy_enabled = "{{ readonly_endpoint_failover_policy_enabled }}"
+    role = "{{ role }}"
+}

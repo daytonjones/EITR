@@ -1,0 +1,27 @@
+data "awscc_ses_configuration_set_event_destination" "example" {
+    configuration_set_event_destination_id = "{{ configuration_set_event_destination_id }}"
+    configuration_set_name = "{{ configuration_set_name }}"
+    event_destination = "{
+    cloudwatch_destination = {
+    dimension_configurations = {
+    default_dimension_value = {{ default_dimension_value }}
+    dimension_name = {{ dimension_name }}
+    dimension_value_source = {{ dimension_value_source }}
+}
+}
+    enabled = {{ enabled }}
+    event_bridge_destination = {
+    event_bus_arn = {{ event_bus_arn }}
+}
+    kinesis_firehose_destination = {
+    delivery_stream_arn = {{ delivery_stream_arn }}
+    iam_role_arn = {{ iam_role_arn }}
+}
+    matching_event_types = {{ matching_event_types }}
+    name = {{ name }}
+    sns_destination = {
+    topic_arn = {{ topic_arn }}
+}
+}"
+    id = "{{ id }}"
+}

@@ -1,0 +1,12 @@
+data "awscc_workspacesweb_network_settings" "example" {
+    associated_portal_arns = "{{ associated_portal_arns }}"
+    id = "{{ id }}"
+    network_settings_arn = "{{ network_settings_arn }}"
+    security_group_ids = "{{ security_group_ids }}"
+    subnet_ids = "{{ subnet_ids }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    vpc_id = "{{ vpc_id }}"
+}

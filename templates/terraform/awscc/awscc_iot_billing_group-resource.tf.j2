@@ -1,0 +1,13 @@
+resource "awscc_iot_billing_group" "example" {
+    arn = "{{ arn }}"
+    billing_group_id = "{{ billing_group_id }}"
+    billing_group_name = "{{ billing_group_name }}"
+    billing_group_properties = "{
+    billing_group_description = {{ billing_group_description }}
+}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

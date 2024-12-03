@@ -1,0 +1,10 @@
+resource "aws_verifiedaccess_trust_provider" "example" {
+    description = "{{ description }}"
+    device_trust_provider_type = "{{ device_trust_provider_type }}"
+    id = "{{ id }}"
+    policy_reference_name = "{{ policy_reference_name }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    trust_provider_type = "{{ trust_provider_type }}"
+    user_trust_provider_type = "{{ user_trust_provider_type }}"
+}

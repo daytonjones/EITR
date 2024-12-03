@@ -1,0 +1,7 @@
+resource "azurerm_eventhub_namespace_customer_managed_key" "example" {
+    eventhub_namespace_id = "{{ eventhub_namespace_id }}"
+    id = "{{ id }}"
+    infrastructure_encryption_enabled = "{{ infrastructure_encryption_enabled }}"
+    key_vault_key_ids = "{{ key_vault_key_ids }}"
+    user_assigned_identity_id = "{{ user_assigned_identity_id }}"
+}

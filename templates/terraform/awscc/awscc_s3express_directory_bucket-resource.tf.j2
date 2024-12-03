@@ -1,0 +1,30 @@
+resource "awscc_s3express_directory_bucket" "example" {
+    arn = "{{ arn }}"
+    availability_zone_name = "{{ availability_zone_name }}"
+    bucket_encryption = "{
+    server_side_encryption_configuration = {
+    bucket_key_enabled = {{ bucket_key_enabled }}
+    server_side_encryption_by_default = {
+    kms_master_key_id = {{ kms_master_key_id }}
+    sse_algorithm = {{ sse_algorithm }}
+}
+}
+}"
+    bucket_name = "{{ bucket_name }}"
+    data_redundancy = "{{ data_redundancy }}"
+    id = "{{ id }}"
+    lifecycle_configuration = "{
+    rules = {
+    abort_incomplete_multipart_upload = {
+    days_after_initiation = {{ days_after_initiation }}
+}
+    expiration_in_days = {{ expiration_in_days }}
+    id = {{ id }}
+    object_size_greater_than = {{ object_size_greater_than }}
+    object_size_less_than = {{ object_size_less_than }}
+    prefix = {{ prefix }}
+    status = {{ status }}
+}
+}"
+    location_name = "{{ location_name }}"
+}

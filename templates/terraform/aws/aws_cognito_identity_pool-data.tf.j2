@@ -1,0 +1,13 @@
+data "aws_cognito_identity_pool" "example" {
+    allow_classic_flow = "{{ allow_classic_flow }}"
+    allow_unauthenticated_identities = "{{ allow_unauthenticated_identities }}"
+    arn = "{{ arn }}"
+    cognito_identity_providers = "{{ cognito_identity_providers }}"
+    developer_provider_name = "{{ developer_provider_name }}"
+    id = "{{ id }}"
+    identity_pool_name = "{{ identity_pool_name }}"
+    openid_connect_provider_arns = "{{ openid_connect_provider_arns }}"
+    saml_provider_arns = "{{ saml_provider_arns }}"
+    supported_login_providers = "{{ supported_login_providers }}"
+    tags = "{{ tags }}"
+}

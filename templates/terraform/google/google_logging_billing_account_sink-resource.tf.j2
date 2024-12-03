@@ -1,0 +1,10 @@
+resource "google_logging_billing_account_sink" "example" {
+    billing_account = "{{ billing_account }}"
+    description = "{{ description }}"
+    destination = "{{ destination }}"
+    disabled = "{{ disabled }}"
+    filter = "{{ filter }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    writer_identity = "{{ writer_identity }}"
+}

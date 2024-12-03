@@ -1,0 +1,17 @@
+resource "aws_ec2_fleet" "example" {
+    arn = "{{ arn }}"
+    context = "{{ context }}"
+    excess_capacity_termination_policy = "{{ excess_capacity_termination_policy }}"
+    fleet_state = "{{ fleet_state }}"
+    fulfilled_capacity = "{{ fulfilled_capacity }}"
+    fulfilled_on_demand_capacity = "{{ fulfilled_on_demand_capacity }}"
+    id = "{{ id }}"
+    replace_unhealthy_instances = "{{ replace_unhealthy_instances }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    terminate_instances = "{{ terminate_instances }}"
+    terminate_instances_with_expiration = "{{ terminate_instances_with_expiration }}"
+    type = "{{ type }}"
+    valid_from = "{{ valid_from }}"
+    valid_until = "{{ valid_until }}"
+}

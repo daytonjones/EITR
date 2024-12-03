@@ -1,0 +1,12 @@
+resource "aws_lb_trust_store" "example" {
+    arn = "{{ arn }}"
+    arn_suffix = "{{ arn_suffix }}"
+    ca_certificates_bundle_s3_bucket = "{{ ca_certificates_bundle_s3_bucket }}"
+    ca_certificates_bundle_s3_key = "{{ ca_certificates_bundle_s3_key }}"
+    ca_certificates_bundle_s3_object_version = "{{ ca_certificates_bundle_s3_object_version }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    name_prefix = "{{ name_prefix }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

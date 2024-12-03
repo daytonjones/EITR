@@ -1,0 +1,10 @@
+data "awscc_ivs_stream_key" "example" {
+    arn = "{{ arn }}"
+    channel_arn = "{{ channel_arn }}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    value = "{{ value }}"
+}

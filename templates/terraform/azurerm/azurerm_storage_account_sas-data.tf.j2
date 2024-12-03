@@ -1,0 +1,10 @@
+data "azurerm_storage_account_sas" "example" {
+    connection_string = "{{ connection_string }}"
+    expiry = "{{ expiry }}"
+    https_only = "{{ https_only }}"
+    id = "{{ id }}"
+    ip_addresses = "{{ ip_addresses }}"
+    sas = "{{ sas }}"
+    signed_version = "{{ signed_version }}"
+    start = "{{ start }}"
+}

@@ -1,0 +1,17 @@
+resource "awscc_stepfunctions_state_machine_alias" "example" {
+    arn = "{{ arn }}"
+    deployment_preference = "{
+    alarms = {{ alarms }}
+    interval = {{ interval }}
+    percentage = {{ percentage }}
+    state_machine_version_arn = {{ state_machine_version_arn }}
+    type = {{ type }}
+}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    routing_configuration = "{
+    state_machine_version_arn = {{ state_machine_version_arn }}
+    weight = {{ weight }}
+}"
+}

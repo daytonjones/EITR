@@ -1,0 +1,7 @@
+resource "kubernetes_priority_class_v1" "example" {
+    description = "{{ description }}"
+    global_default = "{{ global_default }}"
+    id = "{{ id }}"
+    preemption_policy = "{{ preemption_policy }}"
+    value = "{{ value }}"
+}

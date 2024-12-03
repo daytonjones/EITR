@@ -1,0 +1,32 @@
+resource "awscc_connectcampaigns_campaign" "example" {
+    arn = "{{ arn }}"
+    connect_instance_arn = "{{ connect_instance_arn }}"
+    dialer_config = "{
+    agentless_dialer_config = {
+    dialing_capacity = {{ dialing_capacity }}
+}
+    predictive_dialer_config = {
+    bandwidth_allocation = {{ bandwidth_allocation }}
+    dialing_capacity = {{ dialing_capacity }}
+}
+    progressive_dialer_config = {
+    bandwidth_allocation = {{ bandwidth_allocation }}
+    dialing_capacity = {{ dialing_capacity }}
+}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    outbound_call_config = "{
+    answer_machine_detection_config = {
+    await_answer_machine_prompt = {{ await_answer_machine_prompt }}
+    enable_answer_machine_detection = {{ enable_answer_machine_detection }}
+}
+    connect_contact_flow_arn = {{ connect_contact_flow_arn }}
+    connect_queue_arn = {{ connect_queue_arn }}
+    connect_source_phone_number = {{ connect_source_phone_number }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

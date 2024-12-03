@@ -1,0 +1,21 @@
+data "awscc_iam_user" "example" {
+    arn = "{{ arn }}"
+    groups = "{{ groups }}"
+    id = "{{ id }}"
+    login_profile = "{
+    password = {{ password }}
+    password_reset_required = {{ password_reset_required }}
+}"
+    managed_policy_arns = "{{ managed_policy_arns }}"
+    path = "{{ path }}"
+    permissions_boundary = "{{ permissions_boundary }}"
+    policies = "{
+    policy_document = {{ policy_document }}
+    policy_name = {{ policy_name }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    user_name = "{{ user_name }}"
+}

@@ -1,0 +1,12 @@
+data "google_compute_resource_policy" "example" {
+    description = "{{ description }}"
+    disk_consistency_group_policy = "{{ disk_consistency_group_policy }}"
+    group_placement_policy = "{{ group_placement_policy }}"
+    id = "{{ id }}"
+    instance_schedule_policy = "{{ instance_schedule_policy }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    self_link = "{{ self_link }}"
+    snapshot_schedule_policy = "{{ snapshot_schedule_policy }}"
+}

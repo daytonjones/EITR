@@ -1,0 +1,10 @@
+resource "vault_identity_oidc_provider" "example" {
+    allowed_client_ids = "{{ allowed_client_ids }}"
+    https_enabled = "{{ https_enabled }}"
+    id = "{{ id }}"
+    issuer = "{{ issuer }}"
+    issuer_host = "{{ issuer_host }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    scopes_supported = "{{ scopes_supported }}"
+}

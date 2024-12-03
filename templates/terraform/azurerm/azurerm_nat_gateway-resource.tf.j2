@@ -1,0 +1,11 @@
+resource "azurerm_nat_gateway" "example" {
+    id = "{{ id }}"
+    idle_timeout_in_minutes = "{{ idle_timeout_in_minutes }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    resource_guid = "{{ resource_guid }}"
+    sku_name = "{{ sku_name }}"
+    tags = "{{ tags }}"
+    zones = "{{ zones }}"
+}

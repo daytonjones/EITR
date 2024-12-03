@@ -1,0 +1,13 @@
+resource "azurerm_disk_encryption_set" "example" {
+    auto_key_rotation_enabled = "{{ auto_key_rotation_enabled }}"
+    encryption_type = "{{ encryption_type }}"
+    federated_client_id = "{{ federated_client_id }}"
+    id = "{{ id }}"
+    key_vault_key_id = "{{ key_vault_key_id }}"
+    key_vault_key_url = "{{ key_vault_key_url }}"
+    location = "{{ location }}"
+    managed_hsm_key_id = "{{ managed_hsm_key_id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

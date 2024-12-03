@@ -1,0 +1,9 @@
+resource "aws_backup_restore_testing_plan" "example" {
+    arn = "{{ arn }}"
+    name = "{{ name }}"
+    schedule_expression = "{{ schedule_expression }}"
+    schedule_expression_timezone = "{{ schedule_expression_timezone }}"
+    start_window_hours = "{{ start_window_hours }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

@@ -1,0 +1,140 @@
+data "awscc_iotsitewise_asset_model" "example" {
+    asset_model_arn = "{{ asset_model_arn }}"
+    asset_model_composite_models = "{
+    composed_asset_model_id = {{ composed_asset_model_id }}
+    composite_model_properties = {
+    data_type = {{ data_type }}
+    data_type_spec = {{ data_type_spec }}
+    external_id = {{ external_id }}
+    id = {{ id }}
+    logical_id = {{ logical_id }}
+    name = {{ name }}
+    type = {
+    attribute = {
+    default_value = {{ default_value }}
+}
+    metric = {
+    expression = {{ expression }}
+    variables = {
+    name = {{ name }}
+    value = {
+    hierarchy_external_id = {{ hierarchy_external_id }}
+    hierarchy_id = {{ hierarchy_id }}
+    hierarchy_logical_id = {{ hierarchy_logical_id }}
+    property_external_id = {{ property_external_id }}
+    property_id = {{ property_id }}
+    property_logical_id = {{ property_logical_id }}
+    property_path = {
+    name = {{ name }}
+}
+}
+}
+    window = {
+    tumbling = {
+    interval = {{ interval }}
+    offset = {{ offset }}
+}
+}
+}
+    transform = {
+    expression = {{ expression }}
+    variables = {
+    name = {{ name }}
+    value = {
+    hierarchy_external_id = {{ hierarchy_external_id }}
+    hierarchy_id = {{ hierarchy_id }}
+    hierarchy_logical_id = {{ hierarchy_logical_id }}
+    property_external_id = {{ property_external_id }}
+    property_id = {{ property_id }}
+    property_logical_id = {{ property_logical_id }}
+    property_path = {
+    name = {{ name }}
+}
+}
+}
+}
+    type_name = {{ type_name }}
+}
+    unit = {{ unit }}
+}
+    description = {{ description }}
+    external_id = {{ external_id }}
+    id = {{ id }}
+    name = {{ name }}
+    parent_asset_model_composite_model_external_id = {{ parent_asset_model_composite_model_external_id }}
+    path = {{ path }}
+    type = {{ type }}
+}"
+    asset_model_description = "{{ asset_model_description }}"
+    asset_model_external_id = "{{ asset_model_external_id }}"
+    asset_model_hierarchies = "{
+    child_asset_model_id = {{ child_asset_model_id }}
+    external_id = {{ external_id }}
+    id = {{ id }}
+    logical_id = {{ logical_id }}
+    name = {{ name }}
+}"
+    asset_model_id = "{{ asset_model_id }}"
+    asset_model_name = "{{ asset_model_name }}"
+    asset_model_properties = "{
+    data_type = {{ data_type }}
+    data_type_spec = {{ data_type_spec }}
+    external_id = {{ external_id }}
+    id = {{ id }}
+    logical_id = {{ logical_id }}
+    name = {{ name }}
+    type = {
+    attribute = {
+    default_value = {{ default_value }}
+}
+    metric = {
+    expression = {{ expression }}
+    variables = {
+    name = {{ name }}
+    value = {
+    hierarchy_external_id = {{ hierarchy_external_id }}
+    hierarchy_id = {{ hierarchy_id }}
+    hierarchy_logical_id = {{ hierarchy_logical_id }}
+    property_external_id = {{ property_external_id }}
+    property_id = {{ property_id }}
+    property_logical_id = {{ property_logical_id }}
+    property_path = {
+    name = {{ name }}
+}
+}
+}
+    window = {
+    tumbling = {
+    interval = {{ interval }}
+    offset = {{ offset }}
+}
+}
+}
+    transform = {
+    expression = {{ expression }}
+    variables = {
+    name = {{ name }}
+    value = {
+    hierarchy_external_id = {{ hierarchy_external_id }}
+    hierarchy_id = {{ hierarchy_id }}
+    hierarchy_logical_id = {{ hierarchy_logical_id }}
+    property_external_id = {{ property_external_id }}
+    property_id = {{ property_id }}
+    property_logical_id = {{ property_logical_id }}
+    property_path = {
+    name = {{ name }}
+}
+}
+}
+}
+    type_name = {{ type_name }}
+}
+    unit = {{ unit }}
+}"
+    asset_model_type = "{{ asset_model_type }}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

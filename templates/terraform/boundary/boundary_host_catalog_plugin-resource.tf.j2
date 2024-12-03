@@ -1,0 +1,15 @@
+resource "boundary_host_catalog_plugin" "example" {
+    attributes_json = "{{ attributes_json }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    internal_force_update = "{{ internal_force_update }}"
+    internal_hmac_used_for_secrets_config_hmac = "{{ internal_hmac_used_for_secrets_config_hmac }}"
+    internal_secrets_config_hmac = "{{ internal_secrets_config_hmac }}"
+    name = "{{ name }}"
+    plugin_id = "{{ plugin_id }}"
+    plugin_name = "{{ plugin_name }}"
+    scope_id = "{{ scope_id }}"
+    secrets_hmac = "{{ secrets_hmac }}"
+    secrets_json = "{{ secrets_json }}"
+    worker_filter = "{{ worker_filter }}"
+}

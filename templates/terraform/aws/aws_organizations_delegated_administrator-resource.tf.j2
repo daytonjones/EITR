@@ -1,0 +1,12 @@
+resource "aws_organizations_delegated_administrator" "example" {
+    account_id = "{{ account_id }}"
+    arn = "{{ arn }}"
+    delegation_enabled_date = "{{ delegation_enabled_date }}"
+    email = "{{ email }}"
+    id = "{{ id }}"
+    joined_method = "{{ joined_method }}"
+    joined_timestamp = "{{ joined_timestamp }}"
+    name = "{{ name }}"
+    service_principal = "{{ service_principal }}"
+    status = "{{ status }}"
+}

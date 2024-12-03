@@ -1,0 +1,22 @@
+data "awscc_rds_option_group" "example" {
+    engine_name = "{{ engine_name }}"
+    id = "{{ id }}"
+    major_engine_version = "{{ major_engine_version }}"
+    option_configurations = "{
+    db_security_group_memberships = {{ db_security_group_memberships }}
+    option_name = {{ option_name }}
+    option_settings = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    option_version = {{ option_version }}
+    port = {{ port }}
+    vpc_security_group_memberships = {{ vpc_security_group_memberships }}
+}"
+    option_group_description = "{{ option_group_description }}"
+    option_group_name = "{{ option_group_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

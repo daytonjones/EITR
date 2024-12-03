@@ -1,0 +1,9 @@
+resource "azurerm_web_application_firewall_policy" "example" {
+    http_listener_ids = "{{ http_listener_ids }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    path_based_rule_ids = "{{ path_based_rule_ids }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

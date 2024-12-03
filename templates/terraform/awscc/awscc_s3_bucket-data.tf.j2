@@ -1,0 +1,290 @@
+data "awscc_s3_bucket" "example" {
+    accelerate_configuration = "{
+    acceleration_status = {{ acceleration_status }}
+}"
+    access_control = "{{ access_control }}"
+    analytics_configurations = "{
+    id = {{ id }}
+    prefix = {{ prefix }}
+    storage_class_analysis = {
+    data_export = {
+    destination = {
+    bucket_account_id = {{ bucket_account_id }}
+    bucket_arn = {{ bucket_arn }}
+    format = {{ format }}
+    prefix = {{ prefix }}
+}
+    output_schema_version = {{ output_schema_version }}
+}
+}
+    tag_filters = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}"
+    arn = "{{ arn }}"
+    bucket_encryption = "{
+    server_side_encryption_configuration = {
+    bucket_key_enabled = {{ bucket_key_enabled }}
+    server_side_encryption_by_default = {
+    kms_master_key_id = {{ kms_master_key_id }}
+    sse_algorithm = {{ sse_algorithm }}
+}
+}
+}"
+    bucket_name = "{{ bucket_name }}"
+    cors_configuration = "{
+    cors_rules = {
+    allowed_headers = {{ allowed_headers }}
+    allowed_methods = {{ allowed_methods }}
+    allowed_origins = {{ allowed_origins }}
+    exposed_headers = {{ exposed_headers }}
+    id = {{ id }}
+    max_age = {{ max_age }}
+}
+}"
+    domain_name = "{{ domain_name }}"
+    dual_stack_domain_name = "{{ dual_stack_domain_name }}"
+    id = "{{ id }}"
+    intelligent_tiering_configurations = "{
+    id = {{ id }}
+    prefix = {{ prefix }}
+    status = {{ status }}
+    tag_filters = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    tierings = {
+    access_tier = {{ access_tier }}
+    days = {{ days }}
+}
+}"
+    inventory_configurations = "{
+    destination = {
+    bucket_account_id = {{ bucket_account_id }}
+    bucket_arn = {{ bucket_arn }}
+    format = {{ format }}
+    prefix = {{ prefix }}
+}
+    enabled = {{ enabled }}
+    id = {{ id }}
+    included_object_versions = {{ included_object_versions }}
+    optional_fields = {{ optional_fields }}
+    prefix = {{ prefix }}
+    schedule_frequency = {{ schedule_frequency }}
+}"
+    lifecycle_configuration = "{
+    rules = {
+    abort_incomplete_multipart_upload = {
+    days_after_initiation = {{ days_after_initiation }}
+}
+    expiration_date = {{ expiration_date }}
+    expiration_in_days = {{ expiration_in_days }}
+    expired_object_delete_marker = {{ expired_object_delete_marker }}
+    id = {{ id }}
+    noncurrent_version_expiration = {
+    newer_noncurrent_versions = {{ newer_noncurrent_versions }}
+    noncurrent_days = {{ noncurrent_days }}
+}
+    noncurrent_version_expiration_in_days = {{ noncurrent_version_expiration_in_days }}
+    noncurrent_version_transition = {
+    newer_noncurrent_versions = {{ newer_noncurrent_versions }}
+    storage_class = {{ storage_class }}
+    transition_in_days = {{ transition_in_days }}
+}
+    noncurrent_version_transitions = {
+    newer_noncurrent_versions = {{ newer_noncurrent_versions }}
+    storage_class = {{ storage_class }}
+    transition_in_days = {{ transition_in_days }}
+}
+    object_size_greater_than = {{ object_size_greater_than }}
+    object_size_less_than = {{ object_size_less_than }}
+    prefix = {{ prefix }}
+    status = {{ status }}
+    tag_filters = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    transition = {
+    storage_class = {{ storage_class }}
+    transition_date = {{ transition_date }}
+    transition_in_days = {{ transition_in_days }}
+}
+    transitions = {
+    storage_class = {{ storage_class }}
+    transition_date = {{ transition_date }}
+    transition_in_days = {{ transition_in_days }}
+}
+}
+    transition_default_minimum_object_size = {{ transition_default_minimum_object_size }}
+}"
+    logging_configuration = "{
+    destination_bucket_name = {{ destination_bucket_name }}
+    log_file_prefix = {{ log_file_prefix }}
+    target_object_key_format = {
+    partitioned_prefix = {
+    partition_date_source = {{ partition_date_source }}
+}
+    simple_prefix = {{ simple_prefix }}
+}
+}"
+    metrics_configurations = "{
+    access_point_arn = {{ access_point_arn }}
+    id = {{ id }}
+    prefix = {{ prefix }}
+    tag_filters = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}"
+    notification_configuration = "{
+    event_bridge_configuration = {
+    event_bridge_enabled = {{ event_bridge_enabled }}
+}
+    lambda_configurations = {
+    event = {{ event }}
+    filter = {
+    s3_key = {
+    rules = {
+    name = {{ name }}
+    value = {{ value }}
+}
+}
+}
+    function = {{ function }}
+}
+    queue_configurations = {
+    event = {{ event }}
+    filter = {
+    s3_key = {
+    rules = {
+    name = {{ name }}
+    value = {{ value }}
+}
+}
+}
+    queue = {{ queue }}
+}
+    topic_configurations = {
+    event = {{ event }}
+    filter = {
+    s3_key = {
+    rules = {
+    name = {{ name }}
+    value = {{ value }}
+}
+}
+}
+    topic = {{ topic }}
+}
+}"
+    object_lock_configuration = "{
+    object_lock_enabled = {{ object_lock_enabled }}
+    rule = {
+    default_retention = {
+    days = {{ days }}
+    mode = {{ mode }}
+    years = {{ years }}
+}
+}
+}"
+    object_lock_enabled = "{{ object_lock_enabled }}"
+    ownership_controls = "{
+    rules = {
+    object_ownership = {{ object_ownership }}
+}
+}"
+    public_access_block_configuration = "{
+    block_public_acls = {{ block_public_acls }}
+    block_public_policy = {{ block_public_policy }}
+    ignore_public_acls = {{ ignore_public_acls }}
+    restrict_public_buckets = {{ restrict_public_buckets }}
+}"
+    regional_domain_name = "{{ regional_domain_name }}"
+    replication_configuration = "{
+    role = {{ role }}
+    rules = {
+    delete_marker_replication = {
+    status = {{ status }}
+}
+    destination = {
+    access_control_translation = {
+    owner = {{ owner }}
+}
+    account = {{ account }}
+    bucket = {{ bucket }}
+    encryption_configuration = {
+    replica_kms_key_id = {{ replica_kms_key_id }}
+}
+    metrics = {
+    event_threshold = {
+    minutes = {{ minutes }}
+}
+    status = {{ status }}
+}
+    replication_time = {
+    status = {{ status }}
+    time = {
+    minutes = {{ minutes }}
+}
+}
+    storage_class = {{ storage_class }}
+}
+    filter = {
+    and = {
+    prefix = {{ prefix }}
+    tag_filters = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}
+    prefix = {{ prefix }}
+    tag_filter = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}
+    id = {{ id }}
+    prefix = {{ prefix }}
+    priority = {{ priority }}
+    source_selection_criteria = {
+    replica_modifications = {
+    status = {{ status }}
+}
+    sse_kms_encrypted_objects = {
+    status = {{ status }}
+}
+}
+    status = {{ status }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    versioning_configuration = "{
+    status = {{ status }}
+}"
+    website_configuration = "{
+    error_document = {{ error_document }}
+    index_document = {{ index_document }}
+    redirect_all_requests_to = {
+    host_name = {{ host_name }}
+    protocol = {{ protocol }}
+}
+    routing_rules = {
+    redirect_rule = {
+    host_name = {{ host_name }}
+    http_redirect_code = {{ http_redirect_code }}
+    protocol = {{ protocol }}
+    replace_key_prefix_with = {{ replace_key_prefix_with }}
+    replace_key_with = {{ replace_key_with }}
+}
+    routing_rule_condition = {
+    http_error_code_returned_equals = {{ http_error_code_returned_equals }}
+    key_prefix_equals = {{ key_prefix_equals }}
+}
+}
+}"
+    website_url = "{{ website_url }}"
+}

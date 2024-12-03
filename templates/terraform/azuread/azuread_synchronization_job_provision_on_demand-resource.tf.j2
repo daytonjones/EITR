@@ -1,0 +1,6 @@
+resource "azuread_synchronization_job_provision_on_demand" "example" {
+    id = "{{ id }}"
+    service_principal_id = "{{ service_principal_id }}"
+    synchronization_job_id = "{{ synchronization_job_id }}"
+    triggers = "{{ triggers }}"
+}

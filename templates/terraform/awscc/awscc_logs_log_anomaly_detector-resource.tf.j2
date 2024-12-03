@@ -1,0 +1,14 @@
+resource "awscc_logs_log_anomaly_detector" "example" {
+    account_id = "{{ account_id }}"
+    anomaly_detector_arn = "{{ anomaly_detector_arn }}"
+    anomaly_detector_status = "{{ anomaly_detector_status }}"
+    anomaly_visibility_time = "{{ anomaly_visibility_time }}"
+    creation_time_stamp = "{{ creation_time_stamp }}"
+    detector_name = "{{ detector_name }}"
+    evaluation_frequency = "{{ evaluation_frequency }}"
+    filter_pattern = "{{ filter_pattern }}"
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    last_modified_time_stamp = "{{ last_modified_time_stamp }}"
+    log_group_arn_list = "{{ log_group_arn_list }}"
+}

@@ -1,0 +1,11 @@
+data "awscc_forecast_dataset_group" "example" {
+    dataset_arns = "{{ dataset_arns }}"
+    dataset_group_arn = "{{ dataset_group_arn }}"
+    dataset_group_name = "{{ dataset_group_name }}"
+    domain = "{{ domain }}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

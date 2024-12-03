@@ -1,0 +1,17 @@
+resource "aws_config_organization_custom_policy_rule" "example" {
+    arn = "{{ arn }}"
+    debug_log_delivery_accounts = "{{ debug_log_delivery_accounts }}"
+    description = "{{ description }}"
+    excluded_accounts = "{{ excluded_accounts }}"
+    id = "{{ id }}"
+    input_parameters = "{{ input_parameters }}"
+    maximum_execution_frequency = "{{ maximum_execution_frequency }}"
+    name = "{{ name }}"
+    policy_runtime = "{{ policy_runtime }}"
+    policy_text = "{{ policy_text }}"
+    resource_id_scope = "{{ resource_id_scope }}"
+    resource_types_scope = "{{ resource_types_scope }}"
+    tag_key_scope = "{{ tag_key_scope }}"
+    tag_value_scope = "{{ tag_value_scope }}"
+    trigger_types = "{{ trigger_types }}"
+}

@@ -1,0 +1,34 @@
+data "awscc_glue_trigger" "example" {
+    actions = "{
+    arguments = {{ arguments }}
+    crawler_name = {{ crawler_name }}
+    job_name = {{ job_name }}
+    notification_property = {
+    notify_delay_after = {{ notify_delay_after }}
+}
+    security_configuration = {{ security_configuration }}
+    timeout = {{ timeout }}
+}"
+    description = "{{ description }}"
+    event_batching_condition = "{
+    batch_size = {{ batch_size }}
+    batch_window = {{ batch_window }}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    predicate = "{
+    conditions = {
+    crawl_state = {{ crawl_state }}
+    crawler_name = {{ crawler_name }}
+    job_name = {{ job_name }}
+    logical_operator = {{ logical_operator }}
+    state = {{ state }}
+}
+    logical = {{ logical }}
+}"
+    schedule = "{{ schedule }}"
+    start_on_creation = "{{ start_on_creation }}"
+    tags = "{{ tags }}"
+    type = "{{ type }}"
+    workflow_name = "{{ workflow_name }}"
+}

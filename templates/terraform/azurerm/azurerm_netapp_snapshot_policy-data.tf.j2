@@ -1,0 +1,13 @@
+data "azurerm_netapp_snapshot_policy" "example" {
+    account_name = "{{ account_name }}"
+    daily_schedule = "{{ daily_schedule }}"
+    enabled = "{{ enabled }}"
+    hourly_schedule = "{{ hourly_schedule }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    monthly_schedule = "{{ monthly_schedule }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    weekly_schedule = "{{ weekly_schedule }}"
+}

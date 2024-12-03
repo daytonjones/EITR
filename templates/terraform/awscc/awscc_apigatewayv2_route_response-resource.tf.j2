@@ -1,0 +1,12 @@
+resource "awscc_apigatewayv2_route_response" "example" {
+    api_id = "{{ api_id }}"
+    id = "{{ id }}"
+    model_selection_expression = "{{ model_selection_expression }}"
+    response_models = "{{ response_models }}"
+    response_parameters = "{
+    required = {{ required }}
+}"
+    route_id = "{{ route_id }}"
+    route_response_id = "{{ route_response_id }}"
+    route_response_key = "{{ route_response_key }}"
+}

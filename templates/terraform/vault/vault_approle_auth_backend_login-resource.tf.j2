@@ -1,0 +1,14 @@
+resource "vault_approle_auth_backend_login" "example" {
+    accessor = "{{ accessor }}"
+    backend = "{{ backend }}"
+    client_token = "{{ client_token }}"
+    id = "{{ id }}"
+    lease_duration = "{{ lease_duration }}"
+    lease_started = "{{ lease_started }}"
+    metadata = "{{ metadata }}"
+    namespace = "{{ namespace }}"
+    policies = "{{ policies }}"
+    renewable = "{{ renewable }}"
+    role_id = "{{ role_id }}"
+    secret_id = "{{ secret_id }}"
+}

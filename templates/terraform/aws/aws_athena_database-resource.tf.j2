@@ -1,0 +1,9 @@
+resource "aws_athena_database" "example" {
+    bucket = "{{ bucket }}"
+    comment = "{{ comment }}"
+    expected_bucket_owner = "{{ expected_bucket_owner }}"
+    force_destroy = "{{ force_destroy }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    properties = "{{ properties }}"
+}

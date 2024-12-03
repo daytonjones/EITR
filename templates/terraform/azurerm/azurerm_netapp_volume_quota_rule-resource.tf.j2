@@ -1,0 +1,9 @@
+resource "azurerm_netapp_volume_quota_rule" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    quota_size_in_kib = "{{ quota_size_in_kib }}"
+    quota_target = "{{ quota_target }}"
+    quota_type = "{{ quota_type }}"
+    volume_id = "{{ volume_id }}"
+}

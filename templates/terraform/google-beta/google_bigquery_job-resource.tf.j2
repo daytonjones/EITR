@@ -1,0 +1,13 @@
+resource "google_bigquery_job" "example" {
+    effective_labels = "{{ effective_labels }}"
+    id = "{{ id }}"
+    job_id = "{{ job_id }}"
+    job_timeout_ms = "{{ job_timeout_ms }}"
+    job_type = "{{ job_type }}"
+    labels = "{{ labels }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    status = "{{ status }}"
+    terraform_labels = "{{ terraform_labels }}"
+    user_email = "{{ user_email }}"
+}

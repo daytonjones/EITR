@@ -1,0 +1,10 @@
+resource "aws_dynamodb_table_replica" "example" {
+    arn = "{{ arn }}"
+    global_table_arn = "{{ global_table_arn }}"
+    id = "{{ id }}"
+    kms_key_arn = "{{ kms_key_arn }}"
+    point_in_time_recovery = "{{ point_in_time_recovery }}"
+    table_class_override = "{{ table_class_override }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

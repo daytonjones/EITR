@@ -1,0 +1,7 @@
+resource "aws_dynamodb_table_item" "example" {
+    hash_key = "{{ hash_key }}"
+    id = "{{ id }}"
+    item = "{{ item }}"
+    range_key = "{{ range_key }}"
+    table_name = "{{ table_name }}"
+}

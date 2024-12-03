@@ -1,0 +1,7 @@
+resource "aws_opsworks_rds_db_instance" "example" {
+    db_password = "{{ db_password }}"
+    db_user = "{{ db_user }}"
+    id = "{{ id }}"
+    rds_db_instance_arn = "{{ rds_db_instance_arn }}"
+    stack_id = "{{ stack_id }}"
+}

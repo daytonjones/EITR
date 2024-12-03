@@ -1,0 +1,8 @@
+data "google_logging_project_cmek_settings" "example" {
+    id = "{{ id }}"
+    kms_key_name = "{{ kms_key_name }}"
+    kms_key_version_name = "{{ kms_key_version_name }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    service_account_id = "{{ service_account_id }}"
+}

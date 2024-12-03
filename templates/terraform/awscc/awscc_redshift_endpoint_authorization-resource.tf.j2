@@ -1,0 +1,15 @@
+resource "awscc_redshift_endpoint_authorization" "example" {
+    account = "{{ account }}"
+    allowed_all_vp_cs = "{{ allowed_all_vp_cs }}"
+    allowed_vp_cs = "{{ allowed_vp_cs }}"
+    authorize_time = "{{ authorize_time }}"
+    cluster_identifier = "{{ cluster_identifier }}"
+    cluster_status = "{{ cluster_status }}"
+    endpoint_count = "{{ endpoint_count }}"
+    force = "{{ force }}"
+    grantee = "{{ grantee }}"
+    grantor = "{{ grantor }}"
+    id = "{{ id }}"
+    status = "{{ status }}"
+    vpc_ids = "{{ vpc_ids }}"
+}

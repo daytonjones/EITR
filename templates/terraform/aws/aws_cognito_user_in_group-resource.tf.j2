@@ -1,0 +1,6 @@
+resource "aws_cognito_user_in_group" "example" {
+    group_name = "{{ group_name }}"
+    id = "{{ id }}"
+    user_pool_id = "{{ user_pool_id }}"
+    username = "{{ username }}"
+}

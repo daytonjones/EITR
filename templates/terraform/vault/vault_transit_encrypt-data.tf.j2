@@ -1,0 +1,10 @@
+data "vault_transit_encrypt" "example" {
+    backend = "{{ backend }}"
+    ciphertext = "{{ ciphertext }}"
+    context = "{{ context }}"
+    id = "{{ id }}"
+    key = "{{ key }}"
+    key_version = "{{ key_version }}"
+    namespace = "{{ namespace }}"
+    plaintext = "{{ plaintext }}"
+}

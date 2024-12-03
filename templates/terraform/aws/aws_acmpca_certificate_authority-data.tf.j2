@@ -1,0 +1,16 @@
+data "aws_acmpca_certificate_authority" "example" {
+    arn = "{{ arn }}"
+    certificate = "{{ certificate }}"
+    certificate_chain = "{{ certificate_chain }}"
+    certificate_signing_request = "{{ certificate_signing_request }}"
+    id = "{{ id }}"
+    key_storage_security_standard = "{{ key_storage_security_standard }}"
+    not_after = "{{ not_after }}"
+    not_before = "{{ not_before }}"
+    revocation_configuration = "{{ revocation_configuration }}"
+    serial = "{{ serial }}"
+    status = "{{ status }}"
+    tags = "{{ tags }}"
+    type = "{{ type }}"
+    usage_mode = "{{ usage_mode }}"
+}

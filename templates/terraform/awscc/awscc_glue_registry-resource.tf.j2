@@ -1,0 +1,10 @@
+resource "awscc_glue_registry" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

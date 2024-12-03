@@ -1,0 +1,6 @@
+resource "aws_directory_service_conditional_forwarder" "example" {
+    directory_id = "{{ directory_id }}"
+    dns_ips = "{{ dns_ips }}"
+    id = "{{ id }}"
+    remote_domain_name = "{{ remote_domain_name }}"
+}

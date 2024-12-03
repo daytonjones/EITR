@@ -1,0 +1,119 @@
+resource "awscc_mediapackage_packaging_configuration" "example" {
+    arn = "{{ arn }}"
+    cmaf_package = "{
+    encryption = {
+    speke_key_provider = {
+    encryption_contract_configuration = {
+    preset_speke_20_audio = {{ preset_speke_20_audio }}
+    preset_speke_20_video = {{ preset_speke_20_video }}
+}
+    role_arn = {{ role_arn }}
+    system_ids = {{ system_ids }}
+    url = {{ url }}
+}
+}
+    hls_manifests = {
+    ad_markers = {{ ad_markers }}
+    include_iframe_only_stream = {{ include_iframe_only_stream }}
+    manifest_name = {{ manifest_name }}
+    program_date_time_interval_seconds = {{ program_date_time_interval_seconds }}
+    repeat_ext_x_key = {{ repeat_ext_x_key }}
+    stream_selection = {
+    max_video_bits_per_second = {{ max_video_bits_per_second }}
+    min_video_bits_per_second = {{ min_video_bits_per_second }}
+    stream_order = {{ stream_order }}
+}
+}
+    include_encoder_configuration_in_segments = {{ include_encoder_configuration_in_segments }}
+    segment_duration_seconds = {{ segment_duration_seconds }}
+}"
+    dash_package = "{
+    dash_manifests = {
+    manifest_layout = {{ manifest_layout }}
+    manifest_name = {{ manifest_name }}
+    min_buffer_time_seconds = {{ min_buffer_time_seconds }}
+    profile = {{ profile }}
+    scte_markers_source = {{ scte_markers_source }}
+    stream_selection = {
+    max_video_bits_per_second = {{ max_video_bits_per_second }}
+    min_video_bits_per_second = {{ min_video_bits_per_second }}
+    stream_order = {{ stream_order }}
+}
+}
+    encryption = {
+    speke_key_provider = {
+    encryption_contract_configuration = {
+    preset_speke_20_audio = {{ preset_speke_20_audio }}
+    preset_speke_20_video = {{ preset_speke_20_video }}
+}
+    role_arn = {{ role_arn }}
+    system_ids = {{ system_ids }}
+    url = {{ url }}
+}
+}
+    include_encoder_configuration_in_segments = {{ include_encoder_configuration_in_segments }}
+    include_iframe_only_stream = {{ include_iframe_only_stream }}
+    period_triggers = {{ period_triggers }}
+    segment_duration_seconds = {{ segment_duration_seconds }}
+    segment_template_format = {{ segment_template_format }}
+}"
+    hls_package = "{
+    encryption = {
+    constant_initialization_vector = {{ constant_initialization_vector }}
+    encryption_method = {{ encryption_method }}
+    speke_key_provider = {
+    encryption_contract_configuration = {
+    preset_speke_20_audio = {{ preset_speke_20_audio }}
+    preset_speke_20_video = {{ preset_speke_20_video }}
+}
+    role_arn = {{ role_arn }}
+    system_ids = {{ system_ids }}
+    url = {{ url }}
+}
+}
+    hls_manifests = {
+    ad_markers = {{ ad_markers }}
+    include_iframe_only_stream = {{ include_iframe_only_stream }}
+    manifest_name = {{ manifest_name }}
+    program_date_time_interval_seconds = {{ program_date_time_interval_seconds }}
+    repeat_ext_x_key = {{ repeat_ext_x_key }}
+    stream_selection = {
+    max_video_bits_per_second = {{ max_video_bits_per_second }}
+    min_video_bits_per_second = {{ min_video_bits_per_second }}
+    stream_order = {{ stream_order }}
+}
+}
+    include_dvb_subtitles = {{ include_dvb_subtitles }}
+    segment_duration_seconds = {{ segment_duration_seconds }}
+    use_audio_rendition_group = {{ use_audio_rendition_group }}
+}"
+    id = "{{ id }}"
+    mss_package = "{
+    encryption = {
+    speke_key_provider = {
+    encryption_contract_configuration = {
+    preset_speke_20_audio = {{ preset_speke_20_audio }}
+    preset_speke_20_video = {{ preset_speke_20_video }}
+}
+    role_arn = {{ role_arn }}
+    system_ids = {{ system_ids }}
+    url = {{ url }}
+}
+}
+    mss_manifests = {
+    manifest_name = {{ manifest_name }}
+    stream_selection = {
+    max_video_bits_per_second = {{ max_video_bits_per_second }}
+    min_video_bits_per_second = {{ min_video_bits_per_second }}
+    stream_order = {{ stream_order }}
+}
+}
+    segment_duration_seconds = {{ segment_duration_seconds }}
+}"
+    packaging_configuration_id = "{{ packaging_configuration_id }}"
+    packaging_group_id = "{{ packaging_group_id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

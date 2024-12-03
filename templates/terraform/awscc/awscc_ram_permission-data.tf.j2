@@ -1,0 +1,14 @@
+data "awscc_ram_permission" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    is_resource_type_default = "{{ is_resource_type_default }}"
+    name = "{{ name }}"
+    permission_type = "{{ permission_type }}"
+    policy_template = "{{ policy_template }}"
+    resource_type = "{{ resource_type }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    version = "{{ version }}"
+}

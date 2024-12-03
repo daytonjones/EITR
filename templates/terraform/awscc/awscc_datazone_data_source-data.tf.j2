@@ -1,0 +1,70 @@
+data "awscc_datazone_data_source" "example" {
+    asset_forms_input = "{
+    content = {{ content }}
+    form_name = {{ form_name }}
+    type_identifier = {{ type_identifier }}
+    type_revision = {{ type_revision }}
+}"
+    configuration = "{
+    glue_run_configuration = {
+    auto_import_data_quality_result = {{ auto_import_data_quality_result }}
+    data_access_role = {{ data_access_role }}
+    relational_filter_configurations = {
+    database_name = {{ database_name }}
+    filter_expressions = {
+    expression = {{ expression }}
+    type = {{ type }}
+}
+    schema_name = {{ schema_name }}
+}
+}
+    redshift_run_configuration = {
+    data_access_role = {{ data_access_role }}
+    redshift_credential_configuration = {
+    secret_manager_arn = {{ secret_manager_arn }}
+}
+    redshift_storage = {
+    redshift_cluster_source = {
+    cluster_name = {{ cluster_name }}
+}
+    redshift_serverless_source = {
+    workgroup_name = {{ workgroup_name }}
+}
+}
+    relational_filter_configurations = {
+    database_name = {{ database_name }}
+    filter_expressions = {
+    expression = {{ expression }}
+    type = {{ type }}
+}
+    schema_name = {{ schema_name }}
+}
+}
+}"
+    created_at = "{{ created_at }}"
+    data_source_id = "{{ data_source_id }}"
+    description = "{{ description }}"
+    domain_id = "{{ domain_id }}"
+    domain_identifier = "{{ domain_identifier }}"
+    enable_setting = "{{ enable_setting }}"
+    environment_id = "{{ environment_id }}"
+    environment_identifier = "{{ environment_identifier }}"
+    id = "{{ id }}"
+    last_run_asset_count = "{{ last_run_asset_count }}"
+    last_run_at = "{{ last_run_at }}"
+    last_run_status = "{{ last_run_status }}"
+    name = "{{ name }}"
+    project_id = "{{ project_id }}"
+    project_identifier = "{{ project_identifier }}"
+    publish_on_import = "{{ publish_on_import }}"
+    recommendation = "{
+    enable_business_name_generation = {{ enable_business_name_generation }}
+}"
+    schedule = "{
+    schedule = {{ schedule }}
+    timezone = {{ timezone }}
+}"
+    status = "{{ status }}"
+    type = "{{ type }}"
+    updated_at = "{{ updated_at }}"
+}

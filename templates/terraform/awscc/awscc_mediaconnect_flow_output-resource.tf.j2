@@ -1,0 +1,41 @@
+resource "awscc_mediaconnect_flow_output" "example" {
+    cidr_allow_list = "{{ cidr_allow_list }}"
+    description = "{{ description }}"
+    destination = "{{ destination }}"
+    encryption = "{
+    algorithm = {{ algorithm }}
+    key_type = {{ key_type }}
+    role_arn = {{ role_arn }}
+    secret_arn = {{ secret_arn }}
+}"
+    flow_arn = "{{ flow_arn }}"
+    id = "{{ id }}"
+    max_latency = "{{ max_latency }}"
+    media_stream_output_configurations = "{
+    destination_configurations = {
+    destination_ip = {{ destination_ip }}
+    destination_port = {{ destination_port }}
+    interface = {
+    name = {{ name }}
+}
+}
+    encoding_name = {{ encoding_name }}
+    encoding_parameters = {
+    compression_factor = {{ compression_factor }}
+    encoder_profile = {{ encoder_profile }}
+}
+    media_stream_name = {{ media_stream_name }}
+}"
+    min_latency = "{{ min_latency }}"
+    name = "{{ name }}"
+    output_arn = "{{ output_arn }}"
+    output_status = "{{ output_status }}"
+    port = "{{ port }}"
+    protocol = "{{ protocol }}"
+    remote_id = "{{ remote_id }}"
+    smoothing_latency = "{{ smoothing_latency }}"
+    stream_id = "{{ stream_id }}"
+    vpc_interface_attachment = "{
+    vpc_interface_name = {{ vpc_interface_name }}
+}"
+}

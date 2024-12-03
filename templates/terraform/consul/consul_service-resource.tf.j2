@@ -1,0 +1,15 @@
+resource "consul_service" "example" {
+    address = "{{ address }}"
+    datacenter = "{{ datacenter }}"
+    enable_tag_override = "{{ enable_tag_override }}"
+    external = "{{ external }}"
+    id = "{{ id }}"
+    meta = "{{ meta }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    node = "{{ node }}"
+    partition = "{{ partition }}"
+    port = "{{ port }}"
+    service_id = "{{ service_id }}"
+    tags = "{{ tags }}"
+}

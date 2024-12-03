@@ -1,0 +1,12 @@
+resource "azurerm_gallery_application_version" "example" {
+    config_file = "{{ config_file }}"
+    enable_health_check = "{{ enable_health_check }}"
+    end_of_life_date = "{{ end_of_life_date }}"
+    exclude_from_latest = "{{ exclude_from_latest }}"
+    gallery_application_id = "{{ gallery_application_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    package_file = "{{ package_file }}"
+    tags = "{{ tags }}"
+}

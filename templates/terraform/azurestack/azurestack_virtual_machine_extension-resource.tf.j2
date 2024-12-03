@@ -1,0 +1,12 @@
+resource "azurestack_virtual_machine_extension" "example" {
+    auto_upgrade_minor_version = "{{ auto_upgrade_minor_version }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    protected_settings = "{{ protected_settings }}"
+    publisher = "{{ publisher }}"
+    settings = "{{ settings }}"
+    tags = "{{ tags }}"
+    type = "{{ type }}"
+    type_handler_version = "{{ type_handler_version }}"
+    virtual_machine_id = "{{ virtual_machine_id }}"
+}

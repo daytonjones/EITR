@@ -1,0 +1,25 @@
+resource "awscc_rds_db_proxy" "example" {
+    auth = "{
+    auth_scheme = {{ auth_scheme }}
+    client_password_auth_type = {{ client_password_auth_type }}
+    description = {{ description }}
+    iam_auth = {{ iam_auth }}
+    secret_arn = {{ secret_arn }}
+}"
+    db_proxy_arn = "{{ db_proxy_arn }}"
+    db_proxy_name = "{{ db_proxy_name }}"
+    debug_logging = "{{ debug_logging }}"
+    endpoint = "{{ endpoint }}"
+    engine_family = "{{ engine_family }}"
+    id = "{{ id }}"
+    idle_client_timeout = "{{ idle_client_timeout }}"
+    require_tls = "{{ require_tls }}"
+    role_arn = "{{ role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    vpc_id = "{{ vpc_id }}"
+    vpc_security_group_ids = "{{ vpc_security_group_ids }}"
+    vpc_subnet_ids = "{{ vpc_subnet_ids }}"
+}

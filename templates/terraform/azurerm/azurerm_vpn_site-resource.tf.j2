@@ -1,0 +1,11 @@
+resource "azurerm_vpn_site" "example" {
+    address_cidrs = "{{ address_cidrs }}"
+    device_model = "{{ device_model }}"
+    device_vendor = "{{ device_vendor }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    virtual_wan_id = "{{ virtual_wan_id }}"
+}

@@ -1,0 +1,81 @@
+data "awscc_eks_cluster" "example" {
+    access_config = "{
+    authentication_mode = {{ authentication_mode }}
+    bootstrap_cluster_creator_admin_permissions = {{ bootstrap_cluster_creator_admin_permissions }}
+}"
+    arn = "{{ arn }}"
+    bootstrap_self_managed_addons = "{{ bootstrap_self_managed_addons }}"
+    certificate_authority_data = "{{ certificate_authority_data }}"
+    cluster_id = "{{ cluster_id }}"
+    cluster_security_group_id = "{{ cluster_security_group_id }}"
+    compute_config = "{
+    enabled = {{ enabled }}
+    node_pools = {{ node_pools }}
+    node_role_arn = {{ node_role_arn }}
+}"
+    encryption_config = "{
+    provider = {
+    key_arn = {{ key_arn }}
+}
+    resources = {{ resources }}
+}"
+    encryption_config_key_arn = "{{ encryption_config_key_arn }}"
+    endpoint = "{{ endpoint }}"
+    id = "{{ id }}"
+    kubernetes_network_config = "{
+    elastic_load_balancing = {
+    enabled = {{ enabled }}
+}
+    ip_family = {{ ip_family }}
+    service_ipv_4_cidr = {{ service_ipv_4_cidr }}
+    service_ipv_6_cidr = {{ service_ipv_6_cidr }}
+}"
+    logging = "{
+    cluster_logging = {
+    enabled_types = {
+    type = {{ type }}
+}
+}
+}"
+    name = "{{ name }}"
+    open_id_connect_issuer_url = "{{ open_id_connect_issuer_url }}"
+    outpost_config = "{
+    control_plane_instance_type = {{ control_plane_instance_type }}
+    control_plane_placement = {
+    group_name = {{ group_name }}
+}
+    outpost_arns = {{ outpost_arns }}
+}"
+    remote_network_config = "{
+    remote_node_networks = {
+    cidrs = {{ cidrs }}
+}
+    remote_pod_networks = {
+    cidrs = {{ cidrs }}
+}
+}"
+    resources_vpc_config = "{
+    endpoint_private_access = {{ endpoint_private_access }}
+    endpoint_public_access = {{ endpoint_public_access }}
+    public_access_cidrs = {{ public_access_cidrs }}
+    security_group_ids = {{ security_group_ids }}
+    subnet_ids = {{ subnet_ids }}
+}"
+    role_arn = "{{ role_arn }}"
+    storage_config = "{
+    block_storage = {
+    enabled = {{ enabled }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    upgrade_policy = "{
+    support_type = {{ support_type }}
+}"
+    version = "{{ version }}"
+    zonal_shift_config = "{
+    enabled = {{ enabled }}
+}"
+}

@@ -1,0 +1,14 @@
+resource "azurerm_servicebus_queue_authorization_rule" "example" {
+    id = "{{ id }}"
+    listen = "{{ listen }}"
+    manage = "{{ manage }}"
+    name = "{{ name }}"
+    primary_connection_string = "{{ primary_connection_string }}"
+    primary_connection_string_alias = "{{ primary_connection_string_alias }}"
+    primary_key = "{{ primary_key }}"
+    queue_id = "{{ queue_id }}"
+    secondary_connection_string = "{{ secondary_connection_string }}"
+    secondary_connection_string_alias = "{{ secondary_connection_string_alias }}"
+    secondary_key = "{{ secondary_key }}"
+    send = "{{ send }}"
+}

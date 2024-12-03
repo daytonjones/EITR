@@ -1,0 +1,23 @@
+data "awscc_iotwireless_wireless_device_import_task" "example" {
+    arn = "{{ arn }}"
+    creation_date = "{{ creation_date }}"
+    destination_name = "{{ destination_name }}"
+    failed_imported_devices_count = "{{ failed_imported_devices_count }}"
+    id = "{{ id }}"
+    initialized_imported_devices_count = "{{ initialized_imported_devices_count }}"
+    onboarded_imported_devices_count = "{{ onboarded_imported_devices_count }}"
+    pending_imported_devices_count = "{{ pending_imported_devices_count }}"
+    sidewalk = "{
+    device_creation_file = {{ device_creation_file }}
+    device_creation_file_list = {{ device_creation_file_list }}
+    role = {{ role }}
+    sidewalk_manufacturing_sn = {{ sidewalk_manufacturing_sn }}
+}"
+    status = "{{ status }}"
+    status_reason = "{{ status_reason }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    wireless_device_import_task_id = "{{ wireless_device_import_task_id }}"
+}

@@ -1,0 +1,11 @@
+resource "aws_cloudformation_stack_instances" "example" {
+    accounts = "{{ accounts }}"
+    call_as = "{{ call_as }}"
+    id = "{{ id }}"
+    parameter_overrides = "{{ parameter_overrides }}"
+    regions = "{{ regions }}"
+    retain_stacks = "{{ retain_stacks }}"
+    stack_instance_summaries = "{{ stack_instance_summaries }}"
+    stack_set_id = "{{ stack_set_id }}"
+    stack_set_name = "{{ stack_set_name }}"
+}

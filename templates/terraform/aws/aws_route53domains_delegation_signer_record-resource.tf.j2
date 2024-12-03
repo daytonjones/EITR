@@ -1,0 +1,5 @@
+resource "aws_route53domains_delegation_signer_record" "example" {
+    dnssec_key_id = "{{ dnssec_key_id }}"
+    domain_name = "{{ domain_name }}"
+    id = "{{ id }}"
+}

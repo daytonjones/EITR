@@ -1,0 +1,14 @@
+resource "aws_db_event_subscription" "example" {
+    arn = "{{ arn }}"
+    customer_aws_id = "{{ customer_aws_id }}"
+    enabled = "{{ enabled }}"
+    event_categories = "{{ event_categories }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    name_prefix = "{{ name_prefix }}"
+    sns_topic = "{{ sns_topic }}"
+    source_ids = "{{ source_ids }}"
+    source_type = "{{ source_type }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

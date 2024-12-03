@@ -1,0 +1,12 @@
+data "azurerm_traffic_manager_profile" "example" {
+    dns_config = "{{ dns_config }}"
+    fqdn = "{{ fqdn }}"
+    id = "{{ id }}"
+    monitor_config = "{{ monitor_config }}"
+    name = "{{ name }}"
+    profile_status = "{{ profile_status }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    traffic_routing_method = "{{ traffic_routing_method }}"
+    traffic_view_enabled = "{{ traffic_view_enabled }}"
+}

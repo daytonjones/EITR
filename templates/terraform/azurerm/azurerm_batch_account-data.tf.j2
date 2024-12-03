@@ -1,0 +1,14 @@
+data "azurerm_batch_account" "example" {
+    account_endpoint = "{{ account_endpoint }}"
+    encryption = "{{ encryption }}"
+    id = "{{ id }}"
+    key_vault_reference = "{{ key_vault_reference }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    pool_allocation_mode = "{{ pool_allocation_mode }}"
+    primary_access_key = "{{ primary_access_key }}"
+    resource_group_name = "{{ resource_group_name }}"
+    secondary_access_key = "{{ secondary_access_key }}"
+    storage_account_id = "{{ storage_account_id }}"
+    tags = "{{ tags }}"
+}

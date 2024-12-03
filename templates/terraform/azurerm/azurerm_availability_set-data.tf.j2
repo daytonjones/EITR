@@ -1,0 +1,10 @@
+data "azurerm_availability_set" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    managed = "{{ managed }}"
+    name = "{{ name }}"
+    platform_fault_domain_count = "{{ platform_fault_domain_count }}"
+    platform_update_domain_count = "{{ platform_update_domain_count }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

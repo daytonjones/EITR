@@ -1,0 +1,87 @@
+data "awscc_ec2_network_insights_access_scope" "example" {
+    created_date = "{{ created_date }}"
+    exclude_paths = "{
+    destination = {
+    packet_header_statement = {
+    destination_addresses = {{ destination_addresses }}
+    destination_ports = {{ destination_ports }}
+    destination_prefix_lists = {{ destination_prefix_lists }}
+    protocols = {{ protocols }}
+    source_addresses = {{ source_addresses }}
+    source_ports = {{ source_ports }}
+    source_prefix_lists = {{ source_prefix_lists }}
+}
+    resource_statement = {
+    resource_types = {{ resource_types }}
+    resources = {{ resources }}
+}
+}
+    source = {
+    packet_header_statement = {
+    destination_addresses = {{ destination_addresses }}
+    destination_ports = {{ destination_ports }}
+    destination_prefix_lists = {{ destination_prefix_lists }}
+    protocols = {{ protocols }}
+    source_addresses = {{ source_addresses }}
+    source_ports = {{ source_ports }}
+    source_prefix_lists = {{ source_prefix_lists }}
+}
+    resource_statement = {
+    resource_types = {{ resource_types }}
+    resources = {{ resources }}
+}
+}
+    through_resources = {
+    resource_statement = {
+    resource_types = {{ resource_types }}
+    resources = {{ resources }}
+}
+}
+}"
+    id = "{{ id }}"
+    match_paths = "{
+    destination = {
+    packet_header_statement = {
+    destination_addresses = {{ destination_addresses }}
+    destination_ports = {{ destination_ports }}
+    destination_prefix_lists = {{ destination_prefix_lists }}
+    protocols = {{ protocols }}
+    source_addresses = {{ source_addresses }}
+    source_ports = {{ source_ports }}
+    source_prefix_lists = {{ source_prefix_lists }}
+}
+    resource_statement = {
+    resource_types = {{ resource_types }}
+    resources = {{ resources }}
+}
+}
+    source = {
+    packet_header_statement = {
+    destination_addresses = {{ destination_addresses }}
+    destination_ports = {{ destination_ports }}
+    destination_prefix_lists = {{ destination_prefix_lists }}
+    protocols = {{ protocols }}
+    source_addresses = {{ source_addresses }}
+    source_ports = {{ source_ports }}
+    source_prefix_lists = {{ source_prefix_lists }}
+}
+    resource_statement = {
+    resource_types = {{ resource_types }}
+    resources = {{ resources }}
+}
+}
+    through_resources = {
+    resource_statement = {
+    resource_types = {{ resource_types }}
+    resources = {{ resources }}
+}
+}
+}"
+    network_insights_access_scope_arn = "{{ network_insights_access_scope_arn }}"
+    network_insights_access_scope_id = "{{ network_insights_access_scope_id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    updated_date = "{{ updated_date }}"
+}

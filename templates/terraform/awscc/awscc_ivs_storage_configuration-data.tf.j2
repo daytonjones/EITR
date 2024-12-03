@@ -1,0 +1,12 @@
+data "awscc_ivs_storage_configuration" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    s3 = "{
+    bucket_name = {{ bucket_name }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

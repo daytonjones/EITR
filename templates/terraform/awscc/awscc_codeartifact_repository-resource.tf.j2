@@ -1,0 +1,16 @@
+resource "awscc_codeartifact_repository" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    domain_name = "{{ domain_name }}"
+    domain_owner = "{{ domain_owner }}"
+    external_connections = "{{ external_connections }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    permissions_policy_document = "{{ permissions_policy_document }}"
+    repository_name = "{{ repository_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    upstreams = "{{ upstreams }}"
+}

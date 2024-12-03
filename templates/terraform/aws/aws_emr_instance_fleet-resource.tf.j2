@@ -1,0 +1,9 @@
+resource "aws_emr_instance_fleet" "example" {
+    cluster_id = "{{ cluster_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    provisioned_on_demand_capacity = "{{ provisioned_on_demand_capacity }}"
+    provisioned_spot_capacity = "{{ provisioned_spot_capacity }}"
+    target_on_demand_capacity = "{{ target_on_demand_capacity }}"
+    target_spot_capacity = "{{ target_spot_capacity }}"
+}

@@ -1,0 +1,15 @@
+resource "azurestack_virtual_machine" "example" {
+    availability_set_id = "{{ availability_set_id }}"
+    delete_data_disks_on_termination = "{{ delete_data_disks_on_termination }}"
+    delete_os_disk_on_termination = "{{ delete_os_disk_on_termination }}"
+    id = "{{ id }}"
+    license_type = "{{ license_type }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    network_interface_ids = "{{ network_interface_ids }}"
+    primary_network_interface_id = "{{ primary_network_interface_id }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    vm_size = "{{ vm_size }}"
+    zones = "{{ zones }}"
+}

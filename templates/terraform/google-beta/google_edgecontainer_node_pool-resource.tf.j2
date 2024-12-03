@@ -1,0 +1,16 @@
+resource "google_edgecontainer_node_pool" "example" {
+    cluster = "{{ cluster }}"
+    create_time = "{{ create_time }}"
+    effective_labels = "{{ effective_labels }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    location = "{{ location }}"
+    machine_filter = "{{ machine_filter }}"
+    name = "{{ name }}"
+    node_count = "{{ node_count }}"
+    node_location = "{{ node_location }}"
+    node_version = "{{ node_version }}"
+    project = "{{ project }}"
+    terraform_labels = "{{ terraform_labels }}"
+    update_time = "{{ update_time }}"
+}

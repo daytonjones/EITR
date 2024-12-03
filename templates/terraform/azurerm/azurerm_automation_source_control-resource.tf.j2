@@ -1,0 +1,12 @@
+resource "azurerm_automation_source_control" "example" {
+    automatic_sync = "{{ automatic_sync }}"
+    automation_account_id = "{{ automation_account_id }}"
+    branch = "{{ branch }}"
+    description = "{{ description }}"
+    folder_path = "{{ folder_path }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    publish_runbook_enabled = "{{ publish_runbook_enabled }}"
+    repository_url = "{{ repository_url }}"
+    source_control_type = "{{ source_control_type }}"
+}

@@ -1,0 +1,14 @@
+resource "azurerm_custom_ip_prefix" "example" {
+    cidr = "{{ cidr }}"
+    commissioning_enabled = "{{ commissioning_enabled }}"
+    id = "{{ id }}"
+    internet_advertising_disabled = "{{ internet_advertising_disabled }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    parent_custom_ip_prefix_id = "{{ parent_custom_ip_prefix_id }}"
+    resource_group_name = "{{ resource_group_name }}"
+    roa_validity_end_date = "{{ roa_validity_end_date }}"
+    tags = "{{ tags }}"
+    wan_validation_signed_message = "{{ wan_validation_signed_message }}"
+    zones = "{{ zones }}"
+}

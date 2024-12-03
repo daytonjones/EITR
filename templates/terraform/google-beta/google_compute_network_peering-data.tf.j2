@@ -1,0 +1,13 @@
+data "google_compute_network_peering" "example" {
+    export_custom_routes = "{{ export_custom_routes }}"
+    export_subnet_routes_with_public_ip = "{{ export_subnet_routes_with_public_ip }}"
+    id = "{{ id }}"
+    import_custom_routes = "{{ import_custom_routes }}"
+    import_subnet_routes_with_public_ip = "{{ import_subnet_routes_with_public_ip }}"
+    name = "{{ name }}"
+    network = "{{ network }}"
+    peer_network = "{{ peer_network }}"
+    stack_type = "{{ stack_type }}"
+    state = "{{ state }}"
+    state_details = "{{ state_details }}"
+}

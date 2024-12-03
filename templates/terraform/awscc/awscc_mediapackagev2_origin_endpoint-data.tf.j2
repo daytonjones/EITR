@@ -1,0 +1,116 @@
+data "awscc_mediapackagev2_origin_endpoint" "example" {
+    arn = "{{ arn }}"
+    channel_group_name = "{{ channel_group_name }}"
+    channel_name = "{{ channel_name }}"
+    container_type = "{{ container_type }}"
+    created_at = "{{ created_at }}"
+    dash_manifest_urls = "{{ dash_manifest_urls }}"
+    dash_manifests = "{
+    drm_signaling = {{ drm_signaling }}
+    filter_configuration = {
+    clip_start_time = {{ clip_start_time }}
+    end = {{ end }}
+    manifest_filter = {{ manifest_filter }}
+    start = {{ start }}
+    time_delay_seconds = {{ time_delay_seconds }}
+}
+    manifest_name = {{ manifest_name }}
+    manifest_window_seconds = {{ manifest_window_seconds }}
+    min_buffer_time_seconds = {{ min_buffer_time_seconds }}
+    min_update_period_seconds = {{ min_update_period_seconds }}
+    period_triggers = {{ period_triggers }}
+    scte_dash = {
+    ad_marker_dash = {{ ad_marker_dash }}
+}
+    segment_template_format = {{ segment_template_format }}
+    suggested_presentation_delay_seconds = {{ suggested_presentation_delay_seconds }}
+    utc_timing = {
+    timing_mode = {{ timing_mode }}
+    timing_source = {{ timing_source }}
+}
+}"
+    description = "{{ description }}"
+    force_endpoint_error_configuration = "{
+    endpoint_error_conditions = {{ endpoint_error_conditions }}
+}"
+    hls_manifest_urls = "{{ hls_manifest_urls }}"
+    hls_manifests = "{
+    child_manifest_name = {{ child_manifest_name }}
+    filter_configuration = {
+    clip_start_time = {{ clip_start_time }}
+    end = {{ end }}
+    manifest_filter = {{ manifest_filter }}
+    start = {{ start }}
+    time_delay_seconds = {{ time_delay_seconds }}
+}
+    manifest_name = {{ manifest_name }}
+    manifest_window_seconds = {{ manifest_window_seconds }}
+    program_date_time_interval_seconds = {{ program_date_time_interval_seconds }}
+    scte_hls = {
+    ad_marker_hls = {{ ad_marker_hls }}
+}
+    start_tag = {
+    precise = {{ precise }}
+    time_offset = {{ time_offset }}
+}
+    url = {{ url }}
+}"
+    id = "{{ id }}"
+    low_latency_hls_manifest_urls = "{{ low_latency_hls_manifest_urls }}"
+    low_latency_hls_manifests = "{
+    child_manifest_name = {{ child_manifest_name }}
+    filter_configuration = {
+    clip_start_time = {{ clip_start_time }}
+    end = {{ end }}
+    manifest_filter = {{ manifest_filter }}
+    start = {{ start }}
+    time_delay_seconds = {{ time_delay_seconds }}
+}
+    manifest_name = {{ manifest_name }}
+    manifest_window_seconds = {{ manifest_window_seconds }}
+    program_date_time_interval_seconds = {{ program_date_time_interval_seconds }}
+    scte_hls = {
+    ad_marker_hls = {{ ad_marker_hls }}
+}
+    start_tag = {
+    precise = {{ precise }}
+    time_offset = {{ time_offset }}
+}
+    url = {{ url }}
+}"
+    modified_at = "{{ modified_at }}"
+    origin_endpoint_name = "{{ origin_endpoint_name }}"
+    segment = "{
+    encryption = {
+    constant_initialization_vector = {{ constant_initialization_vector }}
+    encryption_method = {
+    cmaf_encryption_method = {{ cmaf_encryption_method }}
+    ts_encryption_method = {{ ts_encryption_method }}
+}
+    key_rotation_interval_seconds = {{ key_rotation_interval_seconds }}
+    speke_key_provider = {
+    drm_systems = {{ drm_systems }}
+    encryption_contract_configuration = {
+    preset_speke_20_audio = {{ preset_speke_20_audio }}
+    preset_speke_20_video = {{ preset_speke_20_video }}
+}
+    resource_id = {{ resource_id }}
+    role_arn = {{ role_arn }}
+    url = {{ url }}
+}
+}
+    include_iframe_only_streams = {{ include_iframe_only_streams }}
+    scte = {
+    scte_filter = {{ scte_filter }}
+}
+    segment_duration_seconds = {{ segment_duration_seconds }}
+    segment_name = {{ segment_name }}
+    ts_include_dvb_subtitles = {{ ts_include_dvb_subtitles }}
+    ts_use_audio_rendition_group = {{ ts_use_audio_rendition_group }}
+}"
+    startover_window_seconds = "{{ startover_window_seconds }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

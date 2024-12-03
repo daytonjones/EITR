@@ -1,0 +1,10 @@
+resource "aws_datasync_task" "example" {
+    arn = "{{ arn }}"
+    cloudwatch_log_group_arn = "{{ cloudwatch_log_group_arn }}"
+    destination_location_arn = "{{ destination_location_arn }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    source_location_arn = "{{ source_location_arn }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

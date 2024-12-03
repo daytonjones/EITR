@@ -1,0 +1,13 @@
+resource "awscc_logs_delivery_source" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    log_type = "{{ log_type }}"
+    name = "{{ name }}"
+    resource_arn = "{{ resource_arn }}"
+    resource_arns = "{{ resource_arns }}"
+    service = "{{ service }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

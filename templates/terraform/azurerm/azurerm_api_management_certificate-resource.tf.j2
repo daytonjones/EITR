@@ -1,0 +1,13 @@
+resource "azurerm_api_management_certificate" "example" {
+    api_management_name = "{{ api_management_name }}"
+    data = "{{ data }}"
+    expiration = "{{ expiration }}"
+    id = "{{ id }}"
+    key_vault_identity_client_id = "{{ key_vault_identity_client_id }}"
+    key_vault_secret_id = "{{ key_vault_secret_id }}"
+    name = "{{ name }}"
+    password = "{{ password }}"
+    resource_group_name = "{{ resource_group_name }}"
+    subject = "{{ subject }}"
+    thumbprint = "{{ thumbprint }}"
+}

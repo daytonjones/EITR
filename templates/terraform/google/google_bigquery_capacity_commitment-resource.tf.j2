@@ -1,0 +1,15 @@
+resource "google_bigquery_capacity_commitment" "example" {
+    capacity_commitment_id = "{{ capacity_commitment_id }}"
+    commitment_end_time = "{{ commitment_end_time }}"
+    commitment_start_time = "{{ commitment_start_time }}"
+    edition = "{{ edition }}"
+    enforce_single_admin_project_per_org = "{{ enforce_single_admin_project_per_org }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    plan = "{{ plan }}"
+    project = "{{ project }}"
+    renewal_plan = "{{ renewal_plan }}"
+    slot_count = "{{ slot_count }}"
+    state = "{{ state }}"
+}

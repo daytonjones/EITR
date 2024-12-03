@@ -1,0 +1,17 @@
+resource "google_oracle_database_cloud_vm_cluster" "example" {
+    backup_subnet_cidr = "{{ backup_subnet_cidr }}"
+    cidr = "{{ cidr }}"
+    cloud_vm_cluster_id = "{{ cloud_vm_cluster_id }}"
+    create_time = "{{ create_time }}"
+    display_name = "{{ display_name }}"
+    effective_labels = "{{ effective_labels }}"
+    exadata_infrastructure = "{{ exadata_infrastructure }}"
+    gcp_oracle_zone = "{{ gcp_oracle_zone }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    network = "{{ network }}"
+    project = "{{ project }}"
+    terraform_labels = "{{ terraform_labels }}"
+}

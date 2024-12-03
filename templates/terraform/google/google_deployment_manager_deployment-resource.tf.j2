@@ -1,0 +1,12 @@
+resource "google_deployment_manager_deployment" "example" {
+    create_policy = "{{ create_policy }}"
+    delete_policy = "{{ delete_policy }}"
+    deployment_id = "{{ deployment_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    manifest = "{{ manifest }}"
+    name = "{{ name }}"
+    preview = "{{ preview }}"
+    project = "{{ project }}"
+    self_link = "{{ self_link }}"
+}

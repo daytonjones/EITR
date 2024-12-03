@@ -1,0 +1,13 @@
+resource "azurerm_sentinel_alert_rule_ms_security_incident" "example" {
+    alert_rule_template_guid = "{{ alert_rule_template_guid }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    display_name_exclude_filter = "{{ display_name_exclude_filter }}"
+    display_name_filter = "{{ display_name_filter }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    log_analytics_workspace_id = "{{ log_analytics_workspace_id }}"
+    name = "{{ name }}"
+    product_filter = "{{ product_filter }}"
+    severity_filter = "{{ severity_filter }}"
+}

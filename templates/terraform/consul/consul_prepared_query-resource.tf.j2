@@ -1,0 +1,16 @@
+resource "consul_prepared_query" "example" {
+    connect = "{{ connect }}"
+    datacenter = "{{ datacenter }}"
+    id = "{{ id }}"
+    ignore_check_ids = "{{ ignore_check_ids }}"
+    name = "{{ name }}"
+    near = "{{ near }}"
+    node_meta = "{{ node_meta }}"
+    only_passing = "{{ only_passing }}"
+    service = "{{ service }}"
+    service_meta = "{{ service_meta }}"
+    session = "{{ session }}"
+    stored_token = "{{ stored_token }}"
+    tags = "{{ tags }}"
+    token = "{{ token }}"
+}

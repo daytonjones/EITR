@@ -1,0 +1,9 @@
+data "hcs_agent_helm_config" "example" {
+    aks_cluster_name = "{{ aks_cluster_name }}"
+    aks_resource_group = "{{ aks_resource_group }}"
+    config = "{{ config }}"
+    expose_gossip_ports = "{{ expose_gossip_ports }}"
+    id = "{{ id }}"
+    managed_application_name = "{{ managed_application_name }}"
+    resource_group_name = "{{ resource_group_name }}"
+}

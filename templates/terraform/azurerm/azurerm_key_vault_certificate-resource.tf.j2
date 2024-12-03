@@ -1,0 +1,16 @@
+resource "azurerm_key_vault_certificate" "example" {
+    certificate_attribute = "{{ certificate_attribute }}"
+    certificate_data = "{{ certificate_data }}"
+    certificate_data_base64 = "{{ certificate_data_base64 }}"
+    id = "{{ id }}"
+    key_vault_id = "{{ key_vault_id }}"
+    name = "{{ name }}"
+    resource_manager_id = "{{ resource_manager_id }}"
+    resource_manager_versionless_id = "{{ resource_manager_versionless_id }}"
+    secret_id = "{{ secret_id }}"
+    tags = "{{ tags }}"
+    thumbprint = "{{ thumbprint }}"
+    version = "{{ version }}"
+    versionless_id = "{{ versionless_id }}"
+    versionless_secret_id = "{{ versionless_secret_id }}"
+}

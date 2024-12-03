@@ -1,0 +1,6 @@
+resource "aws_kms_key_policy" "example" {
+    bypass_policy_lockout_safety_check = "{{ bypass_policy_lockout_safety_check }}"
+    id = "{{ id }}"
+    key_id = "{{ key_id }}"
+    policy = "{{ policy }}"
+}

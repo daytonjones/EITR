@@ -1,0 +1,35 @@
+data "awscc_s3outposts_bucket" "example" {
+    arn = "{{ arn }}"
+    bucket_name = "{{ bucket_name }}"
+    id = "{{ id }}"
+    lifecycle_configuration = "{
+    rules = {
+    abort_incomplete_multipart_upload = {
+    days_after_initiation = {{ days_after_initiation }}
+}
+    expiration_date = {{ expiration_date }}
+    expiration_in_days = {{ expiration_in_days }}
+    filter = {
+    and_operator = {
+    prefix = {{ prefix }}
+    tags = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}
+    prefix = {{ prefix }}
+    tag = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}
+    id = {{ id }}
+    status = {{ status }}
+}
+}"
+    outpost_id = "{{ outpost_id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,16 @@
+resource "azurerm_cosmosdb_cassandra_datacenter" "example" {
+    availability_zones_enabled = "{{ availability_zones_enabled }}"
+    backup_storage_customer_key_uri = "{{ backup_storage_customer_key_uri }}"
+    base64_encoded_yaml_fragment = "{{ base64_encoded_yaml_fragment }}"
+    cassandra_cluster_id = "{{ cassandra_cluster_id }}"
+    delegated_management_subnet_id = "{{ delegated_management_subnet_id }}"
+    disk_count = "{{ disk_count }}"
+    disk_sku = "{{ disk_sku }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    managed_disk_customer_key_uri = "{{ managed_disk_customer_key_uri }}"
+    name = "{{ name }}"
+    node_count = "{{ node_count }}"
+    seed_node_ip_addresses = "{{ seed_node_ip_addresses }}"
+    sku_name = "{{ sku_name }}"
+}

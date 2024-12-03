@@ -1,0 +1,116 @@
+data "awscc_iotevents_alarm_model" "example" {
+    alarm_capabilities = "{
+    acknowledge_flow = {
+    enabled = {{ enabled }}
+}
+    initialization_configuration = {
+    disabled_on_initialization = {{ disabled_on_initialization }}
+}
+}"
+    alarm_event_actions = "{
+    alarm_actions = {
+    dynamo_d_bv_2 = {
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    table_name = {{ table_name }}
+}
+    dynamo_db = {
+    hash_key_field = {{ hash_key_field }}
+    hash_key_type = {{ hash_key_type }}
+    hash_key_value = {{ hash_key_value }}
+    operation = {{ operation }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    payload_field = {{ payload_field }}
+    range_key_field = {{ range_key_field }}
+    range_key_type = {{ range_key_type }}
+    range_key_value = {{ range_key_value }}
+    table_name = {{ table_name }}
+}
+    firehose = {
+    delivery_stream_name = {{ delivery_stream_name }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    separator = {{ separator }}
+}
+    iot_events = {
+    input_name = {{ input_name }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+}
+    iot_site_wise = {
+    asset_id = {{ asset_id }}
+    entry_id = {{ entry_id }}
+    property_alias = {{ property_alias }}
+    property_id = {{ property_id }}
+    property_value = {
+    quality = {{ quality }}
+    timestamp = {
+    offset_in_nanos = {{ offset_in_nanos }}
+    time_in_seconds = {{ time_in_seconds }}
+}
+    value = {
+    boolean_value = {{ boolean_value }}
+    double_value = {{ double_value }}
+    integer_value = {{ integer_value }}
+    string_value = {{ string_value }}
+}
+}
+}
+    iot_topic_publish = {
+    mqtt_topic = {{ mqtt_topic }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+}
+    lambda = {
+    function_arn = {{ function_arn }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+}
+    sns = {
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    target_arn = {{ target_arn }}
+}
+    sqs = {
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    queue_url = {{ queue_url }}
+    use_base_64 = {{ use_base_64 }}
+}
+}
+}"
+    alarm_model_description = "{{ alarm_model_description }}"
+    alarm_model_name = "{{ alarm_model_name }}"
+    alarm_rule = "{
+    simple_rule = {
+    comparison_operator = {{ comparison_operator }}
+    input_property = {{ input_property }}
+    threshold = {{ threshold }}
+}
+}"
+    id = "{{ id }}"
+    key = "{{ key }}"
+    role_arn = "{{ role_arn }}"
+    severity = "{{ severity }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

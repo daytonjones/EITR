@@ -1,0 +1,31 @@
+data "awscc_cognito_identity_pool" "example" {
+    allow_classic_flow = "{{ allow_classic_flow }}"
+    allow_unauthenticated_identities = "{{ allow_unauthenticated_identities }}"
+    cognito_events = "{{ cognito_events }}"
+    cognito_identity_providers = "{
+    client_id = {{ client_id }}
+    provider_name = {{ provider_name }}
+    server_side_token_check = {{ server_side_token_check }}
+}"
+    cognito_streams = "{
+    role_arn = {{ role_arn }}
+    stream_name = {{ stream_name }}
+    streaming_status = {{ streaming_status }}
+}"
+    developer_provider_name = "{{ developer_provider_name }}"
+    id = "{{ id }}"
+    identity_pool_id = "{{ identity_pool_id }}"
+    identity_pool_name = "{{ identity_pool_name }}"
+    identity_pool_tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    name = "{{ name }}"
+    open_id_connect_provider_ar_ns = "{{ open_id_connect_provider_ar_ns }}"
+    push_sync = "{
+    application_arns = {{ application_arns }}
+    role_arn = {{ role_arn }}
+}"
+    saml_provider_ar_ns = "{{ saml_provider_ar_ns }}"
+    supported_login_providers = "{{ supported_login_providers }}"
+}

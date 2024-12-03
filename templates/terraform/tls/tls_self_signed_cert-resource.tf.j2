@@ -1,0 +1,18 @@
+resource "tls_self_signed_cert" "example" {
+    allowed_uses = "{{ allowed_uses }}"
+    cert_pem = "{{ cert_pem }}"
+    dns_names = "{{ dns_names }}"
+    early_renewal_hours = "{{ early_renewal_hours }}"
+    id = "{{ id }}"
+    ip_addresses = "{{ ip_addresses }}"
+    is_ca_certificate = "{{ is_ca_certificate }}"
+    key_algorithm = "{{ key_algorithm }}"
+    private_key_pem = "{{ private_key_pem }}"
+    ready_for_renewal = "{{ ready_for_renewal }}"
+    set_authority_key_id = "{{ set_authority_key_id }}"
+    set_subject_key_id = "{{ set_subject_key_id }}"
+    uris = "{{ uris }}"
+    validity_end_time = "{{ validity_end_time }}"
+    validity_period_hours = "{{ validity_period_hours }}"
+    validity_start_time = "{{ validity_start_time }}"
+}

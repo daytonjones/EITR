@@ -1,0 +1,10 @@
+resource "consul_config_entry_service_resolver" "example" {
+    connect_timeout = "{{ connect_timeout }}"
+    default_subset = "{{ default_subset }}"
+    id = "{{ id }}"
+    meta = "{{ meta }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    partition = "{{ partition }}"
+    request_timeout = "{{ request_timeout }}"
+}

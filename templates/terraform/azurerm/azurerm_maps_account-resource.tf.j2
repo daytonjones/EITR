@@ -1,0 +1,12 @@
+resource "azurerm_maps_account" "example" {
+    id = "{{ id }}"
+    local_authentication_enabled = "{{ local_authentication_enabled }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    primary_access_key = "{{ primary_access_key }}"
+    resource_group_name = "{{ resource_group_name }}"
+    secondary_access_key = "{{ secondary_access_key }}"
+    sku_name = "{{ sku_name }}"
+    tags = "{{ tags }}"
+    x_ms_client_id = "{{ x_ms_client_id }}"
+}

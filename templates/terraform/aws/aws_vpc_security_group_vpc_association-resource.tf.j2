@@ -1,0 +1,5 @@
+resource "aws_vpc_security_group_vpc_association" "example" {
+    security_group_id = "{{ security_group_id }}"
+    state = "{{ state }}"
+    vpc_id = "{{ vpc_id }}"
+}

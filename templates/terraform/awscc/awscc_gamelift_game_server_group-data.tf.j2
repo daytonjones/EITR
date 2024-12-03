@@ -1,0 +1,32 @@
+data "awscc_gamelift_game_server_group" "example" {
+    auto_scaling_group_arn = "{{ auto_scaling_group_arn }}"
+    auto_scaling_policy = "{
+    estimated_instance_warmup = {{ estimated_instance_warmup }}
+    target_tracking_configuration = {
+    target_value = {{ target_value }}
+}
+}"
+    balancing_strategy = "{{ balancing_strategy }}"
+    delete_option = "{{ delete_option }}"
+    game_server_group_arn = "{{ game_server_group_arn }}"
+    game_server_group_name = "{{ game_server_group_name }}"
+    game_server_protection_policy = "{{ game_server_protection_policy }}"
+    id = "{{ id }}"
+    instance_definitions = "{
+    instance_type = {{ instance_type }}
+    weighted_capacity = {{ weighted_capacity }}
+}"
+    launch_template = "{
+    launch_template_id = {{ launch_template_id }}
+    launch_template_name = {{ launch_template_name }}
+    version = {{ version }}
+}"
+    max_size = "{{ max_size }}"
+    min_size = "{{ min_size }}"
+    role_arn = "{{ role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    vpc_subnets = "{{ vpc_subnets }}"
+}

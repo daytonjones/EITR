@@ -1,0 +1,22 @@
+data "awscc_datazone_domain" "example" {
+    arn = "{{ arn }}"
+    created_at = "{{ created_at }}"
+    description = "{{ description }}"
+    domain_execution_role = "{{ domain_execution_role }}"
+    domain_id = "{{ domain_id }}"
+    id = "{{ id }}"
+    kms_key_identifier = "{{ kms_key_identifier }}"
+    last_updated_at = "{{ last_updated_at }}"
+    managed_account_id = "{{ managed_account_id }}"
+    name = "{{ name }}"
+    portal_url = "{{ portal_url }}"
+    single_sign_on = "{
+    type = {{ type }}
+    user_assignment = {{ user_assignment }}
+}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

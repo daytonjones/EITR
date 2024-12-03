@@ -1,0 +1,16 @@
+data "aws_efs_mount_target" "example" {
+    access_point_id = "{{ access_point_id }}"
+    availability_zone_id = "{{ availability_zone_id }}"
+    availability_zone_name = "{{ availability_zone_name }}"
+    dns_name = "{{ dns_name }}"
+    file_system_arn = "{{ file_system_arn }}"
+    file_system_id = "{{ file_system_id }}"
+    id = "{{ id }}"
+    ip_address = "{{ ip_address }}"
+    mount_target_dns_name = "{{ mount_target_dns_name }}"
+    mount_target_id = "{{ mount_target_id }}"
+    network_interface_id = "{{ network_interface_id }}"
+    owner_id = "{{ owner_id }}"
+    security_groups = "{{ security_groups }}"
+    subnet_id = "{{ subnet_id }}"
+}

@@ -1,0 +1,10 @@
+resource "boundary_policy_storage" "example" {
+    delete_after_days = "{{ delete_after_days }}"
+    delete_after_overridable = "{{ delete_after_overridable }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    retain_for_days = "{{ retain_for_days }}"
+    retain_for_overridable = "{{ retain_for_overridable }}"
+    scope_id = "{{ scope_id }}"
+}

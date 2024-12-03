@@ -1,0 +1,6 @@
+resource "aws_ebs_fast_snapshot_restore" "example" {
+    availability_zone = "{{ availability_zone }}"
+    id = "{{ id }}"
+    snapshot_id = "{{ snapshot_id }}"
+    state = "{{ state }}"
+}

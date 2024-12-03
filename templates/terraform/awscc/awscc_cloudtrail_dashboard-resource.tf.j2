@@ -1,0 +1,27 @@
+resource "awscc_cloudtrail_dashboard" "example" {
+    created_timestamp = "{{ created_timestamp }}"
+    dashboard_arn = "{{ dashboard_arn }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    refresh_schedule = "{
+    frequency = {
+    unit = {{ unit }}
+    value = {{ value }}
+}
+    status = {{ status }}
+    time_of_day = {{ time_of_day }}
+}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    termination_protection_enabled = "{{ termination_protection_enabled }}"
+    type = "{{ type }}"
+    updated_timestamp = "{{ updated_timestamp }}"
+    widgets = "{
+    query_parameters = {{ query_parameters }}
+    query_statement = {{ query_statement }}
+    view_properties = {{ view_properties }}
+}"
+}

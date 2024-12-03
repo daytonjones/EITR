@@ -1,0 +1,11 @@
+resource "azurerm_automation_python3_package" "example" {
+    automation_account_name = "{{ automation_account_name }}"
+    content_uri = "{{ content_uri }}"
+    content_version = "{{ content_version }}"
+    hash_algorithm = "{{ hash_algorithm }}"
+    hash_value = "{{ hash_value }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

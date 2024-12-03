@@ -1,0 +1,26 @@
+resource "awscc_gamelift_game_session_queue" "example" {
+    arn = "{{ arn }}"
+    custom_event_data = "{{ custom_event_data }}"
+    destinations = "{
+    destination_arn = {{ destination_arn }}
+}"
+    filter_configuration = "{
+    allowed_locations = {{ allowed_locations }}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    notification_target = "{{ notification_target }}"
+    player_latency_policies = "{
+    maximum_individual_player_latency_milliseconds = {{ maximum_individual_player_latency_milliseconds }}
+    policy_duration_seconds = {{ policy_duration_seconds }}
+}"
+    priority_configuration = "{
+    location_order = {{ location_order }}
+    priority_order = {{ priority_order }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    timeout_in_seconds = "{{ timeout_in_seconds }}"
+}

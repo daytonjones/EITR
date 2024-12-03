@@ -1,0 +1,11 @@
+resource "azurerm_email_communication_service_domain" "example" {
+    domain_management = "{{ domain_management }}"
+    email_service_id = "{{ email_service_id }}"
+    from_sender_domain = "{{ from_sender_domain }}"
+    id = "{{ id }}"
+    mail_from_sender_domain = "{{ mail_from_sender_domain }}"
+    name = "{{ name }}"
+    tags = "{{ tags }}"
+    user_engagement_tracking_enabled = "{{ user_engagement_tracking_enabled }}"
+    verification_records = "{{ verification_records }}"
+}

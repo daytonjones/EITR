@@ -1,0 +1,15 @@
+data "awscc_wisdom_assistant_association" "example" {
+    assistant_arn = "{{ assistant_arn }}"
+    assistant_association_arn = "{{ assistant_association_arn }}"
+    assistant_association_id = "{{ assistant_association_id }}"
+    assistant_id = "{{ assistant_id }}"
+    association = "{
+    knowledge_base_id = {{ knowledge_base_id }}
+}"
+    association_type = "{{ association_type }}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

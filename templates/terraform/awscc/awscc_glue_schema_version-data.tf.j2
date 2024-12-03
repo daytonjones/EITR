@@ -1,0 +1,10 @@
+data "awscc_glue_schema_version" "example" {
+    id = "{{ id }}"
+    schema = "{
+    registry_name = {{ registry_name }}
+    schema_arn = {{ schema_arn }}
+    schema_name = {{ schema_name }}
+}"
+    schema_definition = "{{ schema_definition }}"
+    version_id = "{{ version_id }}"
+}

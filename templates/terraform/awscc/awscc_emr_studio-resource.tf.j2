@@ -1,0 +1,26 @@
+resource "awscc_emr_studio" "example" {
+    arn = "{{ arn }}"
+    auth_mode = "{{ auth_mode }}"
+    default_s3_location = "{{ default_s3_location }}"
+    description = "{{ description }}"
+    encryption_key_arn = "{{ encryption_key_arn }}"
+    engine_security_group_id = "{{ engine_security_group_id }}"
+    id = "{{ id }}"
+    idc_instance_arn = "{{ idc_instance_arn }}"
+    idc_user_assignment = "{{ idc_user_assignment }}"
+    idp_auth_url = "{{ idp_auth_url }}"
+    idp_relay_state_parameter_name = "{{ idp_relay_state_parameter_name }}"
+    name = "{{ name }}"
+    service_role = "{{ service_role }}"
+    studio_id = "{{ studio_id }}"
+    subnet_ids = "{{ subnet_ids }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    trusted_identity_propagation_enabled = "{{ trusted_identity_propagation_enabled }}"
+    url = "{{ url }}"
+    user_role = "{{ user_role }}"
+    vpc_id = "{{ vpc_id }}"
+    workspace_security_group_id = "{{ workspace_security_group_id }}"
+}

@@ -1,0 +1,15 @@
+resource "aws_networkfirewall_firewall" "example" {
+    arn = "{{ arn }}"
+    delete_protection = "{{ delete_protection }}"
+    description = "{{ description }}"
+    firewall_policy_arn = "{{ firewall_policy_arn }}"
+    firewall_policy_change_protection = "{{ firewall_policy_change_protection }}"
+    firewall_status = "{{ firewall_status }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    subnet_change_protection = "{{ subnet_change_protection }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    update_token = "{{ update_token }}"
+    vpc_id = "{{ vpc_id }}"
+}

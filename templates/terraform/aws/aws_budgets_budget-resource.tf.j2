@@ -1,0 +1,15 @@
+resource "aws_budgets_budget" "example" {
+    account_id = "{{ account_id }}"
+    arn = "{{ arn }}"
+    budget_type = "{{ budget_type }}"
+    id = "{{ id }}"
+    limit_amount = "{{ limit_amount }}"
+    limit_unit = "{{ limit_unit }}"
+    name = "{{ name }}"
+    name_prefix = "{{ name_prefix }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    time_period_end = "{{ time_period_end }}"
+    time_period_start = "{{ time_period_start }}"
+    time_unit = "{{ time_unit }}"
+}

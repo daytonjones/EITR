@@ -1,0 +1,11 @@
+resource "awscc_apigateway_vpc_link" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    target_arns = "{{ target_arns }}"
+    vpc_link_id = "{{ vpc_link_id }}"
+}

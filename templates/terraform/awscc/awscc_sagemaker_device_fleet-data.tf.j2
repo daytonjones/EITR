@@ -1,0 +1,14 @@
+data "awscc_sagemaker_device_fleet" "example" {
+    description = "{{ description }}"
+    device_fleet_name = "{{ device_fleet_name }}"
+    id = "{{ id }}"
+    output_config = "{
+    kms_key_id = {{ kms_key_id }}
+    s3_output_location = {{ s3_output_location }}
+}"
+    role_arn = "{{ role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

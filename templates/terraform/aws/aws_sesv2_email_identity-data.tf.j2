@@ -1,0 +1,10 @@
+data "aws_sesv2_email_identity" "example" {
+    arn = "{{ arn }}"
+    configuration_set_name = "{{ configuration_set_name }}"
+    dkim_signing_attributes = "{{ dkim_signing_attributes }}"
+    email_identity = "{{ email_identity }}"
+    id = "{{ id }}"
+    identity_type = "{{ identity_type }}"
+    tags = "{{ tags }}"
+    verified_for_sending_status = "{{ verified_for_sending_status }}"
+}

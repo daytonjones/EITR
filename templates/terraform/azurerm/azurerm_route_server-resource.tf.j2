@@ -1,0 +1,14 @@
+resource "azurerm_route_server" "example" {
+    branch_to_branch_traffic_enabled = "{{ branch_to_branch_traffic_enabled }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    public_ip_address_id = "{{ public_ip_address_id }}"
+    resource_group_name = "{{ resource_group_name }}"
+    routing_state = "{{ routing_state }}"
+    sku = "{{ sku }}"
+    subnet_id = "{{ subnet_id }}"
+    tags = "{{ tags }}"
+    virtual_router_asn = "{{ virtual_router_asn }}"
+    virtual_router_ips = "{{ virtual_router_ips }}"
+}

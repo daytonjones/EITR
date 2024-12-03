@@ -1,0 +1,9 @@
+data "azurerm_dns_zone" "example" {
+    id = "{{ id }}"
+    max_number_of_record_sets = "{{ max_number_of_record_sets }}"
+    name = "{{ name }}"
+    name_servers = "{{ name_servers }}"
+    number_of_record_sets = "{{ number_of_record_sets }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

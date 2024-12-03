@@ -1,0 +1,18 @@
+resource "awscc_appsync_channel_namespace" "example" {
+    api_id = "{{ api_id }}"
+    channel_namespace_arn = "{{ channel_namespace_arn }}"
+    code_handlers = "{{ code_handlers }}"
+    code_s3_location = "{{ code_s3_location }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    publish_auth_modes = "{
+    auth_type = {{ auth_type }}
+}"
+    subscribe_auth_modes = "{
+    auth_type = {{ auth_type }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

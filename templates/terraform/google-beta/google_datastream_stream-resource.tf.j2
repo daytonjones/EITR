@@ -1,0 +1,15 @@
+resource "google_datastream_stream" "example" {
+    create_without_validation = "{{ create_without_validation }}"
+    customer_managed_encryption_key = "{{ customer_managed_encryption_key }}"
+    desired_state = "{{ desired_state }}"
+    display_name = "{{ display_name }}"
+    effective_labels = "{{ effective_labels }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    state = "{{ state }}"
+    stream_id = "{{ stream_id }}"
+    terraform_labels = "{{ terraform_labels }}"
+}

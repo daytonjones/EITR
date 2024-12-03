@@ -1,0 +1,62 @@
+data "awscc_quicksight_template" "example" {
+    arn = "{{ arn }}"
+    aws_account_id = "{{ aws_account_id }}"
+    created_time = "{{ created_time }}"
+    id = "{{ id }}"
+    last_updated_time = "{{ last_updated_time }}"
+    name = "{{ name }}"
+    permissions = "{
+    actions = {{ actions }}
+    principal = {{ principal }}
+}"
+    source_entity = "{
+    source_analysis = {
+    arn = {{ arn }}
+    data_set_references = {
+    data_set_arn = {{ data_set_arn }}
+    data_set_placeholder = {{ data_set_placeholder }}
+}
+}
+    source_template = {
+    arn = {{ arn }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    template_id = "{{ template_id }}"
+    version = "{
+    created_time = {{ created_time }}
+    data_set_configurations = {
+    column_group_schema_list = {
+    column_group_column_schema_list = {
+    name = {{ name }}
+}
+    name = {{ name }}
+}
+    data_set_schema = {
+    column_schema_list = {
+    data_type = {{ data_type }}
+    geographic_role = {{ geographic_role }}
+    name = {{ name }}
+}
+}
+    placeholder = {{ placeholder }}
+}
+    description = {{ description }}
+    errors = {
+    message = {{ message }}
+    type = {{ type }}
+}
+    sheets = {
+    name = {{ name }}
+    sheet_id = {{ sheet_id }}
+}
+    source_entity_arn = {{ source_entity_arn }}
+    status = {{ status }}
+    theme_arn = {{ theme_arn }}
+    version_number = {{ version_number }}
+}"
+    version_description = "{{ version_description }}"
+}

@@ -1,0 +1,8 @@
+data "azurerm_eventhub" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    namespace_name = "{{ namespace_name }}"
+    partition_count = "{{ partition_count }}"
+    partition_ids = "{{ partition_ids }}"
+    resource_group_name = "{{ resource_group_name }}"
+}

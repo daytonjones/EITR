@@ -1,0 +1,22 @@
+data "awscc_fsx_data_repository_association" "example" {
+    association_id = "{{ association_id }}"
+    batch_import_meta_data_on_create = "{{ batch_import_meta_data_on_create }}"
+    data_repository_path = "{{ data_repository_path }}"
+    file_system_id = "{{ file_system_id }}"
+    file_system_path = "{{ file_system_path }}"
+    id = "{{ id }}"
+    imported_file_chunk_size = "{{ imported_file_chunk_size }}"
+    resource_arn = "{{ resource_arn }}"
+    s3 = "{
+    auto_export_policy = {
+    events = {{ events }}
+}
+    auto_import_policy = {
+    events = {{ events }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

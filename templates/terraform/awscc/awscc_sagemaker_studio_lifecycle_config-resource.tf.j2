@@ -1,0 +1,11 @@
+resource "awscc_sagemaker_studio_lifecycle_config" "example" {
+    id = "{{ id }}"
+    studio_lifecycle_config_app_type = "{{ studio_lifecycle_config_app_type }}"
+    studio_lifecycle_config_arn = "{{ studio_lifecycle_config_arn }}"
+    studio_lifecycle_config_content = "{{ studio_lifecycle_config_content }}"
+    studio_lifecycle_config_name = "{{ studio_lifecycle_config_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

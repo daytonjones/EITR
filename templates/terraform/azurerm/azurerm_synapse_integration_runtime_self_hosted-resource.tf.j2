@@ -1,0 +1,8 @@
+resource "azurerm_synapse_integration_runtime_self_hosted" "example" {
+    authorization_key_primary = "{{ authorization_key_primary }}"
+    authorization_key_secondary = "{{ authorization_key_secondary }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    synapse_workspace_id = "{{ synapse_workspace_id }}"
+}

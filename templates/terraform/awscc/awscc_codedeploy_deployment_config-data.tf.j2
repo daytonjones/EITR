@@ -1,0 +1,28 @@
+data "awscc_codedeploy_deployment_config" "example" {
+    compute_platform = "{{ compute_platform }}"
+    deployment_config_name = "{{ deployment_config_name }}"
+    id = "{{ id }}"
+    minimum_healthy_hosts = "{
+    type = {{ type }}
+    value = {{ value }}
+}"
+    traffic_routing_config = "{
+    time_based_canary = {
+    canary_interval = {{ canary_interval }}
+    canary_percentage = {{ canary_percentage }}
+}
+    time_based_linear = {
+    linear_interval = {{ linear_interval }}
+    linear_percentage = {{ linear_percentage }}
+}
+    type = {{ type }}
+}"
+    zonal_config = "{
+    first_zone_monitor_duration_in_seconds = {{ first_zone_monitor_duration_in_seconds }}
+    minimum_healthy_hosts_per_zone = {
+    type = {{ type }}
+    value = {{ value }}
+}
+    monitor_duration_in_seconds = {{ monitor_duration_in_seconds }}
+}"
+}

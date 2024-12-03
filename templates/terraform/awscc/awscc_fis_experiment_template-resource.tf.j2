@@ -1,0 +1,58 @@
+resource "awscc_fis_experiment_template" "example" {
+    actions = "{
+    action_id = {{ action_id }}
+    description = {{ description }}
+    parameters = {{ parameters }}
+    start_after = {{ start_after }}
+    targets = {{ targets }}
+}"
+    description = "{{ description }}"
+    experiment_options = "{
+    account_targeting = {{ account_targeting }}
+    empty_target_resolution_mode = {{ empty_target_resolution_mode }}
+}"
+    experiment_report_configuration = "{
+    data_sources = {
+    cloudwatch_dashboards = {
+    dashboard_identifier = {{ dashboard_identifier }}
+}
+}
+    outputs = {
+    experiment_report_s3_configuration = {
+    bucket_name = {{ bucket_name }}
+    prefix = {{ prefix }}
+}
+}
+    post_experiment_duration = {{ post_experiment_duration }}
+    pre_experiment_duration = {{ pre_experiment_duration }}
+}"
+    experiment_template_id = "{{ experiment_template_id }}"
+    id = "{{ id }}"
+    log_configuration = "{
+    cloudwatch_logs_configuration = {
+    log_group_arn = {{ log_group_arn }}
+}
+    log_schema_version = {{ log_schema_version }}
+    s3_configuration = {
+    bucket_name = {{ bucket_name }}
+    prefix = {{ prefix }}
+}
+}"
+    role_arn = "{{ role_arn }}"
+    stop_conditions = "{
+    source = {{ source }}
+    value = {{ value }}
+}"
+    tags = "{{ tags }}"
+    targets = "{
+    filters = {
+    path = {{ path }}
+    values = {{ values }}
+}
+    parameters = {{ parameters }}
+    resource_arns = {{ resource_arns }}
+    resource_tags = {{ resource_tags }}
+    resource_type = {{ resource_type }}
+    selection_mode = {{ selection_mode }}
+}"
+}

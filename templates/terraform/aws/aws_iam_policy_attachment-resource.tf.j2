@@ -1,0 +1,8 @@
+resource "aws_iam_policy_attachment" "example" {
+    groups = "{{ groups }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    policy_arn = "{{ policy_arn }}"
+    roles = "{{ roles }}"
+    users = "{{ users }}"
+}

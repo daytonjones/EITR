@@ -1,0 +1,73 @@
+data "awscc_gamelift_fleet" "example" {
+    anywhere_configuration = "{
+    cost = {{ cost }}
+}"
+    apply_capacity = "{{ apply_capacity }}"
+    build_id = "{{ build_id }}"
+    certificate_configuration = "{
+    certificate_type = {{ certificate_type }}
+}"
+    compute_type = "{{ compute_type }}"
+    description = "{{ description }}"
+    desired_ec2_instances = "{{ desired_ec2_instances }}"
+    ec2_inbound_permissions = "{
+    from_port = {{ from_port }}
+    ip_range = {{ ip_range }}
+    protocol = {{ protocol }}
+    to_port = {{ to_port }}
+}"
+    ec2_instance_type = "{{ ec2_instance_type }}"
+    fleet_id = "{{ fleet_id }}"
+    fleet_type = "{{ fleet_type }}"
+    id = "{{ id }}"
+    instance_role_arn = "{{ instance_role_arn }}"
+    instance_role_credentials_provider = "{{ instance_role_credentials_provider }}"
+    locations = "{
+    location = {{ location }}
+    location_capacity = {
+    desired_ec2_instances = {{ desired_ec2_instances }}
+    max_size = {{ max_size }}
+    min_size = {{ min_size }}
+}
+}"
+    log_paths = "{{ log_paths }}"
+    max_size = "{{ max_size }}"
+    metric_groups = "{{ metric_groups }}"
+    min_size = "{{ min_size }}"
+    name = "{{ name }}"
+    new_game_session_protection_policy = "{{ new_game_session_protection_policy }}"
+    peer_vpc_aws_account_id = "{{ peer_vpc_aws_account_id }}"
+    peer_vpc_id = "{{ peer_vpc_id }}"
+    resource_creation_limit_policy = "{
+    new_game_sessions_per_creator = {{ new_game_sessions_per_creator }}
+    policy_period_in_minutes = {{ policy_period_in_minutes }}
+}"
+    runtime_configuration = "{
+    game_session_activation_timeout_seconds = {{ game_session_activation_timeout_seconds }}
+    max_concurrent_game_session_activations = {{ max_concurrent_game_session_activations }}
+    server_processes = {
+    concurrent_executions = {{ concurrent_executions }}
+    launch_path = {{ launch_path }}
+    parameters = {{ parameters }}
+}
+}"
+    scaling_policies = "{
+    comparison_operator = {{ comparison_operator }}
+    evaluation_periods = {{ evaluation_periods }}
+    location = {{ location }}
+    metric_name = {{ metric_name }}
+    name = {{ name }}
+    policy_type = {{ policy_type }}
+    scaling_adjustment = {{ scaling_adjustment }}
+    scaling_adjustment_type = {{ scaling_adjustment_type }}
+    status = {{ status }}
+    target_configuration = {
+    target_value = {{ target_value }}
+}
+    threshold = {{ threshold }}
+    update_status = {{ update_status }}
+}"
+    script_id = "{{ script_id }}"
+    server_launch_parameters = "{{ server_launch_parameters }}"
+    server_launch_path = "{{ server_launch_path }}"
+}

@@ -1,0 +1,10 @@
+data "awscc_appconfig_application" "example" {
+    application_id = "{{ application_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

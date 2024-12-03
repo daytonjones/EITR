@@ -1,0 +1,17 @@
+resource "google_gke_backup_backup_plan" "example" {
+    cluster = "{{ cluster }}"
+    deactivated = "{{ deactivated }}"
+    description = "{{ description }}"
+    effective_labels = "{{ effective_labels }}"
+    etag = "{{ etag }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    protected_pod_count = "{{ protected_pod_count }}"
+    state = "{{ state }}"
+    state_reason = "{{ state_reason }}"
+    terraform_labels = "{{ terraform_labels }}"
+    uid = "{{ uid }}"
+}

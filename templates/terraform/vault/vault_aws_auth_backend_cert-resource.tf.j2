@@ -1,0 +1,8 @@
+resource "vault_aws_auth_backend_cert" "example" {
+    aws_public_cert = "{{ aws_public_cert }}"
+    backend = "{{ backend }}"
+    cert_name = "{{ cert_name }}"
+    id = "{{ id }}"
+    namespace = "{{ namespace }}"
+    type = "{{ type }}"
+}

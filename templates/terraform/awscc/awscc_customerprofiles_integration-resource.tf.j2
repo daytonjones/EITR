@@ -1,0 +1,79 @@
+resource "awscc_customerprofiles_integration" "example" {
+    created_at = "{{ created_at }}"
+    domain_name = "{{ domain_name }}"
+    event_trigger_names = "{{ event_trigger_names }}"
+    flow_definition = "{
+    description = {{ description }}
+    flow_name = {{ flow_name }}
+    kms_arn = {{ kms_arn }}
+    source_flow_config = {
+    connector_profile_name = {{ connector_profile_name }}
+    connector_type = {{ connector_type }}
+    incremental_pull_config = {
+    datetime_type_field_name = {{ datetime_type_field_name }}
+}
+    source_connector_properties = {
+    marketo = {
+    object = {{ object }}
+}
+    s3 = {
+    bucket_name = {{ bucket_name }}
+    bucket_prefix = {{ bucket_prefix }}
+}
+    salesforce = {
+    enable_dynamic_field_update = {{ enable_dynamic_field_update }}
+    include_deleted_records = {{ include_deleted_records }}
+    object = {{ object }}
+}
+    service_now = {
+    object = {{ object }}
+}
+    zendesk = {
+    object = {{ object }}
+}
+}
+}
+    tasks = {
+    connector_operator = {
+    marketo = {{ marketo }}
+    s3 = {{ s3 }}
+    salesforce = {{ salesforce }}
+    service_now = {{ service_now }}
+    zendesk = {{ zendesk }}
+}
+    destination_field = {{ destination_field }}
+    source_fields = {{ source_fields }}
+    task_properties = {
+    operator_property_key = {{ operator_property_key }}
+    property = {{ property }}
+}
+    task_type = {{ task_type }}
+}
+    trigger_config = {
+    trigger_properties = {
+    scheduled = {
+    data_pull_mode = {{ data_pull_mode }}
+    first_execution_from = {{ first_execution_from }}
+    schedule_end_time = {{ schedule_end_time }}
+    schedule_expression = {{ schedule_expression }}
+    schedule_offset = {{ schedule_offset }}
+    schedule_start_time = {{ schedule_start_time }}
+    timezone = {{ timezone }}
+}
+}
+    trigger_type = {{ trigger_type }}
+}
+}"
+    id = "{{ id }}"
+    last_updated_at = "{{ last_updated_at }}"
+    object_type_name = "{{ object_type_name }}"
+    object_type_names = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    uri = "{{ uri }}"
+}

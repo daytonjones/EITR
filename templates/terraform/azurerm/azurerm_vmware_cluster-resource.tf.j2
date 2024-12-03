@@ -1,0 +1,9 @@
+resource "azurerm_vmware_cluster" "example" {
+    cluster_node_count = "{{ cluster_node_count }}"
+    cluster_number = "{{ cluster_number }}"
+    hosts = "{{ hosts }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    sku_name = "{{ sku_name }}"
+    vmware_cloud_id = "{{ vmware_cloud_id }}"
+}

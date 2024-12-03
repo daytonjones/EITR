@@ -1,0 +1,25 @@
+resource "awscc_route53recoverycontrol_safety_rule" "example" {
+    assertion_rule = "{
+    asserted_controls = {{ asserted_controls }}
+    wait_period_ms = {{ wait_period_ms }}
+}"
+    control_panel_arn = "{{ control_panel_arn }}"
+    gating_rule = "{
+    gating_controls = {{ gating_controls }}
+    target_controls = {{ target_controls }}
+    wait_period_ms = {{ wait_period_ms }}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    rule_config = "{
+    inverted = {{ inverted }}
+    threshold = {{ threshold }}
+    type = {{ type }}
+}"
+    safety_rule_arn = "{{ safety_rule_arn }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

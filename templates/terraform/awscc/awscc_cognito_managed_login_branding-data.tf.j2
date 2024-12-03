@@ -1,0 +1,16 @@
+data "awscc_cognito_managed_login_branding" "example" {
+    assets = "{
+    bytes = {{ bytes }}
+    category = {{ category }}
+    color_mode = {{ color_mode }}
+    extension = {{ extension }}
+    resource_id = {{ resource_id }}
+}"
+    client_id = "{{ client_id }}"
+    id = "{{ id }}"
+    managed_login_branding_id = "{{ managed_login_branding_id }}"
+    return_merged_resources = "{{ return_merged_resources }}"
+    settings = "{{ settings }}"
+    use_cognito_provided_values = "{{ use_cognito_provided_values }}"
+    user_pool_id = "{{ user_pool_id }}"
+}

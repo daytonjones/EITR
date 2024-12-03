@@ -1,0 +1,18 @@
+resource "aws_ecs_task_set" "example" {
+    arn = "{{ arn }}"
+    cluster = "{{ cluster }}"
+    external_id = "{{ external_id }}"
+    force_delete = "{{ force_delete }}"
+    id = "{{ id }}"
+    launch_type = "{{ launch_type }}"
+    platform_version = "{{ platform_version }}"
+    service = "{{ service }}"
+    stability_status = "{{ stability_status }}"
+    status = "{{ status }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    task_definition = "{{ task_definition }}"
+    task_set_id = "{{ task_set_id }}"
+    wait_until_stable = "{{ wait_until_stable }}"
+    wait_until_stable_timeout = "{{ wait_until_stable_timeout }}"
+}

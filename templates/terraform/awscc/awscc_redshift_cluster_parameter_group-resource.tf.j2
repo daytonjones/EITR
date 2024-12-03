@@ -1,0 +1,14 @@
+resource "awscc_redshift_cluster_parameter_group" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    parameter_group_family = "{{ parameter_group_family }}"
+    parameter_group_name = "{{ parameter_group_name }}"
+    parameters = "{
+    parameter_name = {{ parameter_name }}
+    parameter_value = {{ parameter_value }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

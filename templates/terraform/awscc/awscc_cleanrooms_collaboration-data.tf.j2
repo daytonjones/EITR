@@ -1,0 +1,36 @@
+data "awscc_cleanrooms_collaboration" "example" {
+    analytics_engine = "{{ analytics_engine }}"
+    arn = "{{ arn }}"
+    collaboration_identifier = "{{ collaboration_identifier }}"
+    creator_display_name = "{{ creator_display_name }}"
+    creator_member_abilities = "{{ creator_member_abilities }}"
+    creator_payment_configuration = "{
+    query_compute = {
+    is_responsible = {{ is_responsible }}
+}
+}"
+    data_encryption_metadata = "{
+    allow_cleartext = {{ allow_cleartext }}
+    allow_duplicates = {{ allow_duplicates }}
+    allow_joins_on_columns_with_different_names = {{ allow_joins_on_columns_with_different_names }}
+    preserve_nulls = {{ preserve_nulls }}
+}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    members = "{
+    account_id = {{ account_id }}
+    display_name = {{ display_name }}
+    member_abilities = {{ member_abilities }}
+    payment_configuration = {
+    query_compute = {
+    is_responsible = {{ is_responsible }}
+}
+}
+}"
+    name = "{{ name }}"
+    query_log_status = "{{ query_log_status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,23 @@
+data "awscc_billingconductor_billing_group" "example" {
+    account_grouping = "{
+    auto_associate = {{ auto_associate }}
+    linked_account_ids = {{ linked_account_ids }}
+}"
+    arn = "{{ arn }}"
+    computation_preference = "{
+    pricing_plan_arn = {{ pricing_plan_arn }}
+}"
+    creation_time = "{{ creation_time }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    last_modified_time = "{{ last_modified_time }}"
+    name = "{{ name }}"
+    primary_account_id = "{{ primary_account_id }}"
+    size = "{{ size }}"
+    status = "{{ status }}"
+    status_reason = "{{ status_reason }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

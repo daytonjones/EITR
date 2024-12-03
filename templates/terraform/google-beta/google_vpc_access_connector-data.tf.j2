@@ -1,0 +1,17 @@
+data "google_vpc_access_connector" "example" {
+    connected_projects = "{{ connected_projects }}"
+    id = "{{ id }}"
+    ip_cidr_range = "{{ ip_cidr_range }}"
+    machine_type = "{{ machine_type }}"
+    max_instances = "{{ max_instances }}"
+    max_throughput = "{{ max_throughput }}"
+    min_instances = "{{ min_instances }}"
+    min_throughput = "{{ min_throughput }}"
+    name = "{{ name }}"
+    network = "{{ network }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    self_link = "{{ self_link }}"
+    state = "{{ state }}"
+    subnet = "{{ subnet }}"
+}

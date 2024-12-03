@@ -1,0 +1,34 @@
+resource "awscc_resiliencehub_app" "example" {
+    app_arn = "{{ app_arn }}"
+    app_assessment_schedule = "{{ app_assessment_schedule }}"
+    app_template_body = "{{ app_template_body }}"
+    description = "{{ description }}"
+    drift_status = "{{ drift_status }}"
+    event_subscriptions = "{
+    event_type = {{ event_type }}
+    name = {{ name }}
+    sns_topic_arn = {{ sns_topic_arn }}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    permission_model = "{
+    cross_account_role_arns = {{ cross_account_role_arns }}
+    invoker_role_name = {{ invoker_role_name }}
+    type = {{ type }}
+}"
+    resiliency_policy_arn = "{{ resiliency_policy_arn }}"
+    resource_mappings = "{
+    eks_source_name = {{ eks_source_name }}
+    logical_stack_name = {{ logical_stack_name }}
+    mapping_type = {{ mapping_type }}
+    physical_resource_id = {
+    aws_account_id = {{ aws_account_id }}
+    aws_region = {{ aws_region }}
+    identifier = {{ identifier }}
+    type = {{ type }}
+}
+    resource_name = {{ resource_name }}
+    terraform_source_name = {{ terraform_source_name }}
+}"
+    tags = "{{ tags }}"
+}

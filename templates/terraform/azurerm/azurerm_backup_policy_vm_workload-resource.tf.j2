@@ -1,0 +1,7 @@
+resource "azurerm_backup_policy_vm_workload" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    recovery_vault_name = "{{ recovery_vault_name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    workload_type = "{{ workload_type }}"
+}

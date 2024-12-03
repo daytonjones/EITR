@@ -1,0 +1,24 @@
+resource "awscc_groundstation_mission_profile" "example" {
+    arn = "{{ arn }}"
+    contact_post_pass_duration_seconds = "{{ contact_post_pass_duration_seconds }}"
+    contact_pre_pass_duration_seconds = "{{ contact_pre_pass_duration_seconds }}"
+    dataflow_edges = "{
+    destination = {{ destination }}
+    source = {{ source }}
+}"
+    id = "{{ id }}"
+    minimum_viable_contact_duration_seconds = "{{ minimum_viable_contact_duration_seconds }}"
+    mission_profile_id = "{{ mission_profile_id }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+    streams_kms_key = "{
+    kms_alias_arn = {{ kms_alias_arn }}
+    kms_key_arn = {{ kms_key_arn }}
+}"
+    streams_kms_role = "{{ streams_kms_role }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    tracking_config_arn = "{{ tracking_config_arn }}"
+}

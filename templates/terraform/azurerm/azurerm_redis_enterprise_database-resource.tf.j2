@@ -1,0 +1,13 @@
+resource "azurerm_redis_enterprise_database" "example" {
+    client_protocol = "{{ client_protocol }}"
+    cluster_id = "{{ cluster_id }}"
+    clustering_policy = "{{ clustering_policy }}"
+    eviction_policy = "{{ eviction_policy }}"
+    id = "{{ id }}"
+    linked_database_group_nickname = "{{ linked_database_group_nickname }}"
+    linked_database_id = "{{ linked_database_id }}"
+    name = "{{ name }}"
+    port = "{{ port }}"
+    primary_access_key = "{{ primary_access_key }}"
+    secondary_access_key = "{{ secondary_access_key }}"
+}

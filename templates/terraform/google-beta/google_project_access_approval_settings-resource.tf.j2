@@ -1,0 +1,11 @@
+resource "google_project_access_approval_settings" "example" {
+    active_key_version = "{{ active_key_version }}"
+    ancestor_has_active_key_version = "{{ ancestor_has_active_key_version }}"
+    enrolled_ancestor = "{{ enrolled_ancestor }}"
+    id = "{{ id }}"
+    invalid_key_version = "{{ invalid_key_version }}"
+    name = "{{ name }}"
+    notification_emails = "{{ notification_emails }}"
+    project = "{{ project }}"
+    project_id = "{{ project_id }}"
+}

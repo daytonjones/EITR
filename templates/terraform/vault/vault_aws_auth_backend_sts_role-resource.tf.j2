@@ -1,0 +1,7 @@
+resource "vault_aws_auth_backend_sts_role" "example" {
+    account_id = "{{ account_id }}"
+    backend = "{{ backend }}"
+    id = "{{ id }}"
+    namespace = "{{ namespace }}"
+    sts_role = "{{ sts_role }}"
+}

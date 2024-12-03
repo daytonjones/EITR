@@ -1,0 +1,12 @@
+resource "awscc_sso_instance" "example" {
+    id = "{{ id }}"
+    identity_store_id = "{{ identity_store_id }}"
+    instance_arn = "{{ instance_arn }}"
+    name = "{{ name }}"
+    owner_account_id = "{{ owner_account_id }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

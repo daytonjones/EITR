@@ -1,0 +1,9 @@
+data "azurestack_subnet" "example" {
+    address_prefix = "{{ address_prefix }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    network_security_group_id = "{{ network_security_group_id }}"
+    resource_group_name = "{{ resource_group_name }}"
+    route_table_id = "{{ route_table_id }}"
+    virtual_network_name = "{{ virtual_network_name }}"
+}

@@ -1,0 +1,16 @@
+data "awscc_ecr_replication_configuration" "example" {
+    id = "{{ id }}"
+    registry_id = "{{ registry_id }}"
+    replication_configuration = "{
+    rules = {
+    destinations = {
+    region = {{ region }}
+    registry_id = {{ registry_id }}
+}
+    repository_filters = {
+    filter = {{ filter }}
+    filter_type = {{ filter_type }}
+}
+}
+}"
+}

@@ -1,0 +1,42 @@
+resource "awscc_codebuild_fleet" "example" {
+    arn = "{{ arn }}"
+    base_capacity = "{{ base_capacity }}"
+    compute_configuration = "{
+    disk = {{ disk }}
+    machine_type = {{ machine_type }}
+    memory = {{ memory }}
+    v_cpu = {{ v_cpu }}
+}"
+    compute_type = "{{ compute_type }}"
+    environment_type = "{{ environment_type }}"
+    fleet_proxy_configuration = "{
+    default_behavior = {{ default_behavior }}
+    ordered_proxy_rules = {
+    effect = {{ effect }}
+    entities = {{ entities }}
+    type = {{ type }}
+}
+}"
+    fleet_service_role = "{{ fleet_service_role }}"
+    fleet_vpc_config = "{
+    security_group_ids = {{ security_group_ids }}
+    subnets = {{ subnets }}
+    vpc_id = {{ vpc_id }}
+}"
+    id = "{{ id }}"
+    image_id = "{{ image_id }}"
+    name = "{{ name }}"
+    overflow_behavior = "{{ overflow_behavior }}"
+    scaling_configuration = "{
+    max_capacity = {{ max_capacity }}
+    scaling_type = {{ scaling_type }}
+    target_tracking_scaling_configs = {
+    metric_type = {{ metric_type }}
+    target_value = {{ target_value }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

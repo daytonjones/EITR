@@ -1,0 +1,54 @@
+data "awscc_greengrassv2_component_version" "example" {
+    arn = "{{ arn }}"
+    component_name = "{{ component_name }}"
+    component_version = "{{ component_version }}"
+    id = "{{ id }}"
+    inline_recipe = "{{ inline_recipe }}"
+    lambda_function = "{
+    component_dependencies = {
+    dependency_type = {{ dependency_type }}
+    version_requirement = {{ version_requirement }}
+}
+    component_lambda_parameters = {
+    environment_variables = {{ environment_variables }}
+    event_sources = {
+    topic = {{ topic }}
+    type = {{ type }}
+}
+    exec_args = {{ exec_args }}
+    input_payload_encoding_type = {{ input_payload_encoding_type }}
+    linux_process_params = {
+    container_params = {
+    devices = {
+    add_group_owner = {{ add_group_owner }}
+    path = {{ path }}
+    permission = {{ permission }}
+}
+    memory_size_in_kb = {{ memory_size_in_kb }}
+    mount_ro_sysfs = {{ mount_ro_sysfs }}
+    volumes = {
+    add_group_owner = {{ add_group_owner }}
+    destination_path = {{ destination_path }}
+    permission = {{ permission }}
+    source_path = {{ source_path }}
+}
+}
+    isolation_mode = {{ isolation_mode }}
+}
+    max_idle_time_in_seconds = {{ max_idle_time_in_seconds }}
+    max_instances_count = {{ max_instances_count }}
+    max_queue_size = {{ max_queue_size }}
+    pinned = {{ pinned }}
+    status_timeout_in_seconds = {{ status_timeout_in_seconds }}
+    timeout_in_seconds = {{ timeout_in_seconds }}
+}
+    component_name = {{ component_name }}
+    component_platforms = {
+    attributes = {{ attributes }}
+    name = {{ name }}
+}
+    component_version = {{ component_version }}
+    lambda_arn = {{ lambda_arn }}
+}"
+    tags = "{{ tags }}"
+}

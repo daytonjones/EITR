@@ -1,0 +1,9 @@
+resource "azurerm_lb_backend_address_pool_address" "example" {
+    backend_address_ip_configuration_id = "{{ backend_address_ip_configuration_id }}"
+    backend_address_pool_id = "{{ backend_address_pool_id }}"
+    id = "{{ id }}"
+    inbound_nat_rule_port_mapping = "{{ inbound_nat_rule_port_mapping }}"
+    ip_address = "{{ ip_address }}"
+    name = "{{ name }}"
+    virtual_network_id = "{{ virtual_network_id }}"
+}

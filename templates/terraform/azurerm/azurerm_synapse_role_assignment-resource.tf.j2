@@ -1,0 +1,8 @@
+resource "azurerm_synapse_role_assignment" "example" {
+    id = "{{ id }}"
+    principal_id = "{{ principal_id }}"
+    principal_type = "{{ principal_type }}"
+    role_name = "{{ role_name }}"
+    synapse_spark_pool_id = "{{ synapse_spark_pool_id }}"
+    synapse_workspace_id = "{{ synapse_workspace_id }}"
+}

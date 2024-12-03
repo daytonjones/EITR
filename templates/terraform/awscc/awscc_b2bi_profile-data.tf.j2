@@ -1,0 +1,17 @@
+data "awscc_b2bi_profile" "example" {
+    business_name = "{{ business_name }}"
+    created_at = "{{ created_at }}"
+    email = "{{ email }}"
+    id = "{{ id }}"
+    log_group_name = "{{ log_group_name }}"
+    logging = "{{ logging }}"
+    modified_at = "{{ modified_at }}"
+    name = "{{ name }}"
+    phone = "{{ phone }}"
+    profile_arn = "{{ profile_arn }}"
+    profile_id = "{{ profile_id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,9 @@
+resource "consul_acl_policy" "example" {
+    datacenters = "{{ datacenters }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    partition = "{{ partition }}"
+    rules = "{{ rules }}"
+}

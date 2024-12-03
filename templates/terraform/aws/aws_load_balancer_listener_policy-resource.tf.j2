@@ -1,0 +1,7 @@
+resource "aws_load_balancer_listener_policy" "example" {
+    id = "{{ id }}"
+    load_balancer_name = "{{ load_balancer_name }}"
+    load_balancer_port = "{{ load_balancer_port }}"
+    policy_names = "{{ policy_names }}"
+    triggers = "{{ triggers }}"
+}

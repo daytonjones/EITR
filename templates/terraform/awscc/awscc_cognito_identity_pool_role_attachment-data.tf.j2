@@ -1,0 +1,19 @@
+data "awscc_cognito_identity_pool_role_attachment" "example" {
+    id = "{{ id }}"
+    identity_pool_id = "{{ identity_pool_id }}"
+    identity_pool_role_attachment_id = "{{ identity_pool_role_attachment_id }}"
+    role_mappings = "{
+    ambiguous_role_resolution = {{ ambiguous_role_resolution }}
+    identity_provider = {{ identity_provider }}
+    rules_configuration = {
+    rules = {
+    claim = {{ claim }}
+    match_type = {{ match_type }}
+    role_arn = {{ role_arn }}
+    value = {{ value }}
+}
+}
+    type = {{ type }}
+}"
+    roles = "{{ roles }}"
+}

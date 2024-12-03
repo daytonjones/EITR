@@ -1,0 +1,18 @@
+resource "azurerm_mssql_server" "example" {
+    administrator_login = "{{ administrator_login }}"
+    administrator_login_password = "{{ administrator_login_password }}"
+    connection_policy = "{{ connection_policy }}"
+    fully_qualified_domain_name = "{{ fully_qualified_domain_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    minimum_tls_version = "{{ minimum_tls_version }}"
+    name = "{{ name }}"
+    outbound_network_restriction_enabled = "{{ outbound_network_restriction_enabled }}"
+    primary_user_assigned_identity_id = "{{ primary_user_assigned_identity_id }}"
+    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    resource_group_name = "{{ resource_group_name }}"
+    restorable_dropped_database_ids = "{{ restorable_dropped_database_ids }}"
+    tags = "{{ tags }}"
+    transparent_data_encryption_key_vault_key_id = "{{ transparent_data_encryption_key_vault_key_id }}"
+    version = "{{ version }}"
+}

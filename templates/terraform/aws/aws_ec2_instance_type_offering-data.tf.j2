@@ -1,0 +1,6 @@
+data "aws_ec2_instance_type_offering" "example" {
+    id = "{{ id }}"
+    instance_type = "{{ instance_type }}"
+    location_type = "{{ location_type }}"
+    preferred_instance_types = "{{ preferred_instance_types }}"
+}

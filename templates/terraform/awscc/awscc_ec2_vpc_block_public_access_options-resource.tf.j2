@@ -1,0 +1,5 @@
+resource "awscc_ec2_vpc_block_public_access_options" "example" {
+    account_id = "{{ account_id }}"
+    id = "{{ id }}"
+    internet_gateway_block_mode = "{{ internet_gateway_block_mode }}"
+}

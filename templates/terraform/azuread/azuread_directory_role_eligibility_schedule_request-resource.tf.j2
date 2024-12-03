@@ -1,0 +1,7 @@
+resource "azuread_directory_role_eligibility_schedule_request" "example" {
+    directory_scope_id = "{{ directory_scope_id }}"
+    id = "{{ id }}"
+    justification = "{{ justification }}"
+    principal_id = "{{ principal_id }}"
+    role_definition_id = "{{ role_definition_id }}"
+}

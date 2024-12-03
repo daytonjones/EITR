@@ -1,0 +1,773 @@
+data "awscc_lex_bot" "example" {
+    arn = "{{ arn }}"
+    auto_build_bot_locales = "{{ auto_build_bot_locales }}"
+    bot_file_s3_location = "{
+    s3_bucket = {{ s3_bucket }}
+    s3_object_key = {{ s3_object_key }}
+    s3_object_version = {{ s3_object_version }}
+}"
+    bot_id = "{{ bot_id }}"
+    bot_locales = "{
+    custom_vocabulary = {
+    custom_vocabulary_items = {
+    phrase = {{ phrase }}
+    weight = {{ weight }}
+}
+}
+    description = {{ description }}
+    intents = {
+    description = {{ description }}
+    dialog_code_hook = {
+    enabled = {{ enabled }}
+}
+    fulfillment_code_hook = {
+    enabled = {{ enabled }}
+    fulfillment_updates_specification = {
+    active = {{ active }}
+    start_response = {
+    allow_interrupt = {{ allow_interrupt }}
+    delay_in_seconds = {{ delay_in_seconds }}
+    message_groups = {
+    message = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+    variations = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+}
+}
+    timeout_in_seconds = {{ timeout_in_seconds }}
+    update_response = {
+    allow_interrupt = {{ allow_interrupt }}
+    frequency_in_seconds = {{ frequency_in_seconds }}
+    message_groups = {
+    message = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+    variations = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+}
+}
+}
+    post_fulfillment_status_specification = {
+    failure_response = {
+    allow_interrupt = {{ allow_interrupt }}
+    message_groups_list = {
+    message = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+    variations = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+}
+}
+    success_response = {
+    allow_interrupt = {{ allow_interrupt }}
+    message_groups_list = {
+    message = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+    variations = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+}
+}
+    timeout_response = {
+    allow_interrupt = {{ allow_interrupt }}
+    message_groups_list = {
+    message = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+    variations = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+}
+}
+}
+}
+    input_contexts = {
+    name = {{ name }}
+}
+    intent_closing_setting = {
+    closing_response = {
+    allow_interrupt = {{ allow_interrupt }}
+    message_groups_list = {
+    message = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+    variations = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+}
+}
+    is_active = {{ is_active }}
+}
+    intent_confirmation_setting = {
+    declination_response = {
+    allow_interrupt = {{ allow_interrupt }}
+    message_groups_list = {
+    message = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+    variations = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+}
+}
+    is_active = {{ is_active }}
+    prompt_specification = {
+    allow_interrupt = {{ allow_interrupt }}
+    max_retries = {{ max_retries }}
+    message_groups_list = {
+    message = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+    variations = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+}
+    message_selection_strategy = {{ message_selection_strategy }}
+    prompt_attempts_specification = {
+    allow_interrupt = {{ allow_interrupt }}
+    allowed_input_types = {
+    allow_audio_input = {{ allow_audio_input }}
+    allow_dtmf_input = {{ allow_dtmf_input }}
+}
+    audio_and_dtmf_input_specification = {
+    audio_specification = {
+    end_timeout_ms = {{ end_timeout_ms }}
+    max_length_ms = {{ max_length_ms }}
+}
+    dtmf_specification = {
+    deletion_character = {{ deletion_character }}
+    end_character = {{ end_character }}
+    end_timeout_ms = {{ end_timeout_ms }}
+    max_length = {{ max_length }}
+}
+    start_timeout_ms = {{ start_timeout_ms }}
+}
+    text_input_specification = {
+    start_timeout_ms = {{ start_timeout_ms }}
+}
+}
+}
+}
+    kendra_configuration = {
+    kendra_index = {{ kendra_index }}
+    query_filter_string = {{ query_filter_string }}
+    query_filter_string_enabled = {{ query_filter_string_enabled }}
+}
+    name = {{ name }}
+    output_contexts = {
+    name = {{ name }}
+    time_to_live_in_seconds = {{ time_to_live_in_seconds }}
+    turns_to_live = {{ turns_to_live }}
+}
+    parent_intent_signature = {{ parent_intent_signature }}
+    sample_utterances = {
+    utterance = {{ utterance }}
+}
+    slot_priorities = {
+    priority = {{ priority }}
+    slot_name = {{ slot_name }}
+}
+    slots = {
+    description = {{ description }}
+    multiple_values_setting = {
+    allow_multiple_values = {{ allow_multiple_values }}
+}
+    name = {{ name }}
+    obfuscation_setting = {
+    obfuscation_setting_type = {{ obfuscation_setting_type }}
+}
+    slot_type_name = {{ slot_type_name }}
+    value_elicitation_setting = {
+    default_value_specification = {
+    default_value_list = {
+    default_value = {{ default_value }}
+}
+}
+    prompt_specification = {
+    allow_interrupt = {{ allow_interrupt }}
+    max_retries = {{ max_retries }}
+    message_groups_list = {
+    message = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+    variations = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+}
+    message_selection_strategy = {{ message_selection_strategy }}
+    prompt_attempts_specification = {
+    allow_interrupt = {{ allow_interrupt }}
+    allowed_input_types = {
+    allow_audio_input = {{ allow_audio_input }}
+    allow_dtmf_input = {{ allow_dtmf_input }}
+}
+    audio_and_dtmf_input_specification = {
+    audio_specification = {
+    end_timeout_ms = {{ end_timeout_ms }}
+    max_length_ms = {{ max_length_ms }}
+}
+    dtmf_specification = {
+    deletion_character = {{ deletion_character }}
+    end_character = {{ end_character }}
+    end_timeout_ms = {{ end_timeout_ms }}
+    max_length = {{ max_length }}
+}
+    start_timeout_ms = {{ start_timeout_ms }}
+}
+    text_input_specification = {
+    start_timeout_ms = {{ start_timeout_ms }}
+}
+}
+}
+    sample_utterances = {
+    utterance = {{ utterance }}
+}
+    slot_constraint = {{ slot_constraint }}
+    wait_and_continue_specification = {
+    continue_response = {
+    allow_interrupt = {{ allow_interrupt }}
+    message_groups_list = {
+    message = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+    variations = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+}
+}
+    is_active = {{ is_active }}
+    still_waiting_response = {
+    allow_interrupt = {{ allow_interrupt }}
+    frequency_in_seconds = {{ frequency_in_seconds }}
+    message_groups_list = {
+    message = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+    variations = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+}
+    timeout_in_seconds = {{ timeout_in_seconds }}
+}
+    waiting_response = {
+    allow_interrupt = {{ allow_interrupt }}
+    message_groups_list = {
+    message = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+    variations = {
+    custom_payload = {
+    value = {{ value }}
+}
+    image_response_card = {
+    buttons = {
+    text = {{ text }}
+    value = {{ value }}
+}
+    image_url = {{ image_url }}
+    subtitle = {{ subtitle }}
+    title = {{ title }}
+}
+    plain_text_message = {
+    value = {{ value }}
+}
+    ssml_message = {
+    value = {{ value }}
+}
+}
+}
+}
+}
+}
+}
+}
+    locale_id = {{ locale_id }}
+    nlu_confidence_threshold = {{ nlu_confidence_threshold }}
+    slot_types = {
+    description = {{ description }}
+    external_source_setting = {
+    grammar_slot_type_setting = {
+    source = {
+    kms_key_arn = {{ kms_key_arn }}
+    s3_bucket_name = {{ s3_bucket_name }}
+    s3_object_key = {{ s3_object_key }}
+}
+}
+}
+    name = {{ name }}
+    parent_slot_type_signature = {{ parent_slot_type_signature }}
+    slot_type_values = {
+    sample_value = {
+    value = {{ value }}
+}
+    synonyms = {
+    value = {{ value }}
+}
+}
+    value_selection_setting = {
+    advanced_recognition_setting = {
+    audio_recognition_strategy = {{ audio_recognition_strategy }}
+}
+    regex_filter = {
+    pattern = {{ pattern }}
+}
+    resolution_strategy = {{ resolution_strategy }}
+}
+}
+    voice_settings = {
+    engine = {{ engine }}
+    voice_id = {{ voice_id }}
+}
+}"
+    bot_tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    data_privacy = "{
+    child_directed = {{ child_directed }}
+}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    idle_session_ttl_in_seconds = "{{ idle_session_ttl_in_seconds }}"
+    name = "{{ name }}"
+    role_arn = "{{ role_arn }}"
+    test_bot_alias_settings = "{
+    bot_alias_locale_settings = {
+    bot_alias_locale_setting = {
+    code_hook_specification = {
+    lambda_code_hook = {
+    code_hook_interface_version = {{ code_hook_interface_version }}
+    lambda_arn = {{ lambda_arn }}
+}
+}
+    enabled = {{ enabled }}
+}
+    locale_id = {{ locale_id }}
+}
+    conversation_log_settings = {
+    audio_log_settings = {
+    destination = {
+    s3_bucket = {
+    kms_key_arn = {{ kms_key_arn }}
+    log_prefix = {{ log_prefix }}
+    s3_bucket_arn = {{ s3_bucket_arn }}
+}
+}
+    enabled = {{ enabled }}
+}
+    text_log_settings = {
+    destination = {
+    cloudwatch = {
+    cloudwatch_log_group_arn = {{ cloudwatch_log_group_arn }}
+    log_prefix = {{ log_prefix }}
+}
+}
+    enabled = {{ enabled }}
+}
+}
+    description = {{ description }}
+    sentiment_analysis_settings = {
+    detect_sentiment = {{ detect_sentiment }}
+}
+}"
+    test_bot_alias_tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

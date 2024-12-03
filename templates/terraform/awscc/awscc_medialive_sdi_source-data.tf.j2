@@ -1,0 +1,14 @@
+data "awscc_medialive_sdi_source" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    inputs = "{{ inputs }}"
+    mode = "{{ mode }}"
+    name = "{{ name }}"
+    sdi_source_id = "{{ sdi_source_id }}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+}

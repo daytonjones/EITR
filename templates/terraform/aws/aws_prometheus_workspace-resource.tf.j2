@@ -1,0 +1,9 @@
+resource "aws_prometheus_workspace" "example" {
+    alias = "{{ alias }}"
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    kms_key_arn = "{{ kms_key_arn }}"
+    prometheus_endpoint = "{{ prometheus_endpoint }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

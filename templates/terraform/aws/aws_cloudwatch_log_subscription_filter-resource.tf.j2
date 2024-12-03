@@ -1,0 +1,9 @@
+resource "aws_cloudwatch_log_subscription_filter" "example" {
+    destination_arn = "{{ destination_arn }}"
+    distribution = "{{ distribution }}"
+    filter_pattern = "{{ filter_pattern }}"
+    id = "{{ id }}"
+    log_group_name = "{{ log_group_name }}"
+    name = "{{ name }}"
+    role_arn = "{{ role_arn }}"
+}

@@ -1,0 +1,8 @@
+resource "aws_workspaces_connection_alias" "example" {
+    connection_string = "{{ connection_string }}"
+    id = "{{ id }}"
+    owner_account_id = "{{ owner_account_id }}"
+    state = "{{ state }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

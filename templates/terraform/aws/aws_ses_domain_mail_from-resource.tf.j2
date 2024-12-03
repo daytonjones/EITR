@@ -1,0 +1,6 @@
+resource "aws_ses_domain_mail_from" "example" {
+    behavior_on_mx_failure = "{{ behavior_on_mx_failure }}"
+    domain = "{{ domain }}"
+    id = "{{ id }}"
+    mail_from_domain = "{{ mail_from_domain }}"
+}

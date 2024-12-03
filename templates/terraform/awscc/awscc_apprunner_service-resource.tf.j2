@@ -1,0 +1,91 @@
+resource "awscc_apprunner_service" "example" {
+    auto_scaling_configuration_arn = "{{ auto_scaling_configuration_arn }}"
+    encryption_configuration = "{
+    kms_key = {{ kms_key }}
+}"
+    health_check_configuration = "{
+    healthy_threshold = {{ healthy_threshold }}
+    interval = {{ interval }}
+    path = {{ path }}
+    protocol = {{ protocol }}
+    timeout = {{ timeout }}
+    unhealthy_threshold = {{ unhealthy_threshold }}
+}"
+    id = "{{ id }}"
+    instance_configuration = "{
+    cpu = {{ cpu }}
+    instance_role_arn = {{ instance_role_arn }}
+    memory = {{ memory }}
+}"
+    network_configuration = "{
+    egress_configuration = {
+    egress_type = {{ egress_type }}
+    vpc_connector_arn = {{ vpc_connector_arn }}
+}
+    ingress_configuration = {
+    is_publicly_accessible = {{ is_publicly_accessible }}
+}
+    ip_address_type = {{ ip_address_type }}
+}"
+    observability_configuration = "{
+    observability_configuration_arn = {{ observability_configuration_arn }}
+    observability_enabled = {{ observability_enabled }}
+}"
+    service_arn = "{{ service_arn }}"
+    service_id = "{{ service_id }}"
+    service_name = "{{ service_name }}"
+    service_url = "{{ service_url }}"
+    source_configuration = "{
+    authentication_configuration = {
+    access_role_arn = {{ access_role_arn }}
+    connection_arn = {{ connection_arn }}
+}
+    auto_deployments_enabled = {{ auto_deployments_enabled }}
+    code_repository = {
+    code_configuration = {
+    code_configuration_values = {
+    build_command = {{ build_command }}
+    port = {{ port }}
+    runtime = {{ runtime }}
+    runtime_environment_secrets = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    runtime_environment_variables = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    start_command = {{ start_command }}
+}
+    configuration_source = {{ configuration_source }}
+}
+    repository_url = {{ repository_url }}
+    source_code_version = {
+    type = {{ type }}
+    value = {{ value }}
+}
+    source_directory = {{ source_directory }}
+}
+    image_repository = {
+    image_configuration = {
+    port = {{ port }}
+    runtime_environment_secrets = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    runtime_environment_variables = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    start_command = {{ start_command }}
+}
+    image_identifier = {{ image_identifier }}
+    image_repository_type = {{ image_repository_type }}
+}
+}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

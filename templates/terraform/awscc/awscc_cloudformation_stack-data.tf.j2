@@ -1,0 +1,34 @@
+data "awscc_cloudformation_stack" "example" {
+    capabilities = "{{ capabilities }}"
+    change_set_id = "{{ change_set_id }}"
+    creation_time = "{{ creation_time }}"
+    description = "{{ description }}"
+    disable_rollback = "{{ disable_rollback }}"
+    enable_termination_protection = "{{ enable_termination_protection }}"
+    id = "{{ id }}"
+    last_update_time = "{{ last_update_time }}"
+    notification_ar_ns = "{{ notification_ar_ns }}"
+    outputs = "{
+    description = {{ description }}
+    export_name = {{ export_name }}
+    output_key = {{ output_key }}
+    output_value = {{ output_value }}
+}"
+    parameters = "{{ parameters }}"
+    parent_id = "{{ parent_id }}"
+    role_arn = "{{ role_arn }}"
+    root_id = "{{ root_id }}"
+    stack_id = "{{ stack_id }}"
+    stack_name = "{{ stack_name }}"
+    stack_policy_body = "{{ stack_policy_body }}"
+    stack_policy_url = "{{ stack_policy_url }}"
+    stack_status = "{{ stack_status }}"
+    stack_status_reason = "{{ stack_status_reason }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    template_body = "{{ template_body }}"
+    template_url = "{{ template_url }}"
+    timeout_in_minutes = "{{ timeout_in_minutes }}"
+}

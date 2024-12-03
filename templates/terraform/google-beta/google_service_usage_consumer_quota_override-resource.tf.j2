@@ -1,0 +1,11 @@
+resource "google_service_usage_consumer_quota_override" "example" {
+    dimensions = "{{ dimensions }}"
+    force = "{{ force }}"
+    id = "{{ id }}"
+    limit = "{{ limit }}"
+    metric = "{{ metric }}"
+    name = "{{ name }}"
+    override_value = "{{ override_value }}"
+    project = "{{ project }}"
+    service = "{{ service }}"
+}

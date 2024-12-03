@@ -1,0 +1,14 @@
+data "aws_fsx_ontap_storage_virtual_machine" "example" {
+    active_directory_configuration = "{{ active_directory_configuration }}"
+    arn = "{{ arn }}"
+    creation_time = "{{ creation_time }}"
+    endpoints = "{{ endpoints }}"
+    file_system_id = "{{ file_system_id }}"
+    id = "{{ id }}"
+    lifecycle_status = "{{ lifecycle_status }}"
+    lifecycle_transition_reason = "{{ lifecycle_transition_reason }}"
+    name = "{{ name }}"
+    subtype = "{{ subtype }}"
+    tags = "{{ tags }}"
+    uuid = "{{ uuid }}"
+}

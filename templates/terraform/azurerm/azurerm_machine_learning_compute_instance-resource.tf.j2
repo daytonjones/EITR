@@ -1,0 +1,12 @@
+resource "azurerm_machine_learning_compute_instance" "example" {
+    authorization_type = "{{ authorization_type }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    local_auth_enabled = "{{ local_auth_enabled }}"
+    machine_learning_workspace_id = "{{ machine_learning_workspace_id }}"
+    name = "{{ name }}"
+    node_public_ip_enabled = "{{ node_public_ip_enabled }}"
+    subnet_resource_id = "{{ subnet_resource_id }}"
+    tags = "{{ tags }}"
+    virtual_machine_size = "{{ virtual_machine_size }}"
+}

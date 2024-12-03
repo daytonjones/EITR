@@ -1,0 +1,7 @@
+resource "google_compute_backend_service_signed_url_key" "example" {
+    backend_service = "{{ backend_service }}"
+    id = "{{ id }}"
+    key_value = "{{ key_value }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+}

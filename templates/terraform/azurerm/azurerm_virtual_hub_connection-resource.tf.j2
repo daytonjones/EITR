@@ -1,0 +1,7 @@
+resource "azurerm_virtual_hub_connection" "example" {
+    id = "{{ id }}"
+    internet_security_enabled = "{{ internet_security_enabled }}"
+    name = "{{ name }}"
+    remote_virtual_network_id = "{{ remote_virtual_network_id }}"
+    virtual_hub_id = "{{ virtual_hub_id }}"
+}

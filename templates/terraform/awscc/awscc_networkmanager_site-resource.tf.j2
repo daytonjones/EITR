@@ -1,0 +1,18 @@
+resource "awscc_networkmanager_site" "example" {
+    created_at = "{{ created_at }}"
+    description = "{{ description }}"
+    global_network_id = "{{ global_network_id }}"
+    id = "{{ id }}"
+    location = "{
+    address = {{ address }}
+    latitude = {{ latitude }}
+    longitude = {{ longitude }}
+}"
+    site_arn = "{{ site_arn }}"
+    site_id = "{{ site_id }}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

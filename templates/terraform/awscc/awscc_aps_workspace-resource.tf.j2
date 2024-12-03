@@ -1,0 +1,16 @@
+resource "awscc_aps_workspace" "example" {
+    alert_manager_definition = "{{ alert_manager_definition }}"
+    alias = "{{ alias }}"
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    kms_key_arn = "{{ kms_key_arn }}"
+    logging_configuration = "{
+    log_group_arn = {{ log_group_arn }}
+}"
+    prometheus_endpoint = "{{ prometheus_endpoint }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    workspace_id = "{{ workspace_id }}"
+}

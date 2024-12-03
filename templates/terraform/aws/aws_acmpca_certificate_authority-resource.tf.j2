@@ -1,0 +1,17 @@
+resource "aws_acmpca_certificate_authority" "example" {
+    arn = "{{ arn }}"
+    certificate = "{{ certificate }}"
+    certificate_chain = "{{ certificate_chain }}"
+    certificate_signing_request = "{{ certificate_signing_request }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    key_storage_security_standard = "{{ key_storage_security_standard }}"
+    not_after = "{{ not_after }}"
+    not_before = "{{ not_before }}"
+    permanent_deletion_time_in_days = "{{ permanent_deletion_time_in_days }}"
+    serial = "{{ serial }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    type = "{{ type }}"
+    usage_mode = "{{ usage_mode }}"
+}

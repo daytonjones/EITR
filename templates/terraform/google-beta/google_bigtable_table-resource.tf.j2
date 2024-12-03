@@ -1,0 +1,9 @@
+resource "google_bigtable_table" "example" {
+    change_stream_retention = "{{ change_stream_retention }}"
+    deletion_protection = "{{ deletion_protection }}"
+    id = "{{ id }}"
+    instance_name = "{{ instance_name }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    split_keys = "{{ split_keys }}"
+}

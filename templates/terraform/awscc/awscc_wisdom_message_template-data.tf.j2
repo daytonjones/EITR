@@ -1,0 +1,119 @@
+data "awscc_wisdom_message_template" "example" {
+    channel_subtype = "{{ channel_subtype }}"
+    content = "{
+    email_message_template_content = {
+    body = {
+    html = {
+    content = {{ content }}
+}
+    plain_text = {
+    content = {{ content }}
+}
+}
+    headers = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    subject = {{ subject }}
+}
+    sms_message_template_content = {
+    body = {
+    plain_text = {
+    content = {{ content }}
+}
+}
+}
+}"
+    default_attributes = "{
+    agent_attributes = {
+    first_name = {{ first_name }}
+    last_name = {{ last_name }}
+}
+    custom_attributes = {{ custom_attributes }}
+    customer_profile_attributes = {
+    account_number = {{ account_number }}
+    additional_information = {{ additional_information }}
+    address_1 = {{ address_1 }}
+    address_2 = {{ address_2 }}
+    address_3 = {{ address_3 }}
+    address_4 = {{ address_4 }}
+    billing_address_1 = {{ billing_address_1 }}
+    billing_address_2 = {{ billing_address_2 }}
+    billing_address_3 = {{ billing_address_3 }}
+    billing_address_4 = {{ billing_address_4 }}
+    billing_city = {{ billing_city }}
+    billing_country = {{ billing_country }}
+    billing_county = {{ billing_county }}
+    billing_postal_code = {{ billing_postal_code }}
+    billing_province = {{ billing_province }}
+    billing_state = {{ billing_state }}
+    birth_date = {{ birth_date }}
+    business_email_address = {{ business_email_address }}
+    business_name = {{ business_name }}
+    business_phone_number = {{ business_phone_number }}
+    city = {{ city }}
+    country = {{ country }}
+    county = {{ county }}
+    custom = {{ custom }}
+    email_address = {{ email_address }}
+    first_name = {{ first_name }}
+    gender = {{ gender }}
+    home_phone_number = {{ home_phone_number }}
+    last_name = {{ last_name }}
+    mailing_address_1 = {{ mailing_address_1 }}
+    mailing_address_2 = {{ mailing_address_2 }}
+    mailing_address_3 = {{ mailing_address_3 }}
+    mailing_address_4 = {{ mailing_address_4 }}
+    mailing_city = {{ mailing_city }}
+    mailing_country = {{ mailing_country }}
+    mailing_county = {{ mailing_county }}
+    mailing_postal_code = {{ mailing_postal_code }}
+    mailing_province = {{ mailing_province }}
+    mailing_state = {{ mailing_state }}
+    middle_name = {{ middle_name }}
+    mobile_phone_number = {{ mobile_phone_number }}
+    party_type = {{ party_type }}
+    phone_number = {{ phone_number }}
+    postal_code = {{ postal_code }}
+    profile_arn = {{ profile_arn }}
+    profile_id = {{ profile_id }}
+    province = {{ province }}
+    shipping_address_1 = {{ shipping_address_1 }}
+    shipping_address_2 = {{ shipping_address_2 }}
+    shipping_address_3 = {{ shipping_address_3 }}
+    shipping_address_4 = {{ shipping_address_4 }}
+    shipping_city = {{ shipping_city }}
+    shipping_country = {{ shipping_country }}
+    shipping_county = {{ shipping_county }}
+    shipping_postal_code = {{ shipping_postal_code }}
+    shipping_province = {{ shipping_province }}
+    shipping_state = {{ shipping_state }}
+    state = {{ state }}
+}
+    system_attributes = {
+    customer_endpoint = {
+    address = {{ address }}
+}
+    name = {{ name }}
+    system_endpoint = {
+    address = {{ address }}
+}
+}
+}"
+    description = "{{ description }}"
+    grouping_configuration = "{
+    criteria = {{ criteria }}
+    values = {{ values }}
+}"
+    id = "{{ id }}"
+    knowledge_base_arn = "{{ knowledge_base_arn }}"
+    language = "{{ language }}"
+    message_template_arn = "{{ message_template_arn }}"
+    message_template_content_sha_256 = "{{ message_template_content_sha_256 }}"
+    message_template_id = "{{ message_template_id }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

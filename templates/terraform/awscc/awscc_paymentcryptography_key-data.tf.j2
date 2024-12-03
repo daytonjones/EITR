@@ -1,0 +1,29 @@
+data "awscc_paymentcryptography_key" "example" {
+    enabled = "{{ enabled }}"
+    exportable = "{{ exportable }}"
+    id = "{{ id }}"
+    key_attributes = "{
+    key_algorithm = {{ key_algorithm }}
+    key_class = {{ key_class }}
+    key_modes_of_use = {
+    decrypt = {{ decrypt }}
+    derive_key = {{ derive_key }}
+    encrypt = {{ encrypt }}
+    generate = {{ generate }}
+    no_restrictions = {{ no_restrictions }}
+    sign = {{ sign }}
+    unwrap = {{ unwrap }}
+    verify = {{ verify }}
+    wrap = {{ wrap }}
+}
+    key_usage = {{ key_usage }}
+}"
+    key_check_value_algorithm = "{{ key_check_value_algorithm }}"
+    key_identifier = "{{ key_identifier }}"
+    key_origin = "{{ key_origin }}"
+    key_state = "{{ key_state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

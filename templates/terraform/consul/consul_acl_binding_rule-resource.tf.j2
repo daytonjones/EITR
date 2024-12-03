@@ -1,0 +1,10 @@
+resource "consul_acl_binding_rule" "example" {
+    auth_method = "{{ auth_method }}"
+    bind_name = "{{ bind_name }}"
+    bind_type = "{{ bind_type }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    namespace = "{{ namespace }}"
+    partition = "{{ partition }}"
+    selector = "{{ selector }}"
+}

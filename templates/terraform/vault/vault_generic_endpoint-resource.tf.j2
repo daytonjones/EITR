@@ -1,0 +1,12 @@
+resource "vault_generic_endpoint" "example" {
+    data_json = "{{ data_json }}"
+    disable_delete = "{{ disable_delete }}"
+    disable_read = "{{ disable_read }}"
+    id = "{{ id }}"
+    ignore_absent_fields = "{{ ignore_absent_fields }}"
+    namespace = "{{ namespace }}"
+    path = "{{ path }}"
+    write_data = "{{ write_data }}"
+    write_data_json = "{{ write_data_json }}"
+    write_fields = "{{ write_fields }}"
+}

@@ -1,0 +1,11 @@
+resource "aws_rds_integration" "example" {
+    additional_encryption_context = "{{ additional_encryption_context }}"
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    integration_name = "{{ integration_name }}"
+    kms_key_id = "{{ kms_key_id }}"
+    source_arn = "{{ source_arn }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    target_arn = "{{ target_arn }}"
+}

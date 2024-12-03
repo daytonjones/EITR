@@ -1,0 +1,8 @@
+data "hcp_consul_agent_helm_config" "example" {
+    cluster_id = "{{ cluster_id }}"
+    config = "{{ config }}"
+    expose_gossip_ports = "{{ expose_gossip_ports }}"
+    id = "{{ id }}"
+    kubernetes_endpoint = "{{ kubernetes_endpoint }}"
+    project_id = "{{ project_id }}"
+}

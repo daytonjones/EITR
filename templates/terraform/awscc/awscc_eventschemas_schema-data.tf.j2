@@ -1,0 +1,16 @@
+data "awscc_eventschemas_schema" "example" {
+    content = "{{ content }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    last_modified = "{{ last_modified }}"
+    registry_name = "{{ registry_name }}"
+    schema_arn = "{{ schema_arn }}"
+    schema_name = "{{ schema_name }}"
+    schema_version = "{{ schema_version }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+    version_created_date = "{{ version_created_date }}"
+}

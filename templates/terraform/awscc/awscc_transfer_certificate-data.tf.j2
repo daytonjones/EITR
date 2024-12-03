@@ -1,0 +1,21 @@
+data "awscc_transfer_certificate" "example" {
+    active_date = "{{ active_date }}"
+    arn = "{{ arn }}"
+    certificate = "{{ certificate }}"
+    certificate_chain = "{{ certificate_chain }}"
+    certificate_id = "{{ certificate_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    inactive_date = "{{ inactive_date }}"
+    not_after_date = "{{ not_after_date }}"
+    not_before_date = "{{ not_before_date }}"
+    private_key = "{{ private_key }}"
+    serial = "{{ serial }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+    usage = "{{ usage }}"
+}

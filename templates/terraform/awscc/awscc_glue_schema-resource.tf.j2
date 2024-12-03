@@ -1,0 +1,22 @@
+resource "awscc_glue_schema" "example" {
+    arn = "{{ arn }}"
+    checkpoint_version = "{
+    is_latest = {{ is_latest }}
+    version_number = {{ version_number }}
+}"
+    compatibility = "{{ compatibility }}"
+    data_format = "{{ data_format }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    initial_schema_version_id = "{{ initial_schema_version_id }}"
+    name = "{{ name }}"
+    registry = "{
+    arn = {{ arn }}
+    name = {{ name }}
+}"
+    schema_definition = "{{ schema_definition }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

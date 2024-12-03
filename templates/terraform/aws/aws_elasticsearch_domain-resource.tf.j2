@@ -1,0 +1,13 @@
+resource "aws_elasticsearch_domain" "example" {
+    access_policies = "{{ access_policies }}"
+    advanced_options = "{{ advanced_options }}"
+    arn = "{{ arn }}"
+    domain_id = "{{ domain_id }}"
+    domain_name = "{{ domain_name }}"
+    elasticsearch_version = "{{ elasticsearch_version }}"
+    endpoint = "{{ endpoint }}"
+    id = "{{ id }}"
+    kibana_endpoint = "{{ kibana_endpoint }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

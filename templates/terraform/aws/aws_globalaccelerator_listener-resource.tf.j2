@@ -1,0 +1,6 @@
+resource "aws_globalaccelerator_listener" "example" {
+    accelerator_arn = "{{ accelerator_arn }}"
+    client_affinity = "{{ client_affinity }}"
+    id = "{{ id }}"
+    protocol = "{{ protocol }}"
+}

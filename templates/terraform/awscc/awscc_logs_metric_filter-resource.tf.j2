@@ -1,0 +1,17 @@
+resource "awscc_logs_metric_filter" "example" {
+    filter_name = "{{ filter_name }}"
+    filter_pattern = "{{ filter_pattern }}"
+    id = "{{ id }}"
+    log_group_name = "{{ log_group_name }}"
+    metric_transformations = "{
+    default_value = {{ default_value }}
+    dimensions = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    metric_name = {{ metric_name }}
+    metric_namespace = {{ metric_namespace }}
+    metric_value = {{ metric_value }}
+    unit = {{ unit }}
+}"
+}

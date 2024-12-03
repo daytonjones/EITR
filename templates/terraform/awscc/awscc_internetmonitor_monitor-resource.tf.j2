@@ -1,0 +1,42 @@
+resource "awscc_internetmonitor_monitor" "example" {
+    created_at = "{{ created_at }}"
+    health_events_config = "{
+    availability_local_health_events_config = {
+    health_score_threshold = {{ health_score_threshold }}
+    min_traffic_impact = {{ min_traffic_impact }}
+    status = {{ status }}
+}
+    availability_score_threshold = {{ availability_score_threshold }}
+    performance_local_health_events_config = {
+    health_score_threshold = {{ health_score_threshold }}
+    min_traffic_impact = {{ min_traffic_impact }}
+    status = {{ status }}
+}
+    performance_score_threshold = {{ performance_score_threshold }}
+}"
+    id = "{{ id }}"
+    include_linked_accounts = "{{ include_linked_accounts }}"
+    internet_measurements_log_delivery = "{
+    s3_config = {
+    bucket_name = {{ bucket_name }}
+    bucket_prefix = {{ bucket_prefix }}
+    log_delivery_status = {{ log_delivery_status }}
+}
+}"
+    linked_account_id = "{{ linked_account_id }}"
+    max_city_networks_to_monitor = "{{ max_city_networks_to_monitor }}"
+    modified_at = "{{ modified_at }}"
+    monitor_arn = "{{ monitor_arn }}"
+    monitor_name = "{{ monitor_name }}"
+    processing_status = "{{ processing_status }}"
+    processing_status_info = "{{ processing_status_info }}"
+    resources = "{{ resources }}"
+    resources_to_add = "{{ resources_to_add }}"
+    resources_to_remove = "{{ resources_to_remove }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    traffic_percentage_to_monitor = "{{ traffic_percentage_to_monitor }}"
+}

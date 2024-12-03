@@ -1,0 +1,15 @@
+resource "awscc_connect_phone_number" "example" {
+    address = "{{ address }}"
+    country_code = "{{ country_code }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    phone_number_arn = "{{ phone_number_arn }}"
+    prefix = "{{ prefix }}"
+    source_phone_number_arn = "{{ source_phone_number_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    target_arn = "{{ target_arn }}"
+    type = "{{ type }}"
+}

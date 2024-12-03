@@ -1,0 +1,12 @@
+resource "google_bigquery_dataset_access" "example" {
+    api_updated_member = "{{ api_updated_member }}"
+    dataset_id = "{{ dataset_id }}"
+    domain = "{{ domain }}"
+    group_by_email = "{{ group_by_email }}"
+    iam_member = "{{ iam_member }}"
+    id = "{{ id }}"
+    project = "{{ project }}"
+    role = "{{ role }}"
+    special_group = "{{ special_group }}"
+    user_by_email = "{{ user_by_email }}"
+}

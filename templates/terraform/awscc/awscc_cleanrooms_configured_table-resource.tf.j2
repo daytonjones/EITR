@@ -1,0 +1,60 @@
+resource "awscc_cleanrooms_configured_table" "example" {
+    allowed_columns = "{{ allowed_columns }}"
+    analysis_method = "{{ analysis_method }}"
+    analysis_rules = "{
+    policy = {
+    v1 = {
+    aggregation = {
+    additional_analyses = {{ additional_analyses }}
+    aggregate_columns = {
+    column_names = {{ column_names }}
+    function = {{ function }}
+}
+    allowed_join_operators = {{ allowed_join_operators }}
+    dimension_columns = {{ dimension_columns }}
+    join_columns = {{ join_columns }}
+    join_required = {{ join_required }}
+    output_constraints = {
+    column_name = {{ column_name }}
+    minimum = {{ minimum }}
+    type = {{ type }}
+}
+    scalar_functions = {{ scalar_functions }}
+}
+    custom = {
+    additional_analyses = {{ additional_analyses }}
+    allowed_analyses = {{ allowed_analyses }}
+    allowed_analysis_providers = {{ allowed_analysis_providers }}
+    differential_privacy = {
+    columns = {
+    name = {{ name }}
+}
+}
+    disallowed_output_columns = {{ disallowed_output_columns }}
+}
+    list = {
+    additional_analyses = {{ additional_analyses }}
+    allowed_join_operators = {{ allowed_join_operators }}
+    join_columns = {{ join_columns }}
+    list_columns = {{ list_columns }}
+}
+}
+}
+    type = {{ type }}
+}"
+    arn = "{{ arn }}"
+    configured_table_identifier = "{{ configured_table_identifier }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    table_reference = "{
+    glue = {
+    database_name = {{ database_name }}
+    table_name = {{ table_name }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

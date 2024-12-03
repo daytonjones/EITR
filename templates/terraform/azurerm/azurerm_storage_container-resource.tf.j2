@@ -1,0 +1,13 @@
+resource "azurerm_storage_container" "example" {
+    container_access_type = "{{ container_access_type }}"
+    default_encryption_scope = "{{ default_encryption_scope }}"
+    encryption_scope_override_enabled = "{{ encryption_scope_override_enabled }}"
+    has_immutability_policy = "{{ has_immutability_policy }}"
+    has_legal_hold = "{{ has_legal_hold }}"
+    id = "{{ id }}"
+    metadata = "{{ metadata }}"
+    name = "{{ name }}"
+    resource_manager_id = "{{ resource_manager_id }}"
+    storage_account_id = "{{ storage_account_id }}"
+    storage_account_name = "{{ storage_account_name }}"
+}

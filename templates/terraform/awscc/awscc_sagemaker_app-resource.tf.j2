@@ -1,0 +1,18 @@
+resource "awscc_sagemaker_app" "example" {
+    app_arn = "{{ app_arn }}"
+    app_name = "{{ app_name }}"
+    app_type = "{{ app_type }}"
+    domain_id = "{{ domain_id }}"
+    id = "{{ id }}"
+    resource_spec = "{
+    instance_type = {{ instance_type }}
+    lifecycle_config_arn = {{ lifecycle_config_arn }}
+    sage_maker_image_arn = {{ sage_maker_image_arn }}
+    sage_maker_image_version_arn = {{ sage_maker_image_version_arn }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    user_profile_name = "{{ user_profile_name }}"
+}

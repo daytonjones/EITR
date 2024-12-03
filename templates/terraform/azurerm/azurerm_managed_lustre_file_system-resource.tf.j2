@@ -1,0 +1,12 @@
+resource "azurerm_managed_lustre_file_system" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    mgs_address = "{{ mgs_address }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku_name = "{{ sku_name }}"
+    storage_capacity_in_tb = "{{ storage_capacity_in_tb }}"
+    subnet_id = "{{ subnet_id }}"
+    tags = "{{ tags }}"
+    zones = "{{ zones }}"
+}

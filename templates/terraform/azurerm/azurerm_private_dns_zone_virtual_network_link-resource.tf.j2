@@ -1,0 +1,9 @@
+resource "azurerm_private_dns_zone_virtual_network_link" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    private_dns_zone_name = "{{ private_dns_zone_name }}"
+    registration_enabled = "{{ registration_enabled }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    virtual_network_id = "{{ virtual_network_id }}"
+}

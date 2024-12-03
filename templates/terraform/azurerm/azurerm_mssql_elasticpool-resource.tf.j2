@@ -1,0 +1,14 @@
+resource "azurerm_mssql_elasticpool" "example" {
+    enclave_type = "{{ enclave_type }}"
+    id = "{{ id }}"
+    license_type = "{{ license_type }}"
+    location = "{{ location }}"
+    maintenance_configuration_name = "{{ maintenance_configuration_name }}"
+    max_size_bytes = "{{ max_size_bytes }}"
+    max_size_gb = "{{ max_size_gb }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    server_name = "{{ server_name }}"
+    tags = "{{ tags }}"
+    zone_redundant = "{{ zone_redundant }}"
+}

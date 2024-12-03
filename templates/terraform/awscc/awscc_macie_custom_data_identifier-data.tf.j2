@@ -1,0 +1,15 @@
+data "awscc_macie_custom_data_identifier" "example" {
+    arn = "{{ arn }}"
+    custom_data_identifier_id = "{{ custom_data_identifier_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    ignore_words = "{{ ignore_words }}"
+    keywords = "{{ keywords }}"
+    maximum_match_distance = "{{ maximum_match_distance }}"
+    name = "{{ name }}"
+    regex = "{{ regex }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

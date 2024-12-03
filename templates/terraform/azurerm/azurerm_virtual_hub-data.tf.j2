@@ -1,0 +1,12 @@
+data "azurerm_virtual_hub" "example" {
+    address_prefix = "{{ address_prefix }}"
+    default_route_table_id = "{{ default_route_table_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    virtual_router_asn = "{{ virtual_router_asn }}"
+    virtual_router_ips = "{{ virtual_router_ips }}"
+    virtual_wan_id = "{{ virtual_wan_id }}"
+}

@@ -1,0 +1,6 @@
+data "google_sql_database_instance_latest_recovery_time" "example" {
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    latest_recovery_time = "{{ latest_recovery_time }}"
+    project = "{{ project }}"
+}

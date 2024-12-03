@@ -1,0 +1,268 @@
+data "awscc_appflow_flow" "example" {
+    description = "{{ description }}"
+    destination_flow_config_list = "{
+    api_version = {{ api_version }}
+    connector_profile_name = {{ connector_profile_name }}
+    connector_type = {{ connector_type }}
+    destination_connector_properties = {
+    custom_connector = {
+    custom_properties = {{ custom_properties }}
+    entity_name = {{ entity_name }}
+    error_handling_config = {
+    bucket_name = {{ bucket_name }}
+    bucket_prefix = {{ bucket_prefix }}
+    fail_on_first_error = {{ fail_on_first_error }}
+}
+    id_field_names = {{ id_field_names }}
+    write_operation_type = {{ write_operation_type }}
+}
+    event_bridge = {
+    error_handling_config = {
+    bucket_name = {{ bucket_name }}
+    bucket_prefix = {{ bucket_prefix }}
+    fail_on_first_error = {{ fail_on_first_error }}
+}
+    object = {{ object }}
+}
+    lookout_metrics = {
+    object = {{ object }}
+}
+    marketo = {
+    error_handling_config = {
+    bucket_name = {{ bucket_name }}
+    bucket_prefix = {{ bucket_prefix }}
+    fail_on_first_error = {{ fail_on_first_error }}
+}
+    object = {{ object }}
+}
+    redshift = {
+    bucket_prefix = {{ bucket_prefix }}
+    error_handling_config = {
+    bucket_name = {{ bucket_name }}
+    bucket_prefix = {{ bucket_prefix }}
+    fail_on_first_error = {{ fail_on_first_error }}
+}
+    intermediate_bucket_name = {{ intermediate_bucket_name }}
+    object = {{ object }}
+}
+    s3 = {
+    bucket_name = {{ bucket_name }}
+    bucket_prefix = {{ bucket_prefix }}
+    s3_output_format_config = {
+    aggregation_config = {
+    aggregation_type = {{ aggregation_type }}
+    target_file_size = {{ target_file_size }}
+}
+    file_type = {{ file_type }}
+    prefix_config = {
+    path_prefix_hierarchy = {{ path_prefix_hierarchy }}
+    prefix_format = {{ prefix_format }}
+    prefix_type = {{ prefix_type }}
+}
+    preserve_source_data_typing = {{ preserve_source_data_typing }}
+}
+}
+    salesforce = {
+    data_transfer_api = {{ data_transfer_api }}
+    error_handling_config = {
+    bucket_name = {{ bucket_name }}
+    bucket_prefix = {{ bucket_prefix }}
+    fail_on_first_error = {{ fail_on_first_error }}
+}
+    id_field_names = {{ id_field_names }}
+    object = {{ object }}
+    write_operation_type = {{ write_operation_type }}
+}
+    sapo_data = {
+    error_handling_config = {
+    bucket_name = {{ bucket_name }}
+    bucket_prefix = {{ bucket_prefix }}
+    fail_on_first_error = {{ fail_on_first_error }}
+}
+    id_field_names = {{ id_field_names }}
+    object_path = {{ object_path }}
+    success_response_handling_config = {
+    bucket_name = {{ bucket_name }}
+    bucket_prefix = {{ bucket_prefix }}
+}
+    write_operation_type = {{ write_operation_type }}
+}
+    snowflake = {
+    bucket_prefix = {{ bucket_prefix }}
+    error_handling_config = {
+    bucket_name = {{ bucket_name }}
+    bucket_prefix = {{ bucket_prefix }}
+    fail_on_first_error = {{ fail_on_first_error }}
+}
+    intermediate_bucket_name = {{ intermediate_bucket_name }}
+    object = {{ object }}
+}
+    upsolver = {
+    bucket_name = {{ bucket_name }}
+    bucket_prefix = {{ bucket_prefix }}
+    s3_output_format_config = {
+    aggregation_config = {
+    aggregation_type = {{ aggregation_type }}
+    target_file_size = {{ target_file_size }}
+}
+    file_type = {{ file_type }}
+    prefix_config = {
+    path_prefix_hierarchy = {{ path_prefix_hierarchy }}
+    prefix_format = {{ prefix_format }}
+    prefix_type = {{ prefix_type }}
+}
+}
+}
+    zendesk = {
+    error_handling_config = {
+    bucket_name = {{ bucket_name }}
+    bucket_prefix = {{ bucket_prefix }}
+    fail_on_first_error = {{ fail_on_first_error }}
+}
+    id_field_names = {{ id_field_names }}
+    object = {{ object }}
+    write_operation_type = {{ write_operation_type }}
+}
+}
+}"
+    flow_arn = "{{ flow_arn }}"
+    flow_name = "{{ flow_name }}"
+    flow_status = "{{ flow_status }}"
+    id = "{{ id }}"
+    kms_arn = "{{ kms_arn }}"
+    metadata_catalog_config = "{
+    glue_data_catalog = {
+    database_name = {{ database_name }}
+    role_arn = {{ role_arn }}
+    table_prefix = {{ table_prefix }}
+}
+}"
+    source_flow_config = "{
+    api_version = {{ api_version }}
+    connector_profile_name = {{ connector_profile_name }}
+    connector_type = {{ connector_type }}
+    incremental_pull_config = {
+    datetime_type_field_name = {{ datetime_type_field_name }}
+}
+    source_connector_properties = {
+    amplitude = {
+    object = {{ object }}
+}
+    custom_connector = {
+    custom_properties = {{ custom_properties }}
+    data_transfer_api = {
+    name = {{ name }}
+    type = {{ type }}
+}
+    entity_name = {{ entity_name }}
+}
+    datadog = {
+    object = {{ object }}
+}
+    dynatrace = {
+    object = {{ object }}
+}
+    google_analytics = {
+    object = {{ object }}
+}
+    infor_nexus = {
+    object = {{ object }}
+}
+    marketo = {
+    object = {{ object }}
+}
+    pardot = {
+    object = {{ object }}
+}
+    s3 = {
+    bucket_name = {{ bucket_name }}
+    bucket_prefix = {{ bucket_prefix }}
+    s3_input_format_config = {
+    s3_input_file_type = {{ s3_input_file_type }}
+}
+}
+    salesforce = {
+    data_transfer_api = {{ data_transfer_api }}
+    enable_dynamic_field_update = {{ enable_dynamic_field_update }}
+    include_deleted_records = {{ include_deleted_records }}
+    object = {{ object }}
+}
+    sapo_data = {
+    object_path = {{ object_path }}
+    pagination_config = {
+    max_page_size = {{ max_page_size }}
+}
+    parallelism_config = {
+    max_parallelism = {{ max_parallelism }}
+}
+}
+    service_now = {
+    object = {{ object }}
+}
+    singular = {
+    object = {{ object }}
+}
+    slack = {
+    object = {{ object }}
+}
+    trendmicro = {
+    object = {{ object }}
+}
+    veeva = {
+    document_type = {{ document_type }}
+    include_all_versions = {{ include_all_versions }}
+    include_renditions = {{ include_renditions }}
+    include_source_files = {{ include_source_files }}
+    object = {{ object }}
+}
+    zendesk = {
+    object = {{ object }}
+}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    tasks = "{
+    connector_operator = {
+    amplitude = {{ amplitude }}
+    custom_connector = {{ custom_connector }}
+    datadog = {{ datadog }}
+    dynatrace = {{ dynatrace }}
+    google_analytics = {{ google_analytics }}
+    infor_nexus = {{ infor_nexus }}
+    marketo = {{ marketo }}
+    pardot = {{ pardot }}
+    s3 = {{ s3 }}
+    salesforce = {{ salesforce }}
+    sapo_data = {{ sapo_data }}
+    service_now = {{ service_now }}
+    singular = {{ singular }}
+    slack = {{ slack }}
+    trendmicro = {{ trendmicro }}
+    veeva = {{ veeva }}
+    zendesk = {{ zendesk }}
+}
+    destination_field = {{ destination_field }}
+    source_fields = {{ source_fields }}
+    task_properties = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    task_type = {{ task_type }}
+}"
+    trigger_config = "{
+    trigger_properties = {
+    data_pull_mode = {{ data_pull_mode }}
+    first_execution_from = {{ first_execution_from }}
+    flow_error_deactivation_threshold = {{ flow_error_deactivation_threshold }}
+    schedule_end_time = {{ schedule_end_time }}
+    schedule_expression = {{ schedule_expression }}
+    schedule_offset = {{ schedule_offset }}
+    schedule_start_time = {{ schedule_start_time }}
+    time_zone = {{ time_zone }}
+}
+    trigger_type = {{ trigger_type }}
+}"
+}

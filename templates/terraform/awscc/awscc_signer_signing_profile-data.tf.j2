@@ -1,0 +1,16 @@
+data "awscc_signer_signing_profile" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    platform_id = "{{ platform_id }}"
+    profile_name = "{{ profile_name }}"
+    profile_version = "{{ profile_version }}"
+    profile_version_arn = "{{ profile_version_arn }}"
+    signature_validity_period = "{
+    type = {{ type }}
+    value = {{ value }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,6 @@
+data "awscc_cognito_user_pool_user_to_group_attachment" "example" {
+    group_name = "{{ group_name }}"
+    id = "{{ id }}"
+    user_pool_id = "{{ user_pool_id }}"
+    username = "{{ username }}"
+}

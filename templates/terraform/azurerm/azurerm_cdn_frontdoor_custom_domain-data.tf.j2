@@ -1,0 +1,12 @@
+data "azurerm_cdn_frontdoor_custom_domain" "example" {
+    cdn_frontdoor_profile_id = "{{ cdn_frontdoor_profile_id }}"
+    dns_zone_id = "{{ dns_zone_id }}"
+    expiration_date = "{{ expiration_date }}"
+    host_name = "{{ host_name }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    profile_name = "{{ profile_name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tls = "{{ tls }}"
+    validation_token = "{{ validation_token }}"
+}

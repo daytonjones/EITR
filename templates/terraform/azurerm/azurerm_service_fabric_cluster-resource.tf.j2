@@ -1,0 +1,16 @@
+resource "azurerm_service_fabric_cluster" "example" {
+    add_on_features = "{{ add_on_features }}"
+    cluster_code_version = "{{ cluster_code_version }}"
+    cluster_endpoint = "{{ cluster_endpoint }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    management_endpoint = "{{ management_endpoint }}"
+    name = "{{ name }}"
+    reliability_level = "{{ reliability_level }}"
+    resource_group_name = "{{ resource_group_name }}"
+    service_fabric_zonal_upgrade_mode = "{{ service_fabric_zonal_upgrade_mode }}"
+    tags = "{{ tags }}"
+    upgrade_mode = "{{ upgrade_mode }}"
+    vm_image = "{{ vm_image }}"
+    vmss_zonal_upgrade_mode = "{{ vmss_zonal_upgrade_mode }}"
+}

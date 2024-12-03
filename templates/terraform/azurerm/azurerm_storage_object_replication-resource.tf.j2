@@ -1,0 +1,7 @@
+resource "azurerm_storage_object_replication" "example" {
+    destination_object_replication_id = "{{ destination_object_replication_id }}"
+    destination_storage_account_id = "{{ destination_storage_account_id }}"
+    id = "{{ id }}"
+    source_object_replication_id = "{{ source_object_replication_id }}"
+    source_storage_account_id = "{{ source_storage_account_id }}"
+}

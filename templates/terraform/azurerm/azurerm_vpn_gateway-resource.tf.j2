@@ -1,0 +1,11 @@
+resource "azurerm_vpn_gateway" "example" {
+    bgp_route_translation_for_nat_enabled = "{{ bgp_route_translation_for_nat_enabled }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    routing_preference = "{{ routing_preference }}"
+    scale_unit = "{{ scale_unit }}"
+    tags = "{{ tags }}"
+    virtual_hub_id = "{{ virtual_hub_id }}"
+}

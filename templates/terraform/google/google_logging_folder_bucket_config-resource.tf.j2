@@ -1,0 +1,10 @@
+resource "google_logging_folder_bucket_config" "example" {
+    bucket_id = "{{ bucket_id }}"
+    description = "{{ description }}"
+    folder = "{{ folder }}"
+    id = "{{ id }}"
+    lifecycle_state = "{{ lifecycle_state }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    retention_days = "{{ retention_days }}"
+}

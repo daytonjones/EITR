@@ -1,0 +1,11 @@
+resource "vault_raft_autopilot" "example" {
+    cleanup_dead_servers = "{{ cleanup_dead_servers }}"
+    dead_server_last_contact_threshold = "{{ dead_server_last_contact_threshold }}"
+    disable_upgrade_migration = "{{ disable_upgrade_migration }}"
+    id = "{{ id }}"
+    last_contact_threshold = "{{ last_contact_threshold }}"
+    max_trailing_logs = "{{ max_trailing_logs }}"
+    min_quorum = "{{ min_quorum }}"
+    namespace = "{{ namespace }}"
+    server_stabilization_time = "{{ server_stabilization_time }}"
+}

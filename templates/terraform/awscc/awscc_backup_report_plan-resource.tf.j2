@@ -1,0 +1,22 @@
+resource "awscc_backup_report_plan" "example" {
+    id = "{{ id }}"
+    report_delivery_channel = "{
+    formats = {{ formats }}
+    s3_bucket_name = {{ s3_bucket_name }}
+    s3_key_prefix = {{ s3_key_prefix }}
+}"
+    report_plan_arn = "{{ report_plan_arn }}"
+    report_plan_description = "{{ report_plan_description }}"
+    report_plan_name = "{{ report_plan_name }}"
+    report_plan_tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    report_setting = "{
+    accounts = {{ accounts }}
+    framework_arns = {{ framework_arns }}
+    organization_units = {{ organization_units }}
+    regions = {{ regions }}
+    report_template = {{ report_template }}
+}"
+}

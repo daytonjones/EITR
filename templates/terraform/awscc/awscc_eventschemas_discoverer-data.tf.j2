@@ -1,0 +1,13 @@
+data "awscc_eventschemas_discoverer" "example" {
+    cross_account = "{{ cross_account }}"
+    description = "{{ description }}"
+    discoverer_arn = "{{ discoverer_arn }}"
+    discoverer_id = "{{ discoverer_id }}"
+    id = "{{ id }}"
+    source_arn = "{{ source_arn }}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

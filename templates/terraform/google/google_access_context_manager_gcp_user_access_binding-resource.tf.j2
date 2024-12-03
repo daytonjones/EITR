@@ -1,0 +1,7 @@
+resource "google_access_context_manager_gcp_user_access_binding" "example" {
+    access_levels = "{{ access_levels }}"
+    group_key = "{{ group_key }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    organization_id = "{{ organization_id }}"
+}

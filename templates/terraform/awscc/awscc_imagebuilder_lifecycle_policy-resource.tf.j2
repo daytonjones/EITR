@@ -1,0 +1,46 @@
+resource "awscc_imagebuilder_lifecycle_policy" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    execution_role = "{{ execution_role }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    policy_details = "{
+    action = {
+    include_resources = {
+    amis = {{ amis }}
+    containers = {{ containers }}
+    snapshots = {{ snapshots }}
+}
+    type = {{ type }}
+}
+    exclusion_rules = {
+    amis = {
+    is_public = {{ is_public }}
+    last_launched = {
+    unit = {{ unit }}
+    value = {{ value }}
+}
+    regions = {{ regions }}
+    shared_accounts = {{ shared_accounts }}
+    tag_map = {{ tag_map }}
+}
+    tag_map = {{ tag_map }}
+}
+    filter = {
+    retain_at_least = {{ retain_at_least }}
+    type = {{ type }}
+    unit = {{ unit }}
+    value = {{ value }}
+}
+}"
+    resource_selection = "{
+    recipes = {
+    name = {{ name }}
+    semantic_version = {{ semantic_version }}
+}
+    tag_map = {{ tag_map }}
+}"
+    resource_type = "{{ resource_type }}"
+    status = "{{ status }}"
+    tags = "{{ tags }}"
+}

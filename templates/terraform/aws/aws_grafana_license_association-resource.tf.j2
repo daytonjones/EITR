@@ -1,0 +1,8 @@
+resource "aws_grafana_license_association" "example" {
+    free_trial_expiration = "{{ free_trial_expiration }}"
+    grafana_token = "{{ grafana_token }}"
+    id = "{{ id }}"
+    license_expiration = "{{ license_expiration }}"
+    license_type = "{{ license_type }}"
+    workspace_id = "{{ workspace_id }}"
+}

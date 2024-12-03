@@ -1,0 +1,26 @@
+data "awscc_panorama_application_instance" "example" {
+    application_instance_id = "{{ application_instance_id }}"
+    application_instance_id_to_replace = "{{ application_instance_id_to_replace }}"
+    arn = "{{ arn }}"
+    created_time = "{{ created_time }}"
+    default_runtime_context_device = "{{ default_runtime_context_device }}"
+    default_runtime_context_device_name = "{{ default_runtime_context_device_name }}"
+    description = "{{ description }}"
+    health_status = "{{ health_status }}"
+    id = "{{ id }}"
+    last_updated_time = "{{ last_updated_time }}"
+    manifest_overrides_payload = "{
+    payload_data = {{ payload_data }}
+}"
+    manifest_payload = "{
+    payload_data = {{ payload_data }}
+}"
+    name = "{{ name }}"
+    runtime_role_arn = "{{ runtime_role_arn }}"
+    status = "{{ status }}"
+    status_description = "{{ status_description }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,10 @@
+resource "google_logging_organization_bucket_config" "example" {
+    bucket_id = "{{ bucket_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    lifecycle_state = "{{ lifecycle_state }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    organization = "{{ organization }}"
+    retention_days = "{{ retention_days }}"
+}

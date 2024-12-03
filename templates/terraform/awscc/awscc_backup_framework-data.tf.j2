@@ -1,0 +1,28 @@
+data "awscc_backup_framework" "example" {
+    creation_time = "{{ creation_time }}"
+    deployment_status = "{{ deployment_status }}"
+    framework_arn = "{{ framework_arn }}"
+    framework_controls = "{
+    control_input_parameters = {
+    parameter_name = {{ parameter_name }}
+    parameter_value = {{ parameter_value }}
+}
+    control_name = {{ control_name }}
+    control_scope = {
+    compliance_resource_ids = {{ compliance_resource_ids }}
+    compliance_resource_types = {{ compliance_resource_types }}
+    tags = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}
+}"
+    framework_description = "{{ framework_description }}"
+    framework_name = "{{ framework_name }}"
+    framework_status = "{{ framework_status }}"
+    framework_tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    id = "{{ id }}"
+}

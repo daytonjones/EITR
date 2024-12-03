@@ -1,0 +1,10 @@
+resource "google_bigquery_reservation" "example" {
+    concurrency = "{{ concurrency }}"
+    edition = "{{ edition }}"
+    id = "{{ id }}"
+    ignore_idle_slots = "{{ ignore_idle_slots }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    slot_capacity = "{{ slot_capacity }}"
+}

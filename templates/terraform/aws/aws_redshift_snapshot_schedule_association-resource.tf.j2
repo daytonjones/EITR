@@ -1,0 +1,5 @@
+resource "aws_redshift_snapshot_schedule_association" "example" {
+    cluster_identifier = "{{ cluster_identifier }}"
+    id = "{{ id }}"
+    schedule_identifier = "{{ schedule_identifier }}"
+}

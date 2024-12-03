@@ -1,0 +1,8 @@
+resource "aws_backup_selection" "example" {
+    iam_role_arn = "{{ iam_role_arn }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    not_resources = "{{ not_resources }}"
+    plan_id = "{{ plan_id }}"
+    resources = "{{ resources }}"
+}

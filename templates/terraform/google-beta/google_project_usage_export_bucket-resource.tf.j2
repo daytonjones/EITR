@@ -1,0 +1,6 @@
+resource "google_project_usage_export_bucket" "example" {
+    bucket_name = "{{ bucket_name }}"
+    id = "{{ id }}"
+    prefix = "{{ prefix }}"
+    project = "{{ project }}"
+}

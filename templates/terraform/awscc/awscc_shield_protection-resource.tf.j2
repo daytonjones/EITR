@@ -1,0 +1,19 @@
+resource "awscc_shield_protection" "example" {
+    application_layer_automatic_response_configuration = "{
+    action = {
+    block = {{ block }}
+    count = {{ count }}
+}
+    status = {{ status }}
+}"
+    health_check_arns = "{{ health_check_arns }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    protection_arn = "{{ protection_arn }}"
+    protection_id = "{{ protection_id }}"
+    resource_arn = "{{ resource_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,8 @@
+resource "aws_s3_account_public_access_block" "example" {
+    account_id = "{{ account_id }}"
+    block_public_acls = "{{ block_public_acls }}"
+    block_public_policy = "{{ block_public_policy }}"
+    id = "{{ id }}"
+    ignore_public_acls = "{{ ignore_public_acls }}"
+    restrict_public_buckets = "{{ restrict_public_buckets }}"
+}

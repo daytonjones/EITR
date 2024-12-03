@@ -1,0 +1,12 @@
+data "awscc_kafkaconnect_worker_configuration" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    properties_file_content = "{{ properties_file_content }}"
+    revision = "{{ revision }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    worker_configuration_arn = "{{ worker_configuration_arn }}"
+}

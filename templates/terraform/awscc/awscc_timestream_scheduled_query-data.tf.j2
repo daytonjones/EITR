@@ -1,0 +1,67 @@
+data "awscc_timestream_scheduled_query" "example" {
+    arn = "{{ arn }}"
+    client_token = "{{ client_token }}"
+    error_report_configuration = "{
+    s3_configuration = {
+    bucket_name = {{ bucket_name }}
+    encryption_option = {{ encryption_option }}
+    object_key_prefix = {{ object_key_prefix }}
+}
+}"
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    notification_configuration = "{
+    sns_configuration = {
+    topic_arn = {{ topic_arn }}
+}
+}"
+    query_string = "{{ query_string }}"
+    schedule_configuration = "{
+    schedule_expression = {{ schedule_expression }}
+}"
+    scheduled_query_execution_role_arn = "{{ scheduled_query_execution_role_arn }}"
+    scheduled_query_name = "{{ scheduled_query_name }}"
+    sq_error_report_configuration = "{{ sq_error_report_configuration }}"
+    sq_kms_key_id = "{{ sq_kms_key_id }}"
+    sq_name = "{{ sq_name }}"
+    sq_notification_configuration = "{{ sq_notification_configuration }}"
+    sq_query_string = "{{ sq_query_string }}"
+    sq_schedule_configuration = "{{ sq_schedule_configuration }}"
+    sq_scheduled_query_execution_role_arn = "{{ sq_scheduled_query_execution_role_arn }}"
+    sq_target_configuration = "{{ sq_target_configuration }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    target_configuration = "{
+    timestream_configuration = {
+    database_name = {{ database_name }}
+    dimension_mappings = {
+    dimension_value_type = {{ dimension_value_type }}
+    name = {{ name }}
+}
+    measure_name_column = {{ measure_name_column }}
+    mixed_measure_mappings = {
+    measure_name = {{ measure_name }}
+    measure_value_type = {{ measure_value_type }}
+    multi_measure_attribute_mappings = {
+    measure_value_type = {{ measure_value_type }}
+    source_column = {{ source_column }}
+    target_multi_measure_attribute_name = {{ target_multi_measure_attribute_name }}
+}
+    source_column = {{ source_column }}
+    target_measure_name = {{ target_measure_name }}
+}
+    multi_measure_mappings = {
+    multi_measure_attribute_mappings = {
+    measure_value_type = {{ measure_value_type }}
+    source_column = {{ source_column }}
+    target_multi_measure_attribute_name = {{ target_multi_measure_attribute_name }}
+}
+    target_multi_measure_name = {{ target_multi_measure_name }}
+}
+    table_name = {{ table_name }}
+    time_column = {{ time_column }}
+}
+}"
+}

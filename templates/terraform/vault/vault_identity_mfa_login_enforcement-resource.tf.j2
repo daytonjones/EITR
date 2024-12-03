@@ -1,0 +1,13 @@
+resource "vault_identity_mfa_login_enforcement" "example" {
+    auth_method_accessors = "{{ auth_method_accessors }}"
+    auth_method_types = "{{ auth_method_types }}"
+    id = "{{ id }}"
+    identity_entity_ids = "{{ identity_entity_ids }}"
+    identity_group_ids = "{{ identity_group_ids }}"
+    mfa_method_ids = "{{ mfa_method_ids }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    namespace_id = "{{ namespace_id }}"
+    namespace_path = "{{ namespace_path }}"
+    uuid = "{{ uuid }}"
+}

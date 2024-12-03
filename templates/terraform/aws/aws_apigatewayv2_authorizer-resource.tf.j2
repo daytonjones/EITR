@@ -1,0 +1,12 @@
+resource "aws_apigatewayv2_authorizer" "example" {
+    api_id = "{{ api_id }}"
+    authorizer_credentials_arn = "{{ authorizer_credentials_arn }}"
+    authorizer_payload_format_version = "{{ authorizer_payload_format_version }}"
+    authorizer_result_ttl_in_seconds = "{{ authorizer_result_ttl_in_seconds }}"
+    authorizer_type = "{{ authorizer_type }}"
+    authorizer_uri = "{{ authorizer_uri }}"
+    enable_simple_responses = "{{ enable_simple_responses }}"
+    id = "{{ id }}"
+    identity_sources = "{{ identity_sources }}"
+    name = "{{ name }}"
+}

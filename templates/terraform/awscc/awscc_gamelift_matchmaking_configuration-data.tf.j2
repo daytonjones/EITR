@@ -1,0 +1,27 @@
+data "awscc_gamelift_matchmaking_configuration" "example" {
+    acceptance_required = "{{ acceptance_required }}"
+    acceptance_timeout_seconds = "{{ acceptance_timeout_seconds }}"
+    additional_player_count = "{{ additional_player_count }}"
+    arn = "{{ arn }}"
+    backfill_mode = "{{ backfill_mode }}"
+    creation_time = "{{ creation_time }}"
+    custom_event_data = "{{ custom_event_data }}"
+    description = "{{ description }}"
+    flex_match_mode = "{{ flex_match_mode }}"
+    game_properties = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    game_session_data = "{{ game_session_data }}"
+    game_session_queue_arns = "{{ game_session_queue_arns }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    notification_target = "{{ notification_target }}"
+    request_timeout_seconds = "{{ request_timeout_seconds }}"
+    rule_set_arn = "{{ rule_set_arn }}"
+    rule_set_name = "{{ rule_set_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

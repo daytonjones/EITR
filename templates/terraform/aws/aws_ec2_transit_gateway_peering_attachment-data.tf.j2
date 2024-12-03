@@ -1,0 +1,9 @@
+data "aws_ec2_transit_gateway_peering_attachment" "example" {
+    id = "{{ id }}"
+    peer_account_id = "{{ peer_account_id }}"
+    peer_region = "{{ peer_region }}"
+    peer_transit_gateway_id = "{{ peer_transit_gateway_id }}"
+    state = "{{ state }}"
+    tags = "{{ tags }}"
+    transit_gateway_id = "{{ transit_gateway_id }}"
+}

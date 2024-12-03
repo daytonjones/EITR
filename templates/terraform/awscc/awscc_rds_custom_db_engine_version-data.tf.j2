@@ -1,0 +1,19 @@
+data "awscc_rds_custom_db_engine_version" "example" {
+    database_installation_files_s3_bucket_name = "{{ database_installation_files_s3_bucket_name }}"
+    database_installation_files_s3_prefix = "{{ database_installation_files_s3_prefix }}"
+    db_engine_version_arn = "{{ db_engine_version_arn }}"
+    description = "{{ description }}"
+    engine = "{{ engine }}"
+    engine_version = "{{ engine_version }}"
+    id = "{{ id }}"
+    image_id = "{{ image_id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    manifest = "{{ manifest }}"
+    source_custom_db_engine_version_identifier = "{{ source_custom_db_engine_version_identifier }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    use_aws_provided_latest_image = "{{ use_aws_provided_latest_image }}"
+}

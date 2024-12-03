@@ -1,0 +1,14 @@
+resource "aws_cloudhsm_v2_cluster" "example" {
+    cluster_certificates = "{{ cluster_certificates }}"
+    cluster_id = "{{ cluster_id }}"
+    cluster_state = "{{ cluster_state }}"
+    hsm_type = "{{ hsm_type }}"
+    id = "{{ id }}"
+    mode = "{{ mode }}"
+    security_group_id = "{{ security_group_id }}"
+    source_backup_identifier = "{{ source_backup_identifier }}"
+    subnet_ids = "{{ subnet_ids }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    vpc_id = "{{ vpc_id }}"
+}

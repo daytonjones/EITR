@@ -1,0 +1,11 @@
+resource "boundary_worker" "example" {
+    address = "{{ address }}"
+    authorized_actions = "{{ authorized_actions }}"
+    controller_generated_activation_token = "{{ controller_generated_activation_token }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    release_version = "{{ release_version }}"
+    scope_id = "{{ scope_id }}"
+    worker_generated_auth_token = "{{ worker_generated_auth_token }}"
+}

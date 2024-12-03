@@ -1,0 +1,13 @@
+resource "azurerm_dev_center_network_connection" "example" {
+    domain_join_type = "{{ domain_join_type }}"
+    domain_name = "{{ domain_name }}"
+    domain_password = "{{ domain_password }}"
+    domain_username = "{{ domain_username }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    organization_unit = "{{ organization_unit }}"
+    resource_group_name = "{{ resource_group_name }}"
+    subnet_id = "{{ subnet_id }}"
+    tags = "{{ tags }}"
+}

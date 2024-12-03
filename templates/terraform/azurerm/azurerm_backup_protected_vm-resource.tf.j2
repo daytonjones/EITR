@@ -1,0 +1,10 @@
+resource "azurerm_backup_protected_vm" "example" {
+    backup_policy_id = "{{ backup_policy_id }}"
+    exclude_disk_luns = "{{ exclude_disk_luns }}"
+    id = "{{ id }}"
+    include_disk_luns = "{{ include_disk_luns }}"
+    protection_state = "{{ protection_state }}"
+    recovery_vault_name = "{{ recovery_vault_name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    source_vm_id = "{{ source_vm_id }}"
+}

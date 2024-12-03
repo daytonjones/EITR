@@ -1,0 +1,13 @@
+resource "awscc_iotsitewise_project" "example" {
+    asset_ids = "{{ asset_ids }}"
+    id = "{{ id }}"
+    portal_id = "{{ portal_id }}"
+    project_arn = "{{ project_arn }}"
+    project_description = "{{ project_description }}"
+    project_id = "{{ project_id }}"
+    project_name = "{{ project_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,26 @@
+resource "awscc_ivs_recording_configuration" "example" {
+    arn = "{{ arn }}"
+    destination_configuration = "{
+    s3 = {
+    bucket_name = {{ bucket_name }}
+}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    recording_reconnect_window_seconds = "{{ recording_reconnect_window_seconds }}"
+    rendition_configuration = "{
+    rendition_selection = {{ rendition_selection }}
+    renditions = {{ renditions }}
+}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    thumbnail_configuration = "{
+    recording_mode = {{ recording_mode }}
+    resolution = {{ resolution }}
+    storage = {{ storage }}
+    target_interval_seconds = {{ target_interval_seconds }}
+}"
+}

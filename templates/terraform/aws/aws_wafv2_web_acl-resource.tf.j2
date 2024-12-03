@@ -1,0 +1,14 @@
+resource "aws_wafv2_web_acl" "example" {
+    application_integration_url = "{{ application_integration_url }}"
+    arn = "{{ arn }}"
+    capacity = "{{ capacity }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    lock_token = "{{ lock_token }}"
+    name = "{{ name }}"
+    rule_json = "{{ rule_json }}"
+    scope = "{{ scope }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    token_domains = "{{ token_domains }}"
+}

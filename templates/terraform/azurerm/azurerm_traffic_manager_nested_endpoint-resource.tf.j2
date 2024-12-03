@@ -1,0 +1,14 @@
+resource "azurerm_traffic_manager_nested_endpoint" "example" {
+    enabled = "{{ enabled }}"
+    endpoint_location = "{{ endpoint_location }}"
+    geo_mappings = "{{ geo_mappings }}"
+    id = "{{ id }}"
+    minimum_child_endpoints = "{{ minimum_child_endpoints }}"
+    minimum_required_child_endpoints_ipv4 = "{{ minimum_required_child_endpoints_ipv4 }}"
+    minimum_required_child_endpoints_ipv6 = "{{ minimum_required_child_endpoints_ipv6 }}"
+    name = "{{ name }}"
+    priority = "{{ priority }}"
+    profile_id = "{{ profile_id }}"
+    target_resource_id = "{{ target_resource_id }}"
+    weight = "{{ weight }}"
+}

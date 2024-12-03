@@ -1,0 +1,15 @@
+resource "aws_dms_replication_config" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    replication_config_identifier = "{{ replication_config_identifier }}"
+    replication_settings = "{{ replication_settings }}"
+    replication_type = "{{ replication_type }}"
+    resource_identifier = "{{ resource_identifier }}"
+    source_endpoint_arn = "{{ source_endpoint_arn }}"
+    start_replication = "{{ start_replication }}"
+    supplemental_settings = "{{ supplemental_settings }}"
+    table_mappings = "{{ table_mappings }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    target_endpoint_arn = "{{ target_endpoint_arn }}"
+}

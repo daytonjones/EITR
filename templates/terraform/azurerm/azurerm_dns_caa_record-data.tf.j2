@@ -1,0 +1,10 @@
+data "azurerm_dns_caa_record" "example" {
+    fqdn = "{{ fqdn }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    record = "{{ record }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    ttl = "{{ ttl }}"
+    zone_name = "{{ zone_name }}"
+}

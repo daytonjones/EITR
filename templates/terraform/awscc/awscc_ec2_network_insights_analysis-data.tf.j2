@@ -1,0 +1,352 @@
+data "awscc_ec2_network_insights_analysis" "example" {
+    alternate_path_hints = "{
+    component_arn = {{ component_arn }}
+    component_id = {{ component_id }}
+}"
+    explanations = "{
+    acl = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    acl_rule = {
+    cidr = {{ cidr }}
+    egress = {{ egress }}
+    port_range = {
+    from = {{ from }}
+    to = {{ to }}
+}
+    protocol = {{ protocol }}
+    rule_action = {{ rule_action }}
+    rule_number = {{ rule_number }}
+}
+    address = {{ address }}
+    addresses = {{ addresses }}
+    attached_to = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    availability_zones = {{ availability_zones }}
+    cidrs = {{ cidrs }}
+    classic_load_balancer_listener = {
+    instance_port = {{ instance_port }}
+    load_balancer_port = {{ load_balancer_port }}
+}
+    component = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    customer_gateway = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    destination = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    destination_vpc = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    direction = {{ direction }}
+    elastic_load_balancer_listener = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    explanation_code = {{ explanation_code }}
+    ingress_route_table = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    internet_gateway = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    load_balancer_arn = {{ load_balancer_arn }}
+    load_balancer_listener_port = {{ load_balancer_listener_port }}
+    load_balancer_target = {
+    address = {{ address }}
+    availability_zone = {{ availability_zone }}
+    instance = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    port = {{ port }}
+}
+    load_balancer_target_group = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    load_balancer_target_groups = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    load_balancer_target_port = {{ load_balancer_target_port }}
+    missing_component = {{ missing_component }}
+    nat_gateway = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    network_interface = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    packet_field = {{ packet_field }}
+    port = {{ port }}
+    port_ranges = {
+    from = {{ from }}
+    to = {{ to }}
+}
+    prefix_list = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    protocols = {{ protocols }}
+    route_table = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    route_table_route = {
+    destination_cidr = {{ destination_cidr }}
+    destination_prefix_list_id = {{ destination_prefix_list_id }}
+    egress_only_internet_gateway_id = {{ egress_only_internet_gateway_id }}
+    gateway_id = {{ gateway_id }}
+    instance_id = {{ instance_id }}
+    nat_gateway_id = {{ nat_gateway_id }}
+    network_interface_id = {{ network_interface_id }}
+    origin = {{ origin }}
+    transit_gateway_id = {{ transit_gateway_id }}
+    vpc_peering_connection_id = {{ vpc_peering_connection_id }}
+}
+    security_group = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    security_group_rule = {
+    cidr = {{ cidr }}
+    direction = {{ direction }}
+    port_range = {
+    from = {{ from }}
+    to = {{ to }}
+}
+    prefix_list_id = {{ prefix_list_id }}
+    protocol = {{ protocol }}
+    security_group_id = {{ security_group_id }}
+}
+    security_groups = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    source_vpc = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    state = {{ state }}
+    subnet = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    subnet_route_table = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    vpc = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    vpc_endpoint = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    vpc_peering_connection = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    vpn_connection = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    vpn_gateway = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+}"
+    filter_in_arns = "{{ filter_in_arns }}"
+    forward_path_components = "{
+    acl_rule = {
+    cidr = {{ cidr }}
+    egress = {{ egress }}
+    port_range = {
+    from = {{ from }}
+    to = {{ to }}
+}
+    protocol = {{ protocol }}
+    rule_action = {{ rule_action }}
+    rule_number = {{ rule_number }}
+}
+    component = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    destination_vpc = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    inbound_header = {
+    destination_addresses = {{ destination_addresses }}
+    destination_port_ranges = {
+    from = {{ from }}
+    to = {{ to }}
+}
+    protocol = {{ protocol }}
+    source_addresses = {{ source_addresses }}
+    source_port_ranges = {
+    from = {{ from }}
+    to = {{ to }}
+}
+}
+    outbound_header = {
+    destination_addresses = {{ destination_addresses }}
+    destination_port_ranges = {
+    from = {{ from }}
+    to = {{ to }}
+}
+    protocol = {{ protocol }}
+    source_addresses = {{ source_addresses }}
+    source_port_ranges = {
+    from = {{ from }}
+    to = {{ to }}
+}
+}
+    route_table_route = {
+    destination_cidr = {{ destination_cidr }}
+    destination_prefix_list_id = {{ destination_prefix_list_id }}
+    egress_only_internet_gateway_id = {{ egress_only_internet_gateway_id }}
+    gateway_id = {{ gateway_id }}
+    instance_id = {{ instance_id }}
+    nat_gateway_id = {{ nat_gateway_id }}
+    network_interface_id = {{ network_interface_id }}
+    origin = {{ origin }}
+    transit_gateway_id = {{ transit_gateway_id }}
+    vpc_peering_connection_id = {{ vpc_peering_connection_id }}
+}
+    security_group_rule = {
+    cidr = {{ cidr }}
+    direction = {{ direction }}
+    port_range = {
+    from = {{ from }}
+    to = {{ to }}
+}
+    prefix_list_id = {{ prefix_list_id }}
+    protocol = {{ protocol }}
+    security_group_id = {{ security_group_id }}
+}
+    sequence_number = {{ sequence_number }}
+    source_vpc = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    subnet = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    vpc = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+}"
+    id = "{{ id }}"
+    network_insights_analysis_arn = "{{ network_insights_analysis_arn }}"
+    network_insights_analysis_id = "{{ network_insights_analysis_id }}"
+    network_insights_path_id = "{{ network_insights_path_id }}"
+    network_path_found = "{{ network_path_found }}"
+    return_path_components = "{
+    acl_rule = {
+    cidr = {{ cidr }}
+    egress = {{ egress }}
+    port_range = {
+    from = {{ from }}
+    to = {{ to }}
+}
+    protocol = {{ protocol }}
+    rule_action = {{ rule_action }}
+    rule_number = {{ rule_number }}
+}
+    component = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    destination_vpc = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    inbound_header = {
+    destination_addresses = {{ destination_addresses }}
+    destination_port_ranges = {
+    from = {{ from }}
+    to = {{ to }}
+}
+    protocol = {{ protocol }}
+    source_addresses = {{ source_addresses }}
+    source_port_ranges = {
+    from = {{ from }}
+    to = {{ to }}
+}
+}
+    outbound_header = {
+    destination_addresses = {{ destination_addresses }}
+    destination_port_ranges = {
+    from = {{ from }}
+    to = {{ to }}
+}
+    protocol = {{ protocol }}
+    source_addresses = {{ source_addresses }}
+    source_port_ranges = {
+    from = {{ from }}
+    to = {{ to }}
+}
+}
+    route_table_route = {
+    destination_cidr = {{ destination_cidr }}
+    destination_prefix_list_id = {{ destination_prefix_list_id }}
+    egress_only_internet_gateway_id = {{ egress_only_internet_gateway_id }}
+    gateway_id = {{ gateway_id }}
+    instance_id = {{ instance_id }}
+    nat_gateway_id = {{ nat_gateway_id }}
+    network_interface_id = {{ network_interface_id }}
+    origin = {{ origin }}
+    transit_gateway_id = {{ transit_gateway_id }}
+    vpc_peering_connection_id = {{ vpc_peering_connection_id }}
+}
+    security_group_rule = {
+    cidr = {{ cidr }}
+    direction = {{ direction }}
+    port_range = {
+    from = {{ from }}
+    to = {{ to }}
+}
+    prefix_list_id = {{ prefix_list_id }}
+    protocol = {{ protocol }}
+    security_group_id = {{ security_group_id }}
+}
+    sequence_number = {{ sequence_number }}
+    source_vpc = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    subnet = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+    vpc = {
+    arn = {{ arn }}
+    id = {{ id }}
+}
+}"
+    start_date = "{{ start_date }}"
+    status = "{{ status }}"
+    status_message = "{{ status_message }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

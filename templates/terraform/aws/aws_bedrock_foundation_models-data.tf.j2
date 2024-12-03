@@ -1,0 +1,8 @@
+data "aws_bedrock_foundation_models" "example" {
+    by_customization_type = "{{ by_customization_type }}"
+    by_inference_type = "{{ by_inference_type }}"
+    by_output_modality = "{{ by_output_modality }}"
+    by_provider = "{{ by_provider }}"
+    id = "{{ id }}"
+    model_summaries = "{{ model_summaries }}"
+}

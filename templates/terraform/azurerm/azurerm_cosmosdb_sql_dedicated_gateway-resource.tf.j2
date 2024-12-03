@@ -1,0 +1,6 @@
+resource "azurerm_cosmosdb_sql_dedicated_gateway" "example" {
+    cosmosdb_account_id = "{{ cosmosdb_account_id }}"
+    id = "{{ id }}"
+    instance_count = "{{ instance_count }}"
+    instance_size = "{{ instance_size }}"
+}

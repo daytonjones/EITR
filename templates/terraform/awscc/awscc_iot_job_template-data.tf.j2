@@ -1,0 +1,50 @@
+data "awscc_iot_job_template" "example" {
+    abort_config = "{
+    criteria_list = {
+    action = {{ action }}
+    failure_type = {{ failure_type }}
+    min_number_of_executed_things = {{ min_number_of_executed_things }}
+    threshold_percentage = {{ threshold_percentage }}
+}
+}"
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    destination_package_versions = "{{ destination_package_versions }}"
+    document = "{{ document }}"
+    document_source = "{{ document_source }}"
+    id = "{{ id }}"
+    job_arn = "{{ job_arn }}"
+    job_executions_retry_config = "{
+    retry_criteria_list = {
+    failure_type = {{ failure_type }}
+    number_of_retries = {{ number_of_retries }}
+}
+}"
+    job_executions_rollout_config = "{
+    exponential_rollout_rate = {
+    base_rate_per_minute = {{ base_rate_per_minute }}
+    increment_factor = {{ increment_factor }}
+    rate_increase_criteria = {
+    number_of_notified_things = {{ number_of_notified_things }}
+    number_of_succeeded_things = {{ number_of_succeeded_things }}
+}
+}
+    maximum_per_minute = {{ maximum_per_minute }}
+}"
+    job_template_id = "{{ job_template_id }}"
+    maintenance_windows = "{
+    duration_in_minutes = {{ duration_in_minutes }}
+    start_time = {{ start_time }}
+}"
+    presigned_url_config = "{
+    expires_in_sec = {{ expires_in_sec }}
+    role_arn = {{ role_arn }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    timeout_config = "{
+    in_progress_timeout_in_minutes = {{ in_progress_timeout_in_minutes }}
+}"
+}

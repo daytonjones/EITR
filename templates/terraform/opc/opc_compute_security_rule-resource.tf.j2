@@ -1,0 +1,15 @@
+resource "opc_compute_security_rule" "example" {
+    acl = "{{ acl }}"
+    description = "{{ description }}"
+    dst_ip_address_prefixes = "{{ dst_ip_address_prefixes }}"
+    dst_vnic_set = "{{ dst_vnic_set }}"
+    enabled = "{{ enabled }}"
+    flow_direction = "{{ flow_direction }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    security_protocols = "{{ security_protocols }}"
+    src_ip_address_prefixes = "{{ src_ip_address_prefixes }}"
+    src_vnic_set = "{{ src_vnic_set }}"
+    tags = "{{ tags }}"
+    uri = "{{ uri }}"
+}

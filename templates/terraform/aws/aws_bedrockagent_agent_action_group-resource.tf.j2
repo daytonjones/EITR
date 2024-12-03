@@ -1,0 +1,12 @@
+resource "aws_bedrockagent_agent_action_group" "example" {
+    action_group_id = "{{ action_group_id }}"
+    action_group_name = "{{ action_group_name }}"
+    action_group_state = "{{ action_group_state }}"
+    agent_id = "{{ agent_id }}"
+    agent_version = "{{ agent_version }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    parent_action_group_signature = "{{ parent_action_group_signature }}"
+    prepare_agent = "{{ prepare_agent }}"
+    skip_resource_in_use_check = "{{ skip_resource_in_use_check }}"
+}

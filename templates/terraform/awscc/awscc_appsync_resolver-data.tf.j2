@@ -1,0 +1,35 @@
+data "awscc_appsync_resolver" "example" {
+    api_id = "{{ api_id }}"
+    caching_config = "{
+    caching_keys = {{ caching_keys }}
+    ttl = {{ ttl }}
+}"
+    code = "{{ code }}"
+    code_s3_location = "{{ code_s3_location }}"
+    data_source_name = "{{ data_source_name }}"
+    field_name = "{{ field_name }}"
+    id = "{{ id }}"
+    kind = "{{ kind }}"
+    max_batch_size = "{{ max_batch_size }}"
+    metrics_config = "{{ metrics_config }}"
+    pipeline_config = "{
+    functions = {{ functions }}
+}"
+    request_mapping_template = "{{ request_mapping_template }}"
+    request_mapping_template_s3_location = "{{ request_mapping_template_s3_location }}"
+    resolver_arn = "{{ resolver_arn }}"
+    response_mapping_template = "{{ response_mapping_template }}"
+    response_mapping_template_s3_location = "{{ response_mapping_template_s3_location }}"
+    runtime = "{
+    name = {{ name }}
+    runtime_version = {{ runtime_version }}
+}"
+    sync_config = "{
+    conflict_detection = {{ conflict_detection }}
+    conflict_handler = {{ conflict_handler }}
+    lambda_conflict_handler_config = {
+    lambda_conflict_handler_arn = {{ lambda_conflict_handler_arn }}
+}
+}"
+    type_name = "{{ type_name }}"
+}

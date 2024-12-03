@@ -1,0 +1,20 @@
+data "awscc_networkmanager_link" "example" {
+    bandwidth = "{
+    download_speed = {{ download_speed }}
+    upload_speed = {{ upload_speed }}
+}"
+    created_at = "{{ created_at }}"
+    description = "{{ description }}"
+    global_network_id = "{{ global_network_id }}"
+    id = "{{ id }}"
+    link_arn = "{{ link_arn }}"
+    link_id = "{{ link_id }}"
+    provider_name = "{{ provider_name }}"
+    site_id = "{{ site_id }}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+}

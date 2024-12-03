@@ -1,0 +1,7 @@
+data "google_compute_machine_types" "example" {
+    filter = "{{ filter }}"
+    id = "{{ id }}"
+    machine_types = "{{ machine_types }}"
+    project = "{{ project }}"
+    zone = "{{ zone }}"
+}

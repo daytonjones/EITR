@@ -1,0 +1,9 @@
+data "azurestack_route_table" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    route = "{{ route }}"
+    subnets = "{{ subnets }}"
+    tags = "{{ tags }}"
+}

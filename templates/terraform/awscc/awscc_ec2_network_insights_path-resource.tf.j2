@@ -1,0 +1,42 @@
+resource "awscc_ec2_network_insights_path" "example" {
+    created_date = "{{ created_date }}"
+    destination = "{{ destination }}"
+    destination_arn = "{{ destination_arn }}"
+    destination_ip = "{{ destination_ip }}"
+    destination_port = "{{ destination_port }}"
+    filter_at_destination = "{
+    destination_address = {{ destination_address }}
+    destination_port_range = {
+    from_port = {{ from_port }}
+    to_port = {{ to_port }}
+}
+    source_address = {{ source_address }}
+    source_port_range = {
+    from_port = {{ from_port }}
+    to_port = {{ to_port }}
+}
+}"
+    filter_at_source = "{
+    destination_address = {{ destination_address }}
+    destination_port_range = {
+    from_port = {{ from_port }}
+    to_port = {{ to_port }}
+}
+    source_address = {{ source_address }}
+    source_port_range = {
+    from_port = {{ from_port }}
+    to_port = {{ to_port }}
+}
+}"
+    id = "{{ id }}"
+    network_insights_path_arn = "{{ network_insights_path_arn }}"
+    network_insights_path_id = "{{ network_insights_path_id }}"
+    protocol = "{{ protocol }}"
+    source = "{{ source }}"
+    source_arn = "{{ source_arn }}"
+    source_ip = "{{ source_ip }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

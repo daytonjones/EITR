@@ -1,0 +1,8 @@
+resource "aws_directory_service_region" "example" {
+    desired_number_of_domain_controllers = "{{ desired_number_of_domain_controllers }}"
+    directory_id = "{{ directory_id }}"
+    id = "{{ id }}"
+    region_name = "{{ region_name }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

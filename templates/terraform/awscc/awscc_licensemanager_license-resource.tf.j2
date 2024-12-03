@@ -1,0 +1,41 @@
+resource "awscc_licensemanager_license" "example" {
+    beneficiary = "{{ beneficiary }}"
+    consumption_configuration = "{
+    borrow_configuration = {
+    allow_early_check_in = {{ allow_early_check_in }}
+    max_time_to_live_in_minutes = {{ max_time_to_live_in_minutes }}
+}
+    provisional_configuration = {
+    max_time_to_live_in_minutes = {{ max_time_to_live_in_minutes }}
+}
+    renew_type = {{ renew_type }}
+}"
+    entitlements = "{
+    allow_check_in = {{ allow_check_in }}
+    max_count = {{ max_count }}
+    name = {{ name }}
+    overage = {{ overage }}
+    unit = {{ unit }}
+    value = {{ value }}
+}"
+    home_region = "{{ home_region }}"
+    id = "{{ id }}"
+    issuer = "{
+    name = {{ name }}
+    sign_key = {{ sign_key }}
+}"
+    license_arn = "{{ license_arn }}"
+    license_metadata = "{
+    name = {{ name }}
+    value = {{ value }}
+}"
+    license_name = "{{ license_name }}"
+    product_name = "{{ product_name }}"
+    product_sku = "{{ product_sku }}"
+    status = "{{ status }}"
+    validity = "{
+    begin = {{ begin }}
+    end = {{ end }}
+}"
+    version = "{{ version }}"
+}

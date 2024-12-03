@@ -1,0 +1,14 @@
+resource "awscc_billingconductor_pricing_plan" "example" {
+    arn = "{{ arn }}"
+    creation_time = "{{ creation_time }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    last_modified_time = "{{ last_modified_time }}"
+    name = "{{ name }}"
+    pricing_rule_arns = "{{ pricing_rule_arns }}"
+    size = "{{ size }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

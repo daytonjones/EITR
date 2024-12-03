@@ -1,0 +1,13 @@
+data "azurerm_log_analytics_workspace" "example" {
+    daily_quota_gb = "{{ daily_quota_gb }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    primary_shared_key = "{{ primary_shared_key }}"
+    resource_group_name = "{{ resource_group_name }}"
+    retention_in_days = "{{ retention_in_days }}"
+    secondary_shared_key = "{{ secondary_shared_key }}"
+    sku = "{{ sku }}"
+    tags = "{{ tags }}"
+    workspace_id = "{{ workspace_id }}"
+}

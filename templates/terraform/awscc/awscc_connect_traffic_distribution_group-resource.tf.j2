@@ -1,0 +1,13 @@
+resource "awscc_connect_traffic_distribution_group" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    instance_arn = "{{ instance_arn }}"
+    is_default = "{{ is_default }}"
+    name = "{{ name }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    traffic_distribution_group_arn = "{{ traffic_distribution_group_arn }}"
+}

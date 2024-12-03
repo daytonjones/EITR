@@ -1,0 +1,16 @@
+resource "azurerm_stack_hci_virtual_hard_disk" "example" {
+    block_size_in_bytes = "{{ block_size_in_bytes }}"
+    custom_location_id = "{{ custom_location_id }}"
+    disk_file_format = "{{ disk_file_format }}"
+    disk_size_in_gb = "{{ disk_size_in_gb }}"
+    dynamic_enabled = "{{ dynamic_enabled }}"
+    hyperv_generation = "{{ hyperv_generation }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    logical_sector_in_bytes = "{{ logical_sector_in_bytes }}"
+    name = "{{ name }}"
+    physical_sector_in_bytes = "{{ physical_sector_in_bytes }}"
+    resource_group_name = "{{ resource_group_name }}"
+    storage_path_id = "{{ storage_path_id }}"
+    tags = "{{ tags }}"
+}

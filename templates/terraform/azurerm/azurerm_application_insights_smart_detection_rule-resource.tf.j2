@@ -1,0 +1,8 @@
+resource "azurerm_application_insights_smart_detection_rule" "example" {
+    additional_email_recipients = "{{ additional_email_recipients }}"
+    application_insights_id = "{{ application_insights_id }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    send_emails_to_subscription_owners = "{{ send_emails_to_subscription_owners }}"
+}

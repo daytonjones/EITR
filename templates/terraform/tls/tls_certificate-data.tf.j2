@@ -1,0 +1,7 @@
+data "tls_certificate" "example" {
+    certificates = "{{ certificates }}"
+    content = "{{ content }}"
+    id = "{{ id }}"
+    url = "{{ url }}"
+    verify_chain = "{{ verify_chain }}"
+}

@@ -1,0 +1,9 @@
+resource "azurerm_spring_cloud_java_deployment" "example" {
+    environment_variables = "{{ environment_variables }}"
+    id = "{{ id }}"
+    instance_count = "{{ instance_count }}"
+    jvm_options = "{{ jvm_options }}"
+    name = "{{ name }}"
+    runtime_version = "{{ runtime_version }}"
+    spring_cloud_app_id = "{{ spring_cloud_app_id }}"
+}

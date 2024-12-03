@@ -1,0 +1,15 @@
+resource "awscc_lakeformation_data_cells_filter" "example" {
+    column_names = "{{ column_names }}"
+    column_wildcard = "{
+    excluded_column_names = {{ excluded_column_names }}
+}"
+    database_name = "{{ database_name }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    row_filter = "{
+    all_rows_wildcard = {{ all_rows_wildcard }}
+    filter_expression = {{ filter_expression }}
+}"
+    table_catalog_id = "{{ table_catalog_id }}"
+    table_name = "{{ table_name }}"
+}

@@ -1,0 +1,7 @@
+data "consul_catalog_services" "example" {
+    datacenter = "{{ datacenter }}"
+    id = "{{ id }}"
+    names = "{{ names }}"
+    services = "{{ services }}"
+    tags = "{{ tags }}"
+}

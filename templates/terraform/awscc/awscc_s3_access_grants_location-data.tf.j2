@@ -1,0 +1,11 @@
+data "awscc_s3_access_grants_location" "example" {
+    access_grants_location_arn = "{{ access_grants_location_arn }}"
+    access_grants_location_id = "{{ access_grants_location_id }}"
+    iam_role_arn = "{{ iam_role_arn }}"
+    id = "{{ id }}"
+    location_scope = "{{ location_scope }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

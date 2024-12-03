@@ -1,0 +1,79 @@
+data "awscc_qbusiness_data_source" "example" {
+    application_id = "{{ application_id }}"
+    configuration = "{{ configuration }}"
+    created_at = "{{ created_at }}"
+    data_source_arn = "{{ data_source_arn }}"
+    data_source_id = "{{ data_source_id }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    document_enrichment_configuration = "{
+    inline_configurations = {
+    condition = {
+    key = {{ key }}
+    operator = {{ operator }}
+    value = {
+    date_value = {{ date_value }}
+    long_value = {{ long_value }}
+    string_list_value = {{ string_list_value }}
+    string_value = {{ string_value }}
+}
+}
+    document_content_operator = {{ document_content_operator }}
+    target = {
+    attribute_value_operator = {{ attribute_value_operator }}
+    key = {{ key }}
+    value = {
+    date_value = {{ date_value }}
+    long_value = {{ long_value }}
+    string_list_value = {{ string_list_value }}
+    string_value = {{ string_value }}
+}
+}
+}
+    post_extraction_hook_configuration = {
+    invocation_condition = {
+    key = {{ key }}
+    operator = {{ operator }}
+    value = {
+    date_value = {{ date_value }}
+    long_value = {{ long_value }}
+    string_list_value = {{ string_list_value }}
+    string_value = {{ string_value }}
+}
+}
+    lambda_arn = {{ lambda_arn }}
+    role_arn = {{ role_arn }}
+    s3_bucket_name = {{ s3_bucket_name }}
+}
+    pre_extraction_hook_configuration = {
+    invocation_condition = {
+    key = {{ key }}
+    operator = {{ operator }}
+    value = {
+    date_value = {{ date_value }}
+    long_value = {{ long_value }}
+    string_list_value = {{ string_list_value }}
+    string_value = {{ string_value }}
+}
+}
+    lambda_arn = {{ lambda_arn }}
+    role_arn = {{ role_arn }}
+    s3_bucket_name = {{ s3_bucket_name }}
+}
+}"
+    id = "{{ id }}"
+    index_id = "{{ index_id }}"
+    role_arn = "{{ role_arn }}"
+    status = "{{ status }}"
+    sync_schedule = "{{ sync_schedule }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+    updated_at = "{{ updated_at }}"
+    vpc_configuration = "{
+    security_group_ids = {{ security_group_ids }}
+    subnet_ids = {{ subnet_ids }}
+}"
+}

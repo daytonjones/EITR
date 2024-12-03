@@ -1,0 +1,17 @@
+data "awscc_personalize_dataset" "example" {
+    dataset_arn = "{{ dataset_arn }}"
+    dataset_group_arn = "{{ dataset_group_arn }}"
+    dataset_import_job = "{
+    data_source = {
+    data_location = {{ data_location }}
+}
+    dataset_arn = {{ dataset_arn }}
+    dataset_import_job_arn = {{ dataset_import_job_arn }}
+    job_name = {{ job_name }}
+    role_arn = {{ role_arn }}
+}"
+    dataset_type = "{{ dataset_type }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    schema_arn = "{{ schema_arn }}"
+}

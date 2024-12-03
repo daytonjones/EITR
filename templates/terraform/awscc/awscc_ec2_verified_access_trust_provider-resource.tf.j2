@@ -1,0 +1,32 @@
+resource "awscc_ec2_verified_access_trust_provider" "example" {
+    creation_time = "{{ creation_time }}"
+    description = "{{ description }}"
+    device_options = "{
+    public_signing_key_url = {{ public_signing_key_url }}
+    tenant_id = {{ tenant_id }}
+}"
+    device_trust_provider_type = "{{ device_trust_provider_type }}"
+    id = "{{ id }}"
+    last_updated_time = "{{ last_updated_time }}"
+    oidc_options = "{
+    authorization_endpoint = {{ authorization_endpoint }}
+    client_id = {{ client_id }}
+    client_secret = {{ client_secret }}
+    issuer = {{ issuer }}
+    scope = {{ scope }}
+    token_endpoint = {{ token_endpoint }}
+    user_info_endpoint = {{ user_info_endpoint }}
+}"
+    policy_reference_name = "{{ policy_reference_name }}"
+    sse_specification = "{
+    customer_managed_key_enabled = {{ customer_managed_key_enabled }}
+    kms_key_arn = {{ kms_key_arn }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    trust_provider_type = "{{ trust_provider_type }}"
+    user_trust_provider_type = "{{ user_trust_provider_type }}"
+    verified_access_trust_provider_id = "{{ verified_access_trust_provider_id }}"
+}

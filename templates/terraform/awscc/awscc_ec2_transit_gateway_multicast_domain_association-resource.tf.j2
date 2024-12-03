@@ -1,0 +1,9 @@
+resource "awscc_ec2_transit_gateway_multicast_domain_association" "example" {
+    id = "{{ id }}"
+    resource_id = "{{ resource_id }}"
+    resource_type = "{{ resource_type }}"
+    state = "{{ state }}"
+    subnet_id = "{{ subnet_id }}"
+    transit_gateway_attachment_id = "{{ transit_gateway_attachment_id }}"
+    transit_gateway_multicast_domain_id = "{{ transit_gateway_multicast_domain_id }}"
+}

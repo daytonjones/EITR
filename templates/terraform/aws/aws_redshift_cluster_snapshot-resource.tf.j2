@@ -1,0 +1,11 @@
+resource "aws_redshift_cluster_snapshot" "example" {
+    arn = "{{ arn }}"
+    cluster_identifier = "{{ cluster_identifier }}"
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    manual_snapshot_retention_period = "{{ manual_snapshot_retention_period }}"
+    owner_account = "{{ owner_account }}"
+    snapshot_identifier = "{{ snapshot_identifier }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

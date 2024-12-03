@@ -1,0 +1,12 @@
+resource "azurerm_monitor_alert_prometheus_rule_group" "example" {
+    cluster_name = "{{ cluster_name }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    interval = "{{ interval }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    rule_group_enabled = "{{ rule_group_enabled }}"
+    scopes = "{{ scopes }}"
+    tags = "{{ tags }}"
+}

@@ -1,0 +1,14 @@
+resource "aws_comprehend_document_classifier" "example" {
+    arn = "{{ arn }}"
+    data_access_role_arn = "{{ data_access_role_arn }}"
+    id = "{{ id }}"
+    language_code = "{{ language_code }}"
+    mode = "{{ mode }}"
+    model_kms_key_id = "{{ model_kms_key_id }}"
+    name = "{{ name }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    version_name = "{{ version_name }}"
+    version_name_prefix = "{{ version_name_prefix }}"
+    volume_kms_key_id = "{{ volume_kms_key_id }}"
+}

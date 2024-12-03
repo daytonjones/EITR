@@ -1,0 +1,27 @@
+data "awscc_sns_topic" "example" {
+    archive_policy = "{{ archive_policy }}"
+    content_based_deduplication = "{{ content_based_deduplication }}"
+    data_protection_policy = "{{ data_protection_policy }}"
+    delivery_status_logging = "{
+    failure_feedback_role_arn = {{ failure_feedback_role_arn }}
+    protocol = {{ protocol }}
+    success_feedback_role_arn = {{ success_feedback_role_arn }}
+    success_feedback_sample_rate = {{ success_feedback_sample_rate }}
+}"
+    display_name = "{{ display_name }}"
+    fifo_topic = "{{ fifo_topic }}"
+    id = "{{ id }}"
+    kms_master_key_id = "{{ kms_master_key_id }}"
+    signature_version = "{{ signature_version }}"
+    subscription = "{
+    endpoint = {{ endpoint }}
+    protocol = {{ protocol }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    topic_arn = "{{ topic_arn }}"
+    topic_name = "{{ topic_name }}"
+    tracing_config = "{{ tracing_config }}"
+}

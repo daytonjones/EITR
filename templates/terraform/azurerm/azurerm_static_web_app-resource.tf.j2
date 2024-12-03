@@ -1,0 +1,15 @@
+resource "azurerm_static_web_app" "example" {
+    api_key = "{{ api_key }}"
+    app_settings = "{{ app_settings }}"
+    configuration_file_changes_enabled = "{{ configuration_file_changes_enabled }}"
+    default_host_name = "{{ default_host_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    preview_environments_enabled = "{{ preview_environments_enabled }}"
+    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku_size = "{{ sku_size }}"
+    sku_tier = "{{ sku_tier }}"
+    tags = "{{ tags }}"
+}

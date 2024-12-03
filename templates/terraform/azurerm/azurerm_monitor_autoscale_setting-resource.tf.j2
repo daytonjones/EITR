@@ -1,0 +1,9 @@
+resource "azurerm_monitor_autoscale_setting" "example" {
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    target_resource_id = "{{ target_resource_id }}"
+}

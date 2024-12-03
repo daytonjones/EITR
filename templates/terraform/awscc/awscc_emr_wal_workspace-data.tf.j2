@@ -1,0 +1,8 @@
+data "awscc_emr_wal_workspace" "example" {
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    wal_workspace_name = "{{ wal_workspace_name }}"
+}

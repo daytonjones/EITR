@@ -1,0 +1,9 @@
+resource "azurerm_data_factory_integration_runtime_self_hosted" "example" {
+    data_factory_id = "{{ data_factory_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    primary_authorization_key = "{{ primary_authorization_key }}"
+    secondary_authorization_key = "{{ secondary_authorization_key }}"
+    self_contained_interactive_authoring_enabled = "{{ self_contained_interactive_authoring_enabled }}"
+}

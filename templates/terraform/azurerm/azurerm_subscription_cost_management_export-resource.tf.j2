@@ -1,0 +1,9 @@
+resource "azurerm_subscription_cost_management_export" "example" {
+    active = "{{ active }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    recurrence_period_end_date = "{{ recurrence_period_end_date }}"
+    recurrence_period_start_date = "{{ recurrence_period_start_date }}"
+    recurrence_type = "{{ recurrence_type }}"
+    subscription_id = "{{ subscription_id }}"
+}

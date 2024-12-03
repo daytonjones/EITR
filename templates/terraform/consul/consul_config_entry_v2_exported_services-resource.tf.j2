@@ -1,0 +1,11 @@
+resource "consul_config_entry_v2_exported_services" "example" {
+    id = "{{ id }}"
+    kind = "{{ kind }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    partition = "{{ partition }}"
+    partition_consumers = "{{ partition_consumers }}"
+    peer_consumers = "{{ peer_consumers }}"
+    sameness_group_consumers = "{{ sameness_group_consumers }}"
+    services = "{{ services }}"
+}

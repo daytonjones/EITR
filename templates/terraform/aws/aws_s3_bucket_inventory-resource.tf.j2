@@ -1,0 +1,8 @@
+resource "aws_s3_bucket_inventory" "example" {
+    bucket = "{{ bucket }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    included_object_versions = "{{ included_object_versions }}"
+    name = "{{ name }}"
+    optional_fields = "{{ optional_fields }}"
+}

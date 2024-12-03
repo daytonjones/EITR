@@ -1,0 +1,7 @@
+resource "aws_rum_metrics_destination" "example" {
+    app_monitor_name = "{{ app_monitor_name }}"
+    destination = "{{ destination }}"
+    destination_arn = "{{ destination_arn }}"
+    iam_role_arn = "{{ iam_role_arn }}"
+    id = "{{ id }}"
+}

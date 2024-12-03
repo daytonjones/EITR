@@ -1,0 +1,15 @@
+resource "azurerm_purview_account" "example" {
+    atlas_kafka_endpoint_primary_connection_string = "{{ atlas_kafka_endpoint_primary_connection_string }}"
+    atlas_kafka_endpoint_secondary_connection_string = "{{ atlas_kafka_endpoint_secondary_connection_string }}"
+    catalog_endpoint = "{{ catalog_endpoint }}"
+    guardian_endpoint = "{{ guardian_endpoint }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    managed_resource_group_name = "{{ managed_resource_group_name }}"
+    managed_resources = "{{ managed_resources }}"
+    name = "{{ name }}"
+    public_network_enabled = "{{ public_network_enabled }}"
+    resource_group_name = "{{ resource_group_name }}"
+    scan_endpoint = "{{ scan_endpoint }}"
+    tags = "{{ tags }}"
+}

@@ -1,0 +1,8 @@
+data "tfe_workspace_run_task" "example" {
+    enforcement_level = "{{ enforcement_level }}"
+    id = "{{ id }}"
+    stage = "{{ stage }}"
+    stages = "{{ stages }}"
+    task_id = "{{ task_id }}"
+    workspace_id = "{{ workspace_id }}"
+}

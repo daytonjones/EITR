@@ -1,0 +1,17 @@
+data "azurerm_express_route_circuit_peering" "example" {
+    azure_asn = "{{ azure_asn }}"
+    express_route_circuit_name = "{{ express_route_circuit_name }}"
+    gateway_manager_etag = "{{ gateway_manager_etag }}"
+    id = "{{ id }}"
+    ipv4_enabled = "{{ ipv4_enabled }}"
+    peer_asn = "{{ peer_asn }}"
+    peering_type = "{{ peering_type }}"
+    primary_azure_port = "{{ primary_azure_port }}"
+    primary_peer_address_prefix = "{{ primary_peer_address_prefix }}"
+    resource_group_name = "{{ resource_group_name }}"
+    route_filter_id = "{{ route_filter_id }}"
+    secondary_azure_port = "{{ secondary_azure_port }}"
+    secondary_peer_address_prefix = "{{ secondary_peer_address_prefix }}"
+    shared_key = "{{ shared_key }}"
+    vlan_id = "{{ vlan_id }}"
+}

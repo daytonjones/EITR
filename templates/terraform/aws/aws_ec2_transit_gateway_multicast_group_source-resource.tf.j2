@@ -1,0 +1,6 @@
+resource "aws_ec2_transit_gateway_multicast_group_source" "example" {
+    group_ip_address = "{{ group_ip_address }}"
+    id = "{{ id }}"
+    network_interface_id = "{{ network_interface_id }}"
+    transit_gateway_multicast_domain_id = "{{ transit_gateway_multicast_domain_id }}"
+}

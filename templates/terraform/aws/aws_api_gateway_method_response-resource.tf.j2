@@ -1,0 +1,9 @@
+resource "aws_api_gateway_method_response" "example" {
+    http_method = "{{ http_method }}"
+    id = "{{ id }}"
+    resource_id = "{{ resource_id }}"
+    response_models = "{{ response_models }}"
+    response_parameters = "{{ response_parameters }}"
+    rest_api_id = "{{ rest_api_id }}"
+    status_code = "{{ status_code }}"
+}

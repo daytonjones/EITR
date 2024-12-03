@@ -1,0 +1,9 @@
+resource "azurerm_billing_account_cost_management_export" "example" {
+    active = "{{ active }}"
+    billing_account_id = "{{ billing_account_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    recurrence_period_end_date = "{{ recurrence_period_end_date }}"
+    recurrence_period_start_date = "{{ recurrence_period_start_date }}"
+    recurrence_type = "{{ recurrence_type }}"
+}

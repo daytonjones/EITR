@@ -1,0 +1,11 @@
+data "google_kms_crypto_key_latest_version" "example" {
+    algorithm = "{{ algorithm }}"
+    crypto_key = "{{ crypto_key }}"
+    filter = "{{ filter }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    protection_level = "{{ protection_level }}"
+    public_key = "{{ public_key }}"
+    state = "{{ state }}"
+    version = "{{ version }}"
+}

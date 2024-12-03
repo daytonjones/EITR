@@ -1,0 +1,22 @@
+resource "awscc_globalaccelerator_endpoint_group" "example" {
+    endpoint_configurations = "{
+    attachment_arn = {{ attachment_arn }}
+    client_ip_preservation_enabled = {{ client_ip_preservation_enabled }}
+    endpoint_id = {{ endpoint_id }}
+    weight = {{ weight }}
+}"
+    endpoint_group_arn = "{{ endpoint_group_arn }}"
+    endpoint_group_region = "{{ endpoint_group_region }}"
+    health_check_interval_seconds = "{{ health_check_interval_seconds }}"
+    health_check_path = "{{ health_check_path }}"
+    health_check_port = "{{ health_check_port }}"
+    health_check_protocol = "{{ health_check_protocol }}"
+    id = "{{ id }}"
+    listener_arn = "{{ listener_arn }}"
+    port_overrides = "{
+    endpoint_port = {{ endpoint_port }}
+    listener_port = {{ listener_port }}
+}"
+    threshold_count = "{{ threshold_count }}"
+    traffic_dial_percentage = "{{ traffic_dial_percentage }}"
+}

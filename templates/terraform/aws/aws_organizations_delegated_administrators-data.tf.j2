@@ -1,0 +1,5 @@
+data "aws_organizations_delegated_administrators" "example" {
+    delegated_administrators = "{{ delegated_administrators }}"
+    id = "{{ id }}"
+    service_principal = "{{ service_principal }}"
+}

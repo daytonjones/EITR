@@ -1,0 +1,138 @@
+data "awscc_ses_mail_manager_rule_set" "example" {
+    id = "{{ id }}"
+    rule_set_arn = "{{ rule_set_arn }}"
+    rule_set_id = "{{ rule_set_id }}"
+    rule_set_name = "{{ rule_set_name }}"
+    rules = "{
+    actions = {
+    add_header = {
+    header_name = {{ header_name }}
+    header_value = {{ header_value }}
+}
+    archive = {
+    action_failure_policy = {{ action_failure_policy }}
+    target_archive = {{ target_archive }}
+}
+    deliver_to_mailbox = {
+    action_failure_policy = {{ action_failure_policy }}
+    mailbox_arn = {{ mailbox_arn }}
+    role_arn = {{ role_arn }}
+}
+    drop = {{ drop }}
+    relay = {
+    action_failure_policy = {{ action_failure_policy }}
+    mail_from = {{ mail_from }}
+    relay = {{ relay }}
+}
+    replace_recipient = {
+    replace_with = {{ replace_with }}
+}
+    send = {
+    action_failure_policy = {{ action_failure_policy }}
+    role_arn = {{ role_arn }}
+}
+    write_to_s3 = {
+    action_failure_policy = {{ action_failure_policy }}
+    role_arn = {{ role_arn }}
+    s3_bucket = {{ s3_bucket }}
+    s3_prefix = {{ s3_prefix }}
+    s3_sse_kms_key_id = {{ s3_sse_kms_key_id }}
+}
+}
+    conditions = {
+    boolean_expression = {
+    evaluate = {
+    attribute = {{ attribute }}
+}
+    operator = {{ operator }}
+}
+    dmarc_expression = {
+    operator = {{ operator }}
+    values = {{ values }}
+}
+    ip_expression = {
+    evaluate = {
+    attribute = {{ attribute }}
+}
+    operator = {{ operator }}
+    values = {{ values }}
+}
+    number_expression = {
+    evaluate = {
+    attribute = {{ attribute }}
+}
+    operator = {{ operator }}
+    value = {{ value }}
+}
+    string_expression = {
+    evaluate = {
+    attribute = {{ attribute }}
+    mime_header_attribute = {{ mime_header_attribute }}
+}
+    operator = {{ operator }}
+    values = {{ values }}
+}
+    verdict_expression = {
+    evaluate = {
+    analysis = {
+    analyzer = {{ analyzer }}
+    result_field = {{ result_field }}
+}
+    attribute = {{ attribute }}
+}
+    operator = {{ operator }}
+    values = {{ values }}
+}
+}
+    name = {{ name }}
+    unless = {
+    boolean_expression = {
+    evaluate = {
+    attribute = {{ attribute }}
+}
+    operator = {{ operator }}
+}
+    dmarc_expression = {
+    operator = {{ operator }}
+    values = {{ values }}
+}
+    ip_expression = {
+    evaluate = {
+    attribute = {{ attribute }}
+}
+    operator = {{ operator }}
+    values = {{ values }}
+}
+    number_expression = {
+    evaluate = {
+    attribute = {{ attribute }}
+}
+    operator = {{ operator }}
+    value = {{ value }}
+}
+    string_expression = {
+    evaluate = {
+    attribute = {{ attribute }}
+    mime_header_attribute = {{ mime_header_attribute }}
+}
+    operator = {{ operator }}
+    values = {{ values }}
+}
+    verdict_expression = {
+    evaluate = {
+    analysis = {
+    analyzer = {{ analyzer }}
+    result_field = {{ result_field }}
+}
+    attribute = {{ attribute }}
+}
+    operator = {{ operator }}
+    values = {{ values }}
+}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,7 @@
+data "vsphere_vmfs_disks" "example" {
+    disks = "{{ disks }}"
+    filter = "{{ filter }}"
+    host_system_id = "{{ host_system_id }}"
+    id = "{{ id }}"
+    rescan = "{{ rescan }}"
+}

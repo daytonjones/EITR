@@ -1,0 +1,10 @@
+data "awscc_synthetics_group" "example" {
+    group_id = "{{ group_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_arns = "{{ resource_arns }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

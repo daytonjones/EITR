@@ -1,0 +1,16 @@
+resource "awscc_nimblestudio_studio" "example" {
+    admin_role_arn = "{{ admin_role_arn }}"
+    display_name = "{{ display_name }}"
+    home_region = "{{ home_region }}"
+    id = "{{ id }}"
+    sso_client_id = "{{ sso_client_id }}"
+    studio_encryption_configuration = "{
+    key_arn = {{ key_arn }}
+    key_type = {{ key_type }}
+}"
+    studio_id = "{{ studio_id }}"
+    studio_name = "{{ studio_name }}"
+    studio_url = "{{ studio_url }}"
+    tags = "{{ tags }}"
+    user_role_arn = "{{ user_role_arn }}"
+}

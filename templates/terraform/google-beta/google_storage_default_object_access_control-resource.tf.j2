@@ -1,0 +1,12 @@
+resource "google_storage_default_object_access_control" "example" {
+    bucket = "{{ bucket }}"
+    domain = "{{ domain }}"
+    email = "{{ email }}"
+    entity = "{{ entity }}"
+    entity_id = "{{ entity_id }}"
+    generation = "{{ generation }}"
+    id = "{{ id }}"
+    object = "{{ object }}"
+    project_team = "{{ project_team }}"
+    role = "{{ role }}"
+}

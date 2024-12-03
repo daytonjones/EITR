@@ -1,0 +1,11 @@
+data "awscc_cloudfront_public_key" "example" {
+    created_time = "{{ created_time }}"
+    id = "{{ id }}"
+    public_key_config = "{
+    caller_reference = {{ caller_reference }}
+    comment = {{ comment }}
+    encoded_key = {{ encoded_key }}
+    name = {{ name }}
+}"
+    public_key_id = "{{ public_key_id }}"
+}

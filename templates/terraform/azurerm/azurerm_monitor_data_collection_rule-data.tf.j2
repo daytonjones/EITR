@@ -1,0 +1,16 @@
+data "azurerm_monitor_data_collection_rule" "example" {
+    data_collection_endpoint_id = "{{ data_collection_endpoint_id }}"
+    data_flow = "{{ data_flow }}"
+    data_sources = "{{ data_sources }}"
+    description = "{{ description }}"
+    destinations = "{{ destinations }}"
+    id = "{{ id }}"
+    identity = "{{ identity }}"
+    immutable_id = "{{ immutable_id }}"
+    kind = "{{ kind }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    stream_declaration = "{{ stream_declaration }}"
+    tags = "{{ tags }}"
+}

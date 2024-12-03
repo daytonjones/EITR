@@ -1,0 +1,14 @@
+data "azurerm_dev_test_lab" "example" {
+    artifacts_storage_account_id = "{{ artifacts_storage_account_id }}"
+    default_premium_storage_account_id = "{{ default_premium_storage_account_id }}"
+    default_storage_account_id = "{{ default_storage_account_id }}"
+    id = "{{ id }}"
+    key_vault_id = "{{ key_vault_id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    premium_data_disk_storage_account_id = "{{ premium_data_disk_storage_account_id }}"
+    resource_group_name = "{{ resource_group_name }}"
+    storage_type = "{{ storage_type }}"
+    tags = "{{ tags }}"
+    unique_identifier = "{{ unique_identifier }}"
+}

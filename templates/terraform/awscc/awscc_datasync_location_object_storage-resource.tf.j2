@@ -1,0 +1,18 @@
+resource "awscc_datasync_location_object_storage" "example" {
+    access_key = "{{ access_key }}"
+    agent_arns = "{{ agent_arns }}"
+    bucket_name = "{{ bucket_name }}"
+    id = "{{ id }}"
+    location_arn = "{{ location_arn }}"
+    location_uri = "{{ location_uri }}"
+    secret_key = "{{ secret_key }}"
+    server_certificate = "{{ server_certificate }}"
+    server_hostname = "{{ server_hostname }}"
+    server_port = "{{ server_port }}"
+    server_protocol = "{{ server_protocol }}"
+    subdirectory = "{{ subdirectory }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

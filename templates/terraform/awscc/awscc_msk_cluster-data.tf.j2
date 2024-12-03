@@ -1,0 +1,103 @@
+data "awscc_msk_cluster" "example" {
+    arn = "{{ arn }}"
+    broker_node_group_info = "{
+    broker_az_distribution = {{ broker_az_distribution }}
+    client_subnets = {{ client_subnets }}
+    connectivity_info = {
+    public_access = {
+    type = {{ type }}
+}
+    vpc_connectivity = {
+    client_authentication = {
+    sasl = {
+    iam = {
+    enabled = {{ enabled }}
+}
+    scram = {
+    enabled = {{ enabled }}
+}
+}
+    tls = {
+    enabled = {{ enabled }}
+}
+}
+}
+}
+    instance_type = {{ instance_type }}
+    security_groups = {{ security_groups }}
+    storage_info = {
+    ebs_storage_info = {
+    provisioned_throughput = {
+    enabled = {{ enabled }}
+    volume_throughput = {{ volume_throughput }}
+}
+    volume_size = {{ volume_size }}
+}
+}
+}"
+    client_authentication = "{
+    sasl = {
+    iam = {
+    enabled = {{ enabled }}
+}
+    scram = {
+    enabled = {{ enabled }}
+}
+}
+    tls = {
+    certificate_authority_arn_list = {{ certificate_authority_arn_list }}
+    enabled = {{ enabled }}
+}
+    unauthenticated = {
+    enabled = {{ enabled }}
+}
+}"
+    cluster_name = "{{ cluster_name }}"
+    configuration_info = "{
+    arn = {{ arn }}
+    revision = {{ revision }}
+}"
+    current_version = "{{ current_version }}"
+    encryption_info = "{
+    encryption_at_rest = {
+    data_volume_kms_key_id = {{ data_volume_kms_key_id }}
+}
+    encryption_in_transit = {
+    client_broker = {{ client_broker }}
+    in_cluster = {{ in_cluster }}
+}
+}"
+    enhanced_monitoring = "{{ enhanced_monitoring }}"
+    id = "{{ id }}"
+    kafka_version = "{{ kafka_version }}"
+    logging_info = "{
+    broker_logs = {
+    cloudwatch_logs = {
+    enabled = {{ enabled }}
+    log_group = {{ log_group }}
+}
+    firehose = {
+    delivery_stream = {{ delivery_stream }}
+    enabled = {{ enabled }}
+}
+    s3 = {
+    bucket = {{ bucket }}
+    enabled = {{ enabled }}
+    prefix = {{ prefix }}
+}
+}
+}"
+    number_of_broker_nodes = "{{ number_of_broker_nodes }}"
+    open_monitoring = "{
+    prometheus = {
+    jmx_exporter = {
+    enabled_in_broker = {{ enabled_in_broker }}
+}
+    node_exporter = {
+    enabled_in_broker = {{ enabled_in_broker }}
+}
+}
+}"
+    storage_mode = "{{ storage_mode }}"
+    tags = "{{ tags }}"
+}

@@ -1,0 +1,34 @@
+data "awscc_comprehend_flywheel" "example" {
+    active_model_arn = "{{ active_model_arn }}"
+    arn = "{{ arn }}"
+    data_access_role_arn = "{{ data_access_role_arn }}"
+    data_lake_s3_uri = "{{ data_lake_s3_uri }}"
+    data_security_config = "{
+    data_lake_kms_key_id = {{ data_lake_kms_key_id }}
+    model_kms_key_id = {{ model_kms_key_id }}
+    volume_kms_key_id = {{ volume_kms_key_id }}
+    vpc_config = {
+    security_group_ids = {{ security_group_ids }}
+    subnets = {{ subnets }}
+}
+}"
+    flywheel_name = "{{ flywheel_name }}"
+    id = "{{ id }}"
+    model_type = "{{ model_type }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    task_config = "{
+    document_classification_config = {
+    labels = {{ labels }}
+    mode = {{ mode }}
+}
+    entity_recognition_config = {
+    entity_types = {
+    type = {{ type }}
+}
+}
+    language_code = {{ language_code }}
+}"
+}

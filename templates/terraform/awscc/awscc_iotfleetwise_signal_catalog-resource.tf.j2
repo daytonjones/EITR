@@ -1,0 +1,55 @@
+resource "awscc_iotfleetwise_signal_catalog" "example" {
+    arn = "{{ arn }}"
+    creation_time = "{{ creation_time }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    last_modification_time = "{{ last_modification_time }}"
+    name = "{{ name }}"
+    node_counts = "{
+    total_actuators = {{ total_actuators }}
+    total_attributes = {{ total_attributes }}
+    total_branches = {{ total_branches }}
+    total_nodes = {{ total_nodes }}
+    total_sensors = {{ total_sensors }}
+}"
+    nodes = "{
+    actuator = {
+    allowed_values = {{ allowed_values }}
+    assigned_value = {{ assigned_value }}
+    data_type = {{ data_type }}
+    description = {{ description }}
+    fully_qualified_name = {{ fully_qualified_name }}
+    max = {{ max }}
+    min = {{ min }}
+    unit = {{ unit }}
+}
+    attribute = {
+    allowed_values = {{ allowed_values }}
+    assigned_value = {{ assigned_value }}
+    data_type = {{ data_type }}
+    default_value = {{ default_value }}
+    description = {{ description }}
+    fully_qualified_name = {{ fully_qualified_name }}
+    max = {{ max }}
+    min = {{ min }}
+    unit = {{ unit }}
+}
+    branch = {
+    description = {{ description }}
+    fully_qualified_name = {{ fully_qualified_name }}
+}
+    sensor = {
+    allowed_values = {{ allowed_values }}
+    data_type = {{ data_type }}
+    description = {{ description }}
+    fully_qualified_name = {{ fully_qualified_name }}
+    max = {{ max }}
+    min = {{ min }}
+    unit = {{ unit }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

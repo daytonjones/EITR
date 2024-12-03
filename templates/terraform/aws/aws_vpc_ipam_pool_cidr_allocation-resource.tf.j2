@@ -1,0 +1,12 @@
+resource "aws_vpc_ipam_pool_cidr_allocation" "example" {
+    cidr = "{{ cidr }}"
+    description = "{{ description }}"
+    disallowed_cidrs = "{{ disallowed_cidrs }}"
+    id = "{{ id }}"
+    ipam_pool_allocation_id = "{{ ipam_pool_allocation_id }}"
+    ipam_pool_id = "{{ ipam_pool_id }}"
+    netmask_length = "{{ netmask_length }}"
+    resource_id = "{{ resource_id }}"
+    resource_owner = "{{ resource_owner }}"
+    resource_type = "{{ resource_type }}"
+}

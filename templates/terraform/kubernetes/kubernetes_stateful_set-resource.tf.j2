@@ -1,0 +1,4 @@
+resource "kubernetes_stateful_set" "example" {
+    id = "{{ id }}"
+    wait_for_rollout = "{{ wait_for_rollout }}"
+}

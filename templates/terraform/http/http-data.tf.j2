@@ -1,0 +1,15 @@
+data "http" "example" {
+    body = "{{ body }}"
+    ca_cert_pem = "{{ ca_cert_pem }}"
+    id = "{{ id }}"
+    insecure = "{{ insecure }}"
+    method = "{{ method }}"
+    request_body = "{{ request_body }}"
+    request_headers = "{{ request_headers }}"
+    request_timeout_ms = "{{ request_timeout_ms }}"
+    response_body = "{{ response_body }}"
+    response_body_base64 = "{{ response_body_base64 }}"
+    response_headers = "{{ response_headers }}"
+    status_code = "{{ status_code }}"
+    url = "{{ url }}"
+}

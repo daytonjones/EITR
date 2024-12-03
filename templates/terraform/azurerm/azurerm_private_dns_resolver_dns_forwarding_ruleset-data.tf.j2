@@ -1,0 +1,8 @@
+data "azurerm_private_dns_resolver_dns_forwarding_ruleset" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    private_dns_resolver_outbound_endpoint_ids = "{{ private_dns_resolver_outbound_endpoint_ids }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

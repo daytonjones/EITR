@@ -1,0 +1,17 @@
+resource "aws_route53_key_signing_key" "example" {
+    digest_algorithm_mnemonic = "{{ digest_algorithm_mnemonic }}"
+    digest_algorithm_type = "{{ digest_algorithm_type }}"
+    digest_value = "{{ digest_value }}"
+    dnskey_record = "{{ dnskey_record }}"
+    ds_record = "{{ ds_record }}"
+    flag = "{{ flag }}"
+    hosted_zone_id = "{{ hosted_zone_id }}"
+    id = "{{ id }}"
+    key_management_service_arn = "{{ key_management_service_arn }}"
+    key_tag = "{{ key_tag }}"
+    name = "{{ name }}"
+    public_key = "{{ public_key }}"
+    signing_algorithm_mnemonic = "{{ signing_algorithm_mnemonic }}"
+    signing_algorithm_type = "{{ signing_algorithm_type }}"
+    status = "{{ status }}"
+}

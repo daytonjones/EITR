@@ -1,0 +1,19 @@
+data "awscc_ce_anomaly_subscription" "example" {
+    account_id = "{{ account_id }}"
+    frequency = "{{ frequency }}"
+    id = "{{ id }}"
+    monitor_arn_list = "{{ monitor_arn_list }}"
+    resource_tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    subscribers = "{
+    address = {{ address }}
+    status = {{ status }}
+    type = {{ type }}
+}"
+    subscription_arn = "{{ subscription_arn }}"
+    subscription_name = "{{ subscription_name }}"
+    threshold = "{{ threshold }}"
+    threshold_expression = "{{ threshold_expression }}"
+}

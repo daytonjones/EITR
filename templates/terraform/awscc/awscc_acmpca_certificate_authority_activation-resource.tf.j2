@@ -1,0 +1,8 @@
+resource "awscc_acmpca_certificate_authority_activation" "example" {
+    certificate = "{{ certificate }}"
+    certificate_authority_arn = "{{ certificate_authority_arn }}"
+    certificate_chain = "{{ certificate_chain }}"
+    complete_certificate_chain = "{{ complete_certificate_chain }}"
+    id = "{{ id }}"
+    status = "{{ status }}"
+}

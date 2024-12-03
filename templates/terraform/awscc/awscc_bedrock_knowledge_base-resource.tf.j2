@@ -1,0 +1,70 @@
+resource "awscc_bedrock_knowledge_base" "example" {
+    created_at = "{{ created_at }}"
+    description = "{{ description }}"
+    failure_reasons = "{{ failure_reasons }}"
+    id = "{{ id }}"
+    knowledge_base_arn = "{{ knowledge_base_arn }}"
+    knowledge_base_configuration = "{
+    type = {{ type }}
+    vector_knowledge_base_configuration = {
+    embedding_model_arn = {{ embedding_model_arn }}
+    embedding_model_configuration = {
+    bedrock_embedding_model_configuration = {
+    dimensions = {{ dimensions }}
+}
+}
+}
+}"
+    knowledge_base_id = "{{ knowledge_base_id }}"
+    name = "{{ name }}"
+    role_arn = "{{ role_arn }}"
+    status = "{{ status }}"
+    storage_configuration = "{
+    mongo_db_atlas_configuration = {
+    collection_name = {{ collection_name }}
+    credentials_secret_arn = {{ credentials_secret_arn }}
+    database_name = {{ database_name }}
+    endpoint = {{ endpoint }}
+    endpoint_service_name = {{ endpoint_service_name }}
+    field_mapping = {
+    metadata_field = {{ metadata_field }}
+    text_field = {{ text_field }}
+    vector_field = {{ vector_field }}
+}
+    vector_index_name = {{ vector_index_name }}
+}
+    opensearch_serverless_configuration = {
+    collection_arn = {{ collection_arn }}
+    field_mapping = {
+    metadata_field = {{ metadata_field }}
+    text_field = {{ text_field }}
+    vector_field = {{ vector_field }}
+}
+    vector_index_name = {{ vector_index_name }}
+}
+    pinecone_configuration = {
+    connection_string = {{ connection_string }}
+    credentials_secret_arn = {{ credentials_secret_arn }}
+    field_mapping = {
+    metadata_field = {{ metadata_field }}
+    text_field = {{ text_field }}
+}
+    namespace = {{ namespace }}
+}
+    rds_configuration = {
+    credentials_secret_arn = {{ credentials_secret_arn }}
+    database_name = {{ database_name }}
+    field_mapping = {
+    metadata_field = {{ metadata_field }}
+    primary_key_field = {{ primary_key_field }}
+    text_field = {{ text_field }}
+    vector_field = {{ vector_field }}
+}
+    resource_arn = {{ resource_arn }}
+    table_name = {{ table_name }}
+}
+    type = {{ type }}
+}"
+    tags = "{{ tags }}"
+    updated_at = "{{ updated_at }}"
+}

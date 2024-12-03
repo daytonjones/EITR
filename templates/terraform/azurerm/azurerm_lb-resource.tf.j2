@@ -1,0 +1,12 @@
+resource "azurerm_lb" "example" {
+    edge_zone = "{{ edge_zone }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    private_ip_address = "{{ private_ip_address }}"
+    private_ip_addresses = "{{ private_ip_addresses }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku = "{{ sku }}"
+    sku_tier = "{{ sku_tier }}"
+    tags = "{{ tags }}"
+}

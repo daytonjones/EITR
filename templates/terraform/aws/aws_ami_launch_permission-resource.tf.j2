@@ -1,0 +1,8 @@
+resource "aws_ami_launch_permission" "example" {
+    account_id = "{{ account_id }}"
+    group = "{{ group }}"
+    id = "{{ id }}"
+    image_id = "{{ image_id }}"
+    organization_arn = "{{ organization_arn }}"
+    organizational_unit_arn = "{{ organizational_unit_arn }}"
+}

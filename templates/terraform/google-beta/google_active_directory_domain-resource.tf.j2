@@ -1,0 +1,15 @@
+resource "google_active_directory_domain" "example" {
+    admin = "{{ admin }}"
+    authorized_networks = "{{ authorized_networks }}"
+    deletion_protection = "{{ deletion_protection }}"
+    domain_name = "{{ domain_name }}"
+    effective_labels = "{{ effective_labels }}"
+    fqdn = "{{ fqdn }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    locations = "{{ locations }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    reserved_ip_range = "{{ reserved_ip_range }}"
+    terraform_labels = "{{ terraform_labels }}"
+}

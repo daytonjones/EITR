@@ -1,0 +1,9 @@
+data "awscc_identitystore_group_membership" "example" {
+    group_id = "{{ group_id }}"
+    id = "{{ id }}"
+    identity_store_id = "{{ identity_store_id }}"
+    member_id = "{
+    user_id = {{ user_id }}
+}"
+    membership_id = "{{ membership_id }}"
+}

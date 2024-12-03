@@ -1,0 +1,12 @@
+resource "google_cloud_scheduler_job" "example" {
+    attempt_deadline = "{{ attempt_deadline }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    paused = "{{ paused }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    schedule = "{{ schedule }}"
+    state = "{{ state }}"
+    time_zone = "{{ time_zone }}"
+}

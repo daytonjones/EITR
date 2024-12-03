@@ -1,0 +1,16 @@
+resource "awscc_logs_delivery" "example" {
+    arn = "{{ arn }}"
+    delivery_destination_arn = "{{ delivery_destination_arn }}"
+    delivery_destination_type = "{{ delivery_destination_type }}"
+    delivery_id = "{{ delivery_id }}"
+    delivery_source_name = "{{ delivery_source_name }}"
+    field_delimiter = "{{ field_delimiter }}"
+    id = "{{ id }}"
+    record_fields = "{{ record_fields }}"
+    s3_enable_hive_compatible_path = "{{ s3_enable_hive_compatible_path }}"
+    s3_suffix_path = "{{ s3_suffix_path }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

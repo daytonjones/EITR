@@ -1,0 +1,6 @@
+resource "azurerm_maintenance_assignment_virtual_machine_scale_set" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    maintenance_configuration_id = "{{ maintenance_configuration_id }}"
+    virtual_machine_scale_set_id = "{{ virtual_machine_scale_set_id }}"
+}

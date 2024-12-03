@@ -1,0 +1,229 @@
+data "awscc_pcaconnectorad_template" "example" {
+    connector_arn = "{{ connector_arn }}"
+    definition = "{
+    template_v2 = {
+    certificate_validity = {
+    renewal_period = {
+    period = {{ period }}
+    period_type = {{ period_type }}
+}
+    validity_period = {
+    period = {{ period }}
+    period_type = {{ period_type }}
+}
+}
+    enrollment_flags = {
+    enable_key_reuse_on_nt_token_keyset_storage_full = {{ enable_key_reuse_on_nt_token_keyset_storage_full }}
+    include_symmetric_algorithms = {{ include_symmetric_algorithms }}
+    no_security_extension = {{ no_security_extension }}
+    remove_invalid_certificate_from_personal_store = {{ remove_invalid_certificate_from_personal_store }}
+    user_interaction_required = {{ user_interaction_required }}
+}
+    extensions = {
+    application_policies = {
+    critical = {{ critical }}
+    policies = {
+    policy_object_identifier = {{ policy_object_identifier }}
+    policy_type = {{ policy_type }}
+}
+}
+    key_usage = {
+    critical = {{ critical }}
+    usage_flags = {
+    data_encipherment = {{ data_encipherment }}
+    digital_signature = {{ digital_signature }}
+    key_agreement = {{ key_agreement }}
+    key_encipherment = {{ key_encipherment }}
+    non_repudiation = {{ non_repudiation }}
+}
+}
+}
+    general_flags = {
+    auto_enrollment = {{ auto_enrollment }}
+    machine_type = {{ machine_type }}
+}
+    private_key_attributes = {
+    crypto_providers = {{ crypto_providers }}
+    key_spec = {{ key_spec }}
+    minimal_key_length = {{ minimal_key_length }}
+}
+    private_key_flags = {
+    client_version = {{ client_version }}
+    exportable_key = {{ exportable_key }}
+    strong_key_protection_required = {{ strong_key_protection_required }}
+}
+    subject_name_flags = {
+    require_common_name = {{ require_common_name }}
+    require_directory_path = {{ require_directory_path }}
+    require_dns_as_cn = {{ require_dns_as_cn }}
+    require_email = {{ require_email }}
+    san_require_directory_guid = {{ san_require_directory_guid }}
+    san_require_dns = {{ san_require_dns }}
+    san_require_domain_dns = {{ san_require_domain_dns }}
+    san_require_email = {{ san_require_email }}
+    san_require_spn = {{ san_require_spn }}
+    san_require_upn = {{ san_require_upn }}
+}
+    superseded_templates = {{ superseded_templates }}
+}
+    template_v3 = {
+    certificate_validity = {
+    renewal_period = {
+    period = {{ period }}
+    period_type = {{ period_type }}
+}
+    validity_period = {
+    period = {{ period }}
+    period_type = {{ period_type }}
+}
+}
+    enrollment_flags = {
+    enable_key_reuse_on_nt_token_keyset_storage_full = {{ enable_key_reuse_on_nt_token_keyset_storage_full }}
+    include_symmetric_algorithms = {{ include_symmetric_algorithms }}
+    no_security_extension = {{ no_security_extension }}
+    remove_invalid_certificate_from_personal_store = {{ remove_invalid_certificate_from_personal_store }}
+    user_interaction_required = {{ user_interaction_required }}
+}
+    extensions = {
+    application_policies = {
+    critical = {{ critical }}
+    policies = {
+    policy_object_identifier = {{ policy_object_identifier }}
+    policy_type = {{ policy_type }}
+}
+}
+    key_usage = {
+    critical = {{ critical }}
+    usage_flags = {
+    data_encipherment = {{ data_encipherment }}
+    digital_signature = {{ digital_signature }}
+    key_agreement = {{ key_agreement }}
+    key_encipherment = {{ key_encipherment }}
+    non_repudiation = {{ non_repudiation }}
+}
+}
+}
+    general_flags = {
+    auto_enrollment = {{ auto_enrollment }}
+    machine_type = {{ machine_type }}
+}
+    hash_algorithm = {{ hash_algorithm }}
+    private_key_attributes = {
+    algorithm = {{ algorithm }}
+    crypto_providers = {{ crypto_providers }}
+    key_spec = {{ key_spec }}
+    key_usage_property = {
+    property_flags = {
+    decrypt = {{ decrypt }}
+    key_agreement = {{ key_agreement }}
+    sign = {{ sign }}
+}
+    property_type = {{ property_type }}
+}
+    minimal_key_length = {{ minimal_key_length }}
+}
+    private_key_flags = {
+    client_version = {{ client_version }}
+    exportable_key = {{ exportable_key }}
+    require_alternate_signature_algorithm = {{ require_alternate_signature_algorithm }}
+    strong_key_protection_required = {{ strong_key_protection_required }}
+}
+    subject_name_flags = {
+    require_common_name = {{ require_common_name }}
+    require_directory_path = {{ require_directory_path }}
+    require_dns_as_cn = {{ require_dns_as_cn }}
+    require_email = {{ require_email }}
+    san_require_directory_guid = {{ san_require_directory_guid }}
+    san_require_dns = {{ san_require_dns }}
+    san_require_domain_dns = {{ san_require_domain_dns }}
+    san_require_email = {{ san_require_email }}
+    san_require_spn = {{ san_require_spn }}
+    san_require_upn = {{ san_require_upn }}
+}
+    superseded_templates = {{ superseded_templates }}
+}
+    template_v4 = {
+    certificate_validity = {
+    renewal_period = {
+    period = {{ period }}
+    period_type = {{ period_type }}
+}
+    validity_period = {
+    period = {{ period }}
+    period_type = {{ period_type }}
+}
+}
+    enrollment_flags = {
+    enable_key_reuse_on_nt_token_keyset_storage_full = {{ enable_key_reuse_on_nt_token_keyset_storage_full }}
+    include_symmetric_algorithms = {{ include_symmetric_algorithms }}
+    no_security_extension = {{ no_security_extension }}
+    remove_invalid_certificate_from_personal_store = {{ remove_invalid_certificate_from_personal_store }}
+    user_interaction_required = {{ user_interaction_required }}
+}
+    extensions = {
+    application_policies = {
+    critical = {{ critical }}
+    policies = {
+    policy_object_identifier = {{ policy_object_identifier }}
+    policy_type = {{ policy_type }}
+}
+}
+    key_usage = {
+    critical = {{ critical }}
+    usage_flags = {
+    data_encipherment = {{ data_encipherment }}
+    digital_signature = {{ digital_signature }}
+    key_agreement = {{ key_agreement }}
+    key_encipherment = {{ key_encipherment }}
+    non_repudiation = {{ non_repudiation }}
+}
+}
+}
+    general_flags = {
+    auto_enrollment = {{ auto_enrollment }}
+    machine_type = {{ machine_type }}
+}
+    hash_algorithm = {{ hash_algorithm }}
+    private_key_attributes = {
+    algorithm = {{ algorithm }}
+    crypto_providers = {{ crypto_providers }}
+    key_spec = {{ key_spec }}
+    key_usage_property = {
+    property_flags = {
+    decrypt = {{ decrypt }}
+    key_agreement = {{ key_agreement }}
+    sign = {{ sign }}
+}
+    property_type = {{ property_type }}
+}
+    minimal_key_length = {{ minimal_key_length }}
+}
+    private_key_flags = {
+    client_version = {{ client_version }}
+    exportable_key = {{ exportable_key }}
+    require_alternate_signature_algorithm = {{ require_alternate_signature_algorithm }}
+    require_same_key_renewal = {{ require_same_key_renewal }}
+    strong_key_protection_required = {{ strong_key_protection_required }}
+    use_legacy_provider = {{ use_legacy_provider }}
+}
+    subject_name_flags = {
+    require_common_name = {{ require_common_name }}
+    require_directory_path = {{ require_directory_path }}
+    require_dns_as_cn = {{ require_dns_as_cn }}
+    require_email = {{ require_email }}
+    san_require_directory_guid = {{ san_require_directory_guid }}
+    san_require_dns = {{ san_require_dns }}
+    san_require_domain_dns = {{ san_require_domain_dns }}
+    san_require_email = {{ san_require_email }}
+    san_require_spn = {{ san_require_spn }}
+    san_require_upn = {{ san_require_upn }}
+}
+    superseded_templates = {{ superseded_templates }}
+}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    reenroll_all_certificate_holders = "{{ reenroll_all_certificate_holders }}"
+    tags = "{{ tags }}"
+    template_arn = "{{ template_arn }}"
+}

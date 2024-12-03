@@ -1,0 +1,14 @@
+resource "google_compute_target_ssl_proxy" "example" {
+    backend_service = "{{ backend_service }}"
+    certificate_map = "{{ certificate_map }}"
+    creation_timestamp = "{{ creation_timestamp }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    proxy_header = "{{ proxy_header }}"
+    proxy_id = "{{ proxy_id }}"
+    self_link = "{{ self_link }}"
+    ssl_certificates = "{{ ssl_certificates }}"
+    ssl_policy = "{{ ssl_policy }}"
+}

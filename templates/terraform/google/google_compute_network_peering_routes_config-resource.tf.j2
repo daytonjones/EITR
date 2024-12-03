@@ -1,0 +1,8 @@
+resource "google_compute_network_peering_routes_config" "example" {
+    export_custom_routes = "{{ export_custom_routes }}"
+    id = "{{ id }}"
+    import_custom_routes = "{{ import_custom_routes }}"
+    network = "{{ network }}"
+    peering = "{{ peering }}"
+    project = "{{ project }}"
+}

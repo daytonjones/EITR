@@ -1,0 +1,13 @@
+data "azurerm_nginx_certificate" "example" {
+    certificate_virtual_path = "{{ certificate_virtual_path }}"
+    error_code = "{{ error_code }}"
+    error_message = "{{ error_message }}"
+    id = "{{ id }}"
+    key_vault_secret_creation_date = "{{ key_vault_secret_creation_date }}"
+    key_vault_secret_id = "{{ key_vault_secret_id }}"
+    key_vault_secret_version = "{{ key_vault_secret_version }}"
+    key_virtual_path = "{{ key_virtual_path }}"
+    name = "{{ name }}"
+    nginx_deployment_id = "{{ nginx_deployment_id }}"
+    sha1_thumbprint = "{{ sha1_thumbprint }}"
+}

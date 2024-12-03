@@ -1,0 +1,7 @@
+resource "azurerm_managed_disk_sas_token" "example" {
+    access_level = "{{ access_level }}"
+    duration_in_seconds = "{{ duration_in_seconds }}"
+    id = "{{ id }}"
+    managed_disk_id = "{{ managed_disk_id }}"
+    sas_url = "{{ sas_url }}"
+}

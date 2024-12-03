@@ -1,0 +1,9 @@
+resource "aws_volume_attachment" "example" {
+    device_name = "{{ device_name }}"
+    force_detach = "{{ force_detach }}"
+    id = "{{ id }}"
+    instance_id = "{{ instance_id }}"
+    skip_destroy = "{{ skip_destroy }}"
+    stop_instance_before_detaching = "{{ stop_instance_before_detaching }}"
+    volume_id = "{{ volume_id }}"
+}

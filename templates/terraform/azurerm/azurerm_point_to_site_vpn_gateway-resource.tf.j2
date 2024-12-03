@@ -1,0 +1,12 @@
+resource "azurerm_point_to_site_vpn_gateway" "example" {
+    dns_servers = "{{ dns_servers }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    routing_preference_internet_enabled = "{{ routing_preference_internet_enabled }}"
+    scale_unit = "{{ scale_unit }}"
+    tags = "{{ tags }}"
+    virtual_hub_id = "{{ virtual_hub_id }}"
+    vpn_server_configuration_id = "{{ vpn_server_configuration_id }}"
+}

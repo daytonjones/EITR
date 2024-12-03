@@ -1,0 +1,16 @@
+resource "azurerm_active_directory_domain_service" "example" {
+    deployment_id = "{{ deployment_id }}"
+    domain_configuration_type = "{{ domain_configuration_type }}"
+    domain_name = "{{ domain_name }}"
+    filtered_sync_enabled = "{{ filtered_sync_enabled }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    resource_id = "{{ resource_id }}"
+    sku = "{{ sku }}"
+    sync_owner = "{{ sync_owner }}"
+    tags = "{{ tags }}"
+    tenant_id = "{{ tenant_id }}"
+    version = "{{ version }}"
+}

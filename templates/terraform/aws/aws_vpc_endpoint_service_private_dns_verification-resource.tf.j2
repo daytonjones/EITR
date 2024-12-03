@@ -1,0 +1,4 @@
+resource "aws_vpc_endpoint_service_private_dns_verification" "example" {
+    service_id = "{{ service_id }}"
+    wait_for_verification = "{{ wait_for_verification }}"
+}

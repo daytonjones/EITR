@@ -1,0 +1,18 @@
+data "awscc_datasync_location_efs" "example" {
+    access_point_arn = "{{ access_point_arn }}"
+    ec_2_config = "{
+    security_group_arns = {{ security_group_arns }}
+    subnet_arn = {{ subnet_arn }}
+}"
+    efs_filesystem_arn = "{{ efs_filesystem_arn }}"
+    file_system_access_role_arn = "{{ file_system_access_role_arn }}"
+    id = "{{ id }}"
+    in_transit_encryption = "{{ in_transit_encryption }}"
+    location_arn = "{{ location_arn }}"
+    location_uri = "{{ location_uri }}"
+    subdirectory = "{{ subdirectory }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

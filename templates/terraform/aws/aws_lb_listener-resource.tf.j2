@@ -1,0 +1,13 @@
+resource "aws_lb_listener" "example" {
+    alpn_policy = "{{ alpn_policy }}"
+    arn = "{{ arn }}"
+    certificate_arn = "{{ certificate_arn }}"
+    id = "{{ id }}"
+    load_balancer_arn = "{{ load_balancer_arn }}"
+    port = "{{ port }}"
+    protocol = "{{ protocol }}"
+    ssl_policy = "{{ ssl_policy }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    tcp_idle_timeout_seconds = "{{ tcp_idle_timeout_seconds }}"
+}

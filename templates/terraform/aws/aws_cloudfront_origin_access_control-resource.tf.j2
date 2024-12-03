@@ -1,0 +1,9 @@
+resource "aws_cloudfront_origin_access_control" "example" {
+    description = "{{ description }}"
+    etag = "{{ etag }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    origin_access_control_origin_type = "{{ origin_access_control_origin_type }}"
+    signing_behavior = "{{ signing_behavior }}"
+    signing_protocol = "{{ signing_protocol }}"
+}

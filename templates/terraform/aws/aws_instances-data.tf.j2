@@ -1,0 +1,9 @@
+data "aws_instances" "example" {
+    id = "{{ id }}"
+    ids = "{{ ids }}"
+    instance_state_names = "{{ instance_state_names }}"
+    instance_tags = "{{ instance_tags }}"
+    ipv6_addresses = "{{ ipv6_addresses }}"
+    private_ips = "{{ private_ips }}"
+    public_ips = "{{ public_ips }}"
+}

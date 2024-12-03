@@ -1,0 +1,8 @@
+resource "azurerm_automation_dsc_nodeconfiguration" "example" {
+    automation_account_name = "{{ automation_account_name }}"
+    configuration_name = "{{ configuration_name }}"
+    content_embedded = "{{ content_embedded }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+}

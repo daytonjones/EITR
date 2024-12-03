@@ -1,0 +1,13 @@
+data "azurerm_storage_blob" "example" {
+    access_tier = "{{ access_tier }}"
+    content_md5 = "{{ content_md5 }}"
+    content_type = "{{ content_type }}"
+    encryption_scope = "{{ encryption_scope }}"
+    id = "{{ id }}"
+    metadata = "{{ metadata }}"
+    name = "{{ name }}"
+    storage_account_name = "{{ storage_account_name }}"
+    storage_container_name = "{{ storage_container_name }}"
+    type = "{{ type }}"
+    url = "{{ url }}"
+}

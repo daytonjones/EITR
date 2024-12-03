@@ -1,0 +1,23 @@
+data "awscc_iotwireless_partner_account" "example" {
+    account_linked = "{{ account_linked }}"
+    arn = "{{ arn }}"
+    fingerprint = "{{ fingerprint }}"
+    id = "{{ id }}"
+    partner_account_id = "{{ partner_account_id }}"
+    partner_type = "{{ partner_type }}"
+    sidewalk = "{
+    app_server_private_key = {{ app_server_private_key }}
+}"
+    sidewalk_response = "{
+    amazon_id = {{ amazon_id }}
+    arn = {{ arn }}
+    fingerprint = {{ fingerprint }}
+}"
+    sidewalk_update = "{
+    app_server_private_key = {{ app_server_private_key }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

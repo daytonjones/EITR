@@ -1,0 +1,13 @@
+resource "vsphere_vapp_entity" "example" {
+    container_id = "{{ container_id }}"
+    custom_attributes = "{{ custom_attributes }}"
+    id = "{{ id }}"
+    start_action = "{{ start_action }}"
+    start_delay = "{{ start_delay }}"
+    start_order = "{{ start_order }}"
+    stop_action = "{{ stop_action }}"
+    stop_delay = "{{ stop_delay }}"
+    tags = "{{ tags }}"
+    target_id = "{{ target_id }}"
+    wait_for_guest = "{{ wait_for_guest }}"
+}

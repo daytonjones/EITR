@@ -1,0 +1,65 @@
+data "awscc_lambda_event_source_mapping" "example" {
+    amazon_managed_kafka_event_source_config = "{
+    consumer_group_id = {{ consumer_group_id }}
+}"
+    batch_size = "{{ batch_size }}"
+    bisect_batch_on_function_error = "{{ bisect_batch_on_function_error }}"
+    destination_config = "{
+    on_failure = {
+    destination = {{ destination }}
+}
+}"
+    document_db_event_source_config = "{
+    collection_name = {{ collection_name }}
+    database_name = {{ database_name }}
+    full_document = {{ full_document }}
+}"
+    enabled = "{{ enabled }}"
+    event_source_arn = "{{ event_source_arn }}"
+    event_source_mapping_arn = "{{ event_source_mapping_arn }}"
+    event_source_mapping_id = "{{ event_source_mapping_id }}"
+    filter_criteria = "{
+    filters = {
+    pattern = {{ pattern }}
+}
+}"
+    function_name = "{{ function_name }}"
+    function_response_types = "{{ function_response_types }}"
+    id = "{{ id }}"
+    kms_key_arn = "{{ kms_key_arn }}"
+    maximum_batching_window_in_seconds = "{{ maximum_batching_window_in_seconds }}"
+    maximum_record_age_in_seconds = "{{ maximum_record_age_in_seconds }}"
+    maximum_retry_attempts = "{{ maximum_retry_attempts }}"
+    metrics_config = "{
+    metrics = {{ metrics }}
+}"
+    parallelization_factor = "{{ parallelization_factor }}"
+    provisioned_poller_config = "{
+    maximum_pollers = {{ maximum_pollers }}
+    minimum_pollers = {{ minimum_pollers }}
+}"
+    queues = "{{ queues }}"
+    scaling_config = "{
+    maximum_concurrency = {{ maximum_concurrency }}
+}"
+    self_managed_event_source = "{
+    endpoints = {
+    kafka_bootstrap_servers = {{ kafka_bootstrap_servers }}
+}
+}"
+    self_managed_kafka_event_source_config = "{
+    consumer_group_id = {{ consumer_group_id }}
+}"
+    source_access_configurations = "{
+    type = {{ type }}
+    uri = {{ uri }}
+}"
+    starting_position = "{{ starting_position }}"
+    starting_position_timestamp = "{{ starting_position_timestamp }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    topics = "{{ topics }}"
+    tumbling_window_in_seconds = "{{ tumbling_window_in_seconds }}"
+}

@@ -1,0 +1,36 @@
+resource "awscc_mediatailor_channel" "example" {
+    arn = "{{ arn }}"
+    audiences = "{{ audiences }}"
+    channel_name = "{{ channel_name }}"
+    filler_slate = "{
+    source_location_name = {{ source_location_name }}
+    vod_source_name = {{ vod_source_name }}
+}"
+    id = "{{ id }}"
+    log_configuration = "{
+    log_types = {{ log_types }}
+}"
+    outputs = "{
+    dash_playlist_settings = {
+    manifest_window_seconds = {{ manifest_window_seconds }}
+    min_buffer_time_seconds = {{ min_buffer_time_seconds }}
+    min_update_period_seconds = {{ min_update_period_seconds }}
+    suggested_presentation_delay_seconds = {{ suggested_presentation_delay_seconds }}
+}
+    hls_playlist_settings = {
+    ad_markup_type = {{ ad_markup_type }}
+    manifest_window_seconds = {{ manifest_window_seconds }}
+}
+    manifest_name = {{ manifest_name }}
+    source_group = {{ source_group }}
+}"
+    playback_mode = "{{ playback_mode }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    tier = "{{ tier }}"
+    time_shift_configuration = "{
+    max_time_delay_seconds = {{ max_time_delay_seconds }}
+}"
+}

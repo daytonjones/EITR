@@ -1,0 +1,11 @@
+data "awscc_autoscaling_lifecycle_hook" "example" {
+    auto_scaling_group_name = "{{ auto_scaling_group_name }}"
+    default_result = "{{ default_result }}"
+    heartbeat_timeout = "{{ heartbeat_timeout }}"
+    id = "{{ id }}"
+    lifecycle_hook_name = "{{ lifecycle_hook_name }}"
+    lifecycle_transition = "{{ lifecycle_transition }}"
+    notification_metadata = "{{ notification_metadata }}"
+    notification_target_arn = "{{ notification_target_arn }}"
+    role_arn = "{{ role_arn }}"
+}

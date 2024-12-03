@@ -1,0 +1,7 @@
+resource "aws_cloudwatch_event_permission" "example" {
+    action = "{{ action }}"
+    event_bus_name = "{{ event_bus_name }}"
+    id = "{{ id }}"
+    principal = "{{ principal }}"
+    statement_id = "{{ statement_id }}"
+}

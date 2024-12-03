@@ -1,0 +1,16 @@
+resource "google_dns_managed_zone" "example" {
+    creation_time = "{{ creation_time }}"
+    description = "{{ description }}"
+    dns_name = "{{ dns_name }}"
+    effective_labels = "{{ effective_labels }}"
+    force_destroy = "{{ force_destroy }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    managed_zone_id = "{{ managed_zone_id }}"
+    name = "{{ name }}"
+    name_servers = "{{ name_servers }}"
+    project = "{{ project }}"
+    reverse_lookup = "{{ reverse_lookup }}"
+    terraform_labels = "{{ terraform_labels }}"
+    visibility = "{{ visibility }}"
+}

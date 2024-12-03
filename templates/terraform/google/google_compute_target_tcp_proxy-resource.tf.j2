@@ -1,0 +1,12 @@
+resource "google_compute_target_tcp_proxy" "example" {
+    backend_service = "{{ backend_service }}"
+    creation_timestamp = "{{ creation_timestamp }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    proxy_bind = "{{ proxy_bind }}"
+    proxy_header = "{{ proxy_header }}"
+    proxy_id = "{{ proxy_id }}"
+    self_link = "{{ self_link }}"
+}

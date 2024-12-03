@@ -1,0 +1,10 @@
+data "azurerm_consumption_budget_resource_group" "example" {
+    amount = "{{ amount }}"
+    filter = "{{ filter }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    notification = "{{ notification }}"
+    resource_group_id = "{{ resource_group_id }}"
+    time_grain = "{{ time_grain }}"
+    time_period = "{{ time_period }}"
+}

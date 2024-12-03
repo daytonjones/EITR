@@ -1,0 +1,50 @@
+data "awscc_lex_bot_alias" "example" {
+    arn = "{{ arn }}"
+    bot_alias_id = "{{ bot_alias_id }}"
+    bot_alias_locale_settings = "{
+    bot_alias_locale_setting = {
+    code_hook_specification = {
+    lambda_code_hook = {
+    code_hook_interface_version = {{ code_hook_interface_version }}
+    lambda_arn = {{ lambda_arn }}
+}
+}
+    enabled = {{ enabled }}
+}
+    locale_id = {{ locale_id }}
+}"
+    bot_alias_name = "{{ bot_alias_name }}"
+    bot_alias_status = "{{ bot_alias_status }}"
+    bot_alias_tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    bot_id = "{{ bot_id }}"
+    bot_version = "{{ bot_version }}"
+    conversation_log_settings = "{
+    audio_log_settings = {
+    destination = {
+    s3_bucket = {
+    kms_key_arn = {{ kms_key_arn }}
+    log_prefix = {{ log_prefix }}
+    s3_bucket_arn = {{ s3_bucket_arn }}
+}
+}
+    enabled = {{ enabled }}
+}
+    text_log_settings = {
+    destination = {
+    cloudwatch = {
+    cloudwatch_log_group_arn = {{ cloudwatch_log_group_arn }}
+    log_prefix = {{ log_prefix }}
+}
+}
+    enabled = {{ enabled }}
+}
+}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    sentiment_analysis_settings = "{
+    detect_sentiment = {{ detect_sentiment }}
+}"
+}

@@ -1,0 +1,13 @@
+resource "google_certificate_manager_dns_authorization" "example" {
+    description = "{{ description }}"
+    dns_resource_record = "{{ dns_resource_record }}"
+    domain = "{{ domain }}"
+    effective_labels = "{{ effective_labels }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    terraform_labels = "{{ terraform_labels }}"
+    type = "{{ type }}"
+}

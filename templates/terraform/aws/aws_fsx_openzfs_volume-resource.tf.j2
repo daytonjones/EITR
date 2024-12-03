@@ -1,0 +1,16 @@
+resource "aws_fsx_openzfs_volume" "example" {
+    arn = "{{ arn }}"
+    copy_tags_to_snapshots = "{{ copy_tags_to_snapshots }}"
+    data_compression_type = "{{ data_compression_type }}"
+    delete_volume_options = "{{ delete_volume_options }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    parent_volume_id = "{{ parent_volume_id }}"
+    read_only = "{{ read_only }}"
+    record_size_kib = "{{ record_size_kib }}"
+    storage_capacity_quota_gib = "{{ storage_capacity_quota_gib }}"
+    storage_capacity_reservation_gib = "{{ storage_capacity_reservation_gib }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    volume_type = "{{ volume_type }}"
+}

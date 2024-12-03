@@ -1,0 +1,20 @@
+data "awscc_sso_application" "example" {
+    application_arn = "{{ application_arn }}"
+    application_provider_arn = "{{ application_provider_arn }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    instance_arn = "{{ instance_arn }}"
+    name = "{{ name }}"
+    portal_options = "{
+    sign_in_options = {
+    application_url = {{ application_url }}
+    origin = {{ origin }}
+}
+    visibility = {{ visibility }}
+}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

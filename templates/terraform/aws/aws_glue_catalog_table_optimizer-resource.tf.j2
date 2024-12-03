@@ -1,0 +1,6 @@
+resource "aws_glue_catalog_table_optimizer" "example" {
+    catalog_id = "{{ catalog_id }}"
+    database_name = "{{ database_name }}"
+    table_name = "{{ table_name }}"
+    type = "{{ type }}"
+}

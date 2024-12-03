@@ -1,0 +1,12 @@
+data "google_monitoring_mesh_istio_service" "example" {
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    mesh_uid = "{{ mesh_uid }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    service_id = "{{ service_id }}"
+    service_name = "{{ service_name }}"
+    service_namespace = "{{ service_namespace }}"
+    telemetry = "{{ telemetry }}"
+    user_labels = "{{ user_labels }}"
+}

@@ -1,0 +1,83 @@
+resource "awscc_cassandra_table" "example" {
+    auto_scaling_specifications = "{
+    read_capacity_auto_scaling = {
+    auto_scaling_disabled = {{ auto_scaling_disabled }}
+    maximum_units = {{ maximum_units }}
+    minimum_units = {{ minimum_units }}
+    scaling_policy = {
+    target_tracking_scaling_policy_configuration = {
+    disable_scale_in = {{ disable_scale_in }}
+    scale_in_cooldown = {{ scale_in_cooldown }}
+    scale_out_cooldown = {{ scale_out_cooldown }}
+    target_value = {{ target_value }}
+}
+}
+}
+    write_capacity_auto_scaling = {
+    auto_scaling_disabled = {{ auto_scaling_disabled }}
+    maximum_units = {{ maximum_units }}
+    minimum_units = {{ minimum_units }}
+    scaling_policy = {
+    target_tracking_scaling_policy_configuration = {
+    disable_scale_in = {{ disable_scale_in }}
+    scale_in_cooldown = {{ scale_in_cooldown }}
+    scale_out_cooldown = {{ scale_out_cooldown }}
+    target_value = {{ target_value }}
+}
+}
+}
+}"
+    billing_mode = "{
+    mode = {{ mode }}
+    provisioned_throughput = {
+    read_capacity_units = {{ read_capacity_units }}
+    write_capacity_units = {{ write_capacity_units }}
+}
+}"
+    client_side_timestamps_enabled = "{{ client_side_timestamps_enabled }}"
+    clustering_key_columns = "{
+    column = {
+    column_name = {{ column_name }}
+    column_type = {{ column_type }}
+}
+    order_by = {{ order_by }}
+}"
+    default_time_to_live = "{{ default_time_to_live }}"
+    encryption_specification = "{
+    encryption_type = {{ encryption_type }}
+    kms_key_identifier = {{ kms_key_identifier }}
+}"
+    id = "{{ id }}"
+    keyspace_name = "{{ keyspace_name }}"
+    partition_key_columns = "{
+    column_name = {{ column_name }}
+    column_type = {{ column_type }}
+}"
+    point_in_time_recovery_enabled = "{{ point_in_time_recovery_enabled }}"
+    regular_columns = "{
+    column_name = {{ column_name }}
+    column_type = {{ column_type }}
+}"
+    replica_specifications = "{
+    read_capacity_auto_scaling = {
+    auto_scaling_disabled = {{ auto_scaling_disabled }}
+    maximum_units = {{ maximum_units }}
+    minimum_units = {{ minimum_units }}
+    scaling_policy = {
+    target_tracking_scaling_policy_configuration = {
+    disable_scale_in = {{ disable_scale_in }}
+    scale_in_cooldown = {{ scale_in_cooldown }}
+    scale_out_cooldown = {{ scale_out_cooldown }}
+    target_value = {{ target_value }}
+}
+}
+}
+    read_capacity_units = {{ read_capacity_units }}
+    region = {{ region }}
+}"
+    table_name = "{{ table_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

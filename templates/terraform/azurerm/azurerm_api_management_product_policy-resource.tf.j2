@@ -1,0 +1,8 @@
+resource "azurerm_api_management_product_policy" "example" {
+    api_management_name = "{{ api_management_name }}"
+    id = "{{ id }}"
+    product_id = "{{ product_id }}"
+    resource_group_name = "{{ resource_group_name }}"
+    xml_content = "{{ xml_content }}"
+    xml_link = "{{ xml_link }}"
+}

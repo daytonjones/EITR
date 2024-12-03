@@ -1,0 +1,47 @@
+resource "awscc_ses_mail_manager_traffic_policy" "example" {
+    default_action = "{{ default_action }}"
+    id = "{{ id }}"
+    max_message_size_bytes = "{{ max_message_size_bytes }}"
+    policy_statements = "{
+    action = {{ action }}
+    conditions = {
+    boolean_expression = {
+    evaluate = {
+    analysis = {
+    analyzer = {{ analyzer }}
+    result_field = {{ result_field }}
+}
+}
+    operator = {{ operator }}
+}
+    ip_expression = {
+    evaluate = {
+    attribute = {{ attribute }}
+}
+    operator = {{ operator }}
+    values = {{ values }}
+}
+    string_expression = {
+    evaluate = {
+    attribute = {{ attribute }}
+}
+    operator = {{ operator }}
+    values = {{ values }}
+}
+    tls_expression = {
+    evaluate = {
+    attribute = {{ attribute }}
+}
+    operator = {{ operator }}
+    value = {{ value }}
+}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    traffic_policy_arn = "{{ traffic_policy_arn }}"
+    traffic_policy_id = "{{ traffic_policy_id }}"
+    traffic_policy_name = "{{ traffic_policy_name }}"
+}

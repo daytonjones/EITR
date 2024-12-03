@@ -1,0 +1,10 @@
+data "azurerm_disk_encryption_set" "example" {
+    auto_key_rotation_enabled = "{{ auto_key_rotation_enabled }}"
+    id = "{{ id }}"
+    identity = "{{ identity }}"
+    key_vault_key_url = "{{ key_vault_key_url }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

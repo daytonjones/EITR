@@ -1,0 +1,11 @@
+resource "google_dataform_repository_workflow_config" "example" {
+    cron_schedule = "{{ cron_schedule }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    recent_scheduled_execution_records = "{{ recent_scheduled_execution_records }}"
+    region = "{{ region }}"
+    release_config = "{{ release_config }}"
+    repository = "{{ repository }}"
+    time_zone = "{{ time_zone }}"
+}

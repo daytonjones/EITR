@@ -1,0 +1,12 @@
+data "google_storage_object_signed_url" "example" {
+    bucket = "{{ bucket }}"
+    content_md5 = "{{ content_md5 }}"
+    content_type = "{{ content_type }}"
+    credentials = "{{ credentials }}"
+    duration = "{{ duration }}"
+    extension_headers = "{{ extension_headers }}"
+    http_method = "{{ http_method }}"
+    id = "{{ id }}"
+    path = "{{ path }}"
+    signed_url = "{{ signed_url }}"
+}

@@ -1,0 +1,5 @@
+resource "aws_shield_drt_access_log_bucket_association" "example" {
+    id = "{{ id }}"
+    log_bucket = "{{ log_bucket }}"
+    role_arn_association_id = "{{ role_arn_association_id }}"
+}

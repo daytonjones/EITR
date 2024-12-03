@@ -1,0 +1,8 @@
+resource "azurerm_resource_management_private_link_association" "example" {
+    id = "{{ id }}"
+    management_group_id = "{{ management_group_id }}"
+    name = "{{ name }}"
+    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    resource_management_private_link_id = "{{ resource_management_private_link_id }}"
+    tenant_id = "{{ tenant_id }}"
+}

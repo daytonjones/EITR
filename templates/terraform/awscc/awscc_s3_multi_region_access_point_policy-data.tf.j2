@@ -1,0 +1,8 @@
+data "awscc_s3_multi_region_access_point_policy" "example" {
+    id = "{{ id }}"
+    mrap_name = "{{ mrap_name }}"
+    policy = "{{ policy }}"
+    policy_status = "{
+    is_public = {{ is_public }}
+}"
+}

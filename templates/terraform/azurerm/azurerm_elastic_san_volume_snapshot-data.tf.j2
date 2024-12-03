@@ -1,0 +1,8 @@
+data "azurerm_elastic_san_volume_snapshot" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    source_id = "{{ source_id }}"
+    source_volume_size_in_gib = "{{ source_volume_size_in_gib }}"
+    volume_group_id = "{{ volume_group_id }}"
+    volume_name = "{{ volume_name }}"
+}

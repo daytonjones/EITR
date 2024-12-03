@@ -1,0 +1,8 @@
+data "aws_ec2_local_gateway_route_table" "example" {
+    id = "{{ id }}"
+    local_gateway_id = "{{ local_gateway_id }}"
+    local_gateway_route_table_id = "{{ local_gateway_route_table_id }}"
+    outpost_arn = "{{ outpost_arn }}"
+    state = "{{ state }}"
+    tags = "{{ tags }}"
+}

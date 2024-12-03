@@ -1,0 +1,8 @@
+resource "azurerm_kusto_cluster_customer_managed_key" "example" {
+    cluster_id = "{{ cluster_id }}"
+    id = "{{ id }}"
+    key_name = "{{ key_name }}"
+    key_vault_id = "{{ key_vault_id }}"
+    key_version = "{{ key_version }}"
+    user_identity = "{{ user_identity }}"
+}

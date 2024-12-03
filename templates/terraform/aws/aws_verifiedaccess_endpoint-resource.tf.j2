@@ -1,0 +1,17 @@
+resource "aws_verifiedaccess_endpoint" "example" {
+    application_domain = "{{ application_domain }}"
+    attachment_type = "{{ attachment_type }}"
+    description = "{{ description }}"
+    device_validation_domain = "{{ device_validation_domain }}"
+    domain_certificate_arn = "{{ domain_certificate_arn }}"
+    endpoint_domain = "{{ endpoint_domain }}"
+    endpoint_domain_prefix = "{{ endpoint_domain_prefix }}"
+    endpoint_type = "{{ endpoint_type }}"
+    id = "{{ id }}"
+    policy_document = "{{ policy_document }}"
+    security_group_ids = "{{ security_group_ids }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    verified_access_group_id = "{{ verified_access_group_id }}"
+    verified_access_instance_id = "{{ verified_access_instance_id }}"
+}

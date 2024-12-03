@@ -1,0 +1,11 @@
+data "awscc_iot_policy" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    policy_document = "{{ policy_document }}"
+    policy_id = "{{ policy_id }}"
+    policy_name = "{{ policy_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

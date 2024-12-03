@@ -1,0 +1,10 @@
+resource "vsphere_virtual_machine_snapshot" "example" {
+    consolidate = "{{ consolidate }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    memory = "{{ memory }}"
+    quiesce = "{{ quiesce }}"
+    remove_children = "{{ remove_children }}"
+    snapshot_name = "{{ snapshot_name }}"
+    virtual_machine_uuid = "{{ virtual_machine_uuid }}"
+}

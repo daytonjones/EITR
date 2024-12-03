@@ -1,0 +1,14 @@
+resource "google_compute_target_pool" "example" {
+    backup_pool = "{{ backup_pool }}"
+    description = "{{ description }}"
+    failover_ratio = "{{ failover_ratio }}"
+    health_checks = "{{ health_checks }}"
+    id = "{{ id }}"
+    instances = "{{ instances }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    security_policy = "{{ security_policy }}"
+    self_link = "{{ self_link }}"
+    session_affinity = "{{ session_affinity }}"
+}

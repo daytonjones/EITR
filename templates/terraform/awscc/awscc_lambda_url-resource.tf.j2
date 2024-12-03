@@ -1,0 +1,17 @@
+resource "awscc_lambda_url" "example" {
+    auth_type = "{{ auth_type }}"
+    cors = "{
+    allow_credentials = {{ allow_credentials }}
+    allow_headers = {{ allow_headers }}
+    allow_methods = {{ allow_methods }}
+    allow_origins = {{ allow_origins }}
+    expose_headers = {{ expose_headers }}
+    max_age = {{ max_age }}
+}"
+    function_arn = "{{ function_arn }}"
+    function_url = "{{ function_url }}"
+    id = "{{ id }}"
+    invoke_mode = "{{ invoke_mode }}"
+    qualifier = "{{ qualifier }}"
+    target_function_arn = "{{ target_function_arn }}"
+}

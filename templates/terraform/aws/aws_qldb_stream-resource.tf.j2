@@ -1,0 +1,11 @@
+resource "aws_qldb_stream" "example" {
+    arn = "{{ arn }}"
+    exclusive_end_time = "{{ exclusive_end_time }}"
+    id = "{{ id }}"
+    inclusive_start_time = "{{ inclusive_start_time }}"
+    ledger_name = "{{ ledger_name }}"
+    role_arn = "{{ role_arn }}"
+    stream_name = "{{ stream_name }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

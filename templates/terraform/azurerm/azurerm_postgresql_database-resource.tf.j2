@@ -1,0 +1,8 @@
+resource "azurerm_postgresql_database" "example" {
+    charset = "{{ charset }}"
+    collation = "{{ collation }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    server_name = "{{ server_name }}"
+}

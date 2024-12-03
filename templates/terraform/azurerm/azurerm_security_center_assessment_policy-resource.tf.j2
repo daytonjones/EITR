@@ -1,0 +1,12 @@
+resource "azurerm_security_center_assessment_policy" "example" {
+    categories = "{{ categories }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    implementation_effort = "{{ implementation_effort }}"
+    name = "{{ name }}"
+    remediation_description = "{{ remediation_description }}"
+    severity = "{{ severity }}"
+    threats = "{{ threats }}"
+    user_impact = "{{ user_impact }}"
+}

@@ -1,0 +1,34 @@
+data "awscc_inspectorv2_cis_scan_configuration" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    scan_name = "{{ scan_name }}"
+    schedule = "{
+    daily = {
+    start_time = {
+    time_of_day = {{ time_of_day }}
+    time_zone = {{ time_zone }}
+}
+}
+    monthly = {
+    day = {{ day }}
+    start_time = {
+    time_of_day = {{ time_of_day }}
+    time_zone = {{ time_zone }}
+}
+}
+    one_time = {{ one_time }}
+    weekly = {
+    days = {{ days }}
+    start_time = {
+    time_of_day = {{ time_of_day }}
+    time_zone = {{ time_zone }}
+}
+}
+}"
+    security_level = "{{ security_level }}"
+    tags = "{{ tags }}"
+    targets = "{
+    account_ids = {{ account_ids }}
+    target_resource_tags = {{ target_resource_tags }}
+}"
+}

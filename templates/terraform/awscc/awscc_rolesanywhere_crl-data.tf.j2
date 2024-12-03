@@ -1,0 +1,12 @@
+data "awscc_rolesanywhere_crl" "example" {
+    crl_data = "{{ crl_data }}"
+    crl_id = "{{ crl_id }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    trust_anchor_arn = "{{ trust_anchor_arn }}"
+}

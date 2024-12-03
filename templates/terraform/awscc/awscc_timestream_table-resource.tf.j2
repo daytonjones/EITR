@@ -1,0 +1,33 @@
+resource "awscc_timestream_table" "example" {
+    arn = "{{ arn }}"
+    database_name = "{{ database_name }}"
+    id = "{{ id }}"
+    magnetic_store_write_properties = "{
+    enable_magnetic_store_writes = {{ enable_magnetic_store_writes }}
+    magnetic_store_rejected_data_location = {
+    s3_configuration = {
+    bucket_name = {{ bucket_name }}
+    encryption_option = {{ encryption_option }}
+    kms_key_id = {{ kms_key_id }}
+    object_key_prefix = {{ object_key_prefix }}
+}
+}
+}"
+    name = "{{ name }}"
+    retention_properties = "{
+    magnetic_store_retention_period_in_days = {{ magnetic_store_retention_period_in_days }}
+    memory_store_retention_period_in_hours = {{ memory_store_retention_period_in_hours }}
+}"
+    schema = "{
+    composite_partition_key = {
+    enforcement_in_record = {{ enforcement_in_record }}
+    name = {{ name }}
+    type = {{ type }}
+}
+}"
+    table_name = "{{ table_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

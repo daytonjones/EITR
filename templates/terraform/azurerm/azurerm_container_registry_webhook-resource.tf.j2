@@ -1,0 +1,13 @@
+resource "azurerm_container_registry_webhook" "example" {
+    actions = "{{ actions }}"
+    custom_headers = "{{ custom_headers }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    registry_name = "{{ registry_name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    scope = "{{ scope }}"
+    service_uri = "{{ service_uri }}"
+    status = "{{ status }}"
+    tags = "{{ tags }}"
+}

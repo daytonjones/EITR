@@ -1,0 +1,28 @@
+resource "awscc_cleanroomsml_training_dataset" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    role_arn = "{{ role_arn }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    training_data = "{
+    input_config = {
+    data_source = {
+    glue_data_source = {
+    catalog_id = {{ catalog_id }}
+    database_name = {{ database_name }}
+    table_name = {{ table_name }}
+}
+}
+    schema = {
+    column_name = {{ column_name }}
+    column_types = {{ column_types }}
+}
+}
+    type = {{ type }}
+}"
+    training_dataset_arn = "{{ training_dataset_arn }}"
+}

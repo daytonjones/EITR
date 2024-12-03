@@ -1,0 +1,52 @@
+resource "awscc_frauddetector_event_type" "example" {
+    arn = "{{ arn }}"
+    created_time = "{{ created_time }}"
+    description = "{{ description }}"
+    entity_types = "{
+    arn = {{ arn }}
+    created_time = {{ created_time }}
+    description = {{ description }}
+    inline = {{ inline }}
+    last_updated_time = {{ last_updated_time }}
+    name = {{ name }}
+    tags = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}"
+    event_variables = "{
+    arn = {{ arn }}
+    created_time = {{ created_time }}
+    data_source = {{ data_source }}
+    data_type = {{ data_type }}
+    default_value = {{ default_value }}
+    description = {{ description }}
+    inline = {{ inline }}
+    last_updated_time = {{ last_updated_time }}
+    name = {{ name }}
+    tags = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    variable_type = {{ variable_type }}
+}"
+    id = "{{ id }}"
+    labels = "{
+    arn = {{ arn }}
+    created_time = {{ created_time }}
+    description = {{ description }}
+    inline = {{ inline }}
+    last_updated_time = {{ last_updated_time }}
+    name = {{ name }}
+    tags = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}"
+    last_updated_time = "{{ last_updated_time }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

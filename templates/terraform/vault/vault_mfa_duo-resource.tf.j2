@@ -1,0 +1,11 @@
+resource "vault_mfa_duo" "example" {
+    api_hostname = "{{ api_hostname }}"
+    id = "{{ id }}"
+    integration_key = "{{ integration_key }}"
+    mount_accessor = "{{ mount_accessor }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    push_info = "{{ push_info }}"
+    secret_key = "{{ secret_key }}"
+    username_format = "{{ username_format }}"
+}

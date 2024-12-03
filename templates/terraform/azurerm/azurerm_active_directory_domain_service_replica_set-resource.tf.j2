@@ -1,0 +1,9 @@
+resource "azurerm_active_directory_domain_service_replica_set" "example" {
+    domain_controller_ip_addresses = "{{ domain_controller_ip_addresses }}"
+    domain_service_id = "{{ domain_service_id }}"
+    external_access_ip_address = "{{ external_access_ip_address }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    service_status = "{{ service_status }}"
+    subnet_id = "{{ subnet_id }}"
+}

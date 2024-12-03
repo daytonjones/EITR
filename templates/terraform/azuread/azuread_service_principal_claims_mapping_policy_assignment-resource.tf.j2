@@ -1,0 +1,5 @@
+resource "azuread_service_principal_claims_mapping_policy_assignment" "example" {
+    claims_mapping_policy_id = "{{ claims_mapping_policy_id }}"
+    id = "{{ id }}"
+    service_principal_id = "{{ service_principal_id }}"
+}

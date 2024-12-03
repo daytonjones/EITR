@@ -1,0 +1,9 @@
+resource "google_data_catalog_policy_tag" "example" {
+    child_policy_tags = "{{ child_policy_tags }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    parent_policy_tag = "{{ parent_policy_tag }}"
+    taxonomy = "{{ taxonomy }}"
+}

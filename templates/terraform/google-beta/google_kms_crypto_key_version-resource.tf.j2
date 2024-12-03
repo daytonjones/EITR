@@ -1,0 +1,10 @@
+resource "google_kms_crypto_key_version" "example" {
+    algorithm = "{{ algorithm }}"
+    attestation = "{{ attestation }}"
+    crypto_key = "{{ crypto_key }}"
+    generate_time = "{{ generate_time }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    protection_level = "{{ protection_level }}"
+    state = "{{ state }}"
+}

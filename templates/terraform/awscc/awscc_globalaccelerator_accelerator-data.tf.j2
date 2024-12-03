@@ -1,0 +1,16 @@
+data "awscc_globalaccelerator_accelerator" "example" {
+    accelerator_arn = "{{ accelerator_arn }}"
+    dns_name = "{{ dns_name }}"
+    dual_stack_dns_name = "{{ dual_stack_dns_name }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    ip_address_type = "{{ ip_address_type }}"
+    ip_addresses = "{{ ip_addresses }}"
+    ipv_4_addresses = "{{ ipv_4_addresses }}"
+    ipv_6_addresses = "{{ ipv_6_addresses }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

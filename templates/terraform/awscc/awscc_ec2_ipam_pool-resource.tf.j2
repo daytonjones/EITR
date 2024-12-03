@@ -1,0 +1,40 @@
+resource "awscc_ec2_ipam_pool" "example" {
+    address_family = "{{ address_family }}"
+    allocation_default_netmask_length = "{{ allocation_default_netmask_length }}"
+    allocation_max_netmask_length = "{{ allocation_max_netmask_length }}"
+    allocation_min_netmask_length = "{{ allocation_min_netmask_length }}"
+    allocation_resource_tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    arn = "{{ arn }}"
+    auto_import = "{{ auto_import }}"
+    aws_service = "{{ aws_service }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    ipam_arn = "{{ ipam_arn }}"
+    ipam_pool_id = "{{ ipam_pool_id }}"
+    ipam_scope_arn = "{{ ipam_scope_arn }}"
+    ipam_scope_id = "{{ ipam_scope_id }}"
+    ipam_scope_type = "{{ ipam_scope_type }}"
+    locale = "{{ locale }}"
+    pool_depth = "{{ pool_depth }}"
+    provisioned_cidrs = "{
+    cidr = {{ cidr }}
+}"
+    public_ip_source = "{{ public_ip_source }}"
+    publicly_advertisable = "{{ publicly_advertisable }}"
+    source_ipam_pool_id = "{{ source_ipam_pool_id }}"
+    source_resource = "{
+    resource_id = {{ resource_id }}
+    resource_owner = {{ resource_owner }}
+    resource_region = {{ resource_region }}
+    resource_type = {{ resource_type }}
+}"
+    state = "{{ state }}"
+    state_message = "{{ state_message }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

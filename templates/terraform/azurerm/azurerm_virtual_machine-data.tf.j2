@@ -1,0 +1,12 @@
+data "azurerm_virtual_machine" "example" {
+    id = "{{ id }}"
+    identity = "{{ identity }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    power_state = "{{ power_state }}"
+    private_ip_address = "{{ private_ip_address }}"
+    private_ip_addresses = "{{ private_ip_addresses }}"
+    public_ip_address = "{{ public_ip_address }}"
+    public_ip_addresses = "{{ public_ip_addresses }}"
+    resource_group_name = "{{ resource_group_name }}"
+}

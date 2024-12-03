@@ -1,0 +1,17 @@
+resource "aws_macie2_classification_job" "example" {
+    created_at = "{{ created_at }}"
+    custom_data_identifier_ids = "{{ custom_data_identifier_ids }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    initial_run = "{{ initial_run }}"
+    job_arn = "{{ job_arn }}"
+    job_id = "{{ job_id }}"
+    job_status = "{{ job_status }}"
+    job_type = "{{ job_type }}"
+    name = "{{ name }}"
+    name_prefix = "{{ name_prefix }}"
+    sampling_percentage = "{{ sampling_percentage }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    user_paused_details = "{{ user_paused_details }}"
+}

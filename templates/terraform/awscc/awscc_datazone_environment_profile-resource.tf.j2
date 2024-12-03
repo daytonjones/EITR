@@ -1,0 +1,21 @@
+resource "awscc_datazone_environment_profile" "example" {
+    aws_account_id = "{{ aws_account_id }}"
+    aws_account_region = "{{ aws_account_region }}"
+    created_at = "{{ created_at }}"
+    created_by = "{{ created_by }}"
+    description = "{{ description }}"
+    domain_id = "{{ domain_id }}"
+    domain_identifier = "{{ domain_identifier }}"
+    environment_blueprint_id = "{{ environment_blueprint_id }}"
+    environment_blueprint_identifier = "{{ environment_blueprint_identifier }}"
+    environment_profile_id = "{{ environment_profile_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project_id = "{{ project_id }}"
+    project_identifier = "{{ project_identifier }}"
+    updated_at = "{{ updated_at }}"
+    user_parameters = "{
+    name = {{ name }}
+    value = {{ value }}
+}"
+}

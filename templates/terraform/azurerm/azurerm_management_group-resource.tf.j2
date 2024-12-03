@@ -1,0 +1,8 @@
+resource "azurerm_management_group" "example" {
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    parent_management_group_id = "{{ parent_management_group_id }}"
+    subscription_ids = "{{ subscription_ids }}"
+    tenant_scoped_id = "{{ tenant_scoped_id }}"
+}

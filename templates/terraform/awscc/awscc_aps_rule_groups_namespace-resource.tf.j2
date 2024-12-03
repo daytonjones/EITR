@@ -1,0 +1,11 @@
+resource "awscc_aps_rule_groups_namespace" "example" {
+    arn = "{{ arn }}"
+    data = "{{ data }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    workspace = "{{ workspace }}"
+}

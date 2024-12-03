@@ -1,0 +1,13 @@
+resource "azurestack_virtual_network_gateway" "example" {
+    active_active = "{{ active_active }}"
+    default_local_network_gateway_id = "{{ default_local_network_gateway_id }}"
+    enable_bgp = "{{ enable_bgp }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku = "{{ sku }}"
+    tags = "{{ tags }}"
+    type = "{{ type }}"
+    vpn_type = "{{ vpn_type }}"
+}

@@ -1,0 +1,13 @@
+resource "aws_neptune_global_cluster" "example" {
+    arn = "{{ arn }}"
+    deletion_protection = "{{ deletion_protection }}"
+    engine = "{{ engine }}"
+    engine_version = "{{ engine_version }}"
+    global_cluster_identifier = "{{ global_cluster_identifier }}"
+    global_cluster_members = "{{ global_cluster_members }}"
+    global_cluster_resource_id = "{{ global_cluster_resource_id }}"
+    id = "{{ id }}"
+    source_db_cluster_identifier = "{{ source_db_cluster_identifier }}"
+    status = "{{ status }}"
+    storage_encrypted = "{{ storage_encrypted }}"
+}

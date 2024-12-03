@@ -1,0 +1,15 @@
+resource "azurestack_virtual_machine_scale_set" "example" {
+    eviction_policy = "{{ eviction_policy }}"
+    health_probe_id = "{{ health_probe_id }}"
+    id = "{{ id }}"
+    license_type = "{{ license_type }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    overprovision = "{{ overprovision }}"
+    priority = "{{ priority }}"
+    resource_group_name = "{{ resource_group_name }}"
+    single_placement_group = "{{ single_placement_group }}"
+    tags = "{{ tags }}"
+    upgrade_policy_mode = "{{ upgrade_policy_mode }}"
+    zones = "{{ zones }}"
+}

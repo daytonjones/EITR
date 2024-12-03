@@ -1,0 +1,33 @@
+data "awscc_s3objectlambda_access_point" "example" {
+    alias = "{
+    status = {{ status }}
+    value = {{ value }}
+}"
+    arn = "{{ arn }}"
+    creation_date = "{{ creation_date }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    object_lambda_configuration = "{
+    allowed_features = {{ allowed_features }}
+    cloudwatch_metrics_enabled = {{ cloudwatch_metrics_enabled }}
+    supporting_access_point = {{ supporting_access_point }}
+    transformation_configurations = {
+    actions = {{ actions }}
+    content_transformation = {
+    aws_lambda = {
+    function_arn = {{ function_arn }}
+    function_payload = {{ function_payload }}
+}
+}
+}
+}"
+    policy_status = "{
+    is_public = {{ is_public }}
+}"
+    public_access_block_configuration = "{
+    block_public_acls = {{ block_public_acls }}
+    block_public_policy = {{ block_public_policy }}
+    ignore_public_acls = {{ ignore_public_acls }}
+    restrict_public_buckets = {{ restrict_public_buckets }}
+}"
+}

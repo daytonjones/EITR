@@ -1,0 +1,12 @@
+resource "azurerm_mssql_server_security_alert_policy" "example" {
+    disabled_alerts = "{{ disabled_alerts }}"
+    email_account_admins = "{{ email_account_admins }}"
+    email_addresses = "{{ email_addresses }}"
+    id = "{{ id }}"
+    resource_group_name = "{{ resource_group_name }}"
+    retention_days = "{{ retention_days }}"
+    server_name = "{{ server_name }}"
+    state = "{{ state }}"
+    storage_account_access_key = "{{ storage_account_access_key }}"
+    storage_endpoint = "{{ storage_endpoint }}"
+}

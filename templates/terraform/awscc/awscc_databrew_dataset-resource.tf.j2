@@ -1,0 +1,84 @@
+resource "awscc_databrew_dataset" "example" {
+    format = "{{ format }}"
+    format_options = "{
+    csv = {
+    delimiter = {{ delimiter }}
+    header_row = {{ header_row }}
+}
+    excel = {
+    header_row = {{ header_row }}
+    sheet_indexes = {{ sheet_indexes }}
+    sheet_names = {{ sheet_names }}
+}
+    json = {
+    multi_line = {{ multi_line }}
+}
+}"
+    id = "{{ id }}"
+    input = "{
+    data_catalog_input_definition = {
+    catalog_id = {{ catalog_id }}
+    database_name = {{ database_name }}
+    table_name = {{ table_name }}
+    temp_directory = {
+    bucket = {{ bucket }}
+    key = {{ key }}
+}
+}
+    database_input_definition = {
+    database_table_name = {{ database_table_name }}
+    glue_connection_name = {{ glue_connection_name }}
+    query_string = {{ query_string }}
+    temp_directory = {
+    bucket = {{ bucket }}
+    key = {{ key }}
+}
+}
+    metadata = {
+    source_arn = {{ source_arn }}
+}
+    s3_input_definition = {
+    bucket = {{ bucket }}
+    key = {{ key }}
+}
+}"
+    name = "{{ name }}"
+    path_options = "{
+    files_limit = {
+    max_files = {{ max_files }}
+    order = {{ order }}
+    ordered_by = {{ ordered_by }}
+}
+    last_modified_date_condition = {
+    expression = {{ expression }}
+    values_map = {
+    value = {{ value }}
+    value_reference = {{ value_reference }}
+}
+}
+    parameters = {
+    dataset_parameter = {
+    create_column = {{ create_column }}
+    datetime_options = {
+    format = {{ format }}
+    locale_code = {{ locale_code }}
+    timezone_offset = {{ timezone_offset }}
+}
+    filter = {
+    expression = {{ expression }}
+    values_map = {
+    value = {{ value }}
+    value_reference = {{ value_reference }}
+}
+}
+    name = {{ name }}
+    type = {{ type }}
+}
+    path_parameter_name = {{ path_parameter_name }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

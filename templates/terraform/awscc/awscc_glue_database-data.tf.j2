@@ -1,0 +1,26 @@
+data "awscc_glue_database" "example" {
+    catalog_id = "{{ catalog_id }}"
+    database_input = "{
+    create_table_default_permissions = {
+    permissions = {{ permissions }}
+    principal = {
+    data_lake_principal_identifier = {{ data_lake_principal_identifier }}
+}
+}
+    description = {{ description }}
+    federated_database = {
+    connection_name = {{ connection_name }}
+    identifier = {{ identifier }}
+}
+    location_uri = {{ location_uri }}
+    name = {{ name }}
+    parameters = {{ parameters }}
+    target_database = {
+    catalog_id = {{ catalog_id }}
+    database_name = {{ database_name }}
+    region = {{ region }}
+}
+}"
+    database_name = "{{ database_name }}"
+    id = "{{ id }}"
+}

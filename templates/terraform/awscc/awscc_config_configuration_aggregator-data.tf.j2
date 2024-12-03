@@ -1,0 +1,19 @@
+data "awscc_config_configuration_aggregator" "example" {
+    account_aggregation_sources = "{
+    account_ids = {{ account_ids }}
+    all_aws_regions = {{ all_aws_regions }}
+    aws_regions = {{ aws_regions }}
+}"
+    configuration_aggregator_arn = "{{ configuration_aggregator_arn }}"
+    configuration_aggregator_name = "{{ configuration_aggregator_name }}"
+    id = "{{ id }}"
+    organization_aggregation_source = "{
+    all_aws_regions = {{ all_aws_regions }}
+    aws_regions = {{ aws_regions }}
+    role_arn = {{ role_arn }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

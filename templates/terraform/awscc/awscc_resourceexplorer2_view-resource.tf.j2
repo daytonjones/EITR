@@ -1,0 +1,13 @@
+resource "awscc_resourceexplorer2_view" "example" {
+    filters = "{
+    filter_string = {{ filter_string }}
+}"
+    id = "{{ id }}"
+    included_properties = "{
+    name = {{ name }}
+}"
+    scope = "{{ scope }}"
+    tags = "{{ tags }}"
+    view_arn = "{{ view_arn }}"
+    view_name = "{{ view_name }}"
+}

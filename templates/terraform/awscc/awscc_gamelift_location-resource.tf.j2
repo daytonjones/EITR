@@ -1,0 +1,9 @@
+resource "awscc_gamelift_location" "example" {
+    id = "{{ id }}"
+    location_arn = "{{ location_arn }}"
+    location_name = "{{ location_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

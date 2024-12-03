@@ -1,0 +1,18 @@
+resource "awscc_cloudwatch_composite_alarm" "example" {
+    actions_enabled = "{{ actions_enabled }}"
+    actions_suppressor = "{{ actions_suppressor }}"
+    actions_suppressor_extension_period = "{{ actions_suppressor_extension_period }}"
+    actions_suppressor_wait_period = "{{ actions_suppressor_wait_period }}"
+    alarm_actions = "{{ alarm_actions }}"
+    alarm_description = "{{ alarm_description }}"
+    alarm_name = "{{ alarm_name }}"
+    alarm_rule = "{{ alarm_rule }}"
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    insufficient_data_actions = "{{ insufficient_data_actions }}"
+    ok_actions = "{{ ok_actions }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

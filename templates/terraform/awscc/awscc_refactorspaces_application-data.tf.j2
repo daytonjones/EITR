@@ -1,0 +1,23 @@
+data "awscc_refactorspaces_application" "example" {
+    api_gateway_id = "{{ api_gateway_id }}"
+    api_gateway_proxy = "{
+    endpoint_type = {{ endpoint_type }}
+    stage_name = {{ stage_name }}
+}"
+    application_identifier = "{{ application_identifier }}"
+    arn = "{{ arn }}"
+    environment_identifier = "{{ environment_identifier }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    nlb_arn = "{{ nlb_arn }}"
+    nlb_name = "{{ nlb_name }}"
+    proxy_type = "{{ proxy_type }}"
+    proxy_url = "{{ proxy_url }}"
+    stage_name = "{{ stage_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    vpc_id = "{{ vpc_id }}"
+    vpc_link_id = "{{ vpc_link_id }}"
+}

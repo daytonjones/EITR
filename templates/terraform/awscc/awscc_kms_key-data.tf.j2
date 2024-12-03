@@ -1,0 +1,20 @@
+data "awscc_kms_key" "example" {
+    arn = "{{ arn }}"
+    bypass_policy_lockout_safety_check = "{{ bypass_policy_lockout_safety_check }}"
+    description = "{{ description }}"
+    enable_key_rotation = "{{ enable_key_rotation }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    key_id = "{{ key_id }}"
+    key_policy = "{{ key_policy }}"
+    key_spec = "{{ key_spec }}"
+    key_usage = "{{ key_usage }}"
+    multi_region = "{{ multi_region }}"
+    origin = "{{ origin }}"
+    pending_window_in_days = "{{ pending_window_in_days }}"
+    rotation_period_in_days = "{{ rotation_period_in_days }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,12 @@
+data "google_monitoring_istio_canonical_service" "example" {
+    canonical_service = "{{ canonical_service }}"
+    canonical_service_namespace = "{{ canonical_service_namespace }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    mesh_uid = "{{ mesh_uid }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    service_id = "{{ service_id }}"
+    telemetry = "{{ telemetry }}"
+    user_labels = "{{ user_labels }}"
+}

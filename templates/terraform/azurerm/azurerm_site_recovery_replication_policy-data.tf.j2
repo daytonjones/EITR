@@ -1,0 +1,8 @@
+data "azurerm_site_recovery_replication_policy" "example" {
+    application_consistent_snapshot_frequency_in_minutes = "{{ application_consistent_snapshot_frequency_in_minutes }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    recovery_point_retention_in_minutes = "{{ recovery_point_retention_in_minutes }}"
+    recovery_vault_name = "{{ recovery_vault_name }}"
+    resource_group_name = "{{ resource_group_name }}"
+}

@@ -1,0 +1,7 @@
+resource "azurerm_site_recovery_vmware_replication_policy" "example" {
+    application_consistent_snapshot_frequency_in_minutes = "{{ application_consistent_snapshot_frequency_in_minutes }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    recovery_point_retention_in_minutes = "{{ recovery_point_retention_in_minutes }}"
+    recovery_vault_id = "{{ recovery_vault_id }}"
+}

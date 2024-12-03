@@ -1,0 +1,15 @@
+data "awscc_ses_mail_manager_archive" "example" {
+    archive_arn = "{{ archive_arn }}"
+    archive_id = "{{ archive_id }}"
+    archive_name = "{{ archive_name }}"
+    archive_state = "{{ archive_state }}"
+    id = "{{ id }}"
+    kms_key_arn = "{{ kms_key_arn }}"
+    retention = "{
+    retention_period = {{ retention_period }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

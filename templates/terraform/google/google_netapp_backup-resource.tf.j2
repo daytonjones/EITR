@@ -1,0 +1,18 @@
+resource "google_netapp_backup" "example" {
+    backup_type = "{{ backup_type }}"
+    chain_storage_bytes = "{{ chain_storage_bytes }}"
+    create_time = "{{ create_time }}"
+    description = "{{ description }}"
+    effective_labels = "{{ effective_labels }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    source_snapshot = "{{ source_snapshot }}"
+    source_volume = "{{ source_volume }}"
+    state = "{{ state }}"
+    terraform_labels = "{{ terraform_labels }}"
+    vault_name = "{{ vault_name }}"
+    volume_usage_bytes = "{{ volume_usage_bytes }}"
+}

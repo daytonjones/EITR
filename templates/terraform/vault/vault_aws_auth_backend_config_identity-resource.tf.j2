@@ -1,0 +1,9 @@
+resource "vault_aws_auth_backend_config_identity" "example" {
+    backend = "{{ backend }}"
+    ec2_alias = "{{ ec2_alias }}"
+    ec2_metadata = "{{ ec2_metadata }}"
+    iam_alias = "{{ iam_alias }}"
+    iam_metadata = "{{ iam_metadata }}"
+    id = "{{ id }}"
+    namespace = "{{ namespace }}"
+}

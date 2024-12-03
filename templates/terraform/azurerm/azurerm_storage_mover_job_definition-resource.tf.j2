@@ -1,0 +1,12 @@
+resource "azurerm_storage_mover_job_definition" "example" {
+    agent_name = "{{ agent_name }}"
+    copy_mode = "{{ copy_mode }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    source_name = "{{ source_name }}"
+    source_sub_path = "{{ source_sub_path }}"
+    storage_mover_project_id = "{{ storage_mover_project_id }}"
+    target_name = "{{ target_name }}"
+    target_sub_path = "{{ target_sub_path }}"
+}

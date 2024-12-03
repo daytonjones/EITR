@@ -1,0 +1,17 @@
+data "awscc_customerprofiles_event_stream" "example" {
+    created_at = "{{ created_at }}"
+    destination_details = "{
+    status = {{ status }}
+    uri = {{ uri }}
+}"
+    domain_name = "{{ domain_name }}"
+    event_stream_arn = "{{ event_stream_arn }}"
+    event_stream_name = "{{ event_stream_name }}"
+    id = "{{ id }}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    uri = "{{ uri }}"
+}

@@ -1,0 +1,15 @@
+resource "aws_cloudwatch_metric_stream" "example" {
+    arn = "{{ arn }}"
+    creation_date = "{{ creation_date }}"
+    firehose_arn = "{{ firehose_arn }}"
+    id = "{{ id }}"
+    include_linked_accounts_metrics = "{{ include_linked_accounts_metrics }}"
+    last_update_date = "{{ last_update_date }}"
+    name = "{{ name }}"
+    name_prefix = "{{ name_prefix }}"
+    output_format = "{{ output_format }}"
+    role_arn = "{{ role_arn }}"
+    state = "{{ state }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

@@ -1,0 +1,8 @@
+resource "aws_ec2_subnet_cidr_reservation" "example" {
+    cidr_block = "{{ cidr_block }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    owner_id = "{{ owner_id }}"
+    reservation_type = "{{ reservation_type }}"
+    subnet_id = "{{ subnet_id }}"
+}

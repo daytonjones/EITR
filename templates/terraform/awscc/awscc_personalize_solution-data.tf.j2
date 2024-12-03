@@ -1,0 +1,46 @@
+data "awscc_personalize_solution" "example" {
+    dataset_group_arn = "{{ dataset_group_arn }}"
+    event_type = "{{ event_type }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    perform_auto_ml = "{{ perform_auto_ml }}"
+    perform_hpo = "{{ perform_hpo }}"
+    recipe_arn = "{{ recipe_arn }}"
+    solution_arn = "{{ solution_arn }}"
+    solution_config = "{
+    algorithm_hyper_parameters = {{ algorithm_hyper_parameters }}
+    auto_ml_config = {
+    metric_name = {{ metric_name }}
+    recipe_list = {{ recipe_list }}
+}
+    event_value_threshold = {{ event_value_threshold }}
+    feature_transformation_parameters = {{ feature_transformation_parameters }}
+    hpo_config = {
+    algorithm_hyper_parameter_ranges = {
+    categorical_hyper_parameter_ranges = {
+    name = {{ name }}
+    values = {{ values }}
+}
+    continuous_hyper_parameter_ranges = {
+    max_value = {{ max_value }}
+    min_value = {{ min_value }}
+    name = {{ name }}
+}
+    integer_hyper_parameter_ranges = {
+    max_value = {{ max_value }}
+    min_value = {{ min_value }}
+    name = {{ name }}
+}
+}
+    hpo_objective = {
+    metric_name = {{ metric_name }}
+    metric_regex = {{ metric_regex }}
+    type = {{ type }}
+}
+    hpo_resource_config = {
+    max_number_of_training_jobs = {{ max_number_of_training_jobs }}
+    max_parallel_training_jobs = {{ max_parallel_training_jobs }}
+}
+}
+}"
+}

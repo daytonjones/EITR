@@ -1,0 +1,13 @@
+data "aws_lb_listener" "example" {
+    alpn_policy = "{{ alpn_policy }}"
+    arn = "{{ arn }}"
+    certificate_arn = "{{ certificate_arn }}"
+    default_action = "{{ default_action }}"
+    id = "{{ id }}"
+    load_balancer_arn = "{{ load_balancer_arn }}"
+    mutual_authentication = "{{ mutual_authentication }}"
+    port = "{{ port }}"
+    protocol = "{{ protocol }}"
+    ssl_policy = "{{ ssl_policy }}"
+    tags = "{{ tags }}"
+}

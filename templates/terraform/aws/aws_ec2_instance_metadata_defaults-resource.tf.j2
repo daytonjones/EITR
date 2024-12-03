@@ -1,0 +1,7 @@
+resource "aws_ec2_instance_metadata_defaults" "example" {
+    http_endpoint = "{{ http_endpoint }}"
+    http_put_response_hop_limit = "{{ http_put_response_hop_limit }}"
+    http_tokens = "{{ http_tokens }}"
+    id = "{{ id }}"
+    instance_metadata_tags = "{{ instance_metadata_tags }}"
+}

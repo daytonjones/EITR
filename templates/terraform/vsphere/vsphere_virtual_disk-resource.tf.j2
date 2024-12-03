@@ -1,0 +1,10 @@
+resource "vsphere_virtual_disk" "example" {
+    adapter_type = "{{ adapter_type }}"
+    create_directories = "{{ create_directories }}"
+    datacenter = "{{ datacenter }}"
+    datastore = "{{ datastore }}"
+    id = "{{ id }}"
+    size = "{{ size }}"
+    type = "{{ type }}"
+    vmdk_path = "{{ vmdk_path }}"
+}

@@ -1,0 +1,8 @@
+resource "azurerm_virtual_machine_gallery_application_assignment" "example" {
+    configuration_blob_uri = "{{ configuration_blob_uri }}"
+    gallery_application_version_id = "{{ gallery_application_version_id }}"
+    id = "{{ id }}"
+    order = "{{ order }}"
+    tag = "{{ tag }}"
+    virtual_machine_id = "{{ virtual_machine_id }}"
+}

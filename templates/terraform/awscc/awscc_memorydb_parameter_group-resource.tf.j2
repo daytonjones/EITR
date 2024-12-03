@@ -1,0 +1,12 @@
+resource "awscc_memorydb_parameter_group" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    family = "{{ family }}"
+    id = "{{ id }}"
+    parameter_group_name = "{{ parameter_group_name }}"
+    parameters = "{{ parameters }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

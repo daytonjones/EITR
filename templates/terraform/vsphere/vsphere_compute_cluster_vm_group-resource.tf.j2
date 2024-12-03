@@ -1,0 +1,6 @@
+resource "vsphere_compute_cluster_vm_group" "example" {
+    compute_cluster_id = "{{ compute_cluster_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    virtual_machine_ids = "{{ virtual_machine_ids }}"
+}

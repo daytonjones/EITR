@@ -1,0 +1,15 @@
+data "vault_raft_autopilot_state" "example" {
+    failure_tolerance = "{{ failure_tolerance }}"
+    healthy = "{{ healthy }}"
+    id = "{{ id }}"
+    leader = "{{ leader }}"
+    namespace = "{{ namespace }}"
+    optimistic_failure_tolerance = "{{ optimistic_failure_tolerance }}"
+    redundancy_zones = "{{ redundancy_zones }}"
+    redundancy_zones_json = "{{ redundancy_zones_json }}"
+    servers = "{{ servers }}"
+    servers_json = "{{ servers_json }}"
+    upgrade_info = "{{ upgrade_info }}"
+    upgrade_info_json = "{{ upgrade_info_json }}"
+    voters = "{{ voters }}"
+}

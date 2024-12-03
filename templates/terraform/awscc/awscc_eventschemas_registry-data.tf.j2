@@ -1,0 +1,10 @@
+data "awscc_eventschemas_registry" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    registry_arn = "{{ registry_arn }}"
+    registry_name = "{{ registry_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

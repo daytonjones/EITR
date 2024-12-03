@@ -1,0 +1,76 @@
+data "awscc_quicksight_dashboard" "example" {
+    arn = "{{ arn }}"
+    aws_account_id = "{{ aws_account_id }}"
+    created_time = "{{ created_time }}"
+    dashboard_id = "{{ dashboard_id }}"
+    dashboard_publish_options = "{
+    ad_hoc_filtering_option = {
+    availability_status = {{ availability_status }}
+}
+    export_to_csv_option = {
+    availability_status = {{ availability_status }}
+}
+    sheet_controls_option = {
+    visibility_state = {{ visibility_state }}
+}
+}"
+    id = "{{ id }}"
+    last_published_time = "{{ last_published_time }}"
+    last_updated_time = "{{ last_updated_time }}"
+    name = "{{ name }}"
+    parameters = "{
+    date_time_parameters = {
+    name = {{ name }}
+    values = {{ values }}
+}
+    decimal_parameters = {
+    name = {{ name }}
+    values = {{ values }}
+}
+    integer_parameters = {
+    name = {{ name }}
+    values = {{ values }}
+}
+    string_parameters = {
+    name = {{ name }}
+    values = {{ values }}
+}
+}"
+    permissions = "{
+    actions = {{ actions }}
+    principal = {{ principal }}
+}"
+    source_entity = "{
+    source_template = {
+    arn = {{ arn }}
+    data_set_references = {
+    data_set_arn = {{ data_set_arn }}
+    data_set_placeholder = {{ data_set_placeholder }}
+}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    theme_arn = "{{ theme_arn }}"
+    version = "{
+    arn = {{ arn }}
+    created_time = {{ created_time }}
+    data_set_arns = {{ data_set_arns }}
+    description = {{ description }}
+    errors = {
+    message = {{ message }}
+    type = {{ type }}
+}
+    sheets = {
+    name = {{ name }}
+    sheet_id = {{ sheet_id }}
+}
+    source_entity_arn = {{ source_entity_arn }}
+    status = {{ status }}
+    theme_arn = {{ theme_arn }}
+    version_number = {{ version_number }}
+}"
+    version_description = "{{ version_description }}"
+}

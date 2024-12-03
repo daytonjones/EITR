@@ -1,0 +1,7 @@
+data "azurerm_key_vault_certificates" "example" {
+    certificates = "{{ certificates }}"
+    id = "{{ id }}"
+    include_pending = "{{ include_pending }}"
+    key_vault_id = "{{ key_vault_id }}"
+    names = "{{ names }}"
+}

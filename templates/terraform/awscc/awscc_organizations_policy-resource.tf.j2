@@ -1,0 +1,15 @@
+resource "awscc_organizations_policy" "example" {
+    arn = "{{ arn }}"
+    aws_managed = "{{ aws_managed }}"
+    content = "{{ content }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    policy_id = "{{ policy_id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    target_ids = "{{ target_ids }}"
+    type = "{{ type }}"
+}

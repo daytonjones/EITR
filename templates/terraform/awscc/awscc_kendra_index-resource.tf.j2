@@ -1,0 +1,56 @@
+resource "awscc_kendra_index" "example" {
+    arn = "{{ arn }}"
+    capacity_units = "{
+    query_capacity_units = {{ query_capacity_units }}
+    storage_capacity_units = {{ storage_capacity_units }}
+}"
+    description = "{{ description }}"
+    document_metadata_configurations = "{
+    name = {{ name }}
+    relevance = {
+    duration = {{ duration }}
+    freshness = {{ freshness }}
+    importance = {{ importance }}
+    rank_order = {{ rank_order }}
+    value_importance_items = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}
+    search = {
+    displayable = {{ displayable }}
+    facetable = {{ facetable }}
+    searchable = {{ searchable }}
+    sortable = {{ sortable }}
+}
+    type = {{ type }}
+}"
+    edition = "{{ edition }}"
+    id = "{{ id }}"
+    index_id = "{{ index_id }}"
+    name = "{{ name }}"
+    role_arn = "{{ role_arn }}"
+    server_side_encryption_configuration = "{
+    kms_key_id = {{ kms_key_id }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    user_context_policy = "{{ user_context_policy }}"
+    user_token_configurations = "{
+    json_token_type_configuration = {
+    group_attribute_field = {{ group_attribute_field }}
+    user_name_attribute_field = {{ user_name_attribute_field }}
+}
+    jwt_token_type_configuration = {
+    claim_regex = {{ claim_regex }}
+    group_attribute_field = {{ group_attribute_field }}
+    issuer = {{ issuer }}
+    key_location = {{ key_location }}
+    secret_manager_arn = {{ secret_manager_arn }}
+    url = {{ url }}
+    user_name_attribute_field = {{ user_name_attribute_field }}
+}
+}"
+}

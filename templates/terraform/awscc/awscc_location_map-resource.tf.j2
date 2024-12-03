@@ -1,0 +1,19 @@
+resource "awscc_location_map" "example" {
+    arn = "{{ arn }}"
+    configuration = "{
+    custom_layers = {{ custom_layers }}
+    political_view = {{ political_view }}
+    style = {{ style }}
+}"
+    create_time = "{{ create_time }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    map_arn = "{{ map_arn }}"
+    map_name = "{{ map_name }}"
+    pricing_plan = "{{ pricing_plan }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    update_time = "{{ update_time }}"
+}

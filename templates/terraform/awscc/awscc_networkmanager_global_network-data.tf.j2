@@ -1,0 +1,12 @@
+data "awscc_networkmanager_global_network" "example" {
+    arn = "{{ arn }}"
+    created_at = "{{ created_at }}"
+    description = "{{ description }}"
+    global_network_id = "{{ global_network_id }}"
+    id = "{{ id }}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

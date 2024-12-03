@@ -1,0 +1,16 @@
+data "awscc_proton_environment_account_connection" "example" {
+    arn = "{{ arn }}"
+    codebuild_role_arn = "{{ codebuild_role_arn }}"
+    component_role_arn = "{{ component_role_arn }}"
+    environment_account_connection_id = "{{ environment_account_connection_id }}"
+    environment_account_id = "{{ environment_account_id }}"
+    environment_name = "{{ environment_name }}"
+    id = "{{ id }}"
+    management_account_id = "{{ management_account_id }}"
+    role_arn = "{{ role_arn }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

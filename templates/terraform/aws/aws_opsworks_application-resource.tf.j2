@@ -1,0 +1,17 @@
+resource "aws_opsworks_application" "example" {
+    auto_bundle_on_deploy = "{{ auto_bundle_on_deploy }}"
+    aws_flow_ruby_settings = "{{ aws_flow_ruby_settings }}"
+    data_source_arn = "{{ data_source_arn }}"
+    data_source_database_name = "{{ data_source_database_name }}"
+    data_source_type = "{{ data_source_type }}"
+    description = "{{ description }}"
+    document_root = "{{ document_root }}"
+    domains = "{{ domains }}"
+    enable_ssl = "{{ enable_ssl }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    rails_env = "{{ rails_env }}"
+    short_name = "{{ short_name }}"
+    stack_id = "{{ stack_id }}"
+    type = "{{ type }}"
+}

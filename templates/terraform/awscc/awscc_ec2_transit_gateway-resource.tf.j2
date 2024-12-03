@@ -1,0 +1,21 @@
+resource "awscc_ec2_transit_gateway" "example" {
+    amazon_side_asn = "{{ amazon_side_asn }}"
+    association_default_route_table_id = "{{ association_default_route_table_id }}"
+    auto_accept_shared_attachments = "{{ auto_accept_shared_attachments }}"
+    default_route_table_association = "{{ default_route_table_association }}"
+    default_route_table_propagation = "{{ default_route_table_propagation }}"
+    description = "{{ description }}"
+    dns_support = "{{ dns_support }}"
+    id = "{{ id }}"
+    multicast_support = "{{ multicast_support }}"
+    propagation_default_route_table_id = "{{ propagation_default_route_table_id }}"
+    security_group_referencing_support = "{{ security_group_referencing_support }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    transit_gateway_arn = "{{ transit_gateway_arn }}"
+    transit_gateway_cidr_blocks = "{{ transit_gateway_cidr_blocks }}"
+    transit_gateway_id = "{{ transit_gateway_id }}"
+    vpn_ecmp_support = "{{ vpn_ecmp_support }}"
+}

@@ -1,0 +1,17 @@
+resource "vault_identity_mfa_duo" "example" {
+    api_hostname = "{{ api_hostname }}"
+    id = "{{ id }}"
+    integration_key = "{{ integration_key }}"
+    method_id = "{{ method_id }}"
+    mount_accessor = "{{ mount_accessor }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    namespace_id = "{{ namespace_id }}"
+    namespace_path = "{{ namespace_path }}"
+    push_info = "{{ push_info }}"
+    secret_key = "{{ secret_key }}"
+    type = "{{ type }}"
+    use_passcode = "{{ use_passcode }}"
+    username_format = "{{ username_format }}"
+    uuid = "{{ uuid }}"
+}

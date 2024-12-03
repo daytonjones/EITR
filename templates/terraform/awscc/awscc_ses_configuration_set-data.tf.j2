@@ -1,0 +1,29 @@
+data "awscc_ses_configuration_set" "example" {
+    delivery_options = "{
+    max_delivery_seconds = {{ max_delivery_seconds }}
+    sending_pool_name = {{ sending_pool_name }}
+    tls_policy = {{ tls_policy }}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    reputation_options = "{
+    reputation_metrics_enabled = {{ reputation_metrics_enabled }}
+}"
+    sending_options = "{
+    sending_enabled = {{ sending_enabled }}
+}"
+    suppression_options = "{
+    suppressed_reasons = {{ suppressed_reasons }}
+}"
+    tracking_options = "{
+    custom_redirect_domain = {{ custom_redirect_domain }}
+}"
+    vdm_options = "{
+    dashboard_options = {
+    engagement_metrics = {{ engagement_metrics }}
+}
+    guardian_options = {
+    optimized_shared_delivery = {{ optimized_shared_delivery }}
+}
+}"
+}

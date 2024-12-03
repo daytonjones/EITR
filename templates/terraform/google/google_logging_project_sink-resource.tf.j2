@@ -1,0 +1,12 @@
+resource "google_logging_project_sink" "example" {
+    custom_writer_identity = "{{ custom_writer_identity }}"
+    description = "{{ description }}"
+    destination = "{{ destination }}"
+    disabled = "{{ disabled }}"
+    filter = "{{ filter }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    unique_writer_identity = "{{ unique_writer_identity }}"
+    writer_identity = "{{ writer_identity }}"
+}

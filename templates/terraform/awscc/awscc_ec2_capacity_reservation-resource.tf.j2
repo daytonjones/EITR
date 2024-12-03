@@ -1,0 +1,26 @@
+resource "awscc_ec2_capacity_reservation" "example" {
+    availability_zone = "{{ availability_zone }}"
+    available_instance_count = "{{ available_instance_count }}"
+    capacity_reservation_id = "{{ capacity_reservation_id }}"
+    ebs_optimized = "{{ ebs_optimized }}"
+    end_date = "{{ end_date }}"
+    end_date_type = "{{ end_date_type }}"
+    ephemeral_storage = "{{ ephemeral_storage }}"
+    id = "{{ id }}"
+    instance_count = "{{ instance_count }}"
+    instance_match_criteria = "{{ instance_match_criteria }}"
+    instance_platform = "{{ instance_platform }}"
+    instance_type = "{{ instance_type }}"
+    out_post_arn = "{{ out_post_arn }}"
+    placement_group_arn = "{{ placement_group_arn }}"
+    tag_specifications = "{
+    resource_type = {{ resource_type }}
+    tags = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}"
+    tenancy = "{{ tenancy }}"
+    total_instance_count = "{{ total_instance_count }}"
+    unused_reservation_billing_owner_id = "{{ unused_reservation_billing_owner_id }}"
+}

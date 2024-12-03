@@ -1,0 +1,11 @@
+resource "azurerm_kusto_attached_database_configuration" "example" {
+    attached_database_names = "{{ attached_database_names }}"
+    cluster_name = "{{ cluster_name }}"
+    cluster_resource_id = "{{ cluster_resource_id }}"
+    database_name = "{{ database_name }}"
+    default_principal_modification_kind = "{{ default_principal_modification_kind }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+}

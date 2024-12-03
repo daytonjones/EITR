@@ -1,0 +1,6 @@
+resource "aws_autoscaling_notification" "example" {
+    group_names = "{{ group_names }}"
+    id = "{{ id }}"
+    notifications = "{{ notifications }}"
+    topic_arn = "{{ topic_arn }}"
+}

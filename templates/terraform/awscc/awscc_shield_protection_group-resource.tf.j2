@@ -1,0 +1,13 @@
+resource "awscc_shield_protection_group" "example" {
+    aggregation = "{{ aggregation }}"
+    id = "{{ id }}"
+    members = "{{ members }}"
+    pattern = "{{ pattern }}"
+    protection_group_arn = "{{ protection_group_arn }}"
+    protection_group_id = "{{ protection_group_id }}"
+    resource_type = "{{ resource_type }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

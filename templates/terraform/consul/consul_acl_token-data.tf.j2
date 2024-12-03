@@ -1,0 +1,14 @@
+data "consul_acl_token" "example" {
+    accessor_id = "{{ accessor_id }}"
+    description = "{{ description }}"
+    expiration_time = "{{ expiration_time }}"
+    id = "{{ id }}"
+    local = "{{ local }}"
+    namespace = "{{ namespace }}"
+    node_identities = "{{ node_identities }}"
+    partition = "{{ partition }}"
+    policies = "{{ policies }}"
+    roles = "{{ roles }}"
+    service_identities = "{{ service_identities }}"
+    templated_policies = "{{ templated_policies }}"
+}

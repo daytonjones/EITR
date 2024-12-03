@@ -1,0 +1,15 @@
+resource "google_bigquery_data_transfer_config" "example" {
+    data_refresh_window_days = "{{ data_refresh_window_days }}"
+    data_source_id = "{{ data_source_id }}"
+    destination_dataset_id = "{{ destination_dataset_id }}"
+    disabled = "{{ disabled }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    notification_pubsub_topic = "{{ notification_pubsub_topic }}"
+    params = "{{ params }}"
+    project = "{{ project }}"
+    schedule = "{{ schedule }}"
+    service_account_name = "{{ service_account_name }}"
+}

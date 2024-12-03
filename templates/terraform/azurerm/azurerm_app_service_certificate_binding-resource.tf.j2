@@ -1,0 +1,9 @@
+resource "azurerm_app_service_certificate_binding" "example" {
+    app_service_name = "{{ app_service_name }}"
+    certificate_id = "{{ certificate_id }}"
+    hostname = "{{ hostname }}"
+    hostname_binding_id = "{{ hostname_binding_id }}"
+    id = "{{ id }}"
+    ssl_state = "{{ ssl_state }}"
+    thumbprint = "{{ thumbprint }}"
+}

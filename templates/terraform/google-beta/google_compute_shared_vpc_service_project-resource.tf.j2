@@ -1,0 +1,6 @@
+resource "google_compute_shared_vpc_service_project" "example" {
+    deletion_policy = "{{ deletion_policy }}"
+    host_project = "{{ host_project }}"
+    id = "{{ id }}"
+    service_project = "{{ service_project }}"
+}

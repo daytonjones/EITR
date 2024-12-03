@@ -1,0 +1,20 @@
+data "awscc_redshift_event_subscription" "example" {
+    cust_subscription_id = "{{ cust_subscription_id }}"
+    customer_aws_id = "{{ customer_aws_id }}"
+    enabled = "{{ enabled }}"
+    event_categories = "{{ event_categories }}"
+    event_categories_list = "{{ event_categories_list }}"
+    id = "{{ id }}"
+    severity = "{{ severity }}"
+    sns_topic_arn = "{{ sns_topic_arn }}"
+    source_ids = "{{ source_ids }}"
+    source_ids_list = "{{ source_ids_list }}"
+    source_type = "{{ source_type }}"
+    status = "{{ status }}"
+    subscription_creation_time = "{{ subscription_creation_time }}"
+    subscription_name = "{{ subscription_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

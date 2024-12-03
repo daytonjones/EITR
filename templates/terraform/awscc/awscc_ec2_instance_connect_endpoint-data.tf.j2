@@ -1,0 +1,12 @@
+data "awscc_ec2_instance_connect_endpoint" "example" {
+    client_token = "{{ client_token }}"
+    id = "{{ id }}"
+    instance_connect_endpoint_id = "{{ instance_connect_endpoint_id }}"
+    preserve_client_ip = "{{ preserve_client_ip }}"
+    security_group_ids = "{{ security_group_ids }}"
+    subnet_id = "{{ subnet_id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

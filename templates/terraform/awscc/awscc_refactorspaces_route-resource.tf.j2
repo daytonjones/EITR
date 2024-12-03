@@ -1,0 +1,24 @@
+resource "awscc_refactorspaces_route" "example" {
+    application_identifier = "{{ application_identifier }}"
+    arn = "{{ arn }}"
+    default_route = "{
+    activation_state = {{ activation_state }}
+}"
+    environment_identifier = "{{ environment_identifier }}"
+    id = "{{ id }}"
+    path_resource_to_id = "{{ path_resource_to_id }}"
+    route_identifier = "{{ route_identifier }}"
+    route_type = "{{ route_type }}"
+    service_identifier = "{{ service_identifier }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    uri_path_route = "{
+    activation_state = {{ activation_state }}
+    append_source_path = {{ append_source_path }}
+    include_child_paths = {{ include_child_paths }}
+    methods = {{ methods }}
+    source_path = {{ source_path }}
+}"
+}

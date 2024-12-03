@@ -1,0 +1,67 @@
+data "awscc_pinpoint_in_app_template" "example" {
+    arn = "{{ arn }}"
+    content = "{
+    background_color = {{ background_color }}
+    body_config = {
+    alignment = {{ alignment }}
+    body = {{ body }}
+    text_color = {{ text_color }}
+}
+    header_config = {
+    alignment = {{ alignment }}
+    header = {{ header }}
+    text_color = {{ text_color }}
+}
+    image_url = {{ image_url }}
+    primary_btn = {
+    android = {
+    button_action = {{ button_action }}
+    link = {{ link }}
+}
+    default_config = {
+    background_color = {{ background_color }}
+    border_radius = {{ border_radius }}
+    button_action = {{ button_action }}
+    link = {{ link }}
+    text = {{ text }}
+    text_color = {{ text_color }}
+}
+    ios = {
+    button_action = {{ button_action }}
+    link = {{ link }}
+}
+    web = {
+    button_action = {{ button_action }}
+    link = {{ link }}
+}
+}
+    secondary_btn = {
+    android = {
+    button_action = {{ button_action }}
+    link = {{ link }}
+}
+    default_config = {
+    background_color = {{ background_color }}
+    border_radius = {{ border_radius }}
+    button_action = {{ button_action }}
+    link = {{ link }}
+    text = {{ text }}
+    text_color = {{ text_color }}
+}
+    ios = {
+    button_action = {{ button_action }}
+    link = {{ link }}
+}
+    web = {
+    button_action = {{ button_action }}
+    link = {{ link }}
+}
+}
+}"
+    custom_config = "{{ custom_config }}"
+    id = "{{ id }}"
+    layout = "{{ layout }}"
+    tags = "{{ tags }}"
+    template_description = "{{ template_description }}"
+    template_name = "{{ template_name }}"
+}

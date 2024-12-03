@@ -1,0 +1,12 @@
+data "aws_ecr_repository" "example" {
+    arn = "{{ arn }}"
+    encryption_configuration = "{{ encryption_configuration }}"
+    id = "{{ id }}"
+    image_scanning_configuration = "{{ image_scanning_configuration }}"
+    image_tag_mutability = "{{ image_tag_mutability }}"
+    most_recent_image_tags = "{{ most_recent_image_tags }}"
+    name = "{{ name }}"
+    registry_id = "{{ registry_id }}"
+    repository_url = "{{ repository_url }}"
+    tags = "{{ tags }}"
+}

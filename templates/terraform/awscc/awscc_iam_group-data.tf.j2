@@ -1,0 +1,11 @@
+data "awscc_iam_group" "example" {
+    arn = "{{ arn }}"
+    group_name = "{{ group_name }}"
+    id = "{{ id }}"
+    managed_policy_arns = "{{ managed_policy_arns }}"
+    path = "{{ path }}"
+    policies = "{
+    policy_document = {{ policy_document }}
+    policy_name = {{ policy_name }}
+}"
+}

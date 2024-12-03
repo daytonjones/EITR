@@ -1,0 +1,18 @@
+resource "google_compute_route" "example" {
+    description = "{{ description }}"
+    dest_range = "{{ dest_range }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    network = "{{ network }}"
+    next_hop_gateway = "{{ next_hop_gateway }}"
+    next_hop_ilb = "{{ next_hop_ilb }}"
+    next_hop_instance = "{{ next_hop_instance }}"
+    next_hop_instance_zone = "{{ next_hop_instance_zone }}"
+    next_hop_ip = "{{ next_hop_ip }}"
+    next_hop_network = "{{ next_hop_network }}"
+    next_hop_vpn_tunnel = "{{ next_hop_vpn_tunnel }}"
+    priority = "{{ priority }}"
+    project = "{{ project }}"
+    self_link = "{{ self_link }}"
+    tags = "{{ tags }}"
+}

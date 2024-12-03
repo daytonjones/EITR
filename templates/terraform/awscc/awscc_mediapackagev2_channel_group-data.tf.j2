@@ -1,0 +1,13 @@
+data "awscc_mediapackagev2_channel_group" "example" {
+    arn = "{{ arn }}"
+    channel_group_name = "{{ channel_group_name }}"
+    created_at = "{{ created_at }}"
+    description = "{{ description }}"
+    egress_domain = "{{ egress_domain }}"
+    id = "{{ id }}"
+    modified_at = "{{ modified_at }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

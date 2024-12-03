@@ -1,0 +1,14 @@
+resource "awscc_kms_replica_key" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    key_id = "{{ key_id }}"
+    key_policy = "{{ key_policy }}"
+    pending_window_in_days = "{{ pending_window_in_days }}"
+    primary_key_arn = "{{ primary_key_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

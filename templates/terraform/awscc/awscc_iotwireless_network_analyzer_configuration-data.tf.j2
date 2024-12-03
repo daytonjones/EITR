@@ -1,0 +1,16 @@
+data "awscc_iotwireless_network_analyzer_configuration" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    trace_content = "{
+    log_level = {{ log_level }}
+    wireless_device_frame_info = {{ wireless_device_frame_info }}
+}"
+    wireless_devices = "{{ wireless_devices }}"
+    wireless_gateways = "{{ wireless_gateways }}"
+}

@@ -1,0 +1,21 @@
+resource "awscc_medialive_cluster" "example" {
+    arn = "{{ arn }}"
+    channel_ids = "{{ channel_ids }}"
+    cluster_id = "{{ cluster_id }}"
+    cluster_type = "{{ cluster_type }}"
+    id = "{{ id }}"
+    instance_role_arn = "{{ instance_role_arn }}"
+    name = "{{ name }}"
+    network_settings = "{
+    default_route = {{ default_route }}
+    interface_mappings = {
+    logical_interface_name = {{ logical_interface_name }}
+    network_id = {{ network_id }}
+}
+}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

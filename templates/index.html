@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js" defer></script>
+    <link rel="icon" href="/static/eitr.ico" type="image/x-icon">
+    <title>EITR - Terraform Config Generator</title>
+    <style>
+        .text-shadow {
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+        }
+    </style>
+</head>
+<body class="bg-cover bg-center h-full relative">
+    <!-- Background Image -->
+    <div class="fixed inset-0 z-0">
+        <img src="static/eitr_background.jpeg" alt="Background image of EITR" class="object-cover w-full h-full">
+    </div>
+
+    <!-- Header -->
+    <header class="relative z-50 bg-opacity-99 text-white p-4 text-center">
+        <div class="relative inline-block">
+            <center>
+                <img 
+                    src="static/eitr.png" 
+                    alt="EITR logo" 
+                    width="10%" 
+                    height="10%" 
+                    class="cursor-pointer" 
+                    id="eitrImage"
+                >
+            </center>
+            <div 
+                id="hoverText" 
+                class="absolute hidden bg-gray-700 text-white text-sm rounded p-4 w-[500px] max-w-none mt-4 shadow-lg z-50">
+                In Norse mythology, <i>eitr</i> (pronounced as "ater" or "either") is a substance representing raw potential and creation. The perfect name for an app that helps shape and define infrastructure.
+            </div>
+        </div>
+        <h1>
+            <b><i><font color="green">E</font></i></b>nvironment 
+            <b><i><font color="green">I</font></i></b>nfrastructure 
+            <b><i><font color="green">T</font></i></b>erraform 
+            <b><i><font color="green">R</font></i></b>enderer
+        </h1>
+    </header>
+
+    <!-- Main Layout -->
+    <div x-data="{ isSidebarOpen: true }" class="relative z-10 flex h-full">
+        <!-- Sidebar Navbar -->
+        <nav 
+            class="w-full md:w-1/6 bg-opacity-99 text-white overflow-y-auto h-full p-4 transition-transform duration-300 transform md:translate-x-0" 
+            :class="{ '-translate-x-full': !isSidebarOpen }">
+            <button 
+                class="block md:hidden mb-4 text-white bg-gray-700 px-4 py-2 rounded" 
+                @click="isSidebarOpen = !isSidebarOpen">
+                Toggle Sidebar
+            </button>
+            <h2 class="text-2xl font-bold mb-4 text-center">Providers</h2>
+            <p class="text-white-300 mb-6"><i>Select a provider and its resources to start generating Terraform configuration.</i></p>
+            <div>
+                {% for provider in providers %}
+                <div x-data="{ open: false }" class="mb-4">
+                    <!-- Button to toggle resource visibility -->
+                    <button 
+                        @click="open = !open" 
+                        class="w-full text-left px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded" 
+                        aria-expanded="false" 
+                        :aria-expanded="open.toString()">
+                        {{ provider.description }}
+                    </button>
+
+                    <!-- Toggling resource display -->
+                    <div x-show="open" x-transition class="mt-2 pl-4 space-y-2">
+                        {% for resource in provider.resource_names %}
+                        <div>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="{{ provider.name }}_resources" value="{{ resource }}" 
+                                       class="resource-checkbox" 
+                                       data-resource="{{ resource }}"
+				       data-provider="{{ provider.name }}" >
+                                <span>{{ resource }}</span>
+                            </label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="w-full md:w-5/6 bg-opacity-99 p-6 overflow-y-auto">
+            <div id="config-display" class="space-y-4">
+                <!-- Resource Templates will be dynamically added here -->
+            </div>
+
+            <form method="POST" action="/generate">
+                <input type="hidden" name="terraform_config" id="terraform_config">
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 mt-4 transition ease-in-out duration-300">
+                    Generate Terraform Configuration
+                </button>
+            </form>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-opacity-90 text-white p-4 text-center">
+        <p>&copy; 2024 EITR - All Rights Reserved</p>
+        <p>
+            Providers: {{ total_providers }}, Resources: {{ total_resources }}
+        </p>
+    </footer>
+    <script>
+        // JavaScript for hover effect over the Logo
+        const image = document.getElementById("eitrImage");
+        const hoverText = document.getElementById("hoverText");
+
+        image.addEventListener("mouseover", () => {
+            hoverText.classList.remove("hidden");
+        });
+
+        image.addEventListener("mouseout", () => {
+            hoverText.classList.add("hidden");
+        });
+
+<!-- testing -->
+document.addEventListener("DOMContentLoaded", () => {
+    const resourceCheckboxes = document.querySelectorAll(".resource-checkbox");
+    const configDisplay = document.getElementById("config-display");
+    const generateButton = document.querySelector("button[type='submit']");
+
+    // Manage Generate Button Visibility
+    const updateGenerateButtonVisibility = () => {
+        generateButton.style.display = configDisplay.children.length > 0 ? "block" : "none";
+    };
+    updateGenerateButtonVisibility();
+
+    resourceCheckboxes.forEach((checkbox) => {
+        checkbox.addEventListener("change", async () => {
+            const provider = checkbox.dataset.provider; // Extract provider from the dataset
+            const resource = checkbox.dataset.resource; // Extract resource from the dataset
+            const resourceId = `resource-${provider}-${resource}`;
+
+            if (checkbox.checked) {
+                // Fetch the template from the backend
+                try {
+                    const response = await fetch(`/load_templates/${provider}/${resource}`);
+                    if (!response.ok) {
+                        throw new Error(`Error fetching template: ${response.statusText}`);
+                    }
+                    const data = await response.json();
+
+                    // Create a human-readable display of the fetched template
+                    const resourceDiv = document.createElement("div");
+                    resourceDiv.id = resourceId;
+                    resourceDiv.className = "p-4 rounded shadow mb-4";
+
+                    const resourceContent = `
+                        <pre class="p-2 rounded overflow-auto text-white"><code>${data.resource}</code></pre>
+                        <pre class="p-2 rounded overflow-auto text-white"><code>${data.data}</code></pre>
+                    `;
+
+                    resourceDiv.innerHTML = resourceContent;
+                    configDisplay.appendChild(resourceDiv);
+                } catch (error) {
+                    console.error("Failed to fetch template:", error);
+                }
+            } else {
+                // Remove template from config display
+                const resourceDiv = document.getElementById(resourceId);
+                if (resourceDiv) {
+                    configDisplay.removeChild(resourceDiv);
+                }
+            }
+
+            // Update button visibility whenever templates change
+            updateGenerateButtonVisibility();
+        });
+    });
+});
+
+<!-- testing -->
+
+    </script>
+</body>
+</html>
+

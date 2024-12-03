@@ -1,0 +1,15 @@
+resource "google_apigee_instance" "example" {
+    consumer_accept_list = "{{ consumer_accept_list }}"
+    description = "{{ description }}"
+    disk_encryption_key_name = "{{ disk_encryption_key_name }}"
+    display_name = "{{ display_name }}"
+    host = "{{ host }}"
+    id = "{{ id }}"
+    ip_range = "{{ ip_range }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    org_id = "{{ org_id }}"
+    peering_cidr_range = "{{ peering_cidr_range }}"
+    port = "{{ port }}"
+    service_attachment = "{{ service_attachment }}"
+}

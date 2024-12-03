@@ -1,0 +1,10 @@
+data "tls_public_key" "example" {
+    algorithm = "{{ algorithm }}"
+    id = "{{ id }}"
+    private_key_openssh = "{{ private_key_openssh }}"
+    private_key_pem = "{{ private_key_pem }}"
+    public_key_fingerprint_md5 = "{{ public_key_fingerprint_md5 }}"
+    public_key_fingerprint_sha256 = "{{ public_key_fingerprint_sha256 }}"
+    public_key_openssh = "{{ public_key_openssh }}"
+    public_key_pem = "{{ public_key_pem }}"
+}

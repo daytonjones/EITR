@@ -1,0 +1,8 @@
+resource "google_storage_bucket_access_control" "example" {
+    bucket = "{{ bucket }}"
+    domain = "{{ domain }}"
+    email = "{{ email }}"
+    entity = "{{ entity }}"
+    id = "{{ id }}"
+    role = "{{ role }}"
+}

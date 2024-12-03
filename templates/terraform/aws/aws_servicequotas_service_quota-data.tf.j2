@@ -1,0 +1,13 @@
+data "aws_servicequotas_service_quota" "example" {
+    adjustable = "{{ adjustable }}"
+    arn = "{{ arn }}"
+    default_value = "{{ default_value }}"
+    global_quota = "{{ global_quota }}"
+    id = "{{ id }}"
+    quota_code = "{{ quota_code }}"
+    quota_name = "{{ quota_name }}"
+    service_code = "{{ service_code }}"
+    service_name = "{{ service_name }}"
+    usage_metric = "{{ usage_metric }}"
+    value = "{{ value }}"
+}

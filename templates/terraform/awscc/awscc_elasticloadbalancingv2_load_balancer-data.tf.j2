@@ -1,0 +1,34 @@
+data "awscc_elasticloadbalancingv2_load_balancer" "example" {
+    canonical_hosted_zone_id = "{{ canonical_hosted_zone_id }}"
+    dns_name = "{{ dns_name }}"
+    enable_prefix_for_ipv_6_source_nat = "{{ enable_prefix_for_ipv_6_source_nat }}"
+    enforce_security_group_inbound_rules_on_private_link_traffic = "{{ enforce_security_group_inbound_rules_on_private_link_traffic }}"
+    id = "{{ id }}"
+    ip_address_type = "{{ ip_address_type }}"
+    load_balancer_arn = "{{ load_balancer_arn }}"
+    load_balancer_attributes = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    load_balancer_full_name = "{{ load_balancer_full_name }}"
+    load_balancer_name = "{{ load_balancer_name }}"
+    minimum_load_balancer_capacity = "{
+    capacity_units = {{ capacity_units }}
+}"
+    name = "{{ name }}"
+    scheme = "{{ scheme }}"
+    security_groups = "{{ security_groups }}"
+    subnet_mappings = "{
+    allocation_id = {{ allocation_id }}
+    i_pv_6_address = {{ i_pv_6_address }}
+    private_i_pv_4_address = {{ private_i_pv_4_address }}
+    source_nat_ipv_6_prefix = {{ source_nat_ipv_6_prefix }}
+    subnet_id = {{ subnet_id }}
+}"
+    subnets = "{{ subnets }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+}

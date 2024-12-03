@@ -1,0 +1,8 @@
+resource "azurerm_active_directory_domain_service_trust" "example" {
+    domain_service_id = "{{ domain_service_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    password = "{{ password }}"
+    trusted_domain_dns_ips = "{{ trusted_domain_dns_ips }}"
+    trusted_domain_fqdn = "{{ trusted_domain_fqdn }}"
+}

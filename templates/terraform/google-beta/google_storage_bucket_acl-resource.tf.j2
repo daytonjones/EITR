@@ -1,0 +1,7 @@
+resource "google_storage_bucket_acl" "example" {
+    bucket = "{{ bucket }}"
+    default_acl = "{{ default_acl }}"
+    id = "{{ id }}"
+    predefined_acl = "{{ predefined_acl }}"
+    role_entity = "{{ role_entity }}"
+}

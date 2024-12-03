@@ -1,0 +1,12 @@
+resource "azurerm_mssql_virtual_machine" "example" {
+    id = "{{ id }}"
+    r_services_enabled = "{{ r_services_enabled }}"
+    sql_connectivity_port = "{{ sql_connectivity_port }}"
+    sql_connectivity_type = "{{ sql_connectivity_type }}"
+    sql_connectivity_update_password = "{{ sql_connectivity_update_password }}"
+    sql_connectivity_update_username = "{{ sql_connectivity_update_username }}"
+    sql_license_type = "{{ sql_license_type }}"
+    sql_virtual_machine_group_id = "{{ sql_virtual_machine_group_id }}"
+    tags = "{{ tags }}"
+    virtual_machine_id = "{{ virtual_machine_id }}"
+}

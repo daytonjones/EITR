@@ -1,0 +1,8 @@
+resource "aws_opsworks_permission" "example" {
+    allow_ssh = "{{ allow_ssh }}"
+    allow_sudo = "{{ allow_sudo }}"
+    id = "{{ id }}"
+    level = "{{ level }}"
+    stack_id = "{{ stack_id }}"
+    user_arn = "{{ user_arn }}"
+}

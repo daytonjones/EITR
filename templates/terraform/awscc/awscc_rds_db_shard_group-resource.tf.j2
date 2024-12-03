@@ -1,0 +1,15 @@
+resource "awscc_rds_db_shard_group" "example" {
+    compute_redundancy = "{{ compute_redundancy }}"
+    db_cluster_identifier = "{{ db_cluster_identifier }}"
+    db_shard_group_identifier = "{{ db_shard_group_identifier }}"
+    db_shard_group_resource_id = "{{ db_shard_group_resource_id }}"
+    endpoint = "{{ endpoint }}"
+    id = "{{ id }}"
+    max_acu = "{{ max_acu }}"
+    min_acu = "{{ min_acu }}"
+    publicly_accessible = "{{ publicly_accessible }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

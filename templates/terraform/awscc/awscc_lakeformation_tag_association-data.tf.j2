@@ -1,0 +1,29 @@
+data "awscc_lakeformation_tag_association" "example" {
+    id = "{{ id }}"
+    lf_tags = "{
+    catalog_id = {{ catalog_id }}
+    tag_key = {{ tag_key }}
+    tag_values = {{ tag_values }}
+}"
+    resource = "{
+    catalog = {{ catalog }}
+    database = {
+    catalog_id = {{ catalog_id }}
+    name = {{ name }}
+}
+    table = {
+    catalog_id = {{ catalog_id }}
+    database_name = {{ database_name }}
+    name = {{ name }}
+    table_wildcard = {{ table_wildcard }}
+}
+    table_with_columns = {
+    catalog_id = {{ catalog_id }}
+    column_names = {{ column_names }}
+    database_name = {{ database_name }}
+    name = {{ name }}
+}
+}"
+    resource_identifier = "{{ resource_identifier }}"
+    tags_identifier = "{{ tags_identifier }}"
+}

@@ -1,0 +1,12 @@
+resource "aws_config_remediation_configuration" "example" {
+    arn = "{{ arn }}"
+    automatic = "{{ automatic }}"
+    config_rule_name = "{{ config_rule_name }}"
+    id = "{{ id }}"
+    maximum_automatic_attempts = "{{ maximum_automatic_attempts }}"
+    resource_type = "{{ resource_type }}"
+    retry_attempt_seconds = "{{ retry_attempt_seconds }}"
+    target_id = "{{ target_id }}"
+    target_type = "{{ target_type }}"
+    target_version = "{{ target_version }}"
+}

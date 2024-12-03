@@ -1,0 +1,12 @@
+data "awscc_sagemaker_image" "example" {
+    id = "{{ id }}"
+    image_arn = "{{ image_arn }}"
+    image_description = "{{ image_description }}"
+    image_display_name = "{{ image_display_name }}"
+    image_name = "{{ image_name }}"
+    image_role_arn = "{{ image_role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

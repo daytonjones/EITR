@@ -1,0 +1,12 @@
+resource "google_compute_organization_security_policy_rule" "example" {
+    action = "{{ action }}"
+    description = "{{ description }}"
+    direction = "{{ direction }}"
+    enable_logging = "{{ enable_logging }}"
+    id = "{{ id }}"
+    policy_id = "{{ policy_id }}"
+    preview = "{{ preview }}"
+    priority = "{{ priority }}"
+    target_resources = "{{ target_resources }}"
+    target_service_accounts = "{{ target_service_accounts }}"
+}

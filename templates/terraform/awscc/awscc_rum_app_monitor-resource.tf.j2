@@ -1,0 +1,38 @@
+resource "awscc_rum_app_monitor" "example" {
+    app_monitor_configuration = "{
+    allow_cookies = {{ allow_cookies }}
+    enable_x_ray = {{ enable_x_ray }}
+    excluded_pages = {{ excluded_pages }}
+    favorite_pages = {{ favorite_pages }}
+    guest_role_arn = {{ guest_role_arn }}
+    identity_pool_id = {{ identity_pool_id }}
+    included_pages = {{ included_pages }}
+    metric_destinations = {
+    destination = {{ destination }}
+    destination_arn = {{ destination_arn }}
+    iam_role_arn = {{ iam_role_arn }}
+    metric_definitions = {
+    dimension_keys = {{ dimension_keys }}
+    event_pattern = {{ event_pattern }}
+    name = {{ name }}
+    namespace = {{ namespace }}
+    unit_label = {{ unit_label }}
+    value_key = {{ value_key }}
+}
+}
+    session_sample_rate = {{ session_sample_rate }}
+    telemetries = {{ telemetries }}
+}"
+    app_monitor_id = "{{ app_monitor_id }}"
+    custom_events = "{
+    status = {{ status }}
+}"
+    cw_log_enabled = "{{ cw_log_enabled }}"
+    domain = "{{ domain }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

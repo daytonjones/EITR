@@ -1,0 +1,9 @@
+data "awscc_codedeploy_application" "example" {
+    application_name = "{{ application_name }}"
+    compute_platform = "{{ compute_platform }}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

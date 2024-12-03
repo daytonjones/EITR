@@ -1,0 +1,9 @@
+resource "azurerm_data_protection_backup_instance_kubernetes_cluster" "example" {
+    backup_policy_id = "{{ backup_policy_id }}"
+    id = "{{ id }}"
+    kubernetes_cluster_id = "{{ kubernetes_cluster_id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    snapshot_resource_group_name = "{{ snapshot_resource_group_name }}"
+    vault_id = "{{ vault_id }}"
+}

@@ -1,0 +1,10 @@
+resource "azurerm_monitor_alert_processing_rule_action_group" "example" {
+    add_action_group_ids = "{{ add_action_group_ids }}"
+    description = "{{ description }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    scopes = "{{ scopes }}"
+    tags = "{{ tags }}"
+}

@@ -1,0 +1,7 @@
+resource "aws_appstream_user_stack_association" "example" {
+    authentication_type = "{{ authentication_type }}"
+    id = "{{ id }}"
+    send_email_notification = "{{ send_email_notification }}"
+    stack_name = "{{ stack_name }}"
+    user_name = "{{ user_name }}"
+}

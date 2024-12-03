@@ -1,0 +1,12 @@
+resource "google_dataproc_job" "example" {
+    driver_controls_files_uri = "{{ driver_controls_files_uri }}"
+    driver_output_resource_uri = "{{ driver_output_resource_uri }}"
+    effective_labels = "{{ effective_labels }}"
+    force_delete = "{{ force_delete }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    status = "{{ status }}"
+    terraform_labels = "{{ terraform_labels }}"
+}

@@ -1,0 +1,20 @@
+data "awscc_quicksight_refresh_schedule" "example" {
+    arn = "{{ arn }}"
+    aws_account_id = "{{ aws_account_id }}"
+    data_set_id = "{{ data_set_id }}"
+    id = "{{ id }}"
+    schedule = "{
+    refresh_type = {{ refresh_type }}
+    schedule_frequency = {
+    interval = {{ interval }}
+    refresh_on_day = {
+    day_of_month = {{ day_of_month }}
+    day_of_week = {{ day_of_week }}
+}
+    time_of_the_day = {{ time_of_the_day }}
+    time_zone = {{ time_zone }}
+}
+    schedule_id = {{ schedule_id }}
+    start_after_date_time = {{ start_after_date_time }}
+}"
+}

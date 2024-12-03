@@ -1,0 +1,13 @@
+resource "azurerm_data_factory_integration_runtime_azure_ssis" "example" {
+    credential_name = "{{ credential_name }}"
+    data_factory_id = "{{ data_factory_id }}"
+    description = "{{ description }}"
+    edition = "{{ edition }}"
+    id = "{{ id }}"
+    license_type = "{{ license_type }}"
+    location = "{{ location }}"
+    max_parallel_executions_per_node = "{{ max_parallel_executions_per_node }}"
+    name = "{{ name }}"
+    node_size = "{{ node_size }}"
+    number_of_nodes = "{{ number_of_nodes }}"
+}

@@ -1,0 +1,5 @@
+resource "awscc_ec2_vpc_endpoint_service_permissions" "example" {
+    allowed_principals = "{{ allowed_principals }}"
+    id = "{{ id }}"
+    service_id = "{{ service_id }}"
+}

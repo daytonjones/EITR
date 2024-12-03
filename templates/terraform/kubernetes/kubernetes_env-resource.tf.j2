@@ -1,0 +1,9 @@
+resource "kubernetes_env" "example" {
+    api_version = "{{ api_version }}"
+    container = "{{ container }}"
+    field_manager = "{{ field_manager }}"
+    force = "{{ force }}"
+    id = "{{ id }}"
+    init_container = "{{ init_container }}"
+    kind = "{{ kind }}"
+}

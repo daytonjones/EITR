@@ -1,0 +1,9 @@
+data "aws_sagemaker_prebuilt_ecr_image" "example" {
+    dns_suffix = "{{ dns_suffix }}"
+    id = "{{ id }}"
+    image_tag = "{{ image_tag }}"
+    region = "{{ region }}"
+    registry_id = "{{ registry_id }}"
+    registry_path = "{{ registry_path }}"
+    repository_name = "{{ repository_name }}"
+}

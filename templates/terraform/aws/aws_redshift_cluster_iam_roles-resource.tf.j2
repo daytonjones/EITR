@@ -1,0 +1,6 @@
+resource "aws_redshift_cluster_iam_roles" "example" {
+    cluster_identifier = "{{ cluster_identifier }}"
+    default_iam_role_arn = "{{ default_iam_role_arn }}"
+    iam_role_arns = "{{ iam_role_arns }}"
+    id = "{{ id }}"
+}

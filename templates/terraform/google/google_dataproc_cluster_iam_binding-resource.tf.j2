@@ -1,0 +1,9 @@
+resource "google_dataproc_cluster_iam_binding" "example" {
+    cluster = "{{ cluster }}"
+    etag = "{{ etag }}"
+    id = "{{ id }}"
+    members = "{{ members }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    role = "{{ role }}"
+}

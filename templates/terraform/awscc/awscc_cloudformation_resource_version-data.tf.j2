@@ -1,0 +1,16 @@
+data "awscc_cloudformation_resource_version" "example" {
+    arn = "{{ arn }}"
+    execution_role_arn = "{{ execution_role_arn }}"
+    id = "{{ id }}"
+    is_default_version = "{{ is_default_version }}"
+    logging_config = "{
+    log_group_name = {{ log_group_name }}
+    log_role_arn = {{ log_role_arn }}
+}"
+    provisioning_type = "{{ provisioning_type }}"
+    schema_handler_package = "{{ schema_handler_package }}"
+    type_arn = "{{ type_arn }}"
+    type_name = "{{ type_name }}"
+    version_id = "{{ version_id }}"
+    visibility = "{{ visibility }}"
+}

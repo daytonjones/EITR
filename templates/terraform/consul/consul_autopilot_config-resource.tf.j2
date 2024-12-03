@@ -1,0 +1,11 @@
+resource "consul_autopilot_config" "example" {
+    cleanup_dead_servers = "{{ cleanup_dead_servers }}"
+    datacenter = "{{ datacenter }}"
+    disable_upgrade_migration = "{{ disable_upgrade_migration }}"
+    id = "{{ id }}"
+    last_contact_threshold = "{{ last_contact_threshold }}"
+    max_trailing_logs = "{{ max_trailing_logs }}"
+    redundancy_zone_tag = "{{ redundancy_zone_tag }}"
+    server_stabilization_time = "{{ server_stabilization_time }}"
+    upgrade_version_tag = "{{ upgrade_version_tag }}"
+}

@@ -1,0 +1,13 @@
+data "awscc_voiceid_domain" "example" {
+    description = "{{ description }}"
+    domain_id = "{{ domain_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    server_side_encryption_configuration = "{
+    kms_key_id = {{ kms_key_id }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

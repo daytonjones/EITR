@@ -1,0 +1,13 @@
+resource "google_sql_ssl_cert" "example" {
+    cert = "{{ cert }}"
+    cert_serial_number = "{{ cert_serial_number }}"
+    common_name = "{{ common_name }}"
+    create_time = "{{ create_time }}"
+    expiration_time = "{{ expiration_time }}"
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    private_key = "{{ private_key }}"
+    project = "{{ project }}"
+    server_ca_cert = "{{ server_ca_cert }}"
+    sha1_fingerprint = "{{ sha1_fingerprint }}"
+}

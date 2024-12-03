@@ -1,0 +1,11 @@
+data "azurerm_container_app_environment_certificate" "example" {
+    container_app_environment_id = "{{ container_app_environment_id }}"
+    expiration_date = "{{ expiration_date }}"
+    id = "{{ id }}"
+    issue_date = "{{ issue_date }}"
+    issuer = "{{ issuer }}"
+    name = "{{ name }}"
+    subject_name = "{{ subject_name }}"
+    tags = "{{ tags }}"
+    thumbprint = "{{ thumbprint }}"
+}

@@ -1,0 +1,45 @@
+resource "awscc_cloudtrail_trail" "example" {
+    advanced_event_selectors = "{
+    field_selectors = {
+    ends_with = {{ ends_with }}
+    equals = {{ equals }}
+    field = {{ field }}
+    not_ends_with = {{ not_ends_with }}
+    not_equals = {{ not_equals }}
+    not_starts_with = {{ not_starts_with }}
+    starts_with = {{ starts_with }}
+}
+    name = {{ name }}
+}"
+    arn = "{{ arn }}"
+    cloudwatch_logs_log_group_arn = "{{ cloudwatch_logs_log_group_arn }}"
+    cloudwatch_logs_role_arn = "{{ cloudwatch_logs_role_arn }}"
+    enable_log_file_validation = "{{ enable_log_file_validation }}"
+    event_selectors = "{
+    data_resources = {
+    type = {{ type }}
+    values = {{ values }}
+}
+    exclude_management_event_sources = {{ exclude_management_event_sources }}
+    include_management_events = {{ include_management_events }}
+    read_write_type = {{ read_write_type }}
+}"
+    id = "{{ id }}"
+    include_global_service_events = "{{ include_global_service_events }}"
+    insight_selectors = "{
+    insight_type = {{ insight_type }}
+}"
+    is_logging = "{{ is_logging }}"
+    is_multi_region_trail = "{{ is_multi_region_trail }}"
+    is_organization_trail = "{{ is_organization_trail }}"
+    kms_key_id = "{{ kms_key_id }}"
+    s3_bucket_name = "{{ s3_bucket_name }}"
+    s3_key_prefix = "{{ s3_key_prefix }}"
+    sns_topic_arn = "{{ sns_topic_arn }}"
+    sns_topic_name = "{{ sns_topic_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    trail_name = "{{ trail_name }}"
+}

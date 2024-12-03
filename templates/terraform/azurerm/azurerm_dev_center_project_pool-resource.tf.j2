@@ -1,0 +1,11 @@
+resource "azurerm_dev_center_project_pool" "example" {
+    dev_box_definition_name = "{{ dev_box_definition_name }}"
+    dev_center_attached_network_name = "{{ dev_center_attached_network_name }}"
+    dev_center_project_id = "{{ dev_center_project_id }}"
+    id = "{{ id }}"
+    local_administrator_enabled = "{{ local_administrator_enabled }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    stop_on_disconnect_grace_period_minutes = "{{ stop_on_disconnect_grace_period_minutes }}"
+    tags = "{{ tags }}"
+}

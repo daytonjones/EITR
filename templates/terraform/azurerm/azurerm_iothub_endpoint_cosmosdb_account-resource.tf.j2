@@ -1,0 +1,15 @@
+resource "azurerm_iothub_endpoint_cosmosdb_account" "example" {
+    authentication_type = "{{ authentication_type }}"
+    container_name = "{{ container_name }}"
+    database_name = "{{ database_name }}"
+    endpoint_uri = "{{ endpoint_uri }}"
+    id = "{{ id }}"
+    identity_id = "{{ identity_id }}"
+    iothub_id = "{{ iothub_id }}"
+    name = "{{ name }}"
+    partition_key_name = "{{ partition_key_name }}"
+    partition_key_template = "{{ partition_key_template }}"
+    primary_key = "{{ primary_key }}"
+    resource_group_name = "{{ resource_group_name }}"
+    secondary_key = "{{ secondary_key }}"
+}

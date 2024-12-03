@@ -1,0 +1,60 @@
+resource "awscc_events_connection" "example" {
+    arn = "{{ arn }}"
+    auth_parameters = "{
+    api_key_auth_parameters = {
+    api_key_name = {{ api_key_name }}
+    api_key_value = {{ api_key_value }}
+}
+    basic_auth_parameters = {
+    password = {{ password }}
+    username = {{ username }}
+}
+    invocation_http_parameters = {
+    body_parameters = {
+    is_value_secret = {{ is_value_secret }}
+    key = {{ key }}
+    value = {{ value }}
+}
+    header_parameters = {
+    is_value_secret = {{ is_value_secret }}
+    key = {{ key }}
+    value = {{ value }}
+}
+    query_string_parameters = {
+    is_value_secret = {{ is_value_secret }}
+    key = {{ key }}
+    value = {{ value }}
+}
+}
+    o_auth_parameters = {
+    authorization_endpoint = {{ authorization_endpoint }}
+    client_parameters = {
+    client_id = {{ client_id }}
+    client_secret = {{ client_secret }}
+}
+    http_method = {{ http_method }}
+    o_auth_http_parameters = {
+    body_parameters = {
+    is_value_secret = {{ is_value_secret }}
+    key = {{ key }}
+    value = {{ value }}
+}
+    header_parameters = {
+    is_value_secret = {{ is_value_secret }}
+    key = {{ key }}
+    value = {{ value }}
+}
+    query_string_parameters = {
+    is_value_secret = {{ is_value_secret }}
+    key = {{ key }}
+    value = {{ value }}
+}
+}
+}
+}"
+    authorization_type = "{{ authorization_type }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    secret_arn = "{{ secret_arn }}"
+}

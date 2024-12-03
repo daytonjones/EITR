@@ -1,0 +1,11 @@
+resource "awscc_elasticache_parameter_group" "example" {
+    cache_parameter_group_family = "{{ cache_parameter_group_family }}"
+    cache_parameter_group_name = "{{ cache_parameter_group_name }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    properties = "{{ properties }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

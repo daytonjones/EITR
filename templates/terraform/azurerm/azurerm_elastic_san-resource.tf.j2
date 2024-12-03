@@ -1,0 +1,15 @@
+resource "azurerm_elastic_san" "example" {
+    base_size_in_tib = "{{ base_size_in_tib }}"
+    extended_size_in_tib = "{{ extended_size_in_tib }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    total_iops = "{{ total_iops }}"
+    total_mbps = "{{ total_mbps }}"
+    total_size_in_tib = "{{ total_size_in_tib }}"
+    total_volume_size_in_gib = "{{ total_volume_size_in_gib }}"
+    volume_group_count = "{{ volume_group_count }}"
+    zones = "{{ zones }}"
+}

@@ -1,0 +1,27 @@
+resource "awscc_quicksight_vpc_connection" "example" {
+    arn = "{{ arn }}"
+    availability_status = "{{ availability_status }}"
+    aws_account_id = "{{ aws_account_id }}"
+    created_time = "{{ created_time }}"
+    dns_resolvers = "{{ dns_resolvers }}"
+    id = "{{ id }}"
+    last_updated_time = "{{ last_updated_time }}"
+    name = "{{ name }}"
+    network_interfaces = "{
+    availability_zone = {{ availability_zone }}
+    error_message = {{ error_message }}
+    network_interface_id = {{ network_interface_id }}
+    status = {{ status }}
+    subnet_id = {{ subnet_id }}
+}"
+    role_arn = "{{ role_arn }}"
+    security_group_ids = "{{ security_group_ids }}"
+    status = "{{ status }}"
+    subnet_ids = "{{ subnet_ids }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    vpc_connection_id = "{{ vpc_connection_id }}"
+    vpc_id = "{{ vpc_id }}"
+}

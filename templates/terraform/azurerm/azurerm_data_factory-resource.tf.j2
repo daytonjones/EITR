@@ -1,0 +1,12 @@
+resource "azurerm_data_factory" "example" {
+    customer_managed_key_id = "{{ customer_managed_key_id }}"
+    customer_managed_key_identity_id = "{{ customer_managed_key_identity_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    managed_virtual_network_enabled = "{{ managed_virtual_network_enabled }}"
+    name = "{{ name }}"
+    public_network_enabled = "{{ public_network_enabled }}"
+    purview_id = "{{ purview_id }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

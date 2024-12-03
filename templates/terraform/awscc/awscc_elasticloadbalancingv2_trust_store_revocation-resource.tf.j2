@@ -1,0 +1,17 @@
+resource "awscc_elasticloadbalancingv2_trust_store_revocation" "example" {
+    id = "{{ id }}"
+    revocation_contents = "{
+    revocation_type = {{ revocation_type }}
+    s3_bucket = {{ s3_bucket }}
+    s3_key = {{ s3_key }}
+    s3_object_version = {{ s3_object_version }}
+}"
+    revocation_id = "{{ revocation_id }}"
+    trust_store_arn = "{{ trust_store_arn }}"
+    trust_store_revocations = "{
+    number_of_revoked_entries = {{ number_of_revoked_entries }}
+    revocation_id = {{ revocation_id }}
+    revocation_type = {{ revocation_type }}
+    trust_store_arn = {{ trust_store_arn }}
+}"
+}

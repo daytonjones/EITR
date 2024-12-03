@@ -1,0 +1,7 @@
+resource "azurerm_postgresql_flexible_server_firewall_rule" "example" {
+    end_ip_address = "{{ end_ip_address }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    server_id = "{{ server_id }}"
+    start_ip_address = "{{ start_ip_address }}"
+}

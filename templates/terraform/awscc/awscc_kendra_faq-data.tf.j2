@@ -1,0 +1,19 @@
+data "awscc_kendra_faq" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    faq_id = "{{ faq_id }}"
+    file_format = "{{ file_format }}"
+    id = "{{ id }}"
+    index_id = "{{ index_id }}"
+    language_code = "{{ language_code }}"
+    name = "{{ name }}"
+    role_arn = "{{ role_arn }}"
+    s3_path = "{
+    bucket = {{ bucket }}
+    key = {{ key }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,10 @@
+resource "aws_iam_user_login_profile" "example" {
+    encrypted_password = "{{ encrypted_password }}"
+    id = "{{ id }}"
+    key_fingerprint = "{{ key_fingerprint }}"
+    password = "{{ password }}"
+    password_length = "{{ password_length }}"
+    password_reset_required = "{{ password_reset_required }}"
+    pgp_key = "{{ pgp_key }}"
+    user = "{{ user }}"
+}

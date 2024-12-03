@@ -1,0 +1,7 @@
+resource "aws_vpc_ipam_preview_next_cidr" "example" {
+    cidr = "{{ cidr }}"
+    disallowed_cidrs = "{{ disallowed_cidrs }}"
+    id = "{{ id }}"
+    ipam_pool_id = "{{ ipam_pool_id }}"
+    netmask_length = "{{ netmask_length }}"
+}

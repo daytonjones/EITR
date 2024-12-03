@@ -1,0 +1,12 @@
+resource "azurerm_managed_application" "example" {
+    application_definition_id = "{{ application_definition_id }}"
+    id = "{{ id }}"
+    kind = "{{ kind }}"
+    location = "{{ location }}"
+    managed_resource_group_name = "{{ managed_resource_group_name }}"
+    name = "{{ name }}"
+    outputs = "{{ outputs }}"
+    parameter_values = "{{ parameter_values }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

@@ -1,0 +1,8 @@
+resource "azurerm_arc_kubernetes_flux_configuration" "example" {
+    cluster_id = "{{ cluster_id }}"
+    continuous_reconciliation_enabled = "{{ continuous_reconciliation_enabled }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    scope = "{{ scope }}"
+}

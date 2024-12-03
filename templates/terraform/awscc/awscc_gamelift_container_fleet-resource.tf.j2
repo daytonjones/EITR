@@ -1,0 +1,71 @@
+resource "awscc_gamelift_container_fleet" "example" {
+    billing_type = "{{ billing_type }}"
+    creation_time = "{{ creation_time }}"
+    deployment_configuration = "{
+    impairment_strategy = {{ impairment_strategy }}
+    minimum_healthy_percentage = {{ minimum_healthy_percentage }}
+    protection_strategy = {{ protection_strategy }}
+}"
+    deployment_details = "{
+    latest_deployment_id = {{ latest_deployment_id }}
+}"
+    description = "{{ description }}"
+    fleet_arn = "{{ fleet_arn }}"
+    fleet_id = "{{ fleet_id }}"
+    fleet_role_arn = "{{ fleet_role_arn }}"
+    game_server_container_group_definition_arn = "{{ game_server_container_group_definition_arn }}"
+    game_server_container_group_definition_name = "{{ game_server_container_group_definition_name }}"
+    game_server_container_groups_per_instance = "{{ game_server_container_groups_per_instance }}"
+    game_session_creation_limit_policy = "{
+    new_game_sessions_per_creator = {{ new_game_sessions_per_creator }}
+    policy_period_in_minutes = {{ policy_period_in_minutes }}
+}"
+    id = "{{ id }}"
+    instance_connection_port_range = "{
+    from_port = {{ from_port }}
+    to_port = {{ to_port }}
+}"
+    instance_inbound_permissions = "{
+    from_port = {{ from_port }}
+    ip_range = {{ ip_range }}
+    protocol = {{ protocol }}
+    to_port = {{ to_port }}
+}"
+    instance_type = "{{ instance_type }}"
+    locations = "{
+    location = {{ location }}
+    location_capacity = {
+    desired_ec2_instances = {{ desired_ec2_instances }}
+    max_size = {{ max_size }}
+    min_size = {{ min_size }}
+}
+    stopped_actions = {{ stopped_actions }}
+}"
+    log_configuration = "{
+    log_destination = {{ log_destination }}
+    s3_bucket_name = {{ s3_bucket_name }}
+}"
+    maximum_game_server_container_groups_per_instance = "{{ maximum_game_server_container_groups_per_instance }}"
+    metric_groups = "{{ metric_groups }}"
+    new_game_session_protection_policy = "{{ new_game_session_protection_policy }}"
+    per_instance_container_group_definition_arn = "{{ per_instance_container_group_definition_arn }}"
+    per_instance_container_group_definition_name = "{{ per_instance_container_group_definition_name }}"
+    scaling_policies = "{
+    comparison_operator = {{ comparison_operator }}
+    evaluation_periods = {{ evaluation_periods }}
+    metric_name = {{ metric_name }}
+    name = {{ name }}
+    policy_type = {{ policy_type }}
+    scaling_adjustment = {{ scaling_adjustment }}
+    scaling_adjustment_type = {{ scaling_adjustment_type }}
+    target_configuration = {
+    target_value = {{ target_value }}
+}
+    threshold = {{ threshold }}
+}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

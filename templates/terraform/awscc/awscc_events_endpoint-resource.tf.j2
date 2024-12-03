@@ -1,0 +1,27 @@
+resource "awscc_events_endpoint" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    endpoint_id = "{{ endpoint_id }}"
+    endpoint_url = "{{ endpoint_url }}"
+    event_buses = "{
+    event_bus_arn = {{ event_bus_arn }}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    replication_config = "{
+    state = {{ state }}
+}"
+    role_arn = "{{ role_arn }}"
+    routing_config = "{
+    failover_config = {
+    primary = {
+    health_check = {{ health_check }}
+}
+    secondary = {
+    route = {{ route }}
+}
+}
+}"
+    state = "{{ state }}"
+    state_reason = "{{ state_reason }}"
+}

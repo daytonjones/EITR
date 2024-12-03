@@ -1,0 +1,141 @@
+resource "awscc_kinesisanalyticsv2_application" "example" {
+    application_configuration = "{
+    application_code_configuration = {
+    code_content = {
+    s3_content_location = {
+    bucket_arn = {{ bucket_arn }}
+    file_key = {{ file_key }}
+    object_version = {{ object_version }}
+}
+    text_content = {{ text_content }}
+    zip_file_content = {{ zip_file_content }}
+}
+    code_content_type = {{ code_content_type }}
+}
+    application_snapshot_configuration = {
+    snapshots_enabled = {{ snapshots_enabled }}
+}
+    application_system_rollback_configuration = {
+    rollback_enabled = {{ rollback_enabled }}
+}
+    environment_properties = {
+    property_groups = {
+    property_group_id = {{ property_group_id }}
+    property_map = {{ property_map }}
+}
+}
+    flink_application_configuration = {
+    checkpoint_configuration = {
+    checkpoint_interval = {{ checkpoint_interval }}
+    checkpointing_enabled = {{ checkpointing_enabled }}
+    configuration_type = {{ configuration_type }}
+    min_pause_between_checkpoints = {{ min_pause_between_checkpoints }}
+}
+    monitoring_configuration = {
+    configuration_type = {{ configuration_type }}
+    log_level = {{ log_level }}
+    metrics_level = {{ metrics_level }}
+}
+    parallelism_configuration = {
+    auto_scaling_enabled = {{ auto_scaling_enabled }}
+    configuration_type = {{ configuration_type }}
+    parallelism = {{ parallelism }}
+    parallelism_per_kpu = {{ parallelism_per_kpu }}
+}
+}
+    sql_application_configuration = {
+    inputs = {
+    input_parallelism = {
+    count = {{ count }}
+}
+    input_processing_configuration = {
+    input_lambda_processor = {
+    resource_arn = {{ resource_arn }}
+}
+}
+    input_schema = {
+    record_columns = {
+    mapping = {{ mapping }}
+    name = {{ name }}
+    sql_type = {{ sql_type }}
+}
+    record_encoding = {{ record_encoding }}
+    record_format = {
+    mapping_parameters = {
+    csv_mapping_parameters = {
+    record_column_delimiter = {{ record_column_delimiter }}
+    record_row_delimiter = {{ record_row_delimiter }}
+}
+    json_mapping_parameters = {
+    record_row_path = {{ record_row_path }}
+}
+}
+    record_format_type = {{ record_format_type }}
+}
+}
+    kinesis_firehose_input = {
+    resource_arn = {{ resource_arn }}
+}
+    kinesis_streams_input = {
+    resource_arn = {{ resource_arn }}
+}
+    name_prefix = {{ name_prefix }}
+}
+}
+    vpc_configurations = {
+    security_group_ids = {{ security_group_ids }}
+    subnet_ids = {{ subnet_ids }}
+}
+    zeppelin_application_configuration = {
+    catalog_configuration = {
+    glue_data_catalog_configuration = {
+    database_arn = {{ database_arn }}
+}
+}
+    custom_artifacts_configuration = {
+    artifact_type = {{ artifact_type }}
+    maven_reference = {
+    artifact_id = {{ artifact_id }}
+    group_id = {{ group_id }}
+    version = {{ version }}
+}
+    s3_content_location = {
+    bucket_arn = {{ bucket_arn }}
+    file_key = {{ file_key }}
+    object_version = {{ object_version }}
+}
+}
+    deploy_as_application_configuration = {
+    s3_content_location = {
+    base_path = {{ base_path }}
+    bucket_arn = {{ bucket_arn }}
+}
+}
+    monitoring_configuration = {
+    log_level = {{ log_level }}
+}
+}
+}"
+    application_description = "{{ application_description }}"
+    application_maintenance_configuration = "{
+    application_maintenance_window_start_time = {{ application_maintenance_window_start_time }}
+}"
+    application_mode = "{{ application_mode }}"
+    application_name = "{{ application_name }}"
+    id = "{{ id }}"
+    run_configuration = "{
+    application_restore_configuration = {
+    application_restore_type = {{ application_restore_type }}
+    snapshot_name = {{ snapshot_name }}
+}
+    flink_run_configuration = {
+    allow_non_restored_state = {{ allow_non_restored_state }}
+}
+}"
+    runtime_environment = "{{ runtime_environment }}"
+    service_execution_role = "{{ service_execution_role }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

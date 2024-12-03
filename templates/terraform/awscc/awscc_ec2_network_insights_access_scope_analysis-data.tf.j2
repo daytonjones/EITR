@@ -1,0 +1,16 @@
+data "awscc_ec2_network_insights_access_scope_analysis" "example" {
+    analyzed_eni_count = "{{ analyzed_eni_count }}"
+    end_date = "{{ end_date }}"
+    findings_found = "{{ findings_found }}"
+    id = "{{ id }}"
+    network_insights_access_scope_analysis_arn = "{{ network_insights_access_scope_analysis_arn }}"
+    network_insights_access_scope_analysis_id = "{{ network_insights_access_scope_analysis_id }}"
+    network_insights_access_scope_id = "{{ network_insights_access_scope_id }}"
+    start_date = "{{ start_date }}"
+    status = "{{ status }}"
+    status_message = "{{ status_message }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

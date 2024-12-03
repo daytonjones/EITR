@@ -1,0 +1,16 @@
+resource "azurerm_express_route_circuit" "example" {
+    allow_classic_operations = "{{ allow_classic_operations }}"
+    authorization_key = "{{ authorization_key }}"
+    bandwidth_in_gbps = "{{ bandwidth_in_gbps }}"
+    bandwidth_in_mbps = "{{ bandwidth_in_mbps }}"
+    express_route_port_id = "{{ express_route_port_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    peering_location = "{{ peering_location }}"
+    resource_group_name = "{{ resource_group_name }}"
+    service_key = "{{ service_key }}"
+    service_provider_name = "{{ service_provider_name }}"
+    service_provider_provisioning_state = "{{ service_provider_provisioning_state }}"
+    tags = "{{ tags }}"
+}

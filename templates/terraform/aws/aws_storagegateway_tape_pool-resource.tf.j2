@@ -1,0 +1,10 @@
+resource "aws_storagegateway_tape_pool" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    pool_name = "{{ pool_name }}"
+    retention_lock_time_in_days = "{{ retention_lock_time_in_days }}"
+    retention_lock_type = "{{ retention_lock_type }}"
+    storage_class = "{{ storage_class }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

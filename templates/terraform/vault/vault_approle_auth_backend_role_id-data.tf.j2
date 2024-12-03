@@ -1,0 +1,7 @@
+data "vault_approle_auth_backend_role_id" "example" {
+    backend = "{{ backend }}"
+    id = "{{ id }}"
+    namespace = "{{ namespace }}"
+    role_id = "{{ role_id }}"
+    role_name = "{{ role_name }}"
+}

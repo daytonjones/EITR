@@ -1,0 +1,14 @@
+resource "azurerm_kubernetes_cluster_extension" "example" {
+    aks_assigned_identity = "{{ aks_assigned_identity }}"
+    cluster_id = "{{ cluster_id }}"
+    configuration_protected_settings = "{{ configuration_protected_settings }}"
+    configuration_settings = "{{ configuration_settings }}"
+    current_version = "{{ current_version }}"
+    extension_type = "{{ extension_type }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    release_namespace = "{{ release_namespace }}"
+    release_train = "{{ release_train }}"
+    target_namespace = "{{ target_namespace }}"
+    version = "{{ version }}"
+}

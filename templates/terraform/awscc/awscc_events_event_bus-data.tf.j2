@@ -1,0 +1,16 @@
+data "awscc_events_event_bus" "example" {
+    arn = "{{ arn }}"
+    dead_letter_config = "{
+    arn = {{ arn }}
+}"
+    description = "{{ description }}"
+    event_source_name = "{{ event_source_name }}"
+    id = "{{ id }}"
+    kms_key_identifier = "{{ kms_key_identifier }}"
+    name = "{{ name }}"
+    policy = "{{ policy }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

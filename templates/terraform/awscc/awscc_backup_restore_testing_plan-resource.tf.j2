@@ -1,0 +1,20 @@
+resource "awscc_backup_restore_testing_plan" "example" {
+    id = "{{ id }}"
+    recovery_point_selection = "{
+    algorithm = {{ algorithm }}
+    exclude_vaults = {{ exclude_vaults }}
+    include_vaults = {{ include_vaults }}
+    recovery_point_types = {{ recovery_point_types }}
+    selection_window_days = {{ selection_window_days }}
+}"
+    restore_testing_plan_arn = "{{ restore_testing_plan_arn }}"
+    restore_testing_plan_name = "{{ restore_testing_plan_name }}"
+    schedule_expression = "{{ schedule_expression }}"
+    schedule_expression_timezone = "{{ schedule_expression_timezone }}"
+    schedule_status = "{{ schedule_status }}"
+    start_window_hours = "{{ start_window_hours }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,12 @@
+resource "awscc_apprunner_vpc_connector" "example" {
+    id = "{{ id }}"
+    security_groups = "{{ security_groups }}"
+    subnets = "{{ subnets }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    vpc_connector_arn = "{{ vpc_connector_arn }}"
+    vpc_connector_name = "{{ vpc_connector_name }}"
+    vpc_connector_revision = "{{ vpc_connector_revision }}"
+}

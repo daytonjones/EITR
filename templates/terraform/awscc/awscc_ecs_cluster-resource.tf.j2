@@ -1,0 +1,39 @@
+resource "awscc_ecs_cluster" "example" {
+    arn = "{{ arn }}"
+    capacity_providers = "{{ capacity_providers }}"
+    cluster_name = "{{ cluster_name }}"
+    cluster_settings = "{
+    name = {{ name }}
+    value = {{ value }}
+}"
+    configuration = "{
+    execute_command_configuration = {
+    kms_key_id = {{ kms_key_id }}
+    log_configuration = {
+    cloudwatch_encryption_enabled = {{ cloudwatch_encryption_enabled }}
+    cloudwatch_log_group_name = {{ cloudwatch_log_group_name }}
+    s3_bucket_name = {{ s3_bucket_name }}
+    s3_encryption_enabled = {{ s3_encryption_enabled }}
+    s3_key_prefix = {{ s3_key_prefix }}
+}
+    logging = {{ logging }}
+}
+    managed_storage_configuration = {
+    fargate_ephemeral_storage_kms_key_id = {{ fargate_ephemeral_storage_kms_key_id }}
+    kms_key_id = {{ kms_key_id }}
+}
+}"
+    default_capacity_provider_strategy = "{
+    base = {{ base }}
+    capacity_provider = {{ capacity_provider }}
+    weight = {{ weight }}
+}"
+    id = "{{ id }}"
+    service_connect_defaults = "{
+    namespace = {{ namespace }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

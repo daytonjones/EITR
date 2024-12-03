@@ -1,0 +1,15 @@
+data "awscc_wisdom_assistant" "example" {
+    assistant_arn = "{{ assistant_arn }}"
+    assistant_id = "{{ assistant_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    server_side_encryption_configuration = "{
+    kms_key_id = {{ kms_key_id }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+}

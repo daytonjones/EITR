@@ -1,0 +1,13 @@
+resource "aws_ec2_transit_gateway_connect_peer" "example" {
+    arn = "{{ arn }}"
+    bgp_asn = "{{ bgp_asn }}"
+    bgp_peer_address = "{{ bgp_peer_address }}"
+    bgp_transit_gateway_addresses = "{{ bgp_transit_gateway_addresses }}"
+    id = "{{ id }}"
+    inside_cidr_blocks = "{{ inside_cidr_blocks }}"
+    peer_address = "{{ peer_address }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    transit_gateway_address = "{{ transit_gateway_address }}"
+    transit_gateway_attachment_id = "{{ transit_gateway_attachment_id }}"
+}

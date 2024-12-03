@@ -1,0 +1,16 @@
+data "hcp_aws_network_peering" "example" {
+    created_at = "{{ created_at }}"
+    expires_at = "{{ expires_at }}"
+    hvn_id = "{{ hvn_id }}"
+    id = "{{ id }}"
+    organization_id = "{{ organization_id }}"
+    peer_account_id = "{{ peer_account_id }}"
+    peer_vpc_id = "{{ peer_vpc_id }}"
+    peer_vpc_region = "{{ peer_vpc_region }}"
+    peering_id = "{{ peering_id }}"
+    project_id = "{{ project_id }}"
+    provider_peering_id = "{{ provider_peering_id }}"
+    self_link = "{{ self_link }}"
+    state = "{{ state }}"
+    wait_for_active_state = "{{ wait_for_active_state }}"
+}

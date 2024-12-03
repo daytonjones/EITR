@@ -1,0 +1,8 @@
+data "azurerm_private_dns_resolver_outbound_endpoint" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    private_dns_resolver_id = "{{ private_dns_resolver_id }}"
+    subnet_id = "{{ subnet_id }}"
+    tags = "{{ tags }}"
+}

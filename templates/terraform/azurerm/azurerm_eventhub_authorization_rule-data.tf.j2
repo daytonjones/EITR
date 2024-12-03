@@ -1,0 +1,16 @@
+data "azurerm_eventhub_authorization_rule" "example" {
+    eventhub_name = "{{ eventhub_name }}"
+    id = "{{ id }}"
+    listen = "{{ listen }}"
+    manage = "{{ manage }}"
+    name = "{{ name }}"
+    namespace_name = "{{ namespace_name }}"
+    primary_connection_string = "{{ primary_connection_string }}"
+    primary_connection_string_alias = "{{ primary_connection_string_alias }}"
+    primary_key = "{{ primary_key }}"
+    resource_group_name = "{{ resource_group_name }}"
+    secondary_connection_string = "{{ secondary_connection_string }}"
+    secondary_connection_string_alias = "{{ secondary_connection_string_alias }}"
+    secondary_key = "{{ secondary_key }}"
+    send = "{{ send }}"
+}

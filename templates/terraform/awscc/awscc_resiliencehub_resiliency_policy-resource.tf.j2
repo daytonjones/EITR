@@ -1,0 +1,27 @@
+resource "awscc_resiliencehub_resiliency_policy" "example" {
+    data_location_constraint = "{{ data_location_constraint }}"
+    id = "{{ id }}"
+    policy = "{
+    az = {
+    rpo_in_secs = {{ rpo_in_secs }}
+    rto_in_secs = {{ rto_in_secs }}
+}
+    hardware = {
+    rpo_in_secs = {{ rpo_in_secs }}
+    rto_in_secs = {{ rto_in_secs }}
+}
+    region = {
+    rpo_in_secs = {{ rpo_in_secs }}
+    rto_in_secs = {{ rto_in_secs }}
+}
+    software = {
+    rpo_in_secs = {{ rpo_in_secs }}
+    rto_in_secs = {{ rto_in_secs }}
+}
+}"
+    policy_arn = "{{ policy_arn }}"
+    policy_description = "{{ policy_description }}"
+    policy_name = "{{ policy_name }}"
+    tags = "{{ tags }}"
+    tier = "{{ tier }}"
+}

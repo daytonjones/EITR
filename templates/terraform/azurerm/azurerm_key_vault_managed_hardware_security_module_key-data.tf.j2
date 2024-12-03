@@ -1,0 +1,14 @@
+data "azurerm_key_vault_managed_hardware_security_module_key" "example" {
+    curve = "{{ curve }}"
+    expiration_date = "{{ expiration_date }}"
+    id = "{{ id }}"
+    key_opts = "{{ key_opts }}"
+    key_size = "{{ key_size }}"
+    key_type = "{{ key_type }}"
+    managed_hsm_id = "{{ managed_hsm_id }}"
+    name = "{{ name }}"
+    not_before_date = "{{ not_before_date }}"
+    tags = "{{ tags }}"
+    version = "{{ version }}"
+    versioned_id = "{{ versioned_id }}"
+}

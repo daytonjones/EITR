@@ -1,0 +1,11 @@
+data "awscc_ec2_placement_group" "example" {
+    group_name = "{{ group_name }}"
+    id = "{{ id }}"
+    partition_count = "{{ partition_count }}"
+    spread_level = "{{ spread_level }}"
+    strategy = "{{ strategy }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

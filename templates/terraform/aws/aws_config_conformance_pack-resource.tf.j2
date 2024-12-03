@@ -1,0 +1,9 @@
+resource "aws_config_conformance_pack" "example" {
+    arn = "{{ arn }}"
+    delivery_s3_bucket = "{{ delivery_s3_bucket }}"
+    delivery_s3_key_prefix = "{{ delivery_s3_key_prefix }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    template_body = "{{ template_body }}"
+    template_s3_uri = "{{ template_s3_uri }}"
+}

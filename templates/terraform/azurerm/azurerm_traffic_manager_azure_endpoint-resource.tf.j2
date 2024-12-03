@@ -1,0 +1,11 @@
+resource "azurerm_traffic_manager_azure_endpoint" "example" {
+    always_serve_enabled = "{{ always_serve_enabled }}"
+    enabled = "{{ enabled }}"
+    geo_mappings = "{{ geo_mappings }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    priority = "{{ priority }}"
+    profile_id = "{{ profile_id }}"
+    target_resource_id = "{{ target_resource_id }}"
+    weight = "{{ weight }}"
+}

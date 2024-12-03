@@ -1,0 +1,6 @@
+resource "azurerm_network_interface_nat_rule_association" "example" {
+    id = "{{ id }}"
+    ip_configuration_name = "{{ ip_configuration_name }}"
+    nat_rule_id = "{{ nat_rule_id }}"
+    network_interface_id = "{{ network_interface_id }}"
+}

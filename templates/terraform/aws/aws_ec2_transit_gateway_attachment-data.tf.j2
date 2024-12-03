@@ -1,0 +1,14 @@
+data "aws_ec2_transit_gateway_attachment" "example" {
+    arn = "{{ arn }}"
+    association_state = "{{ association_state }}"
+    association_transit_gateway_route_table_id = "{{ association_transit_gateway_route_table_id }}"
+    id = "{{ id }}"
+    resource_id = "{{ resource_id }}"
+    resource_owner_id = "{{ resource_owner_id }}"
+    resource_type = "{{ resource_type }}"
+    state = "{{ state }}"
+    tags = "{{ tags }}"
+    transit_gateway_attachment_id = "{{ transit_gateway_attachment_id }}"
+    transit_gateway_id = "{{ transit_gateway_id }}"
+    transit_gateway_owner_id = "{{ transit_gateway_owner_id }}"
+}

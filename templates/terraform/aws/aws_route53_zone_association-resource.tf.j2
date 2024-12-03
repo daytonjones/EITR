@@ -1,0 +1,7 @@
+resource "aws_route53_zone_association" "example" {
+    id = "{{ id }}"
+    owning_account = "{{ owning_account }}"
+    vpc_id = "{{ vpc_id }}"
+    vpc_region = "{{ vpc_region }}"
+    zone_id = "{{ zone_id }}"
+}

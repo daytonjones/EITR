@@ -1,0 +1,12 @@
+data "awscc_workspacesweb_identity_provider" "example" {
+    id = "{{ id }}"
+    identity_provider_arn = "{{ identity_provider_arn }}"
+    identity_provider_details = "{{ identity_provider_details }}"
+    identity_provider_name = "{{ identity_provider_name }}"
+    identity_provider_type = "{{ identity_provider_type }}"
+    portal_arn = "{{ portal_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

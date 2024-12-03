@@ -1,0 +1,13 @@
+resource "awscc_devopsguru_resource_collection" "example" {
+    id = "{{ id }}"
+    resource_collection_filter = "{
+    cloudformation = {
+    stack_names = {{ stack_names }}
+}
+    tags = {
+    app_boundary_key = {{ app_boundary_key }}
+    tag_values = {{ tag_values }}
+}
+}"
+    resource_collection_type = "{{ resource_collection_type }}"
+}

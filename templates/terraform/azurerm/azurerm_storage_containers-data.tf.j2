@@ -1,0 +1,6 @@
+data "azurerm_storage_containers" "example" {
+    containers = "{{ containers }}"
+    id = "{{ id }}"
+    name_prefix = "{{ name_prefix }}"
+    storage_account_id = "{{ storage_account_id }}"
+}

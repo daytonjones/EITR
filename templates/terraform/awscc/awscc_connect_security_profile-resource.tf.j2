@@ -1,0 +1,25 @@
+resource "awscc_connect_security_profile" "example" {
+    allowed_access_control_hierarchy_group_id = "{{ allowed_access_control_hierarchy_group_id }}"
+    allowed_access_control_tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    applications = "{
+    application_permissions = {{ application_permissions }}
+    namespace = {{ namespace }}
+}"
+    description = "{{ description }}"
+    hierarchy_restricted_resources = "{{ hierarchy_restricted_resources }}"
+    id = "{{ id }}"
+    instance_arn = "{{ instance_arn }}"
+    last_modified_region = "{{ last_modified_region }}"
+    last_modified_time = "{{ last_modified_time }}"
+    permissions = "{{ permissions }}"
+    security_profile_arn = "{{ security_profile_arn }}"
+    security_profile_name = "{{ security_profile_name }}"
+    tag_restricted_resources = "{{ tag_restricted_resources }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

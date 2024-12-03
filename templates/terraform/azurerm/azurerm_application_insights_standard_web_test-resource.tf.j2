@@ -1,0 +1,15 @@
+resource "azurerm_application_insights_standard_web_test" "example" {
+    application_insights_id = "{{ application_insights_id }}"
+    description = "{{ description }}"
+    enabled = "{{ enabled }}"
+    frequency = "{{ frequency }}"
+    geo_locations = "{{ geo_locations }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    retry_enabled = "{{ retry_enabled }}"
+    synthetic_monitor_id = "{{ synthetic_monitor_id }}"
+    tags = "{{ tags }}"
+    timeout = "{{ timeout }}"
+}

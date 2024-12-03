@@ -1,0 +1,16 @@
+resource "awscc_ec2_security_group_ingress" "example" {
+    cidr_ip = "{{ cidr_ip }}"
+    cidr_ipv_6 = "{{ cidr_ipv_6 }}"
+    description = "{{ description }}"
+    from_port = "{{ from_port }}"
+    group_id = "{{ group_id }}"
+    group_name = "{{ group_name }}"
+    id = "{{ id }}"
+    ip_protocol = "{{ ip_protocol }}"
+    security_group_ingress_id = "{{ security_group_ingress_id }}"
+    source_prefix_list_id = "{{ source_prefix_list_id }}"
+    source_security_group_id = "{{ source_security_group_id }}"
+    source_security_group_name = "{{ source_security_group_name }}"
+    source_security_group_owner_id = "{{ source_security_group_owner_id }}"
+    to_port = "{{ to_port }}"
+}

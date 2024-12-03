@@ -1,0 +1,11 @@
+resource "azurerm_monitor_diagnostic_setting" "example" {
+    eventhub_authorization_rule_id = "{{ eventhub_authorization_rule_id }}"
+    eventhub_name = "{{ eventhub_name }}"
+    id = "{{ id }}"
+    log_analytics_destination_type = "{{ log_analytics_destination_type }}"
+    log_analytics_workspace_id = "{{ log_analytics_workspace_id }}"
+    name = "{{ name }}"
+    partner_solution_id = "{{ partner_solution_id }}"
+    storage_account_id = "{{ storage_account_id }}"
+    target_resource_id = "{{ target_resource_id }}"
+}

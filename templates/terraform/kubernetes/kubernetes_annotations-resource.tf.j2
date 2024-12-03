@@ -1,0 +1,9 @@
+resource "kubernetes_annotations" "example" {
+    annotations = "{{ annotations }}"
+    api_version = "{{ api_version }}"
+    field_manager = "{{ field_manager }}"
+    force = "{{ force }}"
+    id = "{{ id }}"
+    kind = "{{ kind }}"
+    template_annotations = "{{ template_annotations }}"
+}

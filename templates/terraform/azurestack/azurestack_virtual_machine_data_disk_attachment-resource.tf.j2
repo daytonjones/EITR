@@ -1,0 +1,9 @@
+resource "azurestack_virtual_machine_data_disk_attachment" "example" {
+    caching = "{{ caching }}"
+    create_option = "{{ create_option }}"
+    id = "{{ id }}"
+    lun = "{{ lun }}"
+    managed_disk_id = "{{ managed_disk_id }}"
+    virtual_machine_id = "{{ virtual_machine_id }}"
+    write_accelerator_enabled = "{{ write_accelerator_enabled }}"
+}

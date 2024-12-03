@@ -1,0 +1,12 @@
+resource "google_monitoring_uptime_check_config" "example" {
+    checker_type = "{{ checker_type }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    period = "{{ period }}"
+    project = "{{ project }}"
+    selected_regions = "{{ selected_regions }}"
+    timeout = "{{ timeout }}"
+    uptime_check_id = "{{ uptime_check_id }}"
+    user_labels = "{{ user_labels }}"
+}

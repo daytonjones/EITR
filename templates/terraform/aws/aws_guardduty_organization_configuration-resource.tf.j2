@@ -1,0 +1,6 @@
+resource "aws_guardduty_organization_configuration" "example" {
+    auto_enable = "{{ auto_enable }}"
+    auto_enable_organization_members = "{{ auto_enable_organization_members }}"
+    detector_id = "{{ detector_id }}"
+    id = "{{ id }}"
+}

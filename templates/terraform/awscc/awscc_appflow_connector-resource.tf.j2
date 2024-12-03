@@ -1,0 +1,12 @@
+resource "awscc_appflow_connector" "example" {
+    connector_arn = "{{ connector_arn }}"
+    connector_label = "{{ connector_label }}"
+    connector_provisioning_config = "{
+    lambda = {
+    lambda_arn = {{ lambda_arn }}
+}
+}"
+    connector_provisioning_type = "{{ connector_provisioning_type }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+}

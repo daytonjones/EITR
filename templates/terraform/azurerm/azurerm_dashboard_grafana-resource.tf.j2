@@ -1,0 +1,17 @@
+resource "azurerm_dashboard_grafana" "example" {
+    api_key_enabled = "{{ api_key_enabled }}"
+    auto_generated_domain_name_label_scope = "{{ auto_generated_domain_name_label_scope }}"
+    deterministic_outbound_ip_enabled = "{{ deterministic_outbound_ip_enabled }}"
+    endpoint = "{{ endpoint }}"
+    grafana_major_version = "{{ grafana_major_version }}"
+    grafana_version = "{{ grafana_version }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    outbound_ip = "{{ outbound_ip }}"
+    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku = "{{ sku }}"
+    tags = "{{ tags }}"
+    zone_redundancy_enabled = "{{ zone_redundancy_enabled }}"
+}

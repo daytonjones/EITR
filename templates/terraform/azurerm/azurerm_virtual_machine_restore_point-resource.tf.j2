@@ -1,0 +1,7 @@
+resource "azurerm_virtual_machine_restore_point" "example" {
+    crash_consistency_mode_enabled = "{{ crash_consistency_mode_enabled }}"
+    excluded_disks = "{{ excluded_disks }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    virtual_machine_restore_point_collection_id = "{{ virtual_machine_restore_point_collection_id }}"
+}

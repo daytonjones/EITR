@@ -1,0 +1,14 @@
+resource "aws_autoscaling_policy" "example" {
+    adjustment_type = "{{ adjustment_type }}"
+    arn = "{{ arn }}"
+    autoscaling_group_name = "{{ autoscaling_group_name }}"
+    cooldown = "{{ cooldown }}"
+    enabled = "{{ enabled }}"
+    estimated_instance_warmup = "{{ estimated_instance_warmup }}"
+    id = "{{ id }}"
+    metric_aggregation_type = "{{ metric_aggregation_type }}"
+    min_adjustment_magnitude = "{{ min_adjustment_magnitude }}"
+    name = "{{ name }}"
+    policy_type = "{{ policy_type }}"
+    scaling_adjustment = "{{ scaling_adjustment }}"
+}

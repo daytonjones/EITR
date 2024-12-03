@@ -1,0 +1,13 @@
+resource "awscc_sagemaker_device" "example" {
+    device = "{
+    description = {{ description }}
+    device_name = {{ device_name }}
+    iot_thing_name = {{ iot_thing_name }}
+}"
+    device_fleet_name = "{{ device_fleet_name }}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,12 @@
+resource "aws_appautoscaling_scheduled_action" "example" {
+    arn = "{{ arn }}"
+    end_time = "{{ end_time }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_id = "{{ resource_id }}"
+    scalable_dimension = "{{ scalable_dimension }}"
+    schedule = "{{ schedule }}"
+    service_namespace = "{{ service_namespace }}"
+    start_time = "{{ start_time }}"
+    timezone = "{{ timezone }}"
+}

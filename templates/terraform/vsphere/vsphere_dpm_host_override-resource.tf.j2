@@ -1,0 +1,7 @@
+resource "vsphere_dpm_host_override" "example" {
+    compute_cluster_id = "{{ compute_cluster_id }}"
+    dpm_automation_level = "{{ dpm_automation_level }}"
+    dpm_enabled = "{{ dpm_enabled }}"
+    host_system_id = "{{ host_system_id }}"
+    id = "{{ id }}"
+}

@@ -1,0 +1,14 @@
+data "azurerm_firewall_policy" "example" {
+    base_policy_id = "{{ base_policy_id }}"
+    child_policies = "{{ child_policies }}"
+    dns = "{{ dns }}"
+    firewalls = "{{ firewalls }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    rule_collection_groups = "{{ rule_collection_groups }}"
+    tags = "{{ tags }}"
+    threat_intelligence_allowlist = "{{ threat_intelligence_allowlist }}"
+    threat_intelligence_mode = "{{ threat_intelligence_mode }}"
+}

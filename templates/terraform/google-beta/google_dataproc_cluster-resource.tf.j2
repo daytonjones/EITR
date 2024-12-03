@@ -1,0 +1,10 @@
+resource "google_dataproc_cluster" "example" {
+    effective_labels = "{{ effective_labels }}"
+    graceful_decommission_timeout = "{{ graceful_decommission_timeout }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    terraform_labels = "{{ terraform_labels }}"
+}

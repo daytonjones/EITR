@@ -1,0 +1,7 @@
+resource "azurerm_synapse_firewall_rule" "example" {
+    end_ip_address = "{{ end_ip_address }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    start_ip_address = "{{ start_ip_address }}"
+    synapse_workspace_id = "{{ synapse_workspace_id }}"
+}

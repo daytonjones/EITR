@@ -1,0 +1,5 @@
+data "awscc_ec2_vpcdhcp_options_association" "example" {
+    dhcp_options_id = "{{ dhcp_options_id }}"
+    id = "{{ id }}"
+    vpc_id = "{{ vpc_id }}"
+}

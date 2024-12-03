@@ -1,0 +1,13 @@
+data "awscc_ec2_key_pair" "example" {
+    id = "{{ id }}"
+    key_fingerprint = "{{ key_fingerprint }}"
+    key_format = "{{ key_format }}"
+    key_name = "{{ key_name }}"
+    key_pair_id = "{{ key_pair_id }}"
+    key_type = "{{ key_type }}"
+    public_key_material = "{{ public_key_material }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

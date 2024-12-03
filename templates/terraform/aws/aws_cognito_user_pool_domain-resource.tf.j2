@@ -1,0 +1,12 @@
+resource "aws_cognito_user_pool_domain" "example" {
+    aws_account_id = "{{ aws_account_id }}"
+    certificate_arn = "{{ certificate_arn }}"
+    cloudfront_distribution = "{{ cloudfront_distribution }}"
+    cloudfront_distribution_arn = "{{ cloudfront_distribution_arn }}"
+    cloudfront_distribution_zone_id = "{{ cloudfront_distribution_zone_id }}"
+    domain = "{{ domain }}"
+    id = "{{ id }}"
+    s3_bucket = "{{ s3_bucket }}"
+    user_pool_id = "{{ user_pool_id }}"
+    version = "{{ version }}"
+}

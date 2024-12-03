@@ -1,0 +1,13 @@
+resource "azurerm_kusto_database_principal_assignment" "example" {
+    cluster_name = "{{ cluster_name }}"
+    database_name = "{{ database_name }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    principal_id = "{{ principal_id }}"
+    principal_name = "{{ principal_name }}"
+    principal_type = "{{ principal_type }}"
+    resource_group_name = "{{ resource_group_name }}"
+    role = "{{ role }}"
+    tenant_id = "{{ tenant_id }}"
+    tenant_name = "{{ tenant_name }}"
+}

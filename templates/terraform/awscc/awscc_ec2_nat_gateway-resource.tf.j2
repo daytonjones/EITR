@@ -1,0 +1,16 @@
+resource "awscc_ec2_nat_gateway" "example" {
+    allocation_id = "{{ allocation_id }}"
+    connectivity_type = "{{ connectivity_type }}"
+    id = "{{ id }}"
+    max_drain_duration_seconds = "{{ max_drain_duration_seconds }}"
+    nat_gateway_id = "{{ nat_gateway_id }}"
+    private_ip_address = "{{ private_ip_address }}"
+    secondary_allocation_ids = "{{ secondary_allocation_ids }}"
+    secondary_private_ip_address_count = "{{ secondary_private_ip_address_count }}"
+    secondary_private_ip_addresses = "{{ secondary_private_ip_addresses }}"
+    subnet_id = "{{ subnet_id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

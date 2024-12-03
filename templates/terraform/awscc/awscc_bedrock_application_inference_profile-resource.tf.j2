@@ -1,0 +1,22 @@
+resource "awscc_bedrock_application_inference_profile" "example" {
+    created_at = "{{ created_at }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    inference_profile_arn = "{{ inference_profile_arn }}"
+    inference_profile_id = "{{ inference_profile_id }}"
+    inference_profile_identifier = "{{ inference_profile_identifier }}"
+    inference_profile_name = "{{ inference_profile_name }}"
+    model_source = "{
+    copy_from = {{ copy_from }}
+}"
+    models = "{
+    model_arn = {{ model_arn }}
+}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+    updated_at = "{{ updated_at }}"
+}

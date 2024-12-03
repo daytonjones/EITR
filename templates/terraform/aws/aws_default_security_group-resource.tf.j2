@@ -1,0 +1,14 @@
+resource "aws_default_security_group" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    egress = "{{ egress }}"
+    id = "{{ id }}"
+    ingress = "{{ ingress }}"
+    name = "{{ name }}"
+    name_prefix = "{{ name_prefix }}"
+    owner_id = "{{ owner_id }}"
+    revoke_rules_on_delete = "{{ revoke_rules_on_delete }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    vpc_id = "{{ vpc_id }}"
+}

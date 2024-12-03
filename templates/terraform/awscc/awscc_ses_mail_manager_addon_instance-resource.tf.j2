@@ -1,0 +1,11 @@
+resource "awscc_ses_mail_manager_addon_instance" "example" {
+    addon_instance_arn = "{{ addon_instance_arn }}"
+    addon_instance_id = "{{ addon_instance_id }}"
+    addon_name = "{{ addon_name }}"
+    addon_subscription_id = "{{ addon_subscription_id }}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

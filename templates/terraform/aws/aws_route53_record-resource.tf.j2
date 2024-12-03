@@ -1,0 +1,13 @@
+resource "aws_route53_record" "example" {
+    allow_overwrite = "{{ allow_overwrite }}"
+    fqdn = "{{ fqdn }}"
+    health_check_id = "{{ health_check_id }}"
+    id = "{{ id }}"
+    multivalue_answer_routing_policy = "{{ multivalue_answer_routing_policy }}"
+    name = "{{ name }}"
+    records = "{{ records }}"
+    set_identifier = "{{ set_identifier }}"
+    ttl = "{{ ttl }}"
+    type = "{{ type }}"
+    zone_id = "{{ zone_id }}"
+}

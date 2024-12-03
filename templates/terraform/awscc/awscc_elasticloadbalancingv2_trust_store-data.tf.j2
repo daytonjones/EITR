@@ -1,0 +1,14 @@
+data "awscc_elasticloadbalancingv2_trust_store" "example" {
+    ca_certificates_bundle_s3_bucket = "{{ ca_certificates_bundle_s3_bucket }}"
+    ca_certificates_bundle_s3_key = "{{ ca_certificates_bundle_s3_key }}"
+    ca_certificates_bundle_s3_object_version = "{{ ca_certificates_bundle_s3_object_version }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    number_of_ca_certificates = "{{ number_of_ca_certificates }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    trust_store_arn = "{{ trust_store_arn }}"
+}

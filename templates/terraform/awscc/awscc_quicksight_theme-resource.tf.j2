@@ -1,0 +1,122 @@
+resource "awscc_quicksight_theme" "example" {
+    arn = "{{ arn }}"
+    aws_account_id = "{{ aws_account_id }}"
+    base_theme_id = "{{ base_theme_id }}"
+    configuration = "{
+    data_color_palette = {
+    colors = {{ colors }}
+    empty_fill_color = {{ empty_fill_color }}
+    min_max_gradient = {{ min_max_gradient }}
+}
+    sheet = {
+    tile = {
+    border = {
+    show = {{ show }}
+}
+}
+    tile_layout = {
+    gutter = {
+    show = {{ show }}
+}
+    margin = {
+    show = {{ show }}
+}
+}
+}
+    typography = {
+    font_families = {
+    font_family = {{ font_family }}
+}
+}
+    ui_color_palette = {
+    accent = {{ accent }}
+    accent_foreground = {{ accent_foreground }}
+    danger = {{ danger }}
+    danger_foreground = {{ danger_foreground }}
+    dimension = {{ dimension }}
+    dimension_foreground = {{ dimension_foreground }}
+    measure = {{ measure }}
+    measure_foreground = {{ measure_foreground }}
+    primary_background = {{ primary_background }}
+    primary_foreground = {{ primary_foreground }}
+    secondary_background = {{ secondary_background }}
+    secondary_foreground = {{ secondary_foreground }}
+    success = {{ success }}
+    success_foreground = {{ success_foreground }}
+    warning = {{ warning }}
+    warning_foreground = {{ warning_foreground }}
+}
+}"
+    created_time = "{{ created_time }}"
+    id = "{{ id }}"
+    last_updated_time = "{{ last_updated_time }}"
+    name = "{{ name }}"
+    permissions = "{
+    actions = {{ actions }}
+    principal = {{ principal }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    theme_id = "{{ theme_id }}"
+    type = "{{ type }}"
+    version = "{
+    arn = {{ arn }}
+    base_theme_id = {{ base_theme_id }}
+    configuration = {
+    data_color_palette = {
+    colors = {{ colors }}
+    empty_fill_color = {{ empty_fill_color }}
+    min_max_gradient = {{ min_max_gradient }}
+}
+    sheet = {
+    tile = {
+    border = {
+    show = {{ show }}
+}
+}
+    tile_layout = {
+    gutter = {
+    show = {{ show }}
+}
+    margin = {
+    show = {{ show }}
+}
+}
+}
+    typography = {
+    font_families = {
+    font_family = {{ font_family }}
+}
+}
+    ui_color_palette = {
+    accent = {{ accent }}
+    accent_foreground = {{ accent_foreground }}
+    danger = {{ danger }}
+    danger_foreground = {{ danger_foreground }}
+    dimension = {{ dimension }}
+    dimension_foreground = {{ dimension_foreground }}
+    measure = {{ measure }}
+    measure_foreground = {{ measure_foreground }}
+    primary_background = {{ primary_background }}
+    primary_foreground = {{ primary_foreground }}
+    secondary_background = {{ secondary_background }}
+    secondary_foreground = {{ secondary_foreground }}
+    success = {{ success }}
+    success_foreground = {{ success_foreground }}
+    warning = {{ warning }}
+    warning_foreground = {{ warning_foreground }}
+}
+}
+    created_time = {{ created_time }}
+    description = {{ description }}
+    errors = {
+    message = {{ message }}
+    type = {{ type }}
+}
+    status = {{ status }}
+    version_number = {{ version_number }}
+}"
+    version_description = "{{ version_description }}"
+}

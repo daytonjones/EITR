@@ -1,0 +1,8 @@
+data "consul_service" "example" {
+    datacenter = "{{ datacenter }}"
+    filter = "{{ filter }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    service = "{{ service }}"
+    tag = "{{ tag }}"
+}

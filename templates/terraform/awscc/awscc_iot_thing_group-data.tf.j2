@@ -1,0 +1,18 @@
+data "awscc_iot_thing_group" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    parent_group_name = "{{ parent_group_name }}"
+    query_string = "{{ query_string }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    thing_group_id = "{{ thing_group_id }}"
+    thing_group_name = "{{ thing_group_name }}"
+    thing_group_properties = "{
+    attribute_payload = {
+    attributes = {{ attributes }}
+}
+    thing_group_description = {{ thing_group_description }}
+}"
+}

@@ -1,0 +1,29 @@
+data "awscc_rbin_rule" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    exclude_resource_tags = "{
+    resource_tag_key = {{ resource_tag_key }}
+    resource_tag_value = {{ resource_tag_value }}
+}"
+    id = "{{ id }}"
+    identifier = "{{ identifier }}"
+    lock_configuration = "{
+    unlock_delay_unit = {{ unlock_delay_unit }}
+    unlock_delay_value = {{ unlock_delay_value }}
+}"
+    lock_state = "{{ lock_state }}"
+    resource_tags = "{
+    resource_tag_key = {{ resource_tag_key }}
+    resource_tag_value = {{ resource_tag_value }}
+}"
+    resource_type = "{{ resource_type }}"
+    retention_period = "{
+    retention_period_unit = {{ retention_period_unit }}
+    retention_period_value = {{ retention_period_value }}
+}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

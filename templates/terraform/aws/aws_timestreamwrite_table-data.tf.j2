@@ -1,0 +1,11 @@
+data "aws_timestreamwrite_table" "example" {
+    arn = "{{ arn }}"
+    creation_time = "{{ creation_time }}"
+    database_name = "{{ database_name }}"
+    last_updated_time = "{{ last_updated_time }}"
+    magnetic_store_write_properties = "{{ magnetic_store_write_properties }}"
+    name = "{{ name }}"
+    retention_properties = "{{ retention_properties }}"
+    schema = "{{ schema }}"
+    table_status = "{{ table_status }}"
+}

@@ -1,0 +1,32 @@
+resource "awscc_opsworkscm_server" "example" {
+    arn = "{{ arn }}"
+    associate_public_ip_address = "{{ associate_public_ip_address }}"
+    backup_id = "{{ backup_id }}"
+    backup_retention_count = "{{ backup_retention_count }}"
+    custom_certificate = "{{ custom_certificate }}"
+    custom_domain = "{{ custom_domain }}"
+    custom_private_key = "{{ custom_private_key }}"
+    disable_automated_backup = "{{ disable_automated_backup }}"
+    endpoint = "{{ endpoint }}"
+    engine = "{{ engine }}"
+    engine_attributes = "{
+    name = {{ name }}
+    value = {{ value }}
+}"
+    engine_model = "{{ engine_model }}"
+    engine_version = "{{ engine_version }}"
+    id = "{{ id }}"
+    instance_profile_arn = "{{ instance_profile_arn }}"
+    instance_type = "{{ instance_type }}"
+    key_pair = "{{ key_pair }}"
+    preferred_backup_window = "{{ preferred_backup_window }}"
+    preferred_maintenance_window = "{{ preferred_maintenance_window }}"
+    security_group_ids = "{{ security_group_ids }}"
+    server_name = "{{ server_name }}"
+    service_role_arn = "{{ service_role_arn }}"
+    subnet_ids = "{{ subnet_ids }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

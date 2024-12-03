@@ -1,0 +1,14 @@
+resource "azurerm_automation_watcher" "example" {
+    automation_account_id = "{{ automation_account_id }}"
+    description = "{{ description }}"
+    etag = "{{ etag }}"
+    execution_frequency_in_seconds = "{{ execution_frequency_in_seconds }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    script_name = "{{ script_name }}"
+    script_parameters = "{{ script_parameters }}"
+    script_run_on = "{{ script_run_on }}"
+    status = "{{ status }}"
+    tags = "{{ tags }}"
+}

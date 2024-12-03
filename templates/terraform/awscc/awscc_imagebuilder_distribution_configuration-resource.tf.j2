@@ -1,0 +1,50 @@
+resource "awscc_imagebuilder_distribution_configuration" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    distributions = "{
+    ami_distribution_configuration = {
+    ami_tags = {{ ami_tags }}
+    description = {{ description }}
+    kms_key_id = {{ kms_key_id }}
+    launch_permission_configuration = {
+    organization_arns = {{ organization_arns }}
+    organizational_unit_arns = {{ organizational_unit_arns }}
+    user_groups = {{ user_groups }}
+    user_ids = {{ user_ids }}
+}
+    name = {{ name }}
+    target_account_ids = {{ target_account_ids }}
+}
+    container_distribution_configuration = {
+    container_tags = {{ container_tags }}
+    description = {{ description }}
+    target_repository = {
+    repository_name = {{ repository_name }}
+    service = {{ service }}
+}
+}
+    fast_launch_configurations = {
+    account_id = {{ account_id }}
+    enabled = {{ enabled }}
+    launch_template = {
+    launch_template_id = {{ launch_template_id }}
+    launch_template_name = {{ launch_template_name }}
+    launch_template_version = {{ launch_template_version }}
+}
+    max_parallel_launches = {{ max_parallel_launches }}
+    snapshot_configuration = {
+    target_resource_count = {{ target_resource_count }}
+}
+}
+    launch_template_configurations = {
+    account_id = {{ account_id }}
+    launch_template_id = {{ launch_template_id }}
+    set_default_version = {{ set_default_version }}
+}
+    license_configuration_arns = {{ license_configuration_arns }}
+    region = {{ region }}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    tags = "{{ tags }}"
+}

@@ -1,0 +1,14 @@
+data "azurerm_snapshot" "example" {
+    creation_option = "{{ creation_option }}"
+    disk_size_gb = "{{ disk_size_gb }}"
+    encryption_settings = "{{ encryption_settings }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    os_type = "{{ os_type }}"
+    resource_group_name = "{{ resource_group_name }}"
+    source_resource_id = "{{ source_resource_id }}"
+    source_uri = "{{ source_uri }}"
+    storage_account_id = "{{ storage_account_id }}"
+    time_created = "{{ time_created }}"
+    trusted_launch_enabled = "{{ trusted_launch_enabled }}"
+}

@@ -1,0 +1,9 @@
+resource "azurerm_backup_policy_vm" "example" {
+    id = "{{ id }}"
+    instant_restore_retention_days = "{{ instant_restore_retention_days }}"
+    name = "{{ name }}"
+    policy_type = "{{ policy_type }}"
+    recovery_vault_name = "{{ recovery_vault_name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    timezone = "{{ timezone }}"
+}

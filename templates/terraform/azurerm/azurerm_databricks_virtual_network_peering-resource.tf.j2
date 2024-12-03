@@ -1,0 +1,14 @@
+resource "azurerm_databricks_virtual_network_peering" "example" {
+    address_space_prefixes = "{{ address_space_prefixes }}"
+    allow_forwarded_traffic = "{{ allow_forwarded_traffic }}"
+    allow_gateway_transit = "{{ allow_gateway_transit }}"
+    allow_virtual_network_access = "{{ allow_virtual_network_access }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    remote_address_space_prefixes = "{{ remote_address_space_prefixes }}"
+    remote_virtual_network_id = "{{ remote_virtual_network_id }}"
+    resource_group_name = "{{ resource_group_name }}"
+    use_remote_gateways = "{{ use_remote_gateways }}"
+    virtual_network_id = "{{ virtual_network_id }}"
+    workspace_id = "{{ workspace_id }}"
+}

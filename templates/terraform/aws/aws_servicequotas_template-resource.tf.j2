@@ -1,0 +1,11 @@
+resource "aws_servicequotas_template" "example" {
+    global_quota = "{{ global_quota }}"
+    id = "{{ id }}"
+    quota_code = "{{ quota_code }}"
+    quota_name = "{{ quota_name }}"
+    region = "{{ region }}"
+    service_code = "{{ service_code }}"
+    service_name = "{{ service_name }}"
+    unit = "{{ unit }}"
+    value = "{{ value }}"
+}

@@ -1,0 +1,49 @@
+resource "awscc_appsync_api" "example" {
+    api_arn = "{{ api_arn }}"
+    api_id = "{{ api_id }}"
+    dns = "{
+    http = {{ http }}
+    realtime = {{ realtime }}
+}"
+    event_config = "{
+    auth_providers = {
+    auth_type = {{ auth_type }}
+    cognito_config = {
+    app_id_client_regex = {{ app_id_client_regex }}
+    aws_region = {{ aws_region }}
+    user_pool_id = {{ user_pool_id }}
+}
+    lambda_authorizer_config = {
+    authorizer_result_ttl_in_seconds = {{ authorizer_result_ttl_in_seconds }}
+    authorizer_uri = {{ authorizer_uri }}
+    identity_validation_expression = {{ identity_validation_expression }}
+}
+    open_id_connect_config = {
+    auth_ttl = {{ auth_ttl }}
+    client_id = {{ client_id }}
+    iat_ttl = {{ iat_ttl }}
+    issuer = {{ issuer }}
+}
+}
+    connection_auth_modes = {
+    auth_type = {{ auth_type }}
+}
+    default_publish_auth_modes = {
+    auth_type = {{ auth_type }}
+}
+    default_subscribe_auth_modes = {
+    auth_type = {{ auth_type }}
+}
+    log_config = {
+    cloudwatch_logs_role_arn = {{ cloudwatch_logs_role_arn }}
+    log_level = {{ log_level }}
+}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    owner_contact = "{{ owner_contact }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

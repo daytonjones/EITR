@@ -1,0 +1,8 @@
+data "azurerm_shared_image_versions" "example" {
+    gallery_name = "{{ gallery_name }}"
+    id = "{{ id }}"
+    image_name = "{{ image_name }}"
+    images = "{{ images }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags_filter = "{{ tags_filter }}"
+}

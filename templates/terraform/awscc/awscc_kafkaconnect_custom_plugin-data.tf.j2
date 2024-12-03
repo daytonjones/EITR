@@ -1,0 +1,23 @@
+data "awscc_kafkaconnect_custom_plugin" "example" {
+    content_type = "{{ content_type }}"
+    custom_plugin_arn = "{{ custom_plugin_arn }}"
+    description = "{{ description }}"
+    file_description = "{
+    file_md_5 = {{ file_md_5 }}
+    file_size = {{ file_size }}
+}"
+    id = "{{ id }}"
+    location = "{
+    s3_location = {
+    bucket_arn = {{ bucket_arn }}
+    file_key = {{ file_key }}
+    object_version = {{ object_version }}
+}
+}"
+    name = "{{ name }}"
+    revision = "{{ revision }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

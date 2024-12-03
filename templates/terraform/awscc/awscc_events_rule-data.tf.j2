@@ -1,0 +1,109 @@
+data "awscc_events_rule" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    event_bus_name = "{{ event_bus_name }}"
+    event_pattern = "{{ event_pattern }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    role_arn = "{{ role_arn }}"
+    schedule_expression = "{{ schedule_expression }}"
+    state = "{{ state }}"
+    targets = "{
+    app_sync_parameters = {
+    graph_ql_operation = {{ graph_ql_operation }}
+}
+    arn = {{ arn }}
+    batch_parameters = {
+    array_properties = {
+    size = {{ size }}
+}
+    job_definition = {{ job_definition }}
+    job_name = {{ job_name }}
+    retry_strategy = {
+    attempts = {{ attempts }}
+}
+}
+    dead_letter_config = {
+    arn = {{ arn }}
+}
+    ecs_parameters = {
+    capacity_provider_strategy = {
+    base = {{ base }}
+    capacity_provider = {{ capacity_provider }}
+    weight = {{ weight }}
+}
+    enable_ecs_managed_tags = {{ enable_ecs_managed_tags }}
+    enable_execute_command = {{ enable_execute_command }}
+    group = {{ group }}
+    launch_type = {{ launch_type }}
+    network_configuration = {
+    aws_vpc_configuration = {
+    assign_public_ip = {{ assign_public_ip }}
+    security_groups = {{ security_groups }}
+    subnets = {{ subnets }}
+}
+}
+    placement_constraints = {
+    expression = {{ expression }}
+    type = {{ type }}
+}
+    placement_strategies = {
+    field = {{ field }}
+    type = {{ type }}
+}
+    platform_version = {{ platform_version }}
+    propagate_tags = {{ propagate_tags }}
+    reference_id = {{ reference_id }}
+    tag_list = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    task_count = {{ task_count }}
+    task_definition_arn = {{ task_definition_arn }}
+}
+    http_parameters = {
+    header_parameters = {{ header_parameters }}
+    path_parameter_values = {{ path_parameter_values }}
+    query_string_parameters = {{ query_string_parameters }}
+}
+    id = {{ id }}
+    input = {{ input }}
+    input_path = {{ input_path }}
+    input_transformer = {
+    input_paths_map = {{ input_paths_map }}
+    input_template = {{ input_template }}
+}
+    kinesis_parameters = {
+    partition_key_path = {{ partition_key_path }}
+}
+    redshift_data_parameters = {
+    database = {{ database }}
+    db_user = {{ db_user }}
+    secret_manager_arn = {{ secret_manager_arn }}
+    sql = {{ sql }}
+    sqls = {{ sqls }}
+    statement_name = {{ statement_name }}
+    with_event = {{ with_event }}
+}
+    retry_policy = {
+    maximum_event_age_in_seconds = {{ maximum_event_age_in_seconds }}
+    maximum_retry_attempts = {{ maximum_retry_attempts }}
+}
+    role_arn = {{ role_arn }}
+    run_command_parameters = {
+    run_command_targets = {
+    key = {{ key }}
+    values = {{ values }}
+}
+}
+    sage_maker_pipeline_parameters = {
+    pipeline_parameter_list = {
+    name = {{ name }}
+    value = {{ value }}
+}
+}
+    sqs_parameters = {
+    message_group_id = {{ message_group_id }}
+}
+}"
+}

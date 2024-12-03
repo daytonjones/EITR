@@ -1,0 +1,15 @@
+resource "google_network_services_endpoint_policy" "example" {
+    authorization_policy = "{{ authorization_policy }}"
+    client_tls_policy = "{{ client_tls_policy }}"
+    create_time = "{{ create_time }}"
+    description = "{{ description }}"
+    effective_labels = "{{ effective_labels }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    server_tls_policy = "{{ server_tls_policy }}"
+    terraform_labels = "{{ terraform_labels }}"
+    type = "{{ type }}"
+    update_time = "{{ update_time }}"
+}

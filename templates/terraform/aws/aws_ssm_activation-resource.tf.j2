@@ -1,0 +1,13 @@
+resource "aws_ssm_activation" "example" {
+    activation_code = "{{ activation_code }}"
+    description = "{{ description }}"
+    expiration_date = "{{ expiration_date }}"
+    expired = "{{ expired }}"
+    iam_role = "{{ iam_role }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    registration_count = "{{ registration_count }}"
+    registration_limit = "{{ registration_limit }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

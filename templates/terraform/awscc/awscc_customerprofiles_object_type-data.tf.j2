@@ -1,0 +1,32 @@
+data "awscc_customerprofiles_object_type" "example" {
+    allow_profile_creation = "{{ allow_profile_creation }}"
+    created_at = "{{ created_at }}"
+    description = "{{ description }}"
+    domain_name = "{{ domain_name }}"
+    encryption_key = "{{ encryption_key }}"
+    expiration_days = "{{ expiration_days }}"
+    fields = "{
+    name = {{ name }}
+    object_type_field = {
+    content_type = {{ content_type }}
+    source = {{ source }}
+    target = {{ target }}
+}
+}"
+    id = "{{ id }}"
+    keys = "{
+    name = {{ name }}
+    object_type_key_list = {
+    field_names = {{ field_names }}
+    standard_identifiers = {{ standard_identifiers }}
+}
+}"
+    last_updated_at = "{{ last_updated_at }}"
+    object_type_name = "{{ object_type_name }}"
+    source_last_updated_timestamp_format = "{{ source_last_updated_timestamp_format }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    template_id = "{{ template_id }}"
+}

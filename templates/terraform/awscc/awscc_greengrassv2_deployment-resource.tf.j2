@@ -1,0 +1,57 @@
+resource "awscc_greengrassv2_deployment" "example" {
+    components = "{
+    component_version = {{ component_version }}
+    configuration_update = {
+    merge = {{ merge }}
+    reset = {{ reset }}
+}
+    run_with = {
+    posix_user = {{ posix_user }}
+    system_resource_limits = {
+    cpus = {{ cpus }}
+    memory = {{ memory }}
+}
+    windows_user = {{ windows_user }}
+}
+}"
+    deployment_id = "{{ deployment_id }}"
+    deployment_name = "{{ deployment_name }}"
+    deployment_policies = "{
+    component_update_policy = {
+    action = {{ action }}
+    timeout_in_seconds = {{ timeout_in_seconds }}
+}
+    configuration_validation_policy = {
+    timeout_in_seconds = {{ timeout_in_seconds }}
+}
+    failure_handling_policy = {{ failure_handling_policy }}
+}"
+    id = "{{ id }}"
+    iot_job_configuration = "{
+    abort_config = {
+    criteria_list = {
+    action = {{ action }}
+    failure_type = {{ failure_type }}
+    min_number_of_executed_things = {{ min_number_of_executed_things }}
+    threshold_percentage = {{ threshold_percentage }}
+}
+}
+    job_executions_rollout_config = {
+    exponential_rate = {
+    base_rate_per_minute = {{ base_rate_per_minute }}
+    increment_factor = {{ increment_factor }}
+    rate_increase_criteria = {
+    number_of_notified_things = {{ number_of_notified_things }}
+    number_of_succeeded_things = {{ number_of_succeeded_things }}
+}
+}
+    maximum_per_minute = {{ maximum_per_minute }}
+}
+    timeout_config = {
+    in_progress_timeout_in_minutes = {{ in_progress_timeout_in_minutes }}
+}
+}"
+    parent_target_arn = "{{ parent_target_arn }}"
+    tags = "{{ tags }}"
+    target_arn = "{{ target_arn }}"
+}

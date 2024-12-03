@@ -1,0 +1,8 @@
+resource "azurerm_redis_firewall_rule" "example" {
+    end_ip = "{{ end_ip }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    redis_cache_name = "{{ redis_cache_name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    start_ip = "{{ start_ip }}"
+}

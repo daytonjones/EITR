@@ -1,0 +1,9 @@
+resource "google_alloydb_user" "example" {
+    cluster = "{{ cluster }}"
+    database_roles = "{{ database_roles }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    password = "{{ password }}"
+    user_id = "{{ user_id }}"
+    user_type = "{{ user_type }}"
+}

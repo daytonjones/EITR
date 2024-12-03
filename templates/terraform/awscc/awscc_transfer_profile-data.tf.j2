@@ -1,0 +1,12 @@
+data "awscc_transfer_profile" "example" {
+    arn = "{{ arn }}"
+    as_2_id = "{{ as_2_id }}"
+    certificate_ids = "{{ certificate_ids }}"
+    id = "{{ id }}"
+    profile_id = "{{ profile_id }}"
+    profile_type = "{{ profile_type }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

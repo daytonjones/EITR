@@ -1,0 +1,9 @@
+resource "azurerm_servicebus_subscription_rule" "example" {
+    action = "{{ action }}"
+    filter_type = "{{ filter_type }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    sql_filter = "{{ sql_filter }}"
+    sql_filter_compatibility_level = "{{ sql_filter_compatibility_level }}"
+    subscription_id = "{{ subscription_id }}"
+}

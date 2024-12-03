@@ -1,0 +1,14 @@
+data "azurerm_vpn_server_configuration" "example" {
+    azure_active_directory_authentication = "{{ azure_active_directory_authentication }}"
+    client_revoked_certificate = "{{ client_revoked_certificate }}"
+    client_root_certificate = "{{ client_root_certificate }}"
+    id = "{{ id }}"
+    ipsec_policy = "{{ ipsec_policy }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    radius = "{{ radius }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    vpn_authentication_types = "{{ vpn_authentication_types }}"
+    vpn_protocols = "{{ vpn_protocols }}"
+}

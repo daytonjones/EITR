@@ -1,0 +1,9 @@
+resource "awscc_mediaconnect_flow_vpc_interface" "example" {
+    flow_arn = "{{ flow_arn }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    network_interface_ids = "{{ network_interface_ids }}"
+    role_arn = "{{ role_arn }}"
+    security_group_ids = "{{ security_group_ids }}"
+    subnet_id = "{{ subnet_id }}"
+}

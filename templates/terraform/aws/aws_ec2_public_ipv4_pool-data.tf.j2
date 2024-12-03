@@ -1,0 +1,10 @@
+data "aws_ec2_public_ipv4_pool" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    network_border_group = "{{ network_border_group }}"
+    pool_address_ranges = "{{ pool_address_ranges }}"
+    pool_id = "{{ pool_id }}"
+    tags = "{{ tags }}"
+    total_address_count = "{{ total_address_count }}"
+    total_available_address_count = "{{ total_available_address_count }}"
+}

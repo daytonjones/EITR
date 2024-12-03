@@ -1,0 +1,9 @@
+data "aws_kms_custom_key_store" "example" {
+    cloud_hsm_cluster_id = "{{ cloud_hsm_cluster_id }}"
+    connection_state = "{{ connection_state }}"
+    creation_date = "{{ creation_date }}"
+    custom_key_store_id = "{{ custom_key_store_id }}"
+    custom_key_store_name = "{{ custom_key_store_name }}"
+    id = "{{ id }}"
+    trust_anchor_certificate = "{{ trust_anchor_certificate }}"
+}

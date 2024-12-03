@@ -1,0 +1,14 @@
+resource "vault_saml_auth_backend" "example" {
+    acs_urls = "{{ acs_urls }}"
+    default_role = "{{ default_role }}"
+    disable_remount = "{{ disable_remount }}"
+    entity_id = "{{ entity_id }}"
+    id = "{{ id }}"
+    idp_cert = "{{ idp_cert }}"
+    idp_entity_id = "{{ idp_entity_id }}"
+    idp_metadata_url = "{{ idp_metadata_url }}"
+    idp_sso_url = "{{ idp_sso_url }}"
+    namespace = "{{ namespace }}"
+    path = "{{ path }}"
+    verbose_logging = "{{ verbose_logging }}"
+}

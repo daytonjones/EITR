@@ -1,0 +1,8 @@
+resource "google_spanner_backup_schedule" "example" {
+    database = "{{ database }}"
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    retention_duration = "{{ retention_duration }}"
+}

@@ -1,0 +1,4 @@
+resource "kubernetes_job_v1" "example" {
+    id = "{{ id }}"
+    wait_for_completion = "{{ wait_for_completion }}"
+}

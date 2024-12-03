@@ -1,0 +1,11 @@
+resource "hcs_snapshot" "example" {
+    finished_at = "{{ finished_at }}"
+    id = "{{ id }}"
+    managed_application_name = "{{ managed_application_name }}"
+    requested_at = "{{ requested_at }}"
+    resource_group_name = "{{ resource_group_name }}"
+    restored_at = "{{ restored_at }}"
+    size = "{{ size }}"
+    snapshot_name = "{{ snapshot_name }}"
+    state = "{{ state }}"
+}

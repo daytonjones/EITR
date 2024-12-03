@@ -1,0 +1,10 @@
+data "awscc_pcaconnectorad_template_group_access_control_entry" "example" {
+    access_rights = "{
+    auto_enroll = {{ auto_enroll }}
+    enroll = {{ enroll }}
+}"
+    group_display_name = "{{ group_display_name }}"
+    group_security_identifier = "{{ group_security_identifier }}"
+    id = "{{ id }}"
+    template_arn = "{{ template_arn }}"
+}

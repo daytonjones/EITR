@@ -1,0 +1,11 @@
+resource "aws_glue_partition" "example" {
+    catalog_id = "{{ catalog_id }}"
+    creation_time = "{{ creation_time }}"
+    database_name = "{{ database_name }}"
+    id = "{{ id }}"
+    last_accessed_time = "{{ last_accessed_time }}"
+    last_analyzed_time = "{{ last_analyzed_time }}"
+    parameters = "{{ parameters }}"
+    partition_values = "{{ partition_values }}"
+    table_name = "{{ table_name }}"
+}

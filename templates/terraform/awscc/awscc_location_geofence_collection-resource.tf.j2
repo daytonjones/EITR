@@ -1,0 +1,16 @@
+resource "awscc_location_geofence_collection" "example" {
+    arn = "{{ arn }}"
+    collection_arn = "{{ collection_arn }}"
+    collection_name = "{{ collection_name }}"
+    create_time = "{{ create_time }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    pricing_plan = "{{ pricing_plan }}"
+    pricing_plan_data_source = "{{ pricing_plan_data_source }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    update_time = "{{ update_time }}"
+}

@@ -1,0 +1,48 @@
+resource "awscc_osis_pipeline" "example" {
+    buffer_options = "{
+    persistent_buffer_enabled = {{ persistent_buffer_enabled }}
+}"
+    encryption_at_rest_options = "{
+    kms_key_arn = {{ kms_key_arn }}
+}"
+    id = "{{ id }}"
+    ingest_endpoint_urls = "{{ ingest_endpoint_urls }}"
+    log_publishing_options = "{
+    cloudwatch_log_destination = {
+    log_group = {{ log_group }}
+}
+    is_logging_enabled = {{ is_logging_enabled }}
+}"
+    max_units = "{{ max_units }}"
+    min_units = "{{ min_units }}"
+    pipeline_arn = "{{ pipeline_arn }}"
+    pipeline_configuration_body = "{{ pipeline_configuration_body }}"
+    pipeline_name = "{{ pipeline_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    vpc_endpoint_service = "{{ vpc_endpoint_service }}"
+    vpc_endpoints = "{
+    vpc_endpoint_id = {{ vpc_endpoint_id }}
+    vpc_id = {{ vpc_id }}
+    vpc_options = {
+    security_group_ids = {{ security_group_ids }}
+    subnet_ids = {{ subnet_ids }}
+    vpc_attachment_options = {
+    attach_to_vpc = {{ attach_to_vpc }}
+    cidr_block = {{ cidr_block }}
+}
+    vpc_endpoint_management = {{ vpc_endpoint_management }}
+}
+}"
+    vpc_options = "{
+    security_group_ids = {{ security_group_ids }}
+    subnet_ids = {{ subnet_ids }}
+    vpc_attachment_options = {
+    attach_to_vpc = {{ attach_to_vpc }}
+    cidr_block = {{ cidr_block }}
+}
+    vpc_endpoint_management = {{ vpc_endpoint_management }}
+}"
+}

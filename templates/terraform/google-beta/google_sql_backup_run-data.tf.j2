@@ -1,0 +1,10 @@
+data "google_sql_backup_run" "example" {
+    backup_id = "{{ backup_id }}"
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    location = "{{ location }}"
+    most_recent = "{{ most_recent }}"
+    project = "{{ project }}"
+    start_time = "{{ start_time }}"
+    status = "{{ status }}"
+}

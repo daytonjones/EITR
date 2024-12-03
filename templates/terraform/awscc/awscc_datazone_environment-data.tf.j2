@@ -1,0 +1,28 @@
+data "awscc_datazone_environment" "example" {
+    aws_account_id = "{{ aws_account_id }}"
+    aws_account_region = "{{ aws_account_region }}"
+    created_at = "{{ created_at }}"
+    created_by = "{{ created_by }}"
+    description = "{{ description }}"
+    domain_id = "{{ domain_id }}"
+    domain_identifier = "{{ domain_identifier }}"
+    environment_account_identifier = "{{ environment_account_identifier }}"
+    environment_account_region = "{{ environment_account_region }}"
+    environment_blueprint_id = "{{ environment_blueprint_id }}"
+    environment_id = "{{ environment_id }}"
+    environment_profile_id = "{{ environment_profile_id }}"
+    environment_profile_identifier = "{{ environment_profile_identifier }}"
+    environment_role_arn = "{{ environment_role_arn }}"
+    glossary_terms = "{{ glossary_terms }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project_id = "{{ project_id }}"
+    project_identifier = "{{ project_identifier }}"
+    provider_name = "{{ provider_name }}"
+    status = "{{ status }}"
+    updated_at = "{{ updated_at }}"
+    user_parameters = "{
+    name = {{ name }}
+    value = {{ value }}
+}"
+}

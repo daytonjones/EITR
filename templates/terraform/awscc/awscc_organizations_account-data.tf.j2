@@ -1,0 +1,16 @@
+data "awscc_organizations_account" "example" {
+    account_id = "{{ account_id }}"
+    account_name = "{{ account_name }}"
+    arn = "{{ arn }}"
+    email = "{{ email }}"
+    id = "{{ id }}"
+    joined_method = "{{ joined_method }}"
+    joined_timestamp = "{{ joined_timestamp }}"
+    parent_ids = "{{ parent_ids }}"
+    role_name = "{{ role_name }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

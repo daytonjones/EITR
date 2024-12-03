@@ -1,0 +1,39 @@
+resource "awscc_verifiedpermissions_identity_source" "example" {
+    configuration = "{
+    cognito_user_pool_configuration = {
+    client_ids = {{ client_ids }}
+    group_configuration = {
+    group_entity_type = {{ group_entity_type }}
+}
+    user_pool_arn = {{ user_pool_arn }}
+}
+    open_id_connect_configuration = {
+    entity_id_prefix = {{ entity_id_prefix }}
+    group_configuration = {
+    group_claim = {{ group_claim }}
+    group_entity_type = {{ group_entity_type }}
+}
+    issuer = {{ issuer }}
+    token_selection = {
+    access_token_only = {
+    audiences = {{ audiences }}
+    principal_id_claim = {{ principal_id_claim }}
+}
+    identity_token_only = {
+    client_ids = {{ client_ids }}
+    principal_id_claim = {{ principal_id_claim }}
+}
+}
+}
+}"
+    details = "{
+    client_ids = {{ client_ids }}
+    discovery_url = {{ discovery_url }}
+    open_id_issuer = {{ open_id_issuer }}
+    user_pool_arn = {{ user_pool_arn }}
+}"
+    id = "{{ id }}"
+    identity_source_id = "{{ identity_source_id }}"
+    policy_store_id = "{{ policy_store_id }}"
+    principal_entity_type = "{{ principal_entity_type }}"
+}

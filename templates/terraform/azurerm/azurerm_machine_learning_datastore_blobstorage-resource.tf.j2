@@ -1,0 +1,12 @@
+resource "azurerm_machine_learning_datastore_blobstorage" "example" {
+    account_key = "{{ account_key }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    is_default = "{{ is_default }}"
+    name = "{{ name }}"
+    service_data_auth_identity = "{{ service_data_auth_identity }}"
+    shared_access_signature = "{{ shared_access_signature }}"
+    storage_container_id = "{{ storage_container_id }}"
+    tags = "{{ tags }}"
+    workspace_id = "{{ workspace_id }}"
+}

@@ -1,0 +1,10 @@
+resource "awscc_ecs_cluster_capacity_provider_associations" "example" {
+    capacity_providers = "{{ capacity_providers }}"
+    cluster = "{{ cluster }}"
+    default_capacity_provider_strategy = "{
+    base = {{ base }}
+    capacity_provider = {{ capacity_provider }}
+    weight = {{ weight }}
+}"
+    id = "{{ id }}"
+}

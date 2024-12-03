@@ -1,0 +1,8 @@
+resource "aws_redshift_data_share_authorization" "example" {
+    allow_writes = "{{ allow_writes }}"
+    consumer_identifier = "{{ consumer_identifier }}"
+    data_share_arn = "{{ data_share_arn }}"
+    id = "{{ id }}"
+    managed_by = "{{ managed_by }}"
+    producer_arn = "{{ producer_arn }}"
+}

@@ -1,0 +1,13 @@
+resource "awscc_iotsitewise_dashboard" "example" {
+    dashboard_arn = "{{ dashboard_arn }}"
+    dashboard_definition = "{{ dashboard_definition }}"
+    dashboard_description = "{{ dashboard_description }}"
+    dashboard_id = "{{ dashboard_id }}"
+    dashboard_name = "{{ dashboard_name }}"
+    id = "{{ id }}"
+    project_id = "{{ project_id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

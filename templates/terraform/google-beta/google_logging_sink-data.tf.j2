@@ -1,0 +1,11 @@
+data "google_logging_sink" "example" {
+    bigquery_options = "{{ bigquery_options }}"
+    description = "{{ description }}"
+    destination = "{{ destination }}"
+    disabled = "{{ disabled }}"
+    exclusions = "{{ exclusions }}"
+    filter = "{{ filter }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    writer_identity = "{{ writer_identity }}"
+}

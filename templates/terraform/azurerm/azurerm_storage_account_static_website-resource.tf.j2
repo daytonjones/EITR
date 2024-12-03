@@ -1,0 +1,6 @@
+resource "azurerm_storage_account_static_website" "example" {
+    error_404_document = "{{ error_404_document }}"
+    id = "{{ id }}"
+    index_document = "{{ index_document }}"
+    storage_account_id = "{{ storage_account_id }}"
+}

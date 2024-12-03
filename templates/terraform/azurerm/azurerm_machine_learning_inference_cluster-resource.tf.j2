@@ -1,0 +1,10 @@
+resource "azurerm_machine_learning_inference_cluster" "example" {
+    cluster_purpose = "{{ cluster_purpose }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    kubernetes_cluster_id = "{{ kubernetes_cluster_id }}"
+    location = "{{ location }}"
+    machine_learning_workspace_id = "{{ machine_learning_workspace_id }}"
+    name = "{{ name }}"
+    tags = "{{ tags }}"
+}

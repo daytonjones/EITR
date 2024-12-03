@@ -1,0 +1,26 @@
+resource "awscc_sagemaker_project" "example" {
+    creation_time = "{{ creation_time }}"
+    id = "{{ id }}"
+    project_arn = "{{ project_arn }}"
+    project_description = "{{ project_description }}"
+    project_id = "{{ project_id }}"
+    project_name = "{{ project_name }}"
+    project_status = "{{ project_status }}"
+    service_catalog_provisioned_product_details = "{
+    provisioned_product_id = {{ provisioned_product_id }}
+    provisioned_product_status_message = {{ provisioned_product_status_message }}
+}"
+    service_catalog_provisioning_details = "{
+    path_id = {{ path_id }}
+    product_id = {{ product_id }}
+    provisioning_artifact_id = {{ provisioning_artifact_id }}
+    provisioning_parameters = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

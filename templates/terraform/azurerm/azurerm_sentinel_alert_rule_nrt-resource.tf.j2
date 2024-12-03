@@ -1,0 +1,17 @@
+resource "azurerm_sentinel_alert_rule_nrt" "example" {
+    alert_rule_template_guid = "{{ alert_rule_template_guid }}"
+    alert_rule_template_version = "{{ alert_rule_template_version }}"
+    custom_details = "{{ custom_details }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    log_analytics_workspace_id = "{{ log_analytics_workspace_id }}"
+    name = "{{ name }}"
+    query = "{{ query }}"
+    severity = "{{ severity }}"
+    suppression_duration = "{{ suppression_duration }}"
+    suppression_enabled = "{{ suppression_enabled }}"
+    tactics = "{{ tactics }}"
+    techniques = "{{ techniques }}"
+}

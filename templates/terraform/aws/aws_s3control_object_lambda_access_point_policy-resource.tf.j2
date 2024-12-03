@@ -1,0 +1,7 @@
+resource "aws_s3control_object_lambda_access_point_policy" "example" {
+    account_id = "{{ account_id }}"
+    has_public_access_policy = "{{ has_public_access_policy }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    policy = "{{ policy }}"
+}

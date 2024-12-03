@@ -1,0 +1,16 @@
+data "awscc_lightsail_alarm" "example" {
+    alarm_arn = "{{ alarm_arn }}"
+    alarm_name = "{{ alarm_name }}"
+    comparison_operator = "{{ comparison_operator }}"
+    contact_protocols = "{{ contact_protocols }}"
+    datapoints_to_alarm = "{{ datapoints_to_alarm }}"
+    evaluation_periods = "{{ evaluation_periods }}"
+    id = "{{ id }}"
+    metric_name = "{{ metric_name }}"
+    monitored_resource_name = "{{ monitored_resource_name }}"
+    notification_enabled = "{{ notification_enabled }}"
+    notification_triggers = "{{ notification_triggers }}"
+    state = "{{ state }}"
+    threshold = "{{ threshold }}"
+    treat_missing_data = "{{ treat_missing_data }}"
+}

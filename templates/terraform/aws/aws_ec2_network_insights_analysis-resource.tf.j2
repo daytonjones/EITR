@@ -1,0 +1,18 @@
+resource "aws_ec2_network_insights_analysis" "example" {
+    alternate_path_hints = "{{ alternate_path_hints }}"
+    arn = "{{ arn }}"
+    explanations = "{{ explanations }}"
+    filter_in_arns = "{{ filter_in_arns }}"
+    forward_path_components = "{{ forward_path_components }}"
+    id = "{{ id }}"
+    network_insights_path_id = "{{ network_insights_path_id }}"
+    path_found = "{{ path_found }}"
+    return_path_components = "{{ return_path_components }}"
+    start_date = "{{ start_date }}"
+    status = "{{ status }}"
+    status_message = "{{ status_message }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    wait_for_completion = "{{ wait_for_completion }}"
+    warning_message = "{{ warning_message }}"
+}

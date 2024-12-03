@@ -1,0 +1,7 @@
+resource "aws_lambda_runtime_management_config" "example" {
+    function_arn = "{{ function_arn }}"
+    function_name = "{{ function_name }}"
+    qualifier = "{{ qualifier }}"
+    runtime_version_arn = "{{ runtime_version_arn }}"
+    update_runtime_on = "{{ update_runtime_on }}"
+}

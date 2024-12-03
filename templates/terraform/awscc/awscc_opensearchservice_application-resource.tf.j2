@@ -1,0 +1,24 @@
+resource "awscc_opensearchservice_application" "example" {
+    app_configs = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    application_id = "{{ application_id }}"
+    arn = "{{ arn }}"
+    data_sources = "{
+    data_source_arn = {{ data_source_arn }}
+    data_source_description = {{ data_source_description }}
+}"
+    endpoint = "{{ endpoint }}"
+    iam_identity_center_options = "{
+    enabled = {{ enabled }}
+    iam_identity_center_instance_arn = {{ iam_identity_center_instance_arn }}
+    iam_role_for_identity_center_application_arn = {{ iam_role_for_identity_center_application_arn }}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

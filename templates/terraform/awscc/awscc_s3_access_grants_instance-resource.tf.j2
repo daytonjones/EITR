@@ -1,0 +1,10 @@
+resource "awscc_s3_access_grants_instance" "example" {
+    access_grants_instance_arn = "{{ access_grants_instance_arn }}"
+    access_grants_instance_id = "{{ access_grants_instance_id }}"
+    id = "{{ id }}"
+    identity_center_arn = "{{ identity_center_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

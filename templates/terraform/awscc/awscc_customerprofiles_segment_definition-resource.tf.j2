@@ -1,0 +1,210 @@
+resource "awscc_customerprofiles_segment_definition" "example" {
+    created_at = "{{ created_at }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    domain_name = "{{ domain_name }}"
+    id = "{{ id }}"
+    segment_definition_arn = "{{ segment_definition_arn }}"
+    segment_definition_name = "{{ segment_definition_name }}"
+    segment_groups = "{
+    groups = {
+    dimensions = {
+    calculated_attributes = {
+    condition_overrides = {
+    range = {
+    end = {{ end }}
+    start = {{ start }}
+    unit = {{ unit }}
+}
+}
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    profile_attributes = {
+    account_number = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    additional_information = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    address = {
+    city = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    country = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    county = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    postal_code = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    province = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    state = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+}
+    attributes = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    billing_address = {
+    city = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    country = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    county = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    postal_code = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    province = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    state = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+}
+    birth_date = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    business_email_address = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    business_name = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    business_phone_number = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    email_address = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    first_name = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    gender_string = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    home_phone_number = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    last_name = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    mailing_address = {
+    city = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    country = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    county = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    postal_code = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    province = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    state = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+}
+    middle_name = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    mobile_phone_number = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    party_type_string = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    personal_email_address = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    phone_number = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    shipping_address = {
+    city = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    country = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    county = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    postal_code = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    province = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+    state = {
+    dimension_type = {{ dimension_type }}
+    values = {{ values }}
+}
+}
+}
+}
+    source_segments = {
+    segment_definition_name = {{ segment_definition_name }}
+}
+    source_type = {{ source_type }}
+    type = {{ type }}
+}
+    include = {{ include }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

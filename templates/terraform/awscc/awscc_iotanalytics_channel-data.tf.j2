@@ -1,0 +1,21 @@
+data "awscc_iotanalytics_channel" "example" {
+    channel_id = "{{ channel_id }}"
+    channel_name = "{{ channel_name }}"
+    channel_storage = "{
+    customer_managed_s3 = {
+    bucket = {{ bucket }}
+    key_prefix = {{ key_prefix }}
+    role_arn = {{ role_arn }}
+}
+    service_managed_s3 = {{ service_managed_s3 }}
+}"
+    id = "{{ id }}"
+    retention_period = "{
+    number_of_days = {{ number_of_days }}
+    unlimited = {{ unlimited }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

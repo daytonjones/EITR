@@ -1,0 +1,23 @@
+resource "awscc_verifiedpermissions_policy" "example" {
+    definition = "{
+    static = {
+    description = {{ description }}
+    statement = {{ statement }}
+}
+    template_linked = {
+    policy_template_id = {{ policy_template_id }}
+    principal = {
+    entity_id = {{ entity_id }}
+    entity_type = {{ entity_type }}
+}
+    resource = {
+    entity_id = {{ entity_id }}
+    entity_type = {{ entity_type }}
+}
+}
+}"
+    id = "{{ id }}"
+    policy_id = "{{ policy_id }}"
+    policy_store_id = "{{ policy_store_id }}"
+    policy_type = "{{ policy_type }}"
+}

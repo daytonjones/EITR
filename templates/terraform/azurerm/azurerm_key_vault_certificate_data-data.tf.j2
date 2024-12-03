@@ -1,0 +1,13 @@
+data "azurerm_key_vault_certificate_data" "example" {
+    certificates_count = "{{ certificates_count }}"
+    expires = "{{ expires }}"
+    hex = "{{ hex }}"
+    id = "{{ id }}"
+    key = "{{ key }}"
+    key_vault_id = "{{ key_vault_id }}"
+    name = "{{ name }}"
+    not_before = "{{ not_before }}"
+    pem = "{{ pem }}"
+    tags = "{{ tags }}"
+    version = "{{ version }}"
+}

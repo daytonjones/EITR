@@ -1,0 +1,11 @@
+resource "azurerm_servicebus_namespace_disaster_recovery_config" "example" {
+    alias_authorization_rule_id = "{{ alias_authorization_rule_id }}"
+    default_primary_key = "{{ default_primary_key }}"
+    default_secondary_key = "{{ default_secondary_key }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    partner_namespace_id = "{{ partner_namespace_id }}"
+    primary_connection_string_alias = "{{ primary_connection_string_alias }}"
+    primary_namespace_id = "{{ primary_namespace_id }}"
+    secondary_connection_string_alias = "{{ secondary_connection_string_alias }}"
+}

@@ -1,0 +1,6 @@
+data "google_kms_crypto_key_iam_policy" "example" {
+    crypto_key_id = "{{ crypto_key_id }}"
+    etag = "{{ etag }}"
+    id = "{{ id }}"
+    policy_data = "{{ policy_data }}"
+}

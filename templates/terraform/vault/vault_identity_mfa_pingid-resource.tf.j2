@@ -1,0 +1,18 @@
+resource "vault_identity_mfa_pingid" "example" {
+    admin_url = "{{ admin_url }}"
+    authenticator_url = "{{ authenticator_url }}"
+    id = "{{ id }}"
+    idp_url = "{{ idp_url }}"
+    method_id = "{{ method_id }}"
+    mount_accessor = "{{ mount_accessor }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    namespace_id = "{{ namespace_id }}"
+    namespace_path = "{{ namespace_path }}"
+    org_alias = "{{ org_alias }}"
+    settings_file_base64 = "{{ settings_file_base64 }}"
+    type = "{{ type }}"
+    use_signature = "{{ use_signature }}"
+    username_format = "{{ username_format }}"
+    uuid = "{{ uuid }}"
+}

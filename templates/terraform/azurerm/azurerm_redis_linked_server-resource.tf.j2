@@ -1,0 +1,10 @@
+resource "azurerm_redis_linked_server" "example" {
+    geo_replicated_primary_host_name = "{{ geo_replicated_primary_host_name }}"
+    id = "{{ id }}"
+    linked_redis_cache_id = "{{ linked_redis_cache_id }}"
+    linked_redis_cache_location = "{{ linked_redis_cache_location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    server_role = "{{ server_role }}"
+    target_redis_cache_name = "{{ target_redis_cache_name }}"
+}

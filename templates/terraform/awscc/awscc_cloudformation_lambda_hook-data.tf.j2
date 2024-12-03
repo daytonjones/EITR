@@ -1,0 +1,31 @@
+data "awscc_cloudformation_lambda_hook" "example" {
+    alias = "{{ alias }}"
+    execution_role = "{{ execution_role }}"
+    failure_mode = "{{ failure_mode }}"
+    hook_arn = "{{ hook_arn }}"
+    hook_status = "{{ hook_status }}"
+    id = "{{ id }}"
+    lambda_function = "{{ lambda_function }}"
+    stack_filters = "{
+    filtering_criteria = {{ filtering_criteria }}
+    stack_names = {
+    exclude = {{ exclude }}
+    include = {{ include }}
+}
+    stack_roles = {
+    exclude = {{ exclude }}
+    include = {{ include }}
+}
+}"
+    target_filters = "{
+    actions = {{ actions }}
+    invocation_points = {{ invocation_points }}
+    target_names = {{ target_names }}
+    targets = {
+    action = {{ action }}
+    invocation_point = {{ invocation_point }}
+    target_name = {{ target_name }}
+}
+}"
+    target_operations = "{{ target_operations }}"
+}

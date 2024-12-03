@@ -1,0 +1,10 @@
+data "azurerm_data_protection_backup_vault" "example" {
+    datastore_type = "{{ datastore_type }}"
+    id = "{{ id }}"
+    identity = "{{ identity }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    redundancy = "{{ redundancy }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

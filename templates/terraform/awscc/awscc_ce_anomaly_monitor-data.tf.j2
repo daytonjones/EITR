@@ -1,0 +1,16 @@
+data "awscc_ce_anomaly_monitor" "example" {
+    creation_date = "{{ creation_date }}"
+    dimensional_value_count = "{{ dimensional_value_count }}"
+    id = "{{ id }}"
+    last_evaluated_date = "{{ last_evaluated_date }}"
+    last_updated_date = "{{ last_updated_date }}"
+    monitor_arn = "{{ monitor_arn }}"
+    monitor_dimension = "{{ monitor_dimension }}"
+    monitor_name = "{{ monitor_name }}"
+    monitor_specification = "{{ monitor_specification }}"
+    monitor_type = "{{ monitor_type }}"
+    resource_tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

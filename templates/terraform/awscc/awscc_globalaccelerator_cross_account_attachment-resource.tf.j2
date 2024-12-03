@@ -1,0 +1,15 @@
+resource "awscc_globalaccelerator_cross_account_attachment" "example" {
+    attachment_arn = "{{ attachment_arn }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    principals = "{{ principals }}"
+    resources = "{
+    cidr = {{ cidr }}
+    endpoint_id = {{ endpoint_id }}
+    region = {{ region }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,18 @@
+resource "awscc_iot_provisioning_template" "example" {
+    description = "{{ description }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    pre_provisioning_hook = "{
+    payload_version = {{ payload_version }}
+    target_arn = {{ target_arn }}
+}"
+    provisioning_role_arn = "{{ provisioning_role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    template_arn = "{{ template_arn }}"
+    template_body = "{{ template_body }}"
+    template_name = "{{ template_name }}"
+    template_type = "{{ template_type }}"
+}

@@ -1,0 +1,13 @@
+resource "awscc_appstream_directory_config" "example" {
+    certificate_based_auth_properties = "{
+    certificate_authority_arn = {{ certificate_authority_arn }}
+    status = {{ status }}
+}"
+    directory_name = "{{ directory_name }}"
+    id = "{{ id }}"
+    organizational_unit_distinguished_names = "{{ organizational_unit_distinguished_names }}"
+    service_account_credentials = "{
+    account_name = {{ account_name }}
+    account_password = {{ account_password }}
+}"
+}

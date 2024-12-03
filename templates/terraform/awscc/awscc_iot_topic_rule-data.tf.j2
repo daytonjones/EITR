@@ -1,0 +1,387 @@
+data "awscc_iot_topic_rule" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    rule_name = "{{ rule_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    topic_rule_payload = "{
+    actions = {
+    cloudwatch_alarm = {
+    alarm_name = {{ alarm_name }}
+    role_arn = {{ role_arn }}
+    state_reason = {{ state_reason }}
+    state_value = {{ state_value }}
+}
+    cloudwatch_logs = {
+    batch_mode = {{ batch_mode }}
+    log_group_name = {{ log_group_name }}
+    role_arn = {{ role_arn }}
+}
+    cloudwatch_metric = {
+    metric_name = {{ metric_name }}
+    metric_namespace = {{ metric_namespace }}
+    metric_timestamp = {{ metric_timestamp }}
+    metric_unit = {{ metric_unit }}
+    metric_value = {{ metric_value }}
+    role_arn = {{ role_arn }}
+}
+    dynamo_d_bv_2 = {
+    put_item = {
+    table_name = {{ table_name }}
+}
+    role_arn = {{ role_arn }}
+}
+    dynamo_db = {
+    hash_key_field = {{ hash_key_field }}
+    hash_key_type = {{ hash_key_type }}
+    hash_key_value = {{ hash_key_value }}
+    payload_field = {{ payload_field }}
+    range_key_field = {{ range_key_field }}
+    range_key_type = {{ range_key_type }}
+    range_key_value = {{ range_key_value }}
+    role_arn = {{ role_arn }}
+    table_name = {{ table_name }}
+}
+    elasticsearch = {
+    endpoint = {{ endpoint }}
+    id = {{ id }}
+    index = {{ index }}
+    role_arn = {{ role_arn }}
+    type = {{ type }}
+}
+    firehose = {
+    batch_mode = {{ batch_mode }}
+    delivery_stream_name = {{ delivery_stream_name }}
+    role_arn = {{ role_arn }}
+    separator = {{ separator }}
+}
+    http = {
+    auth = {
+    sigv_4 = {
+    role_arn = {{ role_arn }}
+    service_name = {{ service_name }}
+    signing_region = {{ signing_region }}
+}
+}
+    confirmation_url = {{ confirmation_url }}
+    headers = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    url = {{ url }}
+}
+    iot_analytics = {
+    batch_mode = {{ batch_mode }}
+    channel_name = {{ channel_name }}
+    role_arn = {{ role_arn }}
+}
+    iot_events = {
+    batch_mode = {{ batch_mode }}
+    input_name = {{ input_name }}
+    message_id = {{ message_id }}
+    role_arn = {{ role_arn }}
+}
+    iot_site_wise = {
+    put_asset_property_value_entries = {
+    asset_id = {{ asset_id }}
+    entry_id = {{ entry_id }}
+    property_alias = {{ property_alias }}
+    property_id = {{ property_id }}
+    property_values = {
+    quality = {{ quality }}
+    timestamp = {
+    offset_in_nanos = {{ offset_in_nanos }}
+    time_in_seconds = {{ time_in_seconds }}
+}
+    value = {
+    boolean_value = {{ boolean_value }}
+    double_value = {{ double_value }}
+    integer_value = {{ integer_value }}
+    string_value = {{ string_value }}
+}
+}
+}
+    role_arn = {{ role_arn }}
+}
+    kafka = {
+    client_properties = {{ client_properties }}
+    destination_arn = {{ destination_arn }}
+    headers = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    key = {{ key }}
+    partition = {{ partition }}
+    topic = {{ topic }}
+}
+    kinesis = {
+    partition_key = {{ partition_key }}
+    role_arn = {{ role_arn }}
+    stream_name = {{ stream_name }}
+}
+    lambda = {
+    function_arn = {{ function_arn }}
+}
+    location = {
+    device_id = {{ device_id }}
+    latitude = {{ latitude }}
+    longitude = {{ longitude }}
+    role_arn = {{ role_arn }}
+    timestamp = {
+    unit = {{ unit }}
+    value = {{ value }}
+}
+    tracker_name = {{ tracker_name }}
+}
+    open_search = {
+    endpoint = {{ endpoint }}
+    id = {{ id }}
+    index = {{ index }}
+    role_arn = {{ role_arn }}
+    type = {{ type }}
+}
+    republish = {
+    headers = {
+    content_type = {{ content_type }}
+    correlation_data = {{ correlation_data }}
+    message_expiry = {{ message_expiry }}
+    payload_format_indicator = {{ payload_format_indicator }}
+    response_topic = {{ response_topic }}
+    user_properties = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}
+    qos = {{ qos }}
+    role_arn = {{ role_arn }}
+    topic = {{ topic }}
+}
+    s3 = {
+    bucket_name = {{ bucket_name }}
+    canned_acl = {{ canned_acl }}
+    key = {{ key }}
+    role_arn = {{ role_arn }}
+}
+    sns = {
+    message_format = {{ message_format }}
+    role_arn = {{ role_arn }}
+    target_arn = {{ target_arn }}
+}
+    sqs = {
+    queue_url = {{ queue_url }}
+    role_arn = {{ role_arn }}
+    use_base_64 = {{ use_base_64 }}
+}
+    step_functions = {
+    execution_name_prefix = {{ execution_name_prefix }}
+    role_arn = {{ role_arn }}
+    state_machine_name = {{ state_machine_name }}
+}
+    timestream = {
+    database_name = {{ database_name }}
+    dimensions = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    role_arn = {{ role_arn }}
+    table_name = {{ table_name }}
+    timestamp = {
+    unit = {{ unit }}
+    value = {{ value }}
+}
+}
+}
+    aws_iot_sql_version = {{ aws_iot_sql_version }}
+    description = {{ description }}
+    error_action = {
+    cloudwatch_alarm = {
+    alarm_name = {{ alarm_name }}
+    role_arn = {{ role_arn }}
+    state_reason = {{ state_reason }}
+    state_value = {{ state_value }}
+}
+    cloudwatch_logs = {
+    batch_mode = {{ batch_mode }}
+    log_group_name = {{ log_group_name }}
+    role_arn = {{ role_arn }}
+}
+    cloudwatch_metric = {
+    metric_name = {{ metric_name }}
+    metric_namespace = {{ metric_namespace }}
+    metric_timestamp = {{ metric_timestamp }}
+    metric_unit = {{ metric_unit }}
+    metric_value = {{ metric_value }}
+    role_arn = {{ role_arn }}
+}
+    dynamo_d_bv_2 = {
+    put_item = {
+    table_name = {{ table_name }}
+}
+    role_arn = {{ role_arn }}
+}
+    dynamo_db = {
+    hash_key_field = {{ hash_key_field }}
+    hash_key_type = {{ hash_key_type }}
+    hash_key_value = {{ hash_key_value }}
+    payload_field = {{ payload_field }}
+    range_key_field = {{ range_key_field }}
+    range_key_type = {{ range_key_type }}
+    range_key_value = {{ range_key_value }}
+    role_arn = {{ role_arn }}
+    table_name = {{ table_name }}
+}
+    elasticsearch = {
+    endpoint = {{ endpoint }}
+    id = {{ id }}
+    index = {{ index }}
+    role_arn = {{ role_arn }}
+    type = {{ type }}
+}
+    firehose = {
+    batch_mode = {{ batch_mode }}
+    delivery_stream_name = {{ delivery_stream_name }}
+    role_arn = {{ role_arn }}
+    separator = {{ separator }}
+}
+    http = {
+    auth = {
+    sigv_4 = {
+    role_arn = {{ role_arn }}
+    service_name = {{ service_name }}
+    signing_region = {{ signing_region }}
+}
+}
+    confirmation_url = {{ confirmation_url }}
+    headers = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    url = {{ url }}
+}
+    iot_analytics = {
+    batch_mode = {{ batch_mode }}
+    channel_name = {{ channel_name }}
+    role_arn = {{ role_arn }}
+}
+    iot_events = {
+    batch_mode = {{ batch_mode }}
+    input_name = {{ input_name }}
+    message_id = {{ message_id }}
+    role_arn = {{ role_arn }}
+}
+    iot_site_wise = {
+    put_asset_property_value_entries = {
+    asset_id = {{ asset_id }}
+    entry_id = {{ entry_id }}
+    property_alias = {{ property_alias }}
+    property_id = {{ property_id }}
+    property_values = {
+    quality = {{ quality }}
+    timestamp = {
+    offset_in_nanos = {{ offset_in_nanos }}
+    time_in_seconds = {{ time_in_seconds }}
+}
+    value = {
+    boolean_value = {{ boolean_value }}
+    double_value = {{ double_value }}
+    integer_value = {{ integer_value }}
+    string_value = {{ string_value }}
+}
+}
+}
+    role_arn = {{ role_arn }}
+}
+    kafka = {
+    client_properties = {{ client_properties }}
+    destination_arn = {{ destination_arn }}
+    headers = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    key = {{ key }}
+    partition = {{ partition }}
+    topic = {{ topic }}
+}
+    kinesis = {
+    partition_key = {{ partition_key }}
+    role_arn = {{ role_arn }}
+    stream_name = {{ stream_name }}
+}
+    lambda = {
+    function_arn = {{ function_arn }}
+}
+    location = {
+    device_id = {{ device_id }}
+    latitude = {{ latitude }}
+    longitude = {{ longitude }}
+    role_arn = {{ role_arn }}
+    timestamp = {
+    unit = {{ unit }}
+    value = {{ value }}
+}
+    tracker_name = {{ tracker_name }}
+}
+    open_search = {
+    endpoint = {{ endpoint }}
+    id = {{ id }}
+    index = {{ index }}
+    role_arn = {{ role_arn }}
+    type = {{ type }}
+}
+    republish = {
+    headers = {
+    content_type = {{ content_type }}
+    correlation_data = {{ correlation_data }}
+    message_expiry = {{ message_expiry }}
+    payload_format_indicator = {{ payload_format_indicator }}
+    response_topic = {{ response_topic }}
+    user_properties = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}
+    qos = {{ qos }}
+    role_arn = {{ role_arn }}
+    topic = {{ topic }}
+}
+    s3 = {
+    bucket_name = {{ bucket_name }}
+    canned_acl = {{ canned_acl }}
+    key = {{ key }}
+    role_arn = {{ role_arn }}
+}
+    sns = {
+    message_format = {{ message_format }}
+    role_arn = {{ role_arn }}
+    target_arn = {{ target_arn }}
+}
+    sqs = {
+    queue_url = {{ queue_url }}
+    role_arn = {{ role_arn }}
+    use_base_64 = {{ use_base_64 }}
+}
+    step_functions = {
+    execution_name_prefix = {{ execution_name_prefix }}
+    role_arn = {{ role_arn }}
+    state_machine_name = {{ state_machine_name }}
+}
+    timestream = {
+    database_name = {{ database_name }}
+    dimensions = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    role_arn = {{ role_arn }}
+    table_name = {{ table_name }}
+    timestamp = {
+    unit = {{ unit }}
+    value = {{ value }}
+}
+}
+}
+    rule_disabled = {{ rule_disabled }}
+    sql = {{ sql }}
+}"
+}

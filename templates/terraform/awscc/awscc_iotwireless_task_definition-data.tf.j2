@@ -1,0 +1,42 @@
+data "awscc_iotwireless_task_definition" "example" {
+    arn = "{{ arn }}"
+    auto_create_tasks = "{{ auto_create_tasks }}"
+    id = "{{ id }}"
+    lo_ra_wan_update_gateway_task_entry = "{
+    current_version = {
+    model = {{ model }}
+    package_version = {{ package_version }}
+    station = {{ station }}
+}
+    update_version = {
+    model = {{ model }}
+    package_version = {{ package_version }}
+    station = {{ station }}
+}
+}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    task_definition_id = "{{ task_definition_id }}"
+    task_definition_type = "{{ task_definition_type }}"
+    update = "{
+    lo_ra_wan = {
+    current_version = {
+    model = {{ model }}
+    package_version = {{ package_version }}
+    station = {{ station }}
+}
+    sig_key_crc = {{ sig_key_crc }}
+    update_signature = {{ update_signature }}
+    update_version = {
+    model = {{ model }}
+    package_version = {{ package_version }}
+    station = {{ station }}
+}
+}
+    update_data_role = {{ update_data_role }}
+    update_data_source = {{ update_data_source }}
+}"
+}

@@ -1,0 +1,10 @@
+resource "aws_pinpoint_email_channel" "example" {
+    application_id = "{{ application_id }}"
+    configuration_set = "{{ configuration_set }}"
+    enabled = "{{ enabled }}"
+    from_address = "{{ from_address }}"
+    id = "{{ id }}"
+    identity = "{{ identity }}"
+    messages_per_second = "{{ messages_per_second }}"
+    role_arn = "{{ role_arn }}"
+}

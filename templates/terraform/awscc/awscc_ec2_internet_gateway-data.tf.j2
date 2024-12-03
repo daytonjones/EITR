@@ -1,0 +1,8 @@
+data "awscc_ec2_internet_gateway" "example" {
+    id = "{{ id }}"
+    internet_gateway_id = "{{ internet_gateway_id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

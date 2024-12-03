@@ -1,0 +1,55 @@
+data "awscc_synthetics_canary" "example" {
+    artifact_config = "{
+    s3_encryption = {
+    encryption_mode = {{ encryption_mode }}
+    kms_key_arn = {{ kms_key_arn }}
+}
+}"
+    artifact_s3_location = "{{ artifact_s3_location }}"
+    canary_id = "{{ canary_id }}"
+    code = "{
+    handler = {{ handler }}
+    s3_bucket = {{ s3_bucket }}
+    s3_key = {{ s3_key }}
+    s3_object_version = {{ s3_object_version }}
+    script = {{ script }}
+    source_location_arn = {{ source_location_arn }}
+}"
+    delete_lambda_resources_on_canary_deletion = "{{ delete_lambda_resources_on_canary_deletion }}"
+    execution_role_arn = "{{ execution_role_arn }}"
+    failure_retention_period = "{{ failure_retention_period }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    provisioned_resource_cleanup = "{{ provisioned_resource_cleanup }}"
+    resources_to_replicate_tags = "{{ resources_to_replicate_tags }}"
+    run_config = "{
+    active_tracing = {{ active_tracing }}
+    environment_variables = {{ environment_variables }}
+    memory_in_mb = {{ memory_in_mb }}
+    timeout_in_seconds = {{ timeout_in_seconds }}
+}"
+    runtime_version = "{{ runtime_version }}"
+    schedule = "{
+    duration_in_seconds = {{ duration_in_seconds }}
+    expression = {{ expression }}
+}"
+    start_canary_after_creation = "{{ start_canary_after_creation }}"
+    state = "{{ state }}"
+    success_retention_period = "{{ success_retention_period }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    visual_reference = "{
+    base_canary_run_id = {{ base_canary_run_id }}
+    base_screenshots = {
+    ignore_coordinates = {{ ignore_coordinates }}
+    screenshot_name = {{ screenshot_name }}
+}
+}"
+    vpc_config = "{
+    security_group_ids = {{ security_group_ids }}
+    subnet_ids = {{ subnet_ids }}
+    vpc_id = {{ vpc_id }}
+}"
+}

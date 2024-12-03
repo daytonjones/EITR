@@ -1,0 +1,38 @@
+data "awscc_memorydb_cluster" "example" {
+    acl_name = "{{ acl_name }}"
+    arn = "{{ arn }}"
+    auto_minor_version_upgrade = "{{ auto_minor_version_upgrade }}"
+    cluster_endpoint = "{
+    address = {{ address }}
+    port = {{ port }}
+}"
+    cluster_name = "{{ cluster_name }}"
+    data_tiering = "{{ data_tiering }}"
+    description = "{{ description }}"
+    engine = "{{ engine }}"
+    engine_version = "{{ engine_version }}"
+    final_snapshot_name = "{{ final_snapshot_name }}"
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    maintenance_window = "{{ maintenance_window }}"
+    node_type = "{{ node_type }}"
+    num_replicas_per_shard = "{{ num_replicas_per_shard }}"
+    num_shards = "{{ num_shards }}"
+    parameter_group_name = "{{ parameter_group_name }}"
+    parameter_group_status = "{{ parameter_group_status }}"
+    port = "{{ port }}"
+    security_group_ids = "{{ security_group_ids }}"
+    snapshot_arns = "{{ snapshot_arns }}"
+    snapshot_name = "{{ snapshot_name }}"
+    snapshot_retention_limit = "{{ snapshot_retention_limit }}"
+    snapshot_window = "{{ snapshot_window }}"
+    sns_topic_arn = "{{ sns_topic_arn }}"
+    sns_topic_status = "{{ sns_topic_status }}"
+    status = "{{ status }}"
+    subnet_group_name = "{{ subnet_group_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    tls_enabled = "{{ tls_enabled }}"
+}

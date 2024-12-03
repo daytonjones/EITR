@@ -1,0 +1,14 @@
+data "azurerm_search_service" "example" {
+    customer_managed_key_encryption_compliance_status = "{{ customer_managed_key_encryption_compliance_status }}"
+    id = "{{ id }}"
+    identity = "{{ identity }}"
+    name = "{{ name }}"
+    partition_count = "{{ partition_count }}"
+    primary_key = "{{ primary_key }}"
+    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    query_keys = "{{ query_keys }}"
+    replica_count = "{{ replica_count }}"
+    resource_group_name = "{{ resource_group_name }}"
+    secondary_key = "{{ secondary_key }}"
+    tags = "{{ tags }}"
+}

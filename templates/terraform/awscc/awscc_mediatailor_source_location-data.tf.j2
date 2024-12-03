@@ -1,0 +1,27 @@
+data "awscc_mediatailor_source_location" "example" {
+    access_configuration = "{
+    access_type = {{ access_type }}
+    secrets_manager_access_token_configuration = {
+    header_name = {{ header_name }}
+    secret_arn = {{ secret_arn }}
+    secret_string_key = {{ secret_string_key }}
+}
+}"
+    arn = "{{ arn }}"
+    default_segment_delivery_configuration = "{
+    base_url = {{ base_url }}
+}"
+    http_configuration = "{
+    base_url = {{ base_url }}
+}"
+    id = "{{ id }}"
+    segment_delivery_configurations = "{
+    base_url = {{ base_url }}
+    name = {{ name }}
+}"
+    source_location_name = "{{ source_location_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

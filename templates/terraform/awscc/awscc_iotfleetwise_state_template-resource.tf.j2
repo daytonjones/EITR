@@ -1,0 +1,16 @@
+resource "awscc_iotfleetwise_state_template" "example" {
+    arn = "{{ arn }}"
+    creation_time = "{{ creation_time }}"
+    data_extra_dimensions = "{{ data_extra_dimensions }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    last_modification_time = "{{ last_modification_time }}"
+    metadata_extra_dimensions = "{{ metadata_extra_dimensions }}"
+    name = "{{ name }}"
+    signal_catalog_arn = "{{ signal_catalog_arn }}"
+    state_template_properties = "{{ state_template_properties }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,16 @@
+data "aws_vpc_security_group_rule" "example" {
+    arn = "{{ arn }}"
+    cidr_ipv4 = "{{ cidr_ipv4 }}"
+    cidr_ipv6 = "{{ cidr_ipv6 }}"
+    description = "{{ description }}"
+    from_port = "{{ from_port }}"
+    id = "{{ id }}"
+    ip_protocol = "{{ ip_protocol }}"
+    is_egress = "{{ is_egress }}"
+    prefix_list_id = "{{ prefix_list_id }}"
+    referenced_security_group_id = "{{ referenced_security_group_id }}"
+    security_group_id = "{{ security_group_id }}"
+    security_group_rule_id = "{{ security_group_rule_id }}"
+    tags = "{{ tags }}"
+    to_port = "{{ to_port }}"
+}

@@ -1,0 +1,35 @@
+data "awscc_cloudfront_continuous_deployment_policy" "example" {
+    continuous_deployment_policy_config = "{
+    enabled = {{ enabled }}
+    single_header_policy_config = {
+    header = {{ header }}
+    value = {{ value }}
+}
+    single_weight_policy_config = {
+    session_stickiness_config = {
+    idle_ttl = {{ idle_ttl }}
+    maximum_ttl = {{ maximum_ttl }}
+}
+    weight = {{ weight }}
+}
+    staging_distribution_dns_names = {{ staging_distribution_dns_names }}
+    traffic_config = {
+    single_header_config = {
+    header = {{ header }}
+    value = {{ value }}
+}
+    single_weight_config = {
+    session_stickiness_config = {
+    idle_ttl = {{ idle_ttl }}
+    maximum_ttl = {{ maximum_ttl }}
+}
+    weight = {{ weight }}
+}
+    type = {{ type }}
+}
+    type = {{ type }}
+}"
+    continuous_deployment_policy_id = "{{ continuous_deployment_policy_id }}"
+    id = "{{ id }}"
+    last_modified_time = "{{ last_modified_time }}"
+}

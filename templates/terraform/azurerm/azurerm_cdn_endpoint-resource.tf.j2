@@ -1,0 +1,18 @@
+resource "azurerm_cdn_endpoint" "example" {
+    content_types_to_compress = "{{ content_types_to_compress }}"
+    fqdn = "{{ fqdn }}"
+    id = "{{ id }}"
+    is_compression_enabled = "{{ is_compression_enabled }}"
+    is_http_allowed = "{{ is_http_allowed }}"
+    is_https_allowed = "{{ is_https_allowed }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    optimization_type = "{{ optimization_type }}"
+    origin_host_header = "{{ origin_host_header }}"
+    origin_path = "{{ origin_path }}"
+    probe_path = "{{ probe_path }}"
+    profile_name = "{{ profile_name }}"
+    querystring_caching_behaviour = "{{ querystring_caching_behaviour }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

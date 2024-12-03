@@ -1,0 +1,12 @@
+resource "azurerm_data_protection_backup_vault" "example" {
+    cross_region_restore_enabled = "{{ cross_region_restore_enabled }}"
+    datastore_type = "{{ datastore_type }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    redundancy = "{{ redundancy }}"
+    resource_group_name = "{{ resource_group_name }}"
+    retention_duration_in_days = "{{ retention_duration_in_days }}"
+    soft_delete = "{{ soft_delete }}"
+    tags = "{{ tags }}"
+}

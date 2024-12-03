@@ -1,0 +1,28 @@
+resource "awscc_datasync_location_fsx_ontap" "example" {
+    fsx_filesystem_arn = "{{ fsx_filesystem_arn }}"
+    id = "{{ id }}"
+    location_arn = "{{ location_arn }}"
+    location_uri = "{{ location_uri }}"
+    protocol = "{
+    nfs = {
+    mount_options = {
+    version = {{ version }}
+}
+}
+    smb = {
+    domain = {{ domain }}
+    mount_options = {
+    version = {{ version }}
+}
+    password = {{ password }}
+    user = {{ user }}
+}
+}"
+    security_group_arns = "{{ security_group_arns }}"
+    storage_virtual_machine_arn = "{{ storage_virtual_machine_arn }}"
+    subdirectory = "{{ subdirectory }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

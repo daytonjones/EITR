@@ -1,0 +1,18 @@
+data "azurerm_hdinsight_cluster" "example" {
+    cluster_id = "{{ cluster_id }}"
+    cluster_version = "{{ cluster_version }}"
+    component_versions = "{{ component_versions }}"
+    edge_ssh_endpoint = "{{ edge_ssh_endpoint }}"
+    gateway = "{{ gateway }}"
+    https_endpoint = "{{ https_endpoint }}"
+    id = "{{ id }}"
+    kafka_rest_proxy_endpoint = "{{ kafka_rest_proxy_endpoint }}"
+    kind = "{{ kind }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    ssh_endpoint = "{{ ssh_endpoint }}"
+    tags = "{{ tags }}"
+    tier = "{{ tier }}"
+    tls_min_version = "{{ tls_min_version }}"
+}

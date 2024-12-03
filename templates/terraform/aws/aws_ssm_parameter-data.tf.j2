@@ -1,0 +1,10 @@
+data "aws_ssm_parameter" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    insecure_value = "{{ insecure_value }}"
+    name = "{{ name }}"
+    type = "{{ type }}"
+    value = "{{ value }}"
+    version = "{{ version }}"
+    with_decryption = "{{ with_decryption }}"
+}

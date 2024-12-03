@@ -1,0 +1,5 @@
+data "aws_sfn_state_machine_versions" "example" {
+    id = "{{ id }}"
+    statemachine_arn = "{{ statemachine_arn }}"
+    statemachine_versions = "{{ statemachine_versions }}"
+}

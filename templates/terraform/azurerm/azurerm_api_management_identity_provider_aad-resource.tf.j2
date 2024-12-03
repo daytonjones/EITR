@@ -1,0 +1,10 @@
+resource "azurerm_api_management_identity_provider_aad" "example" {
+    allowed_tenants = "{{ allowed_tenants }}"
+    api_management_name = "{{ api_management_name }}"
+    client_id = "{{ client_id }}"
+    client_library = "{{ client_library }}"
+    client_secret = "{{ client_secret }}"
+    id = "{{ id }}"
+    resource_group_name = "{{ resource_group_name }}"
+    signin_tenant = "{{ signin_tenant }}"
+}

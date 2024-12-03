@@ -1,0 +1,7 @@
+resource "azurerm_vpn_gateway_connection" "example" {
+    id = "{{ id }}"
+    internet_security_enabled = "{{ internet_security_enabled }}"
+    name = "{{ name }}"
+    remote_vpn_site_id = "{{ remote_vpn_site_id }}"
+    vpn_gateway_id = "{{ vpn_gateway_id }}"
+}

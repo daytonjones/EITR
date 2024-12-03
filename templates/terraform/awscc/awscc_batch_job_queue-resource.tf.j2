@@ -1,0 +1,19 @@
+resource "awscc_batch_job_queue" "example" {
+    compute_environment_order = "{
+    compute_environment = {{ compute_environment }}
+    order = {{ order }}
+}"
+    id = "{{ id }}"
+    job_queue_arn = "{{ job_queue_arn }}"
+    job_queue_name = "{{ job_queue_name }}"
+    job_state_time_limit_actions = "{
+    action = {{ action }}
+    max_time_seconds = {{ max_time_seconds }}
+    reason = {{ reason }}
+    state = {{ state }}
+}"
+    priority = "{{ priority }}"
+    scheduling_policy_arn = "{{ scheduling_policy_arn }}"
+    state = "{{ state }}"
+    tags = "{{ tags }}"
+}

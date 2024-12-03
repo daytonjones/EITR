@@ -1,0 +1,10 @@
+resource "aws_auditmanager_assessment_delegation" "example" {
+    assessment_id = "{{ assessment_id }}"
+    comment = "{{ comment }}"
+    control_set_id = "{{ control_set_id }}"
+    delegation_id = "{{ delegation_id }}"
+    id = "{{ id }}"
+    role_arn = "{{ role_arn }}"
+    role_type = "{{ role_type }}"
+    status = "{{ status }}"
+}

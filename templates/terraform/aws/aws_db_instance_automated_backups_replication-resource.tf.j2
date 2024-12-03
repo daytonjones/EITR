@@ -1,0 +1,7 @@
+resource "aws_db_instance_automated_backups_replication" "example" {
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    pre_signed_url = "{{ pre_signed_url }}"
+    retention_period = "{{ retention_period }}"
+    source_db_instance_arn = "{{ source_db_instance_arn }}"
+}

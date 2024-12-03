@@ -1,0 +1,11 @@
+resource "azurerm_traffic_manager_profile" "example" {
+    fqdn = "{{ fqdn }}"
+    id = "{{ id }}"
+    max_return = "{{ max_return }}"
+    name = "{{ name }}"
+    profile_status = "{{ profile_status }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    traffic_routing_method = "{{ traffic_routing_method }}"
+    traffic_view_enabled = "{{ traffic_view_enabled }}"
+}

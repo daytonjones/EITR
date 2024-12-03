@@ -1,0 +1,9 @@
+resource "google_cloudfunctions2_function_iam_binding" "example" {
+    cloud_function = "{{ cloud_function }}"
+    etag = "{{ etag }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    members = "{{ members }}"
+    project = "{{ project }}"
+    role = "{{ role }}"
+}

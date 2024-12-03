@@ -1,0 +1,17 @@
+resource "awscc_cognito_user_pool_user" "example" {
+    client_metadata = "{{ client_metadata }}"
+    desired_delivery_mediums = "{{ desired_delivery_mediums }}"
+    force_alias_creation = "{{ force_alias_creation }}"
+    id = "{{ id }}"
+    message_action = "{{ message_action }}"
+    user_attributes = "{
+    name = {{ name }}
+    value = {{ value }}
+}"
+    user_pool_id = "{{ user_pool_id }}"
+    username = "{{ username }}"
+    validation_data = "{
+    name = {{ name }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,11 @@
+data "azurerm_role_management_policy" "example" {
+    activation_rules = "{{ activation_rules }}"
+    active_assignment_rules = "{{ active_assignment_rules }}"
+    description = "{{ description }}"
+    eligible_assignment_rules = "{{ eligible_assignment_rules }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    notification_rules = "{{ notification_rules }}"
+    role_definition_id = "{{ role_definition_id }}"
+    scope = "{{ scope }}"
+}

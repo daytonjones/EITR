@@ -1,0 +1,14 @@
+resource "azurerm_attestation_provider" "example" {
+    attestation_uri = "{{ attestation_uri }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    open_enclave_policy_base64 = "{{ open_enclave_policy_base64 }}"
+    policy_signing_certificate_data = "{{ policy_signing_certificate_data }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sev_snp_policy_base64 = "{{ sev_snp_policy_base64 }}"
+    sgx_enclave_policy_base64 = "{{ sgx_enclave_policy_base64 }}"
+    tags = "{{ tags }}"
+    tpm_policy_base64 = "{{ tpm_policy_base64 }}"
+    trust_model = "{{ trust_model }}"
+}

@@ -1,0 +1,29 @@
+resource "awscc_wafv2_logging_configuration" "example" {
+    id = "{{ id }}"
+    log_destination_configs = "{{ log_destination_configs }}"
+    logging_filter = "{
+    default_behavior = {{ default_behavior }}
+    filters = {
+    behavior = {{ behavior }}
+    conditions = {
+    action_condition = {
+    action = {{ action }}
+}
+    label_name_condition = {
+    label_name = {{ label_name }}
+}
+}
+    requirement = {{ requirement }}
+}
+}"
+    managed_by_firewall_manager = "{{ managed_by_firewall_manager }}"
+    redacted_fields = "{
+    method = {{ method }}
+    query_string = {{ query_string }}
+    single_header = {
+    name = {{ name }}
+}
+    uri_path = {{ uri_path }}
+}"
+    resource_arn = "{{ resource_arn }}"
+}

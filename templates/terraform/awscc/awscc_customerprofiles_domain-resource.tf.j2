@@ -1,0 +1,13 @@
+resource "awscc_customerprofiles_domain" "example" {
+    created_at = "{{ created_at }}"
+    dead_letter_queue_url = "{{ dead_letter_queue_url }}"
+    default_encryption_key = "{{ default_encryption_key }}"
+    default_expiration_days = "{{ default_expiration_days }}"
+    domain_name = "{{ domain_name }}"
+    id = "{{ id }}"
+    last_updated_at = "{{ last_updated_at }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

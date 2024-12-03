@@ -1,0 +1,5 @@
+resource "azurerm_sentinel_log_analytics_workspace_onboarding" "example" {
+    customer_managed_key_enabled = "{{ customer_managed_key_enabled }}"
+    id = "{{ id }}"
+    workspace_id = "{{ workspace_id }}"
+}

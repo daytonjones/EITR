@@ -1,0 +1,15 @@
+resource "awscc_iotfleetwise_vehicle" "example" {
+    arn = "{{ arn }}"
+    association_behavior = "{{ association_behavior }}"
+    attributes = "{{ attributes }}"
+    creation_time = "{{ creation_time }}"
+    decoder_manifest_arn = "{{ decoder_manifest_arn }}"
+    id = "{{ id }}"
+    last_modification_time = "{{ last_modification_time }}"
+    model_manifest_arn = "{{ model_manifest_arn }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

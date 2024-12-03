@@ -1,0 +1,12 @@
+data "azurerm_container_group" "example" {
+    fqdn = "{{ fqdn }}"
+    id = "{{ id }}"
+    identity = "{{ identity }}"
+    ip_address = "{{ ip_address }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    subnet_ids = "{{ subnet_ids }}"
+    tags = "{{ tags }}"
+    zones = "{{ zones }}"
+}

@@ -1,0 +1,117 @@
+resource "awscc_databrew_job" "example" {
+    data_catalog_outputs = "{
+    catalog_id = {{ catalog_id }}
+    database_name = {{ database_name }}
+    database_options = {
+    table_name = {{ table_name }}
+    temp_directory = {
+    bucket = {{ bucket }}
+    bucket_owner = {{ bucket_owner }}
+    key = {{ key }}
+}
+}
+    overwrite = {{ overwrite }}
+    s3_options = {
+    location = {
+    bucket = {{ bucket }}
+    bucket_owner = {{ bucket_owner }}
+    key = {{ key }}
+}
+}
+    table_name = {{ table_name }}
+}"
+    database_outputs = "{
+    database_options = {
+    table_name = {{ table_name }}
+    temp_directory = {
+    bucket = {{ bucket }}
+    bucket_owner = {{ bucket_owner }}
+    key = {{ key }}
+}
+}
+    database_output_mode = {{ database_output_mode }}
+    glue_connection_name = {{ glue_connection_name }}
+}"
+    dataset_name = "{{ dataset_name }}"
+    encryption_key_arn = "{{ encryption_key_arn }}"
+    encryption_mode = "{{ encryption_mode }}"
+    id = "{{ id }}"
+    job_sample = "{
+    mode = {{ mode }}
+    size = {{ size }}
+}"
+    log_subscription = "{{ log_subscription }}"
+    max_capacity = "{{ max_capacity }}"
+    max_retries = "{{ max_retries }}"
+    name = "{{ name }}"
+    output_location = "{
+    bucket = {{ bucket }}
+    bucket_owner = {{ bucket_owner }}
+    key = {{ key }}
+}"
+    outputs = "{
+    compression_format = {{ compression_format }}
+    format = {{ format }}
+    format_options = {
+    csv = {
+    delimiter = {{ delimiter }}
+}
+}
+    location = {
+    bucket = {{ bucket }}
+    bucket_owner = {{ bucket_owner }}
+    key = {{ key }}
+}
+    max_output_files = {{ max_output_files }}
+    overwrite = {{ overwrite }}
+    partition_columns = {{ partition_columns }}
+}"
+    profile_configuration = "{
+    column_statistics_configurations = {
+    selectors = {
+    name = {{ name }}
+    regex = {{ regex }}
+}
+    statistics = {
+    included_statistics = {{ included_statistics }}
+    overrides = {
+    parameters = {{ parameters }}
+    statistic = {{ statistic }}
+}
+}
+}
+    dataset_statistics_configuration = {
+    included_statistics = {{ included_statistics }}
+    overrides = {
+    parameters = {{ parameters }}
+    statistic = {{ statistic }}
+}
+}
+    entity_detector_configuration = {
+    allowed_statistics = {
+    statistics = {{ statistics }}
+}
+    entity_types = {{ entity_types }}
+}
+    profile_columns = {
+    name = {{ name }}
+    regex = {{ regex }}
+}
+}"
+    project_name = "{{ project_name }}"
+    recipe = "{
+    name = {{ name }}
+    version = {{ version }}
+}"
+    role_arn = "{{ role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    timeout = "{{ timeout }}"
+    type = "{{ type }}"
+    validation_configurations = "{
+    ruleset_arn = {{ ruleset_arn }}
+    validation_mode = {{ validation_mode }}
+}"
+}

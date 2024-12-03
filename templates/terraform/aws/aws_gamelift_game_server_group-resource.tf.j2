@@ -1,0 +1,14 @@
+resource "aws_gamelift_game_server_group" "example" {
+    arn = "{{ arn }}"
+    auto_scaling_group_arn = "{{ auto_scaling_group_arn }}"
+    balancing_strategy = "{{ balancing_strategy }}"
+    game_server_group_name = "{{ game_server_group_name }}"
+    game_server_protection_policy = "{{ game_server_protection_policy }}"
+    id = "{{ id }}"
+    max_size = "{{ max_size }}"
+    min_size = "{{ min_size }}"
+    role_arn = "{{ role_arn }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    vpc_subnets = "{{ vpc_subnets }}"
+}

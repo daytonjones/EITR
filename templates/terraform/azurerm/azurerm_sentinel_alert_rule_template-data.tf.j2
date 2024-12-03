@@ -1,0 +1,9 @@
+data "azurerm_sentinel_alert_rule_template" "example" {
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    log_analytics_workspace_id = "{{ log_analytics_workspace_id }}"
+    name = "{{ name }}"
+    nrt_template = "{{ nrt_template }}"
+    scheduled_template = "{{ scheduled_template }}"
+    security_incident_template = "{{ security_incident_template }}"
+}

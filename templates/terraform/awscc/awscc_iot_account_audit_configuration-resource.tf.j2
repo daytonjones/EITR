@@ -1,0 +1,62 @@
+resource "awscc_iot_account_audit_configuration" "example" {
+    account_id = "{{ account_id }}"
+    audit_check_configurations = "{
+    authenticated_cognito_role_overly_permissive_check = {
+    enabled = {{ enabled }}
+}
+    ca_certificate_expiring_check = {
+    enabled = {{ enabled }}
+}
+    ca_certificate_key_quality_check = {
+    enabled = {{ enabled }}
+}
+    conflicting_client_ids_check = {
+    enabled = {{ enabled }}
+}
+    device_certificate_expiring_check = {
+    enabled = {{ enabled }}
+}
+    device_certificate_key_quality_check = {
+    enabled = {{ enabled }}
+}
+    device_certificate_shared_check = {
+    enabled = {{ enabled }}
+}
+    intermediate_ca_revoked_for_active_device_certificates_check = {
+    enabled = {{ enabled }}
+}
+    io_t_policy_potential_mis_configuration_check = {
+    enabled = {{ enabled }}
+}
+    iot_policy_overly_permissive_check = {
+    enabled = {{ enabled }}
+}
+    iot_role_alias_allows_access_to_unused_services_check = {
+    enabled = {{ enabled }}
+}
+    iot_role_alias_overly_permissive_check = {
+    enabled = {{ enabled }}
+}
+    logging_disabled_check = {
+    enabled = {{ enabled }}
+}
+    revoked_ca_certificate_still_active_check = {
+    enabled = {{ enabled }}
+}
+    revoked_device_certificate_still_active_check = {
+    enabled = {{ enabled }}
+}
+    unauthenticated_cognito_role_overly_permissive_check = {
+    enabled = {{ enabled }}
+}
+}"
+    audit_notification_target_configurations = "{
+    sns = {
+    enabled = {{ enabled }}
+    role_arn = {{ role_arn }}
+    target_arn = {{ target_arn }}
+}
+}"
+    id = "{{ id }}"
+    role_arn = "{{ role_arn }}"
+}

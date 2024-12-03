@@ -1,0 +1,50 @@
+resource "awscc_auditmanager_assessment" "example" {
+    arn = "{{ arn }}"
+    assessment_id = "{{ assessment_id }}"
+    assessment_reports_destination = "{
+    destination = {{ destination }}
+    destination_type = {{ destination_type }}
+}"
+    aws_account = "{
+    email_address = {{ email_address }}
+    id = {{ id }}
+    name = {{ name }}
+}"
+    creation_time = "{{ creation_time }}"
+    delegations = "{
+    assessment_id = {{ assessment_id }}
+    assessment_name = {{ assessment_name }}
+    comment = {{ comment }}
+    control_set_id = {{ control_set_id }}
+    created_by = {{ created_by }}
+    creation_time = {{ creation_time }}
+    id = {{ id }}
+    last_updated = {{ last_updated }}
+    role_arn = {{ role_arn }}
+    role_type = {{ role_type }}
+    status = {{ status }}
+}"
+    description = "{{ description }}"
+    framework_id = "{{ framework_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    roles = "{
+    role_arn = {{ role_arn }}
+    role_type = {{ role_type }}
+}"
+    scope = "{
+    aws_accounts = {
+    email_address = {{ email_address }}
+    id = {{ id }}
+    name = {{ name }}
+}
+    aws_services = {
+    service_name = {{ service_name }}
+}
+}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,12 @@
+resource "awscc_lambda_permission" "example" {
+    action = "{{ action }}"
+    event_source_token = "{{ event_source_token }}"
+    function_name = "{{ function_name }}"
+    function_url_auth_type = "{{ function_url_auth_type }}"
+    id = "{{ id }}"
+    permission_id = "{{ permission_id }}"
+    principal = "{{ principal }}"
+    principal_org_id = "{{ principal_org_id }}"
+    source_account = "{{ source_account }}"
+    source_arn = "{{ source_arn }}"
+}

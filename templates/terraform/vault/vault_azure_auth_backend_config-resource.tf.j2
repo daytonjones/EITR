@@ -1,0 +1,12 @@
+resource "vault_azure_auth_backend_config" "example" {
+    backend = "{{ backend }}"
+    client_id = "{{ client_id }}"
+    client_secret = "{{ client_secret }}"
+    environment = "{{ environment }}"
+    id = "{{ id }}"
+    identity_token_audience = "{{ identity_token_audience }}"
+    identity_token_ttl = "{{ identity_token_ttl }}"
+    namespace = "{{ namespace }}"
+    resource = "{{ resource }}"
+    tenant_id = "{{ tenant_id }}"
+}

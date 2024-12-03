@@ -1,0 +1,8 @@
+data "awscc_inspector_resource_group" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    resource_group_tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

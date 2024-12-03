@@ -1,0 +1,17 @@
+data "awscc_ec2_ipam_resource_discovery" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    ipam_resource_discovery_arn = "{{ ipam_resource_discovery_arn }}"
+    ipam_resource_discovery_id = "{{ ipam_resource_discovery_id }}"
+    ipam_resource_discovery_region = "{{ ipam_resource_discovery_region }}"
+    is_default = "{{ is_default }}"
+    operating_regions = "{
+    region_name = {{ region_name }}
+}"
+    owner_id = "{{ owner_id }}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

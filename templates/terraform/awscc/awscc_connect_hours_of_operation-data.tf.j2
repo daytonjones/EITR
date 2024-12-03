@@ -1,0 +1,41 @@
+data "awscc_connect_hours_of_operation" "example" {
+    config = "{
+    day = {{ day }}
+    end_time = {
+    hours = {{ hours }}
+    minutes = {{ minutes }}
+}
+    start_time = {
+    hours = {{ hours }}
+    minutes = {{ minutes }}
+}
+}"
+    description = "{{ description }}"
+    hours_of_operation_arn = "{{ hours_of_operation_arn }}"
+    hours_of_operation_overrides = "{
+    effective_from = {{ effective_from }}
+    effective_till = {{ effective_till }}
+    hours_of_operation_override_id = {{ hours_of_operation_override_id }}
+    override_config = {
+    day = {{ day }}
+    end_time = {
+    hours = {{ hours }}
+    minutes = {{ minutes }}
+}
+    start_time = {
+    hours = {{ hours }}
+    minutes = {{ minutes }}
+}
+}
+    override_description = {{ override_description }}
+    override_name = {{ override_name }}
+}"
+    id = "{{ id }}"
+    instance_arn = "{{ instance_arn }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    time_zone = "{{ time_zone }}"
+}

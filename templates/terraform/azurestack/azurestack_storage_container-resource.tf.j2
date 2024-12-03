@@ -1,0 +1,9 @@
+resource "azurestack_storage_container" "example" {
+    container_access_type = "{{ container_access_type }}"
+    has_immutability_policy = "{{ has_immutability_policy }}"
+    has_legal_hold = "{{ has_legal_hold }}"
+    id = "{{ id }}"
+    metadata = "{{ metadata }}"
+    name = "{{ name }}"
+    storage_account_name = "{{ storage_account_name }}"
+}

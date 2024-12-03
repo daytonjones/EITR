@@ -1,0 +1,7 @@
+resource "consul_agent_service" "example" {
+    address = "{{ address }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    port = "{{ port }}"
+    tags = "{{ tags }}"
+}

@@ -1,0 +1,15 @@
+resource "azurerm_hpc_cache" "example" {
+    automatically_rotate_key_to_latest_enabled = "{{ automatically_rotate_key_to_latest_enabled }}"
+    cache_size_in_gb = "{{ cache_size_in_gb }}"
+    id = "{{ id }}"
+    key_vault_key_id = "{{ key_vault_key_id }}"
+    location = "{{ location }}"
+    mount_addresses = "{{ mount_addresses }}"
+    mtu = "{{ mtu }}"
+    name = "{{ name }}"
+    ntp_server = "{{ ntp_server }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku_name = "{{ sku_name }}"
+    subnet_id = "{{ subnet_id }}"
+    tags = "{{ tags }}"
+}

@@ -1,0 +1,17 @@
+resource "awscc_codestarnotifications_notification_rule" "example" {
+    arn = "{{ arn }}"
+    created_by = "{{ created_by }}"
+    detail_type = "{{ detail_type }}"
+    event_type_id = "{{ event_type_id }}"
+    event_type_ids = "{{ event_type_ids }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource = "{{ resource }}"
+    status = "{{ status }}"
+    tags = "{{ tags }}"
+    target_address = "{{ target_address }}"
+    targets = "{
+    target_address = {{ target_address }}
+    target_type = {{ target_type }}
+}"
+}

@@ -1,0 +1,9 @@
+resource "awscc_ec2_vpc_endpoint_service" "example" {
+    acceptance_required = "{{ acceptance_required }}"
+    contributor_insights_enabled = "{{ contributor_insights_enabled }}"
+    gateway_load_balancer_arns = "{{ gateway_load_balancer_arns }}"
+    id = "{{ id }}"
+    network_load_balancer_arns = "{{ network_load_balancer_arns }}"
+    payer_responsibility = "{{ payer_responsibility }}"
+    service_id = "{{ service_id }}"
+}

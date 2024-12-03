@@ -1,0 +1,8 @@
+resource "azurerm_nginx_certificate" "example" {
+    certificate_virtual_path = "{{ certificate_virtual_path }}"
+    id = "{{ id }}"
+    key_vault_secret_id = "{{ key_vault_secret_id }}"
+    key_virtual_path = "{{ key_virtual_path }}"
+    name = "{{ name }}"
+    nginx_deployment_id = "{{ nginx_deployment_id }}"
+}

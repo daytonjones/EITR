@@ -1,0 +1,16 @@
+resource "azurerm_frontdoor" "example" {
+    backend_pool_health_probes = "{{ backend_pool_health_probes }}"
+    backend_pool_load_balancing_settings = "{{ backend_pool_load_balancing_settings }}"
+    backend_pools = "{{ backend_pools }}"
+    cname = "{{ cname }}"
+    explicit_resource_order = "{{ explicit_resource_order }}"
+    friendly_name = "{{ friendly_name }}"
+    frontend_endpoints = "{{ frontend_endpoints }}"
+    header_frontdoor_id = "{{ header_frontdoor_id }}"
+    id = "{{ id }}"
+    load_balancer_enabled = "{{ load_balancer_enabled }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    routing_rules = "{{ routing_rules }}"
+    tags = "{{ tags }}"
+}

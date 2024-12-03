@@ -1,0 +1,9 @@
+resource "azurerm_private_dns_txt_record" "example" {
+    fqdn = "{{ fqdn }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    ttl = "{{ ttl }}"
+    zone_name = "{{ zone_name }}"
+}

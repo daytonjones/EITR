@@ -1,0 +1,8 @@
+data "aws_ec2_coip_pool" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    local_gateway_route_table_id = "{{ local_gateway_route_table_id }}"
+    pool_cidrs = "{{ pool_cidrs }}"
+    pool_id = "{{ pool_id }}"
+    tags = "{{ tags }}"
+}

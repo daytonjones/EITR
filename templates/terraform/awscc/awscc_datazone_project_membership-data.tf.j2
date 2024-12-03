@@ -1,0 +1,10 @@
+data "awscc_datazone_project_membership" "example" {
+    designation = "{{ designation }}"
+    domain_identifier = "{{ domain_identifier }}"
+    id = "{{ id }}"
+    member = "{
+    group_identifier = {{ group_identifier }}
+    user_identifier = {{ user_identifier }}
+}"
+    project_identifier = "{{ project_identifier }}"
+}

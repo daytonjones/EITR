@@ -1,0 +1,21 @@
+resource "awscc_ec2_ipam" "example" {
+    arn = "{{ arn }}"
+    default_resource_discovery_association_id = "{{ default_resource_discovery_association_id }}"
+    default_resource_discovery_id = "{{ default_resource_discovery_id }}"
+    description = "{{ description }}"
+    enable_private_gua = "{{ enable_private_gua }}"
+    id = "{{ id }}"
+    ipam_id = "{{ ipam_id }}"
+    operating_regions = "{
+    region_name = {{ region_name }}
+}"
+    private_default_scope_id = "{{ private_default_scope_id }}"
+    public_default_scope_id = "{{ public_default_scope_id }}"
+    resource_discovery_association_count = "{{ resource_discovery_association_count }}"
+    scope_count = "{{ scope_count }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    tier = "{{ tier }}"
+}

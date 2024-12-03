@@ -1,0 +1,35 @@
+resource "awscc_workspacesweb_data_protection_settings" "example" {
+    additional_encryption_context = "{{ additional_encryption_context }}"
+    associated_portal_arns = "{{ associated_portal_arns }}"
+    creation_date = "{{ creation_date }}"
+    customer_managed_key = "{{ customer_managed_key }}"
+    data_protection_settings_arn = "{{ data_protection_settings_arn }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    inline_redaction_configuration = "{
+    global_confidence_level = {{ global_confidence_level }}
+    global_enforced_urls = {{ global_enforced_urls }}
+    global_exempt_urls = {{ global_exempt_urls }}
+    inline_redaction_patterns = {
+    built_in_pattern_id = {{ built_in_pattern_id }}
+    confidence_level = {{ confidence_level }}
+    custom_pattern = {
+    keyword_regex = {{ keyword_regex }}
+    pattern_description = {{ pattern_description }}
+    pattern_name = {{ pattern_name }}
+    pattern_regex = {{ pattern_regex }}
+}
+    enforced_urls = {{ enforced_urls }}
+    exempt_urls = {{ exempt_urls }}
+    redaction_place_holder = {
+    redaction_place_holder_text = {{ redaction_place_holder_text }}
+    redaction_place_holder_type = {{ redaction_place_holder_type }}
+}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

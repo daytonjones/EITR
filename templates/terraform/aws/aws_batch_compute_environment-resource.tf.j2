@@ -1,0 +1,14 @@
+resource "aws_batch_compute_environment" "example" {
+    arn = "{{ arn }}"
+    compute_environment_name = "{{ compute_environment_name }}"
+    compute_environment_name_prefix = "{{ compute_environment_name_prefix }}"
+    ecs_cluster_arn = "{{ ecs_cluster_arn }}"
+    id = "{{ id }}"
+    service_role = "{{ service_role }}"
+    state = "{{ state }}"
+    status = "{{ status }}"
+    status_reason = "{{ status_reason }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    type = "{{ type }}"
+}

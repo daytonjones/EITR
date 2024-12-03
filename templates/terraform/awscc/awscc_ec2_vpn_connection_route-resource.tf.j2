@@ -1,0 +1,5 @@
+resource "awscc_ec2_vpn_connection_route" "example" {
+    destination_cidr_block = "{{ destination_cidr_block }}"
+    id = "{{ id }}"
+    vpn_connection_id = "{{ vpn_connection_id }}"
+}

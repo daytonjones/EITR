@@ -1,0 +1,97 @@
+resource "awscc_frauddetector_detector" "example" {
+    arn = "{{ arn }}"
+    associated_models = "{
+    arn = {{ arn }}
+}"
+    created_time = "{{ created_time }}"
+    description = "{{ description }}"
+    detector_id = "{{ detector_id }}"
+    detector_version_id = "{{ detector_version_id }}"
+    detector_version_status = "{{ detector_version_status }}"
+    event_type = "{
+    arn = {{ arn }}
+    created_time = {{ created_time }}
+    description = {{ description }}
+    entity_types = {
+    arn = {{ arn }}
+    created_time = {{ created_time }}
+    description = {{ description }}
+    inline = {{ inline }}
+    last_updated_time = {{ last_updated_time }}
+    name = {{ name }}
+    tags = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}
+    event_variables = {
+    arn = {{ arn }}
+    created_time = {{ created_time }}
+    data_source = {{ data_source }}
+    data_type = {{ data_type }}
+    default_value = {{ default_value }}
+    description = {{ description }}
+    inline = {{ inline }}
+    last_updated_time = {{ last_updated_time }}
+    name = {{ name }}
+    tags = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    variable_type = {{ variable_type }}
+}
+    inline = {{ inline }}
+    labels = {
+    arn = {{ arn }}
+    created_time = {{ created_time }}
+    description = {{ description }}
+    inline = {{ inline }}
+    last_updated_time = {{ last_updated_time }}
+    name = {{ name }}
+    tags = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}
+    last_updated_time = {{ last_updated_time }}
+    name = {{ name }}
+    tags = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}"
+    id = "{{ id }}"
+    last_updated_time = "{{ last_updated_time }}"
+    rule_execution_mode = "{{ rule_execution_mode }}"
+    rules = "{
+    arn = {{ arn }}
+    created_time = {{ created_time }}
+    description = {{ description }}
+    detector_id = {{ detector_id }}
+    expression = {{ expression }}
+    language = {{ language }}
+    last_updated_time = {{ last_updated_time }}
+    outcomes = {
+    arn = {{ arn }}
+    created_time = {{ created_time }}
+    description = {{ description }}
+    inline = {{ inline }}
+    last_updated_time = {{ last_updated_time }}
+    name = {{ name }}
+    tags = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}
+    rule_id = {{ rule_id }}
+    rule_version = {{ rule_version }}
+    tags = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

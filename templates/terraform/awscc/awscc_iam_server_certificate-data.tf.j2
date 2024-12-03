@@ -1,0 +1,13 @@
+data "awscc_iam_server_certificate" "example" {
+    arn = "{{ arn }}"
+    certificate_body = "{{ certificate_body }}"
+    certificate_chain = "{{ certificate_chain }}"
+    id = "{{ id }}"
+    path = "{{ path }}"
+    private_key = "{{ private_key }}"
+    server_certificate_name = "{{ server_certificate_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

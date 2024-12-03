@@ -1,0 +1,13 @@
+resource "azurerm_automation_hybrid_runbook_worker" "example" {
+    automation_account_name = "{{ automation_account_name }}"
+    id = "{{ id }}"
+    ip = "{{ ip }}"
+    last_seen_date_time = "{{ last_seen_date_time }}"
+    registration_date_time = "{{ registration_date_time }}"
+    resource_group_name = "{{ resource_group_name }}"
+    vm_resource_id = "{{ vm_resource_id }}"
+    worker_group_name = "{{ worker_group_name }}"
+    worker_id = "{{ worker_id }}"
+    worker_name = "{{ worker_name }}"
+    worker_type = "{{ worker_type }}"
+}

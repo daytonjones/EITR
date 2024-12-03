@@ -1,0 +1,12 @@
+resource "azurerm_management_group_template_deployment" "example" {
+    debug_level = "{{ debug_level }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    management_group_id = "{{ management_group_id }}"
+    name = "{{ name }}"
+    output_content = "{{ output_content }}"
+    parameters_content = "{{ parameters_content }}"
+    tags = "{{ tags }}"
+    template_content = "{{ template_content }}"
+    template_spec_version_id = "{{ template_spec_version_id }}"
+}

@@ -1,0 +1,27 @@
+resource "awscc_dms_replication_config" "example" {
+    compute_config = "{
+    availability_zone = {{ availability_zone }}
+    dns_name_servers = {{ dns_name_servers }}
+    kms_key_id = {{ kms_key_id }}
+    max_capacity_units = {{ max_capacity_units }}
+    min_capacity_units = {{ min_capacity_units }}
+    multi_az = {{ multi_az }}
+    preferred_maintenance_window = {{ preferred_maintenance_window }}
+    replication_subnet_group_id = {{ replication_subnet_group_id }}
+    vpc_security_group_ids = {{ vpc_security_group_ids }}
+}"
+    id = "{{ id }}"
+    replication_config_arn = "{{ replication_config_arn }}"
+    replication_config_identifier = "{{ replication_config_identifier }}"
+    replication_settings = "{{ replication_settings }}"
+    replication_type = "{{ replication_type }}"
+    resource_identifier = "{{ resource_identifier }}"
+    source_endpoint_arn = "{{ source_endpoint_arn }}"
+    supplemental_settings = "{{ supplemental_settings }}"
+    table_mappings = "{{ table_mappings }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    target_endpoint_arn = "{{ target_endpoint_arn }}"
+}

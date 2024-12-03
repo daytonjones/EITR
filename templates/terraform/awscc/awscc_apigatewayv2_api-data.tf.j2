@@ -1,0 +1,34 @@
+data "awscc_apigatewayv2_api" "example" {
+    api_endpoint = "{{ api_endpoint }}"
+    api_id = "{{ api_id }}"
+    api_key_selection_expression = "{{ api_key_selection_expression }}"
+    base_path = "{{ base_path }}"
+    body = "{{ body }}"
+    body_s3_location = "{
+    bucket = {{ bucket }}
+    etag = {{ etag }}
+    key = {{ key }}
+    version = {{ version }}
+}"
+    cors_configuration = "{
+    allow_credentials = {{ allow_credentials }}
+    allow_headers = {{ allow_headers }}
+    allow_methods = {{ allow_methods }}
+    allow_origins = {{ allow_origins }}
+    expose_headers = {{ expose_headers }}
+    max_age = {{ max_age }}
+}"
+    credentials_arn = "{{ credentials_arn }}"
+    description = "{{ description }}"
+    disable_execute_api_endpoint = "{{ disable_execute_api_endpoint }}"
+    disable_schema_validation = "{{ disable_schema_validation }}"
+    fail_on_warnings = "{{ fail_on_warnings }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    protocol_type = "{{ protocol_type }}"
+    route_key = "{{ route_key }}"
+    route_selection_expression = "{{ route_selection_expression }}"
+    tags = "{{ tags }}"
+    target = "{{ target }}"
+    version = "{{ version }}"
+}

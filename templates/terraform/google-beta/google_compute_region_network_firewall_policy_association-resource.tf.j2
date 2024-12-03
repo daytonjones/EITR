@@ -1,0 +1,9 @@
+resource "google_compute_region_network_firewall_policy_association" "example" {
+    attachment_target = "{{ attachment_target }}"
+    firewall_policy = "{{ firewall_policy }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    short_name = "{{ short_name }}"
+}

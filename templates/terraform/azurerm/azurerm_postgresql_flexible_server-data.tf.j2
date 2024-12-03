@@ -1,0 +1,16 @@
+data "azurerm_postgresql_flexible_server" "example" {
+    administrator_login = "{{ administrator_login }}"
+    auto_grow_enabled = "{{ auto_grow_enabled }}"
+    backup_retention_days = "{{ backup_retention_days }}"
+    delegated_subnet_id = "{{ delegated_subnet_id }}"
+    fqdn = "{{ fqdn }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku_name = "{{ sku_name }}"
+    storage_mb = "{{ storage_mb }}"
+    tags = "{{ tags }}"
+    version = "{{ version }}"
+}

@@ -1,0 +1,7 @@
+resource "aws_lambda_provisioned_concurrency_config" "example" {
+    function_name = "{{ function_name }}"
+    id = "{{ id }}"
+    provisioned_concurrent_executions = "{{ provisioned_concurrent_executions }}"
+    qualifier = "{{ qualifier }}"
+    skip_destroy = "{{ skip_destroy }}"
+}

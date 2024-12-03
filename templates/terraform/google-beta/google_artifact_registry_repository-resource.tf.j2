@@ -1,0 +1,17 @@
+resource "google_artifact_registry_repository" "example" {
+    cleanup_policy_dry_run = "{{ cleanup_policy_dry_run }}"
+    create_time = "{{ create_time }}"
+    description = "{{ description }}"
+    effective_labels = "{{ effective_labels }}"
+    format = "{{ format }}"
+    id = "{{ id }}"
+    kms_key_name = "{{ kms_key_name }}"
+    labels = "{{ labels }}"
+    location = "{{ location }}"
+    mode = "{{ mode }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    repository_id = "{{ repository_id }}"
+    terraform_labels = "{{ terraform_labels }}"
+    update_time = "{{ update_time }}"
+}

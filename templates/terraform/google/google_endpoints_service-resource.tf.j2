@@ -1,0 +1,12 @@
+resource "google_endpoints_service" "example" {
+    apis = "{{ apis }}"
+    config_id = "{{ config_id }}"
+    dns_address = "{{ dns_address }}"
+    endpoints = "{{ endpoints }}"
+    grpc_config = "{{ grpc_config }}"
+    id = "{{ id }}"
+    openapi_config = "{{ openapi_config }}"
+    project = "{{ project }}"
+    protoc_output_base64 = "{{ protoc_output_base64 }}"
+    service_name = "{{ service_name }}"
+}

@@ -1,0 +1,23 @@
+data "awscc_chatbot_custom_action" "example" {
+    action_name = "{{ action_name }}"
+    alias_name = "{{ alias_name }}"
+    attachments = "{
+    button_text = {{ button_text }}
+    criteria = {
+    operator = {{ operator }}
+    value = {{ value }}
+    variable_name = {{ variable_name }}
+}
+    notification_type = {{ notification_type }}
+    variables = {{ variables }}
+}"
+    custom_action_arn = "{{ custom_action_arn }}"
+    definition = "{
+    command_text = {{ command_text }}
+}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

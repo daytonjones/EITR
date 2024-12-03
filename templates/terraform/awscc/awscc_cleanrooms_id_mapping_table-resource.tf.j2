@@ -1,0 +1,26 @@
+resource "awscc_cleanrooms_id_mapping_table" "example" {
+    arn = "{{ arn }}"
+    collaboration_arn = "{{ collaboration_arn }}"
+    collaboration_identifier = "{{ collaboration_identifier }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    id_mapping_table_identifier = "{{ id_mapping_table_identifier }}"
+    input_reference_config = "{
+    input_reference_arn = {{ input_reference_arn }}
+    manage_resource_policies = {{ manage_resource_policies }}
+}"
+    input_reference_properties = "{
+    id_mapping_table_input_source = {
+    id_namespace_association_id = {{ id_namespace_association_id }}
+    type = {{ type }}
+}
+}"
+    kms_key_arn = "{{ kms_key_arn }}"
+    membership_arn = "{{ membership_arn }}"
+    membership_identifier = "{{ membership_identifier }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

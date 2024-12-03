@@ -1,0 +1,8 @@
+resource "aws_ec2_local_gateway_route_table_vpc_association" "example" {
+    id = "{{ id }}"
+    local_gateway_id = "{{ local_gateway_id }}"
+    local_gateway_route_table_id = "{{ local_gateway_route_table_id }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    vpc_id = "{{ vpc_id }}"
+}

@@ -1,0 +1,12 @@
+data "awscc_config_stored_query" "example" {
+    id = "{{ id }}"
+    query_arn = "{{ query_arn }}"
+    query_description = "{{ query_description }}"
+    query_expression = "{{ query_expression }}"
+    query_id = "{{ query_id }}"
+    query_name = "{{ query_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

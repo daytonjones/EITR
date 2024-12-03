@@ -1,0 +1,7 @@
+resource "azurerm_site_recovery_replication_recovery_plan" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    recovery_vault_id = "{{ recovery_vault_id }}"
+    source_recovery_fabric_id = "{{ source_recovery_fabric_id }}"
+    target_recovery_fabric_id = "{{ target_recovery_fabric_id }}"
+}

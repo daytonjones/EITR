@@ -1,0 +1,26 @@
+data "awscc_elasticache_global_replication_group" "example" {
+    automatic_failover_enabled = "{{ automatic_failover_enabled }}"
+    cache_node_type = "{{ cache_node_type }}"
+    cache_parameter_group_name = "{{ cache_parameter_group_name }}"
+    engine = "{{ engine }}"
+    engine_version = "{{ engine_version }}"
+    global_node_group_count = "{{ global_node_group_count }}"
+    global_replication_group_description = "{{ global_replication_group_description }}"
+    global_replication_group_id = "{{ global_replication_group_id }}"
+    global_replication_group_id_suffix = "{{ global_replication_group_id_suffix }}"
+    id = "{{ id }}"
+    members = "{
+    replication_group_id = {{ replication_group_id }}
+    replication_group_region = {{ replication_group_region }}
+    role = {{ role }}
+}"
+    regional_configurations = "{
+    replication_group_id = {{ replication_group_id }}
+    replication_group_region = {{ replication_group_region }}
+    resharding_configurations = {
+    node_group_id = {{ node_group_id }}
+    preferred_availability_zones = {{ preferred_availability_zones }}
+}
+}"
+    status = "{{ status }}"
+}

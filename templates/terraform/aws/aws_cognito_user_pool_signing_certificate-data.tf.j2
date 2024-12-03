@@ -1,0 +1,5 @@
+data "aws_cognito_user_pool_signing_certificate" "example" {
+    certificate = "{{ certificate }}"
+    id = "{{ id }}"
+    user_pool_id = "{{ user_pool_id }}"
+}

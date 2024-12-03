@@ -1,0 +1,27 @@
+data "awscc_iotsitewise_asset" "example" {
+    asset_arn = "{{ asset_arn }}"
+    asset_description = "{{ asset_description }}"
+    asset_external_id = "{{ asset_external_id }}"
+    asset_hierarchies = "{
+    child_asset_id = {{ child_asset_id }}
+    external_id = {{ external_id }}
+    id = {{ id }}
+    logical_id = {{ logical_id }}
+}"
+    asset_id = "{{ asset_id }}"
+    asset_model_id = "{{ asset_model_id }}"
+    asset_name = "{{ asset_name }}"
+    asset_properties = "{
+    alias = {{ alias }}
+    external_id = {{ external_id }}
+    id = {{ id }}
+    logical_id = {{ logical_id }}
+    notification_state = {{ notification_state }}
+    unit = {{ unit }}
+}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

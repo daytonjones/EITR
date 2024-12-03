@@ -1,0 +1,13 @@
+resource "awscc_msk_configuration" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    kafka_versions_list = "{{ kafka_versions_list }}"
+    latest_revision = "{
+    creation_time = {{ creation_time }}
+    description = {{ description }}
+    revision = {{ revision }}
+}"
+    name = "{{ name }}"
+    server_properties = "{{ server_properties }}"
+}

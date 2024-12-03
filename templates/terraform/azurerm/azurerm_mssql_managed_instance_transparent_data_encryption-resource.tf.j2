@@ -1,0 +1,6 @@
+resource "azurerm_mssql_managed_instance_transparent_data_encryption" "example" {
+    auto_rotation_enabled = "{{ auto_rotation_enabled }}"
+    id = "{{ id }}"
+    key_vault_key_id = "{{ key_vault_key_id }}"
+    managed_instance_id = "{{ managed_instance_id }}"
+}

@@ -1,0 +1,6 @@
+data "google_kms_crypto_keys" "example" {
+    filter = "{{ filter }}"
+    id = "{{ id }}"
+    key_ring = "{{ key_ring }}"
+    keys = "{{ keys }}"
+}

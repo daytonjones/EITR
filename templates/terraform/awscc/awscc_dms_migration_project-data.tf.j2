@@ -1,0 +1,34 @@
+data "awscc_dms_migration_project" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    instance_profile_arn = "{{ instance_profile_arn }}"
+    instance_profile_identifier = "{{ instance_profile_identifier }}"
+    instance_profile_name = "{{ instance_profile_name }}"
+    migration_project_arn = "{{ migration_project_arn }}"
+    migration_project_creation_time = "{{ migration_project_creation_time }}"
+    migration_project_identifier = "{{ migration_project_identifier }}"
+    migration_project_name = "{{ migration_project_name }}"
+    schema_conversion_application_attributes = "{
+    s3_bucket_path = {{ s3_bucket_path }}
+    s3_bucket_role_arn = {{ s3_bucket_role_arn }}
+}"
+    source_data_provider_descriptors = "{
+    data_provider_arn = {{ data_provider_arn }}
+    data_provider_identifier = {{ data_provider_identifier }}
+    data_provider_name = {{ data_provider_name }}
+    secrets_manager_access_role_arn = {{ secrets_manager_access_role_arn }}
+    secrets_manager_secret_id = {{ secrets_manager_secret_id }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    target_data_provider_descriptors = "{
+    data_provider_arn = {{ data_provider_arn }}
+    data_provider_identifier = {{ data_provider_identifier }}
+    data_provider_name = {{ data_provider_name }}
+    secrets_manager_access_role_arn = {{ secrets_manager_access_role_arn }}
+    secrets_manager_secret_id = {{ secrets_manager_secret_id }}
+}"
+    transformation_rules = "{{ transformation_rules }}"
+}

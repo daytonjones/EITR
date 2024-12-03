@@ -1,0 +1,8 @@
+resource "aws_athena_named_query" "example" {
+    database = "{{ database }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    query = "{{ query }}"
+    workgroup = "{{ workgroup }}"
+}

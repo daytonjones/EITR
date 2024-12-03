@@ -1,0 +1,8 @@
+resource "aws_cognito_user_group" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    precedence = "{{ precedence }}"
+    role_arn = "{{ role_arn }}"
+    user_pool_id = "{{ user_pool_id }}"
+}

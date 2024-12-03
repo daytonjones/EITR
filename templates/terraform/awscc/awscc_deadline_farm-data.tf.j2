@@ -1,0 +1,12 @@
+data "awscc_deadline_farm" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    farm_id = "{{ farm_id }}"
+    id = "{{ id }}"
+    kms_key_arn = "{{ kms_key_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

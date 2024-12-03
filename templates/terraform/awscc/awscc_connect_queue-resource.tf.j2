@@ -1,0 +1,21 @@
+resource "awscc_connect_queue" "example" {
+    description = "{{ description }}"
+    hours_of_operation_arn = "{{ hours_of_operation_arn }}"
+    id = "{{ id }}"
+    instance_arn = "{{ instance_arn }}"
+    max_contacts = "{{ max_contacts }}"
+    name = "{{ name }}"
+    outbound_caller_config = "{
+    outbound_caller_id_name = {{ outbound_caller_id_name }}
+    outbound_caller_id_number_arn = {{ outbound_caller_id_number_arn }}
+    outbound_flow_arn = {{ outbound_flow_arn }}
+}"
+    queue_arn = "{{ queue_arn }}"
+    quick_connect_arns = "{{ quick_connect_arns }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+}

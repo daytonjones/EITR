@@ -1,0 +1,12 @@
+resource "google_certificate_manager_certificate" "example" {
+    description = "{{ description }}"
+    effective_labels = "{{ effective_labels }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    san_dnsnames = "{{ san_dnsnames }}"
+    scope = "{{ scope }}"
+    terraform_labels = "{{ terraform_labels }}"
+}

@@ -1,0 +1,13 @@
+data "azurerm_databricks_workspace" "example" {
+    enhanced_security_compliance = "{{ enhanced_security_compliance }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    managed_disk_identity = "{{ managed_disk_identity }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku = "{{ sku }}"
+    storage_account_identity = "{{ storage_account_identity }}"
+    tags = "{{ tags }}"
+    workspace_id = "{{ workspace_id }}"
+    workspace_url = "{{ workspace_url }}"
+}

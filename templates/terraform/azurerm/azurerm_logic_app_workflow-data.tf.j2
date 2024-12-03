@@ -1,0 +1,17 @@
+data "azurerm_logic_app_workflow" "example" {
+    access_endpoint = "{{ access_endpoint }}"
+    connector_endpoint_ip_addresses = "{{ connector_endpoint_ip_addresses }}"
+    connector_outbound_ip_addresses = "{{ connector_outbound_ip_addresses }}"
+    id = "{{ id }}"
+    identity = "{{ identity }}"
+    location = "{{ location }}"
+    logic_app_integration_account_id = "{{ logic_app_integration_account_id }}"
+    name = "{{ name }}"
+    parameters = "{{ parameters }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    workflow_endpoint_ip_addresses = "{{ workflow_endpoint_ip_addresses }}"
+    workflow_outbound_ip_addresses = "{{ workflow_outbound_ip_addresses }}"
+    workflow_schema = "{{ workflow_schema }}"
+    workflow_version = "{{ workflow_version }}"
+}

@@ -1,0 +1,17 @@
+resource "awscc_ivs_channel" "example" {
+    arn = "{{ arn }}"
+    authorized = "{{ authorized }}"
+    id = "{{ id }}"
+    ingest_endpoint = "{{ ingest_endpoint }}"
+    insecure_ingest = "{{ insecure_ingest }}"
+    latency_mode = "{{ latency_mode }}"
+    name = "{{ name }}"
+    playback_url = "{{ playback_url }}"
+    preset = "{{ preset }}"
+    recording_configuration_arn = "{{ recording_configuration_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+}

@@ -1,0 +1,11 @@
+data "google_cloud_run_service" "example" {
+    autogenerate_revision_name = "{{ autogenerate_revision_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    metadata = "{{ metadata }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    status = "{{ status }}"
+    template = "{{ template }}"
+    traffic = "{{ traffic }}"
+}

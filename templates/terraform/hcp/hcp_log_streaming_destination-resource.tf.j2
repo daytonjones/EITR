@@ -1,0 +1,19 @@
+resource "hcp_log_streaming_destination" "example" {
+    cloudwatch = "{
+    external_id = {{ external_id }}
+    log_group_name = {{ log_group_name }}
+    region = {{ region }}
+    role_arn = {{ role_arn }}
+}"
+    datadog = "{
+    api_key = {{ api_key }}
+    application_key = {{ application_key }}
+    endpoint = {{ endpoint }}
+}"
+    name = "{{ name }}"
+    splunk_cloud = "{
+    endpoint = {{ endpoint }}
+    token = {{ token }}
+}"
+    streaming_destination_id = "{{ streaming_destination_id }}"
+}

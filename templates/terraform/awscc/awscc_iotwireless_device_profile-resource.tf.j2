@@ -1,0 +1,31 @@
+resource "awscc_iotwireless_device_profile" "example" {
+    arn = "{{ arn }}"
+    device_profile_id = "{{ device_profile_id }}"
+    id = "{{ id }}"
+    lo_ra_wan = "{
+    class_b_timeout = {{ class_b_timeout }}
+    class_c_timeout = {{ class_c_timeout }}
+    factory_preset_freqs_list = {{ factory_preset_freqs_list }}
+    mac_version = {{ mac_version }}
+    max_duty_cycle = {{ max_duty_cycle }}
+    max_eirp = {{ max_eirp }}
+    ping_slot_dr = {{ ping_slot_dr }}
+    ping_slot_freq = {{ ping_slot_freq }}
+    ping_slot_period = {{ ping_slot_period }}
+    reg_params_revision = {{ reg_params_revision }}
+    rf_region = {{ rf_region }}
+    rx_data_rate_2 = {{ rx_data_rate_2 }}
+    rx_delay_1 = {{ rx_delay_1 }}
+    rx_dr_offset_1 = {{ rx_dr_offset_1 }}
+    rx_freq_2 = {{ rx_freq_2 }}
+    supports_32_bit_f_cnt = {{ supports_32_bit_f_cnt }}
+    supports_class_b = {{ supports_class_b }}
+    supports_class_c = {{ supports_class_c }}
+    supports_join = {{ supports_join }}
+}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

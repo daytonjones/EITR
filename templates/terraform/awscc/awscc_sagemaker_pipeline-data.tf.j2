@@ -1,0 +1,23 @@
+data "awscc_sagemaker_pipeline" "example" {
+    id = "{{ id }}"
+    parallelism_configuration = "{
+    max_parallel_execution_steps = {{ max_parallel_execution_steps }}
+}"
+    pipeline_definition = "{
+    pipeline_definition_body = {{ pipeline_definition_body }}
+    pipeline_definition_s3_location = {
+    bucket = {{ bucket }}
+    e_tag = {{ e_tag }}
+    key = {{ key }}
+    version = {{ version }}
+}
+}"
+    pipeline_description = "{{ pipeline_description }}"
+    pipeline_display_name = "{{ pipeline_display_name }}"
+    pipeline_name = "{{ pipeline_name }}"
+    role_arn = "{{ role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

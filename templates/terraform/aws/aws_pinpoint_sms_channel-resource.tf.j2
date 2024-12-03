@@ -1,0 +1,9 @@
+resource "aws_pinpoint_sms_channel" "example" {
+    application_id = "{{ application_id }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    promotional_messages_per_second = "{{ promotional_messages_per_second }}"
+    sender_id = "{{ sender_id }}"
+    short_code = "{{ short_code }}"
+    transactional_messages_per_second = "{{ transactional_messages_per_second }}"
+}

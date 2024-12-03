@@ -1,0 +1,8 @@
+resource "vsphere_compute_cluster_vm_anti_affinity_rule" "example" {
+    compute_cluster_id = "{{ compute_cluster_id }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    mandatory = "{{ mandatory }}"
+    name = "{{ name }}"
+    virtual_machine_ids = "{{ virtual_machine_ids }}"
+}

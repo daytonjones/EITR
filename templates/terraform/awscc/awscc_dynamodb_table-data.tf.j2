@@ -1,0 +1,110 @@
+data "awscc_dynamodb_table" "example" {
+    arn = "{{ arn }}"
+    attribute_definitions = "{
+    attribute_name = {{ attribute_name }}
+    attribute_type = {{ attribute_type }}
+}"
+    billing_mode = "{{ billing_mode }}"
+    contributor_insights_specification = "{
+    enabled = {{ enabled }}
+}"
+    deletion_protection_enabled = "{{ deletion_protection_enabled }}"
+    global_secondary_indexes = "{
+    contributor_insights_specification = {
+    enabled = {{ enabled }}
+}
+    index_name = {{ index_name }}
+    key_schema = {
+    attribute_name = {{ attribute_name }}
+    key_type = {{ key_type }}
+}
+    on_demand_throughput = {
+    max_read_request_units = {{ max_read_request_units }}
+    max_write_request_units = {{ max_write_request_units }}
+}
+    projection = {
+    non_key_attributes = {{ non_key_attributes }}
+    projection_type = {{ projection_type }}
+}
+    provisioned_throughput = {
+    read_capacity_units = {{ read_capacity_units }}
+    write_capacity_units = {{ write_capacity_units }}
+}
+    warm_throughput = {
+    read_units_per_second = {{ read_units_per_second }}
+    write_units_per_second = {{ write_units_per_second }}
+}
+}"
+    id = "{{ id }}"
+    import_source_specification = "{
+    input_compression_type = {{ input_compression_type }}
+    input_format = {{ input_format }}
+    input_format_options = {
+    csv = {
+    delimiter = {{ delimiter }}
+    header_list = {{ header_list }}
+}
+}
+    s3_bucket_source = {
+    s3_bucket = {{ s3_bucket }}
+    s3_bucket_owner = {{ s3_bucket_owner }}
+    s3_key_prefix = {{ s3_key_prefix }}
+}
+}"
+    key_schema = "{{ key_schema }}"
+    kinesis_stream_specification = "{
+    approximate_creation_date_time_precision = {{ approximate_creation_date_time_precision }}
+    stream_arn = {{ stream_arn }}
+}"
+    local_secondary_indexes = "{
+    index_name = {{ index_name }}
+    key_schema = {
+    attribute_name = {{ attribute_name }}
+    key_type = {{ key_type }}
+}
+    projection = {
+    non_key_attributes = {{ non_key_attributes }}
+    projection_type = {{ projection_type }}
+}
+}"
+    on_demand_throughput = "{
+    max_read_request_units = {{ max_read_request_units }}
+    max_write_request_units = {{ max_write_request_units }}
+}"
+    point_in_time_recovery_specification = "{
+    point_in_time_recovery_enabled = {{ point_in_time_recovery_enabled }}
+}"
+    provisioned_throughput = "{
+    read_capacity_units = {{ read_capacity_units }}
+    write_capacity_units = {{ write_capacity_units }}
+}"
+    resource_policy = "{
+    policy_document = {{ policy_document }}
+}"
+    sse_specification = "{
+    kms_master_key_id = {{ kms_master_key_id }}
+    sse_enabled = {{ sse_enabled }}
+    sse_type = {{ sse_type }}
+}"
+    stream_arn = "{{ stream_arn }}"
+    stream_specification = "{
+    resource_policy = {
+    policy_document = {{ policy_document }}
+}
+    stream_view_type = {{ stream_view_type }}
+}"
+    table_class = "{{ table_class }}"
+    table_name = "{{ table_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    time_to_live_specification = "{
+    attribute_name = {{ attribute_name }}
+    enabled = {{ enabled }}
+}"
+    warm_throughput = "{
+    read_units_per_second = {{ read_units_per_second }}
+    write_units_per_second = {{ write_units_per_second }}
+}"
+}

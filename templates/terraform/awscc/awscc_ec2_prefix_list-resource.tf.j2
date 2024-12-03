@@ -1,0 +1,18 @@
+resource "awscc_ec2_prefix_list" "example" {
+    address_family = "{{ address_family }}"
+    arn = "{{ arn }}"
+    entries = "{
+    cidr = {{ cidr }}
+    description = {{ description }}
+}"
+    id = "{{ id }}"
+    max_entries = "{{ max_entries }}"
+    owner_id = "{{ owner_id }}"
+    prefix_list_id = "{{ prefix_list_id }}"
+    prefix_list_name = "{{ prefix_list_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    version = "{{ version }}"
+}

@@ -1,0 +1,12 @@
+resource "aws_ec2_traffic_mirror_filter_rule" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    destination_cidr_block = "{{ destination_cidr_block }}"
+    id = "{{ id }}"
+    protocol = "{{ protocol }}"
+    rule_action = "{{ rule_action }}"
+    rule_number = "{{ rule_number }}"
+    source_cidr_block = "{{ source_cidr_block }}"
+    traffic_direction = "{{ traffic_direction }}"
+    traffic_mirror_filter_id = "{{ traffic_mirror_filter_id }}"
+}

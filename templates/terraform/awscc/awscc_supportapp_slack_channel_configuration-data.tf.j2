@@ -1,0 +1,11 @@
+data "awscc_supportapp_slack_channel_configuration" "example" {
+    channel_id = "{{ channel_id }}"
+    channel_name = "{{ channel_name }}"
+    channel_role_arn = "{{ channel_role_arn }}"
+    id = "{{ id }}"
+    notify_on_add_correspondence_to_case = "{{ notify_on_add_correspondence_to_case }}"
+    notify_on_case_severity = "{{ notify_on_case_severity }}"
+    notify_on_create_or_reopen_case = "{{ notify_on_create_or_reopen_case }}"
+    notify_on_resolve_case = "{{ notify_on_resolve_case }}"
+    team_id = "{{ team_id }}"
+}

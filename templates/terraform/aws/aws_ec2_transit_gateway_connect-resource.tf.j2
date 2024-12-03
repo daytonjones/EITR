@@ -1,0 +1,10 @@
+resource "aws_ec2_transit_gateway_connect" "example" {
+    id = "{{ id }}"
+    protocol = "{{ protocol }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    transit_gateway_default_route_table_association = "{{ transit_gateway_default_route_table_association }}"
+    transit_gateway_default_route_table_propagation = "{{ transit_gateway_default_route_table_propagation }}"
+    transit_gateway_id = "{{ transit_gateway_id }}"
+    transport_attachment_id = "{{ transport_attachment_id }}"
+}

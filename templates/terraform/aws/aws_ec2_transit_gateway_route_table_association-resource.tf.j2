@@ -1,0 +1,8 @@
+resource "aws_ec2_transit_gateway_route_table_association" "example" {
+    id = "{{ id }}"
+    replace_existing_association = "{{ replace_existing_association }}"
+    resource_id = "{{ resource_id }}"
+    resource_type = "{{ resource_type }}"
+    transit_gateway_attachment_id = "{{ transit_gateway_attachment_id }}"
+    transit_gateway_route_table_id = "{{ transit_gateway_route_table_id }}"
+}

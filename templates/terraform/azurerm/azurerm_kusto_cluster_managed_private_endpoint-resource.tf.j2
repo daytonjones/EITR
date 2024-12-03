@@ -1,0 +1,10 @@
+resource "azurerm_kusto_cluster_managed_private_endpoint" "example" {
+    cluster_name = "{{ cluster_name }}"
+    group_id = "{{ group_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    private_link_resource_id = "{{ private_link_resource_id }}"
+    private_link_resource_region = "{{ private_link_resource_region }}"
+    request_message = "{{ request_message }}"
+    resource_group_name = "{{ resource_group_name }}"
+}

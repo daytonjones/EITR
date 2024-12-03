@@ -1,0 +1,47 @@
+resource "awscc_sagemaker_feature_group" "example" {
+    creation_time = "{{ creation_time }}"
+    description = "{{ description }}"
+    event_time_feature_name = "{{ event_time_feature_name }}"
+    feature_definitions = "{
+    feature_name = {{ feature_name }}
+    feature_type = {{ feature_type }}
+}"
+    feature_group_name = "{{ feature_group_name }}"
+    feature_group_status = "{{ feature_group_status }}"
+    id = "{{ id }}"
+    offline_store_config = "{
+    data_catalog_config = {
+    catalog = {{ catalog }}
+    database = {{ database }}
+    table_name = {{ table_name }}
+}
+    disable_glue_table_creation = {{ disable_glue_table_creation }}
+    s3_storage_config = {
+    kms_key_id = {{ kms_key_id }}
+    s3_uri = {{ s3_uri }}
+}
+    table_format = {{ table_format }}
+}"
+    online_store_config = "{
+    enable_online_store = {{ enable_online_store }}
+    security_config = {
+    kms_key_id = {{ kms_key_id }}
+}
+    storage_type = {{ storage_type }}
+    ttl_duration = {
+    unit = {{ unit }}
+    value = {{ value }}
+}
+}"
+    record_identifier_feature_name = "{{ record_identifier_feature_name }}"
+    role_arn = "{{ role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    throughput_config = "{
+    provisioned_read_capacity_units = {{ provisioned_read_capacity_units }}
+    provisioned_write_capacity_units = {{ provisioned_write_capacity_units }}
+    throughput_mode = {{ throughput_mode }}
+}"
+}

@@ -1,0 +1,12 @@
+resource "hcp_consul_snapshot" "example" {
+    cluster_id = "{{ cluster_id }}"
+    consul_version = "{{ consul_version }}"
+    id = "{{ id }}"
+    organization_id = "{{ organization_id }}"
+    project_id = "{{ project_id }}"
+    restored_at = "{{ restored_at }}"
+    size = "{{ size }}"
+    snapshot_id = "{{ snapshot_id }}"
+    snapshot_name = "{{ snapshot_name }}"
+    state = "{{ state }}"
+}

@@ -1,0 +1,129 @@
+data "awscc_applicationsignals_service_level_objective" "example" {
+    arn = "{{ arn }}"
+    burn_rate_configurations = "{
+    look_back_window_minutes = {{ look_back_window_minutes }}
+}"
+    created_time = "{{ created_time }}"
+    description = "{{ description }}"
+    evaluation_type = "{{ evaluation_type }}"
+    goal = "{
+    attainment_goal = {{ attainment_goal }}
+    interval = {
+    calendar_interval = {
+    duration = {{ duration }}
+    duration_unit = {{ duration_unit }}
+    start_time = {{ start_time }}
+}
+    rolling_interval = {
+    duration = {{ duration }}
+    duration_unit = {{ duration_unit }}
+}
+}
+    warning_threshold = {{ warning_threshold }}
+}"
+    id = "{{ id }}"
+    last_updated_time = "{{ last_updated_time }}"
+    name = "{{ name }}"
+    request_based_sli = "{
+    comparison_operator = {{ comparison_operator }}
+    metric_threshold = {{ metric_threshold }}
+    request_based_sli_metric = {
+    key_attributes = {{ key_attributes }}
+    metric_type = {{ metric_type }}
+    monitored_request_count_metric = {
+    bad_count_metric = {
+    account_id = {{ account_id }}
+    expression = {{ expression }}
+    id = {{ id }}
+    metric_stat = {
+    metric = {
+    dimensions = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    metric_name = {{ metric_name }}
+    namespace = {{ namespace }}
+}
+    period = {{ period }}
+    stat = {{ stat }}
+    unit = {{ unit }}
+}
+    return_data = {{ return_data }}
+}
+    good_count_metric = {
+    account_id = {{ account_id }}
+    expression = {{ expression }}
+    id = {{ id }}
+    metric_stat = {
+    metric = {
+    dimensions = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    metric_name = {{ metric_name }}
+    namespace = {{ namespace }}
+}
+    period = {{ period }}
+    stat = {{ stat }}
+    unit = {{ unit }}
+}
+    return_data = {{ return_data }}
+}
+}
+    operation_name = {{ operation_name }}
+    total_request_count_metric = {
+    account_id = {{ account_id }}
+    expression = {{ expression }}
+    id = {{ id }}
+    metric_stat = {
+    metric = {
+    dimensions = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    metric_name = {{ metric_name }}
+    namespace = {{ namespace }}
+}
+    period = {{ period }}
+    stat = {{ stat }}
+    unit = {{ unit }}
+}
+    return_data = {{ return_data }}
+}
+}
+}"
+    sli = "{
+    comparison_operator = {{ comparison_operator }}
+    metric_threshold = {{ metric_threshold }}
+    sli_metric = {
+    key_attributes = {{ key_attributes }}
+    metric_data_queries = {
+    account_id = {{ account_id }}
+    expression = {{ expression }}
+    id = {{ id }}
+    metric_stat = {
+    metric = {
+    dimensions = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    metric_name = {{ metric_name }}
+    namespace = {{ namespace }}
+}
+    period = {{ period }}
+    stat = {{ stat }}
+    unit = {{ unit }}
+}
+    return_data = {{ return_data }}
+}
+    metric_type = {{ metric_type }}
+    operation_name = {{ operation_name }}
+    period_seconds = {{ period_seconds }}
+    statistic = {{ statistic }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

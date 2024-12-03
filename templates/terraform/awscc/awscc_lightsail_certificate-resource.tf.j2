@@ -1,0 +1,12 @@
+resource "awscc_lightsail_certificate" "example" {
+    certificate_arn = "{{ certificate_arn }}"
+    certificate_name = "{{ certificate_name }}"
+    domain_name = "{{ domain_name }}"
+    id = "{{ id }}"
+    status = "{{ status }}"
+    subject_alternative_names = "{{ subject_alternative_names }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

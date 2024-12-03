@@ -1,0 +1,7 @@
+data "aws_guardduty_detector" "example" {
+    features = "{{ features }}"
+    finding_publishing_frequency = "{{ finding_publishing_frequency }}"
+    id = "{{ id }}"
+    service_role_arn = "{{ service_role_arn }}"
+    status = "{{ status }}"
+}

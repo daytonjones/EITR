@@ -1,0 +1,78 @@
+resource "awscc_fms_policy" "example" {
+    arn = "{{ arn }}"
+    delete_all_policy_resources = "{{ delete_all_policy_resources }}"
+    exclude_map = "{
+    account = {{ account }}
+    orgunit = {{ orgunit }}
+}"
+    exclude_resource_tags = "{{ exclude_resource_tags }}"
+    id = "{{ id }}"
+    include_map = "{
+    account = {{ account }}
+    orgunit = {{ orgunit }}
+}"
+    policy_description = "{{ policy_description }}"
+    policy_id = "{{ policy_id }}"
+    policy_name = "{{ policy_name }}"
+    remediation_enabled = "{{ remediation_enabled }}"
+    resource_set_ids = "{{ resource_set_ids }}"
+    resource_tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    resource_type = "{{ resource_type }}"
+    resource_type_list = "{{ resource_type_list }}"
+    resources_clean_up = "{{ resources_clean_up }}"
+    security_service_policy_data = "{
+    managed_service_data = {{ managed_service_data }}
+    policy_option = {
+    network_acl_common_policy = {
+    network_acl_entry_set = {
+    first_entries = {
+    cidr_block = {{ cidr_block }}
+    egress = {{ egress }}
+    icmp_type_code = {
+    code = {{ code }}
+    type = {{ type }}
+}
+    ipv_6_cidr_block = {{ ipv_6_cidr_block }}
+    port_range = {
+    from = {{ from }}
+    to = {{ to }}
+}
+    protocol = {{ protocol }}
+    rule_action = {{ rule_action }}
+}
+    force_remediate_for_first_entries = {{ force_remediate_for_first_entries }}
+    force_remediate_for_last_entries = {{ force_remediate_for_last_entries }}
+    last_entries = {
+    cidr_block = {{ cidr_block }}
+    egress = {{ egress }}
+    icmp_type_code = {
+    code = {{ code }}
+    type = {{ type }}
+}
+    ipv_6_cidr_block = {{ ipv_6_cidr_block }}
+    port_range = {
+    from = {{ from }}
+    to = {{ to }}
+}
+    protocol = {{ protocol }}
+    rule_action = {{ rule_action }}
+}
+}
+}
+    network_firewall_policy = {
+    firewall_deployment_model = {{ firewall_deployment_model }}
+}
+    third_party_firewall_policy = {
+    firewall_deployment_model = {{ firewall_deployment_model }}
+}
+}
+    type = {{ type }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

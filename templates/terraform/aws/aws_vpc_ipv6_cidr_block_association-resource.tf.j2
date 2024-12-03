@@ -1,0 +1,11 @@
+resource "aws_vpc_ipv6_cidr_block_association" "example" {
+    assign_generated_ipv6_cidr_block = "{{ assign_generated_ipv6_cidr_block }}"
+    id = "{{ id }}"
+    ip_source = "{{ ip_source }}"
+    ipv6_address_attribute = "{{ ipv6_address_attribute }}"
+    ipv6_cidr_block = "{{ ipv6_cidr_block }}"
+    ipv6_ipam_pool_id = "{{ ipv6_ipam_pool_id }}"
+    ipv6_netmask_length = "{{ ipv6_netmask_length }}"
+    ipv6_pool = "{{ ipv6_pool }}"
+    vpc_id = "{{ vpc_id }}"
+}

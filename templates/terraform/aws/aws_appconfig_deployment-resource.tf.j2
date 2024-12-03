@@ -1,0 +1,16 @@
+resource "aws_appconfig_deployment" "example" {
+    application_id = "{{ application_id }}"
+    arn = "{{ arn }}"
+    configuration_profile_id = "{{ configuration_profile_id }}"
+    configuration_version = "{{ configuration_version }}"
+    deployment_number = "{{ deployment_number }}"
+    deployment_strategy_id = "{{ deployment_strategy_id }}"
+    description = "{{ description }}"
+    environment_id = "{{ environment_id }}"
+    id = "{{ id }}"
+    kms_key_arn = "{{ kms_key_arn }}"
+    kms_key_identifier = "{{ kms_key_identifier }}"
+    state = "{{ state }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

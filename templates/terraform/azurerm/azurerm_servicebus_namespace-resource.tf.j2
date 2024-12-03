@@ -1,0 +1,18 @@
+resource "azurerm_servicebus_namespace" "example" {
+    capacity = "{{ capacity }}"
+    default_primary_connection_string = "{{ default_primary_connection_string }}"
+    default_primary_key = "{{ default_primary_key }}"
+    default_secondary_connection_string = "{{ default_secondary_connection_string }}"
+    default_secondary_key = "{{ default_secondary_key }}"
+    endpoint = "{{ endpoint }}"
+    id = "{{ id }}"
+    local_auth_enabled = "{{ local_auth_enabled }}"
+    location = "{{ location }}"
+    minimum_tls_version = "{{ minimum_tls_version }}"
+    name = "{{ name }}"
+    premium_messaging_partitions = "{{ premium_messaging_partitions }}"
+    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku = "{{ sku }}"
+    tags = "{{ tags }}"
+}

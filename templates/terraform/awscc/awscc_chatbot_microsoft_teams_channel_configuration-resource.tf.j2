@@ -1,0 +1,18 @@
+resource "awscc_chatbot_microsoft_teams_channel_configuration" "example" {
+    arn = "{{ arn }}"
+    configuration_name = "{{ configuration_name }}"
+    customization_resource_arns = "{{ customization_resource_arns }}"
+    guardrail_policies = "{{ guardrail_policies }}"
+    iam_role_arn = "{{ iam_role_arn }}"
+    id = "{{ id }}"
+    logging_level = "{{ logging_level }}"
+    sns_topic_arns = "{{ sns_topic_arns }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    team_id = "{{ team_id }}"
+    teams_channel_id = "{{ teams_channel_id }}"
+    teams_tenant_id = "{{ teams_tenant_id }}"
+    user_role_required = "{{ user_role_required }}"
+}

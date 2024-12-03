@@ -1,0 +1,13 @@
+data "awscc_logs_delivery_destination" "example" {
+    arn = "{{ arn }}"
+    delivery_destination_policy = "{{ delivery_destination_policy }}"
+    delivery_destination_type = "{{ delivery_destination_type }}"
+    destination_resource_arn = "{{ destination_resource_arn }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    output_format = "{{ output_format }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,8 @@
+resource "azurerm_data_protection_backup_policy_disk" "example" {
+    backup_repeating_time_intervals = "{{ backup_repeating_time_intervals }}"
+    default_retention_duration = "{{ default_retention_duration }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    time_zone = "{{ time_zone }}"
+    vault_id = "{{ vault_id }}"
+}

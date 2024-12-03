@@ -1,0 +1,29 @@
+resource "awscc_resourcegroups_group" "example" {
+    arn = "{{ arn }}"
+    configuration = "{
+    parameters = {
+    name = {{ name }}
+    values = {{ values }}
+}
+    type = {{ type }}
+}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_query = "{
+    query = {
+    resource_type_filters = {{ resource_type_filters }}
+    stack_identifier = {{ stack_identifier }}
+    tag_filters = {
+    key = {{ key }}
+    values = {{ values }}
+}
+}
+    type = {{ type }}
+}"
+    resources = "{{ resources }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

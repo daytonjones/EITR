@@ -1,0 +1,12 @@
+resource "awscc_route53profiles_profile_association" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    profile_association_id = "{{ profile_association_id }}"
+    profile_id = "{{ profile_id }}"
+    resource_id = "{{ resource_id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

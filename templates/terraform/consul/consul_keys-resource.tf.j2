@@ -1,0 +1,8 @@
+resource "consul_keys" "example" {
+    datacenter = "{{ datacenter }}"
+    id = "{{ id }}"
+    namespace = "{{ namespace }}"
+    partition = "{{ partition }}"
+    token = "{{ token }}"
+    var = "{{ var }}"
+}

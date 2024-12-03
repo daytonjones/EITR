@@ -1,0 +1,12 @@
+resource "awscc_fms_resource_set" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_set_id = "{{ resource_set_id }}"
+    resource_type_list = "{{ resource_type_list }}"
+    resources = "{{ resources }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

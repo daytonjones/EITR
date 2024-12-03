@@ -1,0 +1,9 @@
+resource "vsphere_virtual_machine_class" "example" {
+    cpu_reservation = "{{ cpu_reservation }}"
+    cpus = "{{ cpus }}"
+    id = "{{ id }}"
+    memory = "{{ memory }}"
+    memory_reservation = "{{ memory_reservation }}"
+    name = "{{ name }}"
+    vgpu_devices = "{{ vgpu_devices }}"
+}

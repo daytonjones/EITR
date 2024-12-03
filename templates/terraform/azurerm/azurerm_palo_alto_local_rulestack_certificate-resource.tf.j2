@@ -1,0 +1,9 @@
+resource "azurerm_palo_alto_local_rulestack_certificate" "example" {
+    audit_comment = "{{ audit_comment }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    key_vault_certificate_id = "{{ key_vault_certificate_id }}"
+    name = "{{ name }}"
+    rulestack_id = "{{ rulestack_id }}"
+    self_signed = "{{ self_signed }}"
+}

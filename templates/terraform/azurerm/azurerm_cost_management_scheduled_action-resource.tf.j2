@@ -1,0 +1,17 @@
+resource "azurerm_cost_management_scheduled_action" "example" {
+    day_of_month = "{{ day_of_month }}"
+    days_of_week = "{{ days_of_week }}"
+    display_name = "{{ display_name }}"
+    email_address_sender = "{{ email_address_sender }}"
+    email_addresses = "{{ email_addresses }}"
+    email_subject = "{{ email_subject }}"
+    end_date = "{{ end_date }}"
+    frequency = "{{ frequency }}"
+    hour_of_day = "{{ hour_of_day }}"
+    id = "{{ id }}"
+    message = "{{ message }}"
+    name = "{{ name }}"
+    start_date = "{{ start_date }}"
+    view_id = "{{ view_id }}"
+    weeks_of_month = "{{ weeks_of_month }}"
+}

@@ -1,0 +1,36 @@
+data "awscc_nimblestudio_launch_profile" "example" {
+    description = "{{ description }}"
+    ec_2_subnet_ids = "{{ ec_2_subnet_ids }}"
+    id = "{{ id }}"
+    launch_profile_id = "{{ launch_profile_id }}"
+    launch_profile_protocol_versions = "{{ launch_profile_protocol_versions }}"
+    name = "{{ name }}"
+    stream_configuration = "{
+    automatic_termination_mode = {{ automatic_termination_mode }}
+    clipboard_mode = {{ clipboard_mode }}
+    ec_2_instance_types = {{ ec_2_instance_types }}
+    max_session_length_in_minutes = {{ max_session_length_in_minutes }}
+    max_stopped_session_length_in_minutes = {{ max_stopped_session_length_in_minutes }}
+    session_backup = {
+    max_backups_to_retain = {{ max_backups_to_retain }}
+    mode = {{ mode }}
+}
+    session_persistence_mode = {{ session_persistence_mode }}
+    session_storage = {
+    mode = {{ mode }}
+    root = {
+    linux = {{ linux }}
+    windows = {{ windows }}
+}
+}
+    streaming_image_ids = {{ streaming_image_ids }}
+    volume_configuration = {
+    iops = {{ iops }}
+    size = {{ size }}
+    throughput = {{ throughput }}
+}
+}"
+    studio_component_ids = "{{ studio_component_ids }}"
+    studio_id = "{{ studio_id }}"
+    tags = "{{ tags }}"
+}

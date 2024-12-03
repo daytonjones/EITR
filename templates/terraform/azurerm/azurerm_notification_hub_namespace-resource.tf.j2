@@ -1,0 +1,11 @@
+resource "azurerm_notification_hub_namespace" "example" {
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    namespace_type = "{{ namespace_type }}"
+    resource_group_name = "{{ resource_group_name }}"
+    servicebus_endpoint = "{{ servicebus_endpoint }}"
+    sku_name = "{{ sku_name }}"
+    tags = "{{ tags }}"
+}

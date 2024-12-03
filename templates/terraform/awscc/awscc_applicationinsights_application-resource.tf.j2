@@ -1,0 +1,196 @@
+resource "awscc_applicationinsights_application" "example" {
+    application_arn = "{{ application_arn }}"
+    attach_missing_permission = "{{ attach_missing_permission }}"
+    auto_configuration_enabled = "{{ auto_configuration_enabled }}"
+    component_monitoring_settings = "{
+    component_arn = {{ component_arn }}
+    component_configuration_mode = {{ component_configuration_mode }}
+    component_name = {{ component_name }}
+    custom_component_configuration = {
+    configuration_details = {
+    alarm_metrics = {
+    alarm_metric_name = {{ alarm_metric_name }}
+}
+    alarms = {
+    alarm_name = {{ alarm_name }}
+    severity = {{ severity }}
+}
+    ha_cluster_prometheus_exporter = {
+    prometheus_port = {{ prometheus_port }}
+}
+    hana_prometheus_exporter = {
+    agree_to_install_hanadb_client = {{ agree_to_install_hanadb_client }}
+    hana_port = {{ hana_port }}
+    hana_secret_name = {{ hana_secret_name }}
+    hanasid = {{ hanasid }}
+    prometheus_port = {{ prometheus_port }}
+}
+    jmx_prometheus_exporter = {
+    host_port = {{ host_port }}
+    jmxurl = {{ jmxurl }}
+    prometheus_port = {{ prometheus_port }}
+}
+    logs = {
+    encoding = {{ encoding }}
+    log_group_name = {{ log_group_name }}
+    log_path = {{ log_path }}
+    log_type = {{ log_type }}
+    pattern_set = {{ pattern_set }}
+}
+    net_weaver_prometheus_exporter = {
+    instance_numbers = {{ instance_numbers }}
+    prometheus_port = {{ prometheus_port }}
+    sapsid = {{ sapsid }}
+}
+    processes = {
+    alarm_metrics = {
+    alarm_metric_name = {{ alarm_metric_name }}
+}
+    process_name = {{ process_name }}
+}
+    sql_server_prometheus_exporter = {
+    prometheus_port = {{ prometheus_port }}
+    sql_secret_name = {{ sql_secret_name }}
+}
+    windows_events = {
+    event_levels = {{ event_levels }}
+    event_name = {{ event_name }}
+    log_group_name = {{ log_group_name }}
+    pattern_set = {{ pattern_set }}
+}
+}
+    sub_component_type_configurations = {
+    sub_component_configuration_details = {
+    alarm_metrics = {
+    alarm_metric_name = {{ alarm_metric_name }}
+}
+    logs = {
+    encoding = {{ encoding }}
+    log_group_name = {{ log_group_name }}
+    log_path = {{ log_path }}
+    log_type = {{ log_type }}
+    pattern_set = {{ pattern_set }}
+}
+    processes = {
+    alarm_metrics = {
+    alarm_metric_name = {{ alarm_metric_name }}
+}
+    process_name = {{ process_name }}
+}
+    windows_events = {
+    event_levels = {{ event_levels }}
+    event_name = {{ event_name }}
+    log_group_name = {{ log_group_name }}
+    pattern_set = {{ pattern_set }}
+}
+}
+    sub_component_type = {{ sub_component_type }}
+}
+}
+    default_overwrite_component_configuration = {
+    configuration_details = {
+    alarm_metrics = {
+    alarm_metric_name = {{ alarm_metric_name }}
+}
+    alarms = {
+    alarm_name = {{ alarm_name }}
+    severity = {{ severity }}
+}
+    ha_cluster_prometheus_exporter = {
+    prometheus_port = {{ prometheus_port }}
+}
+    hana_prometheus_exporter = {
+    agree_to_install_hanadb_client = {{ agree_to_install_hanadb_client }}
+    hana_port = {{ hana_port }}
+    hana_secret_name = {{ hana_secret_name }}
+    hanasid = {{ hanasid }}
+    prometheus_port = {{ prometheus_port }}
+}
+    jmx_prometheus_exporter = {
+    host_port = {{ host_port }}
+    jmxurl = {{ jmxurl }}
+    prometheus_port = {{ prometheus_port }}
+}
+    logs = {
+    encoding = {{ encoding }}
+    log_group_name = {{ log_group_name }}
+    log_path = {{ log_path }}
+    log_type = {{ log_type }}
+    pattern_set = {{ pattern_set }}
+}
+    net_weaver_prometheus_exporter = {
+    instance_numbers = {{ instance_numbers }}
+    prometheus_port = {{ prometheus_port }}
+    sapsid = {{ sapsid }}
+}
+    processes = {
+    alarm_metrics = {
+    alarm_metric_name = {{ alarm_metric_name }}
+}
+    process_name = {{ process_name }}
+}
+    sql_server_prometheus_exporter = {
+    prometheus_port = {{ prometheus_port }}
+    sql_secret_name = {{ sql_secret_name }}
+}
+    windows_events = {
+    event_levels = {{ event_levels }}
+    event_name = {{ event_name }}
+    log_group_name = {{ log_group_name }}
+    pattern_set = {{ pattern_set }}
+}
+}
+    sub_component_type_configurations = {
+    sub_component_configuration_details = {
+    alarm_metrics = {
+    alarm_metric_name = {{ alarm_metric_name }}
+}
+    logs = {
+    encoding = {{ encoding }}
+    log_group_name = {{ log_group_name }}
+    log_path = {{ log_path }}
+    log_type = {{ log_type }}
+    pattern_set = {{ pattern_set }}
+}
+    processes = {
+    alarm_metrics = {
+    alarm_metric_name = {{ alarm_metric_name }}
+}
+    process_name = {{ process_name }}
+}
+    windows_events = {
+    event_levels = {{ event_levels }}
+    event_name = {{ event_name }}
+    log_group_name = {{ log_group_name }}
+    pattern_set = {{ pattern_set }}
+}
+}
+    sub_component_type = {{ sub_component_type }}
+}
+}
+    tier = {{ tier }}
+}"
+    custom_components = "{
+    component_name = {{ component_name }}
+    resource_list = {{ resource_list }}
+}"
+    cwe_monitor_enabled = "{{ cwe_monitor_enabled }}"
+    grouping_type = "{{ grouping_type }}"
+    id = "{{ id }}"
+    log_pattern_sets = "{
+    log_patterns = {
+    pattern = {{ pattern }}
+    pattern_name = {{ pattern_name }}
+    rank = {{ rank }}
+}
+    pattern_set_name = {{ pattern_set_name }}
+}"
+    ops_center_enabled = "{{ ops_center_enabled }}"
+    ops_item_sns_topic_arn = "{{ ops_item_sns_topic_arn }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sns_notification_arn = "{{ sns_notification_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

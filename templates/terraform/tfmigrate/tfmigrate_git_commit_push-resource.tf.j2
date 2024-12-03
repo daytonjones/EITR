@@ -1,0 +1,9 @@
+resource "tfmigrate_git_commit_push" "example" {
+    branch_name = "{{ branch_name }}"
+    commit_hash = "{{ commit_hash }}"
+    commit_message = "{{ commit_message }}"
+    directory_path = "{{ directory_path }}"
+    enable_push = "{{ enable_push }}"
+    remote_name = "{{ remote_name }}"
+    summary = "{{ summary }}"
+}

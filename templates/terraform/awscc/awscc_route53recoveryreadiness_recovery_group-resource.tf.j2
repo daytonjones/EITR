@@ -1,0 +1,10 @@
+resource "awscc_route53recoveryreadiness_recovery_group" "example" {
+    cells = "{{ cells }}"
+    id = "{{ id }}"
+    recovery_group_arn = "{{ recovery_group_arn }}"
+    recovery_group_name = "{{ recovery_group_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

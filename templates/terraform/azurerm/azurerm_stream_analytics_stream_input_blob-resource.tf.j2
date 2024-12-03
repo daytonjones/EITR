@@ -1,0 +1,12 @@
+resource "azurerm_stream_analytics_stream_input_blob" "example" {
+    date_format = "{{ date_format }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    path_pattern = "{{ path_pattern }}"
+    resource_group_name = "{{ resource_group_name }}"
+    storage_account_key = "{{ storage_account_key }}"
+    storage_account_name = "{{ storage_account_name }}"
+    storage_container_name = "{{ storage_container_name }}"
+    stream_analytics_job_name = "{{ stream_analytics_job_name }}"
+    time_format = "{{ time_format }}"
+}

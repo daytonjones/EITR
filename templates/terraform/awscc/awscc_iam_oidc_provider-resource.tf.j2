@@ -1,0 +1,11 @@
+resource "awscc_iam_oidc_provider" "example" {
+    arn = "{{ arn }}"
+    client_id_list = "{{ client_id_list }}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    thumbprint_list = "{{ thumbprint_list }}"
+    url = "{{ url }}"
+}

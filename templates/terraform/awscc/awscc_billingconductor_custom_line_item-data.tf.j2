@@ -1,0 +1,36 @@
+data "awscc_billingconductor_custom_line_item" "example" {
+    account_id = "{{ account_id }}"
+    arn = "{{ arn }}"
+    association_size = "{{ association_size }}"
+    billing_group_arn = "{{ billing_group_arn }}"
+    billing_period_range = "{
+    exclusive_end_billing_period = {{ exclusive_end_billing_period }}
+    inclusive_start_billing_period = {{ inclusive_start_billing_period }}
+}"
+    creation_time = "{{ creation_time }}"
+    currency_code = "{{ currency_code }}"
+    custom_line_item_charge_details = "{
+    flat = {
+    charge_value = {{ charge_value }}
+}
+    line_item_filters = {
+    attribute = {{ attribute }}
+    match_option = {{ match_option }}
+    values = {{ values }}
+}
+    percentage = {
+    child_associated_resources = {{ child_associated_resources }}
+    percentage_value = {{ percentage_value }}
+}
+    type = {{ type }}
+}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    last_modified_time = "{{ last_modified_time }}"
+    name = "{{ name }}"
+    product_code = "{{ product_code }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

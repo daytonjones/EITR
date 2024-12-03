@@ -1,0 +1,19 @@
+data "awscc_eks_addon" "example" {
+    addon_name = "{{ addon_name }}"
+    addon_version = "{{ addon_version }}"
+    arn = "{{ arn }}"
+    cluster_name = "{{ cluster_name }}"
+    configuration_values = "{{ configuration_values }}"
+    id = "{{ id }}"
+    pod_identity_associations = "{
+    role_arn = {{ role_arn }}
+    service_account = {{ service_account }}
+}"
+    preserve_on_delete = "{{ preserve_on_delete }}"
+    resolve_conflicts = "{{ resolve_conflicts }}"
+    service_account_role_arn = "{{ service_account_role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

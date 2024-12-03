@@ -1,0 +1,8 @@
+resource "awscc_ec2_ipam_allocation" "example" {
+    cidr = "{{ cidr }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    ipam_pool_allocation_id = "{{ ipam_pool_allocation_id }}"
+    ipam_pool_id = "{{ ipam_pool_id }}"
+    netmask_length = "{{ netmask_length }}"
+}

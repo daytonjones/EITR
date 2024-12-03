@@ -1,0 +1,10 @@
+data "azurerm_notification_hub" "example" {
+    apns_credential = "{{ apns_credential }}"
+    gcm_credential = "{{ gcm_credential }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    namespace_name = "{{ namespace_name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

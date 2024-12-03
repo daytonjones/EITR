@@ -1,0 +1,9 @@
+data "azuread_service_principals" "example" {
+    client_ids = "{{ client_ids }}"
+    display_names = "{{ display_names }}"
+    id = "{{ id }}"
+    ignore_missing = "{{ ignore_missing }}"
+    object_ids = "{{ object_ids }}"
+    return_all = "{{ return_all }}"
+    service_principals = "{{ service_principals }}"
+}

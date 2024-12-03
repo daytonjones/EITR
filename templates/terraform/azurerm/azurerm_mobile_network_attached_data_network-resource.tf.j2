@@ -1,0 +1,14 @@
+resource "azurerm_mobile_network_attached_data_network" "example" {
+    dns_addresses = "{{ dns_addresses }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    mobile_network_data_network_name = "{{ mobile_network_data_network_name }}"
+    mobile_network_packet_core_data_plane_id = "{{ mobile_network_packet_core_data_plane_id }}"
+    tags = "{{ tags }}"
+    user_equipment_address_pool_prefixes = "{{ user_equipment_address_pool_prefixes }}"
+    user_equipment_static_address_pool_prefixes = "{{ user_equipment_static_address_pool_prefixes }}"
+    user_plane_access_ipv4_address = "{{ user_plane_access_ipv4_address }}"
+    user_plane_access_ipv4_gateway = "{{ user_plane_access_ipv4_gateway }}"
+    user_plane_access_ipv4_subnet = "{{ user_plane_access_ipv4_subnet }}"
+    user_plane_access_name = "{{ user_plane_access_name }}"
+}

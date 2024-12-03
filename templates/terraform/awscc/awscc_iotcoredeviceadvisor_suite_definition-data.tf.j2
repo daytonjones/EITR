@@ -1,0 +1,20 @@
+data "awscc_iotcoredeviceadvisor_suite_definition" "example" {
+    id = "{{ id }}"
+    suite_definition_arn = "{{ suite_definition_arn }}"
+    suite_definition_configuration = "{
+    device_permission_role_arn = {{ device_permission_role_arn }}
+    devices = {
+    certificate_arn = {{ certificate_arn }}
+    thing_arn = {{ thing_arn }}
+}
+    intended_for_qualification = {{ intended_for_qualification }}
+    root_group = {{ root_group }}
+    suite_definition_name = {{ suite_definition_name }}
+}"
+    suite_definition_id = "{{ suite_definition_id }}"
+    suite_definition_version = "{{ suite_definition_version }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

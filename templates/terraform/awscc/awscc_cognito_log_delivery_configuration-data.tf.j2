@@ -1,0 +1,18 @@
+data "awscc_cognito_log_delivery_configuration" "example" {
+    id = "{{ id }}"
+    log_configurations = "{
+    cloudwatch_logs_configuration = {
+    log_group_arn = {{ log_group_arn }}
+}
+    event_source = {{ event_source }}
+    firehose_configuration = {
+    stream_arn = {{ stream_arn }}
+}
+    log_level = {{ log_level }}
+    s3_configuration = {
+    bucket_arn = {{ bucket_arn }}
+}
+}"
+    log_delivery_configuration_id = "{{ log_delivery_configuration_id }}"
+    user_pool_id = "{{ user_pool_id }}"
+}

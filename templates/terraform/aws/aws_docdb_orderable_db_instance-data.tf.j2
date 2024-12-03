@@ -1,0 +1,10 @@
+data "aws_docdb_orderable_db_instance" "example" {
+    availability_zones = "{{ availability_zones }}"
+    engine = "{{ engine }}"
+    engine_version = "{{ engine_version }}"
+    id = "{{ id }}"
+    instance_class = "{{ instance_class }}"
+    license_model = "{{ license_model }}"
+    preferred_instance_classes = "{{ preferred_instance_classes }}"
+    vpc = "{{ vpc }}"
+}

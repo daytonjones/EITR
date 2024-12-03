@@ -1,0 +1,17 @@
+resource "awscc_directoryservice_simple_ad" "example" {
+    alias = "{{ alias }}"
+    create_alias = "{{ create_alias }}"
+    description = "{{ description }}"
+    directory_id = "{{ directory_id }}"
+    dns_ip_addresses = "{{ dns_ip_addresses }}"
+    enable_sso = "{{ enable_sso }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    password = "{{ password }}"
+    short_name = "{{ short_name }}"
+    size = "{{ size }}"
+    vpc_settings = "{
+    subnet_ids = {{ subnet_ids }}
+    vpc_id = {{ vpc_id }}
+}"
+}

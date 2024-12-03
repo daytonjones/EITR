@@ -1,0 +1,12 @@
+resource "google_monitoring_slo" "example" {
+    calendar_period = "{{ calendar_period }}"
+    display_name = "{{ display_name }}"
+    goal = "{{ goal }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    rolling_period_days = "{{ rolling_period_days }}"
+    service = "{{ service }}"
+    slo_id = "{{ slo_id }}"
+    user_labels = "{{ user_labels }}"
+}

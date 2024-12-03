@@ -1,0 +1,8 @@
+resource "azurerm_site_recovery_hyperv_replication_policy" "example" {
+    application_consistent_snapshot_frequency_in_hours = "{{ application_consistent_snapshot_frequency_in_hours }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    recovery_point_retention_in_hours = "{{ recovery_point_retention_in_hours }}"
+    recovery_vault_id = "{{ recovery_vault_id }}"
+    replication_interval_in_seconds = "{{ replication_interval_in_seconds }}"
+}

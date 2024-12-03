@@ -1,0 +1,19 @@
+resource "awscc_eks_fargate_profile" "example" {
+    arn = "{{ arn }}"
+    cluster_name = "{{ cluster_name }}"
+    fargate_profile_name = "{{ fargate_profile_name }}"
+    id = "{{ id }}"
+    pod_execution_role_arn = "{{ pod_execution_role_arn }}"
+    selectors = "{
+    labels = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    namespace = {{ namespace }}
+}"
+    subnets = "{{ subnets }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

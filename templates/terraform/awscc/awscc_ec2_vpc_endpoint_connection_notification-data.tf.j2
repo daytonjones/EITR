@@ -1,0 +1,8 @@
+data "awscc_ec2_vpc_endpoint_connection_notification" "example" {
+    connection_events = "{{ connection_events }}"
+    connection_notification_arn = "{{ connection_notification_arn }}"
+    id = "{{ id }}"
+    service_id = "{{ service_id }}"
+    vpc_endpoint_connection_notification_id = "{{ vpc_endpoint_connection_notification_id }}"
+    vpc_endpoint_id = "{{ vpc_endpoint_id }}"
+}

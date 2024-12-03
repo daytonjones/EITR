@@ -1,0 +1,18 @@
+resource "vsphere_vapp_container" "example" {
+    cpu_expandable = "{{ cpu_expandable }}"
+    cpu_limit = "{{ cpu_limit }}"
+    cpu_reservation = "{{ cpu_reservation }}"
+    cpu_share_level = "{{ cpu_share_level }}"
+    cpu_shares = "{{ cpu_shares }}"
+    custom_attributes = "{{ custom_attributes }}"
+    id = "{{ id }}"
+    memory_expandable = "{{ memory_expandable }}"
+    memory_limit = "{{ memory_limit }}"
+    memory_reservation = "{{ memory_reservation }}"
+    memory_share_level = "{{ memory_share_level }}"
+    memory_shares = "{{ memory_shares }}"
+    name = "{{ name }}"
+    parent_folder_id = "{{ parent_folder_id }}"
+    parent_resource_pool_id = "{{ parent_resource_pool_id }}"
+    tags = "{{ tags }}"
+}

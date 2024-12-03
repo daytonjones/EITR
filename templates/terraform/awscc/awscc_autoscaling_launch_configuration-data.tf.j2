@@ -1,0 +1,39 @@
+data "awscc_autoscaling_launch_configuration" "example" {
+    associate_public_ip_address = "{{ associate_public_ip_address }}"
+    block_device_mappings = "{
+    device_name = {{ device_name }}
+    ebs = {
+    delete_on_termination = {{ delete_on_termination }}
+    encrypted = {{ encrypted }}
+    iops = {{ iops }}
+    snapshot_id = {{ snapshot_id }}
+    throughput = {{ throughput }}
+    volume_size = {{ volume_size }}
+    volume_type = {{ volume_type }}
+}
+    no_device = {{ no_device }}
+    virtual_name = {{ virtual_name }}
+}"
+    classic_link_vpc_id = "{{ classic_link_vpc_id }}"
+    classic_link_vpc_security_groups = "{{ classic_link_vpc_security_groups }}"
+    ebs_optimized = "{{ ebs_optimized }}"
+    iam_instance_profile = "{{ iam_instance_profile }}"
+    id = "{{ id }}"
+    image_id = "{{ image_id }}"
+    instance_id = "{{ instance_id }}"
+    instance_monitoring = "{{ instance_monitoring }}"
+    instance_type = "{{ instance_type }}"
+    kernel_id = "{{ kernel_id }}"
+    key_name = "{{ key_name }}"
+    launch_configuration_name = "{{ launch_configuration_name }}"
+    metadata_options = "{
+    http_endpoint = {{ http_endpoint }}
+    http_put_response_hop_limit = {{ http_put_response_hop_limit }}
+    http_tokens = {{ http_tokens }}
+}"
+    placement_tenancy = "{{ placement_tenancy }}"
+    ram_disk_id = "{{ ram_disk_id }}"
+    security_groups = "{{ security_groups }}"
+    spot_price = "{{ spot_price }}"
+    user_data = "{{ user_data }}"
+}

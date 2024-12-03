@@ -1,0 +1,7 @@
+data "azurerm_kubernetes_node_pool_snapshot" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    source_node_pool_id = "{{ source_node_pool_id }}"
+    tags = "{{ tags }}"
+}

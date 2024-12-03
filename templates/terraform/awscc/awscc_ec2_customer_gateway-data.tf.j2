@@ -1,0 +1,14 @@
+data "awscc_ec2_customer_gateway" "example" {
+    bgp_asn = "{{ bgp_asn }}"
+    bgp_asn_extended = "{{ bgp_asn_extended }}"
+    certificate_arn = "{{ certificate_arn }}"
+    customer_gateway_id = "{{ customer_gateway_id }}"
+    device_name = "{{ device_name }}"
+    id = "{{ id }}"
+    ip_address = "{{ ip_address }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+}

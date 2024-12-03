@@ -1,0 +1,16 @@
+data "awscc_ivs_ingest_configuration" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    ingest_protocol = "{{ ingest_protocol }}"
+    insecure_ingest = "{{ insecure_ingest }}"
+    name = "{{ name }}"
+    participant_id = "{{ participant_id }}"
+    stage_arn = "{{ stage_arn }}"
+    state = "{{ state }}"
+    stream_key = "{{ stream_key }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    user_id = "{{ user_id }}"
+}

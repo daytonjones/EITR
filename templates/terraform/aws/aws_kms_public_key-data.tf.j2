@@ -1,0 +1,12 @@
+data "aws_kms_public_key" "example" {
+    arn = "{{ arn }}"
+    customer_master_key_spec = "{{ customer_master_key_spec }}"
+    encryption_algorithms = "{{ encryption_algorithms }}"
+    grant_tokens = "{{ grant_tokens }}"
+    id = "{{ id }}"
+    key_id = "{{ key_id }}"
+    key_usage = "{{ key_usage }}"
+    public_key = "{{ public_key }}"
+    public_key_pem = "{{ public_key_pem }}"
+    signing_algorithms = "{{ signing_algorithms }}"
+}

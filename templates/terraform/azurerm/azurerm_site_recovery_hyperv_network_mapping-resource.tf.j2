@@ -1,0 +1,8 @@
+resource "azurerm_site_recovery_hyperv_network_mapping" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    recovery_vault_id = "{{ recovery_vault_id }}"
+    source_network_name = "{{ source_network_name }}"
+    source_system_center_virtual_machine_manager_name = "{{ source_system_center_virtual_machine_manager_name }}"
+    target_network_id = "{{ target_network_id }}"
+}

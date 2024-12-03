@@ -1,0 +1,14 @@
+resource "azurerm_role_assignment" "example" {
+    condition = "{{ condition }}"
+    condition_version = "{{ condition_version }}"
+    delegated_managed_identity_resource_id = "{{ delegated_managed_identity_resource_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    principal_id = "{{ principal_id }}"
+    principal_type = "{{ principal_type }}"
+    role_definition_id = "{{ role_definition_id }}"
+    role_definition_name = "{{ role_definition_name }}"
+    scope = "{{ scope }}"
+    skip_service_principal_aad_check = "{{ skip_service_principal_aad_check }}"
+}

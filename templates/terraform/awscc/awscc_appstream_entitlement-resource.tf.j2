@@ -1,0 +1,13 @@
+resource "awscc_appstream_entitlement" "example" {
+    app_visibility = "{{ app_visibility }}"
+    attributes = "{
+    name = {{ name }}
+    value = {{ value }}
+}"
+    created_time = "{{ created_time }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    last_modified_time = "{{ last_modified_time }}"
+    name = "{{ name }}"
+    stack_name = "{{ stack_name }}"
+}

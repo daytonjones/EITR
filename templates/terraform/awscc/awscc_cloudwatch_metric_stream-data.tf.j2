@@ -1,0 +1,31 @@
+data "awscc_cloudwatch_metric_stream" "example" {
+    arn = "{{ arn }}"
+    creation_date = "{{ creation_date }}"
+    exclude_filters = "{
+    metric_names = {{ metric_names }}
+    namespace = {{ namespace }}
+}"
+    firehose_arn = "{{ firehose_arn }}"
+    id = "{{ id }}"
+    include_filters = "{
+    metric_names = {{ metric_names }}
+    namespace = {{ namespace }}
+}"
+    include_linked_accounts_metrics = "{{ include_linked_accounts_metrics }}"
+    last_update_date = "{{ last_update_date }}"
+    name = "{{ name }}"
+    output_format = "{{ output_format }}"
+    role_arn = "{{ role_arn }}"
+    state = "{{ state }}"
+    statistics_configurations = "{
+    additional_statistics = {{ additional_statistics }}
+    include_metrics = {
+    metric_name = {{ metric_name }}
+    namespace = {{ namespace }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

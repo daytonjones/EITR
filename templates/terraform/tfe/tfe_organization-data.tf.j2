@@ -1,0 +1,15 @@
+data "tfe_organization" "example" {
+    aggregated_commit_status_enabled = "{{ aggregated_commit_status_enabled }}"
+    assessments_enforced = "{{ assessments_enforced }}"
+    collaborator_auth_policy = "{{ collaborator_auth_policy }}"
+    cost_estimation_enabled = "{{ cost_estimation_enabled }}"
+    default_project_id = "{{ default_project_id }}"
+    email = "{{ email }}"
+    external_id = "{{ external_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    owners_team_saml_role_id = "{{ owners_team_saml_role_id }}"
+    send_passing_statuses_for_untriggered_speculative_plans = "{{ send_passing_statuses_for_untriggered_speculative_plans }}"
+    speculative_plan_management_enabled = "{{ speculative_plan_management_enabled }}"
+    two_factor_conformant = "{{ two_factor_conformant }}"
+}

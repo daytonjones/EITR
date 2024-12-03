@@ -1,0 +1,6 @@
+data "aws_ec2_transit_gateway_dx_gateway_attachment" "example" {
+    dx_gateway_id = "{{ dx_gateway_id }}"
+    id = "{{ id }}"
+    tags = "{{ tags }}"
+    transit_gateway_id = "{{ transit_gateway_id }}"
+}

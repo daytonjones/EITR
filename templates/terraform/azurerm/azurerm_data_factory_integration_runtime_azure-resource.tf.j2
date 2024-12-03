@@ -1,0 +1,12 @@
+resource "azurerm_data_factory_integration_runtime_azure" "example" {
+    cleanup_enabled = "{{ cleanup_enabled }}"
+    compute_type = "{{ compute_type }}"
+    core_count = "{{ core_count }}"
+    data_factory_id = "{{ data_factory_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    time_to_live_min = "{{ time_to_live_min }}"
+    virtual_network_enabled = "{{ virtual_network_enabled }}"
+}

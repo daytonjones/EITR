@@ -1,0 +1,35 @@
+data "awscc_finspace_environment" "example" {
+    aws_account_id = "{{ aws_account_id }}"
+    data_bundles = "{{ data_bundles }}"
+    dedicated_service_account_id = "{{ dedicated_service_account_id }}"
+    description = "{{ description }}"
+    environment_arn = "{{ environment_arn }}"
+    environment_id = "{{ environment_id }}"
+    environment_url = "{{ environment_url }}"
+    federation_mode = "{{ federation_mode }}"
+    federation_parameters = "{
+    application_call_back_url = {{ application_call_back_url }}
+    attribute_map = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    federation_provider_name = {{ federation_provider_name }}
+    federation_urn = {{ federation_urn }}
+    saml_metadata_document = {{ saml_metadata_document }}
+    saml_metadata_url = {{ saml_metadata_url }}
+}"
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    name = "{{ name }}"
+    sage_maker_studio_domain_url = "{{ sage_maker_studio_domain_url }}"
+    status = "{{ status }}"
+    superuser_parameters = "{
+    email_address = {{ email_address }}
+    first_name = {{ first_name }}
+    last_name = {{ last_name }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

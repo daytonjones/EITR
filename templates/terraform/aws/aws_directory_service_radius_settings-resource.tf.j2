@@ -1,0 +1,12 @@
+resource "aws_directory_service_radius_settings" "example" {
+    authentication_protocol = "{{ authentication_protocol }}"
+    directory_id = "{{ directory_id }}"
+    display_label = "{{ display_label }}"
+    id = "{{ id }}"
+    radius_port = "{{ radius_port }}"
+    radius_retries = "{{ radius_retries }}"
+    radius_servers = "{{ radius_servers }}"
+    radius_timeout = "{{ radius_timeout }}"
+    shared_secret = "{{ shared_secret }}"
+    use_same_username = "{{ use_same_username }}"
+}

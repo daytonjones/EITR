@@ -1,0 +1,89 @@
+resource "awscc_iotfleetwise_campaign" "example" {
+    action = "{{ action }}"
+    arn = "{{ arn }}"
+    collection_scheme = "{
+    condition_based_collection_scheme = {
+    condition_language_version = {{ condition_language_version }}
+    expression = {{ expression }}
+    minimum_trigger_interval_ms = {{ minimum_trigger_interval_ms }}
+    trigger_mode = {{ trigger_mode }}
+}
+    time_based_collection_scheme = {
+    period_ms = {{ period_ms }}
+}
+}"
+    compression = "{{ compression }}"
+    creation_time = "{{ creation_time }}"
+    data_destination_configs = "{
+    mqtt_topic_config = {
+    execution_role_arn = {{ execution_role_arn }}
+    mqtt_topic_arn = {{ mqtt_topic_arn }}
+}
+    s3_config = {
+    bucket_arn = {{ bucket_arn }}
+    data_format = {{ data_format }}
+    prefix = {{ prefix }}
+    storage_compression_format = {{ storage_compression_format }}
+}
+    timestream_config = {
+    execution_role_arn = {{ execution_role_arn }}
+    timestream_table_arn = {{ timestream_table_arn }}
+}
+}"
+    data_extra_dimensions = "{{ data_extra_dimensions }}"
+    data_partitions = "{
+    id = {{ id }}
+    storage_options = {
+    maximum_size = {
+    unit = {{ unit }}
+    value = {{ value }}
+}
+    minimum_time_to_live = {
+    unit = {{ unit }}
+    value = {{ value }}
+}
+    storage_location = {{ storage_location }}
+}
+    upload_options = {
+    condition_language_version = {{ condition_language_version }}
+    expression = {{ expression }}
+}
+}"
+    description = "{{ description }}"
+    diagnostics_mode = "{{ diagnostics_mode }}"
+    expiry_time = "{{ expiry_time }}"
+    id = "{{ id }}"
+    last_modification_time = "{{ last_modification_time }}"
+    name = "{{ name }}"
+    post_trigger_collection_duration = "{{ post_trigger_collection_duration }}"
+    priority = "{{ priority }}"
+    signal_catalog_arn = "{{ signal_catalog_arn }}"
+    signals_to_collect = "{
+    data_partition_id = {{ data_partition_id }}
+    max_sample_count = {{ max_sample_count }}
+    minimum_sampling_interval_ms = {{ minimum_sampling_interval_ms }}
+    name = {{ name }}
+}"
+    signals_to_fetch = "{
+    actions = {{ actions }}
+    condition_language_version = {{ condition_language_version }}
+    fully_qualified_name = {{ fully_qualified_name }}
+    signal_fetch_config = {
+    condition_based = {
+    condition_expression = {{ condition_expression }}
+    trigger_mode = {{ trigger_mode }}
+}
+    time_based = {
+    execution_frequency_ms = {{ execution_frequency_ms }}
+}
+}
+}"
+    spooling_mode = "{{ spooling_mode }}"
+    start_time = "{{ start_time }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    target_arn = "{{ target_arn }}"
+}

@@ -1,0 +1,11 @@
+resource "azurerm_subscription_template_deployment" "example" {
+    debug_level = "{{ debug_level }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    output_content = "{{ output_content }}"
+    parameters_content = "{{ parameters_content }}"
+    tags = "{{ tags }}"
+    template_content = "{{ template_content }}"
+    template_spec_version_id = "{{ template_spec_version_id }}"
+}

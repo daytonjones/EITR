@@ -1,0 +1,26 @@
+resource "awscc_redshift_endpoint_access" "example" {
+    address = "{{ address }}"
+    cluster_identifier = "{{ cluster_identifier }}"
+    endpoint_create_time = "{{ endpoint_create_time }}"
+    endpoint_name = "{{ endpoint_name }}"
+    endpoint_status = "{{ endpoint_status }}"
+    id = "{{ id }}"
+    port = "{{ port }}"
+    resource_owner = "{{ resource_owner }}"
+    subnet_group_name = "{{ subnet_group_name }}"
+    vpc_endpoint = "{
+    network_interfaces = {
+    availability_zone = {{ availability_zone }}
+    network_interface_id = {{ network_interface_id }}
+    private_ip_address = {{ private_ip_address }}
+    subnet_id = {{ subnet_id }}
+}
+    vpc_endpoint_id = {{ vpc_endpoint_id }}
+    vpc_id = {{ vpc_id }}
+}"
+    vpc_security_group_ids = "{{ vpc_security_group_ids }}"
+    vpc_security_groups = "{
+    status = {{ status }}
+    vpc_security_group_id = {{ vpc_security_group_id }}
+}"
+}

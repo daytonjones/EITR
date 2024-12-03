@@ -1,0 +1,7 @@
+resource "awscc_securityhub_finding_aggregator" "example" {
+    finding_aggregation_region = "{{ finding_aggregation_region }}"
+    finding_aggregator_arn = "{{ finding_aggregator_arn }}"
+    id = "{{ id }}"
+    region_linking_mode = "{{ region_linking_mode }}"
+    regions = "{{ regions }}"
+}

@@ -1,0 +1,11 @@
+resource "azurerm_iothub_endpoint_eventhub" "example" {
+    authentication_type = "{{ authentication_type }}"
+    connection_string = "{{ connection_string }}"
+    endpoint_uri = "{{ endpoint_uri }}"
+    entity_path = "{{ entity_path }}"
+    id = "{{ id }}"
+    identity_id = "{{ identity_id }}"
+    iothub_id = "{{ iothub_id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+}

@@ -1,0 +1,14 @@
+resource "azurerm_virtual_network" "example" {
+    address_space = "{{ address_space }}"
+    bgp_community = "{{ bgp_community }}"
+    dns_servers = "{{ dns_servers }}"
+    edge_zone = "{{ edge_zone }}"
+    flow_timeout_in_minutes = "{{ flow_timeout_in_minutes }}"
+    guid = "{{ guid }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    subnet = "{{ subnet }}"
+    tags = "{{ tags }}"
+}

@@ -1,0 +1,423 @@
+resource "awscc_quicksight_data_source" "example" {
+    alternate_data_source_parameters = "{
+    amazon_elasticsearch_parameters = {
+    domain = {{ domain }}
+}
+    amazon_open_search_parameters = {
+    domain = {{ domain }}
+}
+    athena_parameters = {
+    role_arn = {{ role_arn }}
+    work_group = {{ work_group }}
+}
+    aurora_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    aurora_postgre_sql_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    databricks_parameters = {
+    host = {{ host }}
+    port = {{ port }}
+    sql_endpoint_path = {{ sql_endpoint_path }}
+}
+    maria_db_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    my_sql_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    oracle_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    postgre_sql_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    presto_parameters = {
+    catalog = {{ catalog }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    rds_parameters = {
+    database = {{ database }}
+    instance_id = {{ instance_id }}
+}
+    redshift_parameters = {
+    cluster_id = {{ cluster_id }}
+    database = {{ database }}
+    host = {{ host }}
+    iam_parameters = {
+    auto_create_database_user = {{ auto_create_database_user }}
+    database_groups = {{ database_groups }}
+    database_user = {{ database_user }}
+    role_arn = {{ role_arn }}
+}
+    identity_center_configuration = {
+    enable_identity_propagation = {{ enable_identity_propagation }}
+}
+    port = {{ port }}
+}
+    s3_parameters = {
+    manifest_file_location = {
+    bucket = {{ bucket }}
+    key = {{ key }}
+}
+    role_arn = {{ role_arn }}
+}
+    snowflake_parameters = {
+    authentication_type = {{ authentication_type }}
+    database = {{ database }}
+    database_access_control_role = {{ database_access_control_role }}
+    host = {{ host }}
+    o_auth_parameters = {
+    identity_provider_resource_uri = {{ identity_provider_resource_uri }}
+    identity_provider_vpc_connection_properties = {
+    vpc_connection_arn = {{ vpc_connection_arn }}
+}
+    o_auth_scope = {{ o_auth_scope }}
+    token_provider_url = {{ token_provider_url }}
+}
+    warehouse = {{ warehouse }}
+}
+    spark_parameters = {
+    host = {{ host }}
+    port = {{ port }}
+}
+    sql_server_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    starburst_parameters = {
+    authentication_type = {{ authentication_type }}
+    catalog = {{ catalog }}
+    database_access_control_role = {{ database_access_control_role }}
+    host = {{ host }}
+    o_auth_parameters = {
+    identity_provider_resource_uri = {{ identity_provider_resource_uri }}
+    identity_provider_vpc_connection_properties = {
+    vpc_connection_arn = {{ vpc_connection_arn }}
+}
+    o_auth_scope = {{ o_auth_scope }}
+    token_provider_url = {{ token_provider_url }}
+}
+    port = {{ port }}
+    product_type = {{ product_type }}
+}
+    teradata_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    trino_parameters = {
+    catalog = {{ catalog }}
+    host = {{ host }}
+    port = {{ port }}
+}
+}"
+    arn = "{{ arn }}"
+    aws_account_id = "{{ aws_account_id }}"
+    created_time = "{{ created_time }}"
+    credentials = "{
+    copy_source_arn = {{ copy_source_arn }}
+    credential_pair = {
+    alternate_data_source_parameters = {
+    amazon_elasticsearch_parameters = {
+    domain = {{ domain }}
+}
+    amazon_open_search_parameters = {
+    domain = {{ domain }}
+}
+    athena_parameters = {
+    role_arn = {{ role_arn }}
+    work_group = {{ work_group }}
+}
+    aurora_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    aurora_postgre_sql_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    databricks_parameters = {
+    host = {{ host }}
+    port = {{ port }}
+    sql_endpoint_path = {{ sql_endpoint_path }}
+}
+    maria_db_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    my_sql_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    oracle_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    postgre_sql_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    presto_parameters = {
+    catalog = {{ catalog }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    rds_parameters = {
+    database = {{ database }}
+    instance_id = {{ instance_id }}
+}
+    redshift_parameters = {
+    cluster_id = {{ cluster_id }}
+    database = {{ database }}
+    host = {{ host }}
+    iam_parameters = {
+    auto_create_database_user = {{ auto_create_database_user }}
+    database_groups = {{ database_groups }}
+    database_user = {{ database_user }}
+    role_arn = {{ role_arn }}
+}
+    identity_center_configuration = {
+    enable_identity_propagation = {{ enable_identity_propagation }}
+}
+    port = {{ port }}
+}
+    s3_parameters = {
+    manifest_file_location = {
+    bucket = {{ bucket }}
+    key = {{ key }}
+}
+    role_arn = {{ role_arn }}
+}
+    snowflake_parameters = {
+    authentication_type = {{ authentication_type }}
+    database = {{ database }}
+    database_access_control_role = {{ database_access_control_role }}
+    host = {{ host }}
+    o_auth_parameters = {
+    identity_provider_resource_uri = {{ identity_provider_resource_uri }}
+    identity_provider_vpc_connection_properties = {
+    vpc_connection_arn = {{ vpc_connection_arn }}
+}
+    o_auth_scope = {{ o_auth_scope }}
+    token_provider_url = {{ token_provider_url }}
+}
+    warehouse = {{ warehouse }}
+}
+    spark_parameters = {
+    host = {{ host }}
+    port = {{ port }}
+}
+    sql_server_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    starburst_parameters = {
+    authentication_type = {{ authentication_type }}
+    catalog = {{ catalog }}
+    database_access_control_role = {{ database_access_control_role }}
+    host = {{ host }}
+    o_auth_parameters = {
+    identity_provider_resource_uri = {{ identity_provider_resource_uri }}
+    identity_provider_vpc_connection_properties = {
+    vpc_connection_arn = {{ vpc_connection_arn }}
+}
+    o_auth_scope = {{ o_auth_scope }}
+    token_provider_url = {{ token_provider_url }}
+}
+    port = {{ port }}
+    product_type = {{ product_type }}
+}
+    teradata_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    trino_parameters = {
+    catalog = {{ catalog }}
+    host = {{ host }}
+    port = {{ port }}
+}
+}
+    password = {{ password }}
+    username = {{ username }}
+}
+    secret_arn = {{ secret_arn }}
+}"
+    data_source_id = "{{ data_source_id }}"
+    data_source_parameters = "{
+    amazon_elasticsearch_parameters = {
+    domain = {{ domain }}
+}
+    amazon_open_search_parameters = {
+    domain = {{ domain }}
+}
+    athena_parameters = {
+    role_arn = {{ role_arn }}
+    work_group = {{ work_group }}
+}
+    aurora_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    aurora_postgre_sql_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    databricks_parameters = {
+    host = {{ host }}
+    port = {{ port }}
+    sql_endpoint_path = {{ sql_endpoint_path }}
+}
+    maria_db_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    my_sql_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    oracle_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    postgre_sql_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    presto_parameters = {
+    catalog = {{ catalog }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    rds_parameters = {
+    database = {{ database }}
+    instance_id = {{ instance_id }}
+}
+    redshift_parameters = {
+    cluster_id = {{ cluster_id }}
+    database = {{ database }}
+    host = {{ host }}
+    iam_parameters = {
+    auto_create_database_user = {{ auto_create_database_user }}
+    database_groups = {{ database_groups }}
+    database_user = {{ database_user }}
+    role_arn = {{ role_arn }}
+}
+    identity_center_configuration = {
+    enable_identity_propagation = {{ enable_identity_propagation }}
+}
+    port = {{ port }}
+}
+    s3_parameters = {
+    manifest_file_location = {
+    bucket = {{ bucket }}
+    key = {{ key }}
+}
+    role_arn = {{ role_arn }}
+}
+    snowflake_parameters = {
+    authentication_type = {{ authentication_type }}
+    database = {{ database }}
+    database_access_control_role = {{ database_access_control_role }}
+    host = {{ host }}
+    o_auth_parameters = {
+    identity_provider_resource_uri = {{ identity_provider_resource_uri }}
+    identity_provider_vpc_connection_properties = {
+    vpc_connection_arn = {{ vpc_connection_arn }}
+}
+    o_auth_scope = {{ o_auth_scope }}
+    token_provider_url = {{ token_provider_url }}
+}
+    warehouse = {{ warehouse }}
+}
+    spark_parameters = {
+    host = {{ host }}
+    port = {{ port }}
+}
+    sql_server_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    starburst_parameters = {
+    authentication_type = {{ authentication_type }}
+    catalog = {{ catalog }}
+    database_access_control_role = {{ database_access_control_role }}
+    host = {{ host }}
+    o_auth_parameters = {
+    identity_provider_resource_uri = {{ identity_provider_resource_uri }}
+    identity_provider_vpc_connection_properties = {
+    vpc_connection_arn = {{ vpc_connection_arn }}
+}
+    o_auth_scope = {{ o_auth_scope }}
+    token_provider_url = {{ token_provider_url }}
+}
+    port = {{ port }}
+    product_type = {{ product_type }}
+}
+    teradata_parameters = {
+    database = {{ database }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    trino_parameters = {
+    catalog = {{ catalog }}
+    host = {{ host }}
+    port = {{ port }}
+}
+}"
+    error_info = "{
+    message = {{ message }}
+    type = {{ type }}
+}"
+    folder_arns = "{{ folder_arns }}"
+    id = "{{ id }}"
+    last_updated_time = "{{ last_updated_time }}"
+    name = "{{ name }}"
+    permissions = "{
+    actions = {{ actions }}
+    principal = {{ principal }}
+    resource = {{ resource }}
+}"
+    ssl_properties = "{
+    disable_ssl = {{ disable_ssl }}
+}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+    vpc_connection_properties = "{
+    vpc_connection_arn = {{ vpc_connection_arn }}
+}"
+}

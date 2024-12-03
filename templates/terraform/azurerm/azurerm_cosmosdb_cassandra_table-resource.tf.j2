@@ -1,0 +1,8 @@
+resource "azurerm_cosmosdb_cassandra_table" "example" {
+    analytical_storage_ttl = "{{ analytical_storage_ttl }}"
+    cassandra_keyspace_id = "{{ cassandra_keyspace_id }}"
+    default_ttl = "{{ default_ttl }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    throughput = "{{ throughput }}"
+}

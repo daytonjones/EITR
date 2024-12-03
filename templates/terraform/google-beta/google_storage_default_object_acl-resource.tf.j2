@@ -1,0 +1,5 @@
+resource "google_storage_default_object_acl" "example" {
+    bucket = "{{ bucket }}"
+    id = "{{ id }}"
+    role_entity = "{{ role_entity }}"
+}

@@ -1,0 +1,7 @@
+resource "aws_grafana_role_association" "example" {
+    group_ids = "{{ group_ids }}"
+    id = "{{ id }}"
+    role = "{{ role }}"
+    user_ids = "{{ user_ids }}"
+    workspace_id = "{{ workspace_id }}"
+}

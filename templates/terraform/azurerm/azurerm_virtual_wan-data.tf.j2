@@ -1,0 +1,13 @@
+data "azurerm_virtual_wan" "example" {
+    allow_branch_to_branch_traffic = "{{ allow_branch_to_branch_traffic }}"
+    disable_vpn_encryption = "{{ disable_vpn_encryption }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    office365_local_breakout_category = "{{ office365_local_breakout_category }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku = "{{ sku }}"
+    tags = "{{ tags }}"
+    virtual_hub_ids = "{{ virtual_hub_ids }}"
+    vpn_site_ids = "{{ vpn_site_ids }}"
+}

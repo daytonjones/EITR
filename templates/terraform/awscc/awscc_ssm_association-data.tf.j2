@@ -1,0 +1,30 @@
+data "awscc_ssm_association" "example" {
+    apply_only_at_cron_interval = "{{ apply_only_at_cron_interval }}"
+    association_id = "{{ association_id }}"
+    association_name = "{{ association_name }}"
+    automation_target_parameter_name = "{{ automation_target_parameter_name }}"
+    calendar_names = "{{ calendar_names }}"
+    compliance_severity = "{{ compliance_severity }}"
+    document_version = "{{ document_version }}"
+    id = "{{ id }}"
+    instance_id = "{{ instance_id }}"
+    max_concurrency = "{{ max_concurrency }}"
+    max_errors = "{{ max_errors }}"
+    name = "{{ name }}"
+    output_location = "{
+    s3_location = {
+    output_s3_bucket_name = {{ output_s3_bucket_name }}
+    output_s3_key_prefix = {{ output_s3_key_prefix }}
+    output_s3_region = {{ output_s3_region }}
+}
+}"
+    parameters = "{{ parameters }}"
+    schedule_expression = "{{ schedule_expression }}"
+    schedule_offset = "{{ schedule_offset }}"
+    sync_compliance = "{{ sync_compliance }}"
+    targets = "{
+    key = {{ key }}
+    values = {{ values }}
+}"
+    wait_for_success_timeout_seconds = "{{ wait_for_success_timeout_seconds }}"
+}

@@ -1,0 +1,11 @@
+resource "awscc_route53recoveryreadiness_cell" "example" {
+    cell_arn = "{{ cell_arn }}"
+    cell_name = "{{ cell_name }}"
+    cells = "{{ cells }}"
+    id = "{{ id }}"
+    parent_readiness_scopes = "{{ parent_readiness_scopes }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,8 @@
+resource "google_apigee_sharedflow_deployment" "example" {
+    environment = "{{ environment }}"
+    id = "{{ id }}"
+    org_id = "{{ org_id }}"
+    revision = "{{ revision }}"
+    service_account = "{{ service_account }}"
+    sharedflow_id = "{{ sharedflow_id }}"
+}

@@ -1,0 +1,11 @@
+data "google_compute_instance_guest_attributes" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    query_path = "{{ query_path }}"
+    query_value = "{{ query_value }}"
+    region = "{{ region }}"
+    variable_key = "{{ variable_key }}"
+    variable_value = "{{ variable_value }}"
+    zone = "{{ zone }}"
+}

@@ -1,0 +1,11 @@
+resource "azurerm_automation_connection_service_principal" "example" {
+    application_id = "{{ application_id }}"
+    automation_account_name = "{{ automation_account_name }}"
+    certificate_thumbprint = "{{ certificate_thumbprint }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    subscription_id = "{{ subscription_id }}"
+    tenant_id = "{{ tenant_id }}"
+}

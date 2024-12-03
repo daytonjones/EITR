@@ -1,0 +1,14 @@
+resource "opc_storage_container" "example" {
+    allowed_origins = "{{ allowed_origins }}"
+    exposed_headers = "{{ exposed_headers }}"
+    id = "{{ id }}"
+    max_age = "{{ max_age }}"
+    metadata = "{{ metadata }}"
+    name = "{{ name }}"
+    primary_key = "{{ primary_key }}"
+    quota_bytes = "{{ quota_bytes }}"
+    quota_count = "{{ quota_count }}"
+    read_acls = "{{ read_acls }}"
+    secondary_key = "{{ secondary_key }}"
+    write_acls = "{{ write_acls }}"
+}

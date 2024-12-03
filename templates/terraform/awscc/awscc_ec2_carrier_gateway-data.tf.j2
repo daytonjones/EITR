@@ -1,0 +1,11 @@
+data "awscc_ec2_carrier_gateway" "example" {
+    carrier_gateway_id = "{{ carrier_gateway_id }}"
+    id = "{{ id }}"
+    owner_id = "{{ owner_id }}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    vpc_id = "{{ vpc_id }}"
+}

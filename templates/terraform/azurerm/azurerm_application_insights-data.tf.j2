@@ -1,0 +1,13 @@
+data "azurerm_application_insights" "example" {
+    app_id = "{{ app_id }}"
+    application_type = "{{ application_type }}"
+    connection_string = "{{ connection_string }}"
+    id = "{{ id }}"
+    instrumentation_key = "{{ instrumentation_key }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    retention_in_days = "{{ retention_in_days }}"
+    tags = "{{ tags }}"
+    workspace_id = "{{ workspace_id }}"
+}

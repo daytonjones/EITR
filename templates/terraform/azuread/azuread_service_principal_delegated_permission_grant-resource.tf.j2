@@ -1,0 +1,7 @@
+resource "azuread_service_principal_delegated_permission_grant" "example" {
+    claim_values = "{{ claim_values }}"
+    id = "{{ id }}"
+    resource_service_principal_object_id = "{{ resource_service_principal_object_id }}"
+    service_principal_object_id = "{{ service_principal_object_id }}"
+    user_object_id = "{{ user_object_id }}"
+}

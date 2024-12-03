@@ -1,0 +1,10 @@
+data "awscc_pcaconnectorad_connector" "example" {
+    certificate_authority_arn = "{{ certificate_authority_arn }}"
+    connector_arn = "{{ connector_arn }}"
+    directory_id = "{{ directory_id }}"
+    id = "{{ id }}"
+    tags = "{{ tags }}"
+    vpc_information = "{
+    security_group_ids = {{ security_group_ids }}
+}"
+}

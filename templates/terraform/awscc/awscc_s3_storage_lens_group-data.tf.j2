@@ -1,0 +1,57 @@
+data "awscc_s3_storage_lens_group" "example" {
+    filter = "{
+    and = {
+    match_any_prefix = {{ match_any_prefix }}
+    match_any_suffix = {{ match_any_suffix }}
+    match_any_tag = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    match_object_age = {
+    days_greater_than = {{ days_greater_than }}
+    days_less_than = {{ days_less_than }}
+}
+    match_object_size = {
+    bytes_greater_than = {{ bytes_greater_than }}
+    bytes_less_than = {{ bytes_less_than }}
+}
+}
+    match_any_prefix = {{ match_any_prefix }}
+    match_any_suffix = {{ match_any_suffix }}
+    match_any_tag = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    match_object_age = {
+    days_greater_than = {{ days_greater_than }}
+    days_less_than = {{ days_less_than }}
+}
+    match_object_size = {
+    bytes_greater_than = {{ bytes_greater_than }}
+    bytes_less_than = {{ bytes_less_than }}
+}
+    or = {
+    match_any_prefix = {{ match_any_prefix }}
+    match_any_suffix = {{ match_any_suffix }}
+    match_any_tag = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    match_object_age = {
+    days_greater_than = {{ days_greater_than }}
+    days_less_than = {{ days_less_than }}
+}
+    match_object_size = {
+    bytes_greater_than = {{ bytes_greater_than }}
+    bytes_less_than = {{ bytes_less_than }}
+}
+}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    storage_lens_group_arn = "{{ storage_lens_group_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

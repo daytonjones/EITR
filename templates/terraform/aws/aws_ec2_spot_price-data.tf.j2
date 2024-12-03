@@ -1,0 +1,7 @@
+data "aws_ec2_spot_price" "example" {
+    availability_zone = "{{ availability_zone }}"
+    id = "{{ id }}"
+    instance_type = "{{ instance_type }}"
+    spot_price = "{{ spot_price }}"
+    spot_price_timestamp = "{{ spot_price_timestamp }}"
+}

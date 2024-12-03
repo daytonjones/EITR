@@ -1,0 +1,22 @@
+resource "awscc_iot_thing_type" "example" {
+    arn = "{{ arn }}"
+    deprecate_thing_type = "{{ deprecate_thing_type }}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    thing_type_id = "{{ thing_type_id }}"
+    thing_type_name = "{{ thing_type_name }}"
+    thing_type_properties = "{
+    mqtt_5_configuration = {
+    propagating_attributes = {
+    connection_attribute = {{ connection_attribute }}
+    thing_attribute = {{ thing_attribute }}
+    user_property_key = {{ user_property_key }}
+}
+}
+    searchable_attributes = {{ searchable_attributes }}
+    thing_type_description = {{ thing_type_description }}
+}"
+}

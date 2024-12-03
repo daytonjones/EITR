@@ -1,0 +1,11 @@
+resource "azurerm_dashboard_grafana_managed_private_endpoint" "example" {
+    grafana_id = "{{ grafana_id }}"
+    group_ids = "{{ group_ids }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    private_link_resource_id = "{{ private_link_resource_id }}"
+    private_link_resource_region = "{{ private_link_resource_region }}"
+    request_message = "{{ request_message }}"
+    tags = "{{ tags }}"
+}

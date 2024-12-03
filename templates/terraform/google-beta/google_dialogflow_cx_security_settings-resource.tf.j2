@@ -1,0 +1,14 @@
+resource "google_dialogflow_cx_security_settings" "example" {
+    deidentify_template = "{{ deidentify_template }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    inspect_template = "{{ inspect_template }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    purge_data_types = "{{ purge_data_types }}"
+    redaction_scope = "{{ redaction_scope }}"
+    redaction_strategy = "{{ redaction_strategy }}"
+    retention_strategy = "{{ retention_strategy }}"
+    retention_window_days = "{{ retention_window_days }}"
+}

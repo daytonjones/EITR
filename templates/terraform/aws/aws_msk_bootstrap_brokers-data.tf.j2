@@ -1,0 +1,14 @@
+data "aws_msk_bootstrap_brokers" "example" {
+    bootstrap_brokers = "{{ bootstrap_brokers }}"
+    bootstrap_brokers_public_sasl_iam = "{{ bootstrap_brokers_public_sasl_iam }}"
+    bootstrap_brokers_public_sasl_scram = "{{ bootstrap_brokers_public_sasl_scram }}"
+    bootstrap_brokers_public_tls = "{{ bootstrap_brokers_public_tls }}"
+    bootstrap_brokers_sasl_iam = "{{ bootstrap_brokers_sasl_iam }}"
+    bootstrap_brokers_sasl_scram = "{{ bootstrap_brokers_sasl_scram }}"
+    bootstrap_brokers_tls = "{{ bootstrap_brokers_tls }}"
+    bootstrap_brokers_vpc_connectivity_sasl_iam = "{{ bootstrap_brokers_vpc_connectivity_sasl_iam }}"
+    bootstrap_brokers_vpc_connectivity_sasl_scram = "{{ bootstrap_brokers_vpc_connectivity_sasl_scram }}"
+    bootstrap_brokers_vpc_connectivity_tls = "{{ bootstrap_brokers_vpc_connectivity_tls }}"
+    cluster_arn = "{{ cluster_arn }}"
+    id = "{{ id }}"
+}

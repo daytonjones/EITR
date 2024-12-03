@@ -1,0 +1,10 @@
+data "awscc_msk_vpc_connection" "example" {
+    arn = "{{ arn }}"
+    authentication = "{{ authentication }}"
+    client_subnets = "{{ client_subnets }}"
+    id = "{{ id }}"
+    security_groups = "{{ security_groups }}"
+    tags = "{{ tags }}"
+    target_cluster_arn = "{{ target_cluster_arn }}"
+    vpc_id = "{{ vpc_id }}"
+}

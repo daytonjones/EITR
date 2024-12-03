@@ -1,0 +1,9 @@
+resource "aws_chime_voice_connector_termination" "example" {
+    calling_regions = "{{ calling_regions }}"
+    cidr_allow_list = "{{ cidr_allow_list }}"
+    cps_limit = "{{ cps_limit }}"
+    default_phone_number = "{{ default_phone_number }}"
+    disabled = "{{ disabled }}"
+    id = "{{ id }}"
+    voice_connector_id = "{{ voice_connector_id }}"
+}

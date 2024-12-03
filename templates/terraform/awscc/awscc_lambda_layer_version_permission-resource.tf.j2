@@ -1,0 +1,8 @@
+resource "awscc_lambda_layer_version_permission" "example" {
+    action = "{{ action }}"
+    id = "{{ id }}"
+    layer_version_arn = "{{ layer_version_arn }}"
+    layer_version_permission_id = "{{ layer_version_permission_id }}"
+    organization_id = "{{ organization_id }}"
+    principal = "{{ principal }}"
+}

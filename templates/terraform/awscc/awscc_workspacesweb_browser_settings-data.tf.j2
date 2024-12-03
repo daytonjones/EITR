@@ -1,0 +1,12 @@
+data "awscc_workspacesweb_browser_settings" "example" {
+    additional_encryption_context = "{{ additional_encryption_context }}"
+    associated_portal_arns = "{{ associated_portal_arns }}"
+    browser_policy = "{{ browser_policy }}"
+    browser_settings_arn = "{{ browser_settings_arn }}"
+    customer_managed_key = "{{ customer_managed_key }}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

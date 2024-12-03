@@ -1,0 +1,20 @@
+data "awscc_iotwireless_multicast_group" "example" {
+    arn = "{{ arn }}"
+    associate_wireless_device = "{{ associate_wireless_device }}"
+    description = "{{ description }}"
+    disassociate_wireless_device = "{{ disassociate_wireless_device }}"
+    id = "{{ id }}"
+    lo_ra_wan = "{
+    dl_class = {{ dl_class }}
+    number_of_devices_in_group = {{ number_of_devices_in_group }}
+    number_of_devices_requested = {{ number_of_devices_requested }}
+    rf_region = {{ rf_region }}
+}"
+    multicast_group_id = "{{ multicast_group_id }}"
+    name = "{{ name }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

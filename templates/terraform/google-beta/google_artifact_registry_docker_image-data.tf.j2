@@ -1,0 +1,15 @@
+data "google_artifact_registry_docker_image" "example" {
+    build_time = "{{ build_time }}"
+    id = "{{ id }}"
+    image_name = "{{ image_name }}"
+    image_size_bytes = "{{ image_size_bytes }}"
+    location = "{{ location }}"
+    media_type = "{{ media_type }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    repository_id = "{{ repository_id }}"
+    self_link = "{{ self_link }}"
+    tags = "{{ tags }}"
+    update_time = "{{ update_time }}"
+    upload_time = "{{ upload_time }}"
+}

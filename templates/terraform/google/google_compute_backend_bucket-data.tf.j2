@@ -1,0 +1,14 @@
+data "google_compute_backend_bucket" "example" {
+    bucket_name = "{{ bucket_name }}"
+    cdn_policy = "{{ cdn_policy }}"
+    compression_mode = "{{ compression_mode }}"
+    creation_timestamp = "{{ creation_timestamp }}"
+    custom_response_headers = "{{ custom_response_headers }}"
+    description = "{{ description }}"
+    edge_security_policy = "{{ edge_security_policy }}"
+    enable_cdn = "{{ enable_cdn }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    self_link = "{{ self_link }}"
+}

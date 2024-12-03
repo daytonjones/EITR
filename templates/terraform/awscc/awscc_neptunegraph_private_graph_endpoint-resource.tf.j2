@@ -1,0 +1,9 @@
+resource "awscc_neptunegraph_private_graph_endpoint" "example" {
+    graph_identifier = "{{ graph_identifier }}"
+    id = "{{ id }}"
+    private_graph_endpoint_identifier = "{{ private_graph_endpoint_identifier }}"
+    security_group_ids = "{{ security_group_ids }}"
+    subnet_ids = "{{ subnet_ids }}"
+    vpc_endpoint_id = "{{ vpc_endpoint_id }}"
+    vpc_id = "{{ vpc_id }}"
+}

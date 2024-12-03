@@ -1,0 +1,20 @@
+data "awscc_appconfig_configuration_profile" "example" {
+    application_id = "{{ application_id }}"
+    configuration_profile_id = "{{ configuration_profile_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    kms_key_arn = "{{ kms_key_arn }}"
+    kms_key_identifier = "{{ kms_key_identifier }}"
+    location_uri = "{{ location_uri }}"
+    name = "{{ name }}"
+    retrieval_role_arn = "{{ retrieval_role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+    validators = "{
+    content = {{ content }}
+    type = {{ type }}
+}"
+}

@@ -1,0 +1,12 @@
+resource "aws_rds_cluster_endpoint" "example" {
+    arn = "{{ arn }}"
+    cluster_endpoint_identifier = "{{ cluster_endpoint_identifier }}"
+    cluster_identifier = "{{ cluster_identifier }}"
+    custom_endpoint_type = "{{ custom_endpoint_type }}"
+    endpoint = "{{ endpoint }}"
+    excluded_members = "{{ excluded_members }}"
+    id = "{{ id }}"
+    static_members = "{{ static_members }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

@@ -1,0 +1,105 @@
+resource "awscc_acmpca_certificate" "example" {
+    api_passthrough = "{
+    extensions = {
+    certificate_policies = {
+    cert_policy_id = {{ cert_policy_id }}
+    policy_qualifiers = {
+    policy_qualifier_id = {{ policy_qualifier_id }}
+    qualifier = {
+    cps_uri = {{ cps_uri }}
+}
+}
+}
+    custom_extensions = {
+    critical = {{ critical }}
+    object_identifier = {{ object_identifier }}
+    value = {{ value }}
+}
+    extended_key_usage = {
+    extended_key_usage_object_identifier = {{ extended_key_usage_object_identifier }}
+    extended_key_usage_type = {{ extended_key_usage_type }}
+}
+    key_usage = {
+    crl_sign = {{ crl_sign }}
+    data_encipherment = {{ data_encipherment }}
+    decipher_only = {{ decipher_only }}
+    digital_signature = {{ digital_signature }}
+    encipher_only = {{ encipher_only }}
+    key_agreement = {{ key_agreement }}
+    key_cert_sign = {{ key_cert_sign }}
+    key_encipherment = {{ key_encipherment }}
+    non_repudiation = {{ non_repudiation }}
+}
+    subject_alternative_names = {
+    directory_name = {
+    common_name = {{ common_name }}
+    country = {{ country }}
+    custom_attributes = {
+    object_identifier = {{ object_identifier }}
+    value = {{ value }}
+}
+    distinguished_name_qualifier = {{ distinguished_name_qualifier }}
+    generation_qualifier = {{ generation_qualifier }}
+    given_name = {{ given_name }}
+    initials = {{ initials }}
+    locality = {{ locality }}
+    organization = {{ organization }}
+    organizational_unit = {{ organizational_unit }}
+    pseudonym = {{ pseudonym }}
+    serial_number = {{ serial_number }}
+    state = {{ state }}
+    surname = {{ surname }}
+    title = {{ title }}
+}
+    dns_name = {{ dns_name }}
+    edi_party_name = {
+    name_assigner = {{ name_assigner }}
+    party_name = {{ party_name }}
+}
+    ip_address = {{ ip_address }}
+    other_name = {
+    type_id = {{ type_id }}
+    value = {{ value }}
+}
+    registered_id = {{ registered_id }}
+    rfc_822_name = {{ rfc_822_name }}
+    uniform_resource_identifier = {{ uniform_resource_identifier }}
+}
+}
+    subject = {
+    common_name = {{ common_name }}
+    country = {{ country }}
+    custom_attributes = {
+    object_identifier = {{ object_identifier }}
+    value = {{ value }}
+}
+    distinguished_name_qualifier = {{ distinguished_name_qualifier }}
+    generation_qualifier = {{ generation_qualifier }}
+    given_name = {{ given_name }}
+    initials = {{ initials }}
+    locality = {{ locality }}
+    organization = {{ organization }}
+    organizational_unit = {{ organizational_unit }}
+    pseudonym = {{ pseudonym }}
+    serial_number = {{ serial_number }}
+    state = {{ state }}
+    surname = {{ surname }}
+    title = {{ title }}
+}
+}"
+    arn = "{{ arn }}"
+    certificate = "{{ certificate }}"
+    certificate_authority_arn = "{{ certificate_authority_arn }}"
+    certificate_signing_request = "{{ certificate_signing_request }}"
+    id = "{{ id }}"
+    signing_algorithm = "{{ signing_algorithm }}"
+    template_arn = "{{ template_arn }}"
+    validity = "{
+    type = {{ type }}
+    value = {{ value }}
+}"
+    validity_not_before = "{
+    type = {{ type }}
+    value = {{ value }}
+}"
+}

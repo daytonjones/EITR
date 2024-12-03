@@ -1,0 +1,16 @@
+data "azurerm_app_service_plan" "example" {
+    app_service_environment_id = "{{ app_service_environment_id }}"
+    id = "{{ id }}"
+    is_xenon = "{{ is_xenon }}"
+    kind = "{{ kind }}"
+    location = "{{ location }}"
+    maximum_elastic_worker_count = "{{ maximum_elastic_worker_count }}"
+    maximum_number_of_workers = "{{ maximum_number_of_workers }}"
+    name = "{{ name }}"
+    per_site_scaling = "{{ per_site_scaling }}"
+    reserved = "{{ reserved }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku = "{{ sku }}"
+    tags = "{{ tags }}"
+    zone_redundant = "{{ zone_redundant }}"
+}

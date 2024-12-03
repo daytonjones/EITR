@@ -1,0 +1,52 @@
+data "awscc_cloudwatch_alarm" "example" {
+    actions_enabled = "{{ actions_enabled }}"
+    alarm_actions = "{{ alarm_actions }}"
+    alarm_description = "{{ alarm_description }}"
+    alarm_name = "{{ alarm_name }}"
+    arn = "{{ arn }}"
+    comparison_operator = "{{ comparison_operator }}"
+    datapoints_to_alarm = "{{ datapoints_to_alarm }}"
+    dimensions = "{
+    name = {{ name }}
+    value = {{ value }}
+}"
+    evaluate_low_sample_count_percentile = "{{ evaluate_low_sample_count_percentile }}"
+    evaluation_periods = "{{ evaluation_periods }}"
+    extended_statistic = "{{ extended_statistic }}"
+    id = "{{ id }}"
+    insufficient_data_actions = "{{ insufficient_data_actions }}"
+    metric_name = "{{ metric_name }}"
+    metrics = "{
+    account_id = {{ account_id }}
+    expression = {{ expression }}
+    id = {{ id }}
+    label = {{ label }}
+    metric_stat = {
+    metric = {
+    dimensions = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    metric_name = {{ metric_name }}
+    namespace = {{ namespace }}
+}
+    period = {{ period }}
+    stat = {{ stat }}
+    unit = {{ unit }}
+}
+    period = {{ period }}
+    return_data = {{ return_data }}
+}"
+    namespace = "{{ namespace }}"
+    ok_actions = "{{ ok_actions }}"
+    period = "{{ period }}"
+    statistic = "{{ statistic }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    threshold = "{{ threshold }}"
+    threshold_metric_id = "{{ threshold_metric_id }}"
+    treat_missing_data = "{{ treat_missing_data }}"
+    unit = "{{ unit }}"
+}

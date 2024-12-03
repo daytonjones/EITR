@@ -1,0 +1,17 @@
+resource "google_netapp_backup_policy" "example" {
+    assigned_volume_count = "{{ assigned_volume_count }}"
+    create_time = "{{ create_time }}"
+    daily_backup_limit = "{{ daily_backup_limit }}"
+    description = "{{ description }}"
+    effective_labels = "{{ effective_labels }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    location = "{{ location }}"
+    monthly_backup_limit = "{{ monthly_backup_limit }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    state = "{{ state }}"
+    terraform_labels = "{{ terraform_labels }}"
+    weekly_backup_limit = "{{ weekly_backup_limit }}"
+}

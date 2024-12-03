@@ -1,0 +1,17 @@
+resource "azurerm_batch_account" "example" {
+    account_endpoint = "{{ account_endpoint }}"
+    allowed_authentication_modes = "{{ allowed_authentication_modes }}"
+    encryption = "{{ encryption }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    pool_allocation_mode = "{{ pool_allocation_mode }}"
+    primary_access_key = "{{ primary_access_key }}"
+    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    resource_group_name = "{{ resource_group_name }}"
+    secondary_access_key = "{{ secondary_access_key }}"
+    storage_account_authentication_mode = "{{ storage_account_authentication_mode }}"
+    storage_account_id = "{{ storage_account_id }}"
+    storage_account_node_identity = "{{ storage_account_node_identity }}"
+    tags = "{{ tags }}"
+}

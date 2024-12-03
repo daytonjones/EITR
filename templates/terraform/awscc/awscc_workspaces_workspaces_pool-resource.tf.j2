@@ -1,0 +1,26 @@
+resource "awscc_workspaces_workspaces_pool" "example" {
+    application_settings = "{
+    settings_group = {{ settings_group }}
+    status = {{ status }}
+}"
+    bundle_id = "{{ bundle_id }}"
+    capacity = "{
+    desired_user_sessions = {{ desired_user_sessions }}
+}"
+    created_at = "{{ created_at }}"
+    description = "{{ description }}"
+    directory_id = "{{ directory_id }}"
+    id = "{{ id }}"
+    pool_arn = "{{ pool_arn }}"
+    pool_id = "{{ pool_id }}"
+    pool_name = "{{ pool_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    timeout_settings = "{
+    disconnect_timeout_in_seconds = {{ disconnect_timeout_in_seconds }}
+    idle_disconnect_timeout_in_seconds = {{ idle_disconnect_timeout_in_seconds }}
+    max_user_duration_in_seconds = {{ max_user_duration_in_seconds }}
+}"
+}

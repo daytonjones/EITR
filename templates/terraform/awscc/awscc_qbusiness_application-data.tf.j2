@@ -1,0 +1,36 @@
+data "awscc_qbusiness_application" "example" {
+    application_arn = "{{ application_arn }}"
+    application_id = "{{ application_id }}"
+    attachments_configuration = "{
+    attachments_control_mode = {{ attachments_control_mode }}
+}"
+    auto_subscription_configuration = "{
+    auto_subscribe = {{ auto_subscribe }}
+    default_subscription_type = {{ default_subscription_type }}
+}"
+    client_ids_for_oidc = "{{ client_ids_for_oidc }}"
+    created_at = "{{ created_at }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    encryption_configuration = "{
+    kms_key_id = {{ kms_key_id }}
+}"
+    iam_identity_provider_arn = "{{ iam_identity_provider_arn }}"
+    id = "{{ id }}"
+    identity_center_application_arn = "{{ identity_center_application_arn }}"
+    identity_center_instance_arn = "{{ identity_center_instance_arn }}"
+    identity_type = "{{ identity_type }}"
+    personalization_configuration = "{
+    personalization_control_mode = {{ personalization_control_mode }}
+}"
+    q_apps_configuration = "{
+    q_apps_control_mode = {{ q_apps_control_mode }}
+}"
+    role_arn = "{{ role_arn }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    updated_at = "{{ updated_at }}"
+}

@@ -1,0 +1,5 @@
+data "aws_msk_broker_nodes" "example" {
+    cluster_arn = "{{ cluster_arn }}"
+    id = "{{ id }}"
+    node_info_list = "{{ node_info_list }}"
+}

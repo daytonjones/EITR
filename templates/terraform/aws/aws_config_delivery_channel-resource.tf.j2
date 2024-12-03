@@ -1,0 +1,8 @@
+resource "aws_config_delivery_channel" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    s3_bucket_name = "{{ s3_bucket_name }}"
+    s3_key_prefix = "{{ s3_key_prefix }}"
+    s3_kms_key_arn = "{{ s3_kms_key_arn }}"
+    sns_topic_arn = "{{ sns_topic_arn }}"
+}

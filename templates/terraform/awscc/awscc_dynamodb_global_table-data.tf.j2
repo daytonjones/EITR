@@ -1,0 +1,159 @@
+data "awscc_dynamodb_global_table" "example" {
+    arn = "{{ arn }}"
+    attribute_definitions = "{
+    attribute_name = {{ attribute_name }}
+    attribute_type = {{ attribute_type }}
+}"
+    billing_mode = "{{ billing_mode }}"
+    global_secondary_indexes = "{
+    index_name = {{ index_name }}
+    key_schema = {
+    attribute_name = {{ attribute_name }}
+    key_type = {{ key_type }}
+}
+    projection = {
+    non_key_attributes = {{ non_key_attributes }}
+    projection_type = {{ projection_type }}
+}
+    warm_throughput = {
+    read_units_per_second = {{ read_units_per_second }}
+    write_units_per_second = {{ write_units_per_second }}
+}
+    write_on_demand_throughput_settings = {
+    max_write_request_units = {{ max_write_request_units }}
+}
+    write_provisioned_throughput_settings = {
+    write_capacity_auto_scaling_settings = {
+    max_capacity = {{ max_capacity }}
+    min_capacity = {{ min_capacity }}
+    seed_capacity = {{ seed_capacity }}
+    target_tracking_scaling_policy_configuration = {
+    disable_scale_in = {{ disable_scale_in }}
+    scale_in_cooldown = {{ scale_in_cooldown }}
+    scale_out_cooldown = {{ scale_out_cooldown }}
+    target_value = {{ target_value }}
+}
+}
+}
+}"
+    id = "{{ id }}"
+    key_schema = "{
+    attribute_name = {{ attribute_name }}
+    key_type = {{ key_type }}
+}"
+    local_secondary_indexes = "{
+    index_name = {{ index_name }}
+    key_schema = {
+    attribute_name = {{ attribute_name }}
+    key_type = {{ key_type }}
+}
+    projection = {
+    non_key_attributes = {{ non_key_attributes }}
+    projection_type = {{ projection_type }}
+}
+}"
+    replicas = "{
+    contributor_insights_specification = {
+    enabled = {{ enabled }}
+}
+    deletion_protection_enabled = {{ deletion_protection_enabled }}
+    global_secondary_indexes = {
+    contributor_insights_specification = {
+    enabled = {{ enabled }}
+}
+    index_name = {{ index_name }}
+    read_on_demand_throughput_settings = {
+    max_read_request_units = {{ max_read_request_units }}
+}
+    read_provisioned_throughput_settings = {
+    read_capacity_auto_scaling_settings = {
+    max_capacity = {{ max_capacity }}
+    min_capacity = {{ min_capacity }}
+    seed_capacity = {{ seed_capacity }}
+    target_tracking_scaling_policy_configuration = {
+    disable_scale_in = {{ disable_scale_in }}
+    scale_in_cooldown = {{ scale_in_cooldown }}
+    scale_out_cooldown = {{ scale_out_cooldown }}
+    target_value = {{ target_value }}
+}
+}
+    read_capacity_units = {{ read_capacity_units }}
+}
+}
+    kinesis_stream_specification = {
+    approximate_creation_date_time_precision = {{ approximate_creation_date_time_precision }}
+    stream_arn = {{ stream_arn }}
+}
+    point_in_time_recovery_specification = {
+    point_in_time_recovery_enabled = {{ point_in_time_recovery_enabled }}
+}
+    read_on_demand_throughput_settings = {
+    max_read_request_units = {{ max_read_request_units }}
+}
+    read_provisioned_throughput_settings = {
+    read_capacity_auto_scaling_settings = {
+    max_capacity = {{ max_capacity }}
+    min_capacity = {{ min_capacity }}
+    seed_capacity = {{ seed_capacity }}
+    target_tracking_scaling_policy_configuration = {
+    disable_scale_in = {{ disable_scale_in }}
+    scale_in_cooldown = {{ scale_in_cooldown }}
+    scale_out_cooldown = {{ scale_out_cooldown }}
+    target_value = {{ target_value }}
+}
+}
+    read_capacity_units = {{ read_capacity_units }}
+}
+    region = {{ region }}
+    replica_stream_specification = {
+    resource_policy = {
+    policy_document = {{ policy_document }}
+}
+}
+    resource_policy = {
+    policy_document = {{ policy_document }}
+}
+    sse_specification = {
+    kms_master_key_id = {{ kms_master_key_id }}
+}
+    table_class = {{ table_class }}
+    tags = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}"
+    sse_specification = "{
+    sse_enabled = {{ sse_enabled }}
+    sse_type = {{ sse_type }}
+}"
+    stream_arn = "{{ stream_arn }}"
+    stream_specification = "{
+    stream_view_type = {{ stream_view_type }}
+}"
+    table_id = "{{ table_id }}"
+    table_name = "{{ table_name }}"
+    time_to_live_specification = "{
+    attribute_name = {{ attribute_name }}
+    enabled = {{ enabled }}
+}"
+    warm_throughput = "{
+    read_units_per_second = {{ read_units_per_second }}
+    write_units_per_second = {{ write_units_per_second }}
+}"
+    write_on_demand_throughput_settings = "{
+    max_write_request_units = {{ max_write_request_units }}
+}"
+    write_provisioned_throughput_settings = "{
+    write_capacity_auto_scaling_settings = {
+    max_capacity = {{ max_capacity }}
+    min_capacity = {{ min_capacity }}
+    seed_capacity = {{ seed_capacity }}
+    target_tracking_scaling_policy_configuration = {
+    disable_scale_in = {{ disable_scale_in }}
+    scale_in_cooldown = {{ scale_in_cooldown }}
+    scale_out_cooldown = {{ scale_out_cooldown }}
+    target_value = {{ target_value }}
+}
+}
+}"
+}

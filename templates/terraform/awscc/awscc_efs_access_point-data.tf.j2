@@ -1,0 +1,24 @@
+data "awscc_efs_access_point" "example" {
+    access_point_id = "{{ access_point_id }}"
+    access_point_tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    arn = "{{ arn }}"
+    client_token = "{{ client_token }}"
+    file_system_id = "{{ file_system_id }}"
+    id = "{{ id }}"
+    posix_user = "{
+    gid = {{ gid }}
+    secondary_gids = {{ secondary_gids }}
+    uid = {{ uid }}
+}"
+    root_directory = "{
+    creation_info = {
+    owner_gid = {{ owner_gid }}
+    owner_uid = {{ owner_uid }}
+    permissions = {{ permissions }}
+}
+    path = {{ path }}
+}"
+}

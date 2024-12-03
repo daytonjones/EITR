@@ -1,0 +1,16 @@
+resource "azurerm_iot_security_solution" "example" {
+    disabled_data_sources = "{{ disabled_data_sources }}"
+    display_name = "{{ display_name }}"
+    enabled = "{{ enabled }}"
+    events_to_export = "{{ events_to_export }}"
+    id = "{{ id }}"
+    iothub_ids = "{{ iothub_ids }}"
+    location = "{{ location }}"
+    log_analytics_workspace_id = "{{ log_analytics_workspace_id }}"
+    log_unmasked_ips_enabled = "{{ log_unmasked_ips_enabled }}"
+    name = "{{ name }}"
+    query_for_resources = "{{ query_for_resources }}"
+    query_subscription_ids = "{{ query_subscription_ids }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

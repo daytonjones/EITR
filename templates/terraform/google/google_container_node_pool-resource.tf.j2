@@ -1,0 +1,16 @@
+resource "google_container_node_pool" "example" {
+    cluster = "{{ cluster }}"
+    id = "{{ id }}"
+    initial_node_count = "{{ initial_node_count }}"
+    instance_group_urls = "{{ instance_group_urls }}"
+    location = "{{ location }}"
+    managed_instance_group_urls = "{{ managed_instance_group_urls }}"
+    max_pods_per_node = "{{ max_pods_per_node }}"
+    name = "{{ name }}"
+    name_prefix = "{{ name_prefix }}"
+    node_count = "{{ node_count }}"
+    node_locations = "{{ node_locations }}"
+    operation = "{{ operation }}"
+    project = "{{ project }}"
+    version = "{{ version }}"
+}

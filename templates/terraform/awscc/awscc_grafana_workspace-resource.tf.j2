@@ -1,0 +1,52 @@
+resource "awscc_grafana_workspace" "example" {
+    account_access_type = "{{ account_access_type }}"
+    authentication_providers = "{{ authentication_providers }}"
+    client_token = "{{ client_token }}"
+    creation_timestamp = "{{ creation_timestamp }}"
+    data_sources = "{{ data_sources }}"
+    description = "{{ description }}"
+    endpoint = "{{ endpoint }}"
+    grafana_version = "{{ grafana_version }}"
+    id = "{{ id }}"
+    modification_timestamp = "{{ modification_timestamp }}"
+    name = "{{ name }}"
+    network_access_control = "{
+    prefix_list_ids = {{ prefix_list_ids }}
+    vpce_ids = {{ vpce_ids }}
+}"
+    notification_destinations = "{{ notification_destinations }}"
+    organization_role_name = "{{ organization_role_name }}"
+    organizational_units = "{{ organizational_units }}"
+    permission_type = "{{ permission_type }}"
+    plugin_admin_enabled = "{{ plugin_admin_enabled }}"
+    role_arn = "{{ role_arn }}"
+    saml_configuration = "{
+    allowed_organizations = {{ allowed_organizations }}
+    assertion_attributes = {
+    email = {{ email }}
+    groups = {{ groups }}
+    login = {{ login }}
+    name = {{ name }}
+    org = {{ org }}
+    role = {{ role }}
+}
+    idp_metadata = {
+    url = {{ url }}
+    xml = {{ xml }}
+}
+    login_validity_duration = {{ login_validity_duration }}
+    role_values = {
+    admin = {{ admin }}
+    editor = {{ editor }}
+}
+}"
+    saml_configuration_status = "{{ saml_configuration_status }}"
+    sso_client_id = "{{ sso_client_id }}"
+    stack_set_name = "{{ stack_set_name }}"
+    status = "{{ status }}"
+    vpc_configuration = "{
+    security_group_ids = {{ security_group_ids }}
+    subnet_ids = {{ subnet_ids }}
+}"
+    workspace_id = "{{ workspace_id }}"
+}

@@ -1,0 +1,14 @@
+resource "azurestack_lb_nat_rule" "example" {
+    backend_ip_configuration_id = "{{ backend_ip_configuration_id }}"
+    backend_port = "{{ backend_port }}"
+    enable_floating_ip = "{{ enable_floating_ip }}"
+    frontend_ip_configuration_id = "{{ frontend_ip_configuration_id }}"
+    frontend_ip_configuration_name = "{{ frontend_ip_configuration_name }}"
+    frontend_port = "{{ frontend_port }}"
+    id = "{{ id }}"
+    idle_timeout_in_minutes = "{{ idle_timeout_in_minutes }}"
+    loadbalancer_id = "{{ loadbalancer_id }}"
+    name = "{{ name }}"
+    protocol = "{{ protocol }}"
+    resource_group_name = "{{ resource_group_name }}"
+}

@@ -1,0 +1,16 @@
+data "aws_batch_job_definition" "example" {
+    arn = "{{ arn }}"
+    arn_prefix = "{{ arn_prefix }}"
+    container_orchestration_type = "{{ container_orchestration_type }}"
+    eks_properties = "{{ eks_properties }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    node_properties = "{{ node_properties }}"
+    retry_strategy = "{{ retry_strategy }}"
+    revision = "{{ revision }}"
+    scheduling_priority = "{{ scheduling_priority }}"
+    status = "{{ status }}"
+    tags = "{{ tags }}"
+    timeout = "{{ timeout }}"
+    type = "{{ type }}"
+}

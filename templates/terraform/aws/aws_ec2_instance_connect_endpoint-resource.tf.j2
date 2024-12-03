@@ -1,0 +1,15 @@
+resource "aws_ec2_instance_connect_endpoint" "example" {
+    arn = "{{ arn }}"
+    availability_zone = "{{ availability_zone }}"
+    dns_name = "{{ dns_name }}"
+    fips_dns_name = "{{ fips_dns_name }}"
+    id = "{{ id }}"
+    network_interface_ids = "{{ network_interface_ids }}"
+    owner_id = "{{ owner_id }}"
+    preserve_client_ip = "{{ preserve_client_ip }}"
+    security_group_ids = "{{ security_group_ids }}"
+    subnet_id = "{{ subnet_id }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    vpc_id = "{{ vpc_id }}"
+}

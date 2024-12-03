@@ -1,0 +1,12 @@
+resource "aws_dx_bgp_peer" "example" {
+    address_family = "{{ address_family }}"
+    amazon_address = "{{ amazon_address }}"
+    aws_device = "{{ aws_device }}"
+    bgp_asn = "{{ bgp_asn }}"
+    bgp_auth_key = "{{ bgp_auth_key }}"
+    bgp_peer_id = "{{ bgp_peer_id }}"
+    bgp_status = "{{ bgp_status }}"
+    customer_address = "{{ customer_address }}"
+    id = "{{ id }}"
+    virtual_interface_id = "{{ virtual_interface_id }}"
+}

@@ -1,0 +1,27 @@
+resource "awscc_cleanrooms_analysis_template" "example" {
+    analysis_parameters = "{
+    default_value = {{ default_value }}
+    name = {{ name }}
+    type = {{ type }}
+}"
+    analysis_template_identifier = "{{ analysis_template_identifier }}"
+    arn = "{{ arn }}"
+    collaboration_arn = "{{ collaboration_arn }}"
+    collaboration_identifier = "{{ collaboration_identifier }}"
+    description = "{{ description }}"
+    format = "{{ format }}"
+    id = "{{ id }}"
+    membership_arn = "{{ membership_arn }}"
+    membership_identifier = "{{ membership_identifier }}"
+    name = "{{ name }}"
+    schema = "{
+    referenced_tables = {{ referenced_tables }}
+}"
+    source = "{
+    text = {{ text }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

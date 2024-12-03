@@ -1,0 +1,17 @@
+resource "azurerm_snapshot" "example" {
+    create_option = "{{ create_option }}"
+    disk_access_id = "{{ disk_access_id }}"
+    disk_size_gb = "{{ disk_size_gb }}"
+    id = "{{ id }}"
+    incremental_enabled = "{{ incremental_enabled }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    network_access_policy = "{{ network_access_policy }}"
+    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    resource_group_name = "{{ resource_group_name }}"
+    source_resource_id = "{{ source_resource_id }}"
+    source_uri = "{{ source_uri }}"
+    storage_account_id = "{{ storage_account_id }}"
+    tags = "{{ tags }}"
+    trusted_launch_enabled = "{{ trusted_launch_enabled }}"
+}

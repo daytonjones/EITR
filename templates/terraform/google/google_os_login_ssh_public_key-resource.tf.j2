@@ -1,0 +1,8 @@
+resource "google_os_login_ssh_public_key" "example" {
+    expiration_time_usec = "{{ expiration_time_usec }}"
+    fingerprint = "{{ fingerprint }}"
+    id = "{{ id }}"
+    key = "{{ key }}"
+    project = "{{ project }}"
+    user = "{{ user }}"
+}

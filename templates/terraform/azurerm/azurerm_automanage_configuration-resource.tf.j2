@@ -1,0 +1,13 @@
+resource "azurerm_automanage_configuration" "example" {
+    automation_account_enabled = "{{ automation_account_enabled }}"
+    boot_diagnostics_enabled = "{{ boot_diagnostics_enabled }}"
+    defender_for_cloud_enabled = "{{ defender_for_cloud_enabled }}"
+    guest_configuration_enabled = "{{ guest_configuration_enabled }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    log_analytics_enabled = "{{ log_analytics_enabled }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    status_change_alert_enabled = "{{ status_change_alert_enabled }}"
+    tags = "{{ tags }}"
+}

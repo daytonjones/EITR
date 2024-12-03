@@ -1,0 +1,32 @@
+resource "awscc_ssmcontacts_rotation" "example" {
+    arn = "{{ arn }}"
+    contact_ids = "{{ contact_ids }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    recurrence = "{
+    daily_settings = {{ daily_settings }}
+    monthly_settings = {
+    day_of_month = {{ day_of_month }}
+    hand_off_time = {{ hand_off_time }}
+}
+    number_of_on_calls = {{ number_of_on_calls }}
+    recurrence_multiplier = {{ recurrence_multiplier }}
+    shift_coverages = {
+    coverage_times = {
+    end_time = {{ end_time }}
+    start_time = {{ start_time }}
+}
+    day_of_week = {{ day_of_week }}
+}
+    weekly_settings = {
+    day_of_week = {{ day_of_week }}
+    hand_off_time = {{ hand_off_time }}
+}
+}"
+    start_time = "{{ start_time }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    time_zone_id = "{{ time_zone_id }}"
+}

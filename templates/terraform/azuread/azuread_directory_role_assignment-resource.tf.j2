@@ -1,0 +1,7 @@
+resource "azuread_directory_role_assignment" "example" {
+    app_scope_id = "{{ app_scope_id }}"
+    directory_scope_id = "{{ directory_scope_id }}"
+    id = "{{ id }}"
+    principal_object_id = "{{ principal_object_id }}"
+    role_id = "{{ role_id }}"
+}

@@ -1,0 +1,14 @@
+resource "awscc_managedblockchain_accessor" "example" {
+    accessor_id = "{{ accessor_id }}"
+    accessor_type = "{{ accessor_type }}"
+    arn = "{{ arn }}"
+    billing_token = "{{ billing_token }}"
+    creation_date = "{{ creation_date }}"
+    id = "{{ id }}"
+    network_type = "{{ network_type }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

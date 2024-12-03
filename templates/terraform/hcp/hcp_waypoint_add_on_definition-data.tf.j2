@@ -1,0 +1,23 @@
+data "hcp_waypoint_add_on_definition" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    name = "{{ name }}"
+    organization_id = "{{ organization_id }}"
+    project_id = "{{ project_id }}"
+    readme_markdown_template = "{{ readme_markdown_template }}"
+    summary = "{{ summary }}"
+    terraform_agent_pool_id = "{{ terraform_agent_pool_id }}"
+    terraform_cloud_workspace_details = "{
+    name = {{ name }}
+    terraform_project_id = {{ terraform_project_id }}
+}"
+    terraform_execution_mode = "{{ terraform_execution_mode }}"
+    terraform_no_code_module_source = "{{ terraform_no_code_module_source }}"
+    variable_options = "{
+    name = {{ name }}
+    options = {{ options }}
+    user_editable = {{ user_editable }}
+    variable_type = {{ variable_type }}
+}"
+}

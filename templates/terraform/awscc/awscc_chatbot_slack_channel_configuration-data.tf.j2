@@ -1,0 +1,17 @@
+data "awscc_chatbot_slack_channel_configuration" "example" {
+    arn = "{{ arn }}"
+    configuration_name = "{{ configuration_name }}"
+    customization_resource_arns = "{{ customization_resource_arns }}"
+    guardrail_policies = "{{ guardrail_policies }}"
+    iam_role_arn = "{{ iam_role_arn }}"
+    id = "{{ id }}"
+    logging_level = "{{ logging_level }}"
+    slack_channel_id = "{{ slack_channel_id }}"
+    slack_workspace_id = "{{ slack_workspace_id }}"
+    sns_topic_arns = "{{ sns_topic_arns }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    user_role_required = "{{ user_role_required }}"
+}

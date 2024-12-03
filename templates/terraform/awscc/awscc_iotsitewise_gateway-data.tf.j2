@@ -1,0 +1,24 @@
+data "awscc_iotsitewise_gateway" "example" {
+    gateway_capability_summaries = "{
+    capability_configuration = {{ capability_configuration }}
+    capability_namespace = {{ capability_namespace }}
+}"
+    gateway_id = "{{ gateway_id }}"
+    gateway_name = "{{ gateway_name }}"
+    gateway_platform = "{
+    greengrass = {
+    group_arn = {{ group_arn }}
+}
+    greengrass_v2 = {
+    core_device_thing_name = {{ core_device_thing_name }}
+}
+    siemens_ie = {
+    iot_core_thing_name = {{ iot_core_thing_name }}
+}
+}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

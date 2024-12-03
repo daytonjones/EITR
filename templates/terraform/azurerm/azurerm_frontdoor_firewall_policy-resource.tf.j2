@@ -1,0 +1,13 @@
+resource "azurerm_frontdoor_firewall_policy" "example" {
+    custom_block_response_body = "{{ custom_block_response_body }}"
+    custom_block_response_status_code = "{{ custom_block_response_status_code }}"
+    enabled = "{{ enabled }}"
+    frontend_endpoint_ids = "{{ frontend_endpoint_ids }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    mode = "{{ mode }}"
+    name = "{{ name }}"
+    redirect_url = "{{ redirect_url }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

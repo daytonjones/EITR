@@ -1,0 +1,18 @@
+resource "awscc_vpclattice_service_network_vpc_association" "example" {
+    arn = "{{ arn }}"
+    created_at = "{{ created_at }}"
+    id = "{{ id }}"
+    security_group_ids = "{{ security_group_ids }}"
+    service_network_arn = "{{ service_network_arn }}"
+    service_network_id = "{{ service_network_id }}"
+    service_network_identifier = "{{ service_network_identifier }}"
+    service_network_name = "{{ service_network_name }}"
+    service_network_vpc_association_id = "{{ service_network_vpc_association_id }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    vpc_id = "{{ vpc_id }}"
+    vpc_identifier = "{{ vpc_identifier }}"
+}

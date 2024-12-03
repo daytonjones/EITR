@@ -1,0 +1,17 @@
+data "hcp_packer_artifact" "example" {
+    bucket_name = "{{ bucket_name }}"
+    build_id = "{{ build_id }}"
+    channel_name = "{{ channel_name }}"
+    component_type = "{{ component_type }}"
+    created_at = "{{ created_at }}"
+    external_identifier = "{{ external_identifier }}"
+    id = "{{ id }}"
+    labels = "{{ labels }}"
+    organization_id = "{{ organization_id }}"
+    packer_run_uuid = "{{ packer_run_uuid }}"
+    platform = "{{ platform }}"
+    project_id = "{{ project_id }}"
+    region = "{{ region }}"
+    revoke_at = "{{ revoke_at }}"
+    version_fingerprint = "{{ version_fingerprint }}"
+}

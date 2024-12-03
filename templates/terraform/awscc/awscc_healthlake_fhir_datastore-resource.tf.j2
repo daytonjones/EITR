@@ -1,0 +1,32 @@
+resource "awscc_healthlake_fhir_datastore" "example" {
+    created_at = "{
+    nanos = {{ nanos }}
+    seconds = {{ seconds }}
+}"
+    datastore_arn = "{{ datastore_arn }}"
+    datastore_endpoint = "{{ datastore_endpoint }}"
+    datastore_id = "{{ datastore_id }}"
+    datastore_name = "{{ datastore_name }}"
+    datastore_status = "{{ datastore_status }}"
+    datastore_type_version = "{{ datastore_type_version }}"
+    id = "{{ id }}"
+    identity_provider_configuration = "{
+    authorization_strategy = {{ authorization_strategy }}
+    fine_grained_authorization_enabled = {{ fine_grained_authorization_enabled }}
+    idp_lambda_arn = {{ idp_lambda_arn }}
+    metadata = {{ metadata }}
+}"
+    preload_data_config = "{
+    preload_data_type = {{ preload_data_type }}
+}"
+    sse_configuration = "{
+    kms_encryption_config = {
+    cmk_type = {{ cmk_type }}
+    kms_key_id = {{ kms_key_id }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

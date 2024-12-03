@@ -1,0 +1,18 @@
+data "awscc_appsync_source_api_association" "example" {
+    association_arn = "{{ association_arn }}"
+    association_id = "{{ association_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    last_successful_merge_date = "{{ last_successful_merge_date }}"
+    merged_api_arn = "{{ merged_api_arn }}"
+    merged_api_id = "{{ merged_api_id }}"
+    merged_api_identifier = "{{ merged_api_identifier }}"
+    source_api_arn = "{{ source_api_arn }}"
+    source_api_association_config = "{
+    merge_type = {{ merge_type }}
+}"
+    source_api_association_status = "{{ source_api_association_status }}"
+    source_api_association_status_detail = "{{ source_api_association_status_detail }}"
+    source_api_id = "{{ source_api_id }}"
+    source_api_identifier = "{{ source_api_identifier }}"
+}

@@ -1,0 +1,16 @@
+resource "azurerm_ai_services" "example" {
+    custom_subdomain_name = "{{ custom_subdomain_name }}"
+    endpoint = "{{ endpoint }}"
+    fqdns = "{{ fqdns }}"
+    id = "{{ id }}"
+    local_authentication_enabled = "{{ local_authentication_enabled }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    outbound_network_access_restricted = "{{ outbound_network_access_restricted }}"
+    primary_access_key = "{{ primary_access_key }}"
+    public_network_access = "{{ public_network_access }}"
+    resource_group_name = "{{ resource_group_name }}"
+    secondary_access_key = "{{ secondary_access_key }}"
+    sku_name = "{{ sku_name }}"
+    tags = "{{ tags }}"
+}

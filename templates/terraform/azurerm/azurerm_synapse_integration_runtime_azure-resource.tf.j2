@@ -1,0 +1,10 @@
+resource "azurerm_synapse_integration_runtime_azure" "example" {
+    compute_type = "{{ compute_type }}"
+    core_count = "{{ core_count }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    synapse_workspace_id = "{{ synapse_workspace_id }}"
+    time_to_live_min = "{{ time_to_live_min }}"
+}

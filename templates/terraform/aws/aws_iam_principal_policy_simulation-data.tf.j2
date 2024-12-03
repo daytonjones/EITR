@@ -1,0 +1,14 @@
+data "aws_iam_principal_policy_simulation" "example" {
+    action_names = "{{ action_names }}"
+    additional_policies_json = "{{ additional_policies_json }}"
+    all_allowed = "{{ all_allowed }}"
+    caller_arn = "{{ caller_arn }}"
+    id = "{{ id }}"
+    permissions_boundary_policies_json = "{{ permissions_boundary_policies_json }}"
+    policy_source_arn = "{{ policy_source_arn }}"
+    resource_arns = "{{ resource_arns }}"
+    resource_handling_option = "{{ resource_handling_option }}"
+    resource_owner_account_id = "{{ resource_owner_account_id }}"
+    resource_policy_json = "{{ resource_policy_json }}"
+    results = "{{ results }}"
+}

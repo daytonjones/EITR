@@ -1,0 +1,8 @@
+data "aws_backup_selection" "example" {
+    iam_role_arn = "{{ iam_role_arn }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    plan_id = "{{ plan_id }}"
+    resources = "{{ resources }}"
+    selection_id = "{{ selection_id }}"
+}

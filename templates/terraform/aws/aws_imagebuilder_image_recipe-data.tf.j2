@@ -1,0 +1,16 @@
+data "aws_imagebuilder_image_recipe" "example" {
+    arn = "{{ arn }}"
+    block_device_mapping = "{{ block_device_mapping }}"
+    component = "{{ component }}"
+    date_created = "{{ date_created }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    owner = "{{ owner }}"
+    parent_image = "{{ parent_image }}"
+    platform = "{{ platform }}"
+    tags = "{{ tags }}"
+    user_data_base64 = "{{ user_data_base64 }}"
+    version = "{{ version }}"
+    working_directory = "{{ working_directory }}"
+}

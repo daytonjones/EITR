@@ -1,0 +1,13 @@
+data "aws_s3_bucket_objects" "example" {
+    bucket = "{{ bucket }}"
+    common_prefixes = "{{ common_prefixes }}"
+    delimiter = "{{ delimiter }}"
+    encoding_type = "{{ encoding_type }}"
+    fetch_owner = "{{ fetch_owner }}"
+    id = "{{ id }}"
+    keys = "{{ keys }}"
+    max_keys = "{{ max_keys }}"
+    owners = "{{ owners }}"
+    prefix = "{{ prefix }}"
+    start_after = "{{ start_after }}"
+}

@@ -1,0 +1,41 @@
+data "awscc_entityresolution_id_mapping_workflow" "example" {
+    created_at = "{{ created_at }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    id_mapping_techniques = "{
+    id_mapping_type = {{ id_mapping_type }}
+    provider_properties = {
+    intermediate_source_configuration = {
+    intermediate_s3_path = {{ intermediate_s3_path }}
+}
+    provider_configuration = {{ provider_configuration }}
+    provider_service_arn = {{ provider_service_arn }}
+}
+    rule_based_properties = {
+    attribute_matching_model = {{ attribute_matching_model }}
+    record_matching_model = {{ record_matching_model }}
+    rule_definition_type = {{ rule_definition_type }}
+    rules = {
+    matching_keys = {{ matching_keys }}
+    rule_name = {{ rule_name }}
+}
+}
+}"
+    input_source_config = "{
+    input_source_arn = {{ input_source_arn }}
+    schema_arn = {{ schema_arn }}
+    type = {{ type }}
+}"
+    output_source_config = "{
+    kms_arn = {{ kms_arn }}
+    output_s3_path = {{ output_s3_path }}
+}"
+    role_arn = "{{ role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    updated_at = "{{ updated_at }}"
+    workflow_arn = "{{ workflow_arn }}"
+    workflow_name = "{{ workflow_name }}"
+}

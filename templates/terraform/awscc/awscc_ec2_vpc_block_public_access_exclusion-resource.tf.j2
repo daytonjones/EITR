@@ -1,0 +1,11 @@
+resource "awscc_ec2_vpc_block_public_access_exclusion" "example" {
+    exclusion_id = "{{ exclusion_id }}"
+    id = "{{ id }}"
+    internet_gateway_exclusion_mode = "{{ internet_gateway_exclusion_mode }}"
+    subnet_id = "{{ subnet_id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    vpc_id = "{{ vpc_id }}"
+}

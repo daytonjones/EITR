@@ -1,0 +1,12 @@
+resource "azurerm_network_manager_admin_rule" "example" {
+    action = "{{ action }}"
+    admin_rule_collection_id = "{{ admin_rule_collection_id }}"
+    description = "{{ description }}"
+    destination_port_ranges = "{{ destination_port_ranges }}"
+    direction = "{{ direction }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    priority = "{{ priority }}"
+    protocol = "{{ protocol }}"
+    source_port_ranges = "{{ source_port_ranges }}"
+}

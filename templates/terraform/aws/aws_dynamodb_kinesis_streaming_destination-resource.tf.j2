@@ -1,0 +1,6 @@
+resource "aws_dynamodb_kinesis_streaming_destination" "example" {
+    approximate_creation_date_time_precision = "{{ approximate_creation_date_time_precision }}"
+    id = "{{ id }}"
+    stream_arn = "{{ stream_arn }}"
+    table_name = "{{ table_name }}"
+}

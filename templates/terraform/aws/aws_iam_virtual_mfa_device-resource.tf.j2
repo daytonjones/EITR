@@ -1,0 +1,12 @@
+resource "aws_iam_virtual_mfa_device" "example" {
+    arn = "{{ arn }}"
+    base_32_string_seed = "{{ base_32_string_seed }}"
+    enable_date = "{{ enable_date }}"
+    id = "{{ id }}"
+    path = "{{ path }}"
+    qr_code_png = "{{ qr_code_png }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    user_name = "{{ user_name }}"
+    virtual_mfa_device_name = "{{ virtual_mfa_device_name }}"
+}

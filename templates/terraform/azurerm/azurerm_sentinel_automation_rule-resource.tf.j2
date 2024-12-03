@@ -1,0 +1,12 @@
+resource "azurerm_sentinel_automation_rule" "example" {
+    condition_json = "{{ condition_json }}"
+    display_name = "{{ display_name }}"
+    enabled = "{{ enabled }}"
+    expiration = "{{ expiration }}"
+    id = "{{ id }}"
+    log_analytics_workspace_id = "{{ log_analytics_workspace_id }}"
+    name = "{{ name }}"
+    order = "{{ order }}"
+    triggers_on = "{{ triggers_on }}"
+    triggers_when = "{{ triggers_when }}"
+}

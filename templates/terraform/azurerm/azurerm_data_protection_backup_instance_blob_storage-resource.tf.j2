@@ -1,0 +1,9 @@
+resource "azurerm_data_protection_backup_instance_blob_storage" "example" {
+    backup_policy_id = "{{ backup_policy_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    storage_account_container_names = "{{ storage_account_container_names }}"
+    storage_account_id = "{{ storage_account_id }}"
+    vault_id = "{{ vault_id }}"
+}

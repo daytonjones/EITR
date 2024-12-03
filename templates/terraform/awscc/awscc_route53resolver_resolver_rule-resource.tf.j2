@@ -1,0 +1,20 @@
+resource "awscc_route53resolver_resolver_rule" "example" {
+    arn = "{{ arn }}"
+    domain_name = "{{ domain_name }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resolver_endpoint_id = "{{ resolver_endpoint_id }}"
+    resolver_rule_id = "{{ resolver_rule_id }}"
+    rule_type = "{{ rule_type }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    target_ips = "{
+    ip = {{ ip }}
+    ipv_6 = {{ ipv_6 }}
+    port = {{ port }}
+    protocol = {{ protocol }}
+    server_name_indication = {{ server_name_indication }}
+}"
+}

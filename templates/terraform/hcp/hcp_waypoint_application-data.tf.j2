@@ -1,0 +1,21 @@
+data "hcp_waypoint_application" "example" {
+    id = "{{ id }}"
+    input_variables = "{
+    name = {{ name }}
+    value = {{ value }}
+    variable_type = {{ variable_type }}
+}"
+    name = "{{ name }}"
+    namespace_id = "{{ namespace_id }}"
+    organization_id = "{{ organization_id }}"
+    output_values = "{
+    name = {{ name }}
+    sensitive = {{ sensitive }}
+    type = {{ type }}
+    value = {{ value }}
+}"
+    project_id = "{{ project_id }}"
+    readme_markdown = "{{ readme_markdown }}"
+    template_id = "{{ template_id }}"
+    template_name = "{{ template_name }}"
+}

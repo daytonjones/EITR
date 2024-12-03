@@ -1,0 +1,12 @@
+resource "azurestack_virtual_machine_scale_set_extension" "example" {
+    auto_upgrade_minor_version = "{{ auto_upgrade_minor_version }}"
+    force_update_tag = "{{ force_update_tag }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    protected_settings = "{{ protected_settings }}"
+    publisher = "{{ publisher }}"
+    settings = "{{ settings }}"
+    type = "{{ type }}"
+    type_handler_version = "{{ type_handler_version }}"
+    virtual_machine_scale_set_id = "{{ virtual_machine_scale_set_id }}"
+}

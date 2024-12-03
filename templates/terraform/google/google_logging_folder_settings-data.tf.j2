@@ -1,0 +1,10 @@
+data "google_logging_folder_settings" "example" {
+    disable_default_sink = "{{ disable_default_sink }}"
+    folder = "{{ folder }}"
+    id = "{{ id }}"
+    kms_key_name = "{{ kms_key_name }}"
+    kms_service_account_id = "{{ kms_service_account_id }}"
+    logging_service_account_id = "{{ logging_service_account_id }}"
+    name = "{{ name }}"
+    storage_location = "{{ storage_location }}"
+}

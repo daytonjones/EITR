@@ -1,0 +1,104 @@
+data "awscc_acmpca_certificate_authority" "example" {
+    arn = "{{ arn }}"
+    certificate_signing_request = "{{ certificate_signing_request }}"
+    csr_extensions = "{
+    key_usage = {
+    crl_sign = {{ crl_sign }}
+    data_encipherment = {{ data_encipherment }}
+    decipher_only = {{ decipher_only }}
+    digital_signature = {{ digital_signature }}
+    encipher_only = {{ encipher_only }}
+    key_agreement = {{ key_agreement }}
+    key_cert_sign = {{ key_cert_sign }}
+    key_encipherment = {{ key_encipherment }}
+    non_repudiation = {{ non_repudiation }}
+}
+    subject_information_access = {
+    access_location = {
+    directory_name = {
+    common_name = {{ common_name }}
+    country = {{ country }}
+    custom_attributes = {
+    object_identifier = {{ object_identifier }}
+    value = {{ value }}
+}
+    distinguished_name_qualifier = {{ distinguished_name_qualifier }}
+    generation_qualifier = {{ generation_qualifier }}
+    given_name = {{ given_name }}
+    initials = {{ initials }}
+    locality = {{ locality }}
+    organization = {{ organization }}
+    organizational_unit = {{ organizational_unit }}
+    pseudonym = {{ pseudonym }}
+    serial_number = {{ serial_number }}
+    state = {{ state }}
+    surname = {{ surname }}
+    title = {{ title }}
+}
+    dns_name = {{ dns_name }}
+    edi_party_name = {
+    name_assigner = {{ name_assigner }}
+    party_name = {{ party_name }}
+}
+    ip_address = {{ ip_address }}
+    other_name = {
+    type_id = {{ type_id }}
+    value = {{ value }}
+}
+    registered_id = {{ registered_id }}
+    rfc_822_name = {{ rfc_822_name }}
+    uniform_resource_identifier = {{ uniform_resource_identifier }}
+}
+    access_method = {
+    access_method_type = {{ access_method_type }}
+    custom_object_identifier = {{ custom_object_identifier }}
+}
+}
+}"
+    id = "{{ id }}"
+    key_algorithm = "{{ key_algorithm }}"
+    key_storage_security_standard = "{{ key_storage_security_standard }}"
+    revocation_configuration = "{
+    crl_configuration = {
+    crl_distribution_point_extension_configuration = {
+    omit_extension = {{ omit_extension }}
+}
+    custom_cname = {{ custom_cname }}
+    enabled = {{ enabled }}
+    expiration_in_days = {{ expiration_in_days }}
+    s3_bucket_name = {{ s3_bucket_name }}
+    s3_object_acl = {{ s3_object_acl }}
+}
+    ocsp_configuration = {
+    enabled = {{ enabled }}
+    ocsp_custom_cname = {{ ocsp_custom_cname }}
+}
+}"
+    signing_algorithm = "{{ signing_algorithm }}"
+    subject = "{
+    common_name = {{ common_name }}
+    country = {{ country }}
+    custom_attributes = {
+    object_identifier = {{ object_identifier }}
+    value = {{ value }}
+}
+    distinguished_name_qualifier = {{ distinguished_name_qualifier }}
+    generation_qualifier = {{ generation_qualifier }}
+    given_name = {{ given_name }}
+    initials = {{ initials }}
+    locality = {{ locality }}
+    organization = {{ organization }}
+    organizational_unit = {{ organizational_unit }}
+    pseudonym = {{ pseudonym }}
+    serial_number = {{ serial_number }}
+    state = {{ state }}
+    surname = {{ surname }}
+    title = {{ title }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+    usage_mode = "{{ usage_mode }}"
+}

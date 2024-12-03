@@ -1,0 +1,24 @@
+resource "awscc_rolesanywhere_trust_anchor" "example" {
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    notification_settings = "{
+    channel = {{ channel }}
+    enabled = {{ enabled }}
+    event = {{ event }}
+    threshold = {{ threshold }}
+}"
+    source = "{
+    source_data = {
+    acm_pca_arn = {{ acm_pca_arn }}
+    x509_certificate_data = {{ x509_certificate_data }}
+}
+    source_type = {{ source_type }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    trust_anchor_arn = "{{ trust_anchor_arn }}"
+    trust_anchor_id = "{{ trust_anchor_id }}"
+}

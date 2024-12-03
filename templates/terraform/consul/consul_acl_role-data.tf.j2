@@ -1,0 +1,11 @@
+data "consul_acl_role" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    node_identities = "{{ node_identities }}"
+    partition = "{{ partition }}"
+    policies = "{{ policies }}"
+    service_identities = "{{ service_identities }}"
+    templated_policies = "{{ templated_policies }}"
+}

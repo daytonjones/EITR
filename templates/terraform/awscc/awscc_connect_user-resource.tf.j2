@@ -1,0 +1,33 @@
+resource "awscc_connect_user" "example" {
+    directory_user_id = "{{ directory_user_id }}"
+    hierarchy_group_arn = "{{ hierarchy_group_arn }}"
+    id = "{{ id }}"
+    identity_info = "{
+    email = {{ email }}
+    first_name = {{ first_name }}
+    last_name = {{ last_name }}
+    mobile = {{ mobile }}
+    secondary_email = {{ secondary_email }}
+}"
+    instance_arn = "{{ instance_arn }}"
+    password = "{{ password }}"
+    phone_config = "{
+    after_contact_work_time_limit = {{ after_contact_work_time_limit }}
+    auto_accept = {{ auto_accept }}
+    desk_phone_number = {{ desk_phone_number }}
+    phone_type = {{ phone_type }}
+}"
+    routing_profile_arn = "{{ routing_profile_arn }}"
+    security_profile_arns = "{{ security_profile_arns }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    user_arn = "{{ user_arn }}"
+    user_proficiencies = "{
+    attribute_name = {{ attribute_name }}
+    attribute_value = {{ attribute_value }}
+    level = {{ level }}
+}"
+    username = "{{ username }}"
+}

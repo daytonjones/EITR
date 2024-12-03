@@ -1,0 +1,10 @@
+resource "awscc_ec2_vpn_gateway" "example" {
+    amazon_side_asn = "{{ amazon_side_asn }}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+    vpn_gateway_id = "{{ vpn_gateway_id }}"
+}

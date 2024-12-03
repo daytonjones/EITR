@@ -1,0 +1,30 @@
+data "awscc_qbusiness_index" "example" {
+    application_id = "{{ application_id }}"
+    capacity_configuration = "{
+    units = {{ units }}
+}"
+    created_at = "{{ created_at }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    document_attribute_configurations = "{
+    name = {{ name }}
+    search = {{ search }}
+    type = {{ type }}
+}"
+    id = "{{ id }}"
+    index_arn = "{{ index_arn }}"
+    index_id = "{{ index_id }}"
+    index_statistics = "{
+    text_document_statistics = {
+    indexed_text_bytes = {{ indexed_text_bytes }}
+    indexed_text_document_count = {{ indexed_text_document_count }}
+}
+}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+    updated_at = "{{ updated_at }}"
+}

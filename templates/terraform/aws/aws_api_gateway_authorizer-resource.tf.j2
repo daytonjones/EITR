@@ -1,0 +1,13 @@
+resource "aws_api_gateway_authorizer" "example" {
+    arn = "{{ arn }}"
+    authorizer_credentials = "{{ authorizer_credentials }}"
+    authorizer_result_ttl_in_seconds = "{{ authorizer_result_ttl_in_seconds }}"
+    authorizer_uri = "{{ authorizer_uri }}"
+    id = "{{ id }}"
+    identity_source = "{{ identity_source }}"
+    identity_validation_expression = "{{ identity_validation_expression }}"
+    name = "{{ name }}"
+    provider_arns = "{{ provider_arns }}"
+    rest_api_id = "{{ rest_api_id }}"
+    type = "{{ type }}"
+}

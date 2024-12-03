@@ -1,0 +1,15 @@
+resource "google_sql_source_representation_instance" "example" {
+    ca_certificate = "{{ ca_certificate }}"
+    client_certificate = "{{ client_certificate }}"
+    client_key = "{{ client_key }}"
+    database_version = "{{ database_version }}"
+    dump_file_path = "{{ dump_file_path }}"
+    host = "{{ host }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    password = "{{ password }}"
+    port = "{{ port }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    username = "{{ username }}"
+}

@@ -1,0 +1,14 @@
+resource "awscc_codestarconnections_sync_configuration" "example" {
+    branch = "{{ branch }}"
+    config_file = "{{ config_file }}"
+    id = "{{ id }}"
+    owner_id = "{{ owner_id }}"
+    provider_type = "{{ provider_type }}"
+    publish_deployment_status = "{{ publish_deployment_status }}"
+    repository_link_id = "{{ repository_link_id }}"
+    repository_name = "{{ repository_name }}"
+    resource_name = "{{ resource_name }}"
+    role_arn = "{{ role_arn }}"
+    sync_type = "{{ sync_type }}"
+    trigger_resource_update_on = "{{ trigger_resource_update_on }}"
+}

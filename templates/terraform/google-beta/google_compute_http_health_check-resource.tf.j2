@@ -1,0 +1,15 @@
+resource "google_compute_http_health_check" "example" {
+    check_interval_sec = "{{ check_interval_sec }}"
+    creation_timestamp = "{{ creation_timestamp }}"
+    description = "{{ description }}"
+    healthy_threshold = "{{ healthy_threshold }}"
+    host = "{{ host }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    port = "{{ port }}"
+    project = "{{ project }}"
+    request_path = "{{ request_path }}"
+    self_link = "{{ self_link }}"
+    timeout_sec = "{{ timeout_sec }}"
+    unhealthy_threshold = "{{ unhealthy_threshold }}"
+}

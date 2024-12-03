@@ -1,0 +1,19 @@
+resource "awscc_cleanrooms_privacy_budget_template" "example" {
+    arn = "{{ arn }}"
+    auto_refresh = "{{ auto_refresh }}"
+    collaboration_arn = "{{ collaboration_arn }}"
+    collaboration_identifier = "{{ collaboration_identifier }}"
+    id = "{{ id }}"
+    membership_arn = "{{ membership_arn }}"
+    membership_identifier = "{{ membership_identifier }}"
+    parameters = "{
+    epsilon = {{ epsilon }}
+    users_noise_per_query = {{ users_noise_per_query }}
+}"
+    privacy_budget_template_identifier = "{{ privacy_budget_template_identifier }}"
+    privacy_budget_type = "{{ privacy_budget_type }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

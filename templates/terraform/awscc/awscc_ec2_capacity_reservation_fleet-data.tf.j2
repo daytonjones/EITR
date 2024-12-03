@@ -1,0 +1,27 @@
+data "awscc_ec2_capacity_reservation_fleet" "example" {
+    allocation_strategy = "{{ allocation_strategy }}"
+    capacity_reservation_fleet_id = "{{ capacity_reservation_fleet_id }}"
+    end_date = "{{ end_date }}"
+    id = "{{ id }}"
+    instance_match_criteria = "{{ instance_match_criteria }}"
+    instance_type_specifications = "{
+    availability_zone = {{ availability_zone }}
+    availability_zone_id = {{ availability_zone_id }}
+    ebs_optimized = {{ ebs_optimized }}
+    instance_platform = {{ instance_platform }}
+    instance_type = {{ instance_type }}
+    priority = {{ priority }}
+    weight = {{ weight }}
+}"
+    no_remove_end_date = "{{ no_remove_end_date }}"
+    remove_end_date = "{{ remove_end_date }}"
+    tag_specifications = "{
+    resource_type = {{ resource_type }}
+    tags = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}"
+    tenancy = "{{ tenancy }}"
+    total_target_capacity = "{{ total_target_capacity }}"
+}

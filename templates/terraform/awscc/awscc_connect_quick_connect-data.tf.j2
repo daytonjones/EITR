@@ -1,0 +1,26 @@
+data "awscc_connect_quick_connect" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    instance_arn = "{{ instance_arn }}"
+    name = "{{ name }}"
+    quick_connect_arn = "{{ quick_connect_arn }}"
+    quick_connect_config = "{
+    phone_config = {
+    phone_number = {{ phone_number }}
+}
+    queue_config = {
+    contact_flow_arn = {{ contact_flow_arn }}
+    queue_arn = {{ queue_arn }}
+}
+    quick_connect_type = {{ quick_connect_type }}
+    user_config = {
+    contact_flow_arn = {{ contact_flow_arn }}
+    user_arn = {{ user_arn }}
+}
+}"
+    quick_connect_type = "{{ quick_connect_type }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

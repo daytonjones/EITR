@@ -1,0 +1,10 @@
+data "azurerm_site_recovery_replication_recovery_plan" "example" {
+    azure_to_azure_settings = "{{ azure_to_azure_settings }}"
+    failover_deployment_model = "{{ failover_deployment_model }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    recovery_group = "{{ recovery_group }}"
+    recovery_vault_id = "{{ recovery_vault_id }}"
+    source_recovery_fabric_id = "{{ source_recovery_fabric_id }}"
+    target_recovery_fabric_id = "{{ target_recovery_fabric_id }}"
+}

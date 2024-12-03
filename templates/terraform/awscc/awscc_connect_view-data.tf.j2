@@ -1,0 +1,15 @@
+data "awscc_connect_view" "example" {
+    actions = "{{ actions }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    instance_arn = "{{ instance_arn }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    template = "{{ template }}"
+    view_arn = "{{ view_arn }}"
+    view_content_sha_256 = "{{ view_content_sha_256 }}"
+    view_id = "{{ view_id }}"
+}

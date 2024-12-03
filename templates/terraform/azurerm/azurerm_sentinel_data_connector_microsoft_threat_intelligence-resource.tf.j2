@@ -1,0 +1,7 @@
+resource "azurerm_sentinel_data_connector_microsoft_threat_intelligence" "example" {
+    id = "{{ id }}"
+    log_analytics_workspace_id = "{{ log_analytics_workspace_id }}"
+    microsoft_emerging_threat_feed_lookback_date = "{{ microsoft_emerging_threat_feed_lookback_date }}"
+    name = "{{ name }}"
+    tenant_id = "{{ tenant_id }}"
+}

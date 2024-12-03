@@ -1,0 +1,17 @@
+data "awscc_ec2_ipam_resource_discovery_association" "example" {
+    id = "{{ id }}"
+    ipam_arn = "{{ ipam_arn }}"
+    ipam_id = "{{ ipam_id }}"
+    ipam_region = "{{ ipam_region }}"
+    ipam_resource_discovery_association_arn = "{{ ipam_resource_discovery_association_arn }}"
+    ipam_resource_discovery_association_id = "{{ ipam_resource_discovery_association_id }}"
+    ipam_resource_discovery_id = "{{ ipam_resource_discovery_id }}"
+    is_default = "{{ is_default }}"
+    owner_id = "{{ owner_id }}"
+    resource_discovery_status = "{{ resource_discovery_status }}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

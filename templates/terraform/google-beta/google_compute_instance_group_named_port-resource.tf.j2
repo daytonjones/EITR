@@ -1,0 +1,8 @@
+resource "google_compute_instance_group_named_port" "example" {
+    group = "{{ group }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    port = "{{ port }}"
+    project = "{{ project }}"
+    zone = "{{ zone }}"
+}

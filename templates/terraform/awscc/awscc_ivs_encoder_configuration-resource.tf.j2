@@ -1,0 +1,15 @@
+resource "awscc_ivs_encoder_configuration" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    video = "{
+    bitrate = {{ bitrate }}
+    framerate = {{ framerate }}
+    height = {{ height }}
+    width = {{ width }}
+}"
+}

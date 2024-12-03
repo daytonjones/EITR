@@ -1,0 +1,145 @@
+resource "awscc_bedrock_data_source" "example" {
+    created_at = "{{ created_at }}"
+    data_deletion_policy = "{{ data_deletion_policy }}"
+    data_source_configuration = "{
+    confluence_configuration = {
+    crawler_configuration = {
+    filter_configuration = {
+    pattern_object_filter = {
+    filters = {
+    exclusion_filters = {{ exclusion_filters }}
+    inclusion_filters = {{ inclusion_filters }}
+    object_type = {{ object_type }}
+}
+}
+    type = {{ type }}
+}
+}
+    source_configuration = {
+    auth_type = {{ auth_type }}
+    credentials_secret_arn = {{ credentials_secret_arn }}
+    host_type = {{ host_type }}
+    host_url = {{ host_url }}
+}
+}
+    s3_configuration = {
+    bucket_arn = {{ bucket_arn }}
+    bucket_owner_account_id = {{ bucket_owner_account_id }}
+    inclusion_prefixes = {{ inclusion_prefixes }}
+}
+    salesforce_configuration = {
+    crawler_configuration = {
+    filter_configuration = {
+    pattern_object_filter = {
+    filters = {
+    exclusion_filters = {{ exclusion_filters }}
+    inclusion_filters = {{ inclusion_filters }}
+    object_type = {{ object_type }}
+}
+}
+    type = {{ type }}
+}
+}
+    source_configuration = {
+    auth_type = {{ auth_type }}
+    credentials_secret_arn = {{ credentials_secret_arn }}
+    host_url = {{ host_url }}
+}
+}
+    share_point_configuration = {
+    crawler_configuration = {
+    filter_configuration = {
+    pattern_object_filter = {
+    filters = {
+    exclusion_filters = {{ exclusion_filters }}
+    inclusion_filters = {{ inclusion_filters }}
+    object_type = {{ object_type }}
+}
+}
+    type = {{ type }}
+}
+}
+    source_configuration = {
+    auth_type = {{ auth_type }}
+    credentials_secret_arn = {{ credentials_secret_arn }}
+    domain = {{ domain }}
+    host_type = {{ host_type }}
+    site_urls = {{ site_urls }}
+    tenant_id = {{ tenant_id }}
+}
+}
+    type = {{ type }}
+    web_configuration = {
+    crawler_configuration = {
+    crawler_limits = {
+    rate_limit = {{ rate_limit }}
+}
+    exclusion_filters = {{ exclusion_filters }}
+    inclusion_filters = {{ inclusion_filters }}
+    scope = {{ scope }}
+}
+    source_configuration = {
+    url_configuration = {
+    seed_urls = {
+    url = {{ url }}
+}
+}
+}
+}
+}"
+    data_source_id = "{{ data_source_id }}"
+    data_source_status = "{{ data_source_status }}"
+    description = "{{ description }}"
+    failure_reasons = "{{ failure_reasons }}"
+    id = "{{ id }}"
+    knowledge_base_id = "{{ knowledge_base_id }}"
+    name = "{{ name }}"
+    server_side_encryption_configuration = "{
+    kms_key_arn = {{ kms_key_arn }}
+}"
+    updated_at = "{{ updated_at }}"
+    vector_ingestion_configuration = "{
+    chunking_configuration = {
+    chunking_strategy = {{ chunking_strategy }}
+    fixed_size_chunking_configuration = {
+    max_tokens = {{ max_tokens }}
+    overlap_percentage = {{ overlap_percentage }}
+}
+    hierarchical_chunking_configuration = {
+    level_configurations = {
+    max_tokens = {{ max_tokens }}
+}
+    overlap_tokens = {{ overlap_tokens }}
+}
+    semantic_chunking_configuration = {
+    breakpoint_percentile_threshold = {{ breakpoint_percentile_threshold }}
+    buffer_size = {{ buffer_size }}
+    max_tokens = {{ max_tokens }}
+}
+}
+    custom_transformation_configuration = {
+    intermediate_storage = {
+    s3_location = {
+    uri = {{ uri }}
+}
+}
+    transformations = {
+    step_to_apply = {{ step_to_apply }}
+    transformation_function = {
+    transformation_lambda_configuration = {
+    lambda_arn = {{ lambda_arn }}
+}
+}
+}
+}
+    parsing_configuration = {
+    bedrock_foundation_model_configuration = {
+    model_arn = {{ model_arn }}
+    parsing_prompt = {
+    parsing_prompt_text = {{ parsing_prompt_text }}
+}
+}
+    parsing_strategy = {{ parsing_strategy }}
+}
+}"
+}

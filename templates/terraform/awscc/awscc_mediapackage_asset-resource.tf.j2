@@ -1,0 +1,18 @@
+resource "awscc_mediapackage_asset" "example" {
+    arn = "{{ arn }}"
+    asset_id = "{{ asset_id }}"
+    created_at = "{{ created_at }}"
+    egress_endpoints = "{
+    packaging_configuration_id = {{ packaging_configuration_id }}
+    url = {{ url }}
+}"
+    id = "{{ id }}"
+    packaging_group_id = "{{ packaging_group_id }}"
+    resource_id = "{{ resource_id }}"
+    source_arn = "{{ source_arn }}"
+    source_role_arn = "{{ source_role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

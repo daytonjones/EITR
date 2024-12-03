@@ -1,0 +1,13 @@
+resource "awscc_wafv2_regex_pattern_set" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    regex_pattern_set_id = "{{ regex_pattern_set_id }}"
+    regular_expression_list = "{{ regular_expression_list }}"
+    scope = "{{ scope }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,9 @@
+resource "aws_appsync_api_cache" "example" {
+    api_caching_behavior = "{{ api_caching_behavior }}"
+    api_id = "{{ api_id }}"
+    at_rest_encryption_enabled = "{{ at_rest_encryption_enabled }}"
+    id = "{{ id }}"
+    transit_encryption_enabled = "{{ transit_encryption_enabled }}"
+    ttl = "{{ ttl }}"
+    type = "{{ type }}"
+}

@@ -1,0 +1,14 @@
+data "awscc_xray_group" "example" {
+    filter_expression = "{{ filter_expression }}"
+    group_arn = "{{ group_arn }}"
+    group_name = "{{ group_name }}"
+    id = "{{ id }}"
+    insights_configuration = "{
+    insights_enabled = {{ insights_enabled }}
+    notifications_enabled = {{ notifications_enabled }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,14 @@
+resource "awscc_redshift_integration" "example" {
+    additional_encryption_context = "{{ additional_encryption_context }}"
+    create_time = "{{ create_time }}"
+    id = "{{ id }}"
+    integration_arn = "{{ integration_arn }}"
+    integration_name = "{{ integration_name }}"
+    kms_key_id = "{{ kms_key_id }}"
+    source_arn = "{{ source_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    target_arn = "{{ target_arn }}"
+}

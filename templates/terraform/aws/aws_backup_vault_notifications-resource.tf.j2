@@ -1,0 +1,7 @@
+resource "aws_backup_vault_notifications" "example" {
+    backup_vault_arn = "{{ backup_vault_arn }}"
+    backup_vault_events = "{{ backup_vault_events }}"
+    backup_vault_name = "{{ backup_vault_name }}"
+    id = "{{ id }}"
+    sns_topic_arn = "{{ sns_topic_arn }}"
+}

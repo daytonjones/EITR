@@ -1,0 +1,35 @@
+resource "awscc_bedrock_prompt_version" "example" {
+    arn = "{{ arn }}"
+    created_at = "{{ created_at }}"
+    customer_encryption_key_arn = "{{ customer_encryption_key_arn }}"
+    default_variant = "{{ default_variant }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    prompt_arn = "{{ prompt_arn }}"
+    prompt_id = "{{ prompt_id }}"
+    tags = "{{ tags }}"
+    updated_at = "{{ updated_at }}"
+    variants = "{
+    inference_configuration = {
+    text = {
+    max_tokens = {{ max_tokens }}
+    stop_sequences = {{ stop_sequences }}
+    temperature = {{ temperature }}
+    top_p = {{ top_p }}
+}
+}
+    model_id = {{ model_id }}
+    name = {{ name }}
+    template_configuration = {
+    text = {
+    input_variables = {
+    name = {{ name }}
+}
+    text = {{ text }}
+}
+}
+    template_type = {{ template_type }}
+}"
+    version = "{{ version }}"
+}

@@ -1,0 +1,8 @@
+resource "azurerm_network_profile" "example" {
+    container_network_interface_ids = "{{ container_network_interface_ids }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

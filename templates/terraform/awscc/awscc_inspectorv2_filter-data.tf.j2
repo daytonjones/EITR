@@ -1,0 +1,156 @@
+data "awscc_inspectorv2_filter" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    filter_action = "{{ filter_action }}"
+    filter_criteria = "{
+    aws_account_id = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    component_id = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    component_type = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    ec_2_instance_image_id = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    ec_2_instance_subnet_id = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    ec_2_instance_vpc_id = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    ecr_image_architecture = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    ecr_image_hash = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    ecr_image_pushed_at = {
+    end_inclusive = {{ end_inclusive }}
+    start_inclusive = {{ start_inclusive }}
+}
+    ecr_image_registry = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    ecr_image_repository_name = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    ecr_image_tags = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    finding_arn = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    finding_status = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    finding_type = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    first_observed_at = {
+    end_inclusive = {{ end_inclusive }}
+    start_inclusive = {{ start_inclusive }}
+}
+    inspector_score = {
+    lower_inclusive = {{ lower_inclusive }}
+    upper_inclusive = {{ upper_inclusive }}
+}
+    last_observed_at = {
+    end_inclusive = {{ end_inclusive }}
+    start_inclusive = {{ start_inclusive }}
+}
+    network_protocol = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    port_range = {
+    begin_inclusive = {{ begin_inclusive }}
+    end_inclusive = {{ end_inclusive }}
+}
+    related_vulnerabilities = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_id = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    resource_tags = {
+    comparison = {{ comparison }}
+    key = {{ key }}
+    value = {{ value }}
+}
+    resource_type = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    severity = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    title = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    updated_at = {
+    end_inclusive = {{ end_inclusive }}
+    start_inclusive = {{ start_inclusive }}
+}
+    vendor_severity = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    vulnerability_id = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    vulnerability_source = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    vulnerable_packages = {
+    architecture = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    epoch = {
+    lower_inclusive = {{ lower_inclusive }}
+    upper_inclusive = {{ upper_inclusive }}
+}
+    name = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    release = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    source_layer_hash = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+    version = {
+    comparison = {{ comparison }}
+    value = {{ value }}
+}
+}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+}

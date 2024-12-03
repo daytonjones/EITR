@@ -1,0 +1,16 @@
+resource "azurerm_virtual_network_peering" "example" {
+    allow_forwarded_traffic = "{{ allow_forwarded_traffic }}"
+    allow_gateway_transit = "{{ allow_gateway_transit }}"
+    allow_virtual_network_access = "{{ allow_virtual_network_access }}"
+    id = "{{ id }}"
+    local_subnet_names = "{{ local_subnet_names }}"
+    name = "{{ name }}"
+    only_ipv6_peering_enabled = "{{ only_ipv6_peering_enabled }}"
+    peer_complete_virtual_networks_enabled = "{{ peer_complete_virtual_networks_enabled }}"
+    remote_subnet_names = "{{ remote_subnet_names }}"
+    remote_virtual_network_id = "{{ remote_virtual_network_id }}"
+    resource_group_name = "{{ resource_group_name }}"
+    triggers = "{{ triggers }}"
+    use_remote_gateways = "{{ use_remote_gateways }}"
+    virtual_network_name = "{{ virtual_network_name }}"
+}

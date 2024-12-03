@@ -1,0 +1,12 @@
+data "aws_ecs_cluster" "example" {
+    arn = "{{ arn }}"
+    cluster_name = "{{ cluster_name }}"
+    id = "{{ id }}"
+    pending_tasks_count = "{{ pending_tasks_count }}"
+    registered_container_instances_count = "{{ registered_container_instances_count }}"
+    running_tasks_count = "{{ running_tasks_count }}"
+    service_connect_defaults = "{{ service_connect_defaults }}"
+    setting = "{{ setting }}"
+    status = "{{ status }}"
+    tags = "{{ tags }}"
+}

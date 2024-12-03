@@ -1,0 +1,5 @@
+data "aws_sqs_queues" "example" {
+    id = "{{ id }}"
+    queue_name_prefix = "{{ queue_name_prefix }}"
+    queue_urls = "{{ queue_urls }}"
+}

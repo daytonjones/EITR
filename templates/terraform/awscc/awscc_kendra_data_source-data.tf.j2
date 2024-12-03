@@ -1,0 +1,344 @@
+data "awscc_kendra_data_source" "example" {
+    arn = "{{ arn }}"
+    custom_document_enrichment_configuration = "{
+    inline_configurations = {
+    condition = {
+    condition_document_attribute_key = {{ condition_document_attribute_key }}
+    condition_on_value = {
+    date_value = {{ date_value }}
+    long_value = {{ long_value }}
+    string_list_value = {{ string_list_value }}
+    string_value = {{ string_value }}
+}
+    operator = {{ operator }}
+}
+    document_content_deletion = {{ document_content_deletion }}
+    target = {
+    target_document_attribute_key = {{ target_document_attribute_key }}
+    target_document_attribute_value = {
+    date_value = {{ date_value }}
+    long_value = {{ long_value }}
+    string_list_value = {{ string_list_value }}
+    string_value = {{ string_value }}
+}
+    target_document_attribute_value_deletion = {{ target_document_attribute_value_deletion }}
+}
+}
+    post_extraction_hook_configuration = {
+    invocation_condition = {
+    condition_document_attribute_key = {{ condition_document_attribute_key }}
+    condition_on_value = {
+    date_value = {{ date_value }}
+    long_value = {{ long_value }}
+    string_list_value = {{ string_list_value }}
+    string_value = {{ string_value }}
+}
+    operator = {{ operator }}
+}
+    lambda_arn = {{ lambda_arn }}
+    s3_bucket = {{ s3_bucket }}
+}
+    pre_extraction_hook_configuration = {
+    invocation_condition = {
+    condition_document_attribute_key = {{ condition_document_attribute_key }}
+    condition_on_value = {
+    date_value = {{ date_value }}
+    long_value = {{ long_value }}
+    string_list_value = {{ string_list_value }}
+    string_value = {{ string_value }}
+}
+    operator = {{ operator }}
+}
+    lambda_arn = {{ lambda_arn }}
+    s3_bucket = {{ s3_bucket }}
+}
+    role_arn = {{ role_arn }}
+}"
+    data_source_configuration = "{
+    confluence_configuration = {
+    attachment_configuration = {
+    attachment_field_mappings = {
+    data_source_field_name = {{ data_source_field_name }}
+    date_field_format = {{ date_field_format }}
+    index_field_name = {{ index_field_name }}
+}
+    crawl_attachments = {{ crawl_attachments }}
+}
+    blog_configuration = {
+    blog_field_mappings = {
+    data_source_field_name = {{ data_source_field_name }}
+    date_field_format = {{ date_field_format }}
+    index_field_name = {{ index_field_name }}
+}
+}
+    exclusion_patterns = {{ exclusion_patterns }}
+    inclusion_patterns = {{ inclusion_patterns }}
+    page_configuration = {
+    page_field_mappings = {
+    data_source_field_name = {{ data_source_field_name }}
+    date_field_format = {{ date_field_format }}
+    index_field_name = {{ index_field_name }}
+}
+}
+    secret_arn = {{ secret_arn }}
+    server_url = {{ server_url }}
+    space_configuration = {
+    crawl_archived_spaces = {{ crawl_archived_spaces }}
+    crawl_personal_spaces = {{ crawl_personal_spaces }}
+    exclude_spaces = {{ exclude_spaces }}
+    include_spaces = {{ include_spaces }}
+    space_field_mappings = {
+    data_source_field_name = {{ data_source_field_name }}
+    date_field_format = {{ date_field_format }}
+    index_field_name = {{ index_field_name }}
+}
+}
+    version = {{ version }}
+    vpc_configuration = {
+    security_group_ids = {{ security_group_ids }}
+    subnet_ids = {{ subnet_ids }}
+}
+}
+    database_configuration = {
+    acl_configuration = {
+    allowed_groups_column_name = {{ allowed_groups_column_name }}
+}
+    column_configuration = {
+    change_detecting_columns = {{ change_detecting_columns }}
+    document_data_column_name = {{ document_data_column_name }}
+    document_id_column_name = {{ document_id_column_name }}
+    document_title_column_name = {{ document_title_column_name }}
+    field_mappings = {
+    data_source_field_name = {{ data_source_field_name }}
+    date_field_format = {{ date_field_format }}
+    index_field_name = {{ index_field_name }}
+}
+}
+    connection_configuration = {
+    database_host = {{ database_host }}
+    database_name = {{ database_name }}
+    database_port = {{ database_port }}
+    secret_arn = {{ secret_arn }}
+    table_name = {{ table_name }}
+}
+    database_engine_type = {{ database_engine_type }}
+    sql_configuration = {
+    query_identifiers_enclosing_option = {{ query_identifiers_enclosing_option }}
+}
+    vpc_configuration = {
+    security_group_ids = {{ security_group_ids }}
+    subnet_ids = {{ subnet_ids }}
+}
+}
+    google_drive_configuration = {
+    exclude_mime_types = {{ exclude_mime_types }}
+    exclude_shared_drives = {{ exclude_shared_drives }}
+    exclude_user_accounts = {{ exclude_user_accounts }}
+    exclusion_patterns = {{ exclusion_patterns }}
+    field_mappings = {
+    data_source_field_name = {{ data_source_field_name }}
+    date_field_format = {{ date_field_format }}
+    index_field_name = {{ index_field_name }}
+}
+    inclusion_patterns = {{ inclusion_patterns }}
+    secret_arn = {{ secret_arn }}
+}
+    one_drive_configuration = {
+    disable_local_groups = {{ disable_local_groups }}
+    exclusion_patterns = {{ exclusion_patterns }}
+    field_mappings = {
+    data_source_field_name = {{ data_source_field_name }}
+    date_field_format = {{ date_field_format }}
+    index_field_name = {{ index_field_name }}
+}
+    inclusion_patterns = {{ inclusion_patterns }}
+    one_drive_users = {
+    one_drive_user_list = {{ one_drive_user_list }}
+    one_drive_user_s3_path = {
+    bucket = {{ bucket }}
+    key = {{ key }}
+}
+}
+    secret_arn = {{ secret_arn }}
+    tenant_domain = {{ tenant_domain }}
+}
+    s3_configuration = {
+    access_control_list_configuration = {
+    key_path = {{ key_path }}
+}
+    bucket_name = {{ bucket_name }}
+    documents_metadata_configuration = {
+    s3_prefix = {{ s3_prefix }}
+}
+    exclusion_patterns = {{ exclusion_patterns }}
+    inclusion_patterns = {{ inclusion_patterns }}
+    inclusion_prefixes = {{ inclusion_prefixes }}
+}
+    salesforce_configuration = {
+    chatter_feed_configuration = {
+    document_data_field_name = {{ document_data_field_name }}
+    document_title_field_name = {{ document_title_field_name }}
+    field_mappings = {
+    data_source_field_name = {{ data_source_field_name }}
+    date_field_format = {{ date_field_format }}
+    index_field_name = {{ index_field_name }}
+}
+    include_filter_types = {{ include_filter_types }}
+}
+    crawl_attachments = {{ crawl_attachments }}
+    exclude_attachment_file_patterns = {{ exclude_attachment_file_patterns }}
+    include_attachment_file_patterns = {{ include_attachment_file_patterns }}
+    knowledge_article_configuration = {
+    custom_knowledge_article_type_configurations = {
+    document_data_field_name = {{ document_data_field_name }}
+    document_title_field_name = {{ document_title_field_name }}
+    field_mappings = {
+    data_source_field_name = {{ data_source_field_name }}
+    date_field_format = {{ date_field_format }}
+    index_field_name = {{ index_field_name }}
+}
+    name = {{ name }}
+}
+    included_states = {{ included_states }}
+    standard_knowledge_article_type_configuration = {
+    document_data_field_name = {{ document_data_field_name }}
+    document_title_field_name = {{ document_title_field_name }}
+    field_mappings = {
+    data_source_field_name = {{ data_source_field_name }}
+    date_field_format = {{ date_field_format }}
+    index_field_name = {{ index_field_name }}
+}
+}
+}
+    secret_arn = {{ secret_arn }}
+    server_url = {{ server_url }}
+    standard_object_attachment_configuration = {
+    document_title_field_name = {{ document_title_field_name }}
+    field_mappings = {
+    data_source_field_name = {{ data_source_field_name }}
+    date_field_format = {{ date_field_format }}
+    index_field_name = {{ index_field_name }}
+}
+}
+    standard_object_configurations = {
+    document_data_field_name = {{ document_data_field_name }}
+    document_title_field_name = {{ document_title_field_name }}
+    field_mappings = {
+    data_source_field_name = {{ data_source_field_name }}
+    date_field_format = {{ date_field_format }}
+    index_field_name = {{ index_field_name }}
+}
+    name = {{ name }}
+}
+}
+    service_now_configuration = {
+    authentication_type = {{ authentication_type }}
+    host_url = {{ host_url }}
+    knowledge_article_configuration = {
+    crawl_attachments = {{ crawl_attachments }}
+    document_data_field_name = {{ document_data_field_name }}
+    document_title_field_name = {{ document_title_field_name }}
+    exclude_attachment_file_patterns = {{ exclude_attachment_file_patterns }}
+    field_mappings = {
+    data_source_field_name = {{ data_source_field_name }}
+    date_field_format = {{ date_field_format }}
+    index_field_name = {{ index_field_name }}
+}
+    filter_query = {{ filter_query }}
+    include_attachment_file_patterns = {{ include_attachment_file_patterns }}
+}
+    secret_arn = {{ secret_arn }}
+    service_catalog_configuration = {
+    crawl_attachments = {{ crawl_attachments }}
+    document_data_field_name = {{ document_data_field_name }}
+    document_title_field_name = {{ document_title_field_name }}
+    exclude_attachment_file_patterns = {{ exclude_attachment_file_patterns }}
+    field_mappings = {
+    data_source_field_name = {{ data_source_field_name }}
+    date_field_format = {{ date_field_format }}
+    index_field_name = {{ index_field_name }}
+}
+    include_attachment_file_patterns = {{ include_attachment_file_patterns }}
+}
+    service_now_build_version = {{ service_now_build_version }}
+}
+    share_point_configuration = {
+    crawl_attachments = {{ crawl_attachments }}
+    disable_local_groups = {{ disable_local_groups }}
+    document_title_field_name = {{ document_title_field_name }}
+    exclusion_patterns = {{ exclusion_patterns }}
+    field_mappings = {
+    data_source_field_name = {{ data_source_field_name }}
+    date_field_format = {{ date_field_format }}
+    index_field_name = {{ index_field_name }}
+}
+    inclusion_patterns = {{ inclusion_patterns }}
+    secret_arn = {{ secret_arn }}
+    share_point_version = {{ share_point_version }}
+    ssl_certificate_s3_path = {
+    bucket = {{ bucket }}
+    key = {{ key }}
+}
+    urls = {{ urls }}
+    use_change_log = {{ use_change_log }}
+    vpc_configuration = {
+    security_group_ids = {{ security_group_ids }}
+    subnet_ids = {{ subnet_ids }}
+}
+}
+    web_crawler_configuration = {
+    authentication_configuration = {
+    basic_authentication = {
+    credentials = {{ credentials }}
+    host = {{ host }}
+    port = {{ port }}
+}
+}
+    crawl_depth = {{ crawl_depth }}
+    max_content_size_per_page_in_mega_bytes = {{ max_content_size_per_page_in_mega_bytes }}
+    max_links_per_page = {{ max_links_per_page }}
+    max_urls_per_minute_crawl_rate = {{ max_urls_per_minute_crawl_rate }}
+    proxy_configuration = {
+    credentials = {{ credentials }}
+    host = {{ host }}
+    port = {{ port }}
+}
+    url_exclusion_patterns = {{ url_exclusion_patterns }}
+    url_inclusion_patterns = {{ url_inclusion_patterns }}
+    urls = {
+    seed_url_configuration = {
+    seed_urls = {{ seed_urls }}
+    web_crawler_mode = {{ web_crawler_mode }}
+}
+    site_maps_configuration = {
+    site_maps = {{ site_maps }}
+}
+}
+}
+    work_docs_configuration = {
+    crawl_comments = {{ crawl_comments }}
+    exclusion_patterns = {{ exclusion_patterns }}
+    field_mappings = {
+    data_source_field_name = {{ data_source_field_name }}
+    date_field_format = {{ date_field_format }}
+    index_field_name = {{ index_field_name }}
+}
+    inclusion_patterns = {{ inclusion_patterns }}
+    organization_id = {{ organization_id }}
+    use_change_log = {{ use_change_log }}
+}
+}"
+    data_source_id = "{{ data_source_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    index_id = "{{ index_id }}"
+    language_code = "{{ language_code }}"
+    name = "{{ name }}"
+    role_arn = "{{ role_arn }}"
+    schedule = "{{ schedule }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+}

@@ -1,0 +1,11 @@
+data "azurerm_communication_service" "example" {
+    data_location = "{{ data_location }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    primary_connection_string = "{{ primary_connection_string }}"
+    primary_key = "{{ primary_key }}"
+    resource_group_name = "{{ resource_group_name }}"
+    secondary_connection_string = "{{ secondary_connection_string }}"
+    secondary_key = "{{ secondary_key }}"
+    tags = "{{ tags }}"
+}

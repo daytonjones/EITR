@@ -1,0 +1,25 @@
+resource "awscc_appstream_application" "example" {
+    app_block_arn = "{{ app_block_arn }}"
+    arn = "{{ arn }}"
+    attributes_to_delete = "{{ attributes_to_delete }}"
+    created_time = "{{ created_time }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    icon_s3_location = "{
+    s3_bucket = {{ s3_bucket }}
+    s3_key = {{ s3_key }}
+}"
+    id = "{{ id }}"
+    instance_families = "{{ instance_families }}"
+    launch_parameters = "{{ launch_parameters }}"
+    launch_path = "{{ launch_path }}"
+    name = "{{ name }}"
+    platforms = "{{ platforms }}"
+    tags = "{
+    key = {{ key }}
+    tag_key = {{ tag_key }}
+    tag_value = {{ tag_value }}
+    value = {{ value }}
+}"
+    working_directory = "{{ working_directory }}"
+}

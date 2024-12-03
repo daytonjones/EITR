@@ -1,0 +1,14 @@
+resource "awscc_vpclattice_access_log_subscription" "example" {
+    access_log_subscription_id = "{{ access_log_subscription_id }}"
+    arn = "{{ arn }}"
+    destination_arn = "{{ destination_arn }}"
+    id = "{{ id }}"
+    resource_arn = "{{ resource_arn }}"
+    resource_id = "{{ resource_id }}"
+    resource_identifier = "{{ resource_identifier }}"
+    service_network_log_type = "{{ service_network_log_type }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,54 @@
+resource "awscc_apigateway_deployment" "example" {
+    deployment_canary_settings = "{
+    percent_traffic = {{ percent_traffic }}
+    stage_variable_overrides = {{ stage_variable_overrides }}
+    use_stage_cache = {{ use_stage_cache }}
+}"
+    deployment_id = "{{ deployment_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    rest_api_id = "{{ rest_api_id }}"
+    stage_description = "{
+    access_log_setting = {
+    destination_arn = {{ destination_arn }}
+    format = {{ format }}
+}
+    cache_cluster_enabled = {{ cache_cluster_enabled }}
+    cache_cluster_size = {{ cache_cluster_size }}
+    cache_data_encrypted = {{ cache_data_encrypted }}
+    cache_ttl_in_seconds = {{ cache_ttl_in_seconds }}
+    caching_enabled = {{ caching_enabled }}
+    canary_setting = {
+    percent_traffic = {{ percent_traffic }}
+    stage_variable_overrides = {{ stage_variable_overrides }}
+    use_stage_cache = {{ use_stage_cache }}
+}
+    client_certificate_id = {{ client_certificate_id }}
+    data_trace_enabled = {{ data_trace_enabled }}
+    description = {{ description }}
+    documentation_version = {{ documentation_version }}
+    logging_level = {{ logging_level }}
+    method_settings = {
+    cache_data_encrypted = {{ cache_data_encrypted }}
+    cache_ttl_in_seconds = {{ cache_ttl_in_seconds }}
+    caching_enabled = {{ caching_enabled }}
+    data_trace_enabled = {{ data_trace_enabled }}
+    http_method = {{ http_method }}
+    logging_level = {{ logging_level }}
+    metrics_enabled = {{ metrics_enabled }}
+    resource_path = {{ resource_path }}
+    throttling_burst_limit = {{ throttling_burst_limit }}
+    throttling_rate_limit = {{ throttling_rate_limit }}
+}
+    metrics_enabled = {{ metrics_enabled }}
+    tags = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    throttling_burst_limit = {{ throttling_burst_limit }}
+    throttling_rate_limit = {{ throttling_rate_limit }}
+    tracing_enabled = {{ tracing_enabled }}
+    variables = {{ variables }}
+}"
+    stage_name = "{{ stage_name }}"
+}

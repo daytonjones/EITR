@@ -1,0 +1,20 @@
+data "awscc_quicksight_folder" "example" {
+    arn = "{{ arn }}"
+    aws_account_id = "{{ aws_account_id }}"
+    created_time = "{{ created_time }}"
+    folder_id = "{{ folder_id }}"
+    folder_type = "{{ folder_type }}"
+    id = "{{ id }}"
+    last_updated_time = "{{ last_updated_time }}"
+    name = "{{ name }}"
+    parent_folder_arn = "{{ parent_folder_arn }}"
+    permissions = "{
+    actions = {{ actions }}
+    principal = {{ principal }}
+}"
+    sharing_model = "{{ sharing_model }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

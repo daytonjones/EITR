@@ -1,0 +1,26 @@
+data "awscc_sso_permission_set" "example" {
+    customer_managed_policy_references = "{
+    name = {{ name }}
+    path = {{ path }}
+}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    inline_policy = "{{ inline_policy }}"
+    instance_arn = "{{ instance_arn }}"
+    managed_policies = "{{ managed_policies }}"
+    name = "{{ name }}"
+    permission_set_arn = "{{ permission_set_arn }}"
+    permissions_boundary = "{
+    customer_managed_policy_reference = {
+    name = {{ name }}
+    path = {{ path }}
+}
+    managed_policy_arn = {{ managed_policy_arn }}
+}"
+    relay_state_type = "{{ relay_state_type }}"
+    session_duration = "{{ session_duration }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

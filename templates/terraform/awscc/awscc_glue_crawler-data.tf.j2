@@ -1,0 +1,68 @@
+data "awscc_glue_crawler" "example" {
+    classifiers = "{{ classifiers }}"
+    configuration = "{{ configuration }}"
+    crawler_security_configuration = "{{ crawler_security_configuration }}"
+    database_name = "{{ database_name }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    lake_formation_configuration = "{
+    account_id = {{ account_id }}
+    use_lake_formation_credentials = {{ use_lake_formation_credentials }}
+}"
+    name = "{{ name }}"
+    recrawl_policy = "{
+    recrawl_behavior = {{ recrawl_behavior }}
+}"
+    role = "{{ role }}"
+    schedule = "{
+    schedule_expression = {{ schedule_expression }}
+}"
+    schema_change_policy = "{
+    delete_behavior = {{ delete_behavior }}
+    update_behavior = {{ update_behavior }}
+}"
+    table_prefix = "{{ table_prefix }}"
+    tags = "{{ tags }}"
+    targets = "{
+    catalog_targets = {
+    connection_name = {{ connection_name }}
+    database_name = {{ database_name }}
+    dlq_event_queue_arn = {{ dlq_event_queue_arn }}
+    event_queue_arn = {{ event_queue_arn }}
+    tables = {{ tables }}
+}
+    delta_targets = {
+    connection_name = {{ connection_name }}
+    create_native_delta_table = {{ create_native_delta_table }}
+    delta_tables = {{ delta_tables }}
+    write_manifest = {{ write_manifest }}
+}
+    dynamo_db_targets = {
+    path = {{ path }}
+}
+    iceberg_targets = {
+    connection_name = {{ connection_name }}
+    exclusions = {{ exclusions }}
+    maximum_traversal_depth = {{ maximum_traversal_depth }}
+    paths = {{ paths }}
+}
+    jdbc_targets = {
+    connection_name = {{ connection_name }}
+    enable_additional_metadata = {{ enable_additional_metadata }}
+    exclusions = {{ exclusions }}
+    path = {{ path }}
+}
+    mongo_db_targets = {
+    connection_name = {{ connection_name }}
+    path = {{ path }}
+}
+    s3_targets = {
+    connection_name = {{ connection_name }}
+    dlq_event_queue_arn = {{ dlq_event_queue_arn }}
+    event_queue_arn = {{ event_queue_arn }}
+    exclusions = {{ exclusions }}
+    path = {{ path }}
+    sample_size = {{ sample_size }}
+}
+}"
+}

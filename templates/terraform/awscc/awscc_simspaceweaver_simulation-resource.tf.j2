@@ -1,0 +1,15 @@
+resource "awscc_simspaceweaver_simulation" "example" {
+    describe_payload = "{{ describe_payload }}"
+    id = "{{ id }}"
+    maximum_duration = "{{ maximum_duration }}"
+    name = "{{ name }}"
+    role_arn = "{{ role_arn }}"
+    schema_s3_location = "{
+    bucket_name = {{ bucket_name }}
+    object_key = {{ object_key }}
+}"
+    snapshot_s3_location = "{
+    bucket_name = {{ bucket_name }}
+    object_key = {{ object_key }}
+}"
+}

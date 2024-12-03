@@ -1,0 +1,13 @@
+data "awscc_refactorspaces_environment" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    environment_identifier = "{{ environment_identifier }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    network_fabric_type = "{{ network_fabric_type }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    transit_gateway_id = "{{ transit_gateway_id }}"
+}

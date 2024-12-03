@@ -1,0 +1,8 @@
+resource "aws_redshift_logging" "example" {
+    bucket_name = "{{ bucket_name }}"
+    cluster_identifier = "{{ cluster_identifier }}"
+    id = "{{ id }}"
+    log_destination_type = "{{ log_destination_type }}"
+    log_exports = "{{ log_exports }}"
+    s3_key_prefix = "{{ s3_key_prefix }}"
+}

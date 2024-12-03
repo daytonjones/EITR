@@ -1,0 +1,12 @@
+resource "aws_ecr_repository_creation_template" "example" {
+    applied_for = "{{ applied_for }}"
+    custom_role_arn = "{{ custom_role_arn }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    image_tag_mutability = "{{ image_tag_mutability }}"
+    lifecycle_policy = "{{ lifecycle_policy }}"
+    prefix = "{{ prefix }}"
+    registry_id = "{{ registry_id }}"
+    repository_policy = "{{ repository_policy }}"
+    resource_tags = "{{ resource_tags }}"
+}

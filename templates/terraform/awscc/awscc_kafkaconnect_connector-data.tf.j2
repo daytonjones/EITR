@@ -1,0 +1,72 @@
+data "awscc_kafkaconnect_connector" "example" {
+    capacity = "{
+    auto_scaling = {
+    max_worker_count = {{ max_worker_count }}
+    mcu_count = {{ mcu_count }}
+    min_worker_count = {{ min_worker_count }}
+    scale_in_policy = {
+    cpu_utilization_percentage = {{ cpu_utilization_percentage }}
+}
+    scale_out_policy = {
+    cpu_utilization_percentage = {{ cpu_utilization_percentage }}
+}
+}
+    provisioned_capacity = {
+    mcu_count = {{ mcu_count }}
+    worker_count = {{ worker_count }}
+}
+}"
+    connector_arn = "{{ connector_arn }}"
+    connector_configuration = "{{ connector_configuration }}"
+    connector_description = "{{ connector_description }}"
+    connector_name = "{{ connector_name }}"
+    id = "{{ id }}"
+    kafka_cluster = "{
+    apache_kafka_cluster = {
+    bootstrap_servers = {{ bootstrap_servers }}
+    vpc = {
+    security_groups = {{ security_groups }}
+    subnets = {{ subnets }}
+}
+}
+}"
+    kafka_cluster_client_authentication = "{
+    authentication_type = {{ authentication_type }}
+}"
+    kafka_cluster_encryption_in_transit = "{
+    encryption_type = {{ encryption_type }}
+}"
+    kafka_connect_version = "{{ kafka_connect_version }}"
+    log_delivery = "{
+    worker_log_delivery = {
+    cloudwatch_logs = {
+    enabled = {{ enabled }}
+    log_group = {{ log_group }}
+}
+    firehose = {
+    delivery_stream = {{ delivery_stream }}
+    enabled = {{ enabled }}
+}
+    s3 = {
+    bucket = {{ bucket }}
+    enabled = {{ enabled }}
+    prefix = {{ prefix }}
+}
+}
+}"
+    plugins = "{
+    custom_plugin = {
+    custom_plugin_arn = {{ custom_plugin_arn }}
+    revision = {{ revision }}
+}
+}"
+    service_execution_role_arn = "{{ service_execution_role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    worker_configuration = "{
+    revision = {{ revision }}
+    worker_configuration_arn = {{ worker_configuration_arn }}
+}"
+}

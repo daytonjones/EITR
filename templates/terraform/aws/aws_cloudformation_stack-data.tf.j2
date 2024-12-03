@@ -1,0 +1,14 @@
+data "aws_cloudformation_stack" "example" {
+    capabilities = "{{ capabilities }}"
+    description = "{{ description }}"
+    disable_rollback = "{{ disable_rollback }}"
+    iam_role_arn = "{{ iam_role_arn }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    notification_arns = "{{ notification_arns }}"
+    outputs = "{{ outputs }}"
+    parameters = "{{ parameters }}"
+    tags = "{{ tags }}"
+    template_body = "{{ template_body }}"
+    timeout_in_minutes = "{{ timeout_in_minutes }}"
+}

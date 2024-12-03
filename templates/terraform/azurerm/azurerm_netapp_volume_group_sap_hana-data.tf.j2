@@ -1,0 +1,10 @@
+data "azurerm_netapp_volume_group_sap_hana" "example" {
+    account_name = "{{ account_name }}"
+    application_identifier = "{{ application_identifier }}"
+    group_description = "{{ group_description }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    volume = "{{ volume }}"
+}

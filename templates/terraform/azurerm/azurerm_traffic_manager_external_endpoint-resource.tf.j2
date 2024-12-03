@@ -1,0 +1,12 @@
+resource "azurerm_traffic_manager_external_endpoint" "example" {
+    always_serve_enabled = "{{ always_serve_enabled }}"
+    enabled = "{{ enabled }}"
+    endpoint_location = "{{ endpoint_location }}"
+    geo_mappings = "{{ geo_mappings }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    priority = "{{ priority }}"
+    profile_id = "{{ profile_id }}"
+    target = "{{ target }}"
+    weight = "{{ weight }}"
+}

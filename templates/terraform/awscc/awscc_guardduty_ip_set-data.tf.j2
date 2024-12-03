@@ -1,0 +1,13 @@
+data "awscc_guardduty_ip_set" "example" {
+    activate = "{{ activate }}"
+    detector_id = "{{ detector_id }}"
+    format = "{{ format }}"
+    id = "{{ id }}"
+    ip_set_id = "{{ ip_set_id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

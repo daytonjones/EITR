@@ -1,0 +1,8 @@
+resource "google_endpoints_service_consumers_iam_binding" "example" {
+    consumer_project = "{{ consumer_project }}"
+    etag = "{{ etag }}"
+    id = "{{ id }}"
+    members = "{{ members }}"
+    role = "{{ role }}"
+    service_name = "{{ service_name }}"
+}

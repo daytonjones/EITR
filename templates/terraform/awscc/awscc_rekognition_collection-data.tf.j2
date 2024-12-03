@@ -1,0 +1,9 @@
+data "awscc_rekognition_collection" "example" {
+    arn = "{{ arn }}"
+    collection_id = "{{ collection_id }}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

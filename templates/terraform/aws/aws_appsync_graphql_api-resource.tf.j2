@@ -1,0 +1,17 @@
+resource "aws_appsync_graphql_api" "example" {
+    api_type = "{{ api_type }}"
+    arn = "{{ arn }}"
+    authentication_type = "{{ authentication_type }}"
+    id = "{{ id }}"
+    introspection_config = "{{ introspection_config }}"
+    merged_api_execution_role_arn = "{{ merged_api_execution_role_arn }}"
+    name = "{{ name }}"
+    query_depth_limit = "{{ query_depth_limit }}"
+    resolver_count_limit = "{{ resolver_count_limit }}"
+    schema = "{{ schema }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    uris = "{{ uris }}"
+    visibility = "{{ visibility }}"
+    xray_enabled = "{{ xray_enabled }}"
+}

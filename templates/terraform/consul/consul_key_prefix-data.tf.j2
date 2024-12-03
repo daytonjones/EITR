@@ -1,0 +1,10 @@
+data "consul_key_prefix" "example" {
+    datacenter = "{{ datacenter }}"
+    id = "{{ id }}"
+    namespace = "{{ namespace }}"
+    partition = "{{ partition }}"
+    path_prefix = "{{ path_prefix }}"
+    subkeys = "{{ subkeys }}"
+    token = "{{ token }}"
+    var = "{{ var }}"
+}

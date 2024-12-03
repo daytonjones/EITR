@@ -1,0 +1,13 @@
+resource "awscc_guardduty_threat_intel_set" "example" {
+    activate = "{{ activate }}"
+    detector_id = "{{ detector_id }}"
+    format = "{{ format }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    threat_intel_set_id = "{{ threat_intel_set_id }}"
+}

@@ -1,0 +1,18 @@
+resource "awscc_ec2_transit_gateway_peering_attachment" "example" {
+    creation_time = "{{ creation_time }}"
+    id = "{{ id }}"
+    peer_account_id = "{{ peer_account_id }}"
+    peer_region = "{{ peer_region }}"
+    peer_transit_gateway_id = "{{ peer_transit_gateway_id }}"
+    state = "{{ state }}"
+    status = "{
+    code = {{ code }}
+    message = {{ message }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    transit_gateway_attachment_id = "{{ transit_gateway_attachment_id }}"
+    transit_gateway_id = "{{ transit_gateway_id }}"
+}

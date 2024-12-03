@@ -1,0 +1,7 @@
+data "azurestack_key_vault_access_policy" "example" {
+    certificate_permissions = "{{ certificate_permissions }}"
+    id = "{{ id }}"
+    key_permissions = "{{ key_permissions }}"
+    name = "{{ name }}"
+    secret_permissions = "{{ secret_permissions }}"
+}

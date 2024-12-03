@@ -1,0 +1,18 @@
+data "awscc_apigateway_api_key" "example" {
+    api_key_id = "{{ api_key_id }}"
+    customer_id = "{{ customer_id }}"
+    description = "{{ description }}"
+    enabled = "{{ enabled }}"
+    generate_distinct_id = "{{ generate_distinct_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    stage_keys = "{
+    rest_api_id = {{ rest_api_id }}
+    stage_name = {{ stage_name }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    value = "{{ value }}"
+}

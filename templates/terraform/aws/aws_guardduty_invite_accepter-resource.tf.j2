@@ -1,0 +1,5 @@
+resource "aws_guardduty_invite_accepter" "example" {
+    detector_id = "{{ detector_id }}"
+    id = "{{ id }}"
+    master_account_id = "{{ master_account_id }}"
+}

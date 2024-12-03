@@ -1,0 +1,51 @@
+data "awscc_b2bi_transformer" "example" {
+    created_at = "{{ created_at }}"
+    edi_type = "{
+    x12_details = {
+    transaction_set = {{ transaction_set }}
+    version = {{ version }}
+}
+}"
+    file_format = "{{ file_format }}"
+    id = "{{ id }}"
+    input_conversion = "{
+    format_options = {
+    x12 = {
+    transaction_set = {{ transaction_set }}
+    version = {{ version }}
+}
+}
+    from_format = {{ from_format }}
+}"
+    mapping = "{
+    template = {{ template }}
+    template_language = {{ template_language }}
+}"
+    mapping_template = "{{ mapping_template }}"
+    modified_at = "{{ modified_at }}"
+    name = "{{ name }}"
+    output_conversion = "{
+    format_options = {
+    x12 = {
+    transaction_set = {{ transaction_set }}
+    version = {{ version }}
+}
+}
+    to_format = {{ to_format }}
+}"
+    sample_document = "{{ sample_document }}"
+    sample_documents = "{
+    bucket_name = {{ bucket_name }}
+    keys = {
+    input = {{ input }}
+    output = {{ output }}
+}
+}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    transformer_arn = "{{ transformer_arn }}"
+    transformer_id = "{{ transformer_id }}"
+}

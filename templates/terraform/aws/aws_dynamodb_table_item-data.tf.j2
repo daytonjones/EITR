@@ -1,0 +1,8 @@
+data "aws_dynamodb_table_item" "example" {
+    expression_attribute_names = "{{ expression_attribute_names }}"
+    id = "{{ id }}"
+    item = "{{ item }}"
+    key = "{{ key }}"
+    projection_expression = "{{ projection_expression }}"
+    table_name = "{{ table_name }}"
+}

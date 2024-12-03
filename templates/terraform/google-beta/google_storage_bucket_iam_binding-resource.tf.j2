@@ -1,0 +1,7 @@
+resource "google_storage_bucket_iam_binding" "example" {
+    bucket = "{{ bucket }}"
+    etag = "{{ etag }}"
+    id = "{{ id }}"
+    members = "{{ members }}"
+    role = "{{ role }}"
+}

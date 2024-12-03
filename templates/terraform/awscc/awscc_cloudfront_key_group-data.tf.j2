@@ -1,0 +1,10 @@
+data "awscc_cloudfront_key_group" "example" {
+    id = "{{ id }}"
+    key_group_config = "{
+    comment = {{ comment }}
+    items = {{ items }}
+    name = {{ name }}
+}"
+    key_group_id = "{{ key_group_id }}"
+    last_modified_time = "{{ last_modified_time }}"
+}

@@ -1,0 +1,9 @@
+resource "tfe_admin_organization_settings" "example" {
+    access_beta_tools = "{{ access_beta_tools }}"
+    global_module_sharing = "{{ global_module_sharing }}"
+    id = "{{ id }}"
+    module_sharing_consumer_organizations = "{{ module_sharing_consumer_organizations }}"
+    organization = "{{ organization }}"
+    sso_enabled = "{{ sso_enabled }}"
+    workspace_limit = "{{ workspace_limit }}"
+}

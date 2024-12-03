@@ -1,0 +1,54 @@
+data "awscc_iotwireless_wireless_device" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    destination_name = "{{ destination_name }}"
+    id = "{{ id }}"
+    last_uplink_received_at = "{{ last_uplink_received_at }}"
+    lo_ra_wan = "{
+    abp_v10_x = {
+    dev_addr = {{ dev_addr }}
+    session_keys = {
+    app_s_key = {{ app_s_key }}
+    nwk_s_key = {{ nwk_s_key }}
+}
+}
+    abp_v11 = {
+    dev_addr = {{ dev_addr }}
+    session_keys = {
+    app_s_key = {{ app_s_key }}
+    f_nwk_s_int_key = {{ f_nwk_s_int_key }}
+    nwk_s_enc_key = {{ nwk_s_enc_key }}
+    s_nwk_s_int_key = {{ s_nwk_s_int_key }}
+}
+}
+    dev_eui = {{ dev_eui }}
+    device_profile_id = {{ device_profile_id }}
+    f_ports = {
+    applications = {
+    destination_name = {{ destination_name }}
+    f_port = {{ f_port }}
+    type = {{ type }}
+}
+}
+    otaa_v10_x = {
+    app_eui = {{ app_eui }}
+    app_key = {{ app_key }}
+}
+    otaa_v11 = {
+    app_key = {{ app_key }}
+    join_eui = {{ join_eui }}
+    nwk_key = {{ nwk_key }}
+}
+    service_profile_id = {{ service_profile_id }}
+}"
+    name = "{{ name }}"
+    positioning = "{{ positioning }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    thing_arn = "{{ thing_arn }}"
+    thing_name = "{{ thing_name }}"
+    type = "{{ type }}"
+    wireless_device_id = "{{ wireless_device_id }}"
+}

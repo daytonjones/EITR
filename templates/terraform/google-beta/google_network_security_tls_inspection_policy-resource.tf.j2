@@ -1,0 +1,15 @@
+resource "google_network_security_tls_inspection_policy" "example" {
+    ca_pool = "{{ ca_pool }}"
+    create_time = "{{ create_time }}"
+    custom_tls_features = "{{ custom_tls_features }}"
+    description = "{{ description }}"
+    exclude_public_ca_set = "{{ exclude_public_ca_set }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    min_tls_version = "{{ min_tls_version }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    tls_feature_profile = "{{ tls_feature_profile }}"
+    trust_config = "{{ trust_config }}"
+    update_time = "{{ update_time }}"
+}

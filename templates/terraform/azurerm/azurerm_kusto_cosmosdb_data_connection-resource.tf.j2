@@ -1,0 +1,11 @@
+resource "azurerm_kusto_cosmosdb_data_connection" "example" {
+    cosmosdb_container_id = "{{ cosmosdb_container_id }}"
+    id = "{{ id }}"
+    kusto_database_id = "{{ kusto_database_id }}"
+    location = "{{ location }}"
+    managed_identity_id = "{{ managed_identity_id }}"
+    mapping_rule_name = "{{ mapping_rule_name }}"
+    name = "{{ name }}"
+    retrieval_start_date = "{{ retrieval_start_date }}"
+    table_name = "{{ table_name }}"
+}

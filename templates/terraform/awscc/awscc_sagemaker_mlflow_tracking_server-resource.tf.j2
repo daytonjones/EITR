@@ -1,0 +1,15 @@
+resource "awscc_sagemaker_mlflow_tracking_server" "example" {
+    artifact_store_uri = "{{ artifact_store_uri }}"
+    automatic_model_registration = "{{ automatic_model_registration }}"
+    id = "{{ id }}"
+    mlflow_version = "{{ mlflow_version }}"
+    role_arn = "{{ role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    tracking_server_arn = "{{ tracking_server_arn }}"
+    tracking_server_name = "{{ tracking_server_name }}"
+    tracking_server_size = "{{ tracking_server_size }}"
+    weekly_maintenance_window_start = "{{ weekly_maintenance_window_start }}"
+}

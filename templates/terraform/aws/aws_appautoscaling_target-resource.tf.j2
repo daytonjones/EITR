@@ -1,0 +1,12 @@
+resource "aws_appautoscaling_target" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    max_capacity = "{{ max_capacity }}"
+    min_capacity = "{{ min_capacity }}"
+    resource_id = "{{ resource_id }}"
+    role_arn = "{{ role_arn }}"
+    scalable_dimension = "{{ scalable_dimension }}"
+    service_namespace = "{{ service_namespace }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

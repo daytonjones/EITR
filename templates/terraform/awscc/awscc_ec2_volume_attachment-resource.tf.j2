@@ -1,0 +1,6 @@
+resource "awscc_ec2_volume_attachment" "example" {
+    device = "{{ device }}"
+    id = "{{ id }}"
+    instance_id = "{{ instance_id }}"
+    volume_id = "{{ volume_id }}"
+}

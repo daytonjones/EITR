@@ -1,0 +1,8 @@
+resource "aws_computeoptimizer_recommendation_preferences" "example" {
+    enhanced_infrastructure_metrics = "{{ enhanced_infrastructure_metrics }}"
+    id = "{{ id }}"
+    inferred_workload_types = "{{ inferred_workload_types }}"
+    look_back_period = "{{ look_back_period }}"
+    resource_type = "{{ resource_type }}"
+    savings_estimation_mode = "{{ savings_estimation_mode }}"
+}

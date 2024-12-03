@@ -1,0 +1,18 @@
+data "awscc_neptunegraph_graph" "example" {
+    deletion_protection = "{{ deletion_protection }}"
+    endpoint = "{{ endpoint }}"
+    graph_arn = "{{ graph_arn }}"
+    graph_id = "{{ graph_id }}"
+    graph_name = "{{ graph_name }}"
+    id = "{{ id }}"
+    provisioned_memory = "{{ provisioned_memory }}"
+    public_connectivity = "{{ public_connectivity }}"
+    replica_count = "{{ replica_count }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    vector_search_configuration = "{
+    vector_search_dimension = {{ vector_search_dimension }}
+}"
+}

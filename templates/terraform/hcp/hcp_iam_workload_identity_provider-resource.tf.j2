@@ -1,0 +1,15 @@
+resource "hcp_iam_workload_identity_provider" "example" {
+    aws = "{
+    account_id = {{ account_id }}
+}"
+    conditional_access = "{{ conditional_access }}"
+    description = "{{ description }}"
+    name = "{{ name }}"
+    oidc = "{
+    allowed_audiences = {{ allowed_audiences }}
+    issuer_uri = {{ issuer_uri }}
+}"
+    resource_id = "{{ resource_id }}"
+    resource_name = "{{ resource_name }}"
+    service_principal = "{{ service_principal }}"
+}

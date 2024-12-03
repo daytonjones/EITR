@@ -1,0 +1,53 @@
+data "awscc_transfer_server" "example" {
+    arn = "{{ arn }}"
+    as_2_service_managed_egress_ip_addresses = "{{ as_2_service_managed_egress_ip_addresses }}"
+    certificate = "{{ certificate }}"
+    domain = "{{ domain }}"
+    endpoint_details = "{
+    address_allocation_ids = {{ address_allocation_ids }}
+    security_group_ids = {{ security_group_ids }}
+    subnet_ids = {{ subnet_ids }}
+    vpc_endpoint_id = {{ vpc_endpoint_id }}
+    vpc_id = {{ vpc_id }}
+}"
+    endpoint_type = "{{ endpoint_type }}"
+    id = "{{ id }}"
+    identity_provider_details = "{
+    directory_id = {{ directory_id }}
+    function = {{ function }}
+    invocation_role = {{ invocation_role }}
+    sftp_authentication_methods = {{ sftp_authentication_methods }}
+    url = {{ url }}
+}"
+    identity_provider_type = "{{ identity_provider_type }}"
+    logging_role = "{{ logging_role }}"
+    post_authentication_login_banner = "{{ post_authentication_login_banner }}"
+    pre_authentication_login_banner = "{{ pre_authentication_login_banner }}"
+    protocol_details = "{
+    as_2_transports = {{ as_2_transports }}
+    passive_ip = {{ passive_ip }}
+    set_stat_option = {{ set_stat_option }}
+    tls_session_resumption_mode = {{ tls_session_resumption_mode }}
+}"
+    protocols = "{{ protocols }}"
+    s3_storage_options = "{
+    directory_listing_optimization = {{ directory_listing_optimization }}
+}"
+    security_policy_name = "{{ security_policy_name }}"
+    server_id = "{{ server_id }}"
+    structured_log_destinations = "{{ structured_log_destinations }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    workflow_details = "{
+    on_partial_upload = {
+    execution_role = {{ execution_role }}
+    workflow_id = {{ workflow_id }}
+}
+    on_upload = {
+    execution_role = {{ execution_role }}
+    workflow_id = {{ workflow_id }}
+}
+}"
+}

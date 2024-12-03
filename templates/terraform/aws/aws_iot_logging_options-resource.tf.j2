@@ -1,0 +1,6 @@
+resource "aws_iot_logging_options" "example" {
+    default_log_level = "{{ default_log_level }}"
+    disable_all_logs = "{{ disable_all_logs }}"
+    id = "{{ id }}"
+    role_arn = "{{ role_arn }}"
+}

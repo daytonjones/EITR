@@ -1,0 +1,13 @@
+resource "azurerm_relay_namespace_authorization_rule" "example" {
+    id = "{{ id }}"
+    listen = "{{ listen }}"
+    manage = "{{ manage }}"
+    name = "{{ name }}"
+    namespace_name = "{{ namespace_name }}"
+    primary_connection_string = "{{ primary_connection_string }}"
+    primary_key = "{{ primary_key }}"
+    resource_group_name = "{{ resource_group_name }}"
+    secondary_connection_string = "{{ secondary_connection_string }}"
+    secondary_key = "{{ secondary_key }}"
+    send = "{{ send }}"
+}

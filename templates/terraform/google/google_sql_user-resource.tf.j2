@@ -1,0 +1,11 @@
+resource "google_sql_user" "example" {
+    deletion_policy = "{{ deletion_policy }}"
+    host = "{{ host }}"
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    name = "{{ name }}"
+    password = "{{ password }}"
+    project = "{{ project }}"
+    sql_server_user_details = "{{ sql_server_user_details }}"
+    type = "{{ type }}"
+}

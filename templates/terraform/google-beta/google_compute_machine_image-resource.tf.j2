@@ -1,0 +1,10 @@
+resource "google_compute_machine_image" "example" {
+    description = "{{ description }}"
+    guest_flush = "{{ guest_flush }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    self_link = "{{ self_link }}"
+    source_instance = "{{ source_instance }}"
+    storage_locations = "{{ storage_locations }}"
+}

@@ -1,0 +1,9 @@
+resource "azurerm_network_function_azure_traffic_collector" "example" {
+    collector_policy_ids = "{{ collector_policy_ids }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    virtual_hub_id = "{{ virtual_hub_id }}"
+}

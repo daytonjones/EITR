@@ -1,0 +1,20 @@
+data "awscc_elasticbeanstalk_application" "example" {
+    application_name = "{{ application_name }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    resource_lifecycle_config = "{
+    service_role = {{ service_role }}
+    version_lifecycle_config = {
+    max_age_rule = {
+    delete_source_from_s3 = {{ delete_source_from_s3 }}
+    enabled = {{ enabled }}
+    max_age_in_days = {{ max_age_in_days }}
+}
+    max_count_rule = {
+    delete_source_from_s3 = {{ delete_source_from_s3 }}
+    enabled = {{ enabled }}
+    max_count = {{ max_count }}
+}
+}
+}"
+}

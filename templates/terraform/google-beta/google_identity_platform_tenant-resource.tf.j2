@@ -1,0 +1,9 @@
+resource "google_identity_platform_tenant" "example" {
+    allow_password_signup = "{{ allow_password_signup }}"
+    disable_auth = "{{ disable_auth }}"
+    display_name = "{{ display_name }}"
+    enable_email_link_signin = "{{ enable_email_link_signin }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+}

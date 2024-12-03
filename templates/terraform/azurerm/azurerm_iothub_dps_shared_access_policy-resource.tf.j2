@@ -1,0 +1,15 @@
+resource "azurerm_iothub_dps_shared_access_policy" "example" {
+    enrollment_read = "{{ enrollment_read }}"
+    enrollment_write = "{{ enrollment_write }}"
+    id = "{{ id }}"
+    iothub_dps_name = "{{ iothub_dps_name }}"
+    name = "{{ name }}"
+    primary_connection_string = "{{ primary_connection_string }}"
+    primary_key = "{{ primary_key }}"
+    registration_read = "{{ registration_read }}"
+    registration_write = "{{ registration_write }}"
+    resource_group_name = "{{ resource_group_name }}"
+    secondary_connection_string = "{{ secondary_connection_string }}"
+    secondary_key = "{{ secondary_key }}"
+    service_config = "{{ service_config }}"
+}

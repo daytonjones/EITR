@@ -1,0 +1,11 @@
+data "awscc_iot_custom_metric" "example" {
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    metric_arn = "{{ metric_arn }}"
+    metric_name = "{{ metric_name }}"
+    metric_type = "{{ metric_type }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,40 @@
+resource "awscc_sagemaker_app_image_config" "example" {
+    app_image_config_arn = "{{ app_image_config_arn }}"
+    app_image_config_name = "{{ app_image_config_name }}"
+    code_editor_app_image_config = "{
+    container_config = {
+    container_arguments = {{ container_arguments }}
+    container_entrypoint = {{ container_entrypoint }}
+    container_environment_variables = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}
+}"
+    id = "{{ id }}"
+    jupyter_lab_app_image_config = "{
+    container_config = {
+    container_arguments = {{ container_arguments }}
+    container_entrypoint = {{ container_entrypoint }}
+    container_environment_variables = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}
+}"
+    kernel_gateway_image_config = "{
+    file_system_config = {
+    default_gid = {{ default_gid }}
+    default_uid = {{ default_uid }}
+    mount_path = {{ mount_path }}
+}
+    kernel_specs = {
+    display_name = {{ display_name }}
+    name = {{ name }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

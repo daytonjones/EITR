@@ -1,0 +1,12 @@
+resource "google_monitoring_alert_policy" "example" {
+    combiner = "{{ combiner }}"
+    creation_record = "{{ creation_record }}"
+    display_name = "{{ display_name }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    notification_channels = "{{ notification_channels }}"
+    project = "{{ project }}"
+    severity = "{{ severity }}"
+    user_labels = "{{ user_labels }}"
+}

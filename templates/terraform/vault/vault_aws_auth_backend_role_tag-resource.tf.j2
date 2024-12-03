@@ -1,0 +1,13 @@
+resource "vault_aws_auth_backend_role_tag" "example" {
+    allow_instance_migration = "{{ allow_instance_migration }}"
+    backend = "{{ backend }}"
+    disallow_reauthentication = "{{ disallow_reauthentication }}"
+    id = "{{ id }}"
+    instance_id = "{{ instance_id }}"
+    max_ttl = "{{ max_ttl }}"
+    namespace = "{{ namespace }}"
+    policies = "{{ policies }}"
+    role = "{{ role }}"
+    tag_key = "{{ tag_key }}"
+    tag_value = "{{ tag_value }}"
+}

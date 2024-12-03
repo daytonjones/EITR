@@ -1,0 +1,10 @@
+resource "aws_guardduty_member" "example" {
+    account_id = "{{ account_id }}"
+    detector_id = "{{ detector_id }}"
+    disable_email_notification = "{{ disable_email_notification }}"
+    email = "{{ email }}"
+    id = "{{ id }}"
+    invitation_message = "{{ invitation_message }}"
+    invite = "{{ invite }}"
+    relationship_status = "{{ relationship_status }}"
+}

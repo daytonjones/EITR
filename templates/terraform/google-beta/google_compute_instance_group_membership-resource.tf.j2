@@ -1,0 +1,7 @@
+resource "google_compute_instance_group_membership" "example" {
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    instance_group = "{{ instance_group }}"
+    project = "{{ project }}"
+    zone = "{{ zone }}"
+}

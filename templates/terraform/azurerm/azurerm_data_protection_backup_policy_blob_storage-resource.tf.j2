@@ -1,0 +1,9 @@
+resource "azurerm_data_protection_backup_policy_blob_storage" "example" {
+    backup_repeating_time_intervals = "{{ backup_repeating_time_intervals }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    operational_default_retention_duration = "{{ operational_default_retention_duration }}"
+    time_zone = "{{ time_zone }}"
+    vault_default_retention_duration = "{{ vault_default_retention_duration }}"
+    vault_id = "{{ vault_id }}"
+}

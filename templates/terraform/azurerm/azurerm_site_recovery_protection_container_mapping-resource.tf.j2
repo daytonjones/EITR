@@ -1,0 +1,10 @@
+resource "azurerm_site_recovery_protection_container_mapping" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    recovery_fabric_name = "{{ recovery_fabric_name }}"
+    recovery_replication_policy_id = "{{ recovery_replication_policy_id }}"
+    recovery_source_protection_container_name = "{{ recovery_source_protection_container_name }}"
+    recovery_target_protection_container_id = "{{ recovery_target_protection_container_id }}"
+    recovery_vault_name = "{{ recovery_vault_name }}"
+    resource_group_name = "{{ resource_group_name }}"
+}

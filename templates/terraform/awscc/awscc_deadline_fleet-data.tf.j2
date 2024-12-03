@@ -1,0 +1,107 @@
+data "awscc_deadline_fleet" "example" {
+    arn = "{{ arn }}"
+    capabilities = "{
+    amounts = {
+    max = {{ max }}
+    min = {{ min }}
+    name = {{ name }}
+}
+    attributes = {
+    name = {{ name }}
+    values = {{ values }}
+}
+}"
+    configuration = "{
+    customer_managed = {
+    mode = {{ mode }}
+    storage_profile_id = {{ storage_profile_id }}
+    worker_capabilities = {
+    accelerator_count = {
+    max = {{ max }}
+    min = {{ min }}
+}
+    accelerator_total_memory_mi_b = {
+    max = {{ max }}
+    min = {{ min }}
+}
+    accelerator_types = {{ accelerator_types }}
+    cpu_architecture_type = {{ cpu_architecture_type }}
+    custom_amounts = {
+    max = {{ max }}
+    min = {{ min }}
+    name = {{ name }}
+}
+    custom_attributes = {
+    name = {{ name }}
+    values = {{ values }}
+}
+    memory_mi_b = {
+    max = {{ max }}
+    min = {{ min }}
+}
+    os_family = {{ os_family }}
+    v_cpu_count = {
+    max = {{ max }}
+    min = {{ min }}
+}
+}
+}
+    service_managed_ec_2 = {
+    instance_capabilities = {
+    accelerator_capabilities = {
+    count = {
+    max = {{ max }}
+    min = {{ min }}
+}
+    selections = {
+    name = {{ name }}
+    runtime = {{ runtime }}
+}
+}
+    allowed_instance_types = {{ allowed_instance_types }}
+    cpu_architecture_type = {{ cpu_architecture_type }}
+    custom_amounts = {
+    max = {{ max }}
+    min = {{ min }}
+    name = {{ name }}
+}
+    custom_attributes = {
+    name = {{ name }}
+    values = {{ values }}
+}
+    excluded_instance_types = {{ excluded_instance_types }}
+    memory_mi_b = {
+    max = {{ max }}
+    min = {{ min }}
+}
+    os_family = {{ os_family }}
+    root_ebs_volume = {
+    iops = {{ iops }}
+    size_gi_b = {{ size_gi_b }}
+    throughput_mi_b = {{ throughput_mi_b }}
+}
+    v_cpu_count = {
+    max = {{ max }}
+    min = {{ min }}
+}
+}
+    instance_market_options = {
+    type = {{ type }}
+}
+}
+}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    farm_id = "{{ farm_id }}"
+    fleet_id = "{{ fleet_id }}"
+    id = "{{ id }}"
+    max_worker_count = "{{ max_worker_count }}"
+    min_worker_count = "{{ min_worker_count }}"
+    role_arn = "{{ role_arn }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    worker_count = "{{ worker_count }}"
+}

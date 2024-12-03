@@ -1,0 +1,15 @@
+data "awscc_sns_subscription" "example" {
+    arn = "{{ arn }}"
+    delivery_policy = "{{ delivery_policy }}"
+    endpoint = "{{ endpoint }}"
+    filter_policy = "{{ filter_policy }}"
+    filter_policy_scope = "{{ filter_policy_scope }}"
+    id = "{{ id }}"
+    protocol = "{{ protocol }}"
+    raw_message_delivery = "{{ raw_message_delivery }}"
+    redrive_policy = "{{ redrive_policy }}"
+    region = "{{ region }}"
+    replay_policy = "{{ replay_policy }}"
+    subscription_role_arn = "{{ subscription_role_arn }}"
+    topic_arn = "{{ topic_arn }}"
+}

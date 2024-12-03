@@ -1,0 +1,17 @@
+resource "aws_bedrock_custom_model" "example" {
+    base_model_identifier = "{{ base_model_identifier }}"
+    custom_model_arn = "{{ custom_model_arn }}"
+    custom_model_kms_key_id = "{{ custom_model_kms_key_id }}"
+    custom_model_name = "{{ custom_model_name }}"
+    customization_type = "{{ customization_type }}"
+    hyperparameters = "{{ hyperparameters }}"
+    id = "{{ id }}"
+    job_arn = "{{ job_arn }}"
+    job_name = "{{ job_name }}"
+    job_status = "{{ job_status }}"
+    role_arn = "{{ role_arn }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    training_metrics = "{{ training_metrics }}"
+    validation_metrics = "{{ validation_metrics }}"
+}

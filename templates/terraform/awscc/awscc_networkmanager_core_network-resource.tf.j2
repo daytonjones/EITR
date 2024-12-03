@@ -1,0 +1,33 @@
+resource "awscc_networkmanager_core_network" "example" {
+    core_network_arn = "{{ core_network_arn }}"
+    core_network_id = "{{ core_network_id }}"
+    created_at = "{{ created_at }}"
+    description = "{{ description }}"
+    edges = "{
+    asn = {{ asn }}
+    edge_location = {{ edge_location }}
+    inside_cidr_blocks = {{ inside_cidr_blocks }}
+}"
+    global_network_id = "{{ global_network_id }}"
+    id = "{{ id }}"
+    network_function_groups = "{
+    edge_locations = {{ edge_locations }}
+    name = {{ name }}
+    segments = {
+    send_to = {{ send_to }}
+    send_via = {{ send_via }}
+}
+}"
+    owner_account = "{{ owner_account }}"
+    policy_document = "{{ policy_document }}"
+    segments = "{
+    edge_locations = {{ edge_locations }}
+    name = {{ name }}
+    shared_segments = {{ shared_segments }}
+}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

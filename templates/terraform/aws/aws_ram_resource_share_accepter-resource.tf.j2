@@ -1,0 +1,11 @@
+resource "aws_ram_resource_share_accepter" "example" {
+    id = "{{ id }}"
+    invitation_arn = "{{ invitation_arn }}"
+    receiver_account_id = "{{ receiver_account_id }}"
+    resources = "{{ resources }}"
+    sender_account_id = "{{ sender_account_id }}"
+    share_arn = "{{ share_arn }}"
+    share_id = "{{ share_id }}"
+    share_name = "{{ share_name }}"
+    status = "{{ status }}"
+}

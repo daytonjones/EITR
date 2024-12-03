@@ -1,0 +1,11 @@
+resource "azurerm_eventhub" "example" {
+    id = "{{ id }}"
+    message_retention = "{{ message_retention }}"
+    name = "{{ name }}"
+    namespace_id = "{{ namespace_id }}"
+    namespace_name = "{{ namespace_name }}"
+    partition_count = "{{ partition_count }}"
+    partition_ids = "{{ partition_ids }}"
+    resource_group_name = "{{ resource_group_name }}"
+    status = "{{ status }}"
+}

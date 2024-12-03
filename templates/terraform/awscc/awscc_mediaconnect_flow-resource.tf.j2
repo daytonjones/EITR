@@ -1,0 +1,100 @@
+resource "awscc_mediaconnect_flow" "example" {
+    availability_zone = "{{ availability_zone }}"
+    egress_ip = "{{ egress_ip }}"
+    flow_arn = "{{ flow_arn }}"
+    flow_availability_zone = "{{ flow_availability_zone }}"
+    id = "{{ id }}"
+    maintenance = "{
+    maintenance_day = {{ maintenance_day }}
+    maintenance_start_hour = {{ maintenance_start_hour }}
+}"
+    media_streams = "{
+    attributes = {
+    fmtp = {
+    channel_order = {{ channel_order }}
+    colorimetry = {{ colorimetry }}
+    exact_framerate = {{ exact_framerate }}
+    par = {{ par }}
+    range = {{ range }}
+    scan_mode = {{ scan_mode }}
+    tcs = {{ tcs }}
+}
+    lang = {{ lang }}
+}
+    clock_rate = {{ clock_rate }}
+    description = {{ description }}
+    fmt = {{ fmt }}
+    media_stream_id = {{ media_stream_id }}
+    media_stream_name = {{ media_stream_name }}
+    media_stream_type = {{ media_stream_type }}
+    video_format = {{ video_format }}
+}"
+    name = "{{ name }}"
+    source = "{
+    decryption = {
+    algorithm = {{ algorithm }}
+    constant_initialization_vector = {{ constant_initialization_vector }}
+    device_id = {{ device_id }}
+    key_type = {{ key_type }}
+    region = {{ region }}
+    resource_id = {{ resource_id }}
+    role_arn = {{ role_arn }}
+    secret_arn = {{ secret_arn }}
+    url = {{ url }}
+}
+    description = {{ description }}
+    entitlement_arn = {{ entitlement_arn }}
+    gateway_bridge_source = {
+    bridge_arn = {{ bridge_arn }}
+    vpc_interface_attachment = {
+    vpc_interface_name = {{ vpc_interface_name }}
+}
+}
+    ingest_ip = {{ ingest_ip }}
+    ingest_port = {{ ingest_port }}
+    max_bitrate = {{ max_bitrate }}
+    max_latency = {{ max_latency }}
+    max_sync_buffer = {{ max_sync_buffer }}
+    media_stream_source_configurations = {
+    encoding_name = {{ encoding_name }}
+    input_configurations = {
+    input_port = {{ input_port }}
+    interface = {
+    name = {{ name }}
+}
+}
+    media_stream_name = {{ media_stream_name }}
+}
+    min_latency = {{ min_latency }}
+    name = {{ name }}
+    protocol = {{ protocol }}
+    sender_control_port = {{ sender_control_port }}
+    sender_ip_address = {{ sender_ip_address }}
+    source_arn = {{ source_arn }}
+    source_ingest_port = {{ source_ingest_port }}
+    source_listener_address = {{ source_listener_address }}
+    source_listener_port = {{ source_listener_port }}
+    stream_id = {{ stream_id }}
+    vpc_interface_name = {{ vpc_interface_name }}
+    whitelist_cidr = {{ whitelist_cidr }}
+}"
+    source_failover_config = "{
+    failover_mode = {{ failover_mode }}
+    recovery_window = {{ recovery_window }}
+    source_priority = {
+    primary_source = {{ primary_source }}
+}
+    state = {{ state }}
+}"
+    source_monitoring_config = "{
+    thumbnail_state = {{ thumbnail_state }}
+}"
+    vpc_interfaces = "{
+    name = {{ name }}
+    network_interface_ids = {{ network_interface_ids }}
+    network_interface_type = {{ network_interface_type }}
+    role_arn = {{ role_arn }}
+    security_group_ids = {{ security_group_ids }}
+    subnet_id = {{ subnet_id }}
+}"
+}

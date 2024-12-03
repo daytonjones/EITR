@@ -1,0 +1,39 @@
+resource "awscc_mediaconnect_flow_source" "example" {
+    decryption = "{
+    algorithm = {{ algorithm }}
+    constant_initialization_vector = {{ constant_initialization_vector }}
+    device_id = {{ device_id }}
+    key_type = {{ key_type }}
+    region = {{ region }}
+    resource_id = {{ resource_id }}
+    role_arn = {{ role_arn }}
+    secret_arn = {{ secret_arn }}
+    url = {{ url }}
+}"
+    description = "{{ description }}"
+    entitlement_arn = "{{ entitlement_arn }}"
+    flow_arn = "{{ flow_arn }}"
+    gateway_bridge_source = "{
+    bridge_arn = {{ bridge_arn }}
+    vpc_interface_attachment = {
+    vpc_interface_name = {{ vpc_interface_name }}
+}
+}"
+    id = "{{ id }}"
+    ingest_ip = "{{ ingest_ip }}"
+    ingest_port = "{{ ingest_port }}"
+    max_bitrate = "{{ max_bitrate }}"
+    max_latency = "{{ max_latency }}"
+    min_latency = "{{ min_latency }}"
+    name = "{{ name }}"
+    protocol = "{{ protocol }}"
+    sender_control_port = "{{ sender_control_port }}"
+    sender_ip_address = "{{ sender_ip_address }}"
+    source_arn = "{{ source_arn }}"
+    source_ingest_port = "{{ source_ingest_port }}"
+    source_listener_address = "{{ source_listener_address }}"
+    source_listener_port = "{{ source_listener_port }}"
+    stream_id = "{{ stream_id }}"
+    vpc_interface_name = "{{ vpc_interface_name }}"
+    whitelist_cidr = "{{ whitelist_cidr }}"
+}

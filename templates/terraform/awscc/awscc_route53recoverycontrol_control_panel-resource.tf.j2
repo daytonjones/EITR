@@ -1,0 +1,13 @@
+resource "awscc_route53recoverycontrol_control_panel" "example" {
+    cluster_arn = "{{ cluster_arn }}"
+    control_panel_arn = "{{ control_panel_arn }}"
+    default_control_panel = "{{ default_control_panel }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    routing_control_count = "{{ routing_control_count }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

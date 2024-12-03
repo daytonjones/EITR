@@ -1,0 +1,17 @@
+resource "awscc_oam_link" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    label = "{{ label }}"
+    label_template = "{{ label_template }}"
+    link_configuration = "{
+    log_group_configuration = {
+    filter = {{ filter }}
+}
+    metric_configuration = {
+    filter = {{ filter }}
+}
+}"
+    resource_types = "{{ resource_types }}"
+    sink_identifier = "{{ sink_identifier }}"
+    tags = "{{ tags }}"
+}

@@ -1,0 +1,16 @@
+data "azurerm_eventgrid_domain" "example" {
+    endpoint = "{{ endpoint }}"
+    id = "{{ id }}"
+    identity = "{{ identity }}"
+    inbound_ip_rule = "{{ inbound_ip_rule }}"
+    input_mapping_default_values = "{{ input_mapping_default_values }}"
+    input_mapping_fields = "{{ input_mapping_fields }}"
+    input_schema = "{{ input_schema }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    primary_access_key = "{{ primary_access_key }}"
+    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    resource_group_name = "{{ resource_group_name }}"
+    secondary_access_key = "{{ secondary_access_key }}"
+    tags = "{{ tags }}"
+}

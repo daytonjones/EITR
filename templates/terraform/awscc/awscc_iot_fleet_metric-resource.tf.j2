@@ -1,0 +1,23 @@
+resource "awscc_iot_fleet_metric" "example" {
+    aggregation_field = "{{ aggregation_field }}"
+    aggregation_type = "{
+    name = {{ name }}
+    values = {{ values }}
+}"
+    creation_date = "{{ creation_date }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    index_name = "{{ index_name }}"
+    last_modified_date = "{{ last_modified_date }}"
+    metric_arn = "{{ metric_arn }}"
+    metric_name = "{{ metric_name }}"
+    period = "{{ period }}"
+    query_string = "{{ query_string }}"
+    query_version = "{{ query_version }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    unit = "{{ unit }}"
+    version = "{{ version }}"
+}

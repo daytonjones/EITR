@@ -1,0 +1,10 @@
+resource "google_logging_organization_settings" "example" {
+    disable_default_sink = "{{ disable_default_sink }}"
+    id = "{{ id }}"
+    kms_key_name = "{{ kms_key_name }}"
+    kms_service_account_id = "{{ kms_service_account_id }}"
+    logging_service_account_id = "{{ logging_service_account_id }}"
+    name = "{{ name }}"
+    organization = "{{ organization }}"
+    storage_location = "{{ storage_location }}"
+}

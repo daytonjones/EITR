@@ -1,0 +1,7 @@
+resource "google_firestore_backup_schedule" "example" {
+    database = "{{ database }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    retention = "{{ retention }}"
+}

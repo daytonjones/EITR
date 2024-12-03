@@ -1,0 +1,75 @@
+resource "awscc_groundstation_config" "example" {
+    arn = "{{ arn }}"
+    config_data = "{
+    antenna_downlink_config = {
+    spectrum_config = {
+    bandwidth = {
+    units = {{ units }}
+    value = {{ value }}
+}
+    center_frequency = {
+    units = {{ units }}
+    value = {{ value }}
+}
+    polarization = {{ polarization }}
+}
+}
+    antenna_downlink_demod_decode_config = {
+    decode_config = {
+    unvalidated_json = {{ unvalidated_json }}
+}
+    demodulation_config = {
+    unvalidated_json = {{ unvalidated_json }}
+}
+    spectrum_config = {
+    bandwidth = {
+    units = {{ units }}
+    value = {{ value }}
+}
+    center_frequency = {
+    units = {{ units }}
+    value = {{ value }}
+}
+    polarization = {{ polarization }}
+}
+}
+    antenna_uplink_config = {
+    spectrum_config = {
+    center_frequency = {
+    units = {{ units }}
+    value = {{ value }}
+}
+    polarization = {{ polarization }}
+}
+    target_eirp = {
+    units = {{ units }}
+    value = {{ value }}
+}
+    transmit_disabled = {{ transmit_disabled }}
+}
+    dataflow_endpoint_config = {
+    dataflow_endpoint_name = {{ dataflow_endpoint_name }}
+    dataflow_endpoint_region = {{ dataflow_endpoint_region }}
+}
+    s3_recording_config = {
+    bucket_arn = {{ bucket_arn }}
+    prefix = {{ prefix }}
+    role_arn = {{ role_arn }}
+}
+    tracking_config = {
+    autotrack = {{ autotrack }}
+}
+    uplink_echo_config = {
+    antenna_uplink_config_arn = {{ antenna_uplink_config_arn }}
+    enabled = {{ enabled }}
+}
+}"
+    config_id = "{{ config_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+}

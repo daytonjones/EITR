@@ -1,0 +1,9 @@
+resource "aws_eip_association" "example" {
+    allocation_id = "{{ allocation_id }}"
+    allow_reassociation = "{{ allow_reassociation }}"
+    id = "{{ id }}"
+    instance_id = "{{ instance_id }}"
+    network_interface_id = "{{ network_interface_id }}"
+    private_ip_address = "{{ private_ip_address }}"
+    public_ip = "{{ public_ip }}"
+}

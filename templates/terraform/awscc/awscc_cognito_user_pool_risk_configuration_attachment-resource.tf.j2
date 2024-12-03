@@ -1,0 +1,51 @@
+resource "awscc_cognito_user_pool_risk_configuration_attachment" "example" {
+    account_takeover_risk_configuration = "{
+    actions = {
+    high_action = {
+    event_action = {{ event_action }}
+    notify = {{ notify }}
+}
+    low_action = {
+    event_action = {{ event_action }}
+    notify = {{ notify }}
+}
+    medium_action = {
+    event_action = {{ event_action }}
+    notify = {{ notify }}
+}
+}
+    notify_configuration = {
+    block_email = {
+    html_body = {{ html_body }}
+    subject = {{ subject }}
+    text_body = {{ text_body }}
+}
+    from = {{ from }}
+    mfa_email = {
+    html_body = {{ html_body }}
+    subject = {{ subject }}
+    text_body = {{ text_body }}
+}
+    no_action_email = {
+    html_body = {{ html_body }}
+    subject = {{ subject }}
+    text_body = {{ text_body }}
+}
+    reply_to = {{ reply_to }}
+    source_arn = {{ source_arn }}
+}
+}"
+    client_id = "{{ client_id }}"
+    compromised_credentials_risk_configuration = "{
+    actions = {
+    event_action = {{ event_action }}
+}
+    event_filter = {{ event_filter }}
+}"
+    id = "{{ id }}"
+    risk_exception_configuration = "{
+    blocked_ip_range_list = {{ blocked_ip_range_list }}
+    skipped_ip_range_list = {{ skipped_ip_range_list }}
+}"
+    user_pool_id = "{{ user_pool_id }}"
+}

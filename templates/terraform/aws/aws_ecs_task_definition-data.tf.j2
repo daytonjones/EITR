@@ -1,0 +1,12 @@
+data "aws_ecs_task_definition" "example" {
+    arn = "{{ arn }}"
+    arn_without_revision = "{{ arn_without_revision }}"
+    execution_role_arn = "{{ execution_role_arn }}"
+    family = "{{ family }}"
+    id = "{{ id }}"
+    network_mode = "{{ network_mode }}"
+    revision = "{{ revision }}"
+    status = "{{ status }}"
+    task_definition = "{{ task_definition }}"
+    task_role_arn = "{{ task_role_arn }}"
+}

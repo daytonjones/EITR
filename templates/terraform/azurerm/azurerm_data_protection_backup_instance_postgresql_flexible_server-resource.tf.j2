@@ -1,0 +1,8 @@
+resource "azurerm_data_protection_backup_instance_postgresql_flexible_server" "example" {
+    backup_policy_id = "{{ backup_policy_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    server_id = "{{ server_id }}"
+    vault_id = "{{ vault_id }}"
+}

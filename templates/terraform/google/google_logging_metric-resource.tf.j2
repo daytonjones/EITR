@@ -1,0 +1,11 @@
+resource "google_logging_metric" "example" {
+    bucket_name = "{{ bucket_name }}"
+    description = "{{ description }}"
+    disabled = "{{ disabled }}"
+    filter = "{{ filter }}"
+    id = "{{ id }}"
+    label_extractors = "{{ label_extractors }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    value_extractor = "{{ value_extractor }}"
+}

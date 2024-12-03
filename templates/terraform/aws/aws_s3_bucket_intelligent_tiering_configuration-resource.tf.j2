@@ -1,0 +1,6 @@
+resource "aws_s3_bucket_intelligent_tiering_configuration" "example" {
+    bucket = "{{ bucket }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    status = "{{ status }}"
+}

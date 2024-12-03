@@ -1,0 +1,9 @@
+resource "azurerm_virtual_machine_packet_capture" "example" {
+    id = "{{ id }}"
+    maximum_bytes_per_packet = "{{ maximum_bytes_per_packet }}"
+    maximum_bytes_per_session = "{{ maximum_bytes_per_session }}"
+    maximum_capture_duration_in_seconds = "{{ maximum_capture_duration_in_seconds }}"
+    name = "{{ name }}"
+    network_watcher_id = "{{ network_watcher_id }}"
+    virtual_machine_id = "{{ virtual_machine_id }}"
+}

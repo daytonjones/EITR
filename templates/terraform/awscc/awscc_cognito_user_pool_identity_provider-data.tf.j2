@@ -1,0 +1,9 @@
+data "awscc_cognito_user_pool_identity_provider" "example" {
+    attribute_mapping = "{{ attribute_mapping }}"
+    id = "{{ id }}"
+    idp_identifiers = "{{ idp_identifiers }}"
+    provider_details = "{{ provider_details }}"
+    provider_name = "{{ provider_name }}"
+    provider_type = "{{ provider_type }}"
+    user_pool_id = "{{ user_pool_id }}"
+}

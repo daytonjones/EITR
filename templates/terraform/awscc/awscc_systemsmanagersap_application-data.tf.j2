@@ -1,0 +1,19 @@
+data "awscc_systemsmanagersap_application" "example" {
+    application_id = "{{ application_id }}"
+    application_type = "{{ application_type }}"
+    arn = "{{ arn }}"
+    credentials = "{
+    credential_type = {{ credential_type }}
+    database_name = {{ database_name }}
+    secret_id = {{ secret_id }}
+}"
+    database_arn = "{{ database_arn }}"
+    id = "{{ id }}"
+    instances = "{{ instances }}"
+    sap_instance_number = "{{ sap_instance_number }}"
+    sid = "{{ sid }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

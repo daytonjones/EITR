@@ -1,0 +1,8 @@
+resource "azurerm_monitor_data_collection_rule_association" "example" {
+    data_collection_endpoint_id = "{{ data_collection_endpoint_id }}"
+    data_collection_rule_id = "{{ data_collection_rule_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    target_resource_id = "{{ target_resource_id }}"
+}

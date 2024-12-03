@@ -1,0 +1,18 @@
+resource "aws_neptune_cluster_snapshot" "example" {
+    allocated_storage = "{{ allocated_storage }}"
+    availability_zones = "{{ availability_zones }}"
+    db_cluster_identifier = "{{ db_cluster_identifier }}"
+    db_cluster_snapshot_arn = "{{ db_cluster_snapshot_arn }}"
+    db_cluster_snapshot_identifier = "{{ db_cluster_snapshot_identifier }}"
+    engine = "{{ engine }}"
+    engine_version = "{{ engine_version }}"
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    license_model = "{{ license_model }}"
+    port = "{{ port }}"
+    snapshot_type = "{{ snapshot_type }}"
+    source_db_cluster_snapshot_arn = "{{ source_db_cluster_snapshot_arn }}"
+    status = "{{ status }}"
+    storage_encrypted = "{{ storage_encrypted }}"
+    vpc_id = "{{ vpc_id }}"
+}

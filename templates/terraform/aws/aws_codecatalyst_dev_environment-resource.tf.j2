@@ -1,0 +1,8 @@
+resource "aws_codecatalyst_dev_environment" "example" {
+    alias = "{{ alias }}"
+    id = "{{ id }}"
+    inactivity_timeout_minutes = "{{ inactivity_timeout_minutes }}"
+    instance_type = "{{ instance_type }}"
+    project_name = "{{ project_name }}"
+    space_name = "{{ space_name }}"
+}

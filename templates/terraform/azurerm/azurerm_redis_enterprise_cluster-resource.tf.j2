@@ -1,0 +1,11 @@
+resource "azurerm_redis_enterprise_cluster" "example" {
+    hostname = "{{ hostname }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    minimum_tls_version = "{{ minimum_tls_version }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku_name = "{{ sku_name }}"
+    tags = "{{ tags }}"
+    zones = "{{ zones }}"
+}

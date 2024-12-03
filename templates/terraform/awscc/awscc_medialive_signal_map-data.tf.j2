@@ -1,0 +1,52 @@
+data "awscc_medialive_signal_map" "example" {
+    arn = "{{ arn }}"
+    cloudwatch_alarm_template_group_identifiers = "{{ cloudwatch_alarm_template_group_identifiers }}"
+    cloudwatch_alarm_template_group_ids = "{{ cloudwatch_alarm_template_group_ids }}"
+    created_at = "{{ created_at }}"
+    description = "{{ description }}"
+    discovery_entry_point_arn = "{{ discovery_entry_point_arn }}"
+    error_message = "{{ error_message }}"
+    event_bridge_rule_template_group_identifiers = "{{ event_bridge_rule_template_group_identifiers }}"
+    event_bridge_rule_template_group_ids = "{{ event_bridge_rule_template_group_ids }}"
+    failed_media_resource_map = "{
+    destinations = {
+    arn = {{ arn }}
+    name = {{ name }}
+}
+    name = {{ name }}
+    sources = {
+    arn = {{ arn }}
+    name = {{ name }}
+}
+}"
+    force_rediscovery = "{{ force_rediscovery }}"
+    id = "{{ id }}"
+    identifier = "{{ identifier }}"
+    last_discovered_at = "{{ last_discovered_at }}"
+    last_successful_monitor_deployment = "{
+    details_uri = {{ details_uri }}
+    status = {{ status }}
+}"
+    media_resource_map = "{
+    destinations = {
+    arn = {{ arn }}
+    name = {{ name }}
+}
+    name = {{ name }}
+    sources = {
+    arn = {{ arn }}
+    name = {{ name }}
+}
+}"
+    modified_at = "{{ modified_at }}"
+    monitor_changes_pending_deployment = "{{ monitor_changes_pending_deployment }}"
+    monitor_deployment = "{
+    details_uri = {{ details_uri }}
+    error_message = {{ error_message }}
+    status = {{ status }}
+}"
+    name = "{{ name }}"
+    signal_map_id = "{{ signal_map_id }}"
+    status = "{{ status }}"
+    tags = "{{ tags }}"
+}

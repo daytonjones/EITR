@@ -1,0 +1,449 @@
+resource "awscc_iotevents_detector_model" "example" {
+    detector_model_definition = "{
+    initial_state_name = {{ initial_state_name }}
+    states = {
+    on_enter = {
+    events = {
+    actions = {
+    clear_timer = {
+    timer_name = {{ timer_name }}
+}
+    dynamo_d_bv_2 = {
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    table_name = {{ table_name }}
+}
+    dynamo_db = {
+    hash_key_field = {{ hash_key_field }}
+    hash_key_type = {{ hash_key_type }}
+    hash_key_value = {{ hash_key_value }}
+    operation = {{ operation }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    payload_field = {{ payload_field }}
+    range_key_field = {{ range_key_field }}
+    range_key_type = {{ range_key_type }}
+    range_key_value = {{ range_key_value }}
+    table_name = {{ table_name }}
+}
+    firehose = {
+    delivery_stream_name = {{ delivery_stream_name }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    separator = {{ separator }}
+}
+    iot_events = {
+    input_name = {{ input_name }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+}
+    iot_site_wise = {
+    asset_id = {{ asset_id }}
+    entry_id = {{ entry_id }}
+    property_alias = {{ property_alias }}
+    property_id = {{ property_id }}
+    property_value = {
+    quality = {{ quality }}
+    timestamp = {
+    offset_in_nanos = {{ offset_in_nanos }}
+    time_in_seconds = {{ time_in_seconds }}
+}
+    value = {
+    boolean_value = {{ boolean_value }}
+    double_value = {{ double_value }}
+    integer_value = {{ integer_value }}
+    string_value = {{ string_value }}
+}
+}
+}
+    iot_topic_publish = {
+    mqtt_topic = {{ mqtt_topic }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+}
+    lambda = {
+    function_arn = {{ function_arn }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+}
+    reset_timer = {
+    timer_name = {{ timer_name }}
+}
+    set_timer = {
+    duration_expression = {{ duration_expression }}
+    seconds = {{ seconds }}
+    timer_name = {{ timer_name }}
+}
+    set_variable = {
+    value = {{ value }}
+    variable_name = {{ variable_name }}
+}
+    sns = {
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    target_arn = {{ target_arn }}
+}
+    sqs = {
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    queue_url = {{ queue_url }}
+    use_base_64 = {{ use_base_64 }}
+}
+}
+    condition = {{ condition }}
+    event_name = {{ event_name }}
+}
+}
+    on_exit = {
+    events = {
+    actions = {
+    clear_timer = {
+    timer_name = {{ timer_name }}
+}
+    dynamo_d_bv_2 = {
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    table_name = {{ table_name }}
+}
+    dynamo_db = {
+    hash_key_field = {{ hash_key_field }}
+    hash_key_type = {{ hash_key_type }}
+    hash_key_value = {{ hash_key_value }}
+    operation = {{ operation }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    payload_field = {{ payload_field }}
+    range_key_field = {{ range_key_field }}
+    range_key_type = {{ range_key_type }}
+    range_key_value = {{ range_key_value }}
+    table_name = {{ table_name }}
+}
+    firehose = {
+    delivery_stream_name = {{ delivery_stream_name }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    separator = {{ separator }}
+}
+    iot_events = {
+    input_name = {{ input_name }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+}
+    iot_site_wise = {
+    asset_id = {{ asset_id }}
+    entry_id = {{ entry_id }}
+    property_alias = {{ property_alias }}
+    property_id = {{ property_id }}
+    property_value = {
+    quality = {{ quality }}
+    timestamp = {
+    offset_in_nanos = {{ offset_in_nanos }}
+    time_in_seconds = {{ time_in_seconds }}
+}
+    value = {
+    boolean_value = {{ boolean_value }}
+    double_value = {{ double_value }}
+    integer_value = {{ integer_value }}
+    string_value = {{ string_value }}
+}
+}
+}
+    iot_topic_publish = {
+    mqtt_topic = {{ mqtt_topic }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+}
+    lambda = {
+    function_arn = {{ function_arn }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+}
+    reset_timer = {
+    timer_name = {{ timer_name }}
+}
+    set_timer = {
+    duration_expression = {{ duration_expression }}
+    seconds = {{ seconds }}
+    timer_name = {{ timer_name }}
+}
+    set_variable = {
+    value = {{ value }}
+    variable_name = {{ variable_name }}
+}
+    sns = {
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    target_arn = {{ target_arn }}
+}
+    sqs = {
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    queue_url = {{ queue_url }}
+    use_base_64 = {{ use_base_64 }}
+}
+}
+    condition = {{ condition }}
+    event_name = {{ event_name }}
+}
+}
+    on_input = {
+    events = {
+    actions = {
+    clear_timer = {
+    timer_name = {{ timer_name }}
+}
+    dynamo_d_bv_2 = {
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    table_name = {{ table_name }}
+}
+    dynamo_db = {
+    hash_key_field = {{ hash_key_field }}
+    hash_key_type = {{ hash_key_type }}
+    hash_key_value = {{ hash_key_value }}
+    operation = {{ operation }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    payload_field = {{ payload_field }}
+    range_key_field = {{ range_key_field }}
+    range_key_type = {{ range_key_type }}
+    range_key_value = {{ range_key_value }}
+    table_name = {{ table_name }}
+}
+    firehose = {
+    delivery_stream_name = {{ delivery_stream_name }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    separator = {{ separator }}
+}
+    iot_events = {
+    input_name = {{ input_name }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+}
+    iot_site_wise = {
+    asset_id = {{ asset_id }}
+    entry_id = {{ entry_id }}
+    property_alias = {{ property_alias }}
+    property_id = {{ property_id }}
+    property_value = {
+    quality = {{ quality }}
+    timestamp = {
+    offset_in_nanos = {{ offset_in_nanos }}
+    time_in_seconds = {{ time_in_seconds }}
+}
+    value = {
+    boolean_value = {{ boolean_value }}
+    double_value = {{ double_value }}
+    integer_value = {{ integer_value }}
+    string_value = {{ string_value }}
+}
+}
+}
+    iot_topic_publish = {
+    mqtt_topic = {{ mqtt_topic }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+}
+    lambda = {
+    function_arn = {{ function_arn }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+}
+    reset_timer = {
+    timer_name = {{ timer_name }}
+}
+    set_timer = {
+    duration_expression = {{ duration_expression }}
+    seconds = {{ seconds }}
+    timer_name = {{ timer_name }}
+}
+    set_variable = {
+    value = {{ value }}
+    variable_name = {{ variable_name }}
+}
+    sns = {
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    target_arn = {{ target_arn }}
+}
+    sqs = {
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    queue_url = {{ queue_url }}
+    use_base_64 = {{ use_base_64 }}
+}
+}
+    condition = {{ condition }}
+    event_name = {{ event_name }}
+}
+    transition_events = {
+    actions = {
+    clear_timer = {
+    timer_name = {{ timer_name }}
+}
+    dynamo_d_bv_2 = {
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    table_name = {{ table_name }}
+}
+    dynamo_db = {
+    hash_key_field = {{ hash_key_field }}
+    hash_key_type = {{ hash_key_type }}
+    hash_key_value = {{ hash_key_value }}
+    operation = {{ operation }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    payload_field = {{ payload_field }}
+    range_key_field = {{ range_key_field }}
+    range_key_type = {{ range_key_type }}
+    range_key_value = {{ range_key_value }}
+    table_name = {{ table_name }}
+}
+    firehose = {
+    delivery_stream_name = {{ delivery_stream_name }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    separator = {{ separator }}
+}
+    iot_events = {
+    input_name = {{ input_name }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+}
+    iot_site_wise = {
+    asset_id = {{ asset_id }}
+    entry_id = {{ entry_id }}
+    property_alias = {{ property_alias }}
+    property_id = {{ property_id }}
+    property_value = {
+    quality = {{ quality }}
+    timestamp = {
+    offset_in_nanos = {{ offset_in_nanos }}
+    time_in_seconds = {{ time_in_seconds }}
+}
+    value = {
+    boolean_value = {{ boolean_value }}
+    double_value = {{ double_value }}
+    integer_value = {{ integer_value }}
+    string_value = {{ string_value }}
+}
+}
+}
+    iot_topic_publish = {
+    mqtt_topic = {{ mqtt_topic }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+}
+    lambda = {
+    function_arn = {{ function_arn }}
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+}
+    reset_timer = {
+    timer_name = {{ timer_name }}
+}
+    set_timer = {
+    duration_expression = {{ duration_expression }}
+    seconds = {{ seconds }}
+    timer_name = {{ timer_name }}
+}
+    set_variable = {
+    value = {{ value }}
+    variable_name = {{ variable_name }}
+}
+    sns = {
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    target_arn = {{ target_arn }}
+}
+    sqs = {
+    payload = {
+    content_expression = {{ content_expression }}
+    type = {{ type }}
+}
+    queue_url = {{ queue_url }}
+    use_base_64 = {{ use_base_64 }}
+}
+}
+    condition = {{ condition }}
+    event_name = {{ event_name }}
+    next_state = {{ next_state }}
+}
+}
+    state_name = {{ state_name }}
+}
+}"
+    detector_model_description = "{{ detector_model_description }}"
+    detector_model_name = "{{ detector_model_name }}"
+    evaluation_method = "{{ evaluation_method }}"
+    id = "{{ id }}"
+    key = "{{ key }}"
+    role_arn = "{{ role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,35 @@
+data "awscc_config_config_rule" "example" {
+    arn = "{{ arn }}"
+    compliance = "{
+    type = {{ type }}
+}"
+    config_rule_id = "{{ config_rule_id }}"
+    config_rule_name = "{{ config_rule_name }}"
+    description = "{{ description }}"
+    evaluation_modes = "{
+    mode = {{ mode }}
+}"
+    id = "{{ id }}"
+    input_parameters = "{{ input_parameters }}"
+    maximum_execution_frequency = "{{ maximum_execution_frequency }}"
+    scope = "{
+    compliance_resource_id = {{ compliance_resource_id }}
+    compliance_resource_types = {{ compliance_resource_types }}
+    tag_key = {{ tag_key }}
+    tag_value = {{ tag_value }}
+}"
+    source = "{
+    custom_policy_details = {
+    enable_debug_log_delivery = {{ enable_debug_log_delivery }}
+    policy_runtime = {{ policy_runtime }}
+    policy_text = {{ policy_text }}
+}
+    owner = {{ owner }}
+    source_details = {
+    event_source = {{ event_source }}
+    maximum_execution_frequency = {{ maximum_execution_frequency }}
+    message_type = {{ message_type }}
+}
+    source_identifier = {{ source_identifier }}
+}"
+}

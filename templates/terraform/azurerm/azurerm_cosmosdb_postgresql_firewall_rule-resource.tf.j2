@@ -1,0 +1,7 @@
+resource "azurerm_cosmosdb_postgresql_firewall_rule" "example" {
+    cluster_id = "{{ cluster_id }}"
+    end_ip_address = "{{ end_ip_address }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    start_ip_address = "{{ start_ip_address }}"
+}

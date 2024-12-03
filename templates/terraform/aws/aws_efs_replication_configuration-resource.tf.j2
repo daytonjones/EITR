@@ -1,0 +1,8 @@
+resource "aws_efs_replication_configuration" "example" {
+    creation_time = "{{ creation_time }}"
+    id = "{{ id }}"
+    original_source_file_system_arn = "{{ original_source_file_system_arn }}"
+    source_file_system_arn = "{{ source_file_system_arn }}"
+    source_file_system_id = "{{ source_file_system_id }}"
+    source_file_system_region = "{{ source_file_system_region }}"
+}

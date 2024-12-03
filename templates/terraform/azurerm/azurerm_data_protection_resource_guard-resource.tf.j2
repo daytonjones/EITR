@@ -1,0 +1,8 @@
+resource "azurerm_data_protection_resource_guard" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    vault_critical_operation_exclusion_list = "{{ vault_critical_operation_exclusion_list }}"
+}

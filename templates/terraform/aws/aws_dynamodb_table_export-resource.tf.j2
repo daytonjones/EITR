@@ -1,0 +1,18 @@
+resource "aws_dynamodb_table_export" "example" {
+    arn = "{{ arn }}"
+    billed_size_in_bytes = "{{ billed_size_in_bytes }}"
+    end_time = "{{ end_time }}"
+    export_format = "{{ export_format }}"
+    export_status = "{{ export_status }}"
+    export_time = "{{ export_time }}"
+    id = "{{ id }}"
+    item_count = "{{ item_count }}"
+    manifest_files_s3_key = "{{ manifest_files_s3_key }}"
+    s3_bucket = "{{ s3_bucket }}"
+    s3_bucket_owner = "{{ s3_bucket_owner }}"
+    s3_prefix = "{{ s3_prefix }}"
+    s3_sse_algorithm = "{{ s3_sse_algorithm }}"
+    s3_sse_kms_key_id = "{{ s3_sse_kms_key_id }}"
+    start_time = "{{ start_time }}"
+    table_arn = "{{ table_arn }}"
+}

@@ -1,0 +1,10 @@
+data "azurerm_mssql_managed_database" "example" {
+    id = "{{ id }}"
+    long_term_retention_policy = "{{ long_term_retention_policy }}"
+    managed_instance_id = "{{ managed_instance_id }}"
+    managed_instance_name = "{{ managed_instance_name }}"
+    name = "{{ name }}"
+    point_in_time_restore = "{{ point_in_time_restore }}"
+    resource_group_name = "{{ resource_group_name }}"
+    short_term_retention_days = "{{ short_term_retention_days }}"
+}

@@ -1,0 +1,7 @@
+data "google_kms_crypto_key_versions" "example" {
+    crypto_key = "{{ crypto_key }}"
+    filter = "{{ filter }}"
+    id = "{{ id }}"
+    public_key = "{{ public_key }}"
+    versions = "{{ versions }}"
+}

@@ -1,0 +1,13 @@
+resource "azurerm_network_watcher_flow_log" "example" {
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    network_security_group_id = "{{ network_security_group_id }}"
+    network_watcher_name = "{{ network_watcher_name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    storage_account_id = "{{ storage_account_id }}"
+    tags = "{{ tags }}"
+    target_resource_id = "{{ target_resource_id }}"
+    version = "{{ version }}"
+}

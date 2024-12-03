@@ -1,0 +1,28 @@
+data "awscc_databrew_ruleset" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    rules = "{
+    check_expression = {{ check_expression }}
+    column_selectors = {
+    name = {{ name }}
+    regex = {{ regex }}
+}
+    disabled = {{ disabled }}
+    name = {{ name }}
+    substitution_map = {
+    value = {{ value }}
+    value_reference = {{ value_reference }}
+}
+    threshold = {
+    type = {{ type }}
+    unit = {{ unit }}
+    value = {{ value }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    target_arn = "{{ target_arn }}"
+}

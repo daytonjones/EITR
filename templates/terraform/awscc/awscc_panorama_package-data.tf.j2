@@ -1,0 +1,18 @@
+data "awscc_panorama_package" "example" {
+    arn = "{{ arn }}"
+    created_time = "{{ created_time }}"
+    id = "{{ id }}"
+    package_id = "{{ package_id }}"
+    package_name = "{{ package_name }}"
+    storage_location = "{
+    binary_prefix_location = {{ binary_prefix_location }}
+    bucket = {{ bucket }}
+    generated_prefix_location = {{ generated_prefix_location }}
+    manifest_prefix_location = {{ manifest_prefix_location }}
+    repo_prefix_location = {{ repo_prefix_location }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,15 @@
+resource "azurerm_automation_runbook" "example" {
+    automation_account_name = "{{ automation_account_name }}"
+    content = "{{ content }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    job_schedule = "{{ job_schedule }}"
+    location = "{{ location }}"
+    log_activity_trace_level = "{{ log_activity_trace_level }}"
+    log_progress = "{{ log_progress }}"
+    log_verbose = "{{ log_verbose }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    runbook_type = "{{ runbook_type }}"
+    tags = "{{ tags }}"
+}

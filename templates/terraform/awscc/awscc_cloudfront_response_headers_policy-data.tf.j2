@@ -1,0 +1,71 @@
+data "awscc_cloudfront_response_headers_policy" "example" {
+    id = "{{ id }}"
+    last_modified_time = "{{ last_modified_time }}"
+    response_headers_policy_config = "{
+    comment = {{ comment }}
+    cors_config = {
+    access_control_allow_credentials = {{ access_control_allow_credentials }}
+    access_control_allow_headers = {
+    items = {{ items }}
+}
+    access_control_allow_methods = {
+    items = {{ items }}
+}
+    access_control_allow_origins = {
+    items = {{ items }}
+}
+    access_control_expose_headers = {
+    items = {{ items }}
+}
+    access_control_max_age_sec = {{ access_control_max_age_sec }}
+    origin_override = {{ origin_override }}
+}
+    custom_headers_config = {
+    items = {
+    header = {{ header }}
+    override = {{ override }}
+    value = {{ value }}
+}
+}
+    name = {{ name }}
+    remove_headers_config = {
+    items = {
+    header = {{ header }}
+}
+}
+    security_headers_config = {
+    content_security_policy = {
+    content_security_policy = {{ content_security_policy }}
+    override = {{ override }}
+}
+    content_type_options = {
+    override = {{ override }}
+}
+    frame_options = {
+    frame_option = {{ frame_option }}
+    override = {{ override }}
+}
+    referrer_policy = {
+    override = {{ override }}
+    referrer_policy = {{ referrer_policy }}
+}
+    strict_transport_security = {
+    access_control_max_age_sec = {{ access_control_max_age_sec }}
+    include_subdomains = {{ include_subdomains }}
+    override = {{ override }}
+    preload = {{ preload }}
+}
+    xss_protection = {
+    mode_block = {{ mode_block }}
+    override = {{ override }}
+    protection = {{ protection }}
+    report_uri = {{ report_uri }}
+}
+}
+    server_timing_headers_config = {
+    enabled = {{ enabled }}
+    sampling_rate = {{ sampling_rate }}
+}
+}"
+    response_headers_policy_id = "{{ response_headers_policy_id }}"
+}

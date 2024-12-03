@@ -1,0 +1,11 @@
+data "aws_ec2_local_gateway_virtual_interface" "example" {
+    id = "{{ id }}"
+    local_address = "{{ local_address }}"
+    local_bgp_asn = "{{ local_bgp_asn }}"
+    local_gateway_id = "{{ local_gateway_id }}"
+    local_gateway_virtual_interface_ids = "{{ local_gateway_virtual_interface_ids }}"
+    peer_address = "{{ peer_address }}"
+    peer_bgp_asn = "{{ peer_bgp_asn }}"
+    tags = "{{ tags }}"
+    vlan = "{{ vlan }}"
+}

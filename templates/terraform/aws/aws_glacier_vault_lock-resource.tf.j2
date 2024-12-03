@@ -1,0 +1,7 @@
+resource "aws_glacier_vault_lock" "example" {
+    complete_lock = "{{ complete_lock }}"
+    id = "{{ id }}"
+    ignore_deletion_error = "{{ ignore_deletion_error }}"
+    policy = "{{ policy }}"
+    vault_name = "{{ vault_name }}"
+}

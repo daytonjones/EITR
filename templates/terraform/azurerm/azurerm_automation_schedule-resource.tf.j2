@@ -1,0 +1,14 @@
+resource "azurerm_automation_schedule" "example" {
+    automation_account_name = "{{ automation_account_name }}"
+    description = "{{ description }}"
+    expiry_time = "{{ expiry_time }}"
+    frequency = "{{ frequency }}"
+    id = "{{ id }}"
+    interval = "{{ interval }}"
+    month_days = "{{ month_days }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    start_time = "{{ start_time }}"
+    timezone = "{{ timezone }}"
+    week_days = "{{ week_days }}"
+}

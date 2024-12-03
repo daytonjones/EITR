@@ -1,0 +1,18 @@
+resource "awscc_dms_instance_profile" "example" {
+    availability_zone = "{{ availability_zone }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    instance_profile_arn = "{{ instance_profile_arn }}"
+    instance_profile_creation_time = "{{ instance_profile_creation_time }}"
+    instance_profile_identifier = "{{ instance_profile_identifier }}"
+    instance_profile_name = "{{ instance_profile_name }}"
+    kms_key_arn = "{{ kms_key_arn }}"
+    network_type = "{{ network_type }}"
+    publicly_accessible = "{{ publicly_accessible }}"
+    subnet_group_identifier = "{{ subnet_group_identifier }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    vpc_security_groups = "{{ vpc_security_groups }}"
+}

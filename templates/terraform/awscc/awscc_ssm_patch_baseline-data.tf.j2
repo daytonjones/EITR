@@ -1,0 +1,43 @@
+data "awscc_ssm_patch_baseline" "example" {
+    approval_rules = "{
+    patch_rules = {
+    approve_after_days = {{ approve_after_days }}
+    approve_until_date = {{ approve_until_date }}
+    compliance_level = {{ compliance_level }}
+    enable_non_security = {{ enable_non_security }}
+    patch_filter_group = {
+    patch_filters = {
+    key = {{ key }}
+    values = {{ values }}
+}
+}
+}
+}"
+    approved_patches = "{{ approved_patches }}"
+    approved_patches_compliance_level = "{{ approved_patches_compliance_level }}"
+    approved_patches_enable_non_security = "{{ approved_patches_enable_non_security }}"
+    default_baseline = "{{ default_baseline }}"
+    description = "{{ description }}"
+    global_filters = "{
+    patch_filters = {
+    key = {{ key }}
+    values = {{ values }}
+}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    operating_system = "{{ operating_system }}"
+    patch_baseline_id = "{{ patch_baseline_id }}"
+    patch_groups = "{{ patch_groups }}"
+    rejected_patches = "{{ rejected_patches }}"
+    rejected_patches_action = "{{ rejected_patches_action }}"
+    sources = "{
+    configuration = {{ configuration }}
+    name = {{ name }}
+    products = {{ products }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

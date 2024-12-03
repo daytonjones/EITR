@@ -1,0 +1,14 @@
+data "aws_neptune_engine_version" "example" {
+    engine = "{{ engine }}"
+    engine_description = "{{ engine_description }}"
+    exportable_log_types = "{{ exportable_log_types }}"
+    id = "{{ id }}"
+    parameter_group_family = "{{ parameter_group_family }}"
+    preferred_versions = "{{ preferred_versions }}"
+    supported_timezones = "{{ supported_timezones }}"
+    supports_log_exports_to_cloudwatch = "{{ supports_log_exports_to_cloudwatch }}"
+    supports_read_replica = "{{ supports_read_replica }}"
+    valid_upgrade_targets = "{{ valid_upgrade_targets }}"
+    version = "{{ version }}"
+    version_description = "{{ version_description }}"
+}

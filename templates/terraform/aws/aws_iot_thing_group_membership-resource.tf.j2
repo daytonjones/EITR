@@ -1,0 +1,6 @@
+resource "aws_iot_thing_group_membership" "example" {
+    id = "{{ id }}"
+    override_dynamic_group = "{{ override_dynamic_group }}"
+    thing_group_name = "{{ thing_group_name }}"
+    thing_name = "{{ thing_name }}"
+}

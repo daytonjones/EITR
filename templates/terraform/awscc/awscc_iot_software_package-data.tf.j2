@@ -1,0 +1,10 @@
+data "awscc_iot_software_package" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    package_arn = "{{ package_arn }}"
+    package_name = "{{ package_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

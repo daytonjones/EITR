@@ -1,0 +1,50 @@
+data "awscc_gamelift_container_group_definition" "example" {
+    container_definitions = "{
+    command = {{ command }}
+    container_name = {{ container_name }}
+    cpu = {{ cpu }}
+    depends_on = {
+    condition = {{ condition }}
+    container_name = {{ container_name }}
+}
+    entry_point = {{ entry_point }}
+    environment = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    essential = {{ essential }}
+    health_check = {
+    command = {{ command }}
+    interval = {{ interval }}
+    retries = {{ retries }}
+    start_period = {{ start_period }}
+    timeout = {{ timeout }}
+}
+    image_uri = {{ image_uri }}
+    memory_limits = {
+    hard_limit = {{ hard_limit }}
+    soft_limit = {{ soft_limit }}
+}
+    port_configuration = {
+    container_port_ranges = {
+    from_port = {{ from_port }}
+    protocol = {{ protocol }}
+    to_port = {{ to_port }}
+}
+}
+    resolved_image_digest = {{ resolved_image_digest }}
+    working_directory = {{ working_directory }}
+}"
+    container_group_definition_arn = "{{ container_group_definition_arn }}"
+    creation_time = "{{ creation_time }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    operating_system = "{{ operating_system }}"
+    scheduling_strategy = "{{ scheduling_strategy }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    total_cpu_limit = "{{ total_cpu_limit }}"
+    total_memory_limit = "{{ total_memory_limit }}"
+}

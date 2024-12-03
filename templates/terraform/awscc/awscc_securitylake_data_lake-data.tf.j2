@@ -1,0 +1,26 @@
+data "awscc_securitylake_data_lake" "example" {
+    arn = "{{ arn }}"
+    encryption_configuration = "{
+    kms_key_id = {{ kms_key_id }}
+}"
+    id = "{{ id }}"
+    lifecycle_configuration = "{
+    expiration = {
+    days = {{ days }}
+}
+    transitions = {
+    days = {{ days }}
+    storage_class = {{ storage_class }}
+}
+}"
+    meta_store_manager_role_arn = "{{ meta_store_manager_role_arn }}"
+    replication_configuration = "{
+    regions = {{ regions }}
+    role_arn = {{ role_arn }}
+}"
+    s3_bucket_arn = "{{ s3_bucket_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

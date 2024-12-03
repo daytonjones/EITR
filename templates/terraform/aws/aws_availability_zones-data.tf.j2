@@ -1,0 +1,10 @@
+data "aws_availability_zones" "example" {
+    all_availability_zones = "{{ all_availability_zones }}"
+    exclude_names = "{{ exclude_names }}"
+    exclude_zone_ids = "{{ exclude_zone_ids }}"
+    group_names = "{{ group_names }}"
+    id = "{{ id }}"
+    names = "{{ names }}"
+    state = "{{ state }}"
+    zone_ids = "{{ zone_ids }}"
+}

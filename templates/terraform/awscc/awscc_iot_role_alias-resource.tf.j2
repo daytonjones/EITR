@@ -1,0 +1,11 @@
+resource "awscc_iot_role_alias" "example" {
+    credential_duration_seconds = "{{ credential_duration_seconds }}"
+    id = "{{ id }}"
+    role_alias = "{{ role_alias }}"
+    role_alias_arn = "{{ role_alias_arn }}"
+    role_arn = "{{ role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

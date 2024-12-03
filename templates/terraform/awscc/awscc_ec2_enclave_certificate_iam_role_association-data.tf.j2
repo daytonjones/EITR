@@ -1,0 +1,8 @@
+data "awscc_ec2_enclave_certificate_iam_role_association" "example" {
+    certificate_arn = "{{ certificate_arn }}"
+    certificate_s3_bucket_name = "{{ certificate_s3_bucket_name }}"
+    certificate_s3_object_key = "{{ certificate_s3_object_key }}"
+    encryption_kms_key_id = "{{ encryption_kms_key_id }}"
+    id = "{{ id }}"
+    role_arn = "{{ role_arn }}"
+}

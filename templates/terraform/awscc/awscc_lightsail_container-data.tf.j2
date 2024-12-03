@@ -1,0 +1,51 @@
+data "awscc_lightsail_container" "example" {
+    container_arn = "{{ container_arn }}"
+    container_service_deployment = "{
+    containers = {
+    command = {{ command }}
+    container_name = {{ container_name }}
+    environment = {
+    value = {{ value }}
+    variable = {{ variable }}
+}
+    image = {{ image }}
+    ports = {
+    port = {{ port }}
+    protocol = {{ protocol }}
+}
+}
+    public_endpoint = {
+    container_name = {{ container_name }}
+    container_port = {{ container_port }}
+    health_check_config = {
+    healthy_threshold = {{ healthy_threshold }}
+    interval_seconds = {{ interval_seconds }}
+    path = {{ path }}
+    success_codes = {{ success_codes }}
+    timeout_seconds = {{ timeout_seconds }}
+    unhealthy_threshold = {{ unhealthy_threshold }}
+}
+}
+}"
+    id = "{{ id }}"
+    is_disabled = "{{ is_disabled }}"
+    power = "{{ power }}"
+    principal_arn = "{{ principal_arn }}"
+    private_registry_access = "{
+    ecr_image_puller_role = {
+    is_active = {{ is_active }}
+    principal_arn = {{ principal_arn }}
+}
+}"
+    public_domain_names = "{
+    certificate_name = {{ certificate_name }}
+    domain_names = {{ domain_names }}
+}"
+    scale = "{{ scale }}"
+    service_name = "{{ service_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    url = "{{ url }}"
+}

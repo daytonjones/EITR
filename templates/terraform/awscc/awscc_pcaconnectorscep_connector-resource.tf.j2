@@ -1,0 +1,19 @@
+resource "awscc_pcaconnectorscep_connector" "example" {
+    certificate_authority_arn = "{{ certificate_authority_arn }}"
+    connector_arn = "{{ connector_arn }}"
+    endpoint = "{{ endpoint }}"
+    id = "{{ id }}"
+    mobile_device_management = "{
+    intune = {
+    azure_application_id = {{ azure_application_id }}
+    domain = {{ domain }}
+}
+}"
+    open_id_configuration = "{
+    audience = {{ audience }}
+    issuer = {{ issuer }}
+    subject = {{ subject }}
+}"
+    tags = "{{ tags }}"
+    type = "{{ type }}"
+}

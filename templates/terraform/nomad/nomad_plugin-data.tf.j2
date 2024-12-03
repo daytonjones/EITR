@@ -1,0 +1,14 @@
+data "nomad_plugin" "example" {
+    controller_required = "{{ controller_required }}"
+    controllers_expected = "{{ controllers_expected }}"
+    controllers_healthy = "{{ controllers_healthy }}"
+    id = "{{ id }}"
+    nodes = "{{ nodes }}"
+    nodes_expected = "{{ nodes_expected }}"
+    nodes_healthy = "{{ nodes_healthy }}"
+    plugin_id = "{{ plugin_id }}"
+    plugin_provider = "{{ plugin_provider }}"
+    plugin_provider_version = "{{ plugin_provider_version }}"
+    wait_for_healthy = "{{ wait_for_healthy }}"
+    wait_for_registration = "{{ wait_for_registration }}"
+}

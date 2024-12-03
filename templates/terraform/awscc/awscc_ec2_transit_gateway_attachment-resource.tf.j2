@@ -1,0 +1,17 @@
+resource "awscc_ec2_transit_gateway_attachment" "example" {
+    id = "{{ id }}"
+    options = "{
+    appliance_mode_support = {{ appliance_mode_support }}
+    dns_support = {{ dns_support }}
+    ipv_6_support = {{ ipv_6_support }}
+    security_group_referencing_support = {{ security_group_referencing_support }}
+}"
+    subnet_ids = "{{ subnet_ids }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    transit_gateway_attachment_id = "{{ transit_gateway_attachment_id }}"
+    transit_gateway_id = "{{ transit_gateway_id }}"
+    vpc_id = "{{ vpc_id }}"
+}

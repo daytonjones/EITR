@@ -1,0 +1,13 @@
+resource "awscc_iot_scheduled_audit" "example" {
+    day_of_month = "{{ day_of_month }}"
+    day_of_week = "{{ day_of_week }}"
+    frequency = "{{ frequency }}"
+    id = "{{ id }}"
+    scheduled_audit_arn = "{{ scheduled_audit_arn }}"
+    scheduled_audit_name = "{{ scheduled_audit_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    target_check_names = "{{ target_check_names }}"
+}

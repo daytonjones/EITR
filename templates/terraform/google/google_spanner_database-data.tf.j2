@@ -1,0 +1,13 @@
+data "google_spanner_database" "example" {
+    database_dialect = "{{ database_dialect }}"
+    ddl = "{{ ddl }}"
+    deletion_protection = "{{ deletion_protection }}"
+    enable_drop_protection = "{{ enable_drop_protection }}"
+    encryption_config = "{{ encryption_config }}"
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    state = "{{ state }}"
+    version_retention_period = "{{ version_retention_period }}"
+}

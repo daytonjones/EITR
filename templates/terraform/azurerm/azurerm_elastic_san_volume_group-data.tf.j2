@@ -1,0 +1,10 @@
+data "azurerm_elastic_san_volume_group" "example" {
+    elastic_san_id = "{{ elastic_san_id }}"
+    encryption = "{{ encryption }}"
+    encryption_type = "{{ encryption_type }}"
+    id = "{{ id }}"
+    identity = "{{ identity }}"
+    name = "{{ name }}"
+    network_rule = "{{ network_rule }}"
+    protocol_type = "{{ protocol_type }}"
+}

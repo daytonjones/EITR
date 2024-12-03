@@ -1,0 +1,16 @@
+data "awscc_amazonmq_configuration" "example" {
+    arn = "{{ arn }}"
+    authentication_strategy = "{{ authentication_strategy }}"
+    configuration_id = "{{ configuration_id }}"
+    data = "{{ data }}"
+    description = "{{ description }}"
+    engine_type = "{{ engine_type }}"
+    engine_version = "{{ engine_version }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    revision = "{{ revision }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

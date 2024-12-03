@@ -1,0 +1,9 @@
+data "awscc_cloudfront_monitoring_subscription" "example" {
+    distribution_id = "{{ distribution_id }}"
+    id = "{{ id }}"
+    monitoring_subscription = "{
+    realtime_metrics_subscription_config = {
+    realtime_metrics_subscription_status = {{ realtime_metrics_subscription_status }}
+}
+}"
+}

@@ -1,0 +1,38 @@
+data "awscc_budgets_budgets_action" "example" {
+    action_id = "{{ action_id }}"
+    action_threshold = "{
+    type = {{ type }}
+    value = {{ value }}
+}"
+    action_type = "{{ action_type }}"
+    approval_model = "{{ approval_model }}"
+    budget_name = "{{ budget_name }}"
+    definition = "{
+    iam_action_definition = {
+    groups = {{ groups }}
+    policy_arn = {{ policy_arn }}
+    roles = {{ roles }}
+    users = {{ users }}
+}
+    scp_action_definition = {
+    policy_id = {{ policy_id }}
+    target_ids = {{ target_ids }}
+}
+    ssm_action_definition = {
+    instance_ids = {{ instance_ids }}
+    region = {{ region }}
+    subtype = {{ subtype }}
+}
+}"
+    execution_role_arn = "{{ execution_role_arn }}"
+    id = "{{ id }}"
+    notification_type = "{{ notification_type }}"
+    resource_tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    subscribers = "{
+    address = {{ address }}
+    type = {{ type }}
+}"
+}

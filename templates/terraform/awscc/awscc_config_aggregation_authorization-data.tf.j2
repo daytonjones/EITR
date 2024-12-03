@@ -1,0 +1,10 @@
+data "awscc_config_aggregation_authorization" "example" {
+    aggregation_authorization_arn = "{{ aggregation_authorization_arn }}"
+    authorized_account_id = "{{ authorized_account_id }}"
+    authorized_aws_region = "{{ authorized_aws_region }}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

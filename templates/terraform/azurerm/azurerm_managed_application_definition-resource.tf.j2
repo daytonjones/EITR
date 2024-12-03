@@ -1,0 +1,14 @@
+resource "azurerm_managed_application_definition" "example" {
+    create_ui_definition = "{{ create_ui_definition }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    lock_level = "{{ lock_level }}"
+    main_template = "{{ main_template }}"
+    name = "{{ name }}"
+    package_enabled = "{{ package_enabled }}"
+    package_file_uri = "{{ package_file_uri }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

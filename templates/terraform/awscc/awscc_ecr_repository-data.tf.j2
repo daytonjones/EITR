@@ -1,0 +1,24 @@
+data "awscc_ecr_repository" "example" {
+    arn = "{{ arn }}"
+    empty_on_delete = "{{ empty_on_delete }}"
+    encryption_configuration = "{
+    encryption_type = {{ encryption_type }}
+    kms_key = {{ kms_key }}
+}"
+    id = "{{ id }}"
+    image_scanning_configuration = "{
+    scan_on_push = {{ scan_on_push }}
+}"
+    image_tag_mutability = "{{ image_tag_mutability }}"
+    lifecycle_policy = "{
+    lifecycle_policy_text = {{ lifecycle_policy_text }}
+    registry_id = {{ registry_id }}
+}"
+    repository_name = "{{ repository_name }}"
+    repository_policy_text = "{{ repository_policy_text }}"
+    repository_uri = "{{ repository_uri }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

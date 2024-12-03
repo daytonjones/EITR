@@ -1,0 +1,16 @@
+data "awscc_lambda_code_signing_config" "example" {
+    allowed_publishers = "{
+    signing_profile_version_arns = {{ signing_profile_version_arns }}
+}"
+    code_signing_config_arn = "{{ code_signing_config_arn }}"
+    code_signing_config_id = "{{ code_signing_config_id }}"
+    code_signing_policies = "{
+    untrusted_artifact_on_deployment = {{ untrusted_artifact_on_deployment }}
+}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

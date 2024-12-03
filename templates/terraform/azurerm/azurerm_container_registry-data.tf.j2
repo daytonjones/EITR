@@ -1,0 +1,13 @@
+data "azurerm_container_registry" "example" {
+    admin_enabled = "{{ admin_enabled }}"
+    admin_password = "{{ admin_password }}"
+    admin_username = "{{ admin_username }}"
+    data_endpoint_enabled = "{{ data_endpoint_enabled }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    login_server = "{{ login_server }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku = "{{ sku }}"
+    tags = "{{ tags }}"
+}

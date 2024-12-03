@@ -1,0 +1,13 @@
+resource "vault_identity_group" "example" {
+    external_member_entity_ids = "{{ external_member_entity_ids }}"
+    external_member_group_ids = "{{ external_member_group_ids }}"
+    external_policies = "{{ external_policies }}"
+    id = "{{ id }}"
+    member_entity_ids = "{{ member_entity_ids }}"
+    member_group_ids = "{{ member_group_ids }}"
+    metadata = "{{ metadata }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    policies = "{{ policies }}"
+    type = "{{ type }}"
+}

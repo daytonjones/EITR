@@ -1,0 +1,6 @@
+resource "aws_pinpoint_event_stream" "example" {
+    application_id = "{{ application_id }}"
+    destination_stream_arn = "{{ destination_stream_arn }}"
+    id = "{{ id }}"
+    role_arn = "{{ role_arn }}"
+}

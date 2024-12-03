@@ -1,0 +1,8 @@
+resource "google_bigtable_authorized_view" "example" {
+    deletion_protection = "{{ deletion_protection }}"
+    id = "{{ id }}"
+    instance_name = "{{ instance_name }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    table_name = "{{ table_name }}"
+}

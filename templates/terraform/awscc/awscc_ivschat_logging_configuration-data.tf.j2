@@ -1,0 +1,22 @@
+data "awscc_ivschat_logging_configuration" "example" {
+    arn = "{{ arn }}"
+    destination_configuration = "{
+    cloudwatch_logs = {
+    log_group_name = {{ log_group_name }}
+}
+    firehose = {
+    delivery_stream_name = {{ delivery_stream_name }}
+}
+    s3 = {
+    bucket_name = {{ bucket_name }}
+}
+}"
+    id = "{{ id }}"
+    logging_configuration_id = "{{ logging_configuration_id }}"
+    name = "{{ name }}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

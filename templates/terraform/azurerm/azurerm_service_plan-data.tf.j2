@@ -1,0 +1,16 @@
+data "azurerm_service_plan" "example" {
+    app_service_environment_id = "{{ app_service_environment_id }}"
+    id = "{{ id }}"
+    kind = "{{ kind }}"
+    location = "{{ location }}"
+    maximum_elastic_worker_count = "{{ maximum_elastic_worker_count }}"
+    name = "{{ name }}"
+    os_type = "{{ os_type }}"
+    per_site_scaling_enabled = "{{ per_site_scaling_enabled }}"
+    reserved = "{{ reserved }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku_name = "{{ sku_name }}"
+    tags = "{{ tags }}"
+    worker_count = "{{ worker_count }}"
+    zone_balancing_enabled = "{{ zone_balancing_enabled }}"
+}

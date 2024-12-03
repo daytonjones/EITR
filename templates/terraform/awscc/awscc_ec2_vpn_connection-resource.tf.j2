@@ -1,0 +1,63 @@
+resource "awscc_ec2_vpn_connection" "example" {
+    customer_gateway_id = "{{ customer_gateway_id }}"
+    enable_acceleration = "{{ enable_acceleration }}"
+    id = "{{ id }}"
+    local_ipv_4_network_cidr = "{{ local_ipv_4_network_cidr }}"
+    local_ipv_6_network_cidr = "{{ local_ipv_6_network_cidr }}"
+    outside_ip_address_type = "{{ outside_ip_address_type }}"
+    remote_ipv_4_network_cidr = "{{ remote_ipv_4_network_cidr }}"
+    remote_ipv_6_network_cidr = "{{ remote_ipv_6_network_cidr }}"
+    static_routes_only = "{{ static_routes_only }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    transit_gateway_id = "{{ transit_gateway_id }}"
+    transport_transit_gateway_attachment_id = "{{ transport_transit_gateway_attachment_id }}"
+    tunnel_inside_ip_version = "{{ tunnel_inside_ip_version }}"
+    type = "{{ type }}"
+    vpn_connection_id = "{{ vpn_connection_id }}"
+    vpn_gateway_id = "{{ vpn_gateway_id }}"
+    vpn_tunnel_options_specifications = "{
+    dpd_timeout_action = {{ dpd_timeout_action }}
+    dpd_timeout_seconds = {{ dpd_timeout_seconds }}
+    enable_tunnel_lifecycle_control = {{ enable_tunnel_lifecycle_control }}
+    ike_versions = {
+    value = {{ value }}
+}
+    log_options = {
+    cloudwatch_log_options = {
+    log_enabled = {{ log_enabled }}
+    log_group_arn = {{ log_group_arn }}
+    log_output_format = {{ log_output_format }}
+}
+}
+    phase_1_dh_group_numbers = {
+    value = {{ value }}
+}
+    phase_1_encryption_algorithms = {
+    value = {{ value }}
+}
+    phase_1_integrity_algorithms = {
+    value = {{ value }}
+}
+    phase_1_lifetime_seconds = {{ phase_1_lifetime_seconds }}
+    phase_2_dh_group_numbers = {
+    value = {{ value }}
+}
+    phase_2_encryption_algorithms = {
+    value = {{ value }}
+}
+    phase_2_integrity_algorithms = {
+    value = {{ value }}
+}
+    phase_2_lifetime_seconds = {{ phase_2_lifetime_seconds }}
+    pre_shared_key = {{ pre_shared_key }}
+    rekey_fuzz_percentage = {{ rekey_fuzz_percentage }}
+    rekey_margin_time_seconds = {{ rekey_margin_time_seconds }}
+    replay_window_size = {{ replay_window_size }}
+    startup_action = {{ startup_action }}
+    tunnel_inside_cidr = {{ tunnel_inside_cidr }}
+    tunnel_inside_ipv_6_cidr = {{ tunnel_inside_ipv_6_cidr }}
+}"
+}

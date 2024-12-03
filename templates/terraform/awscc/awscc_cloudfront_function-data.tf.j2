@@ -1,0 +1,18 @@
+data "awscc_cloudfront_function" "example" {
+    auto_publish = "{{ auto_publish }}"
+    function_arn = "{{ function_arn }}"
+    function_code = "{{ function_code }}"
+    function_config = "{
+    comment = {{ comment }}
+    key_value_store_associations = {
+    key_value_store_arn = {{ key_value_store_arn }}
+}
+    runtime = {{ runtime }}
+}"
+    function_metadata = "{
+    function_arn = {{ function_arn }}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    stage = "{{ stage }}"
+}

@@ -1,0 +1,11 @@
+resource "vault_mfa_okta" "example" {
+    api_token = "{{ api_token }}"
+    base_url = "{{ base_url }}"
+    id = "{{ id }}"
+    mount_accessor = "{{ mount_accessor }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    org_name = "{{ org_name }}"
+    primary_email = "{{ primary_email }}"
+    username_format = "{{ username_format }}"
+}

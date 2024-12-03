@@ -1,0 +1,10 @@
+resource "awscc_cognito_user_pool_resource_server" "example" {
+    id = "{{ id }}"
+    identifier = "{{ identifier }}"
+    name = "{{ name }}"
+    scopes = "{
+    scope_description = {{ scope_description }}
+    scope_name = {{ scope_name }}
+}"
+    user_pool_id = "{{ user_pool_id }}"
+}

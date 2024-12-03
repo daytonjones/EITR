@@ -1,0 +1,11 @@
+resource "google_bigtable_gc_policy" "example" {
+    column_family = "{{ column_family }}"
+    deletion_policy = "{{ deletion_policy }}"
+    gc_rules = "{{ gc_rules }}"
+    id = "{{ id }}"
+    ignore_warnings = "{{ ignore_warnings }}"
+    instance_name = "{{ instance_name }}"
+    mode = "{{ mode }}"
+    project = "{{ project }}"
+    table = "{{ table }}"
+}

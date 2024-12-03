@@ -1,0 +1,18 @@
+data "awscc_workspacesweb_ip_access_settings" "example" {
+    additional_encryption_context = "{{ additional_encryption_context }}"
+    associated_portal_arns = "{{ associated_portal_arns }}"
+    creation_date = "{{ creation_date }}"
+    customer_managed_key = "{{ customer_managed_key }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    ip_access_settings_arn = "{{ ip_access_settings_arn }}"
+    ip_rules = "{
+    description = {{ description }}
+    ip_range = {{ ip_range }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

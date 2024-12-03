@@ -1,0 +1,20 @@
+resource "awscc_omics_variant_store" "example" {
+    creation_time = "{{ creation_time }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    reference = "{
+    reference_arn = {{ reference_arn }}
+}"
+    sse_config = "{
+    key_arn = {{ key_arn }}
+    type = {{ type }}
+}"
+    status = "{{ status }}"
+    status_message = "{{ status_message }}"
+    store_arn = "{{ store_arn }}"
+    store_size_bytes = "{{ store_size_bytes }}"
+    tags = "{{ tags }}"
+    update_time = "{{ update_time }}"
+    variant_store_id = "{{ variant_store_id }}"
+}

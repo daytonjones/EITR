@@ -1,0 +1,14 @@
+data "awscc_iot_software_package_version" "example" {
+    attributes = "{{ attributes }}"
+    description = "{{ description }}"
+    error_reason = "{{ error_reason }}"
+    id = "{{ id }}"
+    package_name = "{{ package_name }}"
+    package_version_arn = "{{ package_version_arn }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    version_name = "{{ version_name }}"
+}

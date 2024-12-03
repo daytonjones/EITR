@@ -1,0 +1,14 @@
+resource "awscc_codestarconnections_repository_link" "example" {
+    connection_arn = "{{ connection_arn }}"
+    encryption_key_arn = "{{ encryption_key_arn }}"
+    id = "{{ id }}"
+    owner_id = "{{ owner_id }}"
+    provider_type = "{{ provider_type }}"
+    repository_link_arn = "{{ repository_link_arn }}"
+    repository_link_id = "{{ repository_link_id }}"
+    repository_name = "{{ repository_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

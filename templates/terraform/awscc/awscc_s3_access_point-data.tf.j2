@@ -1,0 +1,19 @@
+data "awscc_s3_access_point" "example" {
+    alias = "{{ alias }}"
+    arn = "{{ arn }}"
+    bucket = "{{ bucket }}"
+    bucket_account_id = "{{ bucket_account_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    network_origin = "{{ network_origin }}"
+    policy = "{{ policy }}"
+    public_access_block_configuration = "{
+    block_public_acls = {{ block_public_acls }}
+    block_public_policy = {{ block_public_policy }}
+    ignore_public_acls = {{ ignore_public_acls }}
+    restrict_public_buckets = {{ restrict_public_buckets }}
+}"
+    vpc_configuration = "{
+    vpc_id = {{ vpc_id }}
+}"
+}

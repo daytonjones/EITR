@@ -1,0 +1,13 @@
+resource "aws_autoscaling_schedule" "example" {
+    arn = "{{ arn }}"
+    autoscaling_group_name = "{{ autoscaling_group_name }}"
+    desired_capacity = "{{ desired_capacity }}"
+    end_time = "{{ end_time }}"
+    id = "{{ id }}"
+    max_size = "{{ max_size }}"
+    min_size = "{{ min_size }}"
+    recurrence = "{{ recurrence }}"
+    scheduled_action_name = "{{ scheduled_action_name }}"
+    start_time = "{{ start_time }}"
+    time_zone = "{{ time_zone }}"
+}

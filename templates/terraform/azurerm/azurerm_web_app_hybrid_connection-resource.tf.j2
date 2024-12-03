@@ -1,0 +1,13 @@
+resource "azurerm_web_app_hybrid_connection" "example" {
+    hostname = "{{ hostname }}"
+    id = "{{ id }}"
+    namespace_name = "{{ namespace_name }}"
+    port = "{{ port }}"
+    relay_id = "{{ relay_id }}"
+    relay_name = "{{ relay_name }}"
+    send_key_name = "{{ send_key_name }}"
+    send_key_value = "{{ send_key_value }}"
+    service_bus_namespace = "{{ service_bus_namespace }}"
+    service_bus_suffix = "{{ service_bus_suffix }}"
+    web_app_id = "{{ web_app_id }}"
+}

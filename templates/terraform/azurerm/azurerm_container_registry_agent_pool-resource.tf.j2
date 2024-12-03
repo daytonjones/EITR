@@ -1,0 +1,11 @@
+resource "azurerm_container_registry_agent_pool" "example" {
+    container_registry_name = "{{ container_registry_name }}"
+    id = "{{ id }}"
+    instance_count = "{{ instance_count }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    tier = "{{ tier }}"
+    virtual_network_subnet_id = "{{ virtual_network_subnet_id }}"
+}

@@ -1,0 +1,6 @@
+data "aws_cognito_user_pool_clients" "example" {
+    client_ids = "{{ client_ids }}"
+    client_names = "{{ client_names }}"
+    id = "{{ id }}"
+    user_pool_id = "{{ user_pool_id }}"
+}

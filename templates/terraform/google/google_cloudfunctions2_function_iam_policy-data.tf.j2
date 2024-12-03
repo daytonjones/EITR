@@ -1,0 +1,8 @@
+data "google_cloudfunctions2_function_iam_policy" "example" {
+    cloud_function = "{{ cloud_function }}"
+    etag = "{{ etag }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    policy_data = "{{ policy_data }}"
+    project = "{{ project }}"
+}

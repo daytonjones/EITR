@@ -1,0 +1,12 @@
+resource "aws_redshiftserverless_endpoint_access" "example" {
+    address = "{{ address }}"
+    arn = "{{ arn }}"
+    endpoint_name = "{{ endpoint_name }}"
+    id = "{{ id }}"
+    owner_account = "{{ owner_account }}"
+    port = "{{ port }}"
+    subnet_ids = "{{ subnet_ids }}"
+    vpc_endpoint = "{{ vpc_endpoint }}"
+    vpc_security_group_ids = "{{ vpc_security_group_ids }}"
+    workgroup_name = "{{ workgroup_name }}"
+}

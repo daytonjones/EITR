@@ -1,0 +1,11 @@
+data "azurerm_monitor_workspace" "example" {
+    default_data_collection_endpoint_id = "{{ default_data_collection_endpoint_id }}"
+    default_data_collection_rule_id = "{{ default_data_collection_rule_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    query_endpoint = "{{ query_endpoint }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

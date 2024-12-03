@@ -1,0 +1,18 @@
+resource "awscc_iotwireless_wireless_gateway" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    last_uplink_received_at = "{{ last_uplink_received_at }}"
+    lo_ra_wan = "{
+    gateway_eui = {{ gateway_eui }}
+    rf_region = {{ rf_region }}
+}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    thing_arn = "{{ thing_arn }}"
+    thing_name = "{{ thing_name }}"
+    wireless_gateway_id = "{{ wireless_gateway_id }}"
+}

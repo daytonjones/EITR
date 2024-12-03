@@ -1,0 +1,15 @@
+resource "awscc_opensearchserverless_collection" "example" {
+    arn = "{{ arn }}"
+    collection_endpoint = "{{ collection_endpoint }}"
+    collection_id = "{{ collection_id }}"
+    dashboard_endpoint = "{{ dashboard_endpoint }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    standby_replicas = "{{ standby_replicas }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+}

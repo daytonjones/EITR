@@ -1,0 +1,17 @@
+resource "azurerm_resource_deployment_script_azure_power_shell" "example" {
+    cleanup_preference = "{{ cleanup_preference }}"
+    command_line = "{{ command_line }}"
+    force_update_tag = "{{ force_update_tag }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    outputs = "{{ outputs }}"
+    primary_script_uri = "{{ primary_script_uri }}"
+    resource_group_name = "{{ resource_group_name }}"
+    retention_interval = "{{ retention_interval }}"
+    script_content = "{{ script_content }}"
+    supporting_script_uris = "{{ supporting_script_uris }}"
+    tags = "{{ tags }}"
+    timeout = "{{ timeout }}"
+    version = "{{ version }}"
+}

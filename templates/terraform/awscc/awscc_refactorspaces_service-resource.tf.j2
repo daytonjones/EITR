@@ -1,0 +1,22 @@
+resource "awscc_refactorspaces_service" "example" {
+    application_identifier = "{{ application_identifier }}"
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    endpoint_type = "{{ endpoint_type }}"
+    environment_identifier = "{{ environment_identifier }}"
+    id = "{{ id }}"
+    lambda_endpoint = "{
+    arn = {{ arn }}
+}"
+    name = "{{ name }}"
+    service_identifier = "{{ service_identifier }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    url_endpoint = "{
+    health_url = {{ health_url }}
+    url = {{ url }}
+}"
+    vpc_id = "{{ vpc_id }}"
+}

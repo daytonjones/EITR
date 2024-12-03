@@ -1,0 +1,10 @@
+data "awscc_rds_db_subnet_group" "example" {
+    db_subnet_group_description = "{{ db_subnet_group_description }}"
+    db_subnet_group_name = "{{ db_subnet_group_name }}"
+    id = "{{ id }}"
+    subnet_ids = "{{ subnet_ids }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

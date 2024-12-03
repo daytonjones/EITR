@@ -1,0 +1,81 @@
+data "awscc_wisdom_ai_agent" "example" {
+    ai_agent_arn = "{{ ai_agent_arn }}"
+    ai_agent_id = "{{ ai_agent_id }}"
+    assistant_arn = "{{ assistant_arn }}"
+    assistant_id = "{{ assistant_id }}"
+    configuration = "{
+    answer_recommendation_ai_agent_configuration = {
+    answer_generation_ai_prompt_id = {{ answer_generation_ai_prompt_id }}
+    association_configurations = {
+    association_configuration_data = {
+    knowledge_base_association_configuration_data = {
+    content_tag_filter = {
+    and_conditions = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    or_conditions = {
+    and_conditions = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    tag_condition = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}
+    tag_condition = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}
+    max_results = {{ max_results }}
+    override_knowledge_base_search_type = {{ override_knowledge_base_search_type }}
+}
+}
+    association_id = {{ association_id }}
+    association_type = {{ association_type }}
+}
+    intent_labeling_generation_ai_prompt_id = {{ intent_labeling_generation_ai_prompt_id }}
+    query_reformulation_ai_prompt_id = {{ query_reformulation_ai_prompt_id }}
+}
+    manual_search_ai_agent_configuration = {
+    answer_generation_ai_prompt_id = {{ answer_generation_ai_prompt_id }}
+    association_configurations = {
+    association_configuration_data = {
+    knowledge_base_association_configuration_data = {
+    content_tag_filter = {
+    and_conditions = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    or_conditions = {
+    and_conditions = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    tag_condition = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}
+    tag_condition = {
+    key = {{ key }}
+    value = {{ value }}
+}
+}
+    max_results = {{ max_results }}
+    override_knowledge_base_search_type = {{ override_knowledge_base_search_type }}
+}
+}
+    association_id = {{ association_id }}
+    association_type = {{ association_type }}
+}
+}
+}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    tags = "{{ tags }}"
+    type = "{{ type }}"
+}

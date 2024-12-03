@@ -1,0 +1,18 @@
+data "awscc_networkmanager_transit_gateway_peering" "example" {
+    core_network_arn = "{{ core_network_arn }}"
+    core_network_id = "{{ core_network_id }}"
+    created_at = "{{ created_at }}"
+    edge_location = "{{ edge_location }}"
+    id = "{{ id }}"
+    owner_account_id = "{{ owner_account_id }}"
+    peering_id = "{{ peering_id }}"
+    peering_type = "{{ peering_type }}"
+    resource_arn = "{{ resource_arn }}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    transit_gateway_arn = "{{ transit_gateway_arn }}"
+    transit_gateway_peering_attachment_id = "{{ transit_gateway_peering_attachment_id }}"
+}

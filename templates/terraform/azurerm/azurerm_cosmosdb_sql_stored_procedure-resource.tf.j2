@@ -1,0 +1,9 @@
+resource "azurerm_cosmosdb_sql_stored_procedure" "example" {
+    account_name = "{{ account_name }}"
+    body = "{{ body }}"
+    container_name = "{{ container_name }}"
+    database_name = "{{ database_name }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+}

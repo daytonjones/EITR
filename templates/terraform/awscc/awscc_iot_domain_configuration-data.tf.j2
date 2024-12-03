@@ -1,0 +1,37 @@
+data "awscc_iot_domain_configuration" "example" {
+    application_protocol = "{{ application_protocol }}"
+    arn = "{{ arn }}"
+    authentication_type = "{{ authentication_type }}"
+    authorizer_config = "{
+    allow_authorizer_override = {{ allow_authorizer_override }}
+    default_authorizer_name = {{ default_authorizer_name }}
+}"
+    client_certificate_config = "{
+    client_certificate_callback_arn = {{ client_certificate_callback_arn }}
+}"
+    domain_configuration_name = "{{ domain_configuration_name }}"
+    domain_configuration_status = "{{ domain_configuration_status }}"
+    domain_name = "{{ domain_name }}"
+    domain_type = "{{ domain_type }}"
+    id = "{{ id }}"
+    server_certificate_arns = "{{ server_certificate_arns }}"
+    server_certificate_config = "{
+    enable_ocsp_check = {{ enable_ocsp_check }}
+    ocsp_authorized_responder_arn = {{ ocsp_authorized_responder_arn }}
+    ocsp_lambda_arn = {{ ocsp_lambda_arn }}
+}"
+    server_certificates = "{
+    server_certificate_arn = {{ server_certificate_arn }}
+    server_certificate_status = {{ server_certificate_status }}
+    server_certificate_status_detail = {{ server_certificate_status_detail }}
+}"
+    service_type = "{{ service_type }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    tls_config = "{
+    security_policy = {{ security_policy }}
+}"
+    validation_certificate_arn = "{{ validation_certificate_arn }}"
+}

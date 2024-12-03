@@ -1,0 +1,9 @@
+resource "azuread_app_role_assignment" "example" {
+    app_role_id = "{{ app_role_id }}"
+    id = "{{ id }}"
+    principal_display_name = "{{ principal_display_name }}"
+    principal_object_id = "{{ principal_object_id }}"
+    principal_type = "{{ principal_type }}"
+    resource_display_name = "{{ resource_display_name }}"
+    resource_object_id = "{{ resource_object_id }}"
+}

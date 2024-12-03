@@ -1,0 +1,32 @@
+resource "awscc_networkmanager_connect_peer" "example" {
+    bgp_options = "{
+    peer_asn = {{ peer_asn }}
+}"
+    configuration = "{
+    bgp_configurations = {
+    core_network_address = {{ core_network_address }}
+    core_network_asn = {{ core_network_asn }}
+    peer_address = {{ peer_address }}
+    peer_asn = {{ peer_asn }}
+}
+    core_network_address = {{ core_network_address }}
+    inside_cidr_blocks = {{ inside_cidr_blocks }}
+    peer_address = {{ peer_address }}
+    protocol = {{ protocol }}
+}"
+    connect_attachment_id = "{{ connect_attachment_id }}"
+    connect_peer_id = "{{ connect_peer_id }}"
+    core_network_address = "{{ core_network_address }}"
+    core_network_id = "{{ core_network_id }}"
+    created_at = "{{ created_at }}"
+    edge_location = "{{ edge_location }}"
+    id = "{{ id }}"
+    inside_cidr_blocks = "{{ inside_cidr_blocks }}"
+    peer_address = "{{ peer_address }}"
+    state = "{{ state }}"
+    subnet_arn = "{{ subnet_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

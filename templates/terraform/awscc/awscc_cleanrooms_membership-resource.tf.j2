@@ -1,0 +1,29 @@
+resource "awscc_cleanrooms_membership" "example" {
+    arn = "{{ arn }}"
+    collaboration_arn = "{{ collaboration_arn }}"
+    collaboration_creator_account_id = "{{ collaboration_creator_account_id }}"
+    collaboration_identifier = "{{ collaboration_identifier }}"
+    default_result_configuration = "{
+    output_configuration = {
+    s3 = {
+    bucket = {{ bucket }}
+    key_prefix = {{ key_prefix }}
+    result_format = {{ result_format }}
+    single_file_output = {{ single_file_output }}
+}
+}
+    role_arn = {{ role_arn }}
+}"
+    id = "{{ id }}"
+    membership_identifier = "{{ membership_identifier }}"
+    payment_configuration = "{
+    query_compute = {
+    is_responsible = {{ is_responsible }}
+}
+}"
+    query_log_status = "{{ query_log_status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,6 @@
+resource "aws_route53_query_log" "example" {
+    arn = "{{ arn }}"
+    cloudwatch_log_group_arn = "{{ cloudwatch_log_group_arn }}"
+    id = "{{ id }}"
+    zone_id = "{{ zone_id }}"
+}

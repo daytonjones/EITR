@@ -1,0 +1,12 @@
+resource "google_logging_organization_sink" "example" {
+    description = "{{ description }}"
+    destination = "{{ destination }}"
+    disabled = "{{ disabled }}"
+    filter = "{{ filter }}"
+    id = "{{ id }}"
+    include_children = "{{ include_children }}"
+    intercept_children = "{{ intercept_children }}"
+    name = "{{ name }}"
+    org_id = "{{ org_id }}"
+    writer_identity = "{{ writer_identity }}"
+}

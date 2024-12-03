@@ -1,0 +1,12 @@
+resource "aws_route53_resolver_endpoint" "example" {
+    arn = "{{ arn }}"
+    direction = "{{ direction }}"
+    host_vpc_id = "{{ host_vpc_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    protocols = "{{ protocols }}"
+    resolver_endpoint_type = "{{ resolver_endpoint_type }}"
+    security_group_ids = "{{ security_group_ids }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

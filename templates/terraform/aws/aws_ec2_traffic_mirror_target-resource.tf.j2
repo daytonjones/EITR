@@ -1,0 +1,11 @@
+resource "aws_ec2_traffic_mirror_target" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    gateway_load_balancer_endpoint_id = "{{ gateway_load_balancer_endpoint_id }}"
+    id = "{{ id }}"
+    network_interface_id = "{{ network_interface_id }}"
+    network_load_balancer_arn = "{{ network_load_balancer_arn }}"
+    owner_id = "{{ owner_id }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

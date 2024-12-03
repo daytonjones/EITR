@@ -1,0 +1,14 @@
+data "awscc_omics_sequence_store" "example" {
+    arn = "{{ arn }}"
+    creation_time = "{{ creation_time }}"
+    description = "{{ description }}"
+    fallback_location = "{{ fallback_location }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    sequence_store_id = "{{ sequence_store_id }}"
+    sse_config = "{
+    key_arn = {{ key_arn }}
+    type = {{ type }}
+}"
+    tags = "{{ tags }}"
+}

@@ -1,0 +1,11 @@
+resource "aws_osis_pipeline" "example" {
+    id = "{{ id }}"
+    ingest_endpoint_urls = "{{ ingest_endpoint_urls }}"
+    max_units = "{{ max_units }}"
+    min_units = "{{ min_units }}"
+    pipeline_arn = "{{ pipeline_arn }}"
+    pipeline_configuration_body = "{{ pipeline_configuration_body }}"
+    pipeline_name = "{{ pipeline_name }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

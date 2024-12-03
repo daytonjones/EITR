@@ -1,0 +1,10 @@
+data "awscc_workspacesweb_trust_store" "example" {
+    associated_portal_arns = "{{ associated_portal_arns }}"
+    certificate_list = "{{ certificate_list }}"
+    id = "{{ id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    trust_store_arn = "{{ trust_store_arn }}"
+}

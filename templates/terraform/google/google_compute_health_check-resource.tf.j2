@@ -1,0 +1,14 @@
+resource "google_compute_health_check" "example" {
+    check_interval_sec = "{{ check_interval_sec }}"
+    creation_timestamp = "{{ creation_timestamp }}"
+    description = "{{ description }}"
+    healthy_threshold = "{{ healthy_threshold }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    self_link = "{{ self_link }}"
+    source_regions = "{{ source_regions }}"
+    timeout_sec = "{{ timeout_sec }}"
+    type = "{{ type }}"
+    unhealthy_threshold = "{{ unhealthy_threshold }}"
+}

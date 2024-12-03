@@ -1,0 +1,10 @@
+resource "azurerm_hpc_cache_nfs_target" "example" {
+    cache_name = "{{ cache_name }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    target_host_name = "{{ target_host_name }}"
+    usage_model = "{{ usage_model }}"
+    verification_timer_in_seconds = "{{ verification_timer_in_seconds }}"
+    write_back_timer_in_seconds = "{{ write_back_timer_in_seconds }}"
+}

@@ -1,0 +1,8 @@
+resource "vault_okta_auth_backend_user" "example" {
+    groups = "{{ groups }}"
+    id = "{{ id }}"
+    namespace = "{{ namespace }}"
+    path = "{{ path }}"
+    policies = "{{ policies }}"
+    username = "{{ username }}"
+}

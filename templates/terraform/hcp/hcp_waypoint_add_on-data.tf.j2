@@ -1,0 +1,27 @@
+data "hcp_waypoint_add_on" "example" {
+    application_id = "{{ application_id }}"
+    created_by = "{{ created_by }}"
+    definition_id = "{{ definition_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    input_variables = "{
+    name = {{ name }}
+    value = {{ value }}
+    variable_type = {{ variable_type }}
+}"
+    install_count = "{{ install_count }}"
+    labels = "{{ labels }}"
+    name = "{{ name }}"
+    organization_id = "{{ organization_id }}"
+    output_values = "{
+    name = {{ name }}
+    sensitive = {{ sensitive }}
+    type = {{ type }}
+    value = {{ value }}
+}"
+    project_id = "{{ project_id }}"
+    readme_markdown = "{{ readme_markdown }}"
+    status = "{{ status }}"
+    summary = "{{ summary }}"
+    terraform_no_code_module_source = "{{ terraform_no_code_module_source }}"
+}

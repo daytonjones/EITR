@@ -1,0 +1,15 @@
+resource "aws_codedeploy_deployment_group" "example" {
+    app_name = "{{ app_name }}"
+    arn = "{{ arn }}"
+    autoscaling_groups = "{{ autoscaling_groups }}"
+    compute_platform = "{{ compute_platform }}"
+    deployment_config_name = "{{ deployment_config_name }}"
+    deployment_group_id = "{{ deployment_group_id }}"
+    deployment_group_name = "{{ deployment_group_name }}"
+    id = "{{ id }}"
+    outdated_instances_strategy = "{{ outdated_instances_strategy }}"
+    service_role_arn = "{{ service_role_arn }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    termination_hook_enabled = "{{ termination_hook_enabled }}"
+}

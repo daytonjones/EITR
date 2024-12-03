@@ -1,0 +1,16 @@
+data "awscc_ses_mail_manager_relay" "example" {
+    authentication = "{
+    no_authentication = {{ no_authentication }}
+    secret_arn = {{ secret_arn }}
+}"
+    id = "{{ id }}"
+    relay_arn = "{{ relay_arn }}"
+    relay_id = "{{ relay_id }}"
+    relay_name = "{{ relay_name }}"
+    server_name = "{{ server_name }}"
+    server_port = "{{ server_port }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,9 @@
+resource "awscc_events_archive" "example" {
+    archive_name = "{{ archive_name }}"
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    event_pattern = "{{ event_pattern }}"
+    id = "{{ id }}"
+    retention_days = "{{ retention_days }}"
+    source_arn = "{{ source_arn }}"
+}

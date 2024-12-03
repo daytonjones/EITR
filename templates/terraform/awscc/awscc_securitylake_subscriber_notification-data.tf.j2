@@ -1,0 +1,15 @@
+data "awscc_securitylake_subscriber_notification" "example" {
+    id = "{{ id }}"
+    notification_configuration = "{
+    https_notification_configuration = {
+    authorization_api_key_name = {{ authorization_api_key_name }}
+    authorization_api_key_value = {{ authorization_api_key_value }}
+    endpoint = {{ endpoint }}
+    http_method = {{ http_method }}
+    target_role_arn = {{ target_role_arn }}
+}
+    sqs_notification_configuration = {{ sqs_notification_configuration }}
+}"
+    subscriber_arn = "{{ subscriber_arn }}"
+    subscriber_endpoint = "{{ subscriber_endpoint }}"
+}

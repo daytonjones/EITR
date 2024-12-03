@@ -1,0 +1,21 @@
+data "awscc_opensearchserverless_security_config" "example" {
+    description = "{{ description }}"
+    iam_identity_center_options = "{
+    application_arn = {{ application_arn }}
+    application_description = {{ application_description }}
+    application_name = {{ application_name }}
+    group_attribute = {{ group_attribute }}
+    instance_arn = {{ instance_arn }}
+    user_attribute = {{ user_attribute }}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    saml_options = "{
+    group_attribute = {{ group_attribute }}
+    metadata = {{ metadata }}
+    session_timeout = {{ session_timeout }}
+    user_attribute = {{ user_attribute }}
+}"
+    security_config_id = "{{ security_config_id }}"
+    type = "{{ type }}"
+}

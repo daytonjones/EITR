@@ -1,0 +1,73 @@
+data "awscc_lambda_function" "example" {
+    architectures = "{{ architectures }}"
+    arn = "{{ arn }}"
+    code = "{
+    image_uri = {{ image_uri }}
+    s3_bucket = {{ s3_bucket }}
+    s3_key = {{ s3_key }}
+    s3_object_version = {{ s3_object_version }}
+    source_kms_key_arn = {{ source_kms_key_arn }}
+    zip_file = {{ zip_file }}
+}"
+    code_signing_config_arn = "{{ code_signing_config_arn }}"
+    dead_letter_config = "{
+    target_arn = {{ target_arn }}
+}"
+    description = "{{ description }}"
+    environment = "{
+    variables = {{ variables }}
+}"
+    ephemeral_storage = "{
+    size = {{ size }}
+}"
+    file_system_configs = "{
+    arn = {{ arn }}
+    local_mount_path = {{ local_mount_path }}
+}"
+    function_name = "{{ function_name }}"
+    handler = "{{ handler }}"
+    id = "{{ id }}"
+    image_config = "{
+    command = {{ command }}
+    entry_point = {{ entry_point }}
+    working_directory = {{ working_directory }}
+}"
+    kms_key_arn = "{{ kms_key_arn }}"
+    layers = "{{ layers }}"
+    logging_config = "{
+    application_log_level = {{ application_log_level }}
+    log_format = {{ log_format }}
+    log_group = {{ log_group }}
+    system_log_level = {{ system_log_level }}
+}"
+    memory_size = "{{ memory_size }}"
+    package_type = "{{ package_type }}"
+    recursive_loop = "{{ recursive_loop }}"
+    reserved_concurrent_executions = "{{ reserved_concurrent_executions }}"
+    role = "{{ role }}"
+    runtime = "{{ runtime }}"
+    runtime_management_config = "{
+    runtime_version_arn = {{ runtime_version_arn }}
+    update_runtime_on = {{ update_runtime_on }}
+}"
+    snap_start = "{
+    apply_on = {{ apply_on }}
+}"
+    snap_start_response = "{
+    apply_on = {{ apply_on }}
+    optimization_status = {{ optimization_status }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    timeout = "{{ timeout }}"
+    tracing_config = "{
+    mode = {{ mode }}
+}"
+    vpc_config = "{
+    ipv_6_allowed_for_dual_stack = {{ ipv_6_allowed_for_dual_stack }}
+    security_group_ids = {{ security_group_ids }}
+    subnet_ids = {{ subnet_ids }}
+}"
+}

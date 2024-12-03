@@ -1,0 +1,45 @@
+resource "awscc_msk_replicator" "example" {
+    current_version = "{{ current_version }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    kafka_clusters = "{
+    amazon_msk_cluster = {
+    msk_cluster_arn = {{ msk_cluster_arn }}
+}
+    vpc_config = {
+    security_group_ids = {{ security_group_ids }}
+    subnet_ids = {{ subnet_ids }}
+}
+}"
+    replication_info_list = "{
+    consumer_group_replication = {
+    consumer_groups_to_exclude = {{ consumer_groups_to_exclude }}
+    consumer_groups_to_replicate = {{ consumer_groups_to_replicate }}
+    detect_and_copy_new_consumer_groups = {{ detect_and_copy_new_consumer_groups }}
+    synchronise_consumer_group_offsets = {{ synchronise_consumer_group_offsets }}
+}
+    source_kafka_cluster_arn = {{ source_kafka_cluster_arn }}
+    target_compression_type = {{ target_compression_type }}
+    target_kafka_cluster_arn = {{ target_kafka_cluster_arn }}
+    topic_replication = {
+    copy_access_control_lists_for_topics = {{ copy_access_control_lists_for_topics }}
+    copy_topic_configurations = {{ copy_topic_configurations }}
+    detect_and_copy_new_topics = {{ detect_and_copy_new_topics }}
+    starting_position = {
+    type = {{ type }}
+}
+    topic_name_configuration = {
+    type = {{ type }}
+}
+    topics_to_exclude = {{ topics_to_exclude }}
+    topics_to_replicate = {{ topics_to_replicate }}
+}
+}"
+    replicator_arn = "{{ replicator_arn }}"
+    replicator_name = "{{ replicator_name }}"
+    service_execution_role_arn = "{{ service_execution_role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

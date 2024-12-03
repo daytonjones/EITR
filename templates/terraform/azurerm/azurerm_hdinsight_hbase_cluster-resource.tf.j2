@@ -1,0 +1,12 @@
+resource "azurerm_hdinsight_hbase_cluster" "example" {
+    cluster_version = "{{ cluster_version }}"
+    https_endpoint = "{{ https_endpoint }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    ssh_endpoint = "{{ ssh_endpoint }}"
+    tags = "{{ tags }}"
+    tier = "{{ tier }}"
+    tls_min_version = "{{ tls_min_version }}"
+}

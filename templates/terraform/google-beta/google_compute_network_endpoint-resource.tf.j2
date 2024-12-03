@@ -1,0 +1,9 @@
+resource "google_compute_network_endpoint" "example" {
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    ip_address = "{{ ip_address }}"
+    network_endpoint_group = "{{ network_endpoint_group }}"
+    port = "{{ port }}"
+    project = "{{ project }}"
+    zone = "{{ zone }}"
+}

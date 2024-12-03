@@ -1,0 +1,14 @@
+data "awscc_frauddetector_list" "example" {
+    arn = "{{ arn }}"
+    created_time = "{{ created_time }}"
+    description = "{{ description }}"
+    elements = "{{ elements }}"
+    id = "{{ id }}"
+    last_updated_time = "{{ last_updated_time }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    variable_type = "{{ variable_type }}"
+}

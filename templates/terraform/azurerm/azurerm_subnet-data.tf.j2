@@ -1,0 +1,14 @@
+data "azurerm_subnet" "example" {
+    address_prefix = "{{ address_prefix }}"
+    address_prefixes = "{{ address_prefixes }}"
+    default_outbound_access_enabled = "{{ default_outbound_access_enabled }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    network_security_group_id = "{{ network_security_group_id }}"
+    private_endpoint_network_policies = "{{ private_endpoint_network_policies }}"
+    private_link_service_network_policies_enabled = "{{ private_link_service_network_policies_enabled }}"
+    resource_group_name = "{{ resource_group_name }}"
+    route_table_id = "{{ route_table_id }}"
+    service_endpoints = "{{ service_endpoints }}"
+    virtual_network_name = "{{ virtual_network_name }}"
+}

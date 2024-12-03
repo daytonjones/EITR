@@ -1,0 +1,10 @@
+resource "aws_lambda_function_url" "example" {
+    authorization_type = "{{ authorization_type }}"
+    function_arn = "{{ function_arn }}"
+    function_name = "{{ function_name }}"
+    function_url = "{{ function_url }}"
+    id = "{{ id }}"
+    invoke_mode = "{{ invoke_mode }}"
+    qualifier = "{{ qualifier }}"
+    url_id = "{{ url_id }}"
+}

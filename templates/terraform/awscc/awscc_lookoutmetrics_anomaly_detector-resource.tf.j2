@@ -1,0 +1,81 @@
+resource "awscc_lookoutmetrics_anomaly_detector" "example" {
+    anomaly_detector_config = "{
+    anomaly_detector_frequency = {{ anomaly_detector_frequency }}
+}"
+    anomaly_detector_description = "{{ anomaly_detector_description }}"
+    anomaly_detector_name = "{{ anomaly_detector_name }}"
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    kms_key_arn = "{{ kms_key_arn }}"
+    metric_set_list = "{
+    dimension_list = {{ dimension_list }}
+    metric_list = {
+    aggregation_function = {{ aggregation_function }}
+    metric_name = {{ metric_name }}
+    namespace = {{ namespace }}
+}
+    metric_set_description = {{ metric_set_description }}
+    metric_set_frequency = {{ metric_set_frequency }}
+    metric_set_name = {{ metric_set_name }}
+    metric_source = {
+    app_flow_config = {
+    flow_name = {{ flow_name }}
+    role_arn = {{ role_arn }}
+}
+    cloudwatch_config = {
+    role_arn = {{ role_arn }}
+}
+    rds_source_config = {
+    database_host = {{ database_host }}
+    database_name = {{ database_name }}
+    database_port = {{ database_port }}
+    db_instance_identifier = {{ db_instance_identifier }}
+    role_arn = {{ role_arn }}
+    secret_manager_arn = {{ secret_manager_arn }}
+    table_name = {{ table_name }}
+    vpc_configuration = {
+    security_group_id_list = {{ security_group_id_list }}
+    subnet_id_list = {{ subnet_id_list }}
+}
+}
+    redshift_source_config = {
+    cluster_identifier = {{ cluster_identifier }}
+    database_host = {{ database_host }}
+    database_name = {{ database_name }}
+    database_port = {{ database_port }}
+    role_arn = {{ role_arn }}
+    secret_manager_arn = {{ secret_manager_arn }}
+    table_name = {{ table_name }}
+    vpc_configuration = {
+    security_group_id_list = {{ security_group_id_list }}
+    subnet_id_list = {{ subnet_id_list }}
+}
+}
+    s3_source_config = {
+    file_format_descriptor = {
+    csv_format_descriptor = {
+    charset = {{ charset }}
+    contains_header = {{ contains_header }}
+    delimiter = {{ delimiter }}
+    file_compression = {{ file_compression }}
+    header_list = {{ header_list }}
+    quote_symbol = {{ quote_symbol }}
+}
+    json_format_descriptor = {
+    charset = {{ charset }}
+    file_compression = {{ file_compression }}
+}
+}
+    historical_data_path_list = {{ historical_data_path_list }}
+    role_arn = {{ role_arn }}
+    templated_path_list = {{ templated_path_list }}
+}
+}
+    offset = {{ offset }}
+    timestamp_column = {
+    column_format = {{ column_format }}
+    column_name = {{ column_name }}
+}
+    timezone = {{ timezone }}
+}"
+}

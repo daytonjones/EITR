@@ -1,0 +1,56 @@
+resource "awscc_lakeformation_principal_permissions" "example" {
+    catalog = "{{ catalog }}"
+    id = "{{ id }}"
+    permissions = "{{ permissions }}"
+    permissions_with_grant_option = "{{ permissions_with_grant_option }}"
+    principal = "{
+    data_lake_principal_identifier = {{ data_lake_principal_identifier }}
+}"
+    principal_identifier = "{{ principal_identifier }}"
+    resource = "{
+    catalog = {{ catalog }}
+    data_cells_filter = {
+    database_name = {{ database_name }}
+    name = {{ name }}
+    table_catalog_id = {{ table_catalog_id }}
+    table_name = {{ table_name }}
+}
+    data_location = {
+    catalog_id = {{ catalog_id }}
+    resource_arn = {{ resource_arn }}
+}
+    database = {
+    catalog_id = {{ catalog_id }}
+    name = {{ name }}
+}
+    lf_tag = {
+    catalog_id = {{ catalog_id }}
+    tag_key = {{ tag_key }}
+    tag_values = {{ tag_values }}
+}
+    lf_tag_policy = {
+    catalog_id = {{ catalog_id }}
+    expression = {
+    tag_key = {{ tag_key }}
+    tag_values = {{ tag_values }}
+}
+    resource_type = {{ resource_type }}
+}
+    table = {
+    catalog_id = {{ catalog_id }}
+    database_name = {{ database_name }}
+    name = {{ name }}
+    table_wildcard = {{ table_wildcard }}
+}
+    table_with_columns = {
+    catalog_id = {{ catalog_id }}
+    column_names = {{ column_names }}
+    column_wildcard = {
+    excluded_column_names = {{ excluded_column_names }}
+}
+    database_name = {{ database_name }}
+    name = {{ name }}
+}
+}"
+    resource_identifier = "{{ resource_identifier }}"
+}

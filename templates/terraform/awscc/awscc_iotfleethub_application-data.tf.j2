@@ -1,0 +1,18 @@
+data "awscc_iotfleethub_application" "example" {
+    application_arn = "{{ application_arn }}"
+    application_creation_date = "{{ application_creation_date }}"
+    application_description = "{{ application_description }}"
+    application_id = "{{ application_id }}"
+    application_last_update_date = "{{ application_last_update_date }}"
+    application_name = "{{ application_name }}"
+    application_state = "{{ application_state }}"
+    application_url = "{{ application_url }}"
+    error_message = "{{ error_message }}"
+    id = "{{ id }}"
+    role_arn = "{{ role_arn }}"
+    sso_client_id = "{{ sso_client_id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

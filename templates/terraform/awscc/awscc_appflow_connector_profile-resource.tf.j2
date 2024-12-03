@@ -1,0 +1,225 @@
+resource "awscc_appflow_connector_profile" "example" {
+    connection_mode = "{{ connection_mode }}"
+    connector_label = "{{ connector_label }}"
+    connector_profile_arn = "{{ connector_profile_arn }}"
+    connector_profile_config = "{
+    connector_profile_credentials = {
+    amplitude = {
+    api_key = {{ api_key }}
+    secret_key = {{ secret_key }}
+}
+    custom_connector = {
+    api_key = {
+    api_key = {{ api_key }}
+    api_secret_key = {{ api_secret_key }}
+}
+    authentication_type = {{ authentication_type }}
+    basic = {
+    password = {{ password }}
+    username = {{ username }}
+}
+    custom = {
+    credentials_map = {{ credentials_map }}
+    custom_authentication_type = {{ custom_authentication_type }}
+}
+    oauth_2 = {
+    access_token = {{ access_token }}
+    client_id = {{ client_id }}
+    client_secret = {{ client_secret }}
+    o_auth_request = {
+    auth_code = {{ auth_code }}
+    redirect_uri = {{ redirect_uri }}
+}
+    refresh_token = {{ refresh_token }}
+}
+}
+    datadog = {
+    api_key = {{ api_key }}
+    application_key = {{ application_key }}
+}
+    dynatrace = {
+    api_token = {{ api_token }}
+}
+    google_analytics = {
+    access_token = {{ access_token }}
+    client_id = {{ client_id }}
+    client_secret = {{ client_secret }}
+    connector_o_auth_request = {
+    auth_code = {{ auth_code }}
+    redirect_uri = {{ redirect_uri }}
+}
+    refresh_token = {{ refresh_token }}
+}
+    infor_nexus = {
+    access_key_id = {{ access_key_id }}
+    datakey = {{ datakey }}
+    secret_access_key = {{ secret_access_key }}
+    user_id = {{ user_id }}
+}
+    marketo = {
+    access_token = {{ access_token }}
+    client_id = {{ client_id }}
+    client_secret = {{ client_secret }}
+    connector_o_auth_request = {
+    auth_code = {{ auth_code }}
+    redirect_uri = {{ redirect_uri }}
+}
+}
+    pardot = {
+    access_token = {{ access_token }}
+    client_credentials_arn = {{ client_credentials_arn }}
+    connector_o_auth_request = {
+    auth_code = {{ auth_code }}
+    redirect_uri = {{ redirect_uri }}
+}
+    refresh_token = {{ refresh_token }}
+}
+    redshift = {
+    password = {{ password }}
+    username = {{ username }}
+}
+    salesforce = {
+    access_token = {{ access_token }}
+    client_credentials_arn = {{ client_credentials_arn }}
+    connector_o_auth_request = {
+    auth_code = {{ auth_code }}
+    redirect_uri = {{ redirect_uri }}
+}
+    refresh_token = {{ refresh_token }}
+}
+    sapo_data = {
+    basic_auth_credentials = {
+    password = {{ password }}
+    username = {{ username }}
+}
+    o_auth_credentials = {
+    access_token = {{ access_token }}
+    client_id = {{ client_id }}
+    client_secret = {{ client_secret }}
+    connector_o_auth_request = {
+    auth_code = {{ auth_code }}
+    redirect_uri = {{ redirect_uri }}
+}
+    refresh_token = {{ refresh_token }}
+}
+}
+    service_now = {
+    password = {{ password }}
+    username = {{ username }}
+}
+    singular = {
+    api_key = {{ api_key }}
+}
+    slack = {
+    access_token = {{ access_token }}
+    client_id = {{ client_id }}
+    client_secret = {{ client_secret }}
+    connector_o_auth_request = {
+    auth_code = {{ auth_code }}
+    redirect_uri = {{ redirect_uri }}
+}
+}
+    snowflake = {
+    password = {{ password }}
+    username = {{ username }}
+}
+    trendmicro = {
+    api_secret_key = {{ api_secret_key }}
+}
+    veeva = {
+    password = {{ password }}
+    username = {{ username }}
+}
+    zendesk = {
+    access_token = {{ access_token }}
+    client_id = {{ client_id }}
+    client_secret = {{ client_secret }}
+    connector_o_auth_request = {
+    auth_code = {{ auth_code }}
+    redirect_uri = {{ redirect_uri }}
+}
+}
+}
+    connector_profile_properties = {
+    custom_connector = {
+    o_auth_2_properties = {
+    o_auth_2_grant_type = {{ o_auth_2_grant_type }}
+    token_url = {{ token_url }}
+    token_url_custom_properties = {{ token_url_custom_properties }}
+}
+    profile_properties = {{ profile_properties }}
+}
+    datadog = {
+    instance_url = {{ instance_url }}
+}
+    dynatrace = {
+    instance_url = {{ instance_url }}
+}
+    infor_nexus = {
+    instance_url = {{ instance_url }}
+}
+    marketo = {
+    instance_url = {{ instance_url }}
+}
+    pardot = {
+    business_unit_id = {{ business_unit_id }}
+    instance_url = {{ instance_url }}
+    is_sandbox_environment = {{ is_sandbox_environment }}
+}
+    redshift = {
+    bucket_name = {{ bucket_name }}
+    bucket_prefix = {{ bucket_prefix }}
+    cluster_identifier = {{ cluster_identifier }}
+    data_api_role_arn = {{ data_api_role_arn }}
+    database_name = {{ database_name }}
+    database_url = {{ database_url }}
+    is_redshift_serverless = {{ is_redshift_serverless }}
+    role_arn = {{ role_arn }}
+    workgroup_name = {{ workgroup_name }}
+}
+    salesforce = {
+    instance_url = {{ instance_url }}
+    is_sandbox_environment = {{ is_sandbox_environment }}
+}
+    sapo_data = {
+    application_host_url = {{ application_host_url }}
+    application_service_path = {{ application_service_path }}
+    client_number = {{ client_number }}
+    logon_language = {{ logon_language }}
+    o_auth_properties = {
+    auth_code_url = {{ auth_code_url }}
+    o_auth_scopes = {{ o_auth_scopes }}
+    token_url = {{ token_url }}
+}
+    port_number = {{ port_number }}
+    private_link_service_name = {{ private_link_service_name }}
+}
+    service_now = {
+    instance_url = {{ instance_url }}
+}
+    slack = {
+    instance_url = {{ instance_url }}
+}
+    snowflake = {
+    account_name = {{ account_name }}
+    bucket_name = {{ bucket_name }}
+    bucket_prefix = {{ bucket_prefix }}
+    private_link_service_name = {{ private_link_service_name }}
+    region = {{ region }}
+    stage = {{ stage }}
+    warehouse = {{ warehouse }}
+}
+    veeva = {
+    instance_url = {{ instance_url }}
+}
+    zendesk = {
+    instance_url = {{ instance_url }}
+}
+}
+}"
+    connector_profile_name = "{{ connector_profile_name }}"
+    connector_type = "{{ connector_type }}"
+    credentials_arn = "{{ credentials_arn }}"
+    id = "{{ id }}"
+    kms_arn = "{{ kms_arn }}"
+}

@@ -1,0 +1,5 @@
+resource "aws_alb_listener_certificate" "example" {
+    certificate_arn = "{{ certificate_arn }}"
+    id = "{{ id }}"
+    listener_arn = "{{ listener_arn }}"
+}

@@ -1,0 +1,7 @@
+data "aws_kms_ciphertext" "example" {
+    ciphertext_blob = "{{ ciphertext_blob }}"
+    context = "{{ context }}"
+    id = "{{ id }}"
+    key_id = "{{ key_id }}"
+    plaintext = "{{ plaintext }}"
+}

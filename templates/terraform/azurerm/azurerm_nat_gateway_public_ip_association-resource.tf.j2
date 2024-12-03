@@ -1,0 +1,5 @@
+resource "azurerm_nat_gateway_public_ip_association" "example" {
+    id = "{{ id }}"
+    nat_gateway_id = "{{ nat_gateway_id }}"
+    public_ip_address_id = "{{ public_ip_address_id }}"
+}

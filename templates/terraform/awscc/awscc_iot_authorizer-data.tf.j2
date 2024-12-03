@@ -1,0 +1,15 @@
+data "awscc_iot_authorizer" "example" {
+    arn = "{{ arn }}"
+    authorizer_function_arn = "{{ authorizer_function_arn }}"
+    authorizer_name = "{{ authorizer_name }}"
+    enable_caching_for_http = "{{ enable_caching_for_http }}"
+    id = "{{ id }}"
+    signing_disabled = "{{ signing_disabled }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    token_key_name = "{{ token_key_name }}"
+    token_signing_public_keys = "{{ token_signing_public_keys }}"
+}

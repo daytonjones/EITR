@@ -1,0 +1,14 @@
+resource "aws_workspaces_workspace" "example" {
+    bundle_id = "{{ bundle_id }}"
+    computer_name = "{{ computer_name }}"
+    directory_id = "{{ directory_id }}"
+    id = "{{ id }}"
+    ip_address = "{{ ip_address }}"
+    root_volume_encryption_enabled = "{{ root_volume_encryption_enabled }}"
+    state = "{{ state }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    user_name = "{{ user_name }}"
+    user_volume_encryption_enabled = "{{ user_volume_encryption_enabled }}"
+    volume_encryption_key = "{{ volume_encryption_key }}"
+}

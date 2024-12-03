@@ -1,0 +1,6 @@
+data "awscc_ecs_primary_task_set" "example" {
+    cluster = "{{ cluster }}"
+    id = "{{ id }}"
+    service = "{{ service }}"
+    task_set_id = "{{ task_set_id }}"
+}

@@ -1,0 +1,11 @@
+data "awscc_route53profiles_profile" "example" {
+    arn = "{{ arn }}"
+    client_token = "{{ client_token }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    profile_id = "{{ profile_id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

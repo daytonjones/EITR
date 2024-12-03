@@ -1,0 +1,19 @@
+data "awscc_athena_capacity_reservation" "example" {
+    allocated_dpus = "{{ allocated_dpus }}"
+    arn = "{{ arn }}"
+    capacity_assignment_configuration = "{
+    capacity_assignments = {
+    workgroup_names = {{ workgroup_names }}
+}
+}"
+    creation_time = "{{ creation_time }}"
+    id = "{{ id }}"
+    last_successful_allocation_time = "{{ last_successful_allocation_time }}"
+    name = "{{ name }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    target_dpus = "{{ target_dpus }}"
+}

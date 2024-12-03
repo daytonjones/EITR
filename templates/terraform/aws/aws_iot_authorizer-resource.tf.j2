@@ -1,0 +1,13 @@
+resource "aws_iot_authorizer" "example" {
+    arn = "{{ arn }}"
+    authorizer_function_arn = "{{ authorizer_function_arn }}"
+    enable_caching_for_http = "{{ enable_caching_for_http }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    signing_disabled = "{{ signing_disabled }}"
+    status = "{{ status }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    token_key_name = "{{ token_key_name }}"
+    token_signing_public_keys = "{{ token_signing_public_keys }}"
+}

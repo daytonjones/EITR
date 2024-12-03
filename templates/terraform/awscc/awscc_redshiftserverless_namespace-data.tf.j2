@@ -1,0 +1,41 @@
+data "awscc_redshiftserverless_namespace" "example" {
+    admin_password_secret_kms_key_id = "{{ admin_password_secret_kms_key_id }}"
+    admin_user_password = "{{ admin_user_password }}"
+    admin_username = "{{ admin_username }}"
+    db_name = "{{ db_name }}"
+    default_iam_role_arn = "{{ default_iam_role_arn }}"
+    final_snapshot_name = "{{ final_snapshot_name }}"
+    final_snapshot_retention_period = "{{ final_snapshot_retention_period }}"
+    iam_roles = "{{ iam_roles }}"
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    log_exports = "{{ log_exports }}"
+    manage_admin_password = "{{ manage_admin_password }}"
+    namespace = "{
+    admin_password_secret_arn = {{ admin_password_secret_arn }}
+    admin_password_secret_kms_key_id = {{ admin_password_secret_kms_key_id }}
+    admin_username = {{ admin_username }}
+    creation_date = {{ creation_date }}
+    db_name = {{ db_name }}
+    default_iam_role_arn = {{ default_iam_role_arn }}
+    iam_roles = {{ iam_roles }}
+    kms_key_id = {{ kms_key_id }}
+    log_exports = {{ log_exports }}
+    namespace_arn = {{ namespace_arn }}
+    namespace_id = {{ namespace_id }}
+    namespace_name = {{ namespace_name }}
+    status = {{ status }}
+}"
+    namespace_name = "{{ namespace_name }}"
+    namespace_resource_policy = "{{ namespace_resource_policy }}"
+    redshift_idc_application_arn = "{{ redshift_idc_application_arn }}"
+    snapshot_copy_configurations = "{
+    destination_kms_key_id = {{ destination_kms_key_id }}
+    destination_region = {{ destination_region }}
+    snapshot_retention_period = {{ snapshot_retention_period }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

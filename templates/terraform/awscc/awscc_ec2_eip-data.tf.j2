@@ -1,0 +1,16 @@
+data "awscc_ec2_eip" "example" {
+    address = "{{ address }}"
+    allocation_id = "{{ allocation_id }}"
+    domain = "{{ domain }}"
+    id = "{{ id }}"
+    instance_id = "{{ instance_id }}"
+    ipam_pool_id = "{{ ipam_pool_id }}"
+    network_border_group = "{{ network_border_group }}"
+    public_ip = "{{ public_ip }}"
+    public_ipv_4_pool = "{{ public_ipv_4_pool }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    transfer_address = "{{ transfer_address }}"
+}

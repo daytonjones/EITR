@@ -1,0 +1,11 @@
+resource "azurerm_automation_job_schedule" "example" {
+    automation_account_name = "{{ automation_account_name }}"
+    id = "{{ id }}"
+    job_schedule_id = "{{ job_schedule_id }}"
+    parameters = "{{ parameters }}"
+    resource_group_name = "{{ resource_group_name }}"
+    resource_manager_id = "{{ resource_manager_id }}"
+    run_on = "{{ run_on }}"
+    runbook_name = "{{ runbook_name }}"
+    schedule_name = "{{ schedule_name }}"
+}

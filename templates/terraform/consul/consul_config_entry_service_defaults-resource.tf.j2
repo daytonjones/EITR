@@ -1,0 +1,15 @@
+resource "consul_config_entry_service_defaults" "example" {
+    balance_inbound_connections = "{{ balance_inbound_connections }}"
+    external_sni = "{{ external_sni }}"
+    id = "{{ id }}"
+    local_connect_timeout_ms = "{{ local_connect_timeout_ms }}"
+    local_request_timeout_ms = "{{ local_request_timeout_ms }}"
+    max_inbound_connections = "{{ max_inbound_connections }}"
+    meta = "{{ meta }}"
+    mode = "{{ mode }}"
+    mutual_tls_mode = "{{ mutual_tls_mode }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    partition = "{{ partition }}"
+    protocol = "{{ protocol }}"
+}

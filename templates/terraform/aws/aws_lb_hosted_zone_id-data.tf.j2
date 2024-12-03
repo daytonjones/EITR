@@ -1,0 +1,5 @@
+data "aws_lb_hosted_zone_id" "example" {
+    id = "{{ id }}"
+    load_balancer_type = "{{ load_balancer_type }}"
+    region = "{{ region }}"
+}

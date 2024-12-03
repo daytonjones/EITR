@@ -1,0 +1,14 @@
+data "aws_lakeformation_data_lake_settings" "example" {
+    admins = "{{ admins }}"
+    allow_external_data_filtering = "{{ allow_external_data_filtering }}"
+    allow_full_table_external_data_access = "{{ allow_full_table_external_data_access }}"
+    authorized_session_tag_value_list = "{{ authorized_session_tag_value_list }}"
+    catalog_id = "{{ catalog_id }}"
+    create_database_default_permissions = "{{ create_database_default_permissions }}"
+    create_table_default_permissions = "{{ create_table_default_permissions }}"
+    external_data_filtering_allow_list = "{{ external_data_filtering_allow_list }}"
+    id = "{{ id }}"
+    parameters = "{{ parameters }}"
+    read_only_admins = "{{ read_only_admins }}"
+    trusted_resource_owners = "{{ trusted_resource_owners }}"
+}

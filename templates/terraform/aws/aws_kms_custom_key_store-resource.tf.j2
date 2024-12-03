@@ -1,0 +1,7 @@
+resource "aws_kms_custom_key_store" "example" {
+    cloud_hsm_cluster_id = "{{ cloud_hsm_cluster_id }}"
+    custom_key_store_name = "{{ custom_key_store_name }}"
+    id = "{{ id }}"
+    key_store_password = "{{ key_store_password }}"
+    trust_anchor_certificate = "{{ trust_anchor_certificate }}"
+}

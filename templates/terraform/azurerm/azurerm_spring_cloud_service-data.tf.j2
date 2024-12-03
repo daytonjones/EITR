@@ -1,0 +1,10 @@
+data "azurerm_spring_cloud_service" "example" {
+    config_server_git_setting = "{{ config_server_git_setting }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    outbound_public_ip_addresses = "{{ outbound_public_ip_addresses }}"
+    required_network_traffic_rules = "{{ required_network_traffic_rules }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

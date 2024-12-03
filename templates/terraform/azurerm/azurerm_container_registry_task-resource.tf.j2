@@ -1,0 +1,11 @@
+resource "azurerm_container_registry_task" "example" {
+    agent_pool_name = "{{ agent_pool_name }}"
+    container_registry_id = "{{ container_registry_id }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    is_system_task = "{{ is_system_task }}"
+    log_template = "{{ log_template }}"
+    name = "{{ name }}"
+    tags = "{{ tags }}"
+    timeout_in_seconds = "{{ timeout_in_seconds }}"
+}

@@ -1,0 +1,20 @@
+resource "awscc_ses_mail_manager_ingress_point" "example" {
+    a_record = "{{ a_record }}"
+    id = "{{ id }}"
+    ingress_point_arn = "{{ ingress_point_arn }}"
+    ingress_point_configuration = "{
+    secret_arn = {{ secret_arn }}
+    smtp_password = {{ smtp_password }}
+}"
+    ingress_point_id = "{{ ingress_point_id }}"
+    ingress_point_name = "{{ ingress_point_name }}"
+    rule_set_id = "{{ rule_set_id }}"
+    status = "{{ status }}"
+    status_to_update = "{{ status_to_update }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    traffic_policy_id = "{{ traffic_policy_id }}"
+    type = "{{ type }}"
+}

@@ -1,0 +1,40 @@
+data "awscc_route53_record_set" "example" {
+    alias_target = "{
+    dns_name = {{ dns_name }}
+    evaluate_target_health = {{ evaluate_target_health }}
+    hosted_zone_id = {{ hosted_zone_id }}
+}"
+    cidr_routing_config = "{
+    collection_id = {{ collection_id }}
+    location_name = {{ location_name }}
+}"
+    comment = "{{ comment }}"
+    failover = "{{ failover }}"
+    geo_location = "{
+    continent_code = {{ continent_code }}
+    country_code = {{ country_code }}
+    subdivision_code = {{ subdivision_code }}
+}"
+    geo_proximity_location = "{
+    aws_region = {{ aws_region }}
+    bias = {{ bias }}
+    coordinates = {
+    latitude = {{ latitude }}
+    longitude = {{ longitude }}
+}
+    local_zone_group = {{ local_zone_group }}
+}"
+    health_check_id = "{{ health_check_id }}"
+    hosted_zone_id = "{{ hosted_zone_id }}"
+    hosted_zone_name = "{{ hosted_zone_name }}"
+    id = "{{ id }}"
+    multi_value_answer = "{{ multi_value_answer }}"
+    name = "{{ name }}"
+    record_set_id = "{{ record_set_id }}"
+    region = "{{ region }}"
+    resource_records = "{{ resource_records }}"
+    set_identifier = "{{ set_identifier }}"
+    ttl = "{{ ttl }}"
+    type = "{{ type }}"
+    weight = "{{ weight }}"
+}

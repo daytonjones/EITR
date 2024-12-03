@@ -1,0 +1,10 @@
+resource "azurerm_dedicated_host_group" "example" {
+    automatic_placement_enabled = "{{ automatic_placement_enabled }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    platform_fault_domain_count = "{{ platform_fault_domain_count }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    zone = "{{ zone }}"
+}

@@ -1,0 +1,31 @@
+resource "awscc_lightsail_database" "example" {
+    availability_zone = "{{ availability_zone }}"
+    backup_retention = "{{ backup_retention }}"
+    ca_certificate_identifier = "{{ ca_certificate_identifier }}"
+    database_arn = "{{ database_arn }}"
+    id = "{{ id }}"
+    master_database_name = "{{ master_database_name }}"
+    master_user_password = "{{ master_user_password }}"
+    master_username = "{{ master_username }}"
+    preferred_backup_window = "{{ preferred_backup_window }}"
+    preferred_maintenance_window = "{{ preferred_maintenance_window }}"
+    publicly_accessible = "{{ publicly_accessible }}"
+    relational_database_blueprint_id = "{{ relational_database_blueprint_id }}"
+    relational_database_bundle_id = "{{ relational_database_bundle_id }}"
+    relational_database_name = "{{ relational_database_name }}"
+    relational_database_parameters = "{
+    allowed_values = {{ allowed_values }}
+    apply_method = {{ apply_method }}
+    apply_type = {{ apply_type }}
+    data_type = {{ data_type }}
+    description = {{ description }}
+    is_modifiable = {{ is_modifiable }}
+    parameter_name = {{ parameter_name }}
+    parameter_value = {{ parameter_value }}
+}"
+    rotate_master_user_password = "{{ rotate_master_user_password }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

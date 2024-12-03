@@ -1,0 +1,16 @@
+resource "aws_ec2_transit_gateway_vpc_attachment_accepter" "example" {
+    appliance_mode_support = "{{ appliance_mode_support }}"
+    dns_support = "{{ dns_support }}"
+    id = "{{ id }}"
+    ipv6_support = "{{ ipv6_support }}"
+    security_group_referencing_support = "{{ security_group_referencing_support }}"
+    subnet_ids = "{{ subnet_ids }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    transit_gateway_attachment_id = "{{ transit_gateway_attachment_id }}"
+    transit_gateway_default_route_table_association = "{{ transit_gateway_default_route_table_association }}"
+    transit_gateway_default_route_table_propagation = "{{ transit_gateway_default_route_table_propagation }}"
+    transit_gateway_id = "{{ transit_gateway_id }}"
+    vpc_id = "{{ vpc_id }}"
+    vpc_owner_id = "{{ vpc_owner_id }}"
+}

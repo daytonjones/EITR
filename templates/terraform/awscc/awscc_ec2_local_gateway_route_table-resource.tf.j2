@@ -1,0 +1,14 @@
+resource "awscc_ec2_local_gateway_route_table" "example" {
+    id = "{{ id }}"
+    local_gateway_id = "{{ local_gateway_id }}"
+    local_gateway_route_table_arn = "{{ local_gateway_route_table_arn }}"
+    local_gateway_route_table_id = "{{ local_gateway_route_table_id }}"
+    mode = "{{ mode }}"
+    outpost_arn = "{{ outpost_arn }}"
+    owner_id = "{{ owner_id }}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

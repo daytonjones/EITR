@@ -1,0 +1,15 @@
+resource "google_app_engine_application" "example" {
+    app_id = "{{ app_id }}"
+    auth_domain = "{{ auth_domain }}"
+    code_bucket = "{{ code_bucket }}"
+    database_type = "{{ database_type }}"
+    default_bucket = "{{ default_bucket }}"
+    default_hostname = "{{ default_hostname }}"
+    gcr_domain = "{{ gcr_domain }}"
+    id = "{{ id }}"
+    location_id = "{{ location_id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    serving_status = "{{ serving_status }}"
+    url_dispatch_rule = "{{ url_dispatch_rule }}"
+}

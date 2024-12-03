@@ -1,0 +1,9 @@
+resource "azurerm_healthcare_medtech_service_fhir_destination" "example" {
+    destination_fhir_mapping_json = "{{ destination_fhir_mapping_json }}"
+    destination_fhir_service_id = "{{ destination_fhir_service_id }}"
+    destination_identity_resolution_type = "{{ destination_identity_resolution_type }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    medtech_service_id = "{{ medtech_service_id }}"
+    name = "{{ name }}"
+}

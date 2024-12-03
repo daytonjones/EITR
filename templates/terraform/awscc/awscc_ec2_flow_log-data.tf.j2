@@ -1,0 +1,23 @@
+data "awscc_ec2_flow_log" "example" {
+    deliver_cross_account_role = "{{ deliver_cross_account_role }}"
+    deliver_logs_permission_arn = "{{ deliver_logs_permission_arn }}"
+    destination_options = "{
+    file_format = {{ file_format }}
+    hive_compatible_partitions = {{ hive_compatible_partitions }}
+    per_hour_partition = {{ per_hour_partition }}
+}"
+    flow_log_id = "{{ flow_log_id }}"
+    id = "{{ id }}"
+    log_destination = "{{ log_destination }}"
+    log_destination_type = "{{ log_destination_type }}"
+    log_format = "{{ log_format }}"
+    log_group_name = "{{ log_group_name }}"
+    max_aggregation_interval = "{{ max_aggregation_interval }}"
+    resource_id = "{{ resource_id }}"
+    resource_type = "{{ resource_type }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    traffic_type = "{{ traffic_type }}"
+}

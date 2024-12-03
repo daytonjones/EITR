@@ -1,0 +1,8 @@
+resource "awscc_cognito_user_pool_group" "example" {
+    description = "{{ description }}"
+    group_name = "{{ group_name }}"
+    id = "{{ id }}"
+    precedence = "{{ precedence }}"
+    role_arn = "{{ role_arn }}"
+    user_pool_id = "{{ user_pool_id }}"
+}

@@ -1,0 +1,13 @@
+data "awscc_codegurureviewer_repository_association" "example" {
+    association_arn = "{{ association_arn }}"
+    bucket_name = "{{ bucket_name }}"
+    connection_arn = "{{ connection_arn }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    owner = "{{ owner }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+}

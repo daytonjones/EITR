@@ -1,0 +1,49 @@
+data "awscc_iotanalytics_datastore" "example" {
+    datastore_id = "{{ datastore_id }}"
+    datastore_name = "{{ datastore_name }}"
+    datastore_partitions = "{
+    partitions = {
+    partition = {
+    attribute_name = {{ attribute_name }}
+}
+    timestamp_partition = {
+    attribute_name = {{ attribute_name }}
+    timestamp_format = {{ timestamp_format }}
+}
+}
+}"
+    datastore_storage = "{
+    customer_managed_s3 = {
+    bucket = {{ bucket }}
+    key_prefix = {{ key_prefix }}
+    role_arn = {{ role_arn }}
+}
+    iot_site_wise_multi_layer_storage = {
+    customer_managed_s3_storage = {
+    bucket = {{ bucket }}
+    key_prefix = {{ key_prefix }}
+}
+}
+    service_managed_s3 = {{ service_managed_s3 }}
+}"
+    file_format_configuration = "{
+    json_configuration = {{ json_configuration }}
+    parquet_configuration = {
+    schema_definition = {
+    columns = {
+    name = {{ name }}
+    type = {{ type }}
+}
+}
+}
+}"
+    id = "{{ id }}"
+    retention_period = "{
+    number_of_days = {{ number_of_days }}
+    unlimited = {{ unlimited }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

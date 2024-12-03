@@ -1,0 +1,10 @@
+data "azurerm_network_service_tags" "example" {
+    address_prefixes = "{{ address_prefixes }}"
+    id = "{{ id }}"
+    ipv4_cidrs = "{{ ipv4_cidrs }}"
+    ipv6_cidrs = "{{ ipv6_cidrs }}"
+    location = "{{ location }}"
+    location_filter = "{{ location_filter }}"
+    name = "{{ name }}"
+    service = "{{ service }}"
+}

@@ -1,0 +1,39 @@
+resource "awscc_ec2_verified_access_endpoint" "example" {
+    application_domain = "{{ application_domain }}"
+    attachment_type = "{{ attachment_type }}"
+    creation_time = "{{ creation_time }}"
+    description = "{{ description }}"
+    device_validation_domain = "{{ device_validation_domain }}"
+    domain_certificate_arn = "{{ domain_certificate_arn }}"
+    endpoint_domain = "{{ endpoint_domain }}"
+    endpoint_domain_prefix = "{{ endpoint_domain_prefix }}"
+    endpoint_type = "{{ endpoint_type }}"
+    id = "{{ id }}"
+    last_updated_time = "{{ last_updated_time }}"
+    load_balancer_options = "{
+    load_balancer_arn = {{ load_balancer_arn }}
+    port = {{ port }}
+    protocol = {{ protocol }}
+    subnet_ids = {{ subnet_ids }}
+}"
+    network_interface_options = "{
+    network_interface_id = {{ network_interface_id }}
+    port = {{ port }}
+    protocol = {{ protocol }}
+}"
+    policy_document = "{{ policy_document }}"
+    policy_enabled = "{{ policy_enabled }}"
+    security_group_ids = "{{ security_group_ids }}"
+    sse_specification = "{
+    customer_managed_key_enabled = {{ customer_managed_key_enabled }}
+    kms_key_arn = {{ kms_key_arn }}
+}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    verified_access_endpoint_id = "{{ verified_access_endpoint_id }}"
+    verified_access_group_id = "{{ verified_access_group_id }}"
+    verified_access_instance_id = "{{ verified_access_instance_id }}"
+}

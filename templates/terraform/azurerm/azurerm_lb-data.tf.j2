@@ -1,0 +1,11 @@
+data "azurerm_lb" "example" {
+    frontend_ip_configuration = "{{ frontend_ip_configuration }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    private_ip_address = "{{ private_ip_address }}"
+    private_ip_addresses = "{{ private_ip_addresses }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku = "{{ sku }}"
+    tags = "{{ tags }}"
+}

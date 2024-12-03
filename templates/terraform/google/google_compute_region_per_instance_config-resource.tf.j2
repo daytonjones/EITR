@@ -1,0 +1,11 @@
+resource "google_compute_region_per_instance_config" "example" {
+    id = "{{ id }}"
+    minimal_action = "{{ minimal_action }}"
+    most_disruptive_allowed_action = "{{ most_disruptive_allowed_action }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    region_instance_group_manager = "{{ region_instance_group_manager }}"
+    remove_instance_on_destroy = "{{ remove_instance_on_destroy }}"
+    remove_instance_state_on_destroy = "{{ remove_instance_state_on_destroy }}"
+}

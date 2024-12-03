@@ -1,0 +1,48 @@
+data "awscc_emrserverless_application" "example" {
+    application_id = "{{ application_id }}"
+    architecture = "{{ architecture }}"
+    arn = "{{ arn }}"
+    auto_start_configuration = "{
+    enabled = {{ enabled }}
+}"
+    auto_stop_configuration = "{
+    enabled = {{ enabled }}
+    idle_timeout_minutes = {{ idle_timeout_minutes }}
+}"
+    id = "{{ id }}"
+    image_configuration = "{
+    image_uri = {{ image_uri }}
+}"
+    initial_capacity = "{
+    key = {{ key }}
+    value = {
+    worker_configuration = {
+    cpu = {{ cpu }}
+    disk = {{ disk }}
+    memory = {{ memory }}
+}
+    worker_count = {{ worker_count }}
+}
+}"
+    maximum_capacity = "{
+    cpu = {{ cpu }}
+    disk = {{ disk }}
+    memory = {{ memory }}
+}"
+    name = "{{ name }}"
+    network_configuration = "{
+    security_group_ids = {{ security_group_ids }}
+    subnet_ids = {{ subnet_ids }}
+}"
+    release_label = "{{ release_label }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    type = "{{ type }}"
+    worker_type_specifications = "{
+    image_configuration = {
+    image_uri = {{ image_uri }}
+}
+}"
+}

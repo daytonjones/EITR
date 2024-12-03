@@ -1,0 +1,82 @@
+resource "awscc_iotanalytics_dataset" "example" {
+    actions = "{
+    action_name = {{ action_name }}
+    container_action = {
+    execution_role_arn = {{ execution_role_arn }}
+    image = {{ image }}
+    resource_configuration = {
+    compute_type = {{ compute_type }}
+    volume_size_in_gb = {{ volume_size_in_gb }}
+}
+    variables = {
+    dataset_content_version_value = {
+    dataset_name = {{ dataset_name }}
+}
+    double_value = {{ double_value }}
+    output_file_uri_value = {
+    file_name = {{ file_name }}
+}
+    string_value = {{ string_value }}
+    variable_name = {{ variable_name }}
+}
+}
+    query_action = {
+    filters = {
+    delta_time = {
+    offset_seconds = {{ offset_seconds }}
+    time_expression = {{ time_expression }}
+}
+}
+    sql_query = {{ sql_query }}
+}
+}"
+    content_delivery_rules = "{
+    destination = {
+    iot_events_destination_configuration = {
+    input_name = {{ input_name }}
+    role_arn = {{ role_arn }}
+}
+    s3_destination_configuration = {
+    bucket = {{ bucket }}
+    glue_configuration = {
+    database_name = {{ database_name }}
+    table_name = {{ table_name }}
+}
+    key = {{ key }}
+    role_arn = {{ role_arn }}
+}
+}
+    entry_name = {{ entry_name }}
+}"
+    dataset_id = "{{ dataset_id }}"
+    dataset_name = "{{ dataset_name }}"
+    id = "{{ id }}"
+    late_data_rules = "{
+    rule_configuration = {
+    delta_time_session_window_configuration = {
+    timeout_in_minutes = {{ timeout_in_minutes }}
+}
+}
+    rule_name = {{ rule_name }}
+}"
+    retention_period = "{
+    number_of_days = {{ number_of_days }}
+    unlimited = {{ unlimited }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    triggers = "{
+    schedule = {
+    schedule_expression = {{ schedule_expression }}
+}
+    triggering_dataset = {
+    dataset_name = {{ dataset_name }}
+}
+}"
+    versioning_configuration = "{
+    max_versions = {{ max_versions }}
+    unlimited = {{ unlimited }}
+}"
+}

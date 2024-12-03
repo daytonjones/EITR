@@ -1,0 +1,8 @@
+resource "azurerm_restore_point_collection" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    source_virtual_machine_id = "{{ source_virtual_machine_id }}"
+    tags = "{{ tags }}"
+}

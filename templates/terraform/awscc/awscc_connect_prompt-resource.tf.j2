@@ -1,0 +1,12 @@
+resource "awscc_connect_prompt" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    instance_arn = "{{ instance_arn }}"
+    name = "{{ name }}"
+    prompt_arn = "{{ prompt_arn }}"
+    s3_uri = "{{ s3_uri }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

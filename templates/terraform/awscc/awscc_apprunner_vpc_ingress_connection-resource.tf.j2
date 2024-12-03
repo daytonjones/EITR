@@ -1,0 +1,16 @@
+resource "awscc_apprunner_vpc_ingress_connection" "example" {
+    domain_name = "{{ domain_name }}"
+    id = "{{ id }}"
+    ingress_vpc_configuration = "{
+    vpc_endpoint_id = {{ vpc_endpoint_id }}
+    vpc_id = {{ vpc_id }}
+}"
+    service_arn = "{{ service_arn }}"
+    status = "{{ status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    vpc_ingress_connection_arn = "{{ vpc_ingress_connection_arn }}"
+    vpc_ingress_connection_name = "{{ vpc_ingress_connection_name }}"
+}

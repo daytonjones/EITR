@@ -1,0 +1,13 @@
+resource "azurerm_analysis_services_server" "example" {
+    admin_users = "{{ admin_users }}"
+    backup_blob_container_uri = "{{ backup_blob_container_uri }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    power_bi_service_enabled = "{{ power_bi_service_enabled }}"
+    querypool_connection_mode = "{{ querypool_connection_mode }}"
+    resource_group_name = "{{ resource_group_name }}"
+    server_full_name = "{{ server_full_name }}"
+    sku = "{{ sku }}"
+    tags = "{{ tags }}"
+}

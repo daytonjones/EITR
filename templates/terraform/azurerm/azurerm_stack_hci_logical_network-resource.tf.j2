@@ -1,0 +1,10 @@
+resource "azurerm_stack_hci_logical_network" "example" {
+    custom_location_id = "{{ custom_location_id }}"
+    dns_servers = "{{ dns_servers }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    virtual_switch_name = "{{ virtual_switch_name }}"
+}

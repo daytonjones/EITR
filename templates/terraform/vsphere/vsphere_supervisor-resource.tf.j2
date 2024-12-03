@@ -1,0 +1,12 @@
+resource "vsphere_supervisor" "example" {
+    cluster = "{{ cluster }}"
+    content_library = "{{ content_library }}"
+    dvs_uuid = "{{ dvs_uuid }}"
+    edge_cluster = "{{ edge_cluster }}"
+    id = "{{ id }}"
+    main_dns = "{{ main_dns }}"
+    search_domains = "{{ search_domains }}"
+    sizing_hint = "{{ sizing_hint }}"
+    storage_policy = "{{ storage_policy }}"
+    worker_dns = "{{ worker_dns }}"
+}

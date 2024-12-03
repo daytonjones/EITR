@@ -1,0 +1,37 @@
+data "awscc_appstream_app_block" "example" {
+    arn = "{{ arn }}"
+    created_time = "{{ created_time }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    packaging_type = "{{ packaging_type }}"
+    post_setup_script_details = "{
+    executable_parameters = {{ executable_parameters }}
+    executable_path = {{ executable_path }}
+    script_s3_location = {
+    s3_bucket = {{ s3_bucket }}
+    s3_key = {{ s3_key }}
+}
+    timeout_in_seconds = {{ timeout_in_seconds }}
+}"
+    setup_script_details = "{
+    executable_parameters = {{ executable_parameters }}
+    executable_path = {{ executable_path }}
+    script_s3_location = {
+    s3_bucket = {{ s3_bucket }}
+    s3_key = {{ s3_key }}
+}
+    timeout_in_seconds = {{ timeout_in_seconds }}
+}"
+    source_s3_location = "{
+    s3_bucket = {{ s3_bucket }}
+    s3_key = {{ s3_key }}
+}"
+    tags = "{
+    key = {{ key }}
+    tag_key = {{ tag_key }}
+    tag_value = {{ tag_value }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,11 @@
+data "aws_rds_reserved_instance_offering" "example" {
+    currency_code = "{{ currency_code }}"
+    db_instance_class = "{{ db_instance_class }}"
+    duration = "{{ duration }}"
+    fixed_price = "{{ fixed_price }}"
+    id = "{{ id }}"
+    multi_az = "{{ multi_az }}"
+    offering_id = "{{ offering_id }}"
+    offering_type = "{{ offering_type }}"
+    product_description = "{{ product_description }}"
+}

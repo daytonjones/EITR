@@ -1,0 +1,6 @@
+resource "aws_chime_voice_connector_logging" "example" {
+    enable_media_metric_logs = "{{ enable_media_metric_logs }}"
+    enable_sip_logs = "{{ enable_sip_logs }}"
+    id = "{{ id }}"
+    voice_connector_id = "{{ voice_connector_id }}"
+}

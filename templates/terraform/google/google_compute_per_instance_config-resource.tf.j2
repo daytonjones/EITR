@@ -1,0 +1,11 @@
+resource "google_compute_per_instance_config" "example" {
+    id = "{{ id }}"
+    instance_group_manager = "{{ instance_group_manager }}"
+    minimal_action = "{{ minimal_action }}"
+    most_disruptive_allowed_action = "{{ most_disruptive_allowed_action }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    remove_instance_on_destroy = "{{ remove_instance_on_destroy }}"
+    remove_instance_state_on_destroy = "{{ remove_instance_state_on_destroy }}"
+    zone = "{{ zone }}"
+}

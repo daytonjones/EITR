@@ -1,0 +1,20 @@
+data "awscc_omics_workflow" "example" {
+    accelerators = "{{ accelerators }}"
+    arn = "{{ arn }}"
+    creation_time = "{{ creation_time }}"
+    definition_uri = "{{ definition_uri }}"
+    description = "{{ description }}"
+    engine = "{{ engine }}"
+    id = "{{ id }}"
+    main = "{{ main }}"
+    name = "{{ name }}"
+    parameter_template = "{
+    description = {{ description }}
+    optional = {{ optional }}
+}"
+    status = "{{ status }}"
+    storage_capacity = "{{ storage_capacity }}"
+    tags = "{{ tags }}"
+    type = "{{ type }}"
+    workflow_id = "{{ workflow_id }}"
+}

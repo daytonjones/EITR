@@ -1,0 +1,39 @@
+resource "awscc_efs_file_system" "example" {
+    arn = "{{ arn }}"
+    availability_zone_name = "{{ availability_zone_name }}"
+    backup_policy = "{
+    status = {{ status }}
+}"
+    bypass_policy_lockout_safety_check = "{{ bypass_policy_lockout_safety_check }}"
+    encrypted = "{{ encrypted }}"
+    file_system_id = "{{ file_system_id }}"
+    file_system_policy = "{{ file_system_policy }}"
+    file_system_protection = "{
+    replication_overwrite_protection = {{ replication_overwrite_protection }}
+}"
+    file_system_tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    lifecycle_policies = "{
+    transition_to_archive = {{ transition_to_archive }}
+    transition_to_ia = {{ transition_to_ia }}
+    transition_to_primary_storage_class = {{ transition_to_primary_storage_class }}
+}"
+    performance_mode = "{{ performance_mode }}"
+    provisioned_throughput_in_mibps = "{{ provisioned_throughput_in_mibps }}"
+    replication_configuration = "{
+    destinations = {
+    availability_zone_name = {{ availability_zone_name }}
+    file_system_id = {{ file_system_id }}
+    kms_key_id = {{ kms_key_id }}
+    region = {{ region }}
+    role_arn = {{ role_arn }}
+    status = {{ status }}
+    status_message = {{ status_message }}
+}
+}"
+    throughput_mode = "{{ throughput_mode }}"
+}

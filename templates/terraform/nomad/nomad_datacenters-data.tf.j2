@@ -1,0 +1,6 @@
+data "nomad_datacenters" "example" {
+    datacenters = "{{ datacenters }}"
+    id = "{{ id }}"
+    ignore_down_nodes = "{{ ignore_down_nodes }}"
+    prefix = "{{ prefix }}"
+}

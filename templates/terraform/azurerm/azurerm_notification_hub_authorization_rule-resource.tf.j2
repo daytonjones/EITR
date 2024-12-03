@@ -1,0 +1,14 @@
+resource "azurerm_notification_hub_authorization_rule" "example" {
+    id = "{{ id }}"
+    listen = "{{ listen }}"
+    manage = "{{ manage }}"
+    name = "{{ name }}"
+    namespace_name = "{{ namespace_name }}"
+    notification_hub_name = "{{ notification_hub_name }}"
+    primary_access_key = "{{ primary_access_key }}"
+    primary_connection_string = "{{ primary_connection_string }}"
+    resource_group_name = "{{ resource_group_name }}"
+    secondary_access_key = "{{ secondary_access_key }}"
+    secondary_connection_string = "{{ secondary_connection_string }}"
+    send = "{{ send }}"
+}

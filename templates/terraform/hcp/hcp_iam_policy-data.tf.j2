@@ -1,0 +1,7 @@
+data "hcp_iam_policy" "example" {
+    bindings = "{
+    principals = {{ principals }}
+    role = {{ role }}
+}"
+    policy_data = "{{ policy_data }}"
+}

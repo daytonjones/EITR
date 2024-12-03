@@ -1,0 +1,5 @@
+resource "aws_shield_protection_health_check_association" "example" {
+    health_check_arn = "{{ health_check_arn }}"
+    id = "{{ id }}"
+    shield_protection_id = "{{ shield_protection_id }}"
+}

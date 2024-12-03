@@ -1,0 +1,13 @@
+resource "awscc_kinesisvideo_stream" "example" {
+    arn = "{{ arn }}"
+    data_retention_in_hours = "{{ data_retention_in_hours }}"
+    device_name = "{{ device_name }}"
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    media_type = "{{ media_type }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

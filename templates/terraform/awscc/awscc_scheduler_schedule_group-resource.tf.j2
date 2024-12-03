@@ -1,0 +1,12 @@
+resource "awscc_scheduler_schedule_group" "example" {
+    arn = "{{ arn }}"
+    creation_date = "{{ creation_date }}"
+    id = "{{ id }}"
+    last_modification_date = "{{ last_modification_date }}"
+    name = "{{ name }}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

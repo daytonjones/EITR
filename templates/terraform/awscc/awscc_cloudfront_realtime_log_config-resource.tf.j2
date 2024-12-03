@@ -1,0 +1,14 @@
+resource "awscc_cloudfront_realtime_log_config" "example" {
+    arn = "{{ arn }}"
+    end_points = "{
+    kinesis_stream_config = {
+    role_arn = {{ role_arn }}
+    stream_arn = {{ stream_arn }}
+}
+    stream_type = {{ stream_type }}
+}"
+    fields = "{{ fields }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    sampling_rate = "{{ sampling_rate }}"
+}

@@ -1,0 +1,25 @@
+data "awscc_iotsitewise_access_policy" "example" {
+    access_policy_arn = "{{ access_policy_arn }}"
+    access_policy_id = "{{ access_policy_id }}"
+    access_policy_identity = "{
+    iam_role = {
+    arn = {{ arn }}
+}
+    iam_user = {
+    arn = {{ arn }}
+}
+    user = {
+    id = {{ id }}
+}
+}"
+    access_policy_permission = "{{ access_policy_permission }}"
+    access_policy_resource = "{
+    portal = {
+    id = {{ id }}
+}
+    project = {
+    id = {{ id }}
+}
+}"
+    id = "{{ id }}"
+}

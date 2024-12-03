@@ -1,0 +1,11 @@
+resource "aws_redshift_endpoint_access" "example" {
+    address = "{{ address }}"
+    cluster_identifier = "{{ cluster_identifier }}"
+    endpoint_name = "{{ endpoint_name }}"
+    id = "{{ id }}"
+    port = "{{ port }}"
+    resource_owner = "{{ resource_owner }}"
+    subnet_group_name = "{{ subnet_group_name }}"
+    vpc_endpoint = "{{ vpc_endpoint }}"
+    vpc_security_group_ids = "{{ vpc_security_group_ids }}"
+}

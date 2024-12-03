@@ -1,0 +1,28 @@
+resource "awscc_ses_email_identity" "example" {
+    configuration_set_attributes = "{
+    configuration_set_name = {{ configuration_set_name }}
+}"
+    dkim_attributes = "{
+    signing_enabled = {{ signing_enabled }}
+}"
+    dkim_dns_token_name_1 = "{{ dkim_dns_token_name_1 }}"
+    dkim_dns_token_name_2 = "{{ dkim_dns_token_name_2 }}"
+    dkim_dns_token_name_3 = "{{ dkim_dns_token_name_3 }}"
+    dkim_dns_token_value_1 = "{{ dkim_dns_token_value_1 }}"
+    dkim_dns_token_value_2 = "{{ dkim_dns_token_value_2 }}"
+    dkim_dns_token_value_3 = "{{ dkim_dns_token_value_3 }}"
+    dkim_signing_attributes = "{
+    domain_signing_private_key = {{ domain_signing_private_key }}
+    domain_signing_selector = {{ domain_signing_selector }}
+    next_signing_key_length = {{ next_signing_key_length }}
+}"
+    email_identity = "{{ email_identity }}"
+    feedback_attributes = "{
+    email_forwarding_enabled = {{ email_forwarding_enabled }}
+}"
+    id = "{{ id }}"
+    mail_from_attributes = "{
+    behavior_on_mx_failure = {{ behavior_on_mx_failure }}
+    mail_from_domain = {{ mail_from_domain }}
+}"
+}

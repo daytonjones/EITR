@@ -1,0 +1,7 @@
+resource "azurerm_netapp_account_encryption" "example" {
+    encryption_key = "{{ encryption_key }}"
+    id = "{{ id }}"
+    netapp_account_id = "{{ netapp_account_id }}"
+    system_assigned_identity_principal_id = "{{ system_assigned_identity_principal_id }}"
+    user_assigned_identity_id = "{{ user_assigned_identity_id }}"
+}

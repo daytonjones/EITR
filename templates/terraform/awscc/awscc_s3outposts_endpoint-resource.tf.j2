@@ -1,0 +1,20 @@
+resource "awscc_s3outposts_endpoint" "example" {
+    access_type = "{{ access_type }}"
+    arn = "{{ arn }}"
+    cidr_block = "{{ cidr_block }}"
+    creation_time = "{{ creation_time }}"
+    customer_owned_ipv_4_pool = "{{ customer_owned_ipv_4_pool }}"
+    endpoint_id = "{{ endpoint_id }}"
+    failed_reason = "{
+    error_code = {{ error_code }}
+    message = {{ message }}
+}"
+    id = "{{ id }}"
+    network_interfaces = "{
+    network_interface_id = {{ network_interface_id }}
+}"
+    outpost_id = "{{ outpost_id }}"
+    security_group_id = "{{ security_group_id }}"
+    status = "{{ status }}"
+    subnet_id = "{{ subnet_id }}"
+}

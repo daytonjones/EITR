@@ -1,0 +1,11 @@
+resource "azurerm_healthcare_medtech_service" "example" {
+    device_mapping_json = "{{ device_mapping_json }}"
+    eventhub_consumer_group_name = "{{ eventhub_consumer_group_name }}"
+    eventhub_name = "{{ eventhub_name }}"
+    eventhub_namespace_name = "{{ eventhub_namespace_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    tags = "{{ tags }}"
+    workspace_id = "{{ workspace_id }}"
+}

@@ -1,0 +1,12 @@
+resource "aws_vpc_peering_connection_accepter" "example" {
+    accept_status = "{{ accept_status }}"
+    auto_accept = "{{ auto_accept }}"
+    id = "{{ id }}"
+    peer_owner_id = "{{ peer_owner_id }}"
+    peer_region = "{{ peer_region }}"
+    peer_vpc_id = "{{ peer_vpc_id }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+    vpc_id = "{{ vpc_id }}"
+    vpc_peering_connection_id = "{{ vpc_peering_connection_id }}"
+}

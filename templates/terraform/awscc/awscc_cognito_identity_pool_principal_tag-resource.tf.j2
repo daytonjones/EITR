@@ -1,0 +1,7 @@
+resource "awscc_cognito_identity_pool_principal_tag" "example" {
+    id = "{{ id }}"
+    identity_pool_id = "{{ identity_pool_id }}"
+    identity_provider_name = "{{ identity_provider_name }}"
+    principal_tags = "{{ principal_tags }}"
+    use_defaults = "{{ use_defaults }}"
+}

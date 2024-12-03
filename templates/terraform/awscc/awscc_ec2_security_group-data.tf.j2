@@ -1,0 +1,34 @@
+data "awscc_ec2_security_group" "example" {
+    group_description = "{{ group_description }}"
+    group_id = "{{ group_id }}"
+    group_name = "{{ group_name }}"
+    id = "{{ id }}"
+    security_group_egress = "{
+    cidr_ip = {{ cidr_ip }}
+    cidr_ipv_6 = {{ cidr_ipv_6 }}
+    description = {{ description }}
+    destination_prefix_list_id = {{ destination_prefix_list_id }}
+    destination_security_group_id = {{ destination_security_group_id }}
+    from_port = {{ from_port }}
+    ip_protocol = {{ ip_protocol }}
+    to_port = {{ to_port }}
+}"
+    security_group_id = "{{ security_group_id }}"
+    security_group_ingress = "{
+    cidr_ip = {{ cidr_ip }}
+    cidr_ipv_6 = {{ cidr_ipv_6 }}
+    description = {{ description }}
+    from_port = {{ from_port }}
+    ip_protocol = {{ ip_protocol }}
+    source_prefix_list_id = {{ source_prefix_list_id }}
+    source_security_group_id = {{ source_security_group_id }}
+    source_security_group_name = {{ source_security_group_name }}
+    source_security_group_owner_id = {{ source_security_group_owner_id }}
+    to_port = {{ to_port }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    vpc_id = "{{ vpc_id }}"
+}

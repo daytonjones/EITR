@@ -1,0 +1,11 @@
+data "awscc_ivs_public_key" "example" {
+    arn = "{{ arn }}"
+    fingerprint = "{{ fingerprint }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    public_key_material = "{{ public_key_material }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

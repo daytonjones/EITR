@@ -1,0 +1,31 @@
+resource "awscc_iotwireless_service_profile" "example" {
+    arn = "{{ arn }}"
+    id = "{{ id }}"
+    lo_ra_wan = "{
+    add_gw_metadata = {{ add_gw_metadata }}
+    channel_mask = {{ channel_mask }}
+    dev_status_req_freq = {{ dev_status_req_freq }}
+    dl_bucket_size = {{ dl_bucket_size }}
+    dl_rate = {{ dl_rate }}
+    dl_rate_policy = {{ dl_rate_policy }}
+    dr_max = {{ dr_max }}
+    dr_min = {{ dr_min }}
+    hr_allowed = {{ hr_allowed }}
+    min_gw_diversity = {{ min_gw_diversity }}
+    nwk_geo_loc = {{ nwk_geo_loc }}
+    pr_allowed = {{ pr_allowed }}
+    ra_allowed = {{ ra_allowed }}
+    report_dev_status_battery = {{ report_dev_status_battery }}
+    report_dev_status_margin = {{ report_dev_status_margin }}
+    target_per = {{ target_per }}
+    ul_bucket_size = {{ ul_bucket_size }}
+    ul_rate = {{ ul_rate }}
+    ul_rate_policy = {{ ul_rate_policy }}
+}"
+    name = "{{ name }}"
+    service_profile_id = "{{ service_profile_id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

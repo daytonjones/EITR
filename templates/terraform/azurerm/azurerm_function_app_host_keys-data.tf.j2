@@ -1,0 +1,13 @@
+data "azurerm_function_app_host_keys" "example" {
+    blobs_extension_key = "{{ blobs_extension_key }}"
+    default_function_key = "{{ default_function_key }}"
+    durabletask_extension_key = "{{ durabletask_extension_key }}"
+    event_grid_extension_config_key = "{{ event_grid_extension_config_key }}"
+    event_grid_extension_key = "{{ event_grid_extension_key }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    primary_key = "{{ primary_key }}"
+    resource_group_name = "{{ resource_group_name }}"
+    signalr_extension_key = "{{ signalr_extension_key }}"
+    webpubsub_extension_key = "{{ webpubsub_extension_key }}"
+}

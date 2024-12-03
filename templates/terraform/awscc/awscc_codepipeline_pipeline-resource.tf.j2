@@ -1,0 +1,167 @@
+resource "awscc_codepipeline_pipeline" "example" {
+    artifact_store = "{
+    encryption_key = {
+    id = {{ id }}
+    type = {{ type }}
+}
+    location = {{ location }}
+    type = {{ type }}
+}"
+    artifact_stores = "{
+    artifact_store = {
+    encryption_key = {
+    id = {{ id }}
+    type = {{ type }}
+}
+    location = {{ location }}
+    type = {{ type }}
+}
+    region = {{ region }}
+}"
+    disable_inbound_stage_transitions = "{
+    reason = {{ reason }}
+    stage_name = {{ stage_name }}
+}"
+    execution_mode = "{{ execution_mode }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    pipeline_type = "{{ pipeline_type }}"
+    restart_execution_on_update = "{{ restart_execution_on_update }}"
+    role_arn = "{{ role_arn }}"
+    stages = "{
+    actions = {
+    action_type_id = {
+    category = {{ category }}
+    owner = {{ owner }}
+    provider = {{ provider }}
+    version = {{ version }}
+}
+    commands = {{ commands }}
+    configuration = {{ configuration }}
+    input_artifacts = {
+    name = {{ name }}
+}
+    name = {{ name }}
+    namespace = {{ namespace }}
+    output_artifacts = {
+    files = {{ files }}
+    name = {{ name }}
+}
+    output_variables = {{ output_variables }}
+    region = {{ region }}
+    role_arn = {{ role_arn }}
+    run_order = {{ run_order }}
+    timeout_in_minutes = {{ timeout_in_minutes }}
+}
+    before_entry = {
+    conditions = {
+    result = {{ result }}
+    rules = {
+    configuration = {{ configuration }}
+    input_artifacts = {
+    name = {{ name }}
+}
+    name = {{ name }}
+    region = {{ region }}
+    role_arn = {{ role_arn }}
+    rule_type_id = {
+    category = {{ category }}
+    owner = {{ owner }}
+    provider = {{ provider }}
+    version = {{ version }}
+}
+}
+}
+}
+    blockers = {
+    name = {{ name }}
+    type = {{ type }}
+}
+    name = {{ name }}
+    on_failure = {
+    conditions = {
+    result = {{ result }}
+    rules = {
+    configuration = {{ configuration }}
+    input_artifacts = {
+    name = {{ name }}
+}
+    name = {{ name }}
+    region = {{ region }}
+    role_arn = {{ role_arn }}
+    rule_type_id = {
+    category = {{ category }}
+    owner = {{ owner }}
+    provider = {{ provider }}
+    version = {{ version }}
+}
+}
+}
+    result = {{ result }}
+    retry_configuration = {
+    retry_mode = {{ retry_mode }}
+}
+}
+    on_success = {
+    conditions = {
+    result = {{ result }}
+    rules = {
+    configuration = {{ configuration }}
+    input_artifacts = {
+    name = {{ name }}
+}
+    name = {{ name }}
+    region = {{ region }}
+    role_arn = {{ role_arn }}
+    rule_type_id = {
+    category = {{ category }}
+    owner = {{ owner }}
+    provider = {{ provider }}
+    version = {{ version }}
+}
+}
+}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    triggers = "{
+    git_configuration = {
+    pull_request = {
+    branches = {
+    excludes = {{ excludes }}
+    includes = {{ includes }}
+}
+    events = {{ events }}
+    file_paths = {
+    excludes = {{ excludes }}
+    includes = {{ includes }}
+}
+}
+    push = {
+    branches = {
+    excludes = {{ excludes }}
+    includes = {{ includes }}
+}
+    file_paths = {
+    excludes = {{ excludes }}
+    includes = {{ includes }}
+}
+    tags = {
+    excludes = {{ excludes }}
+    includes = {{ includes }}
+}
+}
+    source_action_name = {{ source_action_name }}
+}
+    provider_type = {{ provider_type }}
+}"
+    variables = "{
+    default_value = {{ default_value }}
+    description = {{ description }}
+    name = {{ name }}
+}"
+    version = "{{ version }}"
+}

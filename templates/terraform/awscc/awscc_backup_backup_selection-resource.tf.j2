@@ -1,0 +1,35 @@
+resource "awscc_backup_backup_selection" "example" {
+    backup_plan_id = "{{ backup_plan_id }}"
+    backup_selection = "{
+    conditions = {
+    string_equals = {
+    condition_key = {{ condition_key }}
+    condition_value = {{ condition_value }}
+}
+    string_like = {
+    condition_key = {{ condition_key }}
+    condition_value = {{ condition_value }}
+}
+    string_not_equals = {
+    condition_key = {{ condition_key }}
+    condition_value = {{ condition_value }}
+}
+    string_not_like = {
+    condition_key = {{ condition_key }}
+    condition_value = {{ condition_value }}
+}
+}
+    iam_role_arn = {{ iam_role_arn }}
+    list_of_tags = {
+    condition_key = {{ condition_key }}
+    condition_type = {{ condition_type }}
+    condition_value = {{ condition_value }}
+}
+    not_resources = {{ not_resources }}
+    resources = {{ resources }}
+    selection_name = {{ selection_name }}
+}"
+    backup_selection_id = "{{ backup_selection_id }}"
+    id = "{{ id }}"
+    selection_id = "{{ selection_id }}"
+}

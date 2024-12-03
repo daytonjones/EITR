@@ -1,0 +1,7 @@
+resource "azurerm_mssql_virtual_machine_availability_group_listener" "example" {
+    availability_group_name = "{{ availability_group_name }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    port = "{{ port }}"
+    sql_virtual_machine_group_id = "{{ sql_virtual_machine_group_id }}"
+}

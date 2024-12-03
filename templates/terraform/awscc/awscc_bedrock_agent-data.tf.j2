@@ -1,0 +1,78 @@
+data "awscc_bedrock_agent" "example" {
+    action_groups = "{
+    action_group_executor = {
+    custom_control = {{ custom_control }}
+    lambda = {{ lambda }}
+}
+    action_group_name = {{ action_group_name }}
+    action_group_state = {{ action_group_state }}
+    api_schema = {
+    payload = {{ payload }}
+    s3 = {
+    s3_bucket_name = {{ s3_bucket_name }}
+    s3_object_key = {{ s3_object_key }}
+}
+}
+    description = {{ description }}
+    function_schema = {
+    functions = {
+    description = {{ description }}
+    name = {{ name }}
+    parameters = {
+    description = {{ description }}
+    required = {{ required }}
+    type = {{ type }}
+}
+}
+}
+    parent_action_group_signature = {{ parent_action_group_signature }}
+    skip_resource_in_use_check_on_delete = {{ skip_resource_in_use_check_on_delete }}
+}"
+    agent_arn = "{{ agent_arn }}"
+    agent_id = "{{ agent_id }}"
+    agent_name = "{{ agent_name }}"
+    agent_resource_role_arn = "{{ agent_resource_role_arn }}"
+    agent_status = "{{ agent_status }}"
+    agent_version = "{{ agent_version }}"
+    auto_prepare = "{{ auto_prepare }}"
+    created_at = "{{ created_at }}"
+    customer_encryption_key_arn = "{{ customer_encryption_key_arn }}"
+    description = "{{ description }}"
+    failure_reasons = "{{ failure_reasons }}"
+    foundation_model = "{{ foundation_model }}"
+    guardrail_configuration = "{
+    guardrail_identifier = {{ guardrail_identifier }}
+    guardrail_version = {{ guardrail_version }}
+}"
+    id = "{{ id }}"
+    idle_session_ttl_in_seconds = "{{ idle_session_ttl_in_seconds }}"
+    instruction = "{{ instruction }}"
+    knowledge_bases = "{
+    description = {{ description }}
+    knowledge_base_id = {{ knowledge_base_id }}
+    knowledge_base_state = {{ knowledge_base_state }}
+}"
+    prepared_at = "{{ prepared_at }}"
+    prompt_override_configuration = "{
+    override_lambda = {{ override_lambda }}
+    prompt_configurations = {
+    base_prompt_template = {{ base_prompt_template }}
+    inference_configuration = {
+    maximum_length = {{ maximum_length }}
+    stop_sequences = {{ stop_sequences }}
+    temperature = {{ temperature }}
+    top_k = {{ top_k }}
+    top_p = {{ top_p }}
+}
+    parser_mode = {{ parser_mode }}
+    prompt_creation_mode = {{ prompt_creation_mode }}
+    prompt_state = {{ prompt_state }}
+    prompt_type = {{ prompt_type }}
+}
+}"
+    recommended_actions = "{{ recommended_actions }}"
+    skip_resource_in_use_check_on_delete = "{{ skip_resource_in_use_check_on_delete }}"
+    tags = "{{ tags }}"
+    test_alias_tags = "{{ test_alias_tags }}"
+    updated_at = "{{ updated_at }}"
+}

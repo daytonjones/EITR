@@ -1,0 +1,11 @@
+data "azurestack_image" "example" {
+    data_disk = "{{ data_disk }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    name_regex = "{{ name_regex }}"
+    os_disk = "{{ os_disk }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sort_descending = "{{ sort_descending }}"
+    tags = "{{ tags }}"
+}

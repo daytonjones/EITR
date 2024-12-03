@@ -1,0 +1,11 @@
+resource "aws_redshiftdata_statement" "example" {
+    cluster_identifier = "{{ cluster_identifier }}"
+    database = "{{ database }}"
+    db_user = "{{ db_user }}"
+    id = "{{ id }}"
+    secret_arn = "{{ secret_arn }}"
+    sql = "{{ sql }}"
+    statement_name = "{{ statement_name }}"
+    with_event = "{{ with_event }}"
+    workgroup_name = "{{ workgroup_name }}"
+}

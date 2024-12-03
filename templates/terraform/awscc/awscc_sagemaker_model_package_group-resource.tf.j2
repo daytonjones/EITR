@@ -1,0 +1,13 @@
+resource "awscc_sagemaker_model_package_group" "example" {
+    creation_time = "{{ creation_time }}"
+    id = "{{ id }}"
+    model_package_group_arn = "{{ model_package_group_arn }}"
+    model_package_group_description = "{{ model_package_group_description }}"
+    model_package_group_name = "{{ model_package_group_name }}"
+    model_package_group_policy = "{{ model_package_group_policy }}"
+    model_package_group_status = "{{ model_package_group_status }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

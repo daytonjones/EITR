@@ -1,0 +1,21 @@
+data "awscc_evidently_project" "example" {
+    app_config_resource = "{
+    application_id = {{ application_id }}
+    environment_id = {{ environment_id }}
+}"
+    arn = "{{ arn }}"
+    data_delivery = "{
+    log_group = {{ log_group }}
+    s3 = {
+    bucket_name = {{ bucket_name }}
+    prefix = {{ prefix }}
+}
+}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

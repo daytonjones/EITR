@@ -1,0 +1,14 @@
+data "awscc_medialive_channel_placement_group" "example" {
+    arn = "{{ arn }}"
+    channel_placement_group_id = "{{ channel_placement_group_id }}"
+    channels = "{{ channels }}"
+    cluster_id = "{{ cluster_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    nodes = "{{ nodes }}"
+    state = "{{ state }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

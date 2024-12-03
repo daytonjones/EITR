@@ -1,0 +1,15 @@
+resource "awscc_mediatailor_live_source" "example" {
+    arn = "{{ arn }}"
+    http_package_configurations = "{
+    path = {{ path }}
+    source_group = {{ source_group }}
+    type = {{ type }}
+}"
+    id = "{{ id }}"
+    live_source_name = "{{ live_source_name }}"
+    source_location_name = "{{ source_location_name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

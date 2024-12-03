@@ -1,0 +1,15 @@
+resource "azurerm_automation_account" "example" {
+    dsc_primary_access_key = "{{ dsc_primary_access_key }}"
+    dsc_secondary_access_key = "{{ dsc_secondary_access_key }}"
+    dsc_server_endpoint = "{{ dsc_server_endpoint }}"
+    hybrid_service_url = "{{ hybrid_service_url }}"
+    id = "{{ id }}"
+    local_authentication_enabled = "{{ local_authentication_enabled }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    private_endpoint_connection = "{{ private_endpoint_connection }}"
+    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku_name = "{{ sku_name }}"
+    tags = "{{ tags }}"
+}

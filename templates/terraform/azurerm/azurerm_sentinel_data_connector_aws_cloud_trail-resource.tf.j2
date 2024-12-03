@@ -1,0 +1,6 @@
+resource "azurerm_sentinel_data_connector_aws_cloud_trail" "example" {
+    aws_role_arn = "{{ aws_role_arn }}"
+    id = "{{ id }}"
+    log_analytics_workspace_id = "{{ log_analytics_workspace_id }}"
+    name = "{{ name }}"
+}

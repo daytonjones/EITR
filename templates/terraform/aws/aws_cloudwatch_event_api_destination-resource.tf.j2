@@ -1,0 +1,10 @@
+resource "aws_cloudwatch_event_api_destination" "example" {
+    arn = "{{ arn }}"
+    connection_arn = "{{ connection_arn }}"
+    description = "{{ description }}"
+    http_method = "{{ http_method }}"
+    id = "{{ id }}"
+    invocation_endpoint = "{{ invocation_endpoint }}"
+    invocation_rate_limit_per_second = "{{ invocation_rate_limit_per_second }}"
+    name = "{{ name }}"
+}

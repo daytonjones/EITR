@@ -1,0 +1,10 @@
+resource "aws_bedrock_provisioned_model_throughput" "example" {
+    commitment_duration = "{{ commitment_duration }}"
+    id = "{{ id }}"
+    model_arn = "{{ model_arn }}"
+    model_units = "{{ model_units }}"
+    provisioned_model_arn = "{{ provisioned_model_arn }}"
+    provisioned_model_name = "{{ provisioned_model_name }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

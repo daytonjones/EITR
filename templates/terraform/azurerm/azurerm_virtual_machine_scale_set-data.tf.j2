@@ -1,0 +1,9 @@
+data "azurerm_virtual_machine_scale_set" "example" {
+    id = "{{ id }}"
+    identity = "{{ identity }}"
+    instances = "{{ instances }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    network_interface = "{{ network_interface }}"
+    resource_group_name = "{{ resource_group_name }}"
+}

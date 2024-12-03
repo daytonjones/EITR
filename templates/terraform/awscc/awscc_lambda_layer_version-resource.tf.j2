@@ -1,0 +1,14 @@
+resource "awscc_lambda_layer_version" "example" {
+    compatible_architectures = "{{ compatible_architectures }}"
+    compatible_runtimes = "{{ compatible_runtimes }}"
+    content = "{
+    s3_bucket = {{ s3_bucket }}
+    s3_key = {{ s3_key }}
+    s3_object_version = {{ s3_object_version }}
+}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    layer_name = "{{ layer_name }}"
+    layer_version_arn = "{{ layer_version_arn }}"
+    license_info = "{{ license_info }}"
+}

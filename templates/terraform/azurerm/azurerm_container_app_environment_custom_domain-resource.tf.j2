@@ -1,0 +1,7 @@
+resource "azurerm_container_app_environment_custom_domain" "example" {
+    certificate_blob_base64 = "{{ certificate_blob_base64 }}"
+    certificate_password = "{{ certificate_password }}"
+    container_app_environment_id = "{{ container_app_environment_id }}"
+    dns_suffix = "{{ dns_suffix }}"
+    id = "{{ id }}"
+}

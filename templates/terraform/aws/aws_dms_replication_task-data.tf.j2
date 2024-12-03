@@ -1,0 +1,16 @@
+data "aws_dms_replication_task" "example" {
+    cdc_start_position = "{{ cdc_start_position }}"
+    cdc_start_time = "{{ cdc_start_time }}"
+    id = "{{ id }}"
+    migration_type = "{{ migration_type }}"
+    replication_instance_arn = "{{ replication_instance_arn }}"
+    replication_task_arn = "{{ replication_task_arn }}"
+    replication_task_id = "{{ replication_task_id }}"
+    replication_task_settings = "{{ replication_task_settings }}"
+    source_endpoint_arn = "{{ source_endpoint_arn }}"
+    start_replication_task = "{{ start_replication_task }}"
+    status = "{{ status }}"
+    table_mappings = "{{ table_mappings }}"
+    tags = "{{ tags }}"
+    target_endpoint_arn = "{{ target_endpoint_arn }}"
+}

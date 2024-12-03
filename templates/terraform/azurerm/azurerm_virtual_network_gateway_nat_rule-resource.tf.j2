@@ -1,0 +1,9 @@
+resource "azurerm_virtual_network_gateway_nat_rule" "example" {
+    id = "{{ id }}"
+    ip_configuration_id = "{{ ip_configuration_id }}"
+    mode = "{{ mode }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    type = "{{ type }}"
+    virtual_network_gateway_id = "{{ virtual_network_gateway_id }}"
+}

@@ -1,0 +1,85 @@
+data "awscc_s3_storage_lens" "example" {
+    id = "{{ id }}"
+    storage_lens_configuration = "{
+    account_level = {
+    activity_metrics = {
+    is_enabled = {{ is_enabled }}
+}
+    advanced_cost_optimization_metrics = {
+    is_enabled = {{ is_enabled }}
+}
+    advanced_data_protection_metrics = {
+    is_enabled = {{ is_enabled }}
+}
+    bucket_level = {
+    activity_metrics = {
+    is_enabled = {{ is_enabled }}
+}
+    advanced_cost_optimization_metrics = {
+    is_enabled = {{ is_enabled }}
+}
+    advanced_data_protection_metrics = {
+    is_enabled = {{ is_enabled }}
+}
+    detailed_status_codes_metrics = {
+    is_enabled = {{ is_enabled }}
+}
+    prefix_level = {
+    storage_metrics = {
+    is_enabled = {{ is_enabled }}
+    selection_criteria = {
+    delimiter = {{ delimiter }}
+    max_depth = {{ max_depth }}
+    min_storage_bytes_percentage = {{ min_storage_bytes_percentage }}
+}
+}
+}
+}
+    detailed_status_codes_metrics = {
+    is_enabled = {{ is_enabled }}
+}
+    storage_lens_group_level = {
+    storage_lens_group_selection_criteria = {
+    exclude = {{ exclude }}
+    include = {{ include }}
+}
+}
+}
+    aws_org = {
+    arn = {{ arn }}
+}
+    data_export = {
+    cloudwatch_metrics = {
+    is_enabled = {{ is_enabled }}
+}
+    s3_bucket_destination = {
+    account_id = {{ account_id }}
+    arn = {{ arn }}
+    encryption = {
+    ssekms = {
+    key_id = {{ key_id }}
+}
+    sses3 = {{ sses3 }}
+}
+    format = {{ format }}
+    output_schema_version = {{ output_schema_version }}
+    prefix = {{ prefix }}
+}
+}
+    exclude = {
+    buckets = {{ buckets }}
+    regions = {{ regions }}
+}
+    id = {{ id }}
+    include = {
+    buckets = {{ buckets }}
+    regions = {{ regions }}
+}
+    is_enabled = {{ is_enabled }}
+    storage_lens_arn = {{ storage_lens_arn }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

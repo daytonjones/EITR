@@ -1,0 +1,29 @@
+resource "awscc_transfer_connector" "example" {
+    access_role = "{{ access_role }}"
+    arn = "{{ arn }}"
+    as_2_config = "{
+    basic_auth_secret_id = {{ basic_auth_secret_id }}
+    compression = {{ compression }}
+    encryption_algorithm = {{ encryption_algorithm }}
+    local_profile_id = {{ local_profile_id }}
+    mdn_response = {{ mdn_response }}
+    mdn_signing_algorithm = {{ mdn_signing_algorithm }}
+    message_subject = {{ message_subject }}
+    partner_profile_id = {{ partner_profile_id }}
+    signing_algorithm = {{ signing_algorithm }}
+}"
+    connector_id = "{{ connector_id }}"
+    id = "{{ id }}"
+    logging_role = "{{ logging_role }}"
+    security_policy_name = "{{ security_policy_name }}"
+    service_managed_egress_ip_addresses = "{{ service_managed_egress_ip_addresses }}"
+    sftp_config = "{
+    trusted_host_keys = {{ trusted_host_keys }}
+    user_secret_id = {{ user_secret_id }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    url = "{{ url }}"
+}

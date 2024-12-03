@@ -1,0 +1,18 @@
+data "awscc_route53resolver_outpost_resolver" "example" {
+    arn = "{{ arn }}"
+    creation_time = "{{ creation_time }}"
+    creator_request_id = "{{ creator_request_id }}"
+    id = "{{ id }}"
+    instance_count = "{{ instance_count }}"
+    modification_time = "{{ modification_time }}"
+    name = "{{ name }}"
+    outpost_arn = "{{ outpost_arn }}"
+    outpost_resolver_id = "{{ outpost_resolver_id }}"
+    preferred_instance_type = "{{ preferred_instance_type }}"
+    status = "{{ status }}"
+    status_message = "{{ status_message }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,28 @@
+data "awscc_connect_routing_profile" "example" {
+    agent_availability_timer = "{{ agent_availability_timer }}"
+    default_outbound_queue_arn = "{{ default_outbound_queue_arn }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    instance_arn = "{{ instance_arn }}"
+    media_concurrencies = "{
+    channel = {{ channel }}
+    concurrency = {{ concurrency }}
+    cross_channel_behavior = {
+    behavior_type = {{ behavior_type }}
+}
+}"
+    name = "{{ name }}"
+    queue_configs = "{
+    delay = {{ delay }}
+    priority = {{ priority }}
+    queue_reference = {
+    channel = {{ channel }}
+    queue_arn = {{ queue_arn }}
+}
+}"
+    routing_profile_arn = "{{ routing_profile_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

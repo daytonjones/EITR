@@ -1,0 +1,8 @@
+data "azurerm_container_registry_token" "example" {
+    container_registry_name = "{{ container_registry_name }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    scope_map_id = "{{ scope_map_id }}"
+}

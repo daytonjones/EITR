@@ -1,0 +1,8 @@
+data "azurerm_key_vault_encrypted_value" "example" {
+    algorithm = "{{ algorithm }}"
+    decoded_plain_text_value = "{{ decoded_plain_text_value }}"
+    encrypted_data = "{{ encrypted_data }}"
+    id = "{{ id }}"
+    key_vault_key_id = "{{ key_vault_key_id }}"
+    plain_text_value = "{{ plain_text_value }}"
+}

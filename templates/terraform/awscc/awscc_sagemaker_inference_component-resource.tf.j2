@@ -1,0 +1,45 @@
+resource "awscc_sagemaker_inference_component" "example" {
+    creation_time = "{{ creation_time }}"
+    endpoint_arn = "{{ endpoint_arn }}"
+    endpoint_name = "{{ endpoint_name }}"
+    failure_reason = "{{ failure_reason }}"
+    id = "{{ id }}"
+    inference_component_arn = "{{ inference_component_arn }}"
+    inference_component_name = "{{ inference_component_name }}"
+    inference_component_status = "{{ inference_component_status }}"
+    last_modified_time = "{{ last_modified_time }}"
+    runtime_config = "{
+    copy_count = {{ copy_count }}
+    current_copy_count = {{ current_copy_count }}
+    desired_copy_count = {{ desired_copy_count }}
+}"
+    specification = "{
+    base_inference_component_name = {{ base_inference_component_name }}
+    compute_resource_requirements = {
+    max_memory_required_in_mb = {{ max_memory_required_in_mb }}
+    min_memory_required_in_mb = {{ min_memory_required_in_mb }}
+    number_of_accelerator_devices_required = {{ number_of_accelerator_devices_required }}
+    number_of_cpu_cores_required = {{ number_of_cpu_cores_required }}
+}
+    container = {
+    artifact_url = {{ artifact_url }}
+    deployed_image = {
+    resolution_time = {{ resolution_time }}
+    resolved_image = {{ resolved_image }}
+    specified_image = {{ specified_image }}
+}
+    environment = {{ environment }}
+    image = {{ image }}
+}
+    model_name = {{ model_name }}
+    startup_parameters = {
+    container_startup_health_check_timeout_in_seconds = {{ container_startup_health_check_timeout_in_seconds }}
+    model_data_download_timeout_in_seconds = {{ model_data_download_timeout_in_seconds }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    variant_name = "{{ variant_name }}"
+}

@@ -1,0 +1,17 @@
+resource "awscc_arczonalshift_zonal_autoshift_configuration" "example" {
+    id = "{{ id }}"
+    practice_run_configuration = "{
+    blocked_dates = {{ blocked_dates }}
+    blocked_windows = {{ blocked_windows }}
+    blocking_alarms = {
+    alarm_identifier = {{ alarm_identifier }}
+    type = {{ type }}
+}
+    outcome_alarms = {
+    alarm_identifier = {{ alarm_identifier }}
+    type = {{ type }}
+}
+}"
+    resource_identifier = "{{ resource_identifier }}"
+    zonal_autoshift_status = "{{ zonal_autoshift_status }}"
+}

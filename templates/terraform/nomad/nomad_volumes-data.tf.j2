@@ -1,0 +1,8 @@
+data "nomad_volumes" "example" {
+    id = "{{ id }}"
+    namespace = "{{ namespace }}"
+    node_id = "{{ node_id }}"
+    plugin_id = "{{ plugin_id }}"
+    type = "{{ type }}"
+    volumes = "{{ volumes }}"
+}

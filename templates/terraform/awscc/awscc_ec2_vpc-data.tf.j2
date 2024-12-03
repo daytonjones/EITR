@@ -1,0 +1,18 @@
+data "awscc_ec2_vpc" "example" {
+    cidr_block = "{{ cidr_block }}"
+    cidr_block_associations = "{{ cidr_block_associations }}"
+    default_network_acl = "{{ default_network_acl }}"
+    default_security_group = "{{ default_security_group }}"
+    enable_dns_hostnames = "{{ enable_dns_hostnames }}"
+    enable_dns_support = "{{ enable_dns_support }}"
+    id = "{{ id }}"
+    instance_tenancy = "{{ instance_tenancy }}"
+    ipv_4_ipam_pool_id = "{{ ipv_4_ipam_pool_id }}"
+    ipv_4_netmask_length = "{{ ipv_4_netmask_length }}"
+    ipv_6_cidr_blocks = "{{ ipv_6_cidr_blocks }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    vpc_id = "{{ vpc_id }}"
+}

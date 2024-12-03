@@ -1,0 +1,32 @@
+resource "awscc_stepfunctions_state_machine" "example" {
+    arn = "{{ arn }}"
+    definition = "{{ definition }}"
+    definition_s3_location = "{
+    bucket = {{ bucket }}
+    key = {{ key }}
+    version = {{ version }}
+}"
+    definition_string = "{{ definition_string }}"
+    definition_substitutions = "{{ definition_substitutions }}"
+    id = "{{ id }}"
+    logging_configuration = "{
+    destinations = {
+    cloudwatch_logs_log_group = {
+    log_group_arn = {{ log_group_arn }}
+}
+}
+    include_execution_data = {{ include_execution_data }}
+    level = {{ level }}
+}"
+    name = "{{ name }}"
+    role_arn = "{{ role_arn }}"
+    state_machine_name = "{{ state_machine_name }}"
+    state_machine_type = "{{ state_machine_type }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    tracing_configuration = "{
+    enabled = {{ enabled }}
+}"
+}

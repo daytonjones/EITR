@@ -1,0 +1,10 @@
+data "awscc_ec2_subnet_cidr_block" "example" {
+    id = "{{ id }}"
+    ip_source = "{{ ip_source }}"
+    ipv_6_address_attribute = "{{ ipv_6_address_attribute }}"
+    ipv_6_cidr_block = "{{ ipv_6_cidr_block }}"
+    ipv_6_ipam_pool_id = "{{ ipv_6_ipam_pool_id }}"
+    ipv_6_netmask_length = "{{ ipv_6_netmask_length }}"
+    subnet_cidr_block_id = "{{ subnet_cidr_block_id }}"
+    subnet_id = "{{ subnet_id }}"
+}

@@ -1,0 +1,8 @@
+resource "google_app_engine_domain_mapping" "example" {
+    domain_name = "{{ domain_name }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    override_strategy = "{{ override_strategy }}"
+    project = "{{ project }}"
+    resource_records = "{{ resource_records }}"
+}

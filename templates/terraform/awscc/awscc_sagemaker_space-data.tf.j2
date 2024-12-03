@@ -1,0 +1,83 @@
+data "awscc_sagemaker_space" "example" {
+    domain_id = "{{ domain_id }}"
+    id = "{{ id }}"
+    ownership_settings = "{
+    owner_user_profile_name = {{ owner_user_profile_name }}
+}"
+    space_arn = "{{ space_arn }}"
+    space_display_name = "{{ space_display_name }}"
+    space_name = "{{ space_name }}"
+    space_settings = "{
+    app_type = {{ app_type }}
+    code_editor_app_settings = {
+    app_lifecycle_management = {
+    idle_settings = {
+    idle_timeout_in_minutes = {{ idle_timeout_in_minutes }}
+}
+}
+    default_resource_spec = {
+    instance_type = {{ instance_type }}
+    lifecycle_config_arn = {{ lifecycle_config_arn }}
+    sage_maker_image_arn = {{ sage_maker_image_arn }}
+    sage_maker_image_version_arn = {{ sage_maker_image_version_arn }}
+}
+}
+    custom_file_systems = {
+    efs_file_system = {
+    file_system_id = {{ file_system_id }}
+}
+}
+    jupyter_lab_app_settings = {
+    app_lifecycle_management = {
+    idle_settings = {
+    idle_timeout_in_minutes = {{ idle_timeout_in_minutes }}
+}
+}
+    code_repositories = {
+    repository_url = {{ repository_url }}
+}
+    default_resource_spec = {
+    instance_type = {{ instance_type }}
+    lifecycle_config_arn = {{ lifecycle_config_arn }}
+    sage_maker_image_arn = {{ sage_maker_image_arn }}
+    sage_maker_image_version_arn = {{ sage_maker_image_version_arn }}
+}
+}
+    jupyter_server_app_settings = {
+    default_resource_spec = {
+    instance_type = {{ instance_type }}
+    lifecycle_config_arn = {{ lifecycle_config_arn }}
+    sage_maker_image_arn = {{ sage_maker_image_arn }}
+    sage_maker_image_version_arn = {{ sage_maker_image_version_arn }}
+}
+    lifecycle_config_arns = {{ lifecycle_config_arns }}
+}
+    kernel_gateway_app_settings = {
+    custom_images = {
+    app_image_config_name = {{ app_image_config_name }}
+    image_name = {{ image_name }}
+    image_version_number = {{ image_version_number }}
+}
+    default_resource_spec = {
+    instance_type = {{ instance_type }}
+    lifecycle_config_arn = {{ lifecycle_config_arn }}
+    sage_maker_image_arn = {{ sage_maker_image_arn }}
+    sage_maker_image_version_arn = {{ sage_maker_image_version_arn }}
+}
+    lifecycle_config_arns = {{ lifecycle_config_arns }}
+}
+    space_storage_settings = {
+    ebs_storage_settings = {
+    ebs_volume_size_in_gb = {{ ebs_volume_size_in_gb }}
+}
+}
+}"
+    space_sharing_settings = "{
+    sharing_type = {{ sharing_type }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    url = "{{ url }}"
+}

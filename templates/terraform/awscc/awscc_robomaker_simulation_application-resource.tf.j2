@@ -1,0 +1,25 @@
+resource "awscc_robomaker_simulation_application" "example" {
+    arn = "{{ arn }}"
+    current_revision_id = "{{ current_revision_id }}"
+    environment = "{{ environment }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    rendering_engine = "{
+    name = {{ name }}
+    version = {{ version }}
+}"
+    robot_software_suite = "{
+    name = {{ name }}
+    version = {{ version }}
+}"
+    simulation_software_suite = "{
+    name = {{ name }}
+    version = {{ version }}
+}"
+    sources = "{
+    architecture = {{ architecture }}
+    s3_bucket = {{ s3_bucket }}
+    s3_key = {{ s3_key }}
+}"
+    tags = "{{ tags }}"
+}

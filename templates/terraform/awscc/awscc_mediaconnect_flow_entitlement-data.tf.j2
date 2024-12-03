@@ -1,0 +1,21 @@
+data "awscc_mediaconnect_flow_entitlement" "example" {
+    data_transfer_subscriber_fee_percent = "{{ data_transfer_subscriber_fee_percent }}"
+    description = "{{ description }}"
+    encryption = "{
+    algorithm = {{ algorithm }}
+    constant_initialization_vector = {{ constant_initialization_vector }}
+    device_id = {{ device_id }}
+    key_type = {{ key_type }}
+    region = {{ region }}
+    resource_id = {{ resource_id }}
+    role_arn = {{ role_arn }}
+    secret_arn = {{ secret_arn }}
+    url = {{ url }}
+}"
+    entitlement_arn = "{{ entitlement_arn }}"
+    entitlement_status = "{{ entitlement_status }}"
+    flow_arn = "{{ flow_arn }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    subscribers = "{{ subscribers }}"
+}

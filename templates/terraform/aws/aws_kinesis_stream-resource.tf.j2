@@ -1,0 +1,13 @@
+resource "aws_kinesis_stream" "example" {
+    arn = "{{ arn }}"
+    encryption_type = "{{ encryption_type }}"
+    enforce_consumer_deletion = "{{ enforce_consumer_deletion }}"
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    name = "{{ name }}"
+    retention_period = "{{ retention_period }}"
+    shard_count = "{{ shard_count }}"
+    shard_level_metrics = "{{ shard_level_metrics }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

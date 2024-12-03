@@ -1,0 +1,12 @@
+resource "azurerm_api_management_gateway_host_name_configuration" "example" {
+    api_management_id = "{{ api_management_id }}"
+    certificate_id = "{{ certificate_id }}"
+    gateway_name = "{{ gateway_name }}"
+    host_name = "{{ host_name }}"
+    http2_enabled = "{{ http2_enabled }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    request_client_certificate_enabled = "{{ request_client_certificate_enabled }}"
+    tls10_enabled = "{{ tls10_enabled }}"
+    tls11_enabled = "{{ tls11_enabled }}"
+}

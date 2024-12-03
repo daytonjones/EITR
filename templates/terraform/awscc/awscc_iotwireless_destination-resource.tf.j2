@@ -1,0 +1,13 @@
+resource "awscc_iotwireless_destination" "example" {
+    arn = "{{ arn }}"
+    description = "{{ description }}"
+    expression = "{{ expression }}"
+    expression_type = "{{ expression_type }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    role_arn = "{{ role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

@@ -1,0 +1,12 @@
+data "vault_auth_backend" "example" {
+    accessor = "{{ accessor }}"
+    default_lease_ttl_seconds = "{{ default_lease_ttl_seconds }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    listing_visibility = "{{ listing_visibility }}"
+    local = "{{ local }}"
+    max_lease_ttl_seconds = "{{ max_lease_ttl_seconds }}"
+    namespace = "{{ namespace }}"
+    path = "{{ path }}"
+    type = "{{ type }}"
+}

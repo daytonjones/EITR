@@ -1,0 +1,17 @@
+resource "aws_rds_global_cluster" "example" {
+    arn = "{{ arn }}"
+    database_name = "{{ database_name }}"
+    deletion_protection = "{{ deletion_protection }}"
+    endpoint = "{{ endpoint }}"
+    engine = "{{ engine }}"
+    engine_lifecycle_support = "{{ engine_lifecycle_support }}"
+    engine_version = "{{ engine_version }}"
+    engine_version_actual = "{{ engine_version_actual }}"
+    force_destroy = "{{ force_destroy }}"
+    global_cluster_identifier = "{{ global_cluster_identifier }}"
+    global_cluster_members = "{{ global_cluster_members }}"
+    global_cluster_resource_id = "{{ global_cluster_resource_id }}"
+    id = "{{ id }}"
+    source_db_cluster_identifier = "{{ source_db_cluster_identifier }}"
+    storage_encrypted = "{{ storage_encrypted }}"
+}

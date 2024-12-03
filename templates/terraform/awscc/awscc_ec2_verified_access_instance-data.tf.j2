@@ -1,0 +1,38 @@
+data "awscc_ec2_verified_access_instance" "example" {
+    creation_time = "{{ creation_time }}"
+    description = "{{ description }}"
+    fips_enabled = "{{ fips_enabled }}"
+    id = "{{ id }}"
+    last_updated_time = "{{ last_updated_time }}"
+    logging_configurations = "{
+    cloudwatch_logs = {
+    enabled = {{ enabled }}
+    log_group = {{ log_group }}
+}
+    include_trust_context = {{ include_trust_context }}
+    kinesis_data_firehose = {
+    delivery_stream = {{ delivery_stream }}
+    enabled = {{ enabled }}
+}
+    log_version = {{ log_version }}
+    s3 = {
+    bucket_name = {{ bucket_name }}
+    bucket_owner = {{ bucket_owner }}
+    enabled = {{ enabled }}
+    prefix = {{ prefix }}
+}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    verified_access_instance_id = "{{ verified_access_instance_id }}"
+    verified_access_trust_provider_ids = "{{ verified_access_trust_provider_ids }}"
+    verified_access_trust_providers = "{
+    description = {{ description }}
+    device_trust_provider_type = {{ device_trust_provider_type }}
+    trust_provider_type = {{ trust_provider_type }}
+    user_trust_provider_type = {{ user_trust_provider_type }}
+    verified_access_trust_provider_id = {{ verified_access_trust_provider_id }}
+}"
+}

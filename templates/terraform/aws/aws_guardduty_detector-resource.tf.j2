@@ -1,0 +1,9 @@
+resource "aws_guardduty_detector" "example" {
+    account_id = "{{ account_id }}"
+    arn = "{{ arn }}"
+    enable = "{{ enable }}"
+    finding_publishing_frequency = "{{ finding_publishing_frequency }}"
+    id = "{{ id }}"
+    tags = "{{ tags }}"
+    tags_all = "{{ tags_all }}"
+}

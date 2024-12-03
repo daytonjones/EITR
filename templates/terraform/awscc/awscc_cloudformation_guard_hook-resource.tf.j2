@@ -1,0 +1,41 @@
+resource "awscc_cloudformation_guard_hook" "example" {
+    alias = "{{ alias }}"
+    execution_role = "{{ execution_role }}"
+    failure_mode = "{{ failure_mode }}"
+    hook_arn = "{{ hook_arn }}"
+    hook_status = "{{ hook_status }}"
+    id = "{{ id }}"
+    log_bucket = "{{ log_bucket }}"
+    options = "{
+    input_params = {
+    uri = {{ uri }}
+    version_id = {{ version_id }}
+}
+}"
+    rule_location = "{
+    uri = {{ uri }}
+    version_id = {{ version_id }}
+}"
+    stack_filters = "{
+    filtering_criteria = {{ filtering_criteria }}
+    stack_names = {
+    exclude = {{ exclude }}
+    include = {{ include }}
+}
+    stack_roles = {
+    exclude = {{ exclude }}
+    include = {{ include }}
+}
+}"
+    target_filters = "{
+    actions = {{ actions }}
+    invocation_points = {{ invocation_points }}
+    target_names = {{ target_names }}
+    targets = {
+    action = {{ action }}
+    invocation_point = {{ invocation_point }}
+    target_name = {{ target_name }}
+}
+}"
+    target_operations = "{{ target_operations }}"
+}

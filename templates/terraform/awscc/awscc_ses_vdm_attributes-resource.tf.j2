@@ -1,0 +1,10 @@
+resource "awscc_ses_vdm_attributes" "example" {
+    dashboard_attributes = "{
+    engagement_metrics = {{ engagement_metrics }}
+}"
+    guardian_attributes = "{
+    optimized_shared_delivery = {{ optimized_shared_delivery }}
+}"
+    id = "{{ id }}"
+    vdm_attributes_resource_id = "{{ vdm_attributes_resource_id }}"
+}

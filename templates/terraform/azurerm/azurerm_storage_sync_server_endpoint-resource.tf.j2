@@ -1,0 +1,12 @@
+resource "azurerm_storage_sync_server_endpoint" "example" {
+    cloud_tiering_enabled = "{{ cloud_tiering_enabled }}"
+    id = "{{ id }}"
+    initial_download_policy = "{{ initial_download_policy }}"
+    local_cache_mode = "{{ local_cache_mode }}"
+    name = "{{ name }}"
+    registered_server_id = "{{ registered_server_id }}"
+    server_local_path = "{{ server_local_path }}"
+    storage_sync_group_id = "{{ storage_sync_group_id }}"
+    tier_files_older_than_days = "{{ tier_files_older_than_days }}"
+    volume_free_space_percent = "{{ volume_free_space_percent }}"
+}

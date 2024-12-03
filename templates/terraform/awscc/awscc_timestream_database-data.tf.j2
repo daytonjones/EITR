@@ -1,0 +1,10 @@
+data "awscc_timestream_database" "example" {
+    arn = "{{ arn }}"
+    database_name = "{{ database_name }}"
+    id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

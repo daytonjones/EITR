@@ -1,0 +1,10 @@
+resource "vsphere_compute_cluster_vm_host_rule" "example" {
+    affinity_host_group_name = "{{ affinity_host_group_name }}"
+    anti_affinity_host_group_name = "{{ anti_affinity_host_group_name }}"
+    compute_cluster_id = "{{ compute_cluster_id }}"
+    enabled = "{{ enabled }}"
+    id = "{{ id }}"
+    mandatory = "{{ mandatory }}"
+    name = "{{ name }}"
+    vm_group_name = "{{ vm_group_name }}"
+}

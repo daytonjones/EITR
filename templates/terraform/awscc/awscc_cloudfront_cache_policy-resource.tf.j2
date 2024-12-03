@@ -1,0 +1,28 @@
+resource "awscc_cloudfront_cache_policy" "example" {
+    cache_policy_config = "{
+    comment = {{ comment }}
+    default_ttl = {{ default_ttl }}
+    max_ttl = {{ max_ttl }}
+    min_ttl = {{ min_ttl }}
+    name = {{ name }}
+    parameters_in_cache_key_and_forwarded_to_origin = {
+    cookies_config = {
+    cookie_behavior = {{ cookie_behavior }}
+    cookies = {{ cookies }}
+}
+    enable_accept_encoding_brotli = {{ enable_accept_encoding_brotli }}
+    enable_accept_encoding_gzip = {{ enable_accept_encoding_gzip }}
+    headers_config = {
+    header_behavior = {{ header_behavior }}
+    headers = {{ headers }}
+}
+    query_strings_config = {
+    query_string_behavior = {{ query_string_behavior }}
+    query_strings = {{ query_strings }}
+}
+}
+}"
+    cache_policy_id = "{{ cache_policy_id }}"
+    id = "{{ id }}"
+    last_modified_time = "{{ last_modified_time }}"
+}

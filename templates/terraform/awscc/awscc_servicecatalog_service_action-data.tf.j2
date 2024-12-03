@@ -1,0 +1,12 @@
+data "awscc_servicecatalog_service_action" "example" {
+    accept_language = "{{ accept_language }}"
+    definition = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    definition_type = "{{ definition_type }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    service_action_id = "{{ service_action_id }}"
+}

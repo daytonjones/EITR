@@ -1,0 +1,13 @@
+resource "azurerm_application_gateway" "example" {
+    enable_http2 = "{{ enable_http2 }}"
+    fips_enabled = "{{ fips_enabled }}"
+    firewall_policy_id = "{{ firewall_policy_id }}"
+    force_firewall_policy_association = "{{ force_firewall_policy_association }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    private_endpoint_connection = "{{ private_endpoint_connection }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+    zones = "{{ zones }}"
+}

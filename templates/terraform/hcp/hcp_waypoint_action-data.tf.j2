@@ -1,0 +1,15 @@
+data "hcp_waypoint_action" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    organization_id = "{{ organization_id }}"
+    project_id = "{{ project_id }}"
+    request = "{
+    custom = {
+    body = {{ body }}
+    headers = {{ headers }}
+    method = {{ method }}
+    url = {{ url }}
+}
+}"
+}

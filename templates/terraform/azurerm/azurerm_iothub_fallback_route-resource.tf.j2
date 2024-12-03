@@ -1,0 +1,9 @@
+resource "azurerm_iothub_fallback_route" "example" {
+    condition = "{{ condition }}"
+    enabled = "{{ enabled }}"
+    endpoint_names = "{{ endpoint_names }}"
+    id = "{{ id }}"
+    iothub_name = "{{ iothub_name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    source = "{{ source }}"
+}

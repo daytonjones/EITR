@@ -1,0 +1,20 @@
+resource "awscc_ecs_capacity_provider" "example" {
+    auto_scaling_group_provider = "{
+    auto_scaling_group_arn = {{ auto_scaling_group_arn }}
+    managed_draining = {{ managed_draining }}
+    managed_scaling = {
+    instance_warmup_period = {{ instance_warmup_period }}
+    maximum_scaling_step_size = {{ maximum_scaling_step_size }}
+    minimum_scaling_step_size = {{ minimum_scaling_step_size }}
+    status = {{ status }}
+    target_capacity = {{ target_capacity }}
+}
+    managed_termination_protection = {{ managed_termination_protection }}
+}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

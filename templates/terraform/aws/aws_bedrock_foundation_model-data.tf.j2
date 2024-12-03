@@ -1,0 +1,12 @@
+data "aws_bedrock_foundation_model" "example" {
+    customizations_supported = "{{ customizations_supported }}"
+    id = "{{ id }}"
+    inference_types_supported = "{{ inference_types_supported }}"
+    input_modalities = "{{ input_modalities }}"
+    model_arn = "{{ model_arn }}"
+    model_id = "{{ model_id }}"
+    model_name = "{{ model_name }}"
+    output_modalities = "{{ output_modalities }}"
+    provider_name = "{{ provider_name }}"
+    response_streaming_supported = "{{ response_streaming_supported }}"
+}

@@ -1,0 +1,16 @@
+resource "awscc_rds_db_proxy_endpoint" "example" {
+    db_proxy_endpoint_arn = "{{ db_proxy_endpoint_arn }}"
+    db_proxy_endpoint_name = "{{ db_proxy_endpoint_name }}"
+    db_proxy_name = "{{ db_proxy_name }}"
+    endpoint = "{{ endpoint }}"
+    id = "{{ id }}"
+    is_default = "{{ is_default }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    target_role = "{{ target_role }}"
+    vpc_id = "{{ vpc_id }}"
+    vpc_security_group_ids = "{{ vpc_security_group_ids }}"
+    vpc_subnet_ids = "{{ vpc_subnet_ids }}"
+}

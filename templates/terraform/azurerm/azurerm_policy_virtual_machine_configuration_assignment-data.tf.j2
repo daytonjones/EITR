@@ -1,0 +1,12 @@
+data "azurerm_policy_virtual_machine_configuration_assignment" "example" {
+    assignment_hash = "{{ assignment_hash }}"
+    compliance_status = "{{ compliance_status }}"
+    content_hash = "{{ content_hash }}"
+    content_uri = "{{ content_uri }}"
+    id = "{{ id }}"
+    last_compliance_status_checked = "{{ last_compliance_status_checked }}"
+    latest_report_id = "{{ latest_report_id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    virtual_machine_name = "{{ virtual_machine_name }}"
+}

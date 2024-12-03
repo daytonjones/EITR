@@ -1,0 +1,12 @@
+resource "azurerm_lb_probe" "example" {
+    id = "{{ id }}"
+    interval_in_seconds = "{{ interval_in_seconds }}"
+    load_balancer_rules = "{{ load_balancer_rules }}"
+    loadbalancer_id = "{{ loadbalancer_id }}"
+    name = "{{ name }}"
+    number_of_probes = "{{ number_of_probes }}"
+    port = "{{ port }}"
+    probe_threshold = "{{ probe_threshold }}"
+    protocol = "{{ protocol }}"
+    request_path = "{{ request_path }}"
+}

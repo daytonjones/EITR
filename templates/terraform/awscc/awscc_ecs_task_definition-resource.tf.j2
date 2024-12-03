@@ -1,0 +1,196 @@
+resource "awscc_ecs_task_definition" "example" {
+    container_definitions = "{
+    command = {{ command }}
+    cpu = {{ cpu }}
+    credential_specs = {{ credential_specs }}
+    depends_on = {
+    condition = {{ condition }}
+    container_name = {{ container_name }}
+}
+    disable_networking = {{ disable_networking }}
+    dns_search_domains = {{ dns_search_domains }}
+    dns_servers = {{ dns_servers }}
+    docker_labels = {{ docker_labels }}
+    docker_security_options = {{ docker_security_options }}
+    entry_point = {{ entry_point }}
+    environment = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    environment_files = {
+    type = {{ type }}
+    value = {{ value }}
+}
+    essential = {{ essential }}
+    extra_hosts = {
+    hostname = {{ hostname }}
+    ip_address = {{ ip_address }}
+}
+    firelens_configuration = {
+    options = {{ options }}
+    type = {{ type }}
+}
+    health_check = {
+    command = {{ command }}
+    interval = {{ interval }}
+    retries = {{ retries }}
+    start_period = {{ start_period }}
+    timeout = {{ timeout }}
+}
+    hostname = {{ hostname }}
+    image = {{ image }}
+    interactive = {{ interactive }}
+    links = {{ links }}
+    linux_parameters = {
+    capabilities = {
+    add = {{ add }}
+    drop = {{ drop }}
+}
+    devices = {
+    container_path = {{ container_path }}
+    host_path = {{ host_path }}
+    permissions = {{ permissions }}
+}
+    init_process_enabled = {{ init_process_enabled }}
+    max_swap = {{ max_swap }}
+    shared_memory_size = {{ shared_memory_size }}
+    swappiness = {{ swappiness }}
+    tmpfs = {
+    container_path = {{ container_path }}
+    mount_options = {{ mount_options }}
+    size = {{ size }}
+}
+}
+    log_configuration = {
+    log_driver = {{ log_driver }}
+    options = {{ options }}
+    secret_options = {
+    name = {{ name }}
+    value_from = {{ value_from }}
+}
+}
+    memory = {{ memory }}
+    memory_reservation = {{ memory_reservation }}
+    mount_points = {
+    container_path = {{ container_path }}
+    read_only = {{ read_only }}
+    source_volume = {{ source_volume }}
+}
+    name = {{ name }}
+    port_mappings = {
+    app_protocol = {{ app_protocol }}
+    container_port = {{ container_port }}
+    container_port_range = {{ container_port_range }}
+    host_port = {{ host_port }}
+    name = {{ name }}
+    protocol = {{ protocol }}
+}
+    privileged = {{ privileged }}
+    pseudo_terminal = {{ pseudo_terminal }}
+    readonly_root_filesystem = {{ readonly_root_filesystem }}
+    repository_credentials = {
+    credentials_parameter = {{ credentials_parameter }}
+}
+    resource_requirements = {
+    type = {{ type }}
+    value = {{ value }}
+}
+    restart_policy = {
+    enabled = {{ enabled }}
+    ignored_exit_codes = {{ ignored_exit_codes }}
+    restart_attempt_period = {{ restart_attempt_period }}
+}
+    secrets = {
+    name = {{ name }}
+    value_from = {{ value_from }}
+}
+    start_timeout = {{ start_timeout }}
+    stop_timeout = {{ stop_timeout }}
+    system_controls = {
+    namespace = {{ namespace }}
+    value = {{ value }}
+}
+    ulimits = {
+    hard_limit = {{ hard_limit }}
+    name = {{ name }}
+    soft_limit = {{ soft_limit }}
+}
+    user = {{ user }}
+    version_consistency = {{ version_consistency }}
+    volumes_from = {
+    read_only = {{ read_only }}
+    source_container = {{ source_container }}
+}
+    working_directory = {{ working_directory }}
+}"
+    cpu = "{{ cpu }}"
+    ephemeral_storage = "{
+    size_in_gi_b = {{ size_in_gi_b }}
+}"
+    execution_role_arn = "{{ execution_role_arn }}"
+    family = "{{ family }}"
+    id = "{{ id }}"
+    inference_accelerators = "{
+    device_name = {{ device_name }}
+    device_type = {{ device_type }}
+}"
+    ipc_mode = "{{ ipc_mode }}"
+    memory = "{{ memory }}"
+    network_mode = "{{ network_mode }}"
+    pid_mode = "{{ pid_mode }}"
+    placement_constraints = "{
+    expression = {{ expression }}
+    type = {{ type }}
+}"
+    proxy_configuration = "{
+    container_name = {{ container_name }}
+    proxy_configuration_properties = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    type = {{ type }}
+}"
+    requires_compatibilities = "{{ requires_compatibilities }}"
+    runtime_platform = "{
+    cpu_architecture = {{ cpu_architecture }}
+    operating_system_family = {{ operating_system_family }}
+}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    task_definition_arn = "{{ task_definition_arn }}"
+    task_role_arn = "{{ task_role_arn }}"
+    volumes = "{
+    configured_at_launch = {{ configured_at_launch }}
+    docker_volume_configuration = {
+    autoprovision = {{ autoprovision }}
+    driver = {{ driver }}
+    driver_opts = {{ driver_opts }}
+    labels = {{ labels }}
+    scope = {{ scope }}
+}
+    efs_volume_configuration = {
+    authorization_config = {
+    access_point_id = {{ access_point_id }}
+    iam = {{ iam }}
+}
+    filesystem_id = {{ filesystem_id }}
+    root_directory = {{ root_directory }}
+    transit_encryption = {{ transit_encryption }}
+    transit_encryption_port = {{ transit_encryption_port }}
+}
+    fsx_windows_file_server_volume_configuration = {
+    authorization_config = {
+    credentials_parameter = {{ credentials_parameter }}
+    domain = {{ domain }}
+}
+    file_system_id = {{ file_system_id }}
+    root_directory = {{ root_directory }}
+}
+    host = {
+    source_path = {{ source_path }}
+}
+    name = {{ name }}
+}"
+}

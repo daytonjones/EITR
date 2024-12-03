@@ -1,0 +1,12 @@
+resource "azurerm_orbital_contact_profile" "example" {
+    auto_tracking = "{{ auto_tracking }}"
+    event_hub_uri = "{{ event_hub_uri }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    minimum_elevation_degrees = "{{ minimum_elevation_degrees }}"
+    minimum_variable_contact_duration = "{{ minimum_variable_contact_duration }}"
+    name = "{{ name }}"
+    network_configuration_subnet_id = "{{ network_configuration_subnet_id }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = "{{ tags }}"
+}

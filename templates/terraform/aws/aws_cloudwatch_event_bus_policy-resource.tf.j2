@@ -1,0 +1,5 @@
+resource "aws_cloudwatch_event_bus_policy" "example" {
+    event_bus_name = "{{ event_bus_name }}"
+    id = "{{ id }}"
+    policy = "{{ policy }}"
+}

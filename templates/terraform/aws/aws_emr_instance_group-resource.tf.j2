@@ -1,0 +1,13 @@
+resource "aws_emr_instance_group" "example" {
+    autoscaling_policy = "{{ autoscaling_policy }}"
+    bid_price = "{{ bid_price }}"
+    cluster_id = "{{ cluster_id }}"
+    configurations_json = "{{ configurations_json }}"
+    ebs_optimized = "{{ ebs_optimized }}"
+    id = "{{ id }}"
+    instance_count = "{{ instance_count }}"
+    instance_type = "{{ instance_type }}"
+    name = "{{ name }}"
+    running_instance_count = "{{ running_instance_count }}"
+    status = "{{ status }}"
+}

@@ -1,0 +1,21 @@
+data "awscc_cloudfront_origin_request_policy" "example" {
+    id = "{{ id }}"
+    last_modified_time = "{{ last_modified_time }}"
+    origin_request_policy_config = "{
+    comment = {{ comment }}
+    cookies_config = {
+    cookie_behavior = {{ cookie_behavior }}
+    cookies = {{ cookies }}
+}
+    headers_config = {
+    header_behavior = {{ header_behavior }}
+    headers = {{ headers }}
+}
+    name = {{ name }}
+    query_strings_config = {
+    query_string_behavior = {{ query_string_behavior }}
+    query_strings = {{ query_strings }}
+}
+}"
+    origin_request_policy_id = "{{ origin_request_policy_id }}"
+}

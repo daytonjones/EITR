@@ -1,0 +1,11 @@
+resource "google_managed_kafka_topic" "example" {
+    cluster = "{{ cluster }}"
+    configs = "{{ configs }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    partition_count = "{{ partition_count }}"
+    project = "{{ project }}"
+    replication_factor = "{{ replication_factor }}"
+    topic_id = "{{ topic_id }}"
+}

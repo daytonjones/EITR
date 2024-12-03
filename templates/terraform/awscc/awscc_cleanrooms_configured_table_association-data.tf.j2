@@ -1,0 +1,33 @@
+data "awscc_cleanrooms_configured_table_association" "example" {
+    arn = "{{ arn }}"
+    configured_table_association_analysis_rules = "{
+    policy = {
+    v1 = {
+    aggregation = {
+    allowed_additional_analyses = {{ allowed_additional_analyses }}
+    allowed_result_receivers = {{ allowed_result_receivers }}
+}
+    custom = {
+    allowed_additional_analyses = {{ allowed_additional_analyses }}
+    allowed_result_receivers = {{ allowed_result_receivers }}
+}
+    list = {
+    allowed_additional_analyses = {{ allowed_additional_analyses }}
+    allowed_result_receivers = {{ allowed_result_receivers }}
+}
+}
+}
+    type = {{ type }}
+}"
+    configured_table_association_identifier = "{{ configured_table_association_identifier }}"
+    configured_table_identifier = "{{ configured_table_identifier }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    membership_identifier = "{{ membership_identifier }}"
+    name = "{{ name }}"
+    role_arn = "{{ role_arn }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+}

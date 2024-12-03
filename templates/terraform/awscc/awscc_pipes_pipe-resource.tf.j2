@@ -1,0 +1,289 @@
+resource "awscc_pipes_pipe" "example" {
+    arn = "{{ arn }}"
+    creation_time = "{{ creation_time }}"
+    current_state = "{{ current_state }}"
+    description = "{{ description }}"
+    desired_state = "{{ desired_state }}"
+    enrichment = "{{ enrichment }}"
+    enrichment_parameters = "{
+    http_parameters = {
+    header_parameters = {{ header_parameters }}
+    path_parameter_values = {{ path_parameter_values }}
+    query_string_parameters = {{ query_string_parameters }}
+}
+    input_template = {{ input_template }}
+}"
+    id = "{{ id }}"
+    kms_key_identifier = "{{ kms_key_identifier }}"
+    last_modified_time = "{{ last_modified_time }}"
+    log_configuration = "{
+    cloudwatch_logs_log_destination = {
+    log_group_arn = {{ log_group_arn }}
+}
+    firehose_log_destination = {
+    delivery_stream_arn = {{ delivery_stream_arn }}
+}
+    include_execution_data = {{ include_execution_data }}
+    level = {{ level }}
+    s3_log_destination = {
+    bucket_name = {{ bucket_name }}
+    bucket_owner = {{ bucket_owner }}
+    output_format = {{ output_format }}
+    prefix = {{ prefix }}
+}
+}"
+    name = "{{ name }}"
+    role_arn = "{{ role_arn }}"
+    source = "{{ source }}"
+    source_parameters = "{
+    active_mq_broker_parameters = {
+    batch_size = {{ batch_size }}
+    credentials = {
+    basic_auth = {{ basic_auth }}
+}
+    maximum_batching_window_in_seconds = {{ maximum_batching_window_in_seconds }}
+    queue_name = {{ queue_name }}
+}
+    dynamo_db_stream_parameters = {
+    batch_size = {{ batch_size }}
+    dead_letter_config = {
+    arn = {{ arn }}
+}
+    maximum_batching_window_in_seconds = {{ maximum_batching_window_in_seconds }}
+    maximum_record_age_in_seconds = {{ maximum_record_age_in_seconds }}
+    maximum_retry_attempts = {{ maximum_retry_attempts }}
+    on_partial_batch_item_failure = {{ on_partial_batch_item_failure }}
+    parallelization_factor = {{ parallelization_factor }}
+    starting_position = {{ starting_position }}
+}
+    filter_criteria = {
+    filters = {
+    pattern = {{ pattern }}
+}
+}
+    kinesis_stream_parameters = {
+    batch_size = {{ batch_size }}
+    dead_letter_config = {
+    arn = {{ arn }}
+}
+    maximum_batching_window_in_seconds = {{ maximum_batching_window_in_seconds }}
+    maximum_record_age_in_seconds = {{ maximum_record_age_in_seconds }}
+    maximum_retry_attempts = {{ maximum_retry_attempts }}
+    on_partial_batch_item_failure = {{ on_partial_batch_item_failure }}
+    parallelization_factor = {{ parallelization_factor }}
+    starting_position = {{ starting_position }}
+    starting_position_timestamp = {{ starting_position_timestamp }}
+}
+    managed_streaming_kafka_parameters = {
+    batch_size = {{ batch_size }}
+    consumer_group_id = {{ consumer_group_id }}
+    credentials = {
+    client_certificate_tls_auth = {{ client_certificate_tls_auth }}
+    sasl_scram_512_auth = {{ sasl_scram_512_auth }}
+}
+    maximum_batching_window_in_seconds = {{ maximum_batching_window_in_seconds }}
+    starting_position = {{ starting_position }}
+    topic_name = {{ topic_name }}
+}
+    rabbit_mq_broker_parameters = {
+    batch_size = {{ batch_size }}
+    credentials = {
+    basic_auth = {{ basic_auth }}
+}
+    maximum_batching_window_in_seconds = {{ maximum_batching_window_in_seconds }}
+    queue_name = {{ queue_name }}
+    virtual_host = {{ virtual_host }}
+}
+    self_managed_kafka_parameters = {
+    additional_bootstrap_servers = {{ additional_bootstrap_servers }}
+    batch_size = {{ batch_size }}
+    consumer_group_id = {{ consumer_group_id }}
+    credentials = {
+    basic_auth = {{ basic_auth }}
+    client_certificate_tls_auth = {{ client_certificate_tls_auth }}
+    sasl_scram_256_auth = {{ sasl_scram_256_auth }}
+    sasl_scram_512_auth = {{ sasl_scram_512_auth }}
+}
+    maximum_batching_window_in_seconds = {{ maximum_batching_window_in_seconds }}
+    server_root_ca_certificate = {{ server_root_ca_certificate }}
+    starting_position = {{ starting_position }}
+    topic_name = {{ topic_name }}
+    vpc = {
+    security_group = {{ security_group }}
+    subnets = {{ subnets }}
+}
+}
+    sqs_queue_parameters = {
+    batch_size = {{ batch_size }}
+    maximum_batching_window_in_seconds = {{ maximum_batching_window_in_seconds }}
+}
+}"
+    state_reason = "{{ state_reason }}"
+    tags = "{{ tags }}"
+    target = "{{ target }}"
+    target_parameters = "{
+    batch_job_parameters = {
+    array_properties = {
+    size = {{ size }}
+}
+    container_overrides = {
+    command = {{ command }}
+    environment = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    instance_type = {{ instance_type }}
+    resource_requirements = {
+    type = {{ type }}
+    value = {{ value }}
+}
+}
+    depends_on = {
+    job_id = {{ job_id }}
+    type = {{ type }}
+}
+    job_definition = {{ job_definition }}
+    job_name = {{ job_name }}
+    parameters = {{ parameters }}
+    retry_strategy = {
+    attempts = {{ attempts }}
+}
+}
+    cloudwatch_logs_parameters = {
+    log_stream_name = {{ log_stream_name }}
+    timestamp = {{ timestamp }}
+}
+    ecs_task_parameters = {
+    capacity_provider_strategy = {
+    base = {{ base }}
+    capacity_provider = {{ capacity_provider }}
+    weight = {{ weight }}
+}
+    enable_ecs_managed_tags = {{ enable_ecs_managed_tags }}
+    enable_execute_command = {{ enable_execute_command }}
+    group = {{ group }}
+    launch_type = {{ launch_type }}
+    network_configuration = {
+    awsvpc_configuration = {
+    assign_public_ip = {{ assign_public_ip }}
+    security_groups = {{ security_groups }}
+    subnets = {{ subnets }}
+}
+}
+    overrides = {
+    container_overrides = {
+    command = {{ command }}
+    cpu = {{ cpu }}
+    environment = {
+    name = {{ name }}
+    value = {{ value }}
+}
+    environment_files = {
+    type = {{ type }}
+    value = {{ value }}
+}
+    memory = {{ memory }}
+    memory_reservation = {{ memory_reservation }}
+    name = {{ name }}
+    resource_requirements = {
+    type = {{ type }}
+    value = {{ value }}
+}
+}
+    cpu = {{ cpu }}
+    ephemeral_storage = {
+    size_in_gi_b = {{ size_in_gi_b }}
+}
+    execution_role_arn = {{ execution_role_arn }}
+    inference_accelerator_overrides = {
+    device_name = {{ device_name }}
+    device_type = {{ device_type }}
+}
+    memory = {{ memory }}
+    task_role_arn = {{ task_role_arn }}
+}
+    placement_constraints = {
+    expression = {{ expression }}
+    type = {{ type }}
+}
+    placement_strategy = {
+    field = {{ field }}
+    type = {{ type }}
+}
+    platform_version = {{ platform_version }}
+    propagate_tags = {{ propagate_tags }}
+    reference_id = {{ reference_id }}
+    tags = {
+    key = {{ key }}
+    value = {{ value }}
+}
+    task_count = {{ task_count }}
+    task_definition_arn = {{ task_definition_arn }}
+}
+    event_bridge_event_bus_parameters = {
+    detail_type = {{ detail_type }}
+    endpoint_id = {{ endpoint_id }}
+    resources = {{ resources }}
+    source = {{ source }}
+    time = {{ time }}
+}
+    http_parameters = {
+    header_parameters = {{ header_parameters }}
+    path_parameter_values = {{ path_parameter_values }}
+    query_string_parameters = {{ query_string_parameters }}
+}
+    input_template = {{ input_template }}
+    kinesis_stream_parameters = {
+    partition_key = {{ partition_key }}
+}
+    lambda_function_parameters = {
+    invocation_type = {{ invocation_type }}
+}
+    redshift_data_parameters = {
+    database = {{ database }}
+    db_user = {{ db_user }}
+    secret_manager_arn = {{ secret_manager_arn }}
+    sqls = {{ sqls }}
+    statement_name = {{ statement_name }}
+    with_event = {{ with_event }}
+}
+    sage_maker_pipeline_parameters = {
+    pipeline_parameter_list = {
+    name = {{ name }}
+    value = {{ value }}
+}
+}
+    sqs_queue_parameters = {
+    message_deduplication_id = {{ message_deduplication_id }}
+    message_group_id = {{ message_group_id }}
+}
+    step_function_state_machine_parameters = {
+    invocation_type = {{ invocation_type }}
+}
+    timestream_parameters = {
+    dimension_mappings = {
+    dimension_name = {{ dimension_name }}
+    dimension_value = {{ dimension_value }}
+    dimension_value_type = {{ dimension_value_type }}
+}
+    epoch_time_unit = {{ epoch_time_unit }}
+    multi_measure_mappings = {
+    multi_measure_attribute_mappings = {
+    measure_value = {{ measure_value }}
+    measure_value_type = {{ measure_value_type }}
+    multi_measure_attribute_name = {{ multi_measure_attribute_name }}
+}
+    multi_measure_name = {{ multi_measure_name }}
+}
+    single_measure_mappings = {
+    measure_name = {{ measure_name }}
+    measure_value = {{ measure_value }}
+    measure_value_type = {{ measure_value_type }}
+}
+    time_field_type = {{ time_field_type }}
+    time_value = {{ time_value }}
+    timestamp_format = {{ timestamp_format }}
+    version_value = {{ version_value }}
+}
+}"
+}

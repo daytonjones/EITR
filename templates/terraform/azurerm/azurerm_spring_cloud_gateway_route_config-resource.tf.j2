@@ -1,0 +1,10 @@
+resource "azurerm_spring_cloud_gateway_route_config" "example" {
+    filters = "{{ filters }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    predicates = "{{ predicates }}"
+    protocol = "{{ protocol }}"
+    spring_cloud_app_id = "{{ spring_cloud_app_id }}"
+    spring_cloud_gateway_id = "{{ spring_cloud_gateway_id }}"
+    sso_validation_enabled = "{{ sso_validation_enabled }}"
+}

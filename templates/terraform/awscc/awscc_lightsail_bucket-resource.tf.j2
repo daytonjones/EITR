@@ -1,0 +1,19 @@
+resource "awscc_lightsail_bucket" "example" {
+    able_to_update_bundle = "{{ able_to_update_bundle }}"
+    access_rules = "{
+    allow_public_overrides = {{ allow_public_overrides }}
+    get_object = {{ get_object }}
+}"
+    bucket_arn = "{{ bucket_arn }}"
+    bucket_name = "{{ bucket_name }}"
+    bundle_id = "{{ bundle_id }}"
+    id = "{{ id }}"
+    object_versioning = "{{ object_versioning }}"
+    read_only_access_accounts = "{{ read_only_access_accounts }}"
+    resources_receiving_access = "{{ resources_receiving_access }}"
+    tags = "{
+    key = {{ key }}
+    value = {{ value }}
+}"
+    url = "{{ url }}"
+}
