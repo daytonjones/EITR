@@ -23,11 +23,11 @@ async def get_index(request: Request):
 
     # List of keys to include in the response
     schema_keys = [
-        "resource_schemas",
+        "provider",
         "data_source_schemas",
         "ephemeral_resource_schemas",
         "functions",
-        "provider"
+        "resource_schemas",
     ]
 
     # Combine providers and their schemas into one structured object
@@ -38,7 +38,7 @@ async def get_index(request: Request):
         # Extract data for each schema key
         schema_data = {}
         for key in schema_keys:
-            schema_data[key] = list(SCHEMAS["provider_schemas"].get(provider_key, {}).get(key, {}).keys())
+            schema_data[key] = sorted(list(SCHEMAS["provider_schemas"].get(provider_key, {}).get(key, {}).keys()))
 
         providers_with_resource_names.append({
             "name": provider_name,
