@@ -1,8 +1,6 @@
 # EITR - Multi-Provider Terraform Config Generator
 
 ## Introduction
-**EITR: Environment Infrastructure Terraform Renderer**
-
 - **E**: Environment – Spanning cloud (AWS, Azure, GCP), local, and virtualized setups.
 - **I**: Infrastructure – Focused on creating and managing critical infrastructure components.
 - **T**: Terraform – The de facto tool for infrastructure as code.
