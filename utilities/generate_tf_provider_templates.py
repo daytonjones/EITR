@@ -362,7 +362,7 @@ provider "{{ provider_key }}" {
             function_name=function_name,
             attributes=attributes,
         )
-        write_template_to_file(os.path.join(template_dir, f"{function_name}-function.tf.j2"), rendered_function)
+        write_template_to_file(os.path.join(template_dir, f"{function_name}-functions.tf.j2"), rendered_function)
 
     # Generate provider templates
     provider_attributes = provider_attributes or {}
