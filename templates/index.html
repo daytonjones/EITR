@@ -11,6 +11,23 @@
         .text-shadow {
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
         }
+	.highlight {
+            font-size: 2rem; /* Larger font size for emphasis */
+            color: yellow;
+            font-weight: bold;
+            font-style: italic;
+        }
+        .title {
+            font-family: Arial, sans-serif;
+            font-size: 1rem; /* Standard size for the rest of the text */
+            display: block;
+	    margin: 10px 10px 0 0;
+	    padding: 5px 10px;
+            align-items: baseline;
+        }
+        .word {
+            margin: 0 0.3rem;
+        }
     </style>
 </head>
 <body class="bg-cover bg-center h-full relative">
@@ -31,19 +48,19 @@
                     class="cursor-pointer" 
                     id="eitrImage"
                 >
+	        <h1 class="title">
+                    <span class="highlight">E</span><span class="word">nvironment</span>
+                    <span class="highlight">I</span><span class="word">nfrastructure</span>
+                    <span class="highlight">T</span><span class="word">erraform</span>
+                    <span class="highlight">R</span><span class="word">enderer</span>
+	        </h1>
             </center>
             <div 
                 id="hoverText" 
                 class="absolute hidden bg-gray-700 text-white text-sm rounded p-4 w-[500px] max-w-none mt-4 shadow-lg z-50">
-                In Norse mythology, <i>eitr</i> (pronounced as "ater" or "either") is a substance representing raw potential and creation. The perfect name for an app that helps shape and define infrastructure.
+                In Norse mythology, <i>eitr</i> (pronounced as "ater" or "either") is a substance representing raw potential and creation. The perfect name for a tool that helps shape and define infrastructure.
             </div>
         </div>
-        <h1>
-            <b><i><font color="green">E</font></i></b>nvironment 
-            <b><i><font color="green">I</font></i></b>nfrastructure 
-            <b><i><font color="green">T</font></i></b>erraform 
-            <b><i><font color="green">R</font></i></b>enderer
-        </h1>
     </header>
 
     <!-- Main Layout -->
