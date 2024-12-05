@@ -123,11 +123,11 @@
     </div>
 
     <!-- Footer -->
-    <footer class="relative z-10 bg-opacity-90 text-white p-4 text-center">
-        <p>&copy; 2024 EITR - All Rights Reserved</p>
+    <footer class="relative z-10 bg-opacity-90 text-white p-4 text-left">
         <p>
             Providers: {{ total_providers }}, Resources: {{ total_resources }}
         </p>
+        <p>EITR &copy; <span id="current-year"></span> Dayton Jones</p>
     </footer>
     <script>
         // JavaScript for hover effect over the Logo
@@ -151,6 +151,9 @@
                 generateButton.style.display = configDisplay.children.length > 0 ? "block" : "none";
             };
             updateGenerateButtonVisibility();
+
+            const yearSpan = document.getElementById("current-year");
+            yearSpan.textContent = new Date().getFullYear();
         
             resourceCheckboxes.forEach((checkbox) => {
                 checkbox.addEventListener("change", async () => {
@@ -179,7 +182,8 @@
                         const resourceDiv = document.getElementById(resourceId);
                         if (resourceDiv) configDisplay.removeChild(resourceDiv);
                     }
-		    updateGenerateButtonVisibility();
+//		    uncomment this once the generate route is complete
+//		    updateGenerateButtonVisibility();
                 });
             });
         });
