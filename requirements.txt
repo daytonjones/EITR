@@ -1,6 +1,6 @@
 fastapi
+gunicorn
 jinja2
-jq
+python-hcl2
 python-multipart
 uvicorn
-gunicorn
