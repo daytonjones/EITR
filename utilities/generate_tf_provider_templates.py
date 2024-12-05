@@ -74,13 +74,40 @@ if len(MISSING) != 0:
 
                     The "main" script
 '''
-
+import itertools
 import json
 import shutil
+import threading
+import time
 from colorama import Fore
 from jinja2 import Template
 
 error_log = []
+
+class Spinner:
+    def __init__(self, message):
+        self.spinner = itertools.cycle(["-", "\\", "|", "/"])
+        self.message = message
+        self.stop_running = False
+        self.thread = None
+
+    def start(self):
+        self.stop_running = False
+        self.thread = threading.Thread(target=self._spin)
+        self.thread.start()
+
+    def stop(self):
+        self.stop_running = True
+        if self.thread:
+            self.thread.join()
+
+    def _spin(self):
+        while not self.stop_running:
+            sys.stdout.write(f"\r{self.message} {next(self.spinner)}")
+            sys.stdout.flush()
+            time.sleep(0.1)
+        sys.stdout.write("\r" + " " * (len(self.message) + 2) + "\r")  # Clear the spinner line
+        sys.stdout.flush()
 
 # Helper function to run shell commands
 def run_command(command, cwd=None):
@@ -137,19 +164,47 @@ def create_main_tf(directory, providers_file="config/providers.json"):
 # Reinitialize Terraform after creating main.tf
 def reinit_terraform(directory):
     print(f"{Fore.GREEN}Re-initializing Terraform...{Fore.RESET}")
-    return run_command("terraform init", cwd=directory)
+    spinner = Spinner(f"{Fore.CYAN}")
+    spinner.start()
+    try:
+        stdout, stderr = run_command("terraform init", cwd=directory)
+    finally:
+        spinner.stop()
+    return stdout, stderr
 
 # Extract the Terraform provider schema and save it as JSON
 def extract_terraform_schema(directory, output_file):
     print(f"{Fore.GREEN}Extracting provider schemas...{Fore.RESET}")
-    command = "terraform providers schema -json | jq ."
-    stdout, stderr = run_command(command, cwd=directory)
-    if stdout:
-        with open(output_file, "w") as f:
-            f.write(stdout)
-        print(f"{Fore.GREEN}Schema extracted to {Fore.LIGHTGREEN_EX}{output_file}{Fore.RESET}")
-    else:
-        print(f"{Fore.RED}Error extracting schema:{Fore.RESET} {stderr}")
+    spinner = Spinner(f"{Fore.CYAN}")
+    spinner.start()
+    try:
+        command = "terraform providers schema -json | jq ."
+        stdout, stderr = run_command(command, cwd=directory)
+        if stdout:
+            with open(output_file, "w") as f:
+                f.write(stdout)
+            print(f"{Fore.GREEN}Schema extracted to {Fore.LIGHTGREEN_EX}{output_file}{Fore.RESET}")
+        else:
+            print(f"{Fore.RED}Error extracting schema:{Fore.RESET} {stderr}")
+    finally:
+        spinner.stop()
+
+## Reinitialize Terraform after creating main.tf
+#def reinit_terraform(directory):
+#    print(f"{Fore.GREEN}Re-initializing Terraform...{Fore.RESET}")
+#    return run_command("terraform init", cwd=directory)
+#
+## Extract the Terraform provider schema and save it as JSON
+#def extract_terraform_schema(directory, output_file):
+#    print(f"{Fore.GREEN}Extracting provider schemas...{Fore.RESET}")
+#    command = "terraform providers schema -json | jq ."
+#    stdout, stderr = run_command(command, cwd=directory)
+#    if stdout:
+#        with open(output_file, "w") as f:
+#            f.write(stdout)
+#        print(f"{Fore.GREEN}Schema extracted to {Fore.LIGHTGREEN_EX}{output_file}{Fore.RESET}")
+#    else:
+#        print(f"{Fore.RED}Error extracting schema:{Fore.RESET} {stderr}")
 
 # Set up Terraform and extract schema
 def setup_terraform_schema(directory, output_file="config/provider_schemas.json"):
