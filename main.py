@@ -56,21 +56,23 @@ async def get_index(request: Request):
         "total_resources": total_resources
     })
 
-@app.get("/load_templates/{provider}/{resource}", response_class=JSONResponse)
-async def load_templates(provider: str, resource: str):
+@app.get("/load_templates/{provider}/{schema_type}/{resource}", response_class=JSONResponse)
+async def load_templates(provider: str, schema_type: str, resource: str):
     templates_path = f"templates/terraform/{provider}/"
-    resource_templates = {}
+    template_file = ""
 
-    for template_type in ["data", "resource", "function", "provider", "ephemeral"]:
-        if template_type == 'provider':
-            template_file = os.path.join(templates_path, f"provider.tf.j2")
-        else:
-            template_file = os.path.join(templates_path, f"{resource}-{template_type}.tf.j2")
-        if os.path.exists(template_file):
-            with open(template_file, "r") as f:
-                resource_templates[template_type] = f.read()
+    # Determine the template file based on schema type
+    if schema_type == "provider":
+        template_file = os.path.join(templates_path, "provider.tf.j2")
+    else:
+        template_file = os.path.join(templates_path, f"{resource}-{schema_type}.tf.j2")
 
-    return JSONResponse(content=resource_templates)
+    if os.path.exists(template_file):
+        with open(template_file, "r") as f:
+            template_content = f.read()
+        return JSONResponse(content={schema_type: template_content})
+    else:
+        return JSONResponse(content={schema_type: "No template found"}, status_code=404)
 
 @app.post("/generate", response_class=HTMLResponse)
 async def generate_terraform_config(

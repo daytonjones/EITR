@@ -62,15 +62,11 @@
             <div>
                 {% for provider in providers %}
                 <div x-data="{ open: false }" class="mb-4">
-                    <!-- Button to toggle resource visibility -->
                     <button 
                         @click="open = !open" 
-                        class="w-full text-left px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded" 
-                        aria-expanded="false" 
-                        :aria-expanded="open.toString()">
+                        class="w-full text-left px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded">
                         {{ provider.description }}
                     </button>
-                
                     <!-- Toggling schema display -->
                     <div x-show="open" x-transition class="mt-2 pl-4 space-y-4">
                         {% for schema_type, items in provider.schemas.items() %}
@@ -82,11 +78,11 @@
                                 {% if schema_type == 'provider' %}
                                 <!-- Only show a single "config" checkbox for provider -->
                                 <label class="flex items-center space-x-2">
-                                    <input type="checkbox" 
-                                           name="{{ provider.name }}_{{ schema_type }}" 
-                                           value="config" 
-                                           class="resource-checkbox" 
-                                           data-resource="config" 
+                                    <input type="checkbox"
+                                           name="{{ provider.name }}_{{ schema_type }}"
+                                           value="config"
+                                           class="resource-checkbox"
+                                           data-resource="config"
                                            data-provider="{{ provider.name }}">
                                     <span>config</span>
                                 </label>
@@ -109,7 +105,6 @@
                         {% endif %}
                         {% endfor %}
                     </div>
-
                 </div>
                 {% endfor %}
             </div>
@@ -117,10 +112,7 @@
 
         <!-- Main Content -->
         <main class="w-full md:w-5/6 bg-opacity-99 p-6 overflow-y-auto">
-            <div id="config-display" class="space-y-4">
-                <!-- Resource Templates will be dynamically added here -->
-            </div>
-
+            <div id="config-display" class="space-y-4"></div>
             <form method="POST" action="/generate">
                 <input type="hidden" name="terraform_config" id="terraform_config">
                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 mt-4 transition ease-in-out duration-300">
@@ -138,73 +130,40 @@
         </p>
     </footer>
     <script>
-        // JavaScript for hover effect over the Logo
-        const image = document.getElementById("eitrImage");
-        const hoverText = document.getElementById("hoverText");
-
-        image.addEventListener("mouseover", () => {
-            hoverText.classList.remove("hidden");
-        });
-
-        image.addEventListener("mouseout", () => {
-            hoverText.classList.add("hidden");
-        });
-
-document.addEventListener("DOMContentLoaded", () => {
-    const resourceCheckboxes = document.querySelectorAll(".resource-checkbox");
-    const configDisplay = document.getElementById("config-display");
-    const generateButton = document.querySelector("button[type='submit']");
-
-    // Manage Generate Button Visibility
-    const updateGenerateButtonVisibility = () => {
-        generateButton.style.display = configDisplay.children.length > 0 ? "block" : "none";
-    };
-    updateGenerateButtonVisibility();
-
-    resourceCheckboxes.forEach((checkbox) => {
-        checkbox.addEventListener("change", async () => {
-            const provider = checkbox.dataset.provider; // Extract provider from the dataset
-            const resource = checkbox.dataset.resource; // Extract resource from the dataset
-            const resourceId = `resource-${provider}-${resource}`;
-
-            if (checkbox.checked) {
-                // Fetch the template from the backend
-                try {
-                    const response = await fetch(`/load_templates/${provider}/${resource}`);
-                    if (!response.ok) {
-                        throw new Error(`Error fetching template: ${response.statusText}`);
+        document.addEventListener("DOMContentLoaded", () => {
+            const resourceCheckboxes = document.querySelectorAll(".resource-checkbox");
+            const configDisplay = document.getElementById("config-display");
+        
+            resourceCheckboxes.forEach((checkbox) => {
+                checkbox.addEventListener("change", async () => {
+                    const provider = checkbox.dataset.provider;
+                    const resource = checkbox.dataset.resource;
+                    const schemaType = checkbox.name.split("_")[1]; 
+                    const resourceId = `resource-${provider}-${schemaType}-${resource}`;
+        
+                    if (checkbox.checked) {
+                        try {
+                            const response = await fetch(`/load_templates/${provider}/${schemaType}/${resource}`);
+                            if (!response.ok) throw new Error(`Error: ${response.statusText}`);
+                            const data = await response.json();
+                            const templateContent = data[schemaType] || "No template found";
+        
+                            const resourceDiv = document.createElement("div");
+                            resourceDiv.id = resourceId;
+                            resourceDiv.className = "p-4 rounded shadow mb-4";
+                            resourceDiv.innerHTML = `<pre class="p-2 rounded overflow-auto bg-gray-800 text-white">${templateContent}</pre>`;
+        
+                            configDisplay.appendChild(resourceDiv);
+                        } catch (error) {
+                            console.error("Error loading template:", error);
+                        }
+                    } else {
+                        const resourceDiv = document.getElementById(resourceId);
+                        if (resourceDiv) configDisplay.removeChild(resourceDiv);
                     }
-                    const data = await response.json();
-
-                    // Create a human-readable display of the fetched template
-                    const resourceDiv = document.createElement("div");
-                    resourceDiv.id = resourceId;
-                    resourceDiv.className = "p-4 rounded shadow mb-4";
-
-                    const resourceContent = resource === "provider"
-                        ? `<h4 class="font-semibold text-lg">Provider Configuration</h4>
-                           <pre class="p-2 rounded overflow-auto text-white">${data.provider || "No template found"}</pre>`
-                        : `<h4 class="font-semibold text-lg">${resource} (${provider})</h4>
-                           <pre class="p-2 rounded overflow-auto text-white">${Object.values(data).join("\n\n") || "No templates found"}</pre>`;
-
-                    resourceDiv.innerHTML = resourceContent;
-                    configDisplay.appendChild(resourceDiv);
-                } catch (error) {
-                    console.error("Failed to fetch template:", error);
-                }
-            } else {
-                // Remove template from config display
-                const resourceDiv = document.getElementById(resourceId);
-                if (resourceDiv) {
-                    configDisplay.removeChild(resourceDiv);
-                }
-            }
-
-            // Update button visibility whenever templates change
-            updateGenerateButtonVisibility();
+                });
+            });
         });
-    });
-});
     </script>
 </body>
 </html>
