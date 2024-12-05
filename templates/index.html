@@ -130,9 +130,27 @@
         </p>
     </footer>
     <script>
+        // JavaScript for hover effect over the Logo
+        const image = document.getElementById("eitrImage");
+        const hoverText = document.getElementById("hoverText");
+
+        image.addEventListener("mouseover", () => {
+            hoverText.classList.remove("hidden");
+        });
+
+        image.addEventListener("mouseout", () => {
+            hoverText.classList.add("hidden");
+        });
+
         document.addEventListener("DOMContentLoaded", () => {
             const resourceCheckboxes = document.querySelectorAll(".resource-checkbox");
             const configDisplay = document.getElementById("config-display");
+	    const generateButton = document.querySelector("button[type='submit']");
+
+	    const updateGenerateButtonVisibility = () => {
+                generateButton.style.display = configDisplay.children.length > 0 ? "block" : "none";
+            };
+            updateGenerateButtonVisibility();
         
             resourceCheckboxes.forEach((checkbox) => {
                 checkbox.addEventListener("change", async () => {
@@ -161,6 +179,7 @@
                         const resourceDiv = document.getElementById(resourceId);
                         if (resourceDiv) configDisplay.removeChild(resourceDiv);
                     }
+		    updateGenerateButtonVisibility();
                 });
             });
         });
