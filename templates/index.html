@@ -11,6 +11,23 @@
         .text-shadow {
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
         }
+        .highlight {
+            font-size: 2rem;
+            color: yellow;
+            font-weight: bold;
+            font-style: italic;
+        }
+        .title {
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+            display: block;
+            margin: 10px 10px 0 0;
+            padding: 5px 10px;
+            align-items: baseline;
+        }
+        .word {
+            margin: 0 0.3rem;
+        }
     </style>
 </head>
 <body class="bg-cover bg-center h-full relative">
@@ -29,21 +46,18 @@
                     width="10%" 
                     height="10%" 
                     class="cursor-pointer" 
-                    id="eitrImage"
-                >
+                    id="eitrImage">
+                <h1 class="title">
+                    <span class="highlight">E</span><span class="word">nvironment</span>
+                    <span class="highlight">I</span><span class="word">nfrastructure</span>
+                    <span class="highlight">T</span><span class="word">erraform</span>
+                    <span class="highlight">R</span><span class="word">enderer</span>
+                </h1>
             </center>
-            <div 
-                id="hoverText" 
-                class="absolute hidden bg-gray-700 text-white text-sm rounded p-4 w-[500px] max-w-none mt-4 shadow-lg z-50">
-                In Norse mythology, <i>eitr</i> (pronounced as "ater" or "either") is a substance representing raw potential and creation. The perfect name for an app that helps shape and define infrastructure.
+            <div id="hoverText" class="absolute hidden bg-gray-700 text-white text-sm rounded p-4 w-[500px] max-w-none mt-4 shadow-lg z-50">
+                In Norse mythology, <i>eitr</i> (pronounced as "ater" or "either") is a substance representing raw potential and creation. The perfect name for a tool that helps shape and define infrastructure.
             </div>
         </div>
-        <h1>
-            <b><i><font color="green">E</font></i></b>nvironment 
-            <b><i><font color="green">I</font></i></b>nfrastructure 
-            <b><i><font color="green">T</font></i></b>erraform 
-            <b><i><font color="green">R</font></i></b>enderer
-        </h1>
     </header>
 
     <!-- Main Layout -->
@@ -62,27 +76,43 @@
             <div>
                 {% for provider in providers %}
                 <div x-data="{ open: false }" class="mb-4">
-                    <!-- Button to toggle resource visibility -->
                     <button 
                         @click="open = !open" 
-                        class="w-full text-left px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded" 
-                        aria-expanded="false" 
-                        :aria-expanded="open.toString()">
+                        class="w-full text-left px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded">
                         {{ provider.description }}
                     </button>
-
-                    <!-- Toggling resource display -->
-                    <div x-show="open" x-transition class="mt-2 pl-4 space-y-2">
-                        {% for resource in provider.resource_names %}
+                    <div x-show="open" x-transition class="mt-2 pl-4 space-y-4">
+                        {% for schema_type, items in provider.schemas.items() %}
+                        {% if items|length > 0 %}
                         <div>
-                            <label class="flex items-center space-x-2">
-                                <input type="checkbox" name="{{ provider.name }}_resources" value="{{ resource }}" 
-                                       class="resource-checkbox" 
-                                       data-resource="{{ resource }}"
-				       data-provider="{{ provider.name }}" >
-                                <span>{{ resource }}</span>
-                            </label>
+                            <h4 class="text-gray-400 font-semibold capitalize">{{ schema_type.replace('_', ' ') }}</h4>
+                            <div class="pl-4 space-y-2">
+                                {% if schema_type == 'provider' %}
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox"
+                                           name="{{ provider.name }}_{{ schema_type }}"
+                                           value="config"
+                                           class="resource-checkbox"
+                                           data-resource="config"
+                                           data-provider="{{ provider.name }}">
+                                    <span>config</span>
+                                </label>
+                                {% else %}
+                                {% for item in items %}
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox" 
+                                           name="{{ provider.name }}_{{ schema_type }}" 
+                                           value="{{ item }}" 
+                                           class="resource-checkbox" 
+                                           data-resource="{{ item }}"
+                                           data-provider="{{ provider.name }}">
+                                    <span>{{ item }}</span>
+                                </label>
+                                {% endfor %}
+                                {% endif %}
+                            </div>
                         </div>
+                        {% endif %}
                         {% endfor %}
                     </div>
                 </div>
@@ -92,25 +122,30 @@
 
         <!-- Main Content -->
         <main class="w-full md:w-5/6 bg-opacity-99 p-6 overflow-y-auto">
-            <div id="config-display" class="space-y-4">
-                <!-- Resource Templates will be dynamically added here -->
-            </div>
-
-            <form method="POST" action="/generate">
-                <input type="hidden" name="terraform_config" id="terraform_config">
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 mt-4 transition ease-in-out duration-300">
-                    Generate Terraform Configuration
+            <div id="config-display" class="space-y-4"></div>
+            <div class="mt-6 hidden" id="save-buttons">
+                <button
+                    class="bg-green-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
+                    id="saveJsonBtn">
+                    <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+                    <span>Save as JSON</span>
+	        </button>
+                <button
+	            class="bg-green-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
+                    id="saveHclBtn">
+                    <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+                    <span>Save as HCL</span>
                 </button>
-            </form>
+            </div>
         </main>
     </div>
 
     <!-- Footer -->
-    <footer class="relative z-10 bg-opacity-90 text-white p-4 text-center">
-        <p>&copy; 2024 EITR - All Rights Reserved</p>
+    <footer class="relative z-10 bg-opacity-90 text-white p-4 text-left">
         <p>
             Providers: {{ total_providers }}, Resources: {{ total_resources }}
         </p>
+        <p>EITR &copy; <span id="current-year"></span> Dayton Jones</p>
     </footer>
     <script>
         // JavaScript for hover effect over the Logo
@@ -125,64 +160,114 @@
             hoverText.classList.add("hidden");
         });
 
-<!-- testing -->
-document.addEventListener("DOMContentLoaded", () => {
-    const resourceCheckboxes = document.querySelectorAll(".resource-checkbox");
-    const configDisplay = document.getElementById("config-display");
-    const generateButton = document.querySelector("button[type='submit']");
+        document.addEventListener("DOMContentLoaded", () => {
+            const resourceCheckboxes = document.querySelectorAll(".resource-checkbox");
+            const configDisplay = document.getElementById("config-display");
+            const saveButtons = document.getElementById("save-buttons");
+            const saveJsonBtn = document.getElementById("saveJsonBtn");
+            const saveHclBtn = document.getElementById("saveHclBtn");
 
-    // Manage Generate Button Visibility
-    const updateGenerateButtonVisibility = () => {
-        generateButton.style.display = configDisplay.children.length > 0 ? "block" : "none";
-    };
-    updateGenerateButtonVisibility();
+        const getFormattedTimestamp = () => {
+            const now = new Date();
+            const month = String(now.getMonth() + 1).padStart(2, '0'); // Month is zero-indexed
+            const day = String(now.getDate()).padStart(2, '0');
+            const year = now.getFullYear();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            return `${month}${day}${year}${hours}${minutes}`;
+        };
 
-    resourceCheckboxes.forEach((checkbox) => {
-        checkbox.addEventListener("change", async () => {
-            const provider = checkbox.dataset.provider; // Extract provider from the dataset
-            const resource = checkbox.dataset.resource; // Extract resource from the dataset
-            const resourceId = `resource-${provider}-${resource}`;
+            const updateSaveButtonsVisibility = () => {
+                saveButtons.style.display = configDisplay.children.length > 0 ? "block" : "none";
+            };
 
-            if (checkbox.checked) {
-                // Fetch the template from the backend
-                try {
-                    const response = await fetch(`/load_templates/${provider}/${resource}`);
-                    if (!response.ok) {
-                        throw new Error(`Error fetching template: ${response.statusText}`);
+            updateSaveButtonsVisibility();
+
+            resourceCheckboxes.forEach((checkbox) => {
+                checkbox.addEventListener("change", async () => {
+                    const provider = checkbox.dataset.provider;
+                    const resource = checkbox.dataset.resource;
+                    const schemaType = checkbox.name.split("_")[1]; 
+                    const resourceId = `resource-${provider}-${schemaType}-${resource}`;
+
+                    if (checkbox.checked) {
+                        try {
+                            const response = await fetch(`/load_templates/${provider}/${schemaType}/${resource}`);
+                            if (!response.ok) throw new Error(`Error: ${response.statusText}`);
+                            const data = await response.json();
+                            const templateContent = data[schemaType] || "No template found";
+
+                            const resourceDiv = document.createElement("div");
+                            resourceDiv.id = resourceId;
+                            resourceDiv.className = "p-4 rounded shadow mb-4";
+                            resourceDiv.innerHTML = `<pre class="p-2 rounded overflow-auto text-white">${templateContent}</pre>`;
+
+                            configDisplay.appendChild(resourceDiv);
+                        } catch (error) {
+                            console.error("Error loading template:", error);
+                        }
+                    } else {
+                        const resourceDiv = document.getElementById(resourceId);
+                        if (resourceDiv) configDisplay.removeChild(resourceDiv);
                     }
-                    const data = await response.json();
+                    updateSaveButtonsVisibility();
+                });
+            });
 
-                    // Create a human-readable display of the fetched template
-                    const resourceDiv = document.createElement("div");
-                    resourceDiv.id = resourceId;
-                    resourceDiv.className = "p-4 rounded shadow mb-4";
-
-                    const resourceContent = `
-                        <pre class="p-2 rounded overflow-auto text-white"><code>${data.resource}</code></pre>
-                        <pre class="p-2 rounded overflow-auto text-white"><code>${data.data}</code></pre>
-                    `;
-
-                    resourceDiv.innerHTML = resourceContent;
-                    configDisplay.appendChild(resourceDiv);
-                } catch (error) {
-                    console.error("Failed to fetch template:", error);
+            saveJsonBtn.addEventListener('click', async () => {
+                const templates = Array.from(configDisplay.children)
+                    .map(child => child.querySelector("pre").innerText)
+                    .join("\n\n");
+                const response = await fetch(`/save_config/json`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ config: templates })
+                });
+            
+                if (response.ok) {
+                    const { config } = await response.json();
+                    const blob = new Blob([config], { type: 'application/json' });
+                    const downloadUrl = window.URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = downloadUrl;
+                    link.download = `eitr_generated_tf_config_${getFormattedTimestamp()}.json`;
+                    document.body.appendChild(link);
+                    link.click();
+                    link.remove();
+                } else {
+                    console.error("Error saving JSON configuration");
                 }
-            } else {
-                // Remove template from config display
-                const resourceDiv = document.getElementById(resourceId);
-                if (resourceDiv) {
-                    configDisplay.removeChild(resourceDiv);
+            });
+            
+            saveHclBtn.addEventListener('click', async () => {
+                const templates = Array.from(configDisplay.children)
+                    .map(child => child.querySelector("pre").innerText)
+                    .join("\n\n");
+                const response = await fetch(`/save_config/hcl`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ config: templates })
+                });
+            
+                if (response.ok) {
+                    const { config } = await response.json();
+                    const blob = new Blob([config], { type: 'application/x-hcl' });
+                    const downloadUrl = window.URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = downloadUrl;
+                    link.download = `eitr_generated_tf_config_${getFormattedTimestamp()}.tf`;
+                    document.body.appendChild(link);
+                    link.click();
+                    link.remove();
+                } else {
+                    console.error("Error saving HCL configuration");
                 }
-            }
+            });
 
-            // Update button visibility whenever templates change
-            updateGenerateButtonVisibility();
+            // Update the current year in the footer
+            const yearSpan = document.getElementById("current-year");
+            yearSpan.textContent = new Date().getFullYear();
         });
-    });
-});
-
-<!-- testing -->
-
     </script>
 </body>
 </html>

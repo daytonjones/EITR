@@ -74,13 +74,40 @@ if len(MISSING) != 0:
 
                     The "main" script
 '''
-
+import itertools
 import json
 import shutil
+import threading
+import time
 from colorama import Fore
 from jinja2 import Template
 
 error_log = []
+
+class Spinner:
+    def __init__(self, message):
+        self.spinner = itertools.cycle(["-", "\\", "|", "/"])
+        self.message = message
+        self.stop_running = False
+        self.thread = None
+
+    def start(self):
+        self.stop_running = False
+        self.thread = threading.Thread(target=self._spin)
+        self.thread.start()
+
+    def stop(self):
+        self.stop_running = True
+        if self.thread:
+            self.thread.join()
+
+    def _spin(self):
+        while not self.stop_running:
+            sys.stdout.write(f"\r{self.message} {next(self.spinner)}")
+            sys.stdout.flush()
+            time.sleep(0.1)
+        sys.stdout.write("\r" + " " * (len(self.message) + 2) + "\r")  # Clear the spinner line
+        sys.stdout.flush()
 
 # Helper function to run shell commands
 def run_command(command, cwd=None):
@@ -137,19 +164,47 @@ def create_main_tf(directory, providers_file="config/providers.json"):
 # Reinitialize Terraform after creating main.tf
 def reinit_terraform(directory):
     print(f"{Fore.GREEN}Re-initializing Terraform...{Fore.RESET}")
-    return run_command("terraform init", cwd=directory)
+    spinner = Spinner(f"{Fore.CYAN}")
+    spinner.start()
+    try:
+        stdout, stderr = run_command("terraform init", cwd=directory)
+    finally:
+        spinner.stop()
+    return stdout, stderr
 
 # Extract the Terraform provider schema and save it as JSON
 def extract_terraform_schema(directory, output_file):
     print(f"{Fore.GREEN}Extracting provider schemas...{Fore.RESET}")
-    command = "terraform providers schema -json | jq ."
-    stdout, stderr = run_command(command, cwd=directory)
-    if stdout:
-        with open(output_file, "w") as f:
-            f.write(stdout)
-        print(f"{Fore.GREEN}Schema extracted to {Fore.LIGHTGREEN_EX}{output_file}{Fore.RESET}")
-    else:
-        print(f"{Fore.RED}Error extracting schema:{Fore.RESET} {stderr}")
+    spinner = Spinner(f"{Fore.CYAN}")
+    spinner.start()
+    try:
+        command = "terraform providers schema -json | jq ."
+        stdout, stderr = run_command(command, cwd=directory)
+        if stdout:
+            with open(output_file, "w") as f:
+                f.write(stdout)
+            print(f"{Fore.GREEN}Schema extracted to {Fore.LIGHTGREEN_EX}{output_file}{Fore.RESET}")
+        else:
+            print(f"{Fore.RED}Error extracting schema:{Fore.RESET} {stderr}")
+    finally:
+        spinner.stop()
+
+## Reinitialize Terraform after creating main.tf
+#def reinit_terraform(directory):
+#    print(f"{Fore.GREEN}Re-initializing Terraform...{Fore.RESET}")
+#    return run_command("terraform init", cwd=directory)
+#
+## Extract the Terraform provider schema and save it as JSON
+#def extract_terraform_schema(directory, output_file):
+#    print(f"{Fore.GREEN}Extracting provider schemas...{Fore.RESET}")
+#    command = "terraform providers schema -json | jq ."
+#    stdout, stderr = run_command(command, cwd=directory)
+#    if stdout:
+#        with open(output_file, "w") as f:
+#            f.write(stdout)
+#        print(f"{Fore.GREEN}Schema extracted to {Fore.LIGHTGREEN_EX}{output_file}{Fore.RESET}")
+#    else:
+#        print(f"{Fore.RED}Error extracting schema:{Fore.RESET} {stderr}")
 
 # Set up Terraform and extract schema
 def setup_terraform_schema(directory, output_file="config/provider_schemas.json"):
@@ -199,8 +254,11 @@ def process_provider(schema, provider_key, template_dir):
     provider_schema = schema["provider_schemas"].get(provider_key, {})
     resources = provider_schema.get("resource_schemas", {})
     data_sources = provider_schema.get("data_source_schemas", {})
+    ephemeral_resources = provider_schema.get("ephemeral_resource_schemas", {})
+    functions = provider_schema.get("functions", {})
+    provider_attributes = provider_schema.get("provider", {}).get("block", {}).get("attributes", {})
 
-    print(f"\n{Fore.GREEN}Processing {Fore.BLUE}{provider_key}{Fore.GREEN}: Found {Fore.MAGENTA}{len(resources)}{Fore.GREEN} resources and {Fore.MAGENTA}{len(data_sources)}{Fore.GREEN} data sources.{Fore.RESET}")
+    print(f"\n{Fore.GREEN}Processing {Fore.BLUE}{provider_key}{Fore.GREEN}: Found {Fore.MAGENTA}{len(resources)}{Fore.GREEN} resources, {Fore.MAGENTA}{len(data_sources)}{Fore.GREEN} data sources, {Fore.MAGENTA}{len(ephemeral_resources)}{Fore.GREEN} ephemeral resources, and {Fore.MAGENTA}{len(functions)}{Fore.GREEN} functions.{Fore.RESET}")
 
     # Create provider-specific directory
     os.makedirs(template_dir, exist_ok=True)
@@ -218,8 +276,37 @@ resource "{{ resource_type }}" "{{ resource_name }}" {
 
     data_source_template = Template(
         """\
-# {{ data_type }}-data.tf.j2
 data "{{ data_type }}" "{{ data_name }}" {
+    {% for attribute, details in attributes.items() %}
+    {{ attribute }} = "{{ details['type_var'] }}"
+    {% endfor %}
+}
+""", trim_blocks=True, lstrip_blocks=True
+    )
+
+    ephemeral_resource_template = Template(
+        """\
+ephemeral_resource "{{ ephemeral_type }}" "{{ ephemeral_name }}" {
+    {% for attribute, details in attributes.items() %}
+    {{ attribute }} = "{{ details['type_var'] }}"
+    {% endfor %}
+}
+""", trim_blocks=True, lstrip_blocks=True
+    )
+
+    function_template = Template(
+        """\
+function "{{ function_name }}" {
+    {% for attribute, details in attributes.items() %}
+    {{ attribute }} = "{{ details['type_var'] }}"
+    {% endfor %}
+}
+""", trim_blocks=True, lstrip_blocks=True
+    )
+
+    provider_template = Template(
+        """\
+provider "{{ provider_key }}" {
     {% for attribute, details in attributes.items() %}
     {{ attribute }} = "{{ details['type_var'] }}"
     {% endfor %}
@@ -240,8 +327,8 @@ data "{{ data_type }}" "{{ data_name }}" {
             return "{\n" + "\n".join(nested_template) + "\n}"
         else:  # Fallback for unsupported cases
             return f"{{{{ unsupported_{key} }}}}"
-    
-    # Updated logic for resource templates
+
+    # Generate resource templates
     for resource_name, resource_details in resources.items():
         attributes = resource_details["block"].get("attributes", {})
         for attribute, details in attributes.items():
@@ -256,22 +343,19 @@ data "{{ data_type }}" "{{ data_name }}" {
                 }
                 error_log.append(error_message)
                 details["type_var"] = f"{{{{ unsupported_{attribute} }}}}"
-    
+
         rendered_resource = resource_template.render(
             resource_type=resource_name,
             resource_name="example",
             attributes=attributes,
         )
         write_template_to_file(os.path.join(template_dir, f"{resource_name}-resource.tf.j2"), rendered_resource)
-    
-    
-    # Generate data source templates
+
     # Generate data source templates
     for data_name, data_details in data_sources.items():
         attributes = data_details["block"].get("attributes", {})
         for attribute, details in attributes.items():
             try:
-                # Use the updated convert_to_template_variable function
                 details["type_var"] = convert_to_template_variable(details, attribute)
             except KeyError:
                 error_message = {
@@ -282,14 +366,78 @@ data "{{ data_type }}" "{{ data_name }}" {
                 }
                 error_log.append(error_message)
                 details["type_var"] = f"{{{{ unsupported_{attribute} }}}}"
-    
+
         rendered_data_source = data_source_template.render(
             data_type=data_name,
             data_name="example",
             attributes=attributes,
         )
         write_template_to_file(os.path.join(template_dir, f"{data_name}-data.tf.j2"), rendered_data_source)
-    
+
+    # Generate ephemeral resource templates
+    for ephemeral_name, ephemeral_details in ephemeral_resources.items():
+        attributes = ephemeral_details["block"].get("attributes", {})
+        for attribute, details in attributes.items():
+            try:
+                details["type_var"] = convert_to_template_variable(details, attribute)
+            except KeyError:
+                error_message = {
+                    "provider": provider_key,
+                    "ephemeral_resource": ephemeral_name,
+                    "attribute": attribute,
+                    "error": "Missing 'type' key"
+                }
+                error_log.append(error_message)
+                details["type_var"] = f"{{{{ unsupported_{attribute} }}}}"
+
+        rendered_ephemeral = ephemeral_resource_template.render(
+            ephemeral_type=ephemeral_name,
+            ephemeral_name="example",
+            attributes=attributes,
+        )
+        write_template_to_file(os.path.join(template_dir, f"{ephemeral_name}-ephemeral.tf.j2"), rendered_ephemeral)
+
+    # Generate function templates
+    for function_name, function_details in functions.items():
+        attributes = function_details.get("block", {}).get("attributes", {})
+        for attribute, details in attributes.items():
+            try:
+                details["type_var"] = convert_to_template_variable(details, attribute)
+            except KeyError:
+                error_message = {
+                    "provider": provider_key,
+                    "function": function_name,
+                    "attribute": attribute,
+                    "error": "Missing 'type' key"
+                }
+                error_log.append(error_message)
+                details["type_var"] = f"{{{{ unsupported_{attribute} }}}}"
+
+        rendered_function = function_template.render(
+            function_name=function_name,
+            attributes=attributes,
+        )
+        write_template_to_file(os.path.join(template_dir, f"{function_name}-functions.tf.j2"), rendered_function)
+
+    # Generate provider templates
+    provider_attributes = provider_attributes or {}
+    for attribute, details in provider_attributes.items():
+        try:
+            details["type_var"] = convert_to_template_variable(details, attribute)
+        except KeyError:
+            error_message = {
+                "provider": provider_key,
+                "attribute": attribute,
+                "error": "Missing 'type' key"
+            }
+            error_log.append(error_message)
+            details["type_var"] = f"{{{{ unsupported_{attribute} }}}}"
+
+    rendered_provider = provider_template.render(
+        provider_key=provider_key.split("/")[-1],
+        attributes=provider_attributes,
+    )
+    write_template_to_file(os.path.join(template_dir, "provider.tf.j2"), rendered_provider)
 
 # Write errors to a file
 def write_errors_to_file(errors, file_path="errors.json"):

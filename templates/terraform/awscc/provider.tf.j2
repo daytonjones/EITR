@@ -1,0 +1,47 @@
+provider "awscc" {
+    access_key = "{{ access_key }}"
+    assume_role = "{
+    duration = {{ duration }}
+    external_id = {{ external_id }}
+    policy = {{ policy }}
+    policy_arns = {{ policy_arns }}
+    role_arn = {{ role_arn }}
+    session_name = {{ session_name }}
+    tags = {{ tags }}
+    transitive_tag_keys = {{ transitive_tag_keys }}
+}"
+    assume_role_with_web_identity = "{
+    duration = {{ duration }}
+    policy = {{ policy }}
+    policy_arns = {{ policy_arns }}
+    role_arn = {{ role_arn }}
+    session_name = {{ session_name }}
+    web_identity_token = {{ web_identity_token }}
+    web_identity_token_file = {{ web_identity_token_file }}
+}"
+    endpoints = "{
+    cloudcontrolapi = {{ cloudcontrolapi }}
+    iam = {{ iam }}
+    sso = {{ sso }}
+    sts = {{ sts }}
+}"
+    http_proxy = "{{ http_proxy }}"
+    https_proxy = "{{ https_proxy }}"
+    insecure = "{{ insecure }}"
+    max_retries = "{{ max_retries }}"
+    no_proxy = "{{ no_proxy }}"
+    profile = "{{ profile }}"
+    region = "{{ region }}"
+    role_arn = "{{ role_arn }}"
+    secret_key = "{{ secret_key }}"
+    shared_config_files = "{{ shared_config_files }}"
+    shared_credentials_files = "{{ shared_credentials_files }}"
+    skip_medatadata_api_check = "{{ skip_medatadata_api_check }}"
+    skip_metadata_api_check = "{{ skip_metadata_api_check }}"
+    token = "{{ token }}"
+    user_agent = "{
+    comment = {{ comment }}
+    product_name = {{ product_name }}
+    product_version = {{ product_version }}
+}"
+}

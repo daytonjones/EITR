@@ -1,0 +1,18 @@
+provider "vault" {
+    add_address_to_env = "{{ add_address_to_env }}"
+    address = "{{ address }}"
+    ca_cert_dir = "{{ ca_cert_dir }}"
+    ca_cert_file = "{{ ca_cert_file }}"
+    max_lease_ttl_seconds = "{{ max_lease_ttl_seconds }}"
+    max_retries = "{{ max_retries }}"
+    max_retries_ccc = "{{ max_retries_ccc }}"
+    namespace = "{{ namespace }}"
+    set_namespace_from_token = "{{ set_namespace_from_token }}"
+    skip_child_token = "{{ skip_child_token }}"
+    skip_get_vault_version = "{{ skip_get_vault_version }}"
+    skip_tls_verify = "{{ skip_tls_verify }}"
+    tls_server_name = "{{ tls_server_name }}"
+    token = "{{ token }}"
+    token_name = "{{ token_name }}"
+    vault_version_override = "{{ vault_version_override }}"
+}

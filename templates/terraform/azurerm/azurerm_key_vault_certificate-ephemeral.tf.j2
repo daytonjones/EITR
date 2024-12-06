@@ -1,0 +1,11 @@
+ephemeral_resource "azurerm_key_vault_certificate" "example" {
+    certificate_count = "{{ certificate_count }}"
+    expiration_date = "{{ expiration_date }}"
+    hex = "{{ hex }}"
+    key = "{{ key }}"
+    key_vault_id = "{{ key_vault_id }}"
+    name = "{{ name }}"
+    not_before_date = "{{ not_before_date }}"
+    pem = "{{ pem }}"
+    version = "{{ version }}"
+}

@@ -1,63 +1,49 @@
-# EITR: Environment Infrastructure Terraform Renderer
+# EITR - Multi-Provider Terraform Config Generator
 
 ## Introduction
-
-**EITR** is a web application designed to simplify the process of generating Terraform configurations for various cloud providers, local environments, and virtualized infrastructures. With an intuitive interface featuring dropdowns, radio buttons, and checkboxes, users can easily select the providers, resources, and settings they need to orchestrate complex environments. EITR empowers users to:
-
-- Quickly configure foundational infrastructure.
-- Export dynamically generated Terraform code for immediate deployment.
-- Streamline multi-cloud, hybrid, or on-premises infrastructure setup.
-
-In Norse mythology, *Eitr* is a mythical substance representing raw potential and creation—the perfect name for an app that helps shape and define infrastructure. The name also functions as a meaningful acronym:
-
-**EITR: Environment Infrastructure Terraform Renderer**
-
 - **E**: Environment – Spanning cloud (AWS, Azure, GCP), local, and virtualized setups.
 - **I**: Infrastructure – Focused on creating and managing critical infrastructure components.
 - **T**: Terraform – The de facto tool for infrastructure as code.
 - **R**: Renderer – A system for dynamically generating Terraform configurations.
 
+**EITR** is a web-based application designed to simplify and streamline Terraform configuration generation. It allows users to dynamically select multiple providers and resources, and then generate ready-to-use Terraform templates with minimal effort.  
+
+In Norse mythology, *eitr* represents raw potential and creation, making it the perfect name for a tool that shapes and defines infrastructure.
+
+---
+
 ## Features
 
-### Providers Supported
-EITR supports a wide range of providers, including:
-- AWS
-- Microsoft Azure
-- Google Cloud Platform (GCP)
-- HashiCorp Consul
-- Local and virtualized environments (e.g., VirtualBox, Vagrant)
+- **Dynamic Provider and Resource Management**  
+  Choose from the configured providers and their resources to generate custom Terraform configurations.  By default, EITR uses the 35 official (as of December, 2024) providers (https://registry.terraform.io/search/providers?namespace=hashicorp&tier=official)
 
-### Resources Supported
-EITR allows you to configure and generate Terraform templates for commonly used resources, such as:
-- **Networking:** VPCs, subnets, route tables, internet gateways, and NAT gateways.
-- **Compute:** EC2 instances, Azure VMs, and GCP compute instances.
-- **Containers:** ECS clusters, EKS clusters, and Kubernetes resources.
-- **Storage:** S3 buckets, Azure Blob Storage, and GCP Storage Buckets.
-- **DNS:** Route53 zones and records.
-- **IAM:** Roles, policies, and users.
+- **Template-Based Configuration**  
+  Leverage Jinja2 templates for consistent and reusable Terraform code.
 
-### User-Friendly Interface
-- **Dropdowns**: Select your provider and specify resource options.
-- **Radio Buttons/Checkboxes**: Choose the resources to include in your configuration.
-- **Hidden Inputs**: Enter specific details like CIDR blocks, AMI IDs, or other required parameters dynamically.
+- **Rich User Interface**  
+  Interactive sidebar navigation, resource toggles, and dynamic content loading.
 
-### Downloadable Configurations
-Once a configuration is generated, users can view and download the Terraform `.tf` file directly from the app, ready for deployment.
+- **Preview and Validation**  
+  Review Terraform configurations dynamically before generating the final file.
+
+
+---
+## Prerequisites
+
+To run the application, ensure you have the following installed:
+- Python 3.9+
+- Pipenv or a similar Python package manager
+- Node.js 
+- Terraform
+- uvicorn (or gunicorn)
+
+---
 
 ## Installation
-
-To set up EITR locally or on a server, follow these steps:
-
-### Prerequisites
-- Python 3.9+
-- Terraform CLI installed
-- A virtual environment tool (optional but recommended)
-
-### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/daytonjones/eitr.git
-   cd eitr
+   git clone https://github.com/daytonjones/EITR.git
+   cd EITR
    ```
 2. Set up a virtual environment:
    ```bash
@@ -68,121 +54,85 @@ To set up EITR locally or on a server, follow these steps:
    ```bash
    pip install -r requirements.txt
    ```
-4. Start the application:
+4. Generate the schemas, update the templates:
    ```bash
-   uvicorn main:app --reload
-   (or: gunicorn -w 4 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app)
+   utilities/generate_tf_provider_templates.py
    ```
-5. Access the app in your browser at `http://127.0.0.1:8000`.
+5. Start the application:
+   ```bash
+   gunicorn -w 4 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app
+   ```
+6. Access the app in your browser at `http://127.0.0.1:8000`.
 
 ## Usage
-
 1. Open the application in your browser.
-2. Select your provider from the dropdown menu.
-3. Choose the resources you want to create using the checkboxes and radio buttons.
-4. Fill in additional details for selected resources (e.g., CIDR blocks for VPCs).
-5. Click "Generate Configuration" to view the Terraform code.
-6. Download the generated `.tf` file for deployment.
+2. Select your provider(s) from the dropdown menu.
+3. Choose the resources you want to create using the checkboxes.
+4. Click "Generate Configuration" to view the Terraform code.
+5. Download the generated `.tf` file for deployment.
+
+To change the providers, edit config/providers.json and the re-run "utilities/generate_tf_provider_templates.py" 
 
 ## Project Structure
 
 ```
-EITR/
+EITR
 ├── config
-│   ├── provider_schemas.json
-│   └── providers.json
+│   └── providers.json
 ├── Dockerfile
+├── LICENSE
 ├── main.py
 ├── README.md
 ├── requirements.txt
 ├── static
-│   ├── eitr_background.jpeg
-│   ├── eitr.ico
-│   └── eitr.png
+│   ├── eitr_background.jpeg
+│   ├── eitr.ico
+│   └── eitr.png
 ├── templates
-│   ├── index.html
-│   └── terraform
-│       ├── ad
-│       ├── archive
-│       ├── assert
-│       ├── aws
-│       ├── awscc
-│       ├── azuread
-│       ├── azurerm
-│       ├── azurestack
-│       ├── boundary
-│       ├── cloudinit
-│       ├── consul
-│       ├── dns
-│       ├── external
-│       ├── google
-│       ├── google-beta
-│       ├── googleworkspace
-│       ├── hcp
-│       ├── hcs
-│       ├── helm
-│       ├── http
-│       ├── kubernetes
-│       ├── local
-│       ├── nomad
-│       ├── null
-│       ├── opc
-│       ├── oraclepaas
-│       ├── random
-│       ├── salesforce
-│       ├── template
-│       ├── tfe
-│       ├── tfmigrate
-│       ├── time
-│       ├── tls
-│       ├── vault
-│       └── vsphere
+│   ├── index.html
+│   └── terraform
+│       ├── ad
+│       ├── archive
+│       ├── assert
+│       ├── aws
+│       ├── awscc
+│       ├── azuread
+│       ├── azurerm
+│       ├── azurestack
+│       ├── boundary
+│       ├── cloudinit
+│       ├── consul
+│       ├── dns
+│       ├── external
+│       ├── google
+│       ├── google-beta
+│       ├── googleworkspace
+│       ├── hcp
+│       ├── hcs
+│       ├── helm
+│       ├── http
+│       ├── kubernetes
+│       ├── local
+│       ├── nomad
+│       ├── null
+│       ├── opc
+│       ├── oraclepaas
+│       ├── random
+│       ├── salesforce
+│       ├── template
+│       ├── tfe
+│       ├── tfmigrate
+│       ├── time
+│       ├── tls
+│       ├── vault
+│       └── vsphere
 └── utilities
     └── generate_tf_provider_templates.py
 ```
-
-## Example Configuration
-
-Here’s a sample Terraform configuration generated by EITR for an AWS setup:
-
-```hcl
-provider "aws" {
-  region = "us-east-1"
-}
-
-resource "aws_vpc" "main" {
-  cidr_block = "10.0.0.0/16"
-}
-
-resource "aws_subnet" "subnet" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = "10.0.1.0/24"
-}
-
-resource "aws_instance" "web" {
-  ami           = "ami-12345678"
-  instance_type = "t2.micro"
-  subnet_id     = aws_subnet.subnet.id
-}
-```
-
-## Contributing
-
-We welcome contributions to enhance EITR. Please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch for your feature:
-   ```bash
-   git checkout -b feature-name
-   ```
-3. Commit your changes and push them to your fork.
-4. Submit a pull request.
 
 ## License
 
 EITR is licensed under the MIT License. See `LICENSE` for details.
 
 ---
-
-Thank you for using **EITR**! For questions or feedback, please open an issue on the [GitHub repository](https://github.com/daytonjones/eitr).
 

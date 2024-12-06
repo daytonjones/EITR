@@ -1,0 +1,6 @@
+resource "aws_vpc_block_public_access_options" "example" {
+    aws_account_id = "{{ aws_account_id }}"
+    aws_region = "{{ aws_region }}"
+    id = "{{ id }}"
+    internet_gateway_block_mode = "{{ internet_gateway_block_mode }}"
+}
