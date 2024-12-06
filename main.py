@@ -1,7 +1,11 @@
-from fastapi import FastAPI, Form, Request
+from datetime import datetime
+from fastapi import Body, FastAPI, Form, Request
 from fastapi.responses import HTMLResponse, FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from textwrap import dedent
+import hcl2
+import io
 import json
 import os
 
@@ -81,38 +85,145 @@ async def generate_terraform_config(
     resources: str = Form(...),
     options: str = Form(...)
 ):
-    # Parse submitted form data
-    selected_providers = json.loads(enabled_providers)  # List of enabled providers
-    selected_resources = json.loads(resources)  # Dictionary of resources per provider
-    resource_options = json.loads(options)  # Resource-specific options
-    
-    terraform_config = []
+    selected_providers = json.loads(enabled_providers)
+    selected_resources = json.loads(resources)
+    resource_options = json.loads(options)
 
-    # Generate Terraform configurations for selected providers and resources
+    terraform_config = []
     for provider in selected_providers:
         provider_resources = selected_resources.get(provider, {})
         for resource, opts in provider_resources.items():
             template_file = f"templates/terraform/{provider}_{resource}.tf.j2"
             if os.path.exists(template_file):
-                # Render the resource template with provided options
                 rendered = templates.TemplateResponse(
                     f"terraform/{provider}_{resource}.tf.j2",
                     {"request": request, "options": opts}
                 )
                 terraform_config.append(rendered.body.decode())
 
-    # Combine rendered templates into a single Terraform file
     full_config = "\n\n".join(terraform_config)
-    config_file_path = "output/main.tf"
-    os.makedirs(os.path.dirname(config_file_path), exist_ok=True)
-    with open(config_file_path, "w") as f:
-        f.write(full_config)
 
-    # Respond with the generated configuration displayed on the index page
+    # Save the generated configuration
+    now = datetime.now()
+    timestamp = now.strftime("%m%d%Y%H%M")
+    config_dir = "generated_configs"
+    os.makedirs(config_dir, exist_ok=True)
+
+    # Save HCL file with simple formatting
+    hcl_file_path = os.path.join(config_dir, f"main_{timestamp}.tf")
+    pretty_hcl = "\n".join(line.strip() for line in full_config.splitlines() if line.strip())
+    with open(hcl_file_path, "w") as f:
+        f.write(pretty_hcl)
+
+    # Save JSON file with pretty formatting
+    json_file_path = os.path.join(config_dir, f"main_{timestamp}.json")
+    with open(json_file_path, "w") as f:
+        json.dump({"terraform_config": full_config}, f, indent=4)  # Pretty print JSON
+
     return templates.TemplateResponse("index.html", {
         "request": request,
         "providers": PROVIDERS,
         "resources": RESOURCES,
-        "terraform_config": full_config
+        "terraform_config": full_config,
+        "download_ready": True,  # Add a flag to indicate config is ready
+        "timestamp": timestamp,  # Pass the timestamp for download links
     })
 
+@app.get("/save_config/{format}", response_class=FileResponse)
+async def save_terraform_config(format: str, request: Request):
+    now = datetime.now()
+    timestamp = now.strftime("%m%d%Y%H%M")
+
+    # Generate the terraform config dynamically (without saving to a file first)
+    selected_providers = []  # Retrieve this from your request data
+    selected_resources = {}  # Retrieve this from your request data
+    resource_options = {}    # Retrieve this from your request data
+
+    terraform_config = []
+
+    for provider in selected_providers:
+        provider_resources = selected_resources.get(provider, {})
+        for resource, opts in provider_resources.items():
+            template_file = f"templates/terraform/{provider}_{resource}.tf.j2"
+            if os.path.exists(template_file):
+                rendered = templates.TemplateResponse(
+                    f"terraform/{provider}_{resource}.tf.j2",
+                    {"request": request, "options": opts}
+                )
+                terraform_config.append(rendered.body.decode())
+
+    full_config = "\n\n".join(terraform_config)
+
+    # Handle file format (Pretty Print JSON and HCL)
+    if format == "json":
+        # Pretty print JSON
+        json_config = {
+            "terraform_config": full_config
+        }
+        json_content = json.dumps(json_config, indent=4)  # Pretty print with 4 spaces
+
+        return FileResponse(
+            content=json_content,
+            media_type="application/json",
+            headers={"Content-Disposition": f"attachment; filename=terraform_config_{timestamp}.json"}
+        )
+
+    elif format == "hcl":
+        # Pretty print HCL (format the text manually)
+        pretty_hcl = "\n".join(line.strip() for line in full_config.splitlines() if line.strip())
+        pretty_hcl = "\n    ".join(pretty_hcl.splitlines())  # Indentation for each line
+
+        return FileResponse(
+            content=pretty_hcl,
+            media_type="application/x-hcl",
+            headers={"Content-Disposition": f"attachment; filename=main_{timestamp}.tf"}
+        )
+
+    return JSONResponse(
+        status_code=400,
+        content={"error": "Unsupported format. Please choose 'json' or 'hcl'."},
+    )
+
+@app.post("/save_config/{format}", response_class=JSONResponse)
+async def save_terraform_config(format: str, config: dict = Body(...)):
+    now = datetime.now()
+    timestamp = now.strftime("%m%d%Y%H%M")
+
+    # Extract the configuration
+    full_config = config.get("config", "").strip()
+    if not full_config:
+        return JSONResponse(
+            status_code=400,
+            content={"error": "No configuration provided."},
+        )
+
+    if format == "json":
+        try:
+            # Use hcl2 to parse the HCL string into a Python dictionary
+            hcl_stream = io.StringIO(full_config)
+            hcl_data = hcl2.load(hcl_stream)
+
+            # Convert the HCL dictionary into pretty-printed JSON
+            pretty_json = json.dumps(hcl_data, indent=4)
+
+            return JSONResponse(
+                content={"config": pretty_json},
+                headers={
+                    "Content-Disposition": f"attachment; filename=generated_terraform_{timestamp}.json"
+                },
+            )
+        except Exception as e:
+            return JSONResponse(
+                status_code=400,
+                content={"error": f"Failed to parse HCL to JSON: {str(e)}"},
+            )
+
+    elif format == "hcl":
+        # Format HCL manually by dedenting and cleaning extra spaces
+        pretty_hcl = dedent(full_config).strip()
+        return JSONResponse(
+            content={"config": pretty_hcl},
+            headers={
+                "Content-Disposition": f"attachment; filename=generated_terraform_{timestamp}.tf"
+            },
+        )
