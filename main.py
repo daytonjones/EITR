@@ -1,6 +1,6 @@
 from datetime import datetime
 from fastapi import Body, FastAPI, Form, Request
-from fastapi.responses import HTMLResponse, FileResponse, JSONResponse
+from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from textwrap import dedent
@@ -103,11 +103,8 @@ async def generate_terraform_config(
 
     full_config = "\n\n".join(terraform_config)
 
-    # Save the generated configuration
-    now = datetime.now()
-    timestamp = now.strftime("%m%d%Y%H%M")
-    config_dir = "generated_configs"
-    os.makedirs(config_dir, exist_ok=True)
+#    now = datetime.now()
+#    timestamp = now.strftime("%m%d%Y%H%M")
 
     # Save HCL file with simple formatting
     hcl_file_path = os.path.join(config_dir, f"main_{timestamp}.tf")
@@ -126,63 +123,8 @@ async def generate_terraform_config(
         "resources": RESOURCES,
         "terraform_config": full_config,
         "download_ready": True,  # Add a flag to indicate config is ready
-        "timestamp": timestamp,  # Pass the timestamp for download links
     })
-
-@app.get("/save_config/{format}", response_class=FileResponse)
-async def save_terraform_config(format: str, request: Request):
-    now = datetime.now()
-    timestamp = now.strftime("%m%d%Y%H%M")
-
-    # Generate the terraform config dynamically (without saving to a file first)
-    selected_providers = []  # Retrieve this from your request data
-    selected_resources = {}  # Retrieve this from your request data
-    resource_options = {}    # Retrieve this from your request data
-
-    terraform_config = []
-
-    for provider in selected_providers:
-        provider_resources = selected_resources.get(provider, {})
-        for resource, opts in provider_resources.items():
-            template_file = f"templates/terraform/{provider}_{resource}.tf.j2"
-            if os.path.exists(template_file):
-                rendered = templates.TemplateResponse(
-                    f"terraform/{provider}_{resource}.tf.j2",
-                    {"request": request, "options": opts}
-                )
-                terraform_config.append(rendered.body.decode())
-
-    full_config = "\n\n".join(terraform_config)
-
-    # Handle file format (Pretty Print JSON and HCL)
-    if format == "json":
-        # Pretty print JSON
-        json_config = {
-            "terraform_config": full_config
-        }
-        json_content = json.dumps(json_config, indent=4)  # Pretty print with 4 spaces
-
-        return FileResponse(
-            content=json_content,
-            media_type="application/json",
-            headers={"Content-Disposition": f"attachment; filename=terraform_config_{timestamp}.json"}
-        )
-
-    elif format == "hcl":
-        # Pretty print HCL (format the text manually)
-        pretty_hcl = "\n".join(line.strip() for line in full_config.splitlines() if line.strip())
-        pretty_hcl = "\n    ".join(pretty_hcl.splitlines())  # Indentation for each line
-
-        return FileResponse(
-            content=pretty_hcl,
-            media_type="application/x-hcl",
-            headers={"Content-Disposition": f"attachment; filename=main_{timestamp}.tf"}
-        )
-
-    return JSONResponse(
-        status_code=400,
-        content={"error": "Unsupported format. Please choose 'json' or 'hcl'."},
-    )
+#        "timestamp": timestamp,  # Pass the timestamp for download links
 
 @app.post("/save_config/{format}", response_class=JSONResponse)
 async def save_terraform_config(format: str, config: dict = Body(...)):
@@ -227,3 +169,9 @@ async def save_terraform_config(format: str, config: dict = Body(...)):
                 "Content-Disposition": f"attachment; filename=generated_terraform_{timestamp}.tf"
             },
         )
+
+    return JSONResponse(
+        status_code=400,
+        content={"error": "Unsupported format. Please choose 'json' or 'hcl'."},
+    )
+
