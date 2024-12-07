@@ -31,11 +31,10 @@ In Norse mythology, *eitr* represents raw potential and creation, making it the 
 ## Prerequisites
 
 To run the application, ensure you have the following installed:
-- Python 3.9+
-- Pipenv or a similar Python package manager
+- Python 3.12+
 - Node.js 
 - Terraform
-- uvicorn (or gunicorn)
+- gunicorn
 
 ---
 
@@ -60,7 +59,7 @@ To run the application, ensure you have the following installed:
    ```
 5. Start the application:
    ```bash
-   gunicorn -w 4 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app
+   gunicorn -w 3 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app --daemon --name eitr
    ```
 6. Access the app in your browser at `http://127.0.0.1:8000`.
 
@@ -68,8 +67,7 @@ To run the application, ensure you have the following installed:
 1. Open the application in your browser.
 2. Select your provider(s) from the dropdown menu.
 3. Choose the resources you want to create using the checkboxes.
-4. Click "Generate Configuration" to view the Terraform code.
-5. Download the generated `.tf` file for deployment.
+4. Click either "Save as JSON" or "Save as HCL" to download the generated Terraform code.
 
 To change the providers, edit config/providers.json and the re-run "utilities/generate_tf_provider_templates.py" 
 
