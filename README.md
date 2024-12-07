@@ -38,6 +38,11 @@ To run the application, ensure you have the following installed:
 
 ---
 
+## Demo
+Visit: https://eitr.gecko.org to view Eitr in action
+
+---
+
 ## Installation
 1. Clone the repository:
    ```bash
@@ -57,7 +62,7 @@ To run the application, ensure you have the following installed:
    ```bash
    utilities/generate_tf_provider_templates.py
    ```
-5. Start the application:
+5. Start Eitr:
    ```bash
    gunicorn -w 3 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app --daemon --name eitr
    ```
@@ -65,7 +70,7 @@ To run the application, ensure you have the following installed:
 
 ## Usage
 1. Open the application in your browser.
-2. Select your provider(s) from the dropdown menu.
+2. Select your provider(s) from the left to expand them.
 3. Choose the resources you want to create using the checkboxes.
 4. Click either "Save as JSON" or "Save as HCL" to download the generated Terraform code.
 
