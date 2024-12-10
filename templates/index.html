@@ -179,160 +179,183 @@
                 }
             };
     
+            // Attach event listeners to all checkboxes dynamically
+            const attachCheckboxListeners = () => {
+                const resourceCheckboxes = document.querySelectorAll(".resource-checkbox");
+    
+                resourceCheckboxes.forEach((checkbox) => {
+                    checkbox.addEventListener("change", async () => {
+                        const provider = checkbox.dataset.provider;
+                        const resource = checkbox.dataset.resource;
+                        const schemaType = checkbox.name.split("_")[1];
+                        const action = checkbox.checked ? "add" : "remove";
+    
+                        try {
+                            // Send the update to the backend
+                            await fetch("/update_config", {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify({ provider, schema_type: schemaType, resource, action }),
+                            });
+    
+                            // Refresh the display
+                            await refreshConfigDisplay();
+                        } catch (error) {
+                            console.error("Error updating configuration:", error);
+                        }
+                    });
+                });
+            };
+    
             // Refresh the configuration display with templates
             const refreshConfigDisplay = async () => {
                 configDisplay.innerHTML = ""; // Clear current display
                 const response = await fetch("/get_current_config");
                 if (!response.ok) throw new Error("Failed to fetch current config");
                 const { config } = await response.json();
-            
+    
                 for (const [provider, schemas] of Object.entries(config)) {
                     const providerSection = document.createElement("div");
                     providerSection.className = "p-4 bg-gray-700 rounded mb-4";
-            
-                    // Add a button for collapsing and expanding
+    
                     const providerHeader = document.createElement("button");
                     providerHeader.className = "w-full text-left text-lg font-bold text-white px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded";
                     providerHeader.innerHTML = `:: ${provider.toUpperCase()} ::`;
                     providerHeader.addEventListener("click", () => {
                         providerContent.classList.toggle("hidden"); // Toggle visibility
                     });
-            
-                    // Content section that can be toggled
+    
                     const providerContent = document.createElement("div");
                     providerContent.className = "mt-2 space-y-4";
-            
-                    // Handle "provider" schema type first
-                    if (schemas.provider) {
-                        const schemaSection = document.createElement("div");
-                        schemaSection.className = "mb-2";
-                        schemaSection.innerHTML = `<h4 class="font-semibold text-gray-300 capitalize">provider</h4>`;
-                        for (const resource of schemas.provider) {
-                            const templateContent = await fetchTemplate(provider, "provider", resource);
-                            const resourceDiv = document.createElement("div");
-                            resourceDiv.className = "p-2 bg-gray-800 rounded mt-2";
-                            resourceDiv.innerHTML = `
-                                <h5 class="text-sm font-bold text-gray-200">${resource}</h5>
-                                <pre class="text-xs bg-gray-900 text-white p-2 rounded overflow-auto">${templateContent}</pre>
-                            `;
-                            schemaSection.appendChild(resourceDiv);
-                        }
-                        providerContent.appendChild(schemaSection);
-                    }
-            
-                    // Handle all other schema types
+    
                     for (const [schemaType, resources] of Object.entries(schemas)) {
-                        if (schemaType === "provider") continue; // Already handled
                         const schemaSection = document.createElement("div");
                         schemaSection.className = "mb-2";
                         schemaSection.innerHTML = `<h4 class="font-semibold text-gray-300 capitalize">${schemaType}</h4>`;
+    
                         for (const resource of resources) {
                             const templateContent = await fetchTemplate(provider, schemaType, resource);
                             const resourceDiv = document.createElement("div");
                             resourceDiv.className = "p-2 bg-gray-800 rounded mt-2";
-                            resourceDiv.innerHTML = `
-                                <h5 class="text-sm font-bold text-gray-200">${resource}</h5>
-                                <pre class="text-xs bg-gray-900 text-white p-2 rounded overflow-auto">${templateContent}</pre>
-                            `;
+    
+                            // Editable template
+                            const preElement = document.createElement("pre");
+                            preElement.className = "text-xs bg-gray-900 text-white p-2 rounded overflow-auto";
+                            preElement.contentEditable = false;
+                            preElement.innerText = templateContent;
+    
+                            // Buttons for edit and save
+                            const buttonContainer = document.createElement("div");
+                            buttonContainer.className = "mt-2 space-x-2";
+                            const editButton = document.createElement("button");
+                            editButton.className = "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded";
+                            editButton.innerText = "Edit";
+                            const saveButton = document.createElement("button");
+                            saveButton.className = "bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded hidden";
+                            saveButton.innerText = "Save";
+    
+                            // Edit button functionality
+                            editButton.addEventListener("click", () => {
+                                preElement.contentEditable = true;
+                                preElement.focus();
+                                editButton.classList.add("hidden");
+                                saveButton.classList.remove("hidden");
+                            });
+    
+                            // Save button functionality
+                            saveButton.addEventListener("click", async () => {
+                                preElement.contentEditable = false;
+                                const updatedTemplate = preElement.innerText;
+                                await fetch("/update_template", {
+                                    method: "POST",
+                                    headers: { "Content-Type": "application/json" },
+                                    body: JSON.stringify({
+                                        provider,
+                                        schema_type: schemaType,
+                                        resource,
+                                        template: updatedTemplate
+                                    }),
+                                });
+                                editButton.classList.remove("hidden");
+                                saveButton.classList.add("hidden");
+                            });
+    
+                            buttonContainer.appendChild(editButton);
+                            buttonContainer.appendChild(saveButton);
+                            resourceDiv.appendChild(preElement);
+                            resourceDiv.appendChild(buttonContainer);
                             schemaSection.appendChild(resourceDiv);
                         }
                         providerContent.appendChild(schemaSection);
                     }
-            
-                    // Append the header and content to the provider section
+    
                     providerSection.appendChild(providerHeader);
                     providerSection.appendChild(providerContent);
-            
-                    // Add the provider section to the display
                     configDisplay.appendChild(providerSection);
                 }
-            
+    
                 saveButtons.style.display = configDisplay.children.length > 0 ? "block" : "none";
+    
+                // Reattach checkbox listeners
+                attachCheckboxListeners();
             };
- 
-            // Update the in-memory configuration
-            const updateConfig = async (provider, schemaType, resource, action) => {
+    
+            // Handle saving configuration
+            const saveConfig = async (format) => {
+                const templates = Array.from(configDisplay.querySelectorAll("pre"))
+                    .map(pre => pre.innerText)
+                    .join("\n\n");
+    
                 try {
-                    await fetch("/update_config", {
+                    const response = await fetch(`/save_config/${format}`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ provider, schema_type: schemaType, resource, action }),
+                        body: JSON.stringify({ config: templates }),
                     });
+    
+                    if (response.ok) {
+                        const { config } = await response.json();
+                        const blob = new Blob([config], { type: format === "json" ? "application/json" : "application/x-hcl" });
+                        const downloadUrl = window.URL.createObjectURL(blob);
+                        const link = document.createElement("a");
+                        link.href = downloadUrl;
+                        link.download = `eitr_generated_tf_config_${new Date().toISOString().slice(0, 19).replace(/:/g, "-")}.${format}`;
+                        document.body.appendChild(link);
+                        link.click();
+                        link.remove();
+                    } else {
+                        console.error(`Error saving ${format.toUpperCase()} configuration`);
+                    }
                 } catch (error) {
-                    console.error("Error updating configuration:", error);
+                    console.error("Error saving configuration:", error);
                 }
             };
     
-            // When a checkbox is toggled
-            resourceCheckboxes.forEach((checkbox) => {
-                checkbox.addEventListener("change", async () => {
-                    const provider = checkbox.dataset.provider;
-                    const resource = checkbox.dataset.resource;
-                    const schemaType = checkbox.name.split("_")[1];
-                    const action = checkbox.checked ? "add" : "remove";
-    
-                    await updateConfig(provider, schemaType, resource, action);
-                    await refreshConfigDisplay();
-                });
-            });
-    
-            // Save configuration as JSON or HCL
-            const saveConfig = async (format) => {
-             // Collect all displayed templates from the configDisplay
-             const templates = Array.from(configDisplay.querySelectorAll("pre"))
-                 .map(pre => pre.innerText)
-                 .join("\n\n");
-         
-             try {
-                 const response = await fetch(`/save_config/${format}`, {
-                     method: "POST",
-                     headers: { "Content-Type": "application/json" },
-                     body: JSON.stringify({ config: templates }),
-                 });
-         
-                 if (response.ok) {
-                     const { config } = await response.json();
-                     const blob = new Blob([config], { type: format === "json" ? "application/json" : "application/x-hcl" });
-                     const downloadUrl = window.URL.createObjectURL(blob);
-                     const link = document.createElement("a");
-                     link.href = downloadUrl;
-                     link.download = `eitr_generated_tf_config_${new Date().toISOString().slice(0, 19).replace(/:/g, "-")}.${format}`;
-                     document.body.appendChild(link);
-                     link.click();
-                     link.remove();
-                 } else {
-                     console.error(`Error saving ${format.toUpperCase()} configuration`);
-                 }
-             } catch (error) {
-                 console.error("Error saving configuration:", error);
-             }
-         };
- 
             document.getElementById("saveJsonBtn").addEventListener("click", () => saveConfig("json"));
             document.getElementById("saveHclBtn").addEventListener("click", () => saveConfig("hcl"));
-
+    
+            // Reset configuration (clear checkboxes and the display)
             document.getElementById("resetConfigBtn").addEventListener("click", async () => {
                 try {
                     // Clear the in-memory configuration on the backend
                     await fetch("/reset_config", {
                         method: "POST",
                     });
-            
+    
                     // Unselect all checkboxes
                     document.querySelectorAll(".resource-checkbox").forEach((checkbox) => {
                         checkbox.checked = false;
                     });
-            
+    
                     // Clear the main display
                     configDisplay.innerHTML = "";
-            
+    
                     // Hide save buttons
                     saveButtons.style.display = "none";
                 } catch (error) {
                     console.error("Error resetting configuration:", error);
                 }
             });
-
     
             // Update the current year in the footer
             document.getElementById("current-year").textContent = new Date().getFullYear();

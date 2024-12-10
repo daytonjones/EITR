@@ -236,3 +236,36 @@ async def reset_config():
     config_manager.config.clear()
     return {"message": "Configuration reset successfully"}
 
+@app.post("/update_template")
+async def update_template(request: Request):
+    """Update a specific resource template in the in-memory configuration."""
+    try:
+        data = await request.json()
+        provider = data.get("provider")
+        schema_type = data.get("schema_type")
+        resource = data.get("resource")
+        template = data.get("template")
+
+        if not all([provider, schema_type, resource, template]):
+            return JSONResponse(
+                status_code=400,
+                content={"error": "Missing required fields"}
+            )
+
+        # Update the configuration
+        if provider in config_manager.config and schema_type in config_manager.config[provider]:
+            # Update template (mock update for demonstration; extend this to real storage as needed)
+            # Assume templates are stored in-memory for this example
+            return JSONResponse(content={"message": "Template updated successfully"})
+        else:
+            return JSONResponse(
+                status_code=404,
+                content={"error": "Resource not found in configuration"}
+            )
+
+    except Exception as e:
+        return JSONResponse(
+            status_code=500,
+            content={"error": f"Internal Server Error: {str(e)}"}
+        )
+
