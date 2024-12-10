@@ -28,6 +28,20 @@
         .word {
             margin: 0 0.3rem;
         }
+        #save-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+    
+        #save-buttons button {
+            margin: 0 10px;
+            flex: 1;
+            max-width: 200px;
+            text-align: center;
+        }
+
     </style>
 </head>
 <body class="bg-cover bg-center h-full relative">
@@ -122,153 +136,267 @@
 
         <!-- Main Content -->
         <main class="w-full md:w-5/6 bg-opacity-99 p-6 overflow-y-auto">
-            <div id="config-display" class="space-y-4"></div>
             <div class="mt-6 hidden" id="save-buttons">
                 <button
                     class="bg-green-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
                     id="saveJsonBtn">
-                    <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+                    <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+                    </svg>
                     <span>Save as JSON</span>
-	        </button>
+                </button>
                 <button
-	            class="bg-green-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
+                    class="bg-green-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
                     id="saveHclBtn">
-                    <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+                    <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+                    </svg>
                     <span>Save as HCL</span>
                 </button>
+                <button
+                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
+                    id="resetConfigBtn">
+                    <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+                    </svg>
+                    <span>Clear Config</span>
+                </button>
             </div>
+            <div id="config-display" class="space-y-4"></div>
         </main>
     </div>
 
     <!-- Footer -->
     <footer class="relative z-10 bg-opacity-90 text-white p-4 text-left">
         <p>
-            Providers: {{ total_providers }}, Resources: {{ total_resources }}
+            {{ total_providers }} providers with {{ total_resources }} resources
         </p>
         <p>EITR &copy; <span id="current-year"></span> Dayton Jones</p>
     </footer>
     <script>
-        // JavaScript for hover effect over the Logo
-        const image = document.getElementById("eitrImage");
-        const hoverText = document.getElementById("hoverText");
-
-        image.addEventListener("mouseover", () => {
-            hoverText.classList.remove("hidden");
-        });
-
-        image.addEventListener("mouseout", () => {
-            hoverText.classList.add("hidden");
-        });
-
         document.addEventListener("DOMContentLoaded", () => {
-            const resourceCheckboxes = document.querySelectorAll(".resource-checkbox");
             const configDisplay = document.getElementById("config-display");
             const saveButtons = document.getElementById("save-buttons");
-            const saveJsonBtn = document.getElementById("saveJsonBtn");
-            const saveHclBtn = document.getElementById("saveHclBtn");
-
-        const getFormattedTimestamp = () => {
-            const now = new Date();
-            const month = String(now.getMonth() + 1).padStart(2, '0'); // Month is zero-indexed
-            const day = String(now.getDate()).padStart(2, '0');
-            const year = now.getFullYear();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            return `${month}${day}${year}${hours}${minutes}`;
-        };
-
-            const updateSaveButtonsVisibility = () => {
-                saveButtons.style.display = configDisplay.children.length > 0 ? "block" : "none";
+    
+            // Object to store edited templates
+            const editedTemplates = {};
+    
+            const fetchTemplate = async (provider, schemaType, resource) => {
+                const key = `${provider}_${schemaType}_${resource}`;
+                if (editedTemplates[key]) {
+                    // Return the edited version if it exists
+                    return editedTemplates[key];
+                }
+    
+                try {
+                    const response = await fetch(`/load_templates/${provider}/${schemaType}/${resource}`);
+                    if (!response.ok) throw new Error("Failed to load template");
+    
+                    const data = await response.json();
+                    return data[schemaType] || "No template found";
+                } catch (error) {
+                    console.error(`Error loading template for ${provider} - ${schemaType} - ${resource}:`, error);
+                    return "Error loading template.";
+                }
             };
-
-            updateSaveButtonsVisibility();
-
-            resourceCheckboxes.forEach((checkbox) => {
-                checkbox.addEventListener("change", async () => {
-                    const provider = checkbox.dataset.provider;
-                    const resource = checkbox.dataset.resource;
-                    const schemaType = checkbox.name.split("_")[1]; 
-                    const resourceId = `resource-${provider}-${schemaType}-${resource}`;
-
-                    if (checkbox.checked) {
+    
+            const attachCheckboxListeners = () => {
+                const resourceCheckboxes = document.querySelectorAll(".resource-checkbox");
+    
+                resourceCheckboxes.forEach((checkbox) => {
+                    checkbox.replaceWith(checkbox.cloneNode(true));
+                });
+    
+                const newResourceCheckboxes = document.querySelectorAll(".resource-checkbox");
+                newResourceCheckboxes.forEach((checkbox) => {
+                    checkbox.addEventListener("change", async () => {
+                        const provider = checkbox.dataset.provider;
+                        const resource = checkbox.dataset.resource;
+                        const schemaType = checkbox.name.split("_")[1];
+                        const action = checkbox.checked ? "add" : "remove";
+    
                         try {
-                            const response = await fetch(`/load_templates/${provider}/${schemaType}/${resource}`);
-                            if (!response.ok) throw new Error(`Error: ${response.statusText}`);
-                            const data = await response.json();
-                            const templateContent = data[schemaType] || "No template found";
-
-                            const resourceDiv = document.createElement("div");
-                            resourceDiv.id = resourceId;
-                            resourceDiv.className = "p-4 rounded shadow mb-4";
-                            resourceDiv.innerHTML = `<pre class="p-2 rounded overflow-auto text-white">${templateContent}</pre>`;
-
-                            configDisplay.appendChild(resourceDiv);
+                            await fetch("/update_config", {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify({ provider, schema_type: schemaType, resource, action }),
+                            });
+    
+                            await refreshConfigDisplay();
                         } catch (error) {
-                            console.error("Error loading template:", error);
+                            console.error("Error updating configuration:", error);
                         }
-                    } else {
-                        const resourceDiv = document.getElementById(resourceId);
-                        if (resourceDiv) configDisplay.removeChild(resourceDiv);
+                    });
+                });
+            };
+    
+            const refreshConfigDisplay = async () => {
+                configDisplay.innerHTML = ""; // Clear the current display
+                const response = await fetch("/get_current_config");
+                if (!response.ok) throw new Error("Failed to fetch current config");
+                const { config } = await response.json();
+    
+                for (const [provider, schemas] of Object.entries(config)) {
+                    const providerSection = document.createElement("div");
+                    providerSection.className = "p-4 bg-gray-700 rounded mb-4";
+    
+                    const providerHeader = document.createElement("button");
+                    providerHeader.className = "w-full text-left text-lg font-bold text-white px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded";
+                    providerHeader.innerHTML = `:: ${provider.toUpperCase()} ::`;
+                    providerHeader.addEventListener("click", () => {
+                        providerContent.classList.toggle("hidden");
+                    });
+    
+                    const providerContent = document.createElement("div");
+                    providerContent.className = "mt-2 space-y-4";
+    
+                    const sortedSchemaTypes = Object.keys(schemas).sort((a, b) => {
+                        if (a === "provider") return -1;
+                        if (b === "provider") return 1;
+                        return a.localeCompare(b);
+                    });
+    
+                    for (const schemaType of sortedSchemaTypes) {
+                        const resources = schemas[schemaType];
+                        const schemaSection = document.createElement("div");
+                        schemaSection.className = "mb-2";
+                        schemaSection.innerHTML = `<h4 class="font-semibold text-gray-300 capitalize">${schemaType}</h4>`;
+                        for (const resource of resources) {
+                            const templateContent = await fetchTemplate(provider, schemaType, resource);
+                            const resourceDiv = createResourceDiv(provider, schemaType, resource, templateContent);
+                            schemaSection.appendChild(resourceDiv);
+                        }
+                        providerContent.appendChild(schemaSection);
                     }
-                    updateSaveButtonsVisibility();
+    
+                    providerSection.appendChild(providerHeader);
+                    providerSection.appendChild(providerContent);
+                    configDisplay.appendChild(providerSection);
+                }
+    
+                saveButtons.style.display = configDisplay.children.length > 0 ? "block" : "none";
+    
+                attachCheckboxListeners();
+            };
+    
+            const createResourceDiv = (provider, schemaType, resource, templateContent) => {
+                const resourceDiv = document.createElement("div");
+                resourceDiv.className = "p-2 bg-gray-800 rounded mt-2";
+    
+                const preElement = document.createElement("pre");
+                preElement.className = "text-xs bg-gray-900 text-white p-2 rounded overflow-auto";
+                preElement.contentEditable = false;
+                preElement.innerText = templateContent;
+    
+                const buttonContainer = document.createElement("div");
+                buttonContainer.className = "mt-2 space-x-2";
+                const editButton = document.createElement("button");
+                editButton.className = "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded";
+                editButton.innerText = "Edit";
+                const saveButton = document.createElement("button");
+                saveButton.className = "bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded hidden";
+                saveButton.innerText = "Save";
+    
+                editButton.addEventListener("click", () => {
+                    preElement.contentEditable = true;
+                    preElement.focus();
+                    editButton.classList.add("hidden");
+                    saveButton.classList.remove("hidden");
                 });
-            });
-
-            saveJsonBtn.addEventListener('click', async () => {
-                const templates = Array.from(configDisplay.children)
-                    .map(child => child.querySelector("pre").innerText)
-                    .join("\n\n");
-                const response = await fetch(`/save_config/json`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ config: templates })
+    
+                saveButton.addEventListener("click", () => {
+                    preElement.contentEditable = false;
+                    const updatedTemplate = preElement.innerText;
+    
+                    // Save the updated template in memory
+                    const key = `${provider}_${schemaType}_${resource}`;
+                    editedTemplates[key] = updatedTemplate;
+    
+                    editButton.classList.remove("hidden");
+                    saveButton.classList.add("hidden");
                 });
-            
-                if (response.ok) {
-                    const { config } = await response.json();
-                    const blob = new Blob([config], { type: 'application/json' });
-                    const downloadUrl = window.URL.createObjectURL(blob);
-                    const link = document.createElement('a');
-                    link.href = downloadUrl;
-                    link.download = `eitr_generated_tf_config_${getFormattedTimestamp()}.json`;
-                    document.body.appendChild(link);
-                    link.click();
-                    link.remove();
-                } else {
-                    console.error("Error saving JSON configuration");
+    
+                buttonContainer.appendChild(editButton);
+                buttonContainer.appendChild(saveButton);
+                resourceDiv.appendChild(preElement);
+                resourceDiv.appendChild(buttonContainer);
+    
+                return resourceDiv;
+            };
+    
+            const saveConfig = async (format) => {
+                try {
+                    const templates = Array.from(configDisplay.querySelectorAll("pre"))
+                        .map((pre) => pre.innerText)
+                        .join("\n\n");
+    
+                    if (!templates) {
+                        console.error("No templates available to save.");
+                        return;
+                    }
+    
+                    const response = await fetch(`/save_config/${format}`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ config: templates }),
+                    });
+    
+                    if (response.ok) {
+                        const { config } = await response.json();
+                        const blob = new Blob([config], {
+                            type: format === "json" ? "application/json" : "application/x-hcl",
+                        });
+                        const downloadUrl = window.URL.createObjectURL(blob);
+                        const link = document.createElement("a");
+                        link.href = downloadUrl;
+                        link.download = `eitr_generated_tf_config_${new Date()
+                            .toISOString()
+                            .slice(0, 19)
+                            .replace(/:/g, "-")}.${format}`;
+                        document.body.appendChild(link);
+                        link.click();
+                        link.remove();
+                    } else {
+                        console.error(`Error saving ${format.toUpperCase()} configuration.`);
+                    }
+                } catch (error) {
+                    console.error("Error saving configuration:", error);
+                }
+            };
+    
+            document.getElementById("saveJsonBtn").addEventListener("click", () => saveConfig("json"));
+            document.getElementById("saveHclBtn").addEventListener("click", () => saveConfig("hcl"));
+    
+            document.getElementById("resetConfigBtn").addEventListener("click", async () => {
+                try {
+                    await fetch("/reset_config", { method: "POST" });
+                    document.querySelectorAll(".resource-checkbox").forEach((checkbox) => {
+                        checkbox.checked = false;
+                    });
+                    configDisplay.innerHTML = "";
+                    saveButtons.style.display = "none";
+                } catch (error) {
+                    console.error("Error resetting configuration:", error);
                 }
             });
-            
-            saveHclBtn.addEventListener('click', async () => {
-                const templates = Array.from(configDisplay.children)
-                    .map(child => child.querySelector("pre").innerText)
-                    .join("\n\n");
-                const response = await fetch(`/save_config/hcl`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ config: templates })
-                });
-            
-                if (response.ok) {
-                    const { config } = await response.json();
-                    const blob = new Blob([config], { type: 'application/x-hcl' });
-                    const downloadUrl = window.URL.createObjectURL(blob);
-                    const link = document.createElement('a');
-                    link.href = downloadUrl;
-                    link.download = `eitr_generated_tf_config_${getFormattedTimestamp()}.tf`;
-                    document.body.appendChild(link);
-                    link.click();
-                    link.remove();
-                } else {
-                    console.error("Error saving HCL configuration");
-                }
+    
+            document.getElementById("current-year").textContent = new Date().getFullYear();
+    
+            // Hover effect for logo
+            const image = document.getElementById("eitrImage");
+            const hoverText = document.getElementById("hoverText");
+    
+            image.addEventListener("mouseover", () => {
+                hoverText.classList.remove("hidden");
             });
-
-            // Update the current year in the footer
-            const yearSpan = document.getElementById("current-year");
-            yearSpan.textContent = new Date().getFullYear();
+    
+            image.addEventListener("mouseout", () => {
+                hoverText.classList.add("hidden");
+            });
+    
+            refreshConfigDisplay();
         });
     </script>
-</body>
+  </body>
 </html>
 

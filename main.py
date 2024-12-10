@@ -3,11 +3,11 @@ from fastapi import Body, FastAPI, Form, Request
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from textwrap import dedent
 import hcl2
 import io
 import json
 import os
+from textwrap import dedent
 
 app = FastAPI()
 
@@ -20,6 +20,41 @@ with open("config/providers.json") as f:
     PROVIDERS = json.load(f)
 with open("config/provider_schemas.json") as f:
     SCHEMAS = json.load(f)
+
+# ConfigManager class for in-memory state management
+class ConfigManager:
+    def __init__(self):
+        self.config = {}
+
+    def update_config(self, provider, schema_type, resource, action):
+        """Update in-memory configuration based on user actions."""
+        if action == "add":
+            self.config.setdefault(provider, {}).setdefault(schema_type, [])
+            if resource not in self.config[provider][schema_type]:
+                self.config[provider][schema_type].append(resource)
+        elif action == "remove":
+            if provider in self.config and schema_type in self.config[provider]:
+                if resource in self.config[provider][schema_type]:
+                    self.config[provider][schema_type].remove(resource)
+                if not self.config[provider][schema_type]:
+                    del self.config[provider][schema_type]
+                if not self.config[provider]:
+                    del self.config[provider]
+
+    def get_ordered_config(self):
+        """Return the current configuration ordered by provider and schema type."""
+        ordered_config = {}
+        for provider in sorted(self.config.keys()):
+            ordered_config[provider] = {}
+            for schema_type in sorted(self.config[provider].keys()):
+                items = self.config[provider][schema_type]
+                if schema_type == "provider":
+                    ordered_config[provider][schema_type] = items
+                else:
+                    ordered_config[provider][schema_type] = sorted(items)
+        return ordered_config
+
+config_manager = ConfigManager()
 
 @app.get("/", response_class=HTMLResponse)
 async def get_index(request: Request):
@@ -60,8 +95,46 @@ async def get_index(request: Request):
         "total_resources": total_resources
     })
 
+@app.post("/update_config")
+async def update_config(request: Request):
+    """Update in-memory configuration and return updated structure."""
+    try:
+        # Parse the incoming JSON body
+        data = await request.json()
+        
+        # Extract necessary fields from the JSON body
+        provider = data.get("provider")
+        schema_type = data.get("schema_type")
+        resource = data.get("resource")
+        action = data.get("action")
+
+        # Validate that all necessary fields are provided
+        if not all([provider, schema_type, resource, action]):
+            return JSONResponse(
+                status_code=400,
+                content={"error": "Missing required fields"}
+            )
+
+        # Update the in-memory configuration
+        config_manager.update_config(provider, schema_type, resource, action)
+
+        # Return the updated configuration
+        return {"config": config_manager.get_ordered_config()}
+
+    except Exception as e:
+        return JSONResponse(
+            status_code=500,
+            content={"error": f"Internal Server Error: {str(e)}"}
+        )
+
+@app.get("/get_current_config")
+async def get_current_config():
+    """Return the current configuration without modifying it."""
+    return {"config": config_manager.get_ordered_config()}
+
 @app.get("/load_templates/{provider}/{schema_type}/{resource}", response_class=JSONResponse)
 async def load_templates(provider: str, schema_type: str, resource: str):
+    """Load templates for selected resources."""
     templates_path = f"templates/terraform/{provider}/"
     template_file = ""
 
@@ -85,6 +158,7 @@ async def generate_terraform_config(
     resources: str = Form(...),
     options: str = Form(...)
 ):
+    """Generate Terraform configuration based on selected resources."""
     selected_providers = json.loads(enabled_providers)
     selected_resources = json.loads(resources)
     resource_options = json.loads(options)
@@ -103,31 +177,17 @@ async def generate_terraform_config(
 
     full_config = "\n\n".join(terraform_config)
 
-#    now = datetime.now()
-#    timestamp = now.strftime("%m%d%Y%H%M")
-
-    # Save HCL file with simple formatting
-    hcl_file_path = os.path.join(config_dir, f"main_{timestamp}.tf")
-    pretty_hcl = "\n".join(line.strip() for line in full_config.splitlines() if line.strip())
-    with open(hcl_file_path, "w") as f:
-        f.write(pretty_hcl)
-
-    # Save JSON file with pretty formatting
-    json_file_path = os.path.join(config_dir, f"main_{timestamp}.json")
-    with open(json_file_path, "w") as f:
-        json.dump({"terraform_config": full_config}, f, indent=4)  # Pretty print JSON
-
     return templates.TemplateResponse("index.html", {
         "request": request,
         "providers": PROVIDERS,
-        "resources": RESOURCES,
+        "resources": SCHEMAS,
         "terraform_config": full_config,
-        "download_ready": True,  # Add a flag to indicate config is ready
+        "download_ready": True,
     })
-#        "timestamp": timestamp,  # Pass the timestamp for download links
 
 @app.post("/save_config/{format}", response_class=JSONResponse)
 async def save_terraform_config(format: str, config: dict = Body(...)):
+    """Save Terraform configuration in the specified format."""
     now = datetime.now()
     timestamp = now.strftime("%m%d%Y%H%M")
 
@@ -141,13 +201,9 @@ async def save_terraform_config(format: str, config: dict = Body(...)):
 
     if format == "json":
         try:
-            # Use hcl2 to parse the HCL string into a Python dictionary
             hcl_stream = io.StringIO(full_config)
             hcl_data = hcl2.load(hcl_stream)
-
-            # Convert the HCL dictionary into pretty-printed JSON
             pretty_json = json.dumps(hcl_data, indent=4)
-
             return JSONResponse(
                 content={"config": pretty_json},
                 headers={
@@ -161,7 +217,6 @@ async def save_terraform_config(format: str, config: dict = Body(...)):
             )
 
     elif format == "hcl":
-        # Format HCL manually by dedenting and cleaning extra spaces
         pretty_hcl = dedent(full_config).strip()
         return JSONResponse(
             content={"config": pretty_hcl},
@@ -174,4 +229,43 @@ async def save_terraform_config(format: str, config: dict = Body(...)):
         status_code=400,
         content={"error": "Unsupported format. Please choose 'json' or 'hcl'."},
     )
+
+@app.post("/reset_config")
+async def reset_config():
+    """Reset the in-memory configuration."""
+    config_manager.config.clear()
+    return {"message": "Configuration reset successfully"}
+
+@app.post("/update_template")
+async def update_template(request: Request):
+    """Update a specific resource template in the in-memory configuration."""
+    try:
+        data = await request.json()
+        provider = data.get("provider")
+        schema_type = data.get("schema_type")
+        resource = data.get("resource")
+        template = data.get("template")
+
+        if not all([provider, schema_type, resource, template]):
+            return JSONResponse(
+                status_code=400,
+                content={"error": "Missing required fields"}
+            )
+
+        # Update the configuration
+        if provider in config_manager.config and schema_type in config_manager.config[provider]:
+            # Update template (mock update for demonstration; extend this to real storage as needed)
+            # Assume templates are stored in-memory for this example
+            return JSONResponse(content={"message": "Template updated successfully"})
+        else:
+            return JSONResponse(
+                status_code=404,
+                content={"error": "Resource not found in configuration"}
+            )
+
+    except Exception as e:
+        return JSONResponse(
+            status_code=500,
+            content={"error": f"Internal Server Error: {str(e)}"}
+        )
 
