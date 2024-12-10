@@ -122,7 +122,6 @@
 
         <!-- Main Content -->
         <main class="w-full md:w-5/6 bg-opacity-99 p-6 overflow-y-auto">
-            <div id="config-display" class="space-y-4"></div>
             <div class="mt-6 hidden" id="save-buttons">
                 <button
                     class="bg-green-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
@@ -137,6 +136,7 @@
                     <span>Save as HCL</span>
                 </button>
             </div>
+            <div id="config-display" class="space-y-4"></div>
         </main>
     </div>
 
@@ -148,125 +148,136 @@
         <p>EITR &copy; <span id="current-year"></span> Dayton Jones</p>
     </footer>
     <script>
-        // JavaScript for hover effect over the Logo
-        const image = document.getElementById("eitrImage");
-        const hoverText = document.getElementById("hoverText");
-
-        image.addEventListener("mouseover", () => {
-            hoverText.classList.remove("hidden");
-        });
-
-        image.addEventListener("mouseout", () => {
-            hoverText.classList.add("hidden");
-        });
-
         document.addEventListener("DOMContentLoaded", () => {
             const resourceCheckboxes = document.querySelectorAll(".resource-checkbox");
             const configDisplay = document.getElementById("config-display");
             const saveButtons = document.getElementById("save-buttons");
-            const saveJsonBtn = document.getElementById("saveJsonBtn");
-            const saveHclBtn = document.getElementById("saveHclBtn");
-
-        const getFormattedTimestamp = () => {
-            const now = new Date();
-            const month = String(now.getMonth() + 1).padStart(2, '0'); // Month is zero-indexed
-            const day = String(now.getDate()).padStart(2, '0');
-            const year = now.getFullYear();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            return `${month}${day}${year}${hours}${minutes}`;
-        };
-
-            const updateSaveButtonsVisibility = () => {
+    
+            // Fetch the template for a specific resource
+            const fetchTemplate = async (provider, schemaType, resource) => {
+                try {
+                    const response = await fetch(`/load_templates/${provider}/${schemaType}/${resource}`);
+                    if (!response.ok) throw new Error("Failed to load template");
+    
+                    const data = await response.json();
+                    return data[schemaType] || "No template found";
+                } catch (error) {
+                    console.error(`Error loading template for ${provider} - ${schemaType} - ${resource}:`, error);
+                    return "Error loading template.";
+                }
+            };
+    
+            // Refresh the configuration display with templates
+            const refreshConfigDisplay = async () => {
+                configDisplay.innerHTML = ""; // Clear current display
+                const response = await fetch("/get_current_config");
+                if (!response.ok) throw new Error("Failed to fetch current config");
+                const { config } = await response.json();
+    
+                for (const [provider, schemas] of Object.entries(config)) {
+                    const providerSection = document.createElement("div");
+                    providerSection.className = "p-4 bg-gray-700 rounded mb-4";
+                    providerSection.innerHTML = `<h3 class="text-lg font-bold text-white mb-2">:: ${provider.toUpperCase()} ::</h3>`;
+                    for (const [schemaType, resources] of Object.entries(schemas)) {
+                        const schemaSection = document.createElement("div");
+                        schemaSection.className = "mb-2";
+                        schemaSection.innerHTML = `<h4 class="font-semibold text-gray-300 capitalize">${schemaType}</h4>`;
+                        for (const resource of resources) {
+                            const templateContent = await fetchTemplate(provider, schemaType, resource);
+                            const resourceDiv = document.createElement("div");
+                            resourceDiv.className = "p-2 bg-gray-800 rounded mt-2";
+                            resourceDiv.innerHTML = `
+                                <h5 class="text-sm font-bold text-gray-200">${resource}</h5>
+                                <pre class="text-xs bg-gray-900 text-white p-2 rounded overflow-auto">${templateContent}</pre>
+                            `;
+                            schemaSection.appendChild(resourceDiv);
+                        }
+                        providerSection.appendChild(schemaSection);
+                    }
+                    configDisplay.appendChild(providerSection);
+                }
+    
                 saveButtons.style.display = configDisplay.children.length > 0 ? "block" : "none";
             };
-
-            updateSaveButtonsVisibility();
-
+    
+            // Update the in-memory configuration
+            const updateConfig = async (provider, schemaType, resource, action) => {
+                try {
+                    await fetch("/update_config", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ provider, schema_type: schemaType, resource, action }),
+                    });
+                } catch (error) {
+                    console.error("Error updating configuration:", error);
+                }
+            };
+    
+            // When a checkbox is toggled
             resourceCheckboxes.forEach((checkbox) => {
                 checkbox.addEventListener("change", async () => {
                     const provider = checkbox.dataset.provider;
                     const resource = checkbox.dataset.resource;
-                    const schemaType = checkbox.name.split("_")[1]; 
-                    const resourceId = `resource-${provider}-${schemaType}-${resource}`;
-
-                    if (checkbox.checked) {
-                        try {
-                            const response = await fetch(`/load_templates/${provider}/${schemaType}/${resource}`);
-                            if (!response.ok) throw new Error(`Error: ${response.statusText}`);
-                            const data = await response.json();
-                            const templateContent = data[schemaType] || "No template found";
-
-                            const resourceDiv = document.createElement("div");
-                            resourceDiv.id = resourceId;
-                            resourceDiv.className = "p-4 rounded shadow mb-4";
-                            resourceDiv.innerHTML = `<pre class="p-2 rounded overflow-auto text-white">${templateContent}</pre>`;
-
-                            configDisplay.appendChild(resourceDiv);
-                        } catch (error) {
-                            console.error("Error loading template:", error);
-                        }
-                    } else {
-                        const resourceDiv = document.getElementById(resourceId);
-                        if (resourceDiv) configDisplay.removeChild(resourceDiv);
-                    }
-                    updateSaveButtonsVisibility();
+                    const schemaType = checkbox.name.split("_")[1];
+                    const action = checkbox.checked ? "add" : "remove";
+    
+                    await updateConfig(provider, schemaType, resource, action);
+                    await refreshConfigDisplay();
                 });
             });
-
-            saveJsonBtn.addEventListener('click', async () => {
-                const templates = Array.from(configDisplay.children)
-                    .map(child => child.querySelector("pre").innerText)
-                    .join("\n\n");
-                const response = await fetch(`/save_config/json`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ config: templates })
-                });
-            
-                if (response.ok) {
-                    const { config } = await response.json();
-                    const blob = new Blob([config], { type: 'application/json' });
-                    const downloadUrl = window.URL.createObjectURL(blob);
-                    const link = document.createElement('a');
-                    link.href = downloadUrl;
-                    link.download = `eitr_generated_tf_config_${getFormattedTimestamp()}.json`;
-                    document.body.appendChild(link);
-                    link.click();
-                    link.remove();
-                } else {
-                    console.error("Error saving JSON configuration");
-                }
-            });
-            
-            saveHclBtn.addEventListener('click', async () => {
-                const templates = Array.from(configDisplay.children)
-                    .map(child => child.querySelector("pre").innerText)
-                    .join("\n\n");
-                const response = await fetch(`/save_config/hcl`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ config: templates })
-                });
-            
-                if (response.ok) {
-                    const { config } = await response.json();
-                    const blob = new Blob([config], { type: 'application/x-hcl' });
-                    const downloadUrl = window.URL.createObjectURL(blob);
-                    const link = document.createElement('a');
-                    link.href = downloadUrl;
-                    link.download = `eitr_generated_tf_config_${getFormattedTimestamp()}.tf`;
-                    document.body.appendChild(link);
-                    link.click();
-                    link.remove();
-                } else {
-                    console.error("Error saving HCL configuration");
-                }
-            });
-
+    
+            // Save configuration as JSON or HCL
+            const saveConfig = async (format) => {
+             // Collect all displayed templates from the configDisplay
+             const templates = Array.from(configDisplay.querySelectorAll("pre"))
+                 .map(pre => pre.innerText)
+                 .join("\n\n");
+         
+             try {
+                 const response = await fetch(`/save_config/${format}`, {
+                     method: "POST",
+                     headers: { "Content-Type": "application/json" },
+                     body: JSON.stringify({ config: templates }),
+                 });
+         
+                 if (response.ok) {
+                     const { config } = await response.json();
+                     const blob = new Blob([config], { type: format === "json" ? "application/json" : "application/x-hcl" });
+                     const downloadUrl = window.URL.createObjectURL(blob);
+                     const link = document.createElement("a");
+                     link.href = downloadUrl;
+                     link.download = `eitr_generated_tf_config_${new Date().toISOString().slice(0, 19).replace(/:/g, "-")}.${format}`;
+                     document.body.appendChild(link);
+                     link.click();
+                     link.remove();
+                 } else {
+                     console.error(`Error saving ${format.toUpperCase()} configuration`);
+                 }
+             } catch (error) {
+                 console.error("Error saving configuration:", error);
+             }
+         };
+ 
+            document.getElementById("saveJsonBtn").addEventListener("click", () => saveConfig("json"));
+            document.getElementById("saveHclBtn").addEventListener("click", () => saveConfig("hcl"));
+    
             // Update the current year in the footer
-            const yearSpan = document.getElementById("current-year");
-            yearSpan.textContent = new Date().getFullYear();
+            document.getElementById("current-year").textContent = new Date().getFullYear();
+    
+            // Hover effect for logo
+            const image = document.getElementById("eitrImage");
+            const hoverText = document.getElementById("hoverText");
+    
+            image.addEventListener("mouseover", () => {
+                hoverText.classList.remove("hidden");
+            });
+    
+            image.addEventListener("mouseout", () => {
+                hoverText.classList.add("hidden");
+            });
+    
+            // Initial fetch to populate the display
+            refreshConfigDisplay();
         });
     </script>
 </body>
