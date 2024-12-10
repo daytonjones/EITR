@@ -189,7 +189,18 @@
                 for (const [provider, schemas] of Object.entries(config)) {
                     const providerSection = document.createElement("div");
                     providerSection.className = "p-4 bg-gray-700 rounded mb-4";
-                    providerSection.innerHTML = `<h3 class="text-lg font-bold text-white mb-2">:: ${provider.toUpperCase()} ::</h3>`;
+            
+                    // Add a button for collapsing and expanding
+                    const providerHeader = document.createElement("button");
+                    providerHeader.className = "w-full text-left text-lg font-bold text-white px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded";
+                    providerHeader.innerHTML = `:: ${provider.toUpperCase()} ::`;
+                    providerHeader.addEventListener("click", () => {
+                        providerContent.classList.toggle("hidden"); // Toggle visibility
+                    });
+            
+                    // Content section that can be toggled
+                    const providerContent = document.createElement("div");
+                    providerContent.className = "mt-2 space-y-4";
             
                     // Handle "provider" schema type first
                     if (schemas.provider) {
@@ -201,14 +212,15 @@
                             const resourceDiv = document.createElement("div");
                             resourceDiv.className = "p-2 bg-gray-800 rounded mt-2";
                             resourceDiv.innerHTML = `
+                                <h5 class="text-sm font-bold text-gray-200">${resource}</h5>
                                 <pre class="text-xs bg-gray-900 text-white p-2 rounded overflow-auto">${templateContent}</pre>
                             `;
                             schemaSection.appendChild(resourceDiv);
                         }
-                        providerSection.appendChild(schemaSection);
+                        providerContent.appendChild(schemaSection);
                     }
             
-                    // Handle all other schema types (e.g., "data", "resource")
+                    // Handle all other schema types
                     for (const [schemaType, resources] of Object.entries(schemas)) {
                         if (schemaType === "provider") continue; // Already handled
                         const schemaSection = document.createElement("div");
@@ -219,13 +231,19 @@
                             const resourceDiv = document.createElement("div");
                             resourceDiv.className = "p-2 bg-gray-800 rounded mt-2";
                             resourceDiv.innerHTML = `
+                                <h5 class="text-sm font-bold text-gray-200">${resource}</h5>
                                 <pre class="text-xs bg-gray-900 text-white p-2 rounded overflow-auto">${templateContent}</pre>
                             `;
                             schemaSection.appendChild(resourceDiv);
                         }
-                        providerSection.appendChild(schemaSection);
+                        providerContent.appendChild(schemaSection);
                     }
             
+                    // Append the header and content to the provider section
+                    providerSection.appendChild(providerHeader);
+                    providerSection.appendChild(providerContent);
+            
+                    // Add the provider section to the display
                     configDisplay.appendChild(providerSection);
                 }
             
