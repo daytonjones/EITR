@@ -230,3 +230,9 @@ async def save_terraform_config(format: str, config: dict = Body(...)):
         content={"error": "Unsupported format. Please choose 'json' or 'hcl'."},
     )
 
+@app.post("/reset_config")
+async def reset_config():
+    """Reset the in-memory configuration."""
+    config_manager.config.clear()
+    return {"message": "Configuration reset successfully"}
+

@@ -126,14 +126,26 @@
                 <button
                     class="bg-green-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
                     id="saveJsonBtn">
-                    <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+                    <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/>
+                    </svg>
                     <span>Save as JSON</span>
-	        </button>
+                </button>
                 <button
-	            class="bg-green-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
+                    class="bg-green-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
                     id="saveHclBtn">
-                    <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+                    <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/>
+                    </svg>
                     <span>Save as HCL</span>
+                </button>
+                <button
+                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
+                    id="resetConfigBtn">
+                    <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M10 2a8 8 0 100 16 8 8 0 000-16zM5 10H3v1h2v-1zm6-7h-1v2h1V3zm6 7h-2v1h2v-1zM7.222 6.222l-1.415 1.415L6.364 8.293l1.415-1.415-1.414-1.415zM15.778 13.778l-1.415-1.415-1.414 1.415 1.415 1.414 1.414-1.414zM4.222 15.778l-1.414 1.415 1.415 1.414 1.414-1.414-1.415-1.415zM16.222 4.222l-1.415-1.415-1.414 1.415 1.415 1.414 1.414-1.414z"/>
+                    </svg>
+                    <span>Reset Config</span>
                 </button>
             </div>
             <div id="config-display" class="space-y-4"></div>
@@ -173,12 +185,32 @@
                 const response = await fetch("/get_current_config");
                 if (!response.ok) throw new Error("Failed to fetch current config");
                 const { config } = await response.json();
-    
+            
                 for (const [provider, schemas] of Object.entries(config)) {
                     const providerSection = document.createElement("div");
                     providerSection.className = "p-4 bg-gray-700 rounded mb-4";
                     providerSection.innerHTML = `<h3 class="text-lg font-bold text-white mb-2">:: ${provider.toUpperCase()} ::</h3>`;
+            
+                    // Handle "provider" schema type first
+                    if (schemas.provider) {
+                        const schemaSection = document.createElement("div");
+                        schemaSection.className = "mb-2";
+                        schemaSection.innerHTML = `<h4 class="font-semibold text-gray-300 capitalize">provider</h4>`;
+                        for (const resource of schemas.provider) {
+                            const templateContent = await fetchTemplate(provider, "provider", resource);
+                            const resourceDiv = document.createElement("div");
+                            resourceDiv.className = "p-2 bg-gray-800 rounded mt-2";
+                            resourceDiv.innerHTML = `
+                                <pre class="text-xs bg-gray-900 text-white p-2 rounded overflow-auto">${templateContent}</pre>
+                            `;
+                            schemaSection.appendChild(resourceDiv);
+                        }
+                        providerSection.appendChild(schemaSection);
+                    }
+            
+                    // Handle all other schema types (e.g., "data", "resource")
                     for (const [schemaType, resources] of Object.entries(schemas)) {
+                        if (schemaType === "provider") continue; // Already handled
                         const schemaSection = document.createElement("div");
                         schemaSection.className = "mb-2";
                         schemaSection.innerHTML = `<h4 class="font-semibold text-gray-300 capitalize">${schemaType}</h4>`;
@@ -187,19 +219,19 @@
                             const resourceDiv = document.createElement("div");
                             resourceDiv.className = "p-2 bg-gray-800 rounded mt-2";
                             resourceDiv.innerHTML = `
-                                <h5 class="text-sm font-bold text-gray-200">${resource}</h5>
                                 <pre class="text-xs bg-gray-900 text-white p-2 rounded overflow-auto">${templateContent}</pre>
                             `;
                             schemaSection.appendChild(resourceDiv);
                         }
                         providerSection.appendChild(schemaSection);
                     }
+            
                     configDisplay.appendChild(providerSection);
                 }
-    
+            
                 saveButtons.style.display = configDisplay.children.length > 0 ? "block" : "none";
             };
-    
+ 
             // Update the in-memory configuration
             const updateConfig = async (provider, schemaType, resource, action) => {
                 try {
@@ -260,6 +292,29 @@
  
             document.getElementById("saveJsonBtn").addEventListener("click", () => saveConfig("json"));
             document.getElementById("saveHclBtn").addEventListener("click", () => saveConfig("hcl"));
+
+            document.getElementById("resetConfigBtn").addEventListener("click", async () => {
+                try {
+                    // Clear the in-memory configuration on the backend
+                    await fetch("/reset_config", {
+                        method: "POST",
+                    });
+            
+                    // Unselect all checkboxes
+                    document.querySelectorAll(".resource-checkbox").forEach((checkbox) => {
+                        checkbox.checked = false;
+                    });
+            
+                    // Clear the main display
+                    configDisplay.innerHTML = "";
+            
+                    // Hide save buttons
+                    saveButtons.style.display = "none";
+                } catch (error) {
+                    console.error("Error resetting configuration:", error);
+                }
+            });
+
     
             // Update the current year in the footer
             document.getElementById("current-year").textContent = new Date().getFullYear();
