@@ -178,13 +178,13 @@
             const configDisplay = document.getElementById("config-display");
             const saveButtons = document.getElementById("save-buttons");
     
-            // Object to store edited templates
+            const CONFIG_STORAGE_KEY = "eitr_config";
+    
             const editedTemplates = {};
     
             const fetchTemplate = async (provider, schemaType, resource) => {
                 const key = `${provider}_${schemaType}_${resource}`;
                 if (editedTemplates[key]) {
-                    // Return the edited version if it exists
                     return editedTemplates[key];
                 }
     
@@ -200,9 +200,17 @@
                 }
             };
     
+            const loadConfigFromStorage = () => {
+                const config = localStorage.getItem(CONFIG_STORAGE_KEY);
+                return config ? JSON.parse(config) : {};
+            };
+    
+            const saveConfigToStorage = (config) => {
+                localStorage.setItem(CONFIG_STORAGE_KEY, JSON.stringify(config));
+            };
+    
             const attachCheckboxListeners = () => {
                 const resourceCheckboxes = document.querySelectorAll(".resource-checkbox");
-    
                 resourceCheckboxes.forEach((checkbox) => {
                     checkbox.replaceWith(checkbox.cloneNode(true));
                 });
@@ -215,33 +223,43 @@
                         const schemaType = checkbox.name.split("_")[1];
                         const action = checkbox.checked ? "add" : "remove";
     
-                        try {
-                            await fetch("/update_config", {
-                                method: "POST",
-                                headers: { "Content-Type": "application/json" },
-                                body: JSON.stringify({ provider, schema_type: schemaType, resource, action }),
-                            });
-    
-                            await refreshConfigDisplay();
-                        } catch (error) {
-                            console.error("Error updating configuration:", error);
+                        const config = loadConfigFromStorage();
+                        if (action === "add") {
+                            config[provider] = config[provider] || {};
+                            config[provider][schemaType] = config[provider][schemaType] || [];
+                            if (!config[provider][schemaType].includes(resource)) {
+                                config[provider][schemaType].push(resource);
+                            }
+                        } else {
+                            if (config[provider] && config[provider][schemaType]) {
+                                config[provider][schemaType] = config[provider][schemaType].filter(
+                                    (item) => item !== resource
+                                );
+                                if (config[provider][schemaType].length === 0) {
+                                    delete config[provider][schemaType];
+                                }
+                                if (Object.keys(config[provider]).length === 0) {
+                                    delete config[provider];
+                                }
+                            }
                         }
+                        saveConfigToStorage(config);
+                        await refreshConfigDisplay();
                     });
                 });
             };
     
             const refreshConfigDisplay = async () => {
                 configDisplay.innerHTML = ""; // Clear the current display
-                const response = await fetch("/get_current_config");
-                if (!response.ok) throw new Error("Failed to fetch current config");
-                const { config } = await response.json();
+                const config = loadConfigFromStorage();
     
                 for (const [provider, schemas] of Object.entries(config)) {
                     const providerSection = document.createElement("div");
                     providerSection.className = "p-4 bg-gray-700 rounded mb-4";
     
                     const providerHeader = document.createElement("button");
-                    providerHeader.className = "w-full text-left text-lg font-bold text-white px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded";
+                    providerHeader.className =
+                        "w-full text-left text-lg font-bold text-white px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded";
                     providerHeader.innerHTML = `:: ${provider.toUpperCase()} ::`;
                     providerHeader.addEventListener("click", () => {
                         providerContent.classList.toggle("hidden");
@@ -260,7 +278,7 @@
                         const resources = schemas[schemaType];
                         const schemaSection = document.createElement("div");
                         schemaSection.className = "mb-2";
-                        schemaSection.innerHTML = `<h4 class="font-semibold text-gray-300 capitalize">${schemaType}</h4>`;
+                        schemaSection.innerHTML = `<h4 class=\"font-semibold text-gray-300 capitalize\">${schemaType}</h4>`;
                         for (const resource of resources) {
                             const templateContent = await fetchTemplate(provider, schemaType, resource);
                             const resourceDiv = createResourceDiv(provider, schemaType, resource, templateContent);
@@ -308,7 +326,6 @@
                     preElement.contentEditable = false;
                     const updatedTemplate = preElement.innerText;
     
-                    // Save the updated template in memory
                     const key = `${provider}_${schemaType}_${resource}`;
                     editedTemplates[key] = updatedTemplate;
     
@@ -323,6 +340,18 @@
     
                 return resourceDiv;
             };
+    
+            document.getElementById("resetConfigBtn").addEventListener("click", () => {
+                localStorage.removeItem(CONFIG_STORAGE_KEY);
+                configDisplay.innerHTML = "";
+                saveButtons.style.display = "none";
+    
+                // Clear all checkboxes
+                const resourceCheckboxes = document.querySelectorAll(".resource-checkbox");
+                resourceCheckboxes.forEach((checkbox) => {
+                    checkbox.checked = false;
+                });
+            });
     
             const saveConfig = async (format) => {
                 try {
@@ -367,21 +396,6 @@
             document.getElementById("saveJsonBtn").addEventListener("click", () => saveConfig("json"));
             document.getElementById("saveHclBtn").addEventListener("click", () => saveConfig("hcl"));
     
-            document.getElementById("resetConfigBtn").addEventListener("click", async () => {
-                try {
-                    await fetch("/reset_config", { method: "POST" });
-                    document.querySelectorAll(".resource-checkbox").forEach((checkbox) => {
-                        checkbox.checked = false;
-                    });
-                    configDisplay.innerHTML = "";
-                    saveButtons.style.display = "none";
-                } catch (error) {
-                    console.error("Error resetting configuration:", error);
-                }
-            });
-    
-            document.getElementById("current-year").textContent = new Date().getFullYear();
-    
             // Hover effect for logo
             const image = document.getElementById("eitrImage");
             const hoverText = document.getElementById("hoverText");
@@ -393,6 +407,8 @@
             image.addEventListener("mouseout", () => {
                 hoverText.classList.add("hidden");
             });
+    
+            document.getElementById("current-year").textContent = new Date().getFullYear();
     
             refreshConfigDisplay();
         });
