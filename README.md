@@ -1,4 +1,12 @@
 # EITR - Multi-Provider Terraform Config Generator
+[![GitHub release](https://img.shields.io/github/v/release/daytonjones/eitr?sort=semver)](https://github.com/daytonjones/eitr/releases)
+[![GitHub last commit](https://img.shields.io/github/last-commit/daytonjones/eitr)](https://github.com/daytonjones/eitr/commits/main)
+[![GitHub issues](https://img.shields.io/github/issues/daytonjones/eitr)](https://github.com/daytonjones/eitr/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/daytonjones/eitr)](https://github.com/daytonjones/eitr/pulls)
+[![GitHub stars](https://img.shields.io/github/stars/daytonjones/eitr)](https://github.com/daytonjones/eitr/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/daytonjones/eitr)](https://github.com/daytonjones/eitr/network/members)
+[![License](https://img.shields.io/github/license/daytonjones/eitr)](https://github.com/daytonjones/eitr/blob/main/LICENSE)
+---
 
 ## Introduction
 - **E**: Environment – Spanning cloud (AWS, Azure, GCP), local, and virtualized setups.
