@@ -1,11 +1,612 @@
 resource "google_compute_url_map" "example" {
-    creation_timestamp = "{{ creation_timestamp }}"
     default_service = "{{ default_service }}"
     description = "{{ description }}"
-    fingerprint = "{{ fingerprint }}"
     id = "{{ id }}"
-    map_id = "{{ map_id }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    self_link = "{{ self_link }}"
+    default_custom_error_response_policy {
+      error_service = "{{ error_service }}"
+      error_response_rule {
+        match_response_codes = ["{{ match_response_codes }}"]
+        override_response_code = {{ override_response_code }}
+        path = "{{ path }}"
+      }
+    }
+    default_route_action {
+      cache_policy {
+        cache_bypass_request_header_names = ["{{ cache_bypass_request_header_names }}"]
+        cache_mode = "{{ cache_mode }}"
+        negative_caching = {{ negative_caching }}
+        request_coalescing = {{ request_coalescing }}
+        cache_key_policy {
+          excluded_query_parameters = ["{{ excluded_query_parameters }}"]
+          include_host = {{ include_host }}
+          include_protocol = {{ include_protocol }}
+          include_query_string = {{ include_query_string }}
+          included_cookie_names = ["{{ included_cookie_names }}"]
+          included_header_names = ["{{ included_header_names }}"]
+          included_query_parameters = ["{{ included_query_parameters }}"]
+        }
+        client_ttl {
+          nanos = {{ nanos }}
+          seconds = "{{ seconds }}"
+        }
+        default_ttl {
+          nanos = {{ nanos }}
+          seconds = "{{ seconds }}"
+        }
+        max_ttl {
+          nanos = {{ nanos }}
+          seconds = "{{ seconds }}"
+        }
+        negative_caching_policy {
+          code = {{ code }}
+          ttl {
+            nanos = {{ nanos }}
+            seconds = "{{ seconds }}"
+          }
+        }
+        serve_while_stale {
+          nanos = {{ nanos }}
+          seconds = "{{ seconds }}"
+        }
+      }
+      cors_policy {
+        allow_credentials = {{ allow_credentials }}
+        allow_headers = ["{{ allow_headers }}"]
+        allow_methods = ["{{ allow_methods }}"]
+        allow_origin_regexes = ["{{ allow_origin_regexes }}"]
+        allow_origins = ["{{ allow_origins }}"]
+        disabled = {{ disabled }}
+        expose_headers = ["{{ expose_headers }}"]
+        max_age = {{ max_age }}
+      }
+      fault_injection_policy {
+        abort {
+          http_status = {{ http_status }}
+          percentage = {{ percentage }}
+        }
+        delay {
+          percentage = {{ percentage }}
+          fixed_delay {
+            nanos = {{ nanos }}
+            seconds = "{{ seconds }}"
+          }
+        }
+      }
+      max_stream_duration {
+        nanos = {{ nanos }}
+        seconds = "{{ seconds }}"
+      }
+      request_mirror_policy {
+        backend_service = "{{ backend_service }}"
+        mirror_percent = {{ mirror_percent }}
+      }
+      retry_policy {
+        num_retries = {{ num_retries }}
+        retry_conditions = ["{{ retry_conditions }}"]
+        per_try_timeout {
+          nanos = {{ nanos }}
+          seconds = "{{ seconds }}"
+        }
+      }
+      timeout {
+        nanos = {{ nanos }}
+        seconds = "{{ seconds }}"
+      }
+      url_rewrite {
+        host_rewrite = "{{ host_rewrite }}"
+        path_prefix_rewrite = "{{ path_prefix_rewrite }}"
+      }
+      weighted_backend_services {
+        backend_service = "{{ backend_service }}"
+        weight = {{ weight }}
+        header_action {
+          request_headers_to_remove = ["{{ request_headers_to_remove }}"]
+          response_headers_to_remove = ["{{ response_headers_to_remove }}"]
+          request_headers_to_add {
+            header_name = "{{ header_name }}"
+            header_value = "{{ header_value }}"
+            replace = {{ replace }}
+          }
+          response_headers_to_add {
+            header_name = "{{ header_name }}"
+            header_value = "{{ header_value }}"
+            replace = {{ replace }}
+          }
+        }
+      }
+    }
+    default_url_redirect {
+      host_redirect = "{{ host_redirect }}"
+      https_redirect = {{ https_redirect }}
+      path_redirect = "{{ path_redirect }}"
+      prefix_redirect = "{{ prefix_redirect }}"
+      redirect_response_code = "{{ redirect_response_code }}"
+      strip_query = {{ strip_query }}
+    }
+    header_action {
+      request_headers_to_remove = ["{{ request_headers_to_remove }}"]
+      response_headers_to_remove = ["{{ response_headers_to_remove }}"]
+      request_headers_to_add {
+        header_name = "{{ header_name }}"
+        header_value = "{{ header_value }}"
+        replace = {{ replace }}
+      }
+      response_headers_to_add {
+        header_name = "{{ header_name }}"
+        header_value = "{{ header_value }}"
+        replace = {{ replace }}
+      }
+    }
+    host_rule {
+      description = "{{ description }}"
+      hosts = ["{{ hosts }}"]
+      path_matcher = "{{ path_matcher }}"
+    }
+    path_matcher {
+      default_service = "{{ default_service }}"
+      description = "{{ description }}"
+      name = "{{ name }}"
+      default_custom_error_response_policy {
+        error_service = "{{ error_service }}"
+        error_response_rule {
+          match_response_codes = ["{{ match_response_codes }}"]
+          override_response_code = {{ override_response_code }}
+          path = "{{ path }}"
+        }
+      }
+      default_route_action {
+        cache_policy {
+          cache_bypass_request_header_names = ["{{ cache_bypass_request_header_names }}"]
+          cache_mode = "{{ cache_mode }}"
+          negative_caching = {{ negative_caching }}
+          request_coalescing = {{ request_coalescing }}
+          cache_key_policy {
+            excluded_query_parameters = ["{{ excluded_query_parameters }}"]
+            include_host = {{ include_host }}
+            include_protocol = {{ include_protocol }}
+            include_query_string = {{ include_query_string }}
+            included_cookie_names = ["{{ included_cookie_names }}"]
+            included_header_names = ["{{ included_header_names }}"]
+            included_query_parameters = ["{{ included_query_parameters }}"]
+          }
+          client_ttl {
+            nanos = {{ nanos }}
+            seconds = "{{ seconds }}"
+          }
+          default_ttl {
+            nanos = {{ nanos }}
+            seconds = "{{ seconds }}"
+          }
+          max_ttl {
+            nanos = {{ nanos }}
+            seconds = "{{ seconds }}"
+          }
+          negative_caching_policy {
+            code = {{ code }}
+            ttl {
+              nanos = {{ nanos }}
+              seconds = "{{ seconds }}"
+            }
+          }
+          serve_while_stale {
+            nanos = {{ nanos }}
+            seconds = "{{ seconds }}"
+          }
+        }
+        cors_policy {
+          allow_credentials = {{ allow_credentials }}
+          allow_headers = ["{{ allow_headers }}"]
+          allow_methods = ["{{ allow_methods }}"]
+          allow_origin_regexes = ["{{ allow_origin_regexes }}"]
+          allow_origins = ["{{ allow_origins }}"]
+          disabled = {{ disabled }}
+          expose_headers = ["{{ expose_headers }}"]
+          max_age = {{ max_age }}
+        }
+        fault_injection_policy {
+          abort {
+            http_status = {{ http_status }}
+            percentage = {{ percentage }}
+          }
+          delay {
+            percentage = {{ percentage }}
+            fixed_delay {
+              nanos = {{ nanos }}
+              seconds = "{{ seconds }}"
+            }
+          }
+        }
+        max_stream_duration {
+          nanos = {{ nanos }}
+          seconds = "{{ seconds }}"
+        }
+        request_mirror_policy {
+          backend_service = "{{ backend_service }}"
+          mirror_percent = {{ mirror_percent }}
+        }
+        retry_policy {
+          num_retries = {{ num_retries }}
+          retry_conditions = ["{{ retry_conditions }}"]
+          per_try_timeout {
+            nanos = {{ nanos }}
+            seconds = "{{ seconds }}"
+          }
+        }
+        timeout {
+          nanos = {{ nanos }}
+          seconds = "{{ seconds }}"
+        }
+        url_rewrite {
+          host_rewrite = "{{ host_rewrite }}"
+          path_prefix_rewrite = "{{ path_prefix_rewrite }}"
+        }
+        weighted_backend_services {
+          backend_service = "{{ backend_service }}"
+          weight = {{ weight }}
+          header_action {
+            request_headers_to_remove = ["{{ request_headers_to_remove }}"]
+            response_headers_to_remove = ["{{ response_headers_to_remove }}"]
+            request_headers_to_add {
+              header_name = "{{ header_name }}"
+              header_value = "{{ header_value }}"
+              replace = {{ replace }}
+            }
+            response_headers_to_add {
+              header_name = "{{ header_name }}"
+              header_value = "{{ header_value }}"
+              replace = {{ replace }}
+            }
+          }
+        }
+      }
+      default_url_redirect {
+        host_redirect = "{{ host_redirect }}"
+        https_redirect = {{ https_redirect }}
+        path_redirect = "{{ path_redirect }}"
+        prefix_redirect = "{{ prefix_redirect }}"
+        redirect_response_code = "{{ redirect_response_code }}"
+        strip_query = {{ strip_query }}
+      }
+      header_action {
+        request_headers_to_remove = ["{{ request_headers_to_remove }}"]
+        response_headers_to_remove = ["{{ response_headers_to_remove }}"]
+        request_headers_to_add {
+          header_name = "{{ header_name }}"
+          header_value = "{{ header_value }}"
+          replace = {{ replace }}
+        }
+        response_headers_to_add {
+          header_name = "{{ header_name }}"
+          header_value = "{{ header_value }}"
+          replace = {{ replace }}
+        }
+      }
+      path_rule {
+        paths = ["{{ paths }}"]
+        service = "{{ service }}"
+        custom_error_response_policy {
+          error_service = "{{ error_service }}"
+          error_response_rule {
+            match_response_codes = ["{{ match_response_codes }}"]
+            override_response_code = {{ override_response_code }}
+            path = "{{ path }}"
+          }
+        }
+        route_action {
+          cache_policy {
+            cache_bypass_request_header_names = ["{{ cache_bypass_request_header_names }}"]
+            cache_mode = "{{ cache_mode }}"
+            negative_caching = {{ negative_caching }}
+            request_coalescing = {{ request_coalescing }}
+            cache_key_policy {
+              excluded_query_parameters = ["{{ excluded_query_parameters }}"]
+              include_host = {{ include_host }}
+              include_protocol = {{ include_protocol }}
+              include_query_string = {{ include_query_string }}
+              included_cookie_names = ["{{ included_cookie_names }}"]
+              included_header_names = ["{{ included_header_names }}"]
+              included_query_parameters = ["{{ included_query_parameters }}"]
+            }
+            client_ttl {
+              nanos = {{ nanos }}
+              seconds = "{{ seconds }}"
+            }
+            default_ttl {
+              nanos = {{ nanos }}
+              seconds = "{{ seconds }}"
+            }
+            max_ttl {
+              nanos = {{ nanos }}
+              seconds = "{{ seconds }}"
+            }
+            negative_caching_policy {
+              code = {{ code }}
+              ttl {
+                nanos = {{ nanos }}
+                seconds = "{{ seconds }}"
+              }
+            }
+            serve_while_stale {
+              nanos = {{ nanos }}
+              seconds = "{{ seconds }}"
+            }
+          }
+          cors_policy {
+            allow_credentials = {{ allow_credentials }}
+            allow_headers = ["{{ allow_headers }}"]
+            allow_methods = ["{{ allow_methods }}"]
+            allow_origin_regexes = ["{{ allow_origin_regexes }}"]
+            allow_origins = ["{{ allow_origins }}"]
+            disabled = {{ disabled }}
+            expose_headers = ["{{ expose_headers }}"]
+            max_age = {{ max_age }}
+          }
+          fault_injection_policy {
+            abort {
+              http_status = {{ http_status }}
+              percentage = {{ percentage }}
+            }
+            delay {
+              percentage = {{ percentage }}
+              fixed_delay {
+                nanos = {{ nanos }}
+                seconds = "{{ seconds }}"
+              }
+            }
+          }
+          max_stream_duration {
+            nanos = {{ nanos }}
+            seconds = "{{ seconds }}"
+          }
+          request_mirror_policy {
+            backend_service = "{{ backend_service }}"
+            mirror_percent = {{ mirror_percent }}
+          }
+          retry_policy {
+            num_retries = {{ num_retries }}
+            retry_conditions = ["{{ retry_conditions }}"]
+            per_try_timeout {
+              nanos = {{ nanos }}
+              seconds = "{{ seconds }}"
+            }
+          }
+          timeout {
+            nanos = {{ nanos }}
+            seconds = "{{ seconds }}"
+          }
+          url_rewrite {
+            host_rewrite = "{{ host_rewrite }}"
+            path_prefix_rewrite = "{{ path_prefix_rewrite }}"
+          }
+          weighted_backend_services {
+            backend_service = "{{ backend_service }}"
+            weight = {{ weight }}
+            header_action {
+              request_headers_to_remove = ["{{ request_headers_to_remove }}"]
+              response_headers_to_remove = ["{{ response_headers_to_remove }}"]
+              request_headers_to_add {
+                header_name = "{{ header_name }}"
+                header_value = "{{ header_value }}"
+                replace = {{ replace }}
+              }
+              response_headers_to_add {
+                header_name = "{{ header_name }}"
+                header_value = "{{ header_value }}"
+                replace = {{ replace }}
+              }
+            }
+          }
+        }
+        url_redirect {
+          host_redirect = "{{ host_redirect }}"
+          https_redirect = {{ https_redirect }}
+          path_redirect = "{{ path_redirect }}"
+          prefix_redirect = "{{ prefix_redirect }}"
+          redirect_response_code = "{{ redirect_response_code }}"
+          strip_query = {{ strip_query }}
+        }
+      }
+      route_rules {
+        priority = {{ priority }}
+        service = "{{ service }}"
+        custom_error_response_policy {
+          error_service = "{{ error_service }}"
+          error_response_rule {
+            match_response_codes = ["{{ match_response_codes }}"]
+            override_response_code = {{ override_response_code }}
+            path = "{{ path }}"
+          }
+        }
+        header_action {
+          request_headers_to_remove = ["{{ request_headers_to_remove }}"]
+          response_headers_to_remove = ["{{ response_headers_to_remove }}"]
+          request_headers_to_add {
+            header_name = "{{ header_name }}"
+            header_value = "{{ header_value }}"
+            replace = {{ replace }}
+          }
+          response_headers_to_add {
+            header_name = "{{ header_name }}"
+            header_value = "{{ header_value }}"
+            replace = {{ replace }}
+          }
+        }
+        http_filter_configs {
+          config = "{{ config }}"
+          config_type_url = "{{ config_type_url }}"
+          filter_name = "{{ filter_name }}"
+        }
+        http_filter_metadata {
+          config = "{{ config }}"
+          config_type_url = "{{ config_type_url }}"
+          filter_name = "{{ filter_name }}"
+        }
+        match_rules {
+          full_path_match = "{{ full_path_match }}"
+          ignore_case = {{ ignore_case }}
+          path_template_match = "{{ path_template_match }}"
+          prefix_match = "{{ prefix_match }}"
+          regex_match = "{{ regex_match }}"
+          header_matches {
+            exact_match = "{{ exact_match }}"
+            header_name = "{{ header_name }}"
+            invert_match = {{ invert_match }}
+            prefix_match = "{{ prefix_match }}"
+            present_match = {{ present_match }}
+            regex_match = "{{ regex_match }}"
+            suffix_match = "{{ suffix_match }}"
+            range_match {
+              range_end = {{ range_end }}
+              range_start = {{ range_start }}
+            }
+          }
+          metadata_filters {
+            filter_match_criteria = "{{ filter_match_criteria }}"
+            filter_labels {
+              name = "{{ name }}"
+              value = "{{ value }}"
+            }
+          }
+          query_parameter_matches {
+            exact_match = "{{ exact_match }}"
+            name = "{{ name }}"
+            present_match = {{ present_match }}
+            regex_match = "{{ regex_match }}"
+          }
+        }
+        route_action {
+          cache_policy {
+            cache_bypass_request_header_names = ["{{ cache_bypass_request_header_names }}"]
+            cache_mode = "{{ cache_mode }}"
+            negative_caching = {{ negative_caching }}
+            request_coalescing = {{ request_coalescing }}
+            cache_key_policy {
+              excluded_query_parameters = ["{{ excluded_query_parameters }}"]
+              include_host = {{ include_host }}
+              include_protocol = {{ include_protocol }}
+              include_query_string = {{ include_query_string }}
+              included_cookie_names = ["{{ included_cookie_names }}"]
+              included_header_names = ["{{ included_header_names }}"]
+              included_query_parameters = ["{{ included_query_parameters }}"]
+            }
+            client_ttl {
+              nanos = {{ nanos }}
+              seconds = "{{ seconds }}"
+            }
+            default_ttl {
+              nanos = {{ nanos }}
+              seconds = "{{ seconds }}"
+            }
+            max_ttl {
+              nanos = {{ nanos }}
+              seconds = "{{ seconds }}"
+            }
+            negative_caching_policy {
+              code = {{ code }}
+              ttl {
+                nanos = {{ nanos }}
+                seconds = "{{ seconds }}"
+              }
+            }
+            serve_while_stale {
+              nanos = {{ nanos }}
+              seconds = "{{ seconds }}"
+            }
+          }
+          cors_policy {
+            allow_credentials = {{ allow_credentials }}
+            allow_headers = ["{{ allow_headers }}"]
+            allow_methods = ["{{ allow_methods }}"]
+            allow_origin_regexes = ["{{ allow_origin_regexes }}"]
+            allow_origins = ["{{ allow_origins }}"]
+            disabled = {{ disabled }}
+            expose_headers = ["{{ expose_headers }}"]
+            max_age = {{ max_age }}
+          }
+          fault_injection_policy {
+            abort {
+              http_status = {{ http_status }}
+              percentage = {{ percentage }}
+            }
+            delay {
+              percentage = {{ percentage }}
+              fixed_delay {
+                nanos = {{ nanos }}
+                seconds = "{{ seconds }}"
+              }
+            }
+          }
+          max_stream_duration {
+            nanos = {{ nanos }}
+            seconds = "{{ seconds }}"
+          }
+          request_mirror_policy {
+            backend_service = "{{ backend_service }}"
+            mirror_percent = {{ mirror_percent }}
+          }
+          retry_policy {
+            num_retries = {{ num_retries }}
+            retry_conditions = ["{{ retry_conditions }}"]
+            per_try_timeout {
+              nanos = {{ nanos }}
+              seconds = "{{ seconds }}"
+            }
+          }
+          timeout {
+            nanos = {{ nanos }}
+            seconds = "{{ seconds }}"
+          }
+          url_rewrite {
+            host_rewrite = "{{ host_rewrite }}"
+            path_prefix_rewrite = "{{ path_prefix_rewrite }}"
+            path_template_rewrite = "{{ path_template_rewrite }}"
+          }
+          weighted_backend_services {
+            backend_service = "{{ backend_service }}"
+            weight = {{ weight }}
+            header_action {
+              request_headers_to_remove = ["{{ request_headers_to_remove }}"]
+              response_headers_to_remove = ["{{ response_headers_to_remove }}"]
+              request_headers_to_add {
+                header_name = "{{ header_name }}"
+                header_value = "{{ header_value }}"
+                replace = {{ replace }}
+              }
+              response_headers_to_add {
+                header_name = "{{ header_name }}"
+                header_value = "{{ header_value }}"
+                replace = {{ replace }}
+              }
+            }
+          }
+        }
+        url_redirect {
+          host_redirect = "{{ host_redirect }}"
+          https_redirect = {{ https_redirect }}
+          path_redirect = "{{ path_redirect }}"
+          prefix_redirect = "{{ prefix_redirect }}"
+          redirect_response_code = "{{ redirect_response_code }}"
+          strip_query = {{ strip_query }}
+        }
+      }
+    }
+    test {
+      description = "{{ description }}"
+      expected_output_url = "{{ expected_output_url }}"
+      expected_redirect_response_code = {{ expected_redirect_response_code }}
+      host = "{{ host }}"
+      path = "{{ path }}"
+      service = "{{ service }}"
+      headers {
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

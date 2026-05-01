@@ -1,12 +1,14 @@
 resource "google_certificate_manager_certificate_map" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
-    gclb_targets = "{{ gclb_targets }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
     project = "{{ project }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

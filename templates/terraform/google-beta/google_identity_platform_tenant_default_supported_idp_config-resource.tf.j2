@@ -1,10 +1,14 @@
 resource "google_identity_platform_tenant_default_supported_idp_config" "example" {
     client_id = "{{ client_id }}"
     client_secret = "{{ client_secret }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     idp_id = "{{ idp_id }}"
-    name = "{{ name }}"
     project = "{{ project }}"
     tenant = "{{ tenant }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,12 @@
+resource "google_contact_center_insights_view" "example" {
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    value = "{{ value }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

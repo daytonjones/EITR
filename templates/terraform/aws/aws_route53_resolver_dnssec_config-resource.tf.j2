@@ -1,7 +1,5 @@
 resource "aws_route53_resolver_dnssec_config" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
-    owner_id = "{{ owner_id }}"
+    region = "{{ region }}"
     resource_id = "{{ resource_id }}"
-    validation_status = "{{ validation_status }}"
 }

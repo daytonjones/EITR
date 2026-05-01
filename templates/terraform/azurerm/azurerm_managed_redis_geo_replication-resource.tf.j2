@@ -1,0 +1,11 @@
+resource "azurerm_managed_redis_geo_replication" "example" {
+    id = "{{ id }}"
+    linked_managed_redis_ids = ["{{ linked_managed_redis_ids }}"]
+    managed_redis_id = "{{ managed_redis_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

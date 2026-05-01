@@ -1,13 +1,17 @@
 resource "aws_rolesanywhere_profile" "example" {
-    arn = "{{ arn }}"
-    duration_seconds = "{{ duration_seconds }}"
-    enabled = "{{ enabled }}"
+    accept_role_session_name = {{ accept_role_session_name }}
+    duration_seconds = {{ duration_seconds }}
+    enabled = {{ enabled }}
     id = "{{ id }}"
-    managed_policy_arns = "{{ managed_policy_arns }}"
+    managed_policy_arns = ["{{ managed_policy_arns }}"]
     name = "{{ name }}"
-    require_instance_properties = "{{ require_instance_properties }}"
-    role_arns = "{{ role_arns }}"
+    require_instance_properties = {{ require_instance_properties }}
+    role_arns = ["{{ role_arns }}"]
     session_policy = "{{ session_policy }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

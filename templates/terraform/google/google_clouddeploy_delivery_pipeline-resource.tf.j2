@@ -1,18 +1,98 @@
 resource "google_clouddeploy_delivery_pipeline" "example" {
-    annotations = "{{ annotations }}"
-    condition = "{{ condition }}"
-    create_time = "{{ create_time }}"
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
     description = "{{ description }}"
-    effective_annotations = "{{ effective_annotations }}"
-    effective_labels = "{{ effective_labels }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    suspended = "{{ suspended }}"
-    terraform_labels = "{{ terraform_labels }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
+    suspended = {{ suspended }}
+    serial_pipeline {
+      stages {
+        profiles = ["{{ profiles }}"]
+        target_id = "{{ target_id }}"
+        deploy_parameters {
+          match_target_labels = {
+        key = "{{ match_target_labels_value }}"
+      }
+          values = {
+        key = "{{ values_value }}"
+      }
+        }
+        strategy {
+          canary {
+            canary_deployment {
+              percentages = ["{{ percentages }}"]
+              verify = {{ verify }}
+              postdeploy {
+                actions = ["{{ actions }}"]
+              }
+              predeploy {
+                actions = ["{{ actions }}"]
+              }
+            }
+            custom_canary_deployment {
+              phase_configs {
+                percentage = {{ percentage }}
+                phase_id = "{{ phase_id }}"
+                profiles = ["{{ profiles }}"]
+                verify = {{ verify }}
+                postdeploy {
+                  actions = ["{{ actions }}"]
+                }
+                predeploy {
+                  actions = ["{{ actions }}"]
+                }
+              }
+            }
+            runtime_config {
+              cloud_run {
+                automatic_traffic_control = {{ automatic_traffic_control }}
+                canary_revision_tags = ["{{ canary_revision_tags }}"]
+                prior_revision_tags = ["{{ prior_revision_tags }}"]
+                stable_revision_tags = ["{{ stable_revision_tags }}"]
+              }
+              kubernetes {
+                gateway_service_mesh {
+                  deployment = "{{ deployment }}"
+                  http_route = "{{ http_route }}"
+                  pod_selector_label = "{{ pod_selector_label }}"
+                  route_update_wait_time = "{{ route_update_wait_time }}"
+                  service = "{{ service }}"
+                  stable_cutback_duration = "{{ stable_cutback_duration }}"
+                  route_destinations {
+                    destination_ids = ["{{ destination_ids }}"]
+                    propagate_service = {{ propagate_service }}
+                  }
+                }
+                service_networking {
+                  deployment = "{{ deployment }}"
+                  disable_pod_overprovisioning = {{ disable_pod_overprovisioning }}
+                  pod_selector_label = "{{ pod_selector_label }}"
+                  service = "{{ service }}"
+                }
+              }
+            }
+          }
+          standard {
+            verify = {{ verify }}
+            postdeploy {
+              actions = ["{{ actions }}"]
+            }
+            predeploy {
+              actions = ["{{ actions }}"]
+            }
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

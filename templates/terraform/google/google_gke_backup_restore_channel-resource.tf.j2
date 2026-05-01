@@ -1,0 +1,16 @@
+resource "google_gke_backup_restore_channel" "example" {
+    description = "{{ description }}"
+    destination_project = "{{ destination_project }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -3,4 +3,8 @@ resource "google_kms_key_ring" "example" {
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

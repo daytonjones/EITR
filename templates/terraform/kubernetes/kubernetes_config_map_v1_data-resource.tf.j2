@@ -1,6 +1,12 @@
 resource "kubernetes_config_map_v1_data" "example" {
-    data = "{{ data }}"
+    data = {
+        key = "{{ data_value }}"
+      }
     field_manager = "{{ field_manager }}"
-    force = "{{ force }}"
+    force = {{ force }}
     id = "{{ id }}"
+    metadata {
+      name = "{{ name }}"
+      namespace = "{{ namespace }}"
+    }
 }

@@ -4,5 +4,11 @@ resource "azurerm_sentinel_data_connector_aws_s3" "example" {
     id = "{{ id }}"
     log_analytics_workspace_id = "{{ log_analytics_workspace_id }}"
     name = "{{ name }}"
-    sqs_urls = "{{ sqs_urls }}"
+    sqs_urls = ["{{ sqs_urls }}"]
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

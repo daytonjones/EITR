@@ -1,19 +1,74 @@
 resource "google_dataproc_batch" "example" {
     batch_id = "{{ batch_id }}"
-    create_time = "{{ create_time }}"
-    creator = "{{ creator }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
-    name = "{{ name }}"
-    operation = "{{ operation }}"
     project = "{{ project }}"
-    runtime_info = "{{ runtime_info }}"
-    state = "{{ state }}"
-    state_history = "{{ state_history }}"
-    state_message = "{{ state_message }}"
-    state_time = "{{ state_time }}"
-    terraform_labels = "{{ terraform_labels }}"
-    uuid = "{{ uuid }}"
+    environment_config {
+      execution_config {
+        kms_key = "{{ kms_key }}"
+        network_tags = ["{{ network_tags }}"]
+        network_uri = "{{ network_uri }}"
+        service_account = "{{ service_account }}"
+        staging_bucket = "{{ staging_bucket }}"
+        subnetwork_uri = "{{ subnetwork_uri }}"
+        ttl = "{{ ttl }}"
+        authentication_config {
+          user_workload_authentication_type = "{{ user_workload_authentication_type }}"
+        }
+      }
+      peripherals_config {
+        metastore_service = "{{ metastore_service }}"
+        spark_history_server_config {
+          dataproc_cluster = "{{ dataproc_cluster }}"
+        }
+      }
+    }
+    pyspark_batch {
+      archive_uris = ["{{ archive_uris }}"]
+      args = ["{{ args }}"]
+      file_uris = ["{{ file_uris }}"]
+      jar_file_uris = ["{{ jar_file_uris }}"]
+      main_python_file_uri = "{{ main_python_file_uri }}"
+      python_file_uris = ["{{ python_file_uris }}"]
+    }
+    runtime_config {
+      cohort = "{{ cohort }}"
+      container_image = "{{ container_image }}"
+      properties = {
+        key = "{{ properties_value }}"
+      }
+      version = "{{ version }}"
+      autotuning_config {
+        scenarios = ["{{ scenarios }}"]
+      }
+    }
+    spark_batch {
+      archive_uris = ["{{ archive_uris }}"]
+      args = ["{{ args }}"]
+      file_uris = ["{{ file_uris }}"]
+      jar_file_uris = ["{{ jar_file_uris }}"]
+      main_class = "{{ main_class }}"
+      main_jar_file_uri = "{{ main_jar_file_uri }}"
+    }
+    spark_r_batch {
+      archive_uris = ["{{ archive_uris }}"]
+      args = ["{{ args }}"]
+      file_uris = ["{{ file_uris }}"]
+      main_r_file_uri = "{{ main_r_file_uri }}"
+    }
+    spark_sql_batch {
+      jar_file_uris = ["{{ jar_file_uris }}"]
+      query_file_uri = "{{ query_file_uri }}"
+      query_variables = {
+        key = "{{ query_variables_value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

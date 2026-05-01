@@ -6,4 +6,9 @@ resource "azurerm_postgresql_flexible_server_active_directory_administrator" "ex
     resource_group_name = "{{ resource_group_name }}"
     server_name = "{{ server_name }}"
     tenant_id = "{{ tenant_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

@@ -1,11 +1,37 @@
 resource "aws_config_config_rule" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     id = "{{ id }}"
     input_parameters = "{{ input_parameters }}"
     maximum_execution_frequency = "{{ maximum_execution_frequency }}"
     name = "{{ name }}"
-    rule_id = "{{ rule_id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    evaluation_mode {
+      mode = "{{ mode }}"
+    }
+    scope {
+      compliance_resource_id = "{{ compliance_resource_id }}"
+      compliance_resource_types = ["{{ compliance_resource_types }}"]
+      tag_key = "{{ tag_key }}"
+      tag_value = "{{ tag_value }}"
+    }
+    source {
+      owner = "{{ owner }}"
+      source_identifier = "{{ source_identifier }}"
+      custom_policy_details {
+        enable_debug_log_delivery = {{ enable_debug_log_delivery }}
+        policy_runtime = "{{ policy_runtime }}"
+        policy_text = "{{ policy_text }}"
+      }
+      source_detail {
+        event_source = "{{ event_source }}"
+        maximum_execution_frequency = "{{ maximum_execution_frequency }}"
+        message_type = "{{ message_type }}"
+      }
+    }
 }

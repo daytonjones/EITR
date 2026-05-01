@@ -1,8 +1,20 @@
 resource "aws_ses_event_destination" "example" {
-    arn = "{{ arn }}"
     configuration_set_name = "{{ configuration_set_name }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
-    matching_types = "{{ matching_types }}"
+    matching_types = ["{{ matching_types }}"]
     name = "{{ name }}"
+    region = "{{ region }}"
+    cloudwatch_destination {
+      default_value = "{{ default_value }}"
+      dimension_name = "{{ dimension_name }}"
+      value_source = "{{ value_source }}"
+    }
+    kinesis_destination {
+      role_arn = "{{ role_arn }}"
+      stream_arn = "{{ stream_arn }}"
+    }
+    sns_destination {
+      topic_arn = "{{ topic_arn }}"
+    }
 }

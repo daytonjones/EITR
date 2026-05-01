@@ -3,4 +3,15 @@ resource "google_dns_response_policy" "example" {
     id = "{{ id }}"
     project = "{{ project }}"
     response_policy_name = "{{ response_policy_name }}"
+    gke_clusters {
+      gke_cluster_name = "{{ gke_cluster_name }}"
+    }
+    networks {
+      network_url = "{{ network_url }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

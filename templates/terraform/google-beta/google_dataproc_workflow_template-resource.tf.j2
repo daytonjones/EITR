@@ -1,13 +1,318 @@
 resource "google_dataproc_workflow_template" "example" {
-    create_time = "{{ create_time }}"
     dag_timeout = "{{ dag_timeout }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
-    version = "{{ version }}"
+    version = {{ version }}
+    encryption_config {
+      kms_key = "{{ kms_key }}"
+    }
+    jobs {
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      prerequisite_step_ids = ["{{ prerequisite_step_ids }}"]
+      step_id = "{{ step_id }}"
+      hadoop_job {
+        archive_uris = ["{{ archive_uris }}"]
+        args = ["{{ args }}"]
+        file_uris = ["{{ file_uris }}"]
+        jar_file_uris = ["{{ jar_file_uris }}"]
+        main_class = "{{ main_class }}"
+        main_jar_file_uri = "{{ main_jar_file_uri }}"
+        properties = {
+        key = "{{ properties_value }}"
+      }
+        logging_config {
+          driver_log_levels = {
+        key = "{{ driver_log_levels_value }}"
+      }
+        }
+      }
+      hive_job {
+        continue_on_failure = {{ continue_on_failure }}
+        jar_file_uris = ["{{ jar_file_uris }}"]
+        properties = {
+        key = "{{ properties_value }}"
+      }
+        query_file_uri = "{{ query_file_uri }}"
+        script_variables = {
+        key = "{{ script_variables_value }}"
+      }
+        query_list {
+          queries = ["{{ queries }}"]
+        }
+      }
+      pig_job {
+        continue_on_failure = {{ continue_on_failure }}
+        jar_file_uris = ["{{ jar_file_uris }}"]
+        properties = {
+        key = "{{ properties_value }}"
+      }
+        query_file_uri = "{{ query_file_uri }}"
+        script_variables = {
+        key = "{{ script_variables_value }}"
+      }
+        logging_config {
+          driver_log_levels = {
+        key = "{{ driver_log_levels_value }}"
+      }
+        }
+        query_list {
+          queries = ["{{ queries }}"]
+        }
+      }
+      presto_job {
+        client_tags = ["{{ client_tags }}"]
+        continue_on_failure = {{ continue_on_failure }}
+        output_format = "{{ output_format }}"
+        properties = {
+        key = "{{ properties_value }}"
+      }
+        query_file_uri = "{{ query_file_uri }}"
+        logging_config {
+          driver_log_levels = {
+        key = "{{ driver_log_levels_value }}"
+      }
+        }
+        query_list {
+          queries = ["{{ queries }}"]
+        }
+      }
+      pyspark_job {
+        archive_uris = ["{{ archive_uris }}"]
+        args = ["{{ args }}"]
+        file_uris = ["{{ file_uris }}"]
+        jar_file_uris = ["{{ jar_file_uris }}"]
+        main_python_file_uri = "{{ main_python_file_uri }}"
+        properties = {
+        key = "{{ properties_value }}"
+      }
+        python_file_uris = ["{{ python_file_uris }}"]
+        logging_config {
+          driver_log_levels = {
+        key = "{{ driver_log_levels_value }}"
+      }
+        }
+      }
+      scheduling {
+        max_failures_per_hour = {{ max_failures_per_hour }}
+        max_failures_total = {{ max_failures_total }}
+      }
+      spark_job {
+        archive_uris = ["{{ archive_uris }}"]
+        args = ["{{ args }}"]
+        file_uris = ["{{ file_uris }}"]
+        jar_file_uris = ["{{ jar_file_uris }}"]
+        main_class = "{{ main_class }}"
+        main_jar_file_uri = "{{ main_jar_file_uri }}"
+        properties = {
+        key = "{{ properties_value }}"
+      }
+        logging_config {
+          driver_log_levels = {
+        key = "{{ driver_log_levels_value }}"
+      }
+        }
+      }
+      spark_r_job {
+        archive_uris = ["{{ archive_uris }}"]
+        args = ["{{ args }}"]
+        file_uris = ["{{ file_uris }}"]
+        main_r_file_uri = "{{ main_r_file_uri }}"
+        properties = {
+        key = "{{ properties_value }}"
+      }
+        logging_config {
+          driver_log_levels = {
+        key = "{{ driver_log_levels_value }}"
+      }
+        }
+      }
+      spark_sql_job {
+        jar_file_uris = ["{{ jar_file_uris }}"]
+        properties = {
+        key = "{{ properties_value }}"
+      }
+        query_file_uri = "{{ query_file_uri }}"
+        script_variables = {
+        key = "{{ script_variables_value }}"
+      }
+        logging_config {
+          driver_log_levels = {
+        key = "{{ driver_log_levels_value }}"
+      }
+        }
+        query_list {
+          queries = ["{{ queries }}"]
+        }
+      }
+    }
+    parameters {
+      description = "{{ description }}"
+      fields = ["{{ fields }}"]
+      name = "{{ name }}"
+      validation {
+        regex {
+          regexes = ["{{ regexes }}"]
+        }
+        values {
+          values = ["{{ values }}"]
+        }
+      }
+    }
+    placement {
+      cluster_selector {
+        cluster_labels = {
+        key = "{{ cluster_labels_value }}"
+      }
+        zone = "{{ zone }}"
+      }
+      managed_cluster {
+        cluster_name = "{{ cluster_name }}"
+        labels = {
+        key = "{{ labels_value }}"
+      }
+        config {
+          staging_bucket = "{{ staging_bucket }}"
+          temp_bucket = "{{ temp_bucket }}"
+          autoscaling_config {
+            policy = "{{ policy }}"
+          }
+          encryption_config {
+            gce_pd_kms_key_name = "{{ gce_pd_kms_key_name }}"
+          }
+          endpoint_config {
+            enable_http_port_access = {{ enable_http_port_access }}
+          }
+          gce_cluster_config {
+            internal_ip_only = {{ internal_ip_only }}
+            metadata = {
+        key = "{{ metadata_value }}"
+      }
+            network = "{{ network }}"
+            private_ipv6_google_access = "{{ private_ipv6_google_access }}"
+            service_account = "{{ service_account }}"
+            service_account_scopes = ["{{ service_account_scopes }}"]
+            subnetwork = "{{ subnetwork }}"
+            tags = ["{{ tags }}"]
+            zone = "{{ zone }}"
+            node_group_affinity {
+              node_group = "{{ node_group }}"
+            }
+            reservation_affinity {
+              consume_reservation_type = "{{ consume_reservation_type }}"
+              key = "{{ key }}"
+              values = ["{{ values }}"]
+            }
+            shielded_instance_config {
+              enable_integrity_monitoring = {{ enable_integrity_monitoring }}
+              enable_secure_boot = {{ enable_secure_boot }}
+              enable_vtpm = {{ enable_vtpm }}
+            }
+          }
+          gke_cluster_config {
+            namespaced_gke_deployment_target {
+              cluster_namespace = "{{ cluster_namespace }}"
+              target_gke_cluster = "{{ target_gke_cluster }}"
+            }
+          }
+          initialization_actions {
+            executable_file = "{{ executable_file }}"
+            execution_timeout = "{{ execution_timeout }}"
+          }
+          lifecycle_config {
+            auto_delete_time = "{{ auto_delete_time }}"
+            auto_delete_ttl = "{{ auto_delete_ttl }}"
+            idle_delete_ttl = "{{ idle_delete_ttl }}"
+          }
+          master_config {
+            image = "{{ image }}"
+            machine_type = "{{ machine_type }}"
+            min_cpu_platform = "{{ min_cpu_platform }}"
+            num_instances = {{ num_instances }}
+            preemptibility = "{{ preemptibility }}"
+            accelerators {
+              accelerator_count = {{ accelerator_count }}
+              accelerator_type = "{{ accelerator_type }}"
+            }
+            disk_config {
+              boot_disk_size_gb = {{ boot_disk_size_gb }}
+              boot_disk_type = "{{ boot_disk_type }}"
+              num_local_ssds = {{ num_local_ssds }}
+            }
+          }
+          metastore_config {
+            dataproc_metastore_service = "{{ dataproc_metastore_service }}"
+          }
+          secondary_worker_config {
+            image = "{{ image }}"
+            machine_type = "{{ machine_type }}"
+            min_cpu_platform = "{{ min_cpu_platform }}"
+            num_instances = {{ num_instances }}
+            preemptibility = "{{ preemptibility }}"
+            accelerators {
+              accelerator_count = {{ accelerator_count }}
+              accelerator_type = "{{ accelerator_type }}"
+            }
+            disk_config {
+              boot_disk_size_gb = {{ boot_disk_size_gb }}
+              boot_disk_type = "{{ boot_disk_type }}"
+              num_local_ssds = {{ num_local_ssds }}
+            }
+          }
+          security_config {
+            kerberos_config {
+              cross_realm_trust_admin_server = "{{ cross_realm_trust_admin_server }}"
+              cross_realm_trust_kdc = "{{ cross_realm_trust_kdc }}"
+              cross_realm_trust_realm = "{{ cross_realm_trust_realm }}"
+              cross_realm_trust_shared_password = "{{ cross_realm_trust_shared_password }}"
+              enable_kerberos = {{ enable_kerberos }}
+              kdc_db_key = "{{ kdc_db_key }}"
+              key_password = "{{ key_password }}"
+              keystore = "{{ keystore }}"
+              keystore_password = "{{ keystore_password }}"
+              kms_key = "{{ kms_key }}"
+              realm = "{{ realm }}"
+              root_principal_password = "{{ root_principal_password }}"
+              tgt_lifetime_hours = {{ tgt_lifetime_hours }}
+              truststore = "{{ truststore }}"
+              truststore_password = "{{ truststore_password }}"
+            }
+          }
+          software_config {
+            image_version = "{{ image_version }}"
+            optional_components = ["{{ optional_components }}"]
+            properties = {
+        key = "{{ properties_value }}"
+      }
+          }
+          worker_config {
+            image = "{{ image }}"
+            machine_type = "{{ machine_type }}"
+            min_cpu_platform = "{{ min_cpu_platform }}"
+            num_instances = {{ num_instances }}
+            preemptibility = "{{ preemptibility }}"
+            accelerators {
+              accelerator_count = {{ accelerator_count }}
+              accelerator_type = "{{ accelerator_type }}"
+            }
+            disk_config {
+              boot_disk_size_gb = {{ boot_disk_size_gb }}
+              boot_disk_type = "{{ boot_disk_type }}"
+              num_local_ssds = {{ num_local_ssds }}
+            }
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

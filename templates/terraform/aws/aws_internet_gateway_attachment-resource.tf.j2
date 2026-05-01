@@ -1,5 +1,10 @@
 resource "aws_internet_gateway_attachment" "example" {
     id = "{{ id }}"
     internet_gateway_id = "{{ internet_gateway_id }}"
+    region = "{{ region }}"
     vpc_id = "{{ vpc_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

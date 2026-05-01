@@ -1,0 +1,10 @@
+resource "awscc_bedrock_blueprint" "example" {
+    blueprint_name = "{{ blueprint_name }}"
+    kms_encryption_context = {
+        key = "{{ kms_encryption_context_value }}"
+      }
+    kms_key_id = "{{ kms_key_id }}"
+    schema = "{{ schema }}"
+    tags = "{{ tags }}"
+    type = "{{ type }}"
+}

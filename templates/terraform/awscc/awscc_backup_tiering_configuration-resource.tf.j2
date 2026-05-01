@@ -1,0 +1,8 @@
+resource "awscc_backup_tiering_configuration" "example" {
+    backup_vault_name = "{{ backup_vault_name }}"
+    resource_selection = "{{ resource_selection }}"
+    tiering_configuration_name = "{{ tiering_configuration_name }}"
+    tiering_configuration_tags = {
+        key = "{{ tiering_configuration_tags_value }}"
+      }
+}

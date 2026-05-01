@@ -2,9 +2,8 @@ resource "azurerm_machine_learning_workspace" "example" {
     application_insights_id = "{{ application_insights_id }}"
     container_registry_id = "{{ container_registry_id }}"
     description = "{{ description }}"
-    discovery_url = "{{ discovery_url }}"
     friendly_name = "{{ friendly_name }}"
-    high_business_impact = "{{ high_business_impact }}"
+    high_business_impact = {{ high_business_impact }}
     id = "{{ id }}"
     image_build_compute_name = "{{ image_build_compute_name }}"
     key_vault_id = "{{ key_vault_id }}"
@@ -12,11 +11,41 @@ resource "azurerm_machine_learning_workspace" "example" {
     location = "{{ location }}"
     name = "{{ name }}"
     primary_user_assigned_identity = "{{ primary_user_assigned_identity }}"
-    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    public_network_access_enabled = {{ public_network_access_enabled }}
     resource_group_name = "{{ resource_group_name }}"
+    service_side_encryption_enabled = {{ service_side_encryption_enabled }}
     sku_name = "{{ sku_name }}"
     storage_account_id = "{{ storage_account_id }}"
-    tags = "{{ tags }}"
-    v1_legacy_mode_enabled = "{{ v1_legacy_mode_enabled }}"
-    workspace_id = "{{ workspace_id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    v1_legacy_mode_enabled = {{ v1_legacy_mode_enabled }}
+    encryption {
+      key_id = "{{ key_id }}"
+      key_vault_id = "{{ key_vault_id }}"
+      user_assigned_identity_id = "{{ user_assigned_identity_id }}"
+    }
+    feature_store {
+      computer_spark_runtime_version = "{{ computer_spark_runtime_version }}"
+      offline_connection_name = "{{ offline_connection_name }}"
+      online_connection_name = "{{ online_connection_name }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    managed_network {
+      isolation_mode = "{{ isolation_mode }}"
+      provision_on_creation_enabled = {{ provision_on_creation_enabled }}
+    }
+    serverless_compute {
+      public_ip_enabled = {{ public_ip_enabled }}
+      subnet_id = "{{ subnet_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

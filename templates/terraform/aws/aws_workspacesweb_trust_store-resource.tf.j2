@@ -1,0 +1,9 @@
+resource "aws_workspacesweb_trust_store" "example" {
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    certificate {
+      body = "{{ body }}"
+    }
+}

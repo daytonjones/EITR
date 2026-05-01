@@ -1,0 +1,22 @@
+resource "google_network_management_organization_vpc_flow_logs_config" "example" {
+    aggregation_interval = "{{ aggregation_interval }}"
+    cross_project_metadata = "{{ cross_project_metadata }}"
+    description = "{{ description }}"
+    filter_expr = "{{ filter_expr }}"
+    flow_sampling = {{ flow_sampling }}
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    metadata = "{{ metadata }}"
+    metadata_fields = ["{{ metadata_fields }}"]
+    organization = "{{ organization }}"
+    state = "{{ state }}"
+    vpc_flow_logs_config_id = "{{ vpc_flow_logs_config_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

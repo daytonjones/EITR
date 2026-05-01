@@ -1,0 +1,33 @@
+resource "aws_redshift_idc_application" "example" {
+    application_type = "{{ application_type }}"
+    iam_role_arn = "{{ iam_role_arn }}"
+    idc_display_name = "{{ idc_display_name }}"
+    idc_instance_arn = "{{ idc_instance_arn }}"
+    identity_namespace = "{{ identity_namespace }}"
+    redshift_idc_application_name = "{{ redshift_idc_application_name }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    authorized_token_issuer {
+      authorized_audiences_list = ["{{ authorized_audiences_list }}"]
+      trusted_token_issuer_arn = "{{ trusted_token_issuer_arn }}"
+    }
+    service_integration {
+      lake_formation {
+        lake_formation_query {
+          authorization = "{{ authorization }}"
+        }
+      }
+      redshift {
+        connect {
+          authorization = "{{ authorization }}"
+        }
+      }
+      s3_access_grants {
+        read_write_access {
+          authorization = "{{ authorization }}"
+        }
+      }
+    }
+}

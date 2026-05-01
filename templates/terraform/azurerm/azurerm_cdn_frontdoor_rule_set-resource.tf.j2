@@ -2,4 +2,9 @@ resource "azurerm_cdn_frontdoor_rule_set" "example" {
     cdn_frontdoor_profile_id = "{{ cdn_frontdoor_profile_id }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

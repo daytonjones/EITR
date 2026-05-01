@@ -1,17 +1,34 @@
 resource "aws_bedrock_custom_model" "example" {
     base_model_identifier = "{{ base_model_identifier }}"
-    custom_model_arn = "{{ custom_model_arn }}"
     custom_model_kms_key_id = "{{ custom_model_kms_key_id }}"
     custom_model_name = "{{ custom_model_name }}"
     customization_type = "{{ customization_type }}"
-    hyperparameters = "{{ hyperparameters }}"
-    id = "{{ id }}"
-    job_arn = "{{ job_arn }}"
+    hyperparameters = {
+        key = "{{ hyperparameters_value }}"
+      }
     job_name = "{{ job_name }}"
-    job_status = "{{ job_status }}"
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    training_metrics = "{{ training_metrics }}"
-    validation_metrics = "{{ validation_metrics }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    output_data_config {
+      s3_uri = "{{ s3_uri }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+    training_data_config {
+      s3_uri = "{{ s3_uri }}"
+    }
+    validation_data_config {
+      validator {
+        s3_uri = "{{ s3_uri }}"
+      }
+    }
+    vpc_config {
+      security_group_ids = ["{{ security_group_ids }}"]
+      subnet_ids = ["{{ subnet_ids }}"]
+    }
 }

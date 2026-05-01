@@ -1,25 +1,49 @@
 resource "azurerm_signalr_service" "example" {
-    aad_auth_enabled = "{{ aad_auth_enabled }}"
-    connectivity_logs_enabled = "{{ connectivity_logs_enabled }}"
-    hostname = "{{ hostname }}"
-    http_request_logs_enabled = "{{ http_request_logs_enabled }}"
+    aad_auth_enabled = {{ aad_auth_enabled }}
+    connectivity_logs_enabled = {{ connectivity_logs_enabled }}
+    http_request_logs_enabled = {{ http_request_logs_enabled }}
     id = "{{ id }}"
-    ip_address = "{{ ip_address }}"
-    live_trace_enabled = "{{ live_trace_enabled }}"
-    local_auth_enabled = "{{ local_auth_enabled }}"
+    live_trace_enabled = {{ live_trace_enabled }}
+    local_auth_enabled = {{ local_auth_enabled }}
     location = "{{ location }}"
-    messaging_logs_enabled = "{{ messaging_logs_enabled }}"
+    messaging_logs_enabled = {{ messaging_logs_enabled }}
     name = "{{ name }}"
-    primary_access_key = "{{ primary_access_key }}"
-    primary_connection_string = "{{ primary_connection_string }}"
-    public_network_access_enabled = "{{ public_network_access_enabled }}"
-    public_port = "{{ public_port }}"
+    public_network_access_enabled = {{ public_network_access_enabled }}
     resource_group_name = "{{ resource_group_name }}"
-    secondary_access_key = "{{ secondary_access_key }}"
-    secondary_connection_string = "{{ secondary_connection_string }}"
-    server_port = "{{ server_port }}"
-    serverless_connection_timeout_in_seconds = "{{ serverless_connection_timeout_in_seconds }}"
+    serverless_connection_timeout_in_seconds = {{ serverless_connection_timeout_in_seconds }}
     service_mode = "{{ service_mode }}"
-    tags = "{{ tags }}"
-    tls_client_cert_enabled = "{{ tls_client_cert_enabled }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tls_client_cert_enabled = {{ tls_client_cert_enabled }}
+    cors {
+      allowed_origins = ["{{ allowed_origins }}"]
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    live_trace {
+      connectivity_logs_enabled = {{ connectivity_logs_enabled }}
+      enabled = {{ enabled }}
+      http_request_logs_enabled = {{ http_request_logs_enabled }}
+      messaging_logs_enabled = {{ messaging_logs_enabled }}
+    }
+    sku {
+      capacity = {{ capacity }}
+      name = "{{ name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    upstream_endpoint {
+      category_pattern = ["{{ category_pattern }}"]
+      event_pattern = ["{{ event_pattern }}"]
+      hub_pattern = ["{{ hub_pattern }}"]
+      url_template = "{{ url_template }}"
+      user_assigned_identity_id = "{{ user_assigned_identity_id }}"
+    }
 }

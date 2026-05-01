@@ -1,14 +1,40 @@
 resource "aws_ec2_network_insights_path" "example" {
-    arn = "{{ arn }}"
     destination = "{{ destination }}"
-    destination_arn = "{{ destination_arn }}"
     destination_ip = "{{ destination_ip }}"
-    destination_port = "{{ destination_port }}"
+    destination_port = {{ destination_port }}
     id = "{{ id }}"
     protocol = "{{ protocol }}"
+    region = "{{ region }}"
     source = "{{ source }}"
-    source_arn = "{{ source_arn }}"
     source_ip = "{{ source_ip }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    filter_at_destination {
+      destination_address = "{{ destination_address }}"
+      source_address = "{{ source_address }}"
+      destination_port_range {
+        from_port = {{ from_port }}
+        to_port = {{ to_port }}
+      }
+      source_port_range {
+        from_port = {{ from_port }}
+        to_port = {{ to_port }}
+      }
+    }
+    filter_at_source {
+      destination_address = "{{ destination_address }}"
+      source_address = "{{ source_address }}"
+      destination_port_range {
+        from_port = {{ from_port }}
+        to_port = {{ to_port }}
+      }
+      source_port_range {
+        from_port = {{ from_port }}
+        to_port = {{ to_port }}
+      }
+    }
 }

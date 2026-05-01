@@ -1,0 +1,7 @@
+resource "awscc_ec2_capacity_manager_data_export" "example" {
+    output_format = "{{ output_format }}"
+    s3_bucket_name = "{{ s3_bucket_name }}"
+    s3_bucket_prefix = "{{ s3_bucket_prefix }}"
+    schedule = "{{ schedule }}"
+    tags = "{{ tags }}"
+}

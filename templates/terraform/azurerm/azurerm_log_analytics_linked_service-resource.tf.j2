@@ -1,8 +1,13 @@
 resource "azurerm_log_analytics_linked_service" "example" {
     id = "{{ id }}"
-    name = "{{ name }}"
     read_access_id = "{{ read_access_id }}"
     resource_group_name = "{{ resource_group_name }}"
     workspace_id = "{{ workspace_id }}"
     write_access_id = "{{ write_access_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

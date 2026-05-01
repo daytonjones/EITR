@@ -1,0 +1,46 @@
+resource "google_firebase_remote_config_remote_config" "example" {
+    id = "{{ id }}"
+    project = "{{ project }}"
+    conditions {
+      expression = "{{ expression }}"
+      name = "{{ name }}"
+      tag_color = "{{ tag_color }}"
+    }
+    parameter_groups {
+      description = "{{ description }}"
+      parameter_group_name = "{{ parameter_group_name }}"
+      parameters {
+        description = "{{ description }}"
+        parameter_name = "{{ parameter_name }}"
+        value_type = "{{ value_type }}"
+        conditional_values {
+          condition_name = "{{ condition_name }}"
+          use_in_app_default = {{ use_in_app_default }}
+          value = "{{ value }}"
+        }
+        default_value {
+          use_in_app_default = {{ use_in_app_default }}
+          value = "{{ value }}"
+        }
+      }
+    }
+    parameters {
+      description = "{{ description }}"
+      parameter_name = "{{ parameter_name }}"
+      value_type = "{{ value_type }}"
+      conditional_values {
+        condition_name = "{{ condition_name }}"
+        use_in_app_default = {{ use_in_app_default }}
+        value = "{{ value }}"
+      }
+      default_value {
+        use_in_app_default = {{ use_in_app_default }}
+        value = "{{ value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

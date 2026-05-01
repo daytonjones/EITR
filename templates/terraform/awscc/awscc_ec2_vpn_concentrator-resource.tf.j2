@@ -1,0 +1,5 @@
+resource "awscc_ec2_vpn_concentrator" "example" {
+    tags = "{{ tags }}"
+    transit_gateway_id = "{{ transit_gateway_id }}"
+    type = "{{ type }}"
+}

@@ -1,11 +1,18 @@
 resource "azurerm_dns_a_record" "example" {
-    fqdn = "{{ fqdn }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    records = "{{ records }}"
+    records = ["{{ records }}"]
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     target_resource_id = "{{ target_resource_id }}"
-    ttl = "{{ ttl }}"
+    ttl = {{ ttl }}
     zone_name = "{{ zone_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

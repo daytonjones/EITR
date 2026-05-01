@@ -1,0 +1,24 @@
+resource "google_network_services_multicast_domain_activation" "example" {
+    description = "{{ description }}"
+    disable_placement_policy = {{ disable_placement_policy }}
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    multicast_domain = "{{ multicast_domain }}"
+    multicast_domain_activation_id = "{{ multicast_domain_activation_id }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    traffic_spec {
+      aggr_egress_pps = "{{ aggr_egress_pps }}"
+      aggr_ingress_pps = "{{ aggr_ingress_pps }}"
+      avg_packet_size = {{ avg_packet_size }}
+      max_per_group_ingress_pps = "{{ max_per_group_ingress_pps }}"
+      max_per_group_subscribers = "{{ max_per_group_subscribers }}"
+    }
+}

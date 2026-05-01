@@ -1,6 +1,6 @@
 resource "google_logging_organization_exclusion" "example" {
     description = "{{ description }}"
-    disabled = "{{ disabled }}"
+    disabled = {{ disabled }}
     filter = "{{ filter }}"
     id = "{{ id }}"
     name = "{{ name }}"

@@ -1,7 +1,21 @@
 resource "googleworkspace_schema" "example" {
     display_name = "{{ display_name }}"
-    etag = "{{ etag }}"
-    id = "{{ id }}"
-    schema_id = "{{ schema_id }}"
     schema_name = "{{ schema_name }}"
+    fields {
+      display_name = "{{ display_name }}"
+      field_name = "{{ field_name }}"
+      field_type = "{{ field_type }}"
+      indexed = {{ indexed }}
+      multi_valued = {{ multi_valued }}
+      read_access_type = "{{ read_access_type }}"
+      numeric_indexing_spec {
+        max_value = {{ max_value }}
+        min_value = {{ min_value }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

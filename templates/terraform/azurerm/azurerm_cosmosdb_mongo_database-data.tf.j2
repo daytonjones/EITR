@@ -3,5 +3,7 @@ data "azurerm_cosmosdb_mongo_database" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

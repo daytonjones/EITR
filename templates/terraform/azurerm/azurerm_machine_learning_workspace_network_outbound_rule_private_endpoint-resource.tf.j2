@@ -1,0 +1,13 @@
+resource "azurerm_machine_learning_workspace_network_outbound_rule_private_endpoint" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    service_resource_id = "{{ service_resource_id }}"
+    spark_enabled = {{ spark_enabled }}
+    sub_resource_target = "{{ sub_resource_target }}"
+    workspace_id = "{{ workspace_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
+}

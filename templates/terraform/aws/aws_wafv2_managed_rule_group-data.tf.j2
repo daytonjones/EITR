@@ -1,0 +1,7 @@
+data "aws_wafv2_managed_rule_group" "example" {
+    name = "{{ name }}"
+    region = "{{ region }}"
+    scope = "{{ scope }}"
+    vendor_name = "{{ vendor_name }}"
+    version_name = "{{ version_name }}"
+}

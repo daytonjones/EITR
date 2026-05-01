@@ -1,11 +1,37 @@
 resource "azurerm_vpn_site" "example" {
-    address_cidrs = "{{ address_cidrs }}"
+    address_cidrs = ["{{ address_cidrs }}"]
     device_model = "{{ device_model }}"
     device_vendor = "{{ device_vendor }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     virtual_wan_id = "{{ virtual_wan_id }}"
+    link {
+      fqdn = "{{ fqdn }}"
+      ip_address = "{{ ip_address }}"
+      name = "{{ name }}"
+      provider_name = "{{ provider_name }}"
+      speed_in_mbps = {{ speed_in_mbps }}
+      bgp {
+        asn = {{ asn }}
+        peering_address = "{{ peering_address }}"
+      }
+    }
+    o365_policy {
+      traffic_category {
+        allow_endpoint_enabled = {{ allow_endpoint_enabled }}
+        default_endpoint_enabled = {{ default_endpoint_enabled }}
+        optimize_endpoint_enabled = {{ optimize_endpoint_enabled }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

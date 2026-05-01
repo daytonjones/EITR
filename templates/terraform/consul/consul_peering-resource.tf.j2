@@ -1,13 +1,9 @@
 resource "consul_peering" "example" {
-    deleted_at = "{{ deleted_at }}"
     id = "{{ id }}"
-    meta = "{{ meta }}"
+    meta = {
+        key = "{{ meta_value }}"
+      }
     partition = "{{ partition }}"
-    peer_ca_pems = "{{ peer_ca_pems }}"
-    peer_id = "{{ peer_id }}"
     peer_name = "{{ peer_name }}"
-    peer_server_addresses = "{{ peer_server_addresses }}"
-    peer_server_name = "{{ peer_server_name }}"
     peering_token = "{{ peering_token }}"
-    state = "{{ state }}"
 }

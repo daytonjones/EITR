@@ -10,11 +10,37 @@ resource "azurerm_sentinel_metadata" "example" {
     last_publish_date = "{{ last_publish_date }}"
     name = "{{ name }}"
     parent_id = "{{ parent_id }}"
-    preview_images = "{{ preview_images }}"
-    preview_images_dark = "{{ preview_images_dark }}"
-    providers = "{{ providers }}"
-    threat_analysis_tactics = "{{ threat_analysis_tactics }}"
-    threat_analysis_techniques = "{{ threat_analysis_techniques }}"
+    preview_images = ["{{ preview_images }}"]
+    preview_images_dark = ["{{ preview_images_dark }}"]
+    providers = ["{{ providers }}"]
+    threat_analysis_tactics = ["{{ threat_analysis_tactics }}"]
+    threat_analysis_techniques = ["{{ threat_analysis_techniques }}"]
     version = "{{ version }}"
     workspace_id = "{{ workspace_id }}"
+    author {
+      email = "{{ email }}"
+      link = "{{ link }}"
+      name = "{{ name }}"
+    }
+    category {
+      domains = ["{{ domains }}"]
+      verticals = ["{{ verticals }}"]
+    }
+    source {
+      id = "{{ id }}"
+      kind = "{{ kind }}"
+      name = "{{ name }}"
+    }
+    support {
+      email = "{{ email }}"
+      link = "{{ link }}"
+      name = "{{ name }}"
+      tier = "{{ tier }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

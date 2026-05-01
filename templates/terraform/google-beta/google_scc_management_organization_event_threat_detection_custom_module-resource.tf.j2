@@ -3,10 +3,12 @@ resource "google_scc_management_organization_event_threat_detection_custom_modul
     display_name = "{{ display_name }}"
     enablement_state = "{{ enablement_state }}"
     id = "{{ id }}"
-    last_editor = "{{ last_editor }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     organization = "{{ organization }}"
     type = "{{ type }}"
-    update_time = "{{ update_time }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

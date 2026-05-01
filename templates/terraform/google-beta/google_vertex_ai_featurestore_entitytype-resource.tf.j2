@@ -1,14 +1,33 @@
 resource "google_vertex_ai_featurestore_entitytype" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
-    etag = "{{ etag }}"
     featurestore = "{{ featurestore }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
-    offline_storage_ttl_days = "{{ offline_storage_ttl_days }}"
-    region = "{{ region }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
+    offline_storage_ttl_days = {{ offline_storage_ttl_days }}
+    monitoring_config {
+      categorical_threshold_config {
+        value = {{ value }}
+      }
+      import_features_analysis {
+        anomaly_detection_baseline = "{{ anomaly_detection_baseline }}"
+        state = "{{ state }}"
+      }
+      numerical_threshold_config {
+        value = {{ value }}
+      }
+      snapshot_analysis {
+        disabled = {{ disabled }}
+        monitoring_interval = "{{ monitoring_interval }}"
+        monitoring_interval_days = {{ monitoring_interval_days }}
+        staleness_days = {{ staleness_days }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

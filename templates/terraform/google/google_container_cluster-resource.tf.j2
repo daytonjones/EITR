@@ -1,42 +1,959 @@
 resource "google_container_cluster" "example" {
-    allow_net_admin = "{{ allow_net_admin }}"
+    allow_net_admin = {{ allow_net_admin }}
+    autopilot_privileged_admission = ["{{ autopilot_privileged_admission }}"]
     cluster_ipv4_cidr = "{{ cluster_ipv4_cidr }}"
     datapath_provider = "{{ datapath_provider }}"
-    default_max_pods_per_node = "{{ default_max_pods_per_node }}"
-    deletion_protection = "{{ deletion_protection }}"
+    default_max_pods_per_node = {{ default_max_pods_per_node }}
+    deletion_protection = {{ deletion_protection }}
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
-    enable_autopilot = "{{ enable_autopilot }}"
-    enable_cilium_clusterwide_network_policy = "{{ enable_cilium_clusterwide_network_policy }}"
-    enable_intranode_visibility = "{{ enable_intranode_visibility }}"
-    enable_kubernetes_alpha = "{{ enable_kubernetes_alpha }}"
-    enable_l4_ilb_subsetting = "{{ enable_l4_ilb_subsetting }}"
-    enable_legacy_abac = "{{ enable_legacy_abac }}"
-    enable_multi_networking = "{{ enable_multi_networking }}"
-    enable_shielded_nodes = "{{ enable_shielded_nodes }}"
-    enable_tpu = "{{ enable_tpu }}"
-    endpoint = "{{ endpoint }}"
+    disable_l4_lb_firewall_reconciliation = {{ disable_l4_lb_firewall_reconciliation }}
+    enable_autopilot = {{ enable_autopilot }}
+    enable_cilium_clusterwide_network_policy = {{ enable_cilium_clusterwide_network_policy }}
+    enable_fqdn_network_policy = {{ enable_fqdn_network_policy }}
+    enable_intranode_visibility = {{ enable_intranode_visibility }}
+    enable_kubernetes_alpha = {{ enable_kubernetes_alpha }}
+    enable_l4_ilb_subsetting = {{ enable_l4_ilb_subsetting }}
+    enable_legacy_abac = {{ enable_legacy_abac }}
+    enable_multi_networking = {{ enable_multi_networking }}
+    enable_shielded_nodes = {{ enable_shielded_nodes }}
+    enable_tpu = {{ enable_tpu }}
     id = "{{ id }}"
-    initial_node_count = "{{ initial_node_count }}"
-    label_fingerprint = "{{ label_fingerprint }}"
+    in_transit_encryption_config = "{{ in_transit_encryption_config }}"
+    initial_node_count = {{ initial_node_count }}
     location = "{{ location }}"
     logging_service = "{{ logging_service }}"
-    master_version = "{{ master_version }}"
     min_master_version = "{{ min_master_version }}"
     monitoring_service = "{{ monitoring_service }}"
     name = "{{ name }}"
     network = "{{ network }}"
     networking_mode = "{{ networking_mode }}"
-    node_locations = "{{ node_locations }}"
+    node_locations = ["{{ node_locations }}"]
     node_version = "{{ node_version }}"
-    operation = "{{ operation }}"
     private_ipv6_google_access = "{{ private_ipv6_google_access }}"
     project = "{{ project }}"
-    remove_default_node_pool = "{{ remove_default_node_pool }}"
-    resource_labels = "{{ resource_labels }}"
-    self_link = "{{ self_link }}"
-    services_ipv4_cidr = "{{ services_ipv4_cidr }}"
+    remove_default_node_pool = {{ remove_default_node_pool }}
+    resource_labels = {
+        key = "{{ resource_labels_value }}"
+      }
     subnetwork = "{{ subnetwork }}"
-    terraform_labels = "{{ terraform_labels }}"
-    tpu_ipv4_cidr_block = "{{ tpu_ipv4_cidr_block }}"
+    addons_config {
+      cloudrun_config {
+        disabled = {{ disabled }}
+        load_balancer_type = "{{ load_balancer_type }}"
+      }
+      config_connector_config {
+        enabled = {{ enabled }}
+      }
+      dns_cache_config {
+        enabled = {{ enabled }}
+      }
+      gce_persistent_disk_csi_driver_config {
+        enabled = {{ enabled }}
+      }
+      gcp_filestore_csi_driver_config {
+        enabled = {{ enabled }}
+      }
+      gcs_fuse_csi_driver_config {
+        enabled = {{ enabled }}
+      }
+      gke_backup_agent_config {
+        enabled = {{ enabled }}
+      }
+      horizontal_pod_autoscaling {
+        disabled = {{ disabled }}
+      }
+      http_load_balancing {
+        disabled = {{ disabled }}
+      }
+      lustre_csi_driver_config {
+        disable_multi_nic = {{ disable_multi_nic }}
+        enable_legacy_lustre_port = {{ enable_legacy_lustre_port }}
+        enabled = {{ enabled }}
+      }
+      network_policy_config {
+        disabled = {{ disabled }}
+      }
+      parallelstore_csi_driver_config {
+        enabled = {{ enabled }}
+      }
+      ray_operator_config {
+        enabled = {{ enabled }}
+        ray_cluster_logging_config {
+          enabled = {{ enabled }}
+        }
+        ray_cluster_monitoring_config {
+          enabled = {{ enabled }}
+        }
+      }
+      slice_controller_config {
+        enabled = {{ enabled }}
+      }
+      stateful_ha_config {
+        enabled = {{ enabled }}
+      }
+    }
+    anonymous_authentication_config {
+      mode = "{{ mode }}"
+    }
+    authenticator_groups_config {
+      security_group = "{{ security_group }}"
+    }
+    autopilot_cluster_policy_config {
+      no_standard_node_pools = {{ no_standard_node_pools }}
+      no_system_impersonation = {{ no_system_impersonation }}
+      no_system_mutation = {{ no_system_mutation }}
+      no_unsafe_webhooks = {{ no_unsafe_webhooks }}
+    }
+    binary_authorization {
+      enabled = {{ enabled }}
+      evaluation_mode = "{{ evaluation_mode }}"
+    }
+    cluster_autoscaling {
+      auto_provisioning_locations = ["{{ auto_provisioning_locations }}"]
+      autoscaling_profile = "{{ autoscaling_profile }}"
+      default_compute_class_enabled = {{ default_compute_class_enabled }}
+      enabled = {{ enabled }}
+      auto_provisioning_defaults {
+        boot_disk_kms_key = "{{ boot_disk_kms_key }}"
+        disk_size = {{ disk_size }}
+        disk_type = "{{ disk_type }}"
+        image_type = "{{ image_type }}"
+        min_cpu_platform = "{{ min_cpu_platform }}"
+        oauth_scopes = ["{{ oauth_scopes }}"]
+        service_account = "{{ service_account }}"
+        management {
+          auto_repair = {{ auto_repair }}
+          auto_upgrade = {{ auto_upgrade }}
+        }
+        shielded_instance_config {
+          enable_integrity_monitoring = {{ enable_integrity_monitoring }}
+          enable_secure_boot = {{ enable_secure_boot }}
+        }
+        upgrade_settings {
+          max_surge = {{ max_surge }}
+          max_unavailable = {{ max_unavailable }}
+          strategy = "{{ strategy }}"
+          blue_green_settings {
+            node_pool_soak_duration = "{{ node_pool_soak_duration }}"
+            standard_rollout_policy {
+              batch_node_count = {{ batch_node_count }}
+              batch_percentage = {{ batch_percentage }}
+              batch_soak_duration = "{{ batch_soak_duration }}"
+            }
+          }
+        }
+      }
+      resource_limits {
+        maximum = {{ maximum }}
+        minimum = {{ minimum }}
+        resource_type = "{{ resource_type }}"
+      }
+    }
+    confidential_nodes {
+      confidential_instance_type = "{{ confidential_instance_type }}"
+      enabled = {{ enabled }}
+    }
+    control_plane_endpoints_config {
+      dns_endpoint_config {
+        allow_external_traffic = {{ allow_external_traffic }}
+        enable_k8s_certs_via_dns = {{ enable_k8s_certs_via_dns }}
+        enable_k8s_tokens_via_dns = {{ enable_k8s_tokens_via_dns }}
+        endpoint = "{{ endpoint }}"
+      }
+      ip_endpoints_config {
+        enabled = {{ enabled }}
+      }
+    }
+    cost_management_config {
+      enabled = {{ enabled }}
+    }
+    database_encryption {
+      key_name = "{{ key_name }}"
+      state = "{{ state }}"
+    }
+    default_snat_status {
+      disabled = {{ disabled }}
+    }
+    dns_config {
+      additive_vpc_scope_dns_domain = "{{ additive_vpc_scope_dns_domain }}"
+      cluster_dns = "{{ cluster_dns }}"
+      cluster_dns_domain = "{{ cluster_dns_domain }}"
+      cluster_dns_scope = "{{ cluster_dns_scope }}"
+    }
+    enable_k8s_beta_apis {
+      enabled_apis = ["{{ enabled_apis }}"]
+    }
+    enterprise_config {
+      desired_tier = "{{ desired_tier }}"
+    }
+    fleet {
+      membership_type = "{{ membership_type }}"
+      project = "{{ project }}"
+    }
+    gateway_api_config {
+      channel = "{{ channel }}"
+    }
+    gke_auto_upgrade_config {
+      patch_mode = "{{ patch_mode }}"
+    }
+    identity_service_config {
+      enabled = {{ enabled }}
+    }
+    ip_allocation_policy {
+      cluster_ipv4_cidr_block = "{{ cluster_ipv4_cidr_block }}"
+      cluster_secondary_range_name = "{{ cluster_secondary_range_name }}"
+      services_ipv4_cidr_block = "{{ services_ipv4_cidr_block }}"
+      services_secondary_range_name = "{{ services_secondary_range_name }}"
+      stack_type = "{{ stack_type }}"
+      additional_ip_ranges_config {
+        pod_ipv4_range_names = ["{{ pod_ipv4_range_names }}"]
+        status = "{{ status }}"
+        subnetwork = "{{ subnetwork }}"
+      }
+      additional_pod_ranges_config {
+        pod_range_names = ["{{ pod_range_names }}"]
+      }
+      auto_ipam_config {
+        enabled = {{ enabled }}
+      }
+      network_tier_config {
+        network_tier = "{{ network_tier }}"
+      }
+      pod_cidr_overprovision_config {
+        disabled = {{ disabled }}
+      }
+    }
+    logging_config {
+      enable_components = ["{{ enable_components }}"]
+    }
+    maintenance_policy {
+      daily_maintenance_window {
+        start_time = "{{ start_time }}"
+      }
+      disruption_budget {
+        minor_version_disruption_interval = "{{ minor_version_disruption_interval }}"
+        patch_version_disruption_interval = "{{ patch_version_disruption_interval }}"
+      }
+      maintenance_exclusion {
+        end_time = "{{ end_time }}"
+        exclusion_name = "{{ exclusion_name }}"
+        start_time = "{{ start_time }}"
+        exclusion_options {
+          end_time_behavior = "{{ end_time_behavior }}"
+          scope = "{{ scope }}"
+        }
+      }
+      recurring_window {
+        end_time = "{{ end_time }}"
+        recurrence = "{{ recurrence }}"
+        start_time = "{{ start_time }}"
+      }
+    }
+    master_auth {
+      client_certificate_config {
+        issue_client_certificate = {{ issue_client_certificate }}
+      }
+    }
+    master_authorized_networks_config {
+      gcp_public_cidrs_access_enabled = {{ gcp_public_cidrs_access_enabled }}
+      private_endpoint_enforcement_enabled = {{ private_endpoint_enforcement_enabled }}
+      cidr_blocks {
+        cidr_block = "{{ cidr_block }}"
+        display_name = "{{ display_name }}"
+      }
+    }
+    mesh_certificates {
+      enable_certificates = {{ enable_certificates }}
+    }
+    monitoring_config {
+      enable_components = ["{{ enable_components }}"]
+      advanced_datapath_observability_config {
+        enable_metrics = {{ enable_metrics }}
+        enable_relay = {{ enable_relay }}
+      }
+      managed_prometheus {
+        enabled = {{ enabled }}
+        auto_monitoring_config {
+          scope = "{{ scope }}"
+        }
+      }
+    }
+    network_performance_config {
+      total_egress_bandwidth_tier = "{{ total_egress_bandwidth_tier }}"
+    }
+    network_policy {
+      enabled = {{ enabled }}
+      provider = "{{ provider }}"
+    }
+    node_config {
+      boot_disk_kms_key = "{{ boot_disk_kms_key }}"
+      disk_size_gb = {{ disk_size_gb }}
+      disk_type = "{{ disk_type }}"
+      enable_confidential_storage = {{ enable_confidential_storage }}
+      flex_start = {{ flex_start }}
+      image_type = "{{ image_type }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      local_ssd_count = {{ local_ssd_count }}
+      local_ssd_encryption_mode = "{{ local_ssd_encryption_mode }}"
+      logging_variant = "{{ logging_variant }}"
+      machine_type = "{{ machine_type }}"
+      max_run_duration = "{{ max_run_duration }}"
+      metadata = {
+        key = "{{ metadata_value }}"
+      }
+      min_cpu_platform = "{{ min_cpu_platform }}"
+      node_group = "{{ node_group }}"
+      oauth_scopes = ["{{ oauth_scopes }}"]
+      preemptible = {{ preemptible }}
+      resource_labels = {
+        key = "{{ resource_labels_value }}"
+      }
+      resource_manager_tags = {
+        key = "{{ resource_manager_tags_value }}"
+      }
+      service_account = "{{ service_account }}"
+      spot = {{ spot }}
+      storage_pools = ["{{ storage_pools }}"]
+      tags = ["{{ tags }}"]
+      advanced_machine_features {
+        enable_nested_virtualization = {{ enable_nested_virtualization }}
+        performance_monitoring_unit = "{{ performance_monitoring_unit }}"
+        threads_per_core = {{ threads_per_core }}
+      }
+      boot_disk {
+        disk_type = "{{ disk_type }}"
+        provisioned_iops = {{ provisioned_iops }}
+        provisioned_throughput = {{ provisioned_throughput }}
+        size_gb = {{ size_gb }}
+      }
+      confidential_nodes {
+        confidential_instance_type = "{{ confidential_instance_type }}"
+        enabled = {{ enabled }}
+      }
+      containerd_config {
+        private_registry_access_config {
+          enabled = {{ enabled }}
+          certificate_authority_domain_config {
+            fqdns = ["{{ fqdns }}"]
+            gcp_secret_manager_certificate_config {
+              secret_uri = "{{ secret_uri }}"
+            }
+          }
+        }
+        registry_hosts {
+          server = "{{ server }}"
+          hosts {
+            capabilities = ["{{ capabilities }}"]
+            dial_timeout = "{{ dial_timeout }}"
+            host = "{{ host }}"
+            override_path = {{ override_path }}
+            ca {
+              gcp_secret_manager_secret_uri = "{{ gcp_secret_manager_secret_uri }}"
+            }
+            client {
+              cert {
+                gcp_secret_manager_secret_uri = "{{ gcp_secret_manager_secret_uri }}"
+              }
+              key {
+                gcp_secret_manager_secret_uri = "{{ gcp_secret_manager_secret_uri }}"
+              }
+            }
+            header {
+              key = "{{ key }}"
+              value = ["{{ value }}"]
+            }
+          }
+        }
+        writable_cgroups {
+          enabled = {{ enabled }}
+        }
+      }
+      ephemeral_storage_local_ssd_config {
+        data_cache_count = {{ data_cache_count }}
+        local_ssd_count = {{ local_ssd_count }}
+      }
+      fast_socket {
+        enabled = {{ enabled }}
+      }
+      gcfs_config {
+        enabled = {{ enabled }}
+      }
+      guest_accelerator {
+        count = {{ count }}
+        gpu_partition_size = "{{ gpu_partition_size }}"
+        type = "{{ type }}"
+        gpu_driver_installation_config {
+          gpu_driver_version = "{{ gpu_driver_version }}"
+        }
+        gpu_sharing_config {
+          gpu_sharing_strategy = "{{ gpu_sharing_strategy }}"
+          max_shared_clients_per_gpu = {{ max_shared_clients_per_gpu }}
+        }
+      }
+      gvnic {
+        enabled = {{ enabled }}
+      }
+      host_maintenance_policy {
+        maintenance_interval = "{{ maintenance_interval }}"
+      }
+      kubelet_config {
+        allowed_unsafe_sysctls = ["{{ allowed_unsafe_sysctls }}"]
+        container_log_max_files = {{ container_log_max_files }}
+        container_log_max_size = "{{ container_log_max_size }}"
+        cpu_cfs_quota = {{ cpu_cfs_quota }}
+        cpu_cfs_quota_period = "{{ cpu_cfs_quota_period }}"
+        cpu_manager_policy = "{{ cpu_manager_policy }}"
+        eviction_max_pod_grace_period_seconds = {{ eviction_max_pod_grace_period_seconds }}
+        image_gc_high_threshold_percent = {{ image_gc_high_threshold_percent }}
+        image_gc_low_threshold_percent = {{ image_gc_low_threshold_percent }}
+        image_maximum_gc_age = "{{ image_maximum_gc_age }}"
+        image_minimum_gc_age = "{{ image_minimum_gc_age }}"
+        insecure_kubelet_readonly_port_enabled = "{{ insecure_kubelet_readonly_port_enabled }}"
+        max_parallel_image_pulls = {{ max_parallel_image_pulls }}
+        pod_pids_limit = {{ pod_pids_limit }}
+        single_process_oom_kill = {{ single_process_oom_kill }}
+        eviction_minimum_reclaim {
+          imagefs_available = "{{ imagefs_available }}"
+          imagefs_inodes_free = "{{ imagefs_inodes_free }}"
+          memory_available = "{{ memory_available }}"
+          nodefs_available = "{{ nodefs_available }}"
+          nodefs_inodes_free = "{{ nodefs_inodes_free }}"
+          pid_available = "{{ pid_available }}"
+        }
+        eviction_soft {
+          imagefs_available = "{{ imagefs_available }}"
+          imagefs_inodes_free = "{{ imagefs_inodes_free }}"
+          memory_available = "{{ memory_available }}"
+          nodefs_available = "{{ nodefs_available }}"
+          nodefs_inodes_free = "{{ nodefs_inodes_free }}"
+          pid_available = "{{ pid_available }}"
+        }
+        eviction_soft_grace_period {
+          imagefs_available = "{{ imagefs_available }}"
+          imagefs_inodes_free = "{{ imagefs_inodes_free }}"
+          memory_available = "{{ memory_available }}"
+          nodefs_available = "{{ nodefs_available }}"
+          nodefs_inodes_free = "{{ nodefs_inodes_free }}"
+          pid_available = "{{ pid_available }}"
+        }
+        memory_manager {
+          policy = "{{ policy }}"
+        }
+        topology_manager {
+          policy = "{{ policy }}"
+          scope = "{{ scope }}"
+        }
+      }
+      linux_node_config {
+        cgroup_mode = "{{ cgroup_mode }}"
+        sysctls = {
+        key = "{{ sysctls_value }}"
+      }
+        transparent_hugepage_defrag = "{{ transparent_hugepage_defrag }}"
+        transparent_hugepage_enabled = "{{ transparent_hugepage_enabled }}"
+        accurate_time_config {
+          enable_ptp_kvm_time_sync = {{ enable_ptp_kvm_time_sync }}
+        }
+        hugepages_config {
+          hugepage_size_1g = {{ hugepage_size_1g }}
+          hugepage_size_2m = {{ hugepage_size_2m }}
+        }
+        node_kernel_module_loading {
+          policy = "{{ policy }}"
+        }
+        swap_config {
+          enabled = {{ enabled }}
+          boot_disk_profile {
+            swap_size_gib = {{ swap_size_gib }}
+            swap_size_percent = {{ swap_size_percent }}
+          }
+          dedicated_local_ssd_profile {
+            disk_count = {{ disk_count }}
+          }
+          encryption_config {
+            disabled = {{ disabled }}
+          }
+          ephemeral_local_ssd_profile {
+            swap_size_gib = {{ swap_size_gib }}
+            swap_size_percent = {{ swap_size_percent }}
+          }
+        }
+      }
+      local_nvme_ssd_block_config {
+        local_ssd_count = {{ local_ssd_count }}
+      }
+      reservation_affinity {
+        consume_reservation_type = "{{ consume_reservation_type }}"
+        key = "{{ key }}"
+        values = ["{{ values }}"]
+      }
+      sandbox_config {
+        type = "{{ type }}"
+      }
+      secondary_boot_disks {
+        disk_image = "{{ disk_image }}"
+        mode = "{{ mode }}"
+      }
+      shielded_instance_config {
+        enable_integrity_monitoring = {{ enable_integrity_monitoring }}
+        enable_secure_boot = {{ enable_secure_boot }}
+      }
+      sole_tenant_config {
+        min_node_cpus = {{ min_node_cpus }}
+        node_affinity {
+          key = "{{ key }}"
+          operator = "{{ operator }}"
+          values = ["{{ values }}"]
+        }
+      }
+      taint {
+        effect = "{{ effect }}"
+        key = "{{ key }}"
+        value = "{{ value }}"
+      }
+      windows_node_config {
+        osversion = "{{ osversion }}"
+      }
+      workload_metadata_config {
+        mode = "{{ mode }}"
+      }
+    }
+    node_pool {
+      initial_node_count = {{ initial_node_count }}
+      max_pods_per_node = {{ max_pods_per_node }}
+      name = "{{ name }}"
+      name_prefix = "{{ name_prefix }}"
+      node_count = {{ node_count }}
+      node_locations = ["{{ node_locations }}"]
+      version = "{{ version }}"
+      autoscaling {
+        location_policy = "{{ location_policy }}"
+        max_node_count = {{ max_node_count }}
+        min_node_count = {{ min_node_count }}
+        total_max_node_count = {{ total_max_node_count }}
+        total_min_node_count = {{ total_min_node_count }}
+      }
+      management {
+        auto_repair = {{ auto_repair }}
+        auto_upgrade = {{ auto_upgrade }}
+      }
+      network_config {
+        create_pod_range = {{ create_pod_range }}
+        enable_private_nodes = {{ enable_private_nodes }}
+        pod_ipv4_cidr_block = "{{ pod_ipv4_cidr_block }}"
+        pod_range = "{{ pod_range }}"
+        subnetwork = "{{ subnetwork }}"
+        additional_node_network_configs {
+          network = "{{ network }}"
+          subnetwork = "{{ subnetwork }}"
+        }
+        additional_pod_network_configs {
+          max_pods_per_node = {{ max_pods_per_node }}
+          secondary_pod_range = "{{ secondary_pod_range }}"
+          subnetwork = "{{ subnetwork }}"
+        }
+        network_performance_config {
+          total_egress_bandwidth_tier = "{{ total_egress_bandwidth_tier }}"
+        }
+        pod_cidr_overprovision_config {
+          disabled = {{ disabled }}
+        }
+      }
+      node_config {
+        boot_disk_kms_key = "{{ boot_disk_kms_key }}"
+        disk_size_gb = {{ disk_size_gb }}
+        disk_type = "{{ disk_type }}"
+        enable_confidential_storage = {{ enable_confidential_storage }}
+        flex_start = {{ flex_start }}
+        image_type = "{{ image_type }}"
+        labels = {
+        key = "{{ labels_value }}"
+      }
+        local_ssd_count = {{ local_ssd_count }}
+        local_ssd_encryption_mode = "{{ local_ssd_encryption_mode }}"
+        logging_variant = "{{ logging_variant }}"
+        machine_type = "{{ machine_type }}"
+        max_run_duration = "{{ max_run_duration }}"
+        metadata = {
+        key = "{{ metadata_value }}"
+      }
+        min_cpu_platform = "{{ min_cpu_platform }}"
+        node_group = "{{ node_group }}"
+        oauth_scopes = ["{{ oauth_scopes }}"]
+        preemptible = {{ preemptible }}
+        resource_labels = {
+        key = "{{ resource_labels_value }}"
+      }
+        resource_manager_tags = {
+        key = "{{ resource_manager_tags_value }}"
+      }
+        service_account = "{{ service_account }}"
+        spot = {{ spot }}
+        storage_pools = ["{{ storage_pools }}"]
+        tags = ["{{ tags }}"]
+        advanced_machine_features {
+          enable_nested_virtualization = {{ enable_nested_virtualization }}
+          performance_monitoring_unit = "{{ performance_monitoring_unit }}"
+          threads_per_core = {{ threads_per_core }}
+        }
+        boot_disk {
+          disk_type = "{{ disk_type }}"
+          provisioned_iops = {{ provisioned_iops }}
+          provisioned_throughput = {{ provisioned_throughput }}
+          size_gb = {{ size_gb }}
+        }
+        confidential_nodes {
+          confidential_instance_type = "{{ confidential_instance_type }}"
+          enabled = {{ enabled }}
+        }
+        containerd_config {
+          private_registry_access_config {
+            enabled = {{ enabled }}
+            certificate_authority_domain_config {
+              fqdns = ["{{ fqdns }}"]
+              gcp_secret_manager_certificate_config {
+                secret_uri = "{{ secret_uri }}"
+              }
+            }
+          }
+          registry_hosts {
+            server = "{{ server }}"
+            hosts {
+              capabilities = ["{{ capabilities }}"]
+              dial_timeout = "{{ dial_timeout }}"
+              host = "{{ host }}"
+              override_path = {{ override_path }}
+              ca {
+                gcp_secret_manager_secret_uri = "{{ gcp_secret_manager_secret_uri }}"
+              }
+              client {
+                cert {
+                  gcp_secret_manager_secret_uri = "{{ gcp_secret_manager_secret_uri }}"
+                }
+                key {
+                  gcp_secret_manager_secret_uri = "{{ gcp_secret_manager_secret_uri }}"
+                }
+              }
+              header {
+                key = "{{ key }}"
+                value = ["{{ value }}"]
+              }
+            }
+          }
+          writable_cgroups {
+            enabled = {{ enabled }}
+          }
+        }
+        ephemeral_storage_local_ssd_config {
+          data_cache_count = {{ data_cache_count }}
+          local_ssd_count = {{ local_ssd_count }}
+        }
+        fast_socket {
+          enabled = {{ enabled }}
+        }
+        gcfs_config {
+          enabled = {{ enabled }}
+        }
+        guest_accelerator {
+          count = {{ count }}
+          gpu_partition_size = "{{ gpu_partition_size }}"
+          type = "{{ type }}"
+          gpu_driver_installation_config {
+            gpu_driver_version = "{{ gpu_driver_version }}"
+          }
+          gpu_sharing_config {
+            gpu_sharing_strategy = "{{ gpu_sharing_strategy }}"
+            max_shared_clients_per_gpu = {{ max_shared_clients_per_gpu }}
+          }
+        }
+        gvnic {
+          enabled = {{ enabled }}
+        }
+        host_maintenance_policy {
+          maintenance_interval = "{{ maintenance_interval }}"
+        }
+        kubelet_config {
+          allowed_unsafe_sysctls = ["{{ allowed_unsafe_sysctls }}"]
+          container_log_max_files = {{ container_log_max_files }}
+          container_log_max_size = "{{ container_log_max_size }}"
+          cpu_cfs_quota = {{ cpu_cfs_quota }}
+          cpu_cfs_quota_period = "{{ cpu_cfs_quota_period }}"
+          cpu_manager_policy = "{{ cpu_manager_policy }}"
+          eviction_max_pod_grace_period_seconds = {{ eviction_max_pod_grace_period_seconds }}
+          image_gc_high_threshold_percent = {{ image_gc_high_threshold_percent }}
+          image_gc_low_threshold_percent = {{ image_gc_low_threshold_percent }}
+          image_maximum_gc_age = "{{ image_maximum_gc_age }}"
+          image_minimum_gc_age = "{{ image_minimum_gc_age }}"
+          insecure_kubelet_readonly_port_enabled = "{{ insecure_kubelet_readonly_port_enabled }}"
+          max_parallel_image_pulls = {{ max_parallel_image_pulls }}
+          pod_pids_limit = {{ pod_pids_limit }}
+          single_process_oom_kill = {{ single_process_oom_kill }}
+          eviction_minimum_reclaim {
+            imagefs_available = "{{ imagefs_available }}"
+            imagefs_inodes_free = "{{ imagefs_inodes_free }}"
+            memory_available = "{{ memory_available }}"
+            nodefs_available = "{{ nodefs_available }}"
+            nodefs_inodes_free = "{{ nodefs_inodes_free }}"
+            pid_available = "{{ pid_available }}"
+          }
+          eviction_soft {
+            imagefs_available = "{{ imagefs_available }}"
+            imagefs_inodes_free = "{{ imagefs_inodes_free }}"
+            memory_available = "{{ memory_available }}"
+            nodefs_available = "{{ nodefs_available }}"
+            nodefs_inodes_free = "{{ nodefs_inodes_free }}"
+            pid_available = "{{ pid_available }}"
+          }
+          eviction_soft_grace_period {
+            imagefs_available = "{{ imagefs_available }}"
+            imagefs_inodes_free = "{{ imagefs_inodes_free }}"
+            memory_available = "{{ memory_available }}"
+            nodefs_available = "{{ nodefs_available }}"
+            nodefs_inodes_free = "{{ nodefs_inodes_free }}"
+            pid_available = "{{ pid_available }}"
+          }
+          memory_manager {
+            policy = "{{ policy }}"
+          }
+          topology_manager {
+            policy = "{{ policy }}"
+            scope = "{{ scope }}"
+          }
+        }
+        linux_node_config {
+          cgroup_mode = "{{ cgroup_mode }}"
+          sysctls = {
+        key = "{{ sysctls_value }}"
+      }
+          transparent_hugepage_defrag = "{{ transparent_hugepage_defrag }}"
+          transparent_hugepage_enabled = "{{ transparent_hugepage_enabled }}"
+          accurate_time_config {
+            enable_ptp_kvm_time_sync = {{ enable_ptp_kvm_time_sync }}
+          }
+          hugepages_config {
+            hugepage_size_1g = {{ hugepage_size_1g }}
+            hugepage_size_2m = {{ hugepage_size_2m }}
+          }
+          node_kernel_module_loading {
+            policy = "{{ policy }}"
+          }
+          swap_config {
+            enabled = {{ enabled }}
+            boot_disk_profile {
+              swap_size_gib = {{ swap_size_gib }}
+              swap_size_percent = {{ swap_size_percent }}
+            }
+            dedicated_local_ssd_profile {
+              disk_count = {{ disk_count }}
+            }
+            encryption_config {
+              disabled = {{ disabled }}
+            }
+            ephemeral_local_ssd_profile {
+              swap_size_gib = {{ swap_size_gib }}
+              swap_size_percent = {{ swap_size_percent }}
+            }
+          }
+        }
+        local_nvme_ssd_block_config {
+          local_ssd_count = {{ local_ssd_count }}
+        }
+        reservation_affinity {
+          consume_reservation_type = "{{ consume_reservation_type }}"
+          key = "{{ key }}"
+          values = ["{{ values }}"]
+        }
+        sandbox_config {
+          type = "{{ type }}"
+        }
+        secondary_boot_disks {
+          disk_image = "{{ disk_image }}"
+          mode = "{{ mode }}"
+        }
+        shielded_instance_config {
+          enable_integrity_monitoring = {{ enable_integrity_monitoring }}
+          enable_secure_boot = {{ enable_secure_boot }}
+        }
+        sole_tenant_config {
+          min_node_cpus = {{ min_node_cpus }}
+          node_affinity {
+            key = "{{ key }}"
+            operator = "{{ operator }}"
+            values = ["{{ values }}"]
+          }
+        }
+        taint {
+          effect = "{{ effect }}"
+          key = "{{ key }}"
+          value = "{{ value }}"
+        }
+        windows_node_config {
+          osversion = "{{ osversion }}"
+        }
+        workload_metadata_config {
+          mode = "{{ mode }}"
+        }
+      }
+      node_drain_config {
+        respect_pdb_during_node_pool_deletion = {{ respect_pdb_during_node_pool_deletion }}
+      }
+      placement_policy {
+        policy_name = "{{ policy_name }}"
+        tpu_topology = "{{ tpu_topology }}"
+        type = "{{ type }}"
+      }
+      queued_provisioning {
+        enabled = {{ enabled }}
+      }
+      upgrade_settings {
+        max_surge = {{ max_surge }}
+        max_unavailable = {{ max_unavailable }}
+        strategy = "{{ strategy }}"
+        blue_green_settings {
+          node_pool_soak_duration = "{{ node_pool_soak_duration }}"
+          standard_rollout_policy {
+            batch_node_count = {{ batch_node_count }}
+            batch_percentage = {{ batch_percentage }}
+            batch_soak_duration = "{{ batch_soak_duration }}"
+          }
+        }
+      }
+    }
+    node_pool_auto_config {
+      resource_manager_tags = {
+        key = "{{ resource_manager_tags_value }}"
+      }
+      linux_node_config {
+        cgroup_mode = "{{ cgroup_mode }}"
+        node_kernel_module_loading {
+          policy = "{{ policy }}"
+        }
+      }
+      network_tags {
+        tags = ["{{ tags }}"]
+      }
+      node_kubelet_config {
+        insecure_kubelet_readonly_port_enabled = "{{ insecure_kubelet_readonly_port_enabled }}"
+      }
+    }
+    node_pool_defaults {
+      node_config_defaults {
+        insecure_kubelet_readonly_port_enabled = "{{ insecure_kubelet_readonly_port_enabled }}"
+        logging_variant = "{{ logging_variant }}"
+        containerd_config {
+          private_registry_access_config {
+            enabled = {{ enabled }}
+            certificate_authority_domain_config {
+              fqdns = ["{{ fqdns }}"]
+              gcp_secret_manager_certificate_config {
+                secret_uri = "{{ secret_uri }}"
+              }
+            }
+          }
+          registry_hosts {
+            server = "{{ server }}"
+            hosts {
+              capabilities = ["{{ capabilities }}"]
+              dial_timeout = "{{ dial_timeout }}"
+              host = "{{ host }}"
+              override_path = {{ override_path }}
+              ca {
+                gcp_secret_manager_secret_uri = "{{ gcp_secret_manager_secret_uri }}"
+              }
+              client {
+                cert {
+                  gcp_secret_manager_secret_uri = "{{ gcp_secret_manager_secret_uri }}"
+                }
+                key {
+                  gcp_secret_manager_secret_uri = "{{ gcp_secret_manager_secret_uri }}"
+                }
+              }
+              header {
+                key = "{{ key }}"
+                value = ["{{ value }}"]
+              }
+            }
+          }
+          writable_cgroups {
+            enabled = {{ enabled }}
+          }
+        }
+        gcfs_config {
+          enabled = {{ enabled }}
+        }
+      }
+    }
+    notification_config {
+      pubsub {
+        enabled = {{ enabled }}
+        topic = "{{ topic }}"
+        filter {
+          event_type = ["{{ event_type }}"]
+        }
+      }
+    }
+    pod_autoscaling {
+      hpa_profile = "{{ hpa_profile }}"
+    }
+    private_cluster_config {
+      enable_private_endpoint = {{ enable_private_endpoint }}
+      enable_private_nodes = {{ enable_private_nodes }}
+      master_ipv4_cidr_block = "{{ master_ipv4_cidr_block }}"
+      private_endpoint_subnetwork = "{{ private_endpoint_subnetwork }}"
+      master_global_access_config {
+        enabled = {{ enabled }}
+      }
+    }
+    rbac_binding_config {
+      enable_insecure_binding_system_authenticated = {{ enable_insecure_binding_system_authenticated }}
+      enable_insecure_binding_system_unauthenticated = {{ enable_insecure_binding_system_unauthenticated }}
+    }
+    release_channel {
+      channel = "{{ channel }}"
+    }
+    resource_usage_export_config {
+      enable_network_egress_metering = {{ enable_network_egress_metering }}
+      enable_resource_consumption_metering = {{ enable_resource_consumption_metering }}
+      bigquery_destination {
+        dataset_id = "{{ dataset_id }}"
+      }
+    }
+    secret_manager_config {
+      enabled = {{ enabled }}
+      rotation_config {
+        enabled = {{ enabled }}
+        rotation_interval = "{{ rotation_interval }}"
+      }
+    }
+    security_posture_config {
+      mode = "{{ mode }}"
+      vulnerability_mode = "{{ vulnerability_mode }}"
+    }
+    service_external_ips_config {
+      enabled = {{ enabled }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    user_managed_keys_config {
+      aggregation_ca = "{{ aggregation_ca }}"
+      cluster_ca = "{{ cluster_ca }}"
+      control_plane_disk_encryption_key = "{{ control_plane_disk_encryption_key }}"
+      etcd_api_ca = "{{ etcd_api_ca }}"
+      etcd_peer_ca = "{{ etcd_peer_ca }}"
+      gkeops_etcd_backup_encryption_key = "{{ gkeops_etcd_backup_encryption_key }}"
+      service_account_signing_keys = ["{{ service_account_signing_keys }}"]
+      service_account_verification_keys = ["{{ service_account_verification_keys }}"]
+    }
+    vertical_pod_autoscaling {
+      enabled = {{ enabled }}
+    }
+    workload_identity_config {
+      workload_pool = "{{ workload_pool }}"
+    }
 }

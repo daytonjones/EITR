@@ -1,15 +1,12 @@
 data "aws_s3_objects" "example" {
     bucket = "{{ bucket }}"
-    common_prefixes = "{{ common_prefixes }}"
     delimiter = "{{ delimiter }}"
     encoding_type = "{{ encoding_type }}"
-    fetch_owner = "{{ fetch_owner }}"
+    fetch_owner = {{ fetch_owner }}
     id = "{{ id }}"
-    keys = "{{ keys }}"
-    max_keys = "{{ max_keys }}"
-    owners = "{{ owners }}"
+    max_keys = {{ max_keys }}
     prefix = "{{ prefix }}"
-    request_charged = "{{ request_charged }}"
+    region = "{{ region }}"
     request_payer = "{{ request_payer }}"
     start_after = "{{ start_after }}"
 }

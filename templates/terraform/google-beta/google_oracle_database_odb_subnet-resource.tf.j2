@@ -1,0 +1,18 @@
+resource "google_oracle_database_odb_subnet" "example" {
+    cidr_range = "{{ cidr_range }}"
+    deletion_protection = {{ deletion_protection }}
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    odb_subnet_id = "{{ odb_subnet_id }}"
+    odbnetwork = "{{ odbnetwork }}"
+    project = "{{ project }}"
+    purpose = "{{ purpose }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

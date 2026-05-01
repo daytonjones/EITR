@@ -4,4 +4,9 @@ resource "azurerm_monitor_private_link_scoped_service" "example" {
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     scope_name = "{{ scope_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

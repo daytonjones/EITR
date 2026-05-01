@@ -1,6 +1,11 @@
 resource "dns_srv_record_set" "example" {
-    id = "{{ id }}"
     name = "{{ name }}"
-    ttl = "{{ ttl }}"
+    ttl = {{ ttl }}
     zone = "{{ zone }}"
+    srv {
+      port = {{ port }}
+      priority = {{ priority }}
+      target = "{{ target }}"
+      weight = {{ weight }}
+    }
 }

@@ -1,6 +1,21 @@
 resource "aws_cloudfront_continuous_deployment_policy" "example" {
-    enabled = "{{ enabled }}"
-    etag = "{{ etag }}"
-    id = "{{ id }}"
-    last_modified_time = "{{ last_modified_time }}"
+    enabled = {{ enabled }}
+    staging_distribution_dns_names {
+      items = ["{{ items }}"]
+      quantity = {{ quantity }}
+    }
+    traffic_config {
+      type = "{{ type }}"
+      single_header_config {
+        header = "{{ header }}"
+        value = "{{ value }}"
+      }
+      single_weight_config {
+        weight = {{ weight }}
+        session_stickiness_config {
+          idle_ttl = {{ idle_ttl }}
+          maximum_ttl = {{ maximum_ttl }}
+        }
+      }
+    }
 }

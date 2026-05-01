@@ -1,0 +1,19 @@
+resource "google_netapp_volume_quota_rule" "example" {
+    description = "{{ description }}"
+    disk_limit_mib = {{ disk_limit_mib }}
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    target = "{{ target }}"
+    type = "{{ type }}"
+    volume_name = "{{ volume_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

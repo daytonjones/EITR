@@ -5,4 +5,10 @@ resource "azurerm_api_management_policy_fragment" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     value = "{{ value }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

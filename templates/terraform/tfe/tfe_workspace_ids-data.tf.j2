@@ -1,9 +1,15 @@
 data "tfe_workspace_ids" "example" {
-    exclude_tags = "{{ exclude_tags }}"
-    full_names = "{{ full_names }}"
+    exclude_tags = ["{{ exclude_tags }}"]
     id = "{{ id }}"
-    ids = "{{ ids }}"
-    names = "{{ names }}"
+    names = ["{{ names }}"]
     organization = "{{ organization }}"
-    tag_names = "{{ tag_names }}"
+    tag_names = ["{{ tag_names }}"]
+    tag_filters {
+      exclude = {
+        key = "{{ exclude_value }}"
+      }
+      include = {
+        key = "{{ include_value }}"
+      }
+    }
 }

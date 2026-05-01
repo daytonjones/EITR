@@ -1,12 +1,21 @@
 resource "google_spanner_database" "example" {
     database_dialect = "{{ database_dialect }}"
-    ddl = "{{ ddl }}"
-    deletion_protection = "{{ deletion_protection }}"
-    enable_drop_protection = "{{ enable_drop_protection }}"
+    ddl = ["{{ ddl }}"]
+    default_time_zone = "{{ default_time_zone }}"
+    deletion_protection = {{ deletion_protection }}
+    enable_drop_protection = {{ enable_drop_protection }}
     id = "{{ id }}"
     instance = "{{ instance }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    state = "{{ state }}"
     version_retention_period = "{{ version_retention_period }}"
+    encryption_config {
+      kms_key_name = "{{ kms_key_name }}"
+      kms_key_names = ["{{ kms_key_names }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

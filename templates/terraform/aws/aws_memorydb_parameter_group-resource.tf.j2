@@ -1,10 +1,18 @@
 resource "aws_memorydb_parameter_group" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     family = "{{ family }}"
     id = "{{ id }}"
     name = "{{ name }}"
     name_prefix = "{{ name_prefix }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    parameter {
+      name = "{{ name }}"
+      value = "{{ value }}"
+    }
 }

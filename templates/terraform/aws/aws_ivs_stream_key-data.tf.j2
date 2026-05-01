@@ -1,7 +1,8 @@
 data "aws_ivs_stream_key" "example" {
-    arn = "{{ arn }}"
     channel_arn = "{{ channel_arn }}"
     id = "{{ id }}"
-    tags = "{{ tags }}"
-    value = "{{ value }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
 }

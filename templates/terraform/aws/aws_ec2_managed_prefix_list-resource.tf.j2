@@ -1,11 +1,17 @@
 resource "aws_ec2_managed_prefix_list" "example" {
     address_family = "{{ address_family }}"
-    arn = "{{ arn }}"
     id = "{{ id }}"
-    max_entries = "{{ max_entries }}"
+    max_entries = {{ max_entries }}
     name = "{{ name }}"
-    owner_id = "{{ owner_id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    version = "{{ version }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    entry {
+      cidr = "{{ cidr }}"
+      description = "{{ description }}"
+    }
 }

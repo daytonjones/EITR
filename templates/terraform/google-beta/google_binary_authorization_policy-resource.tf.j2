@@ -3,4 +3,23 @@ resource "google_binary_authorization_policy" "example" {
     global_policy_evaluation_mode = "{{ global_policy_evaluation_mode }}"
     id = "{{ id }}"
     project = "{{ project }}"
+    admission_whitelist_patterns {
+      name_pattern = "{{ name_pattern }}"
+    }
+    cluster_admission_rules {
+      cluster = "{{ cluster }}"
+      enforcement_mode = "{{ enforcement_mode }}"
+      evaluation_mode = "{{ evaluation_mode }}"
+      require_attestations_by = ["{{ require_attestations_by }}"]
+    }
+    default_admission_rule {
+      enforcement_mode = "{{ enforcement_mode }}"
+      evaluation_mode = "{{ evaluation_mode }}"
+      require_attestations_by = ["{{ require_attestations_by }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

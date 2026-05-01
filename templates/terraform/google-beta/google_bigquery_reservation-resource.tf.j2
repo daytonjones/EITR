@@ -1,10 +1,22 @@
 resource "google_bigquery_reservation" "example" {
-    concurrency = "{{ concurrency }}"
+    concurrency = {{ concurrency }}
     edition = "{{ edition }}"
     id = "{{ id }}"
-    ignore_idle_slots = "{{ ignore_idle_slots }}"
+    ignore_idle_slots = {{ ignore_idle_slots }}
     location = "{{ location }}"
+    max_slots = {{ max_slots }}
     name = "{{ name }}"
     project = "{{ project }}"
-    slot_capacity = "{{ slot_capacity }}"
+    reservation_group = "{{ reservation_group }}"
+    scaling_mode = "{{ scaling_mode }}"
+    secondary_location = "{{ secondary_location }}"
+    slot_capacity = {{ slot_capacity }}
+    autoscale {
+      max_slots = {{ max_slots }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

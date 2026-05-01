@@ -1,11 +1,30 @@
 resource "aws_macie2_findings_filter" "example" {
     action = "{{ action }}"
-    arn = "{{ arn }}"
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
     name_prefix = "{{ name_prefix }}"
-    position = "{{ position }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    position = {{ position }}
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    finding_criteria {
+      criterion {
+        eq = ["{{ eq }}"]
+        eq_exact_match = ["{{ eq_exact_match }}"]
+        field = "{{ field }}"
+        gt = "{{ gt }}"
+        gte = "{{ gte }}"
+        lt = "{{ lt }}"
+        lte = "{{ lte }}"
+        neq = ["{{ neq }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+    }
 }

@@ -1,7 +1,8 @@
 data "aws_batch_scheduling_policy" "example" {
     arn = "{{ arn }}"
-    fair_share_policy = "{{ fair_share_policy }}"
     id = "{{ id }}"
-    name = "{{ name }}"
-    tags = "{{ tags }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
 }

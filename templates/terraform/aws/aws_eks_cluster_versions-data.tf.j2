@@ -1,0 +1,8 @@
+data "aws_eks_cluster_versions" "example" {
+    cluster_type = "{{ cluster_type }}"
+    cluster_versions_only = ["{{ cluster_versions_only }}"]
+    default_only = {{ default_only }}
+    include_all = {{ include_all }}
+    region = "{{ region }}"
+    version_status = "{{ version_status }}"
+}

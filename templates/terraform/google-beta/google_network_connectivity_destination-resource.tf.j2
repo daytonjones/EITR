@@ -1,0 +1,21 @@
+resource "google_network_connectivity_destination" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    ip_prefix = "{{ ip_prefix }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    multicloud_data_transfer_config = "{{ multicloud_data_transfer_config }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    endpoints {
+      asn = "{{ asn }}"
+      csp = "{{ csp }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

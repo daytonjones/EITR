@@ -1,5 +1,23 @@
 resource "kubernetes_certificate_signing_request_v1" "example" {
-    auto_approve = "{{ auto_approve }}"
-    certificate = "{{ certificate }}"
+    auto_approve = {{ auto_approve }}
     id = "{{ id }}"
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      generate_name = "{{ generate_name }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      name = "{{ name }}"
+    }
+    spec {
+      expiration_seconds = {{ expiration_seconds }}
+      request = "{{ request }}"
+      signer_name = "{{ signer_name }}"
+      usages = ["{{ usages }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+    }
 }

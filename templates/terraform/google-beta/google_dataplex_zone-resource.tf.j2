@@ -1,18 +1,37 @@
 resource "google_dataplex_zone" "example" {
-    asset_status = "{{ asset_status }}"
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
     display_name = "{{ display_name }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     lake = "{{ lake }}"
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    state = "{{ state }}"
-    terraform_labels = "{{ terraform_labels }}"
     type = "{{ type }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
+    discovery_spec {
+      enabled = {{ enabled }}
+      exclude_patterns = ["{{ exclude_patterns }}"]
+      include_patterns = ["{{ include_patterns }}"]
+      schedule = "{{ schedule }}"
+      csv_options {
+        delimiter = "{{ delimiter }}"
+        disable_type_inference = {{ disable_type_inference }}
+        encoding = "{{ encoding }}"
+        header_rows = {{ header_rows }}
+      }
+      json_options {
+        disable_type_inference = {{ disable_type_inference }}
+        encoding = "{{ encoding }}"
+      }
+    }
+    resource_spec {
+      location_type = "{{ location_type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

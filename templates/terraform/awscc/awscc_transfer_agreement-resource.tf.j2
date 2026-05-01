@@ -1,16 +1,13 @@
 resource "awscc_transfer_agreement" "example" {
     access_role = "{{ access_role }}"
-    agreement_id = "{{ agreement_id }}"
-    arn = "{{ arn }}"
     base_directory = "{{ base_directory }}"
+    custom_directories = "{{ custom_directories }}"
     description = "{{ description }}"
-    id = "{{ id }}"
+    enforce_message_signing = "{{ enforce_message_signing }}"
     local_profile_id = "{{ local_profile_id }}"
     partner_profile_id = "{{ partner_profile_id }}"
+    preserve_filename = "{{ preserve_filename }}"
     server_id = "{{ server_id }}"
     status = "{{ status }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
 }

@@ -1,0 +1,10 @@
+resource "google_vertex_ai_cache_config" "example" {
+    disable_cache = {{ disable_cache }}
+    id = "{{ id }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

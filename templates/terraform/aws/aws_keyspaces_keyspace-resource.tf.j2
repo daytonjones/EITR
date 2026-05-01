@@ -1,7 +1,19 @@
 resource "aws_keyspaces_keyspace" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    replication_specification {
+      region_list = ["{{ region_list }}"]
+      replication_strategy = "{{ replication_strategy }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

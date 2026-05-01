@@ -4,9 +4,39 @@ resource "vsphere_supervisor" "example" {
     dvs_uuid = "{{ dvs_uuid }}"
     edge_cluster = "{{ edge_cluster }}"
     id = "{{ id }}"
-    main_dns = "{{ main_dns }}"
-    search_domains = "{{ search_domains }}"
+    main_dns = ["{{ main_dns }}"]
+    main_ntp = ["{{ main_ntp }}"]
+    search_domains = ["{{ search_domains }}"]
     sizing_hint = "{{ sizing_hint }}"
     storage_policy = "{{ storage_policy }}"
-    worker_dns = "{{ worker_dns }}"
+    worker_dns = ["{{ worker_dns }}"]
+    worker_ntp = ["{{ worker_ntp }}"]
+    egress_cidr {
+      address = "{{ address }}"
+      prefix = {{ prefix }}
+    }
+    ingress_cidr {
+      address = "{{ address }}"
+      prefix = {{ prefix }}
+    }
+    management_network {
+      address_count = {{ address_count }}
+      gateway = "{{ gateway }}"
+      network = "{{ network }}"
+      starting_address = "{{ starting_address }}"
+      subnet_mask = "{{ subnet_mask }}"
+    }
+    namespace {
+      content_libraries = ["{{ content_libraries }}"]
+      name = "{{ name }}"
+      vm_classes = ["{{ vm_classes }}"]
+    }
+    pod_cidr {
+      address = "{{ address }}"
+      prefix = {{ prefix }}
+    }
+    service_cidr {
+      address = "{{ address }}"
+      prefix = {{ prefix }}
+    }
 }

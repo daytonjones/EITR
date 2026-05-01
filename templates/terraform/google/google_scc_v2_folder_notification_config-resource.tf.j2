@@ -4,7 +4,13 @@ resource "google_scc_v2_folder_notification_config" "example" {
     folder = "{{ folder }}"
     id = "{{ id }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     pubsub_topic = "{{ pubsub_topic }}"
-    service_account = "{{ service_account }}"
+    streaming_config {
+      filter = "{{ filter }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

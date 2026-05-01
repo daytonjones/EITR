@@ -1,5 +1,4 @@
 resource "google_kms_ekm_connection" "example" {
-    create_time = "{{ create_time }}"
     crypto_space_path = "{{ crypto_space_path }}"
     etag = "{{ etag }}"
     id = "{{ id }}"
@@ -7,4 +6,18 @@ resource "google_kms_ekm_connection" "example" {
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
+    service_resolvers {
+      endpoint_filter = "{{ endpoint_filter }}"
+      hostname = "{{ hostname }}"
+      service_directory_service = "{{ service_directory_service }}"
+      server_certificates {
+        raw_der = "{{ raw_der }}"
+        subject_alternative_dns_names = ["{{ subject_alternative_dns_names }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

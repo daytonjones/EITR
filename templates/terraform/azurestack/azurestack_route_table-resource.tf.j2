@@ -1,10 +1,17 @@
 resource "azurestack_route_table" "example" {
-    disable_bgp_route_propagation = "{{ disable_bgp_route_propagation }}"
+    disable_bgp_route_propagation = {{ disable_bgp_route_propagation }}
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    route = "{{ route }}"
-    subnets = "{{ subnets }}"
-    tags = "{{ tags }}"
+    route = ["{{ route }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,11 +1,14 @@
 resource "aws_placement_group" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    partition_count = "{{ partition_count }}"
-    placement_group_id = "{{ placement_group_id }}"
+    partition_count = {{ partition_count }}
+    region = "{{ region }}"
     spread_level = "{{ spread_level }}"
     strategy = "{{ strategy }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

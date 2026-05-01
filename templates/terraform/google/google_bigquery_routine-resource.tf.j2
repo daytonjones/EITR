@@ -1,17 +1,49 @@
 resource "google_bigquery_routine" "example" {
-    creation_time = "{{ creation_time }}"
     data_governance_type = "{{ data_governance_type }}"
     dataset_id = "{{ dataset_id }}"
     definition_body = "{{ definition_body }}"
     description = "{{ description }}"
     determinism_level = "{{ determinism_level }}"
     id = "{{ id }}"
-    imported_libraries = "{{ imported_libraries }}"
+    imported_libraries = ["{{ imported_libraries }}"]
     language = "{{ language }}"
-    last_modified_time = "{{ last_modified_time }}"
     project = "{{ project }}"
     return_table_type = "{{ return_table_type }}"
     return_type = "{{ return_type }}"
     routine_id = "{{ routine_id }}"
     routine_type = "{{ routine_type }}"
+    security_mode = "{{ security_mode }}"
+    arguments {
+      argument_kind = "{{ argument_kind }}"
+      data_type = "{{ data_type }}"
+      mode = "{{ mode }}"
+      name = "{{ name }}"
+    }
+    remote_function_options {
+      connection = "{{ connection }}"
+      endpoint = "{{ endpoint }}"
+      max_batching_rows = "{{ max_batching_rows }}"
+      user_defined_context = {
+        key = "{{ user_defined_context_value }}"
+      }
+    }
+    spark_options {
+      archive_uris = ["{{ archive_uris }}"]
+      connection = "{{ connection }}"
+      container_image = "{{ container_image }}"
+      file_uris = ["{{ file_uris }}"]
+      jar_uris = ["{{ jar_uris }}"]
+      main_class = "{{ main_class }}"
+      main_file_uri = "{{ main_file_uri }}"
+      properties = {
+        key = "{{ properties_value }}"
+      }
+      py_file_uris = ["{{ py_file_uris }}"]
+      runtime_version = "{{ runtime_version }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

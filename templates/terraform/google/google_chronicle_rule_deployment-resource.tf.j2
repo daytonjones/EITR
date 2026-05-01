@@ -1,0 +1,16 @@
+resource "google_chronicle_rule_deployment" "example" {
+    alerting = {{ alerting }}
+    archived = {{ archived }}
+    enabled = {{ enabled }}
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    rule = "{{ rule }}"
+    run_frequency = "{{ run_frequency }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

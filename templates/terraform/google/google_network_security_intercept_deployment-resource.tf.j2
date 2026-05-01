@@ -1,0 +1,17 @@
+resource "google_network_security_intercept_deployment" "example" {
+    description = "{{ description }}"
+    forwarding_rule = "{{ forwarding_rule }}"
+    id = "{{ id }}"
+    intercept_deployment_group = "{{ intercept_deployment_group }}"
+    intercept_deployment_id = "{{ intercept_deployment_id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

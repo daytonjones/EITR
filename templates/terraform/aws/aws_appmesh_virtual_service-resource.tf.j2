@@ -1,12 +1,23 @@
 resource "aws_appmesh_virtual_service" "example" {
-    arn = "{{ arn }}"
-    created_date = "{{ created_date }}"
     id = "{{ id }}"
-    last_updated_date = "{{ last_updated_date }}"
     mesh_name = "{{ mesh_name }}"
     mesh_owner = "{{ mesh_owner }}"
     name = "{{ name }}"
-    resource_owner = "{{ resource_owner }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    spec {
+      provider {
+        virtual_node {
+          virtual_node_name = "{{ virtual_node_name }}"
+        }
+        virtual_router {
+          virtual_router_name = "{{ virtual_router_name }}"
+        }
+      }
+    }
 }

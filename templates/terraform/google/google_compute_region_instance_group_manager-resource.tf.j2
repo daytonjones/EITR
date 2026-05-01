@@ -1,20 +1,87 @@
 resource "google_compute_region_instance_group_manager" "example" {
     base_instance_name = "{{ base_instance_name }}"
-    creation_timestamp = "{{ creation_timestamp }}"
     description = "{{ description }}"
     distribution_policy_target_shape = "{{ distribution_policy_target_shape }}"
-    distribution_policy_zones = "{{ distribution_policy_zones }}"
-    fingerprint = "{{ fingerprint }}"
+    distribution_policy_zones = ["{{ distribution_policy_zones }}"]
     id = "{{ id }}"
-    instance_group = "{{ instance_group }}"
     list_managed_instances_results = "{{ list_managed_instances_results }}"
     name = "{{ name }}"
     project = "{{ project }}"
     region = "{{ region }}"
-    self_link = "{{ self_link }}"
-    status = "{{ status }}"
-    target_pools = "{{ target_pools }}"
-    target_size = "{{ target_size }}"
-    wait_for_instances = "{{ wait_for_instances }}"
+    target_pools = ["{{ target_pools }}"]
+    target_size = {{ target_size }}
+    target_stopped_size = {{ target_stopped_size }}
+    target_suspended_size = {{ target_suspended_size }}
+    wait_for_instances = {{ wait_for_instances }}
     wait_for_instances_status = "{{ wait_for_instances_status }}"
+    all_instances_config {
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      metadata = {
+        key = "{{ metadata_value }}"
+      }
+    }
+    auto_healing_policies {
+      health_check = "{{ health_check }}"
+      initial_delay_sec = {{ initial_delay_sec }}
+    }
+    instance_flexibility_policy {
+      instance_selections {
+        machine_types = ["{{ machine_types }}"]
+        name = "{{ name }}"
+        rank = {{ rank }}
+      }
+    }
+    instance_lifecycle_policy {
+      default_action_on_failure = "{{ default_action_on_failure }}"
+      force_update_on_repair = "{{ force_update_on_repair }}"
+    }
+    named_port {
+      name = "{{ name }}"
+      port = {{ port }}
+    }
+    standby_policy {
+      initial_delay_sec = {{ initial_delay_sec }}
+      mode = "{{ mode }}"
+    }
+    stateful_disk {
+      delete_rule = "{{ delete_rule }}"
+      device_name = "{{ device_name }}"
+    }
+    stateful_external_ip {
+      delete_rule = "{{ delete_rule }}"
+      interface_name = "{{ interface_name }}"
+    }
+    stateful_internal_ip {
+      delete_rule = "{{ delete_rule }}"
+      interface_name = "{{ interface_name }}"
+    }
+    target_size_policy {
+      mode = "{{ mode }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    update_policy {
+      instance_redistribution_type = "{{ instance_redistribution_type }}"
+      max_surge_fixed = {{ max_surge_fixed }}
+      max_surge_percent = {{ max_surge_percent }}
+      max_unavailable_fixed = {{ max_unavailable_fixed }}
+      max_unavailable_percent = {{ max_unavailable_percent }}
+      minimal_action = "{{ minimal_action }}"
+      most_disruptive_allowed_action = "{{ most_disruptive_allowed_action }}"
+      replacement_method = "{{ replacement_method }}"
+      type = "{{ type }}"
+    }
+    version {
+      instance_template = "{{ instance_template }}"
+      name = "{{ name }}"
+      target_size {
+        fixed = {{ fixed }}
+        percent = {{ percent }}
+      }
+    }
 }

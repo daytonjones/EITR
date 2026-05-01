@@ -1,0 +1,9 @@
+resource "aws_cloudwatch_contributor_managed_insight_rule" "example" {
+    region = "{{ region }}"
+    resource_arn = "{{ resource_arn }}"
+    state = "{{ state }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    template_name = "{{ template_name }}"
+}

@@ -4,4 +4,7 @@ data "hcp_vault_plugin" "example" {
     plugin_name = "{{ plugin_name }}"
     plugin_type = "{{ plugin_type }}"
     project_id = "{{ project_id }}"
+    timeouts {
+      default = "{{ default }}"
+    }
 }

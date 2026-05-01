@@ -1,0 +1,23 @@
+resource "google_saas_runtime_unit" "example" {
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    management_mode = "{{ management_mode }}"
+    project = "{{ project }}"
+    tenant = "{{ tenant }}"
+    unit_id = "{{ unit_id }}"
+    unit_kind = "{{ unit_kind }}"
+    maintenance {
+      pinned_until_time = "{{ pinned_until_time }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

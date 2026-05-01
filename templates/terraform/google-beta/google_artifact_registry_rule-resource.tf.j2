@@ -1,0 +1,21 @@
+resource "google_artifact_registry_rule" "example" {
+    action = "{{ action }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    operation = "{{ operation }}"
+    package_id = "{{ package_id }}"
+    project = "{{ project }}"
+    repository_id = "{{ repository_id }}"
+    rule_id = "{{ rule_id }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      location = "{{ location }}"
+      title = "{{ title }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

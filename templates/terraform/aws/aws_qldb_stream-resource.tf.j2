@@ -1,11 +1,23 @@
 resource "aws_qldb_stream" "example" {
-    arn = "{{ arn }}"
     exclusive_end_time = "{{ exclusive_end_time }}"
     id = "{{ id }}"
     inclusive_start_time = "{{ inclusive_start_time }}"
     ledger_name = "{{ ledger_name }}"
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
     stream_name = "{{ stream_name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    kinesis_configuration {
+      aggregation_enabled = {{ aggregation_enabled }}
+      stream_arn = "{{ stream_arn }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

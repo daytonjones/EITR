@@ -1,0 +1,18 @@
+resource "google_netapp_host_group" "example" {
+    description = "{{ description }}"
+    hosts = ["{{ hosts }}"]
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    name = "{{ name }}"
+    os_type = "{{ os_type }}"
+    project = "{{ project }}"
+    type = "{{ type }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

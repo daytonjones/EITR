@@ -1,5 +1,10 @@
 resource "aws_vpn_gateway_route_propagation" "example" {
     id = "{{ id }}"
+    region = "{{ region }}"
     route_table_id = "{{ route_table_id }}"
     vpn_gateway_id = "{{ vpn_gateway_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

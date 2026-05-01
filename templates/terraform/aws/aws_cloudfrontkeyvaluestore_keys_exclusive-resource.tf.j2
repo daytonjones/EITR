@@ -1,0 +1,8 @@
+resource "aws_cloudfrontkeyvaluestore_keys_exclusive" "example" {
+    key_value_store_arn = "{{ key_value_store_arn }}"
+    max_batch_size = {{ max_batch_size }}
+    resource_key_value_pair {
+      key = "{{ key }}"
+      value = "{{ value }}"
+    }
+}

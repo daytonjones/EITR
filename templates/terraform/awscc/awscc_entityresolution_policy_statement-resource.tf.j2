@@ -1,9 +1,8 @@
 resource "awscc_entityresolution_policy_statement" "example" {
-    action = "{{ action }}"
+    action = ["{{ action }}"]
     arn = "{{ arn }}"
     condition = "{{ condition }}"
     effect = "{{ effect }}"
-    id = "{{ id }}"
-    principal = "{{ principal }}"
+    principal = ["{{ principal }}"]
     statement_id = "{{ statement_id }}"
 }

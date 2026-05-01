@@ -4,6 +4,66 @@ resource "azurerm_network_connection_monitor" "example" {
     name = "{{ name }}"
     network_watcher_id = "{{ network_watcher_id }}"
     notes = "{{ notes }}"
-    output_workspace_resource_ids = "{{ output_workspace_resource_ids }}"
-    tags = "{{ tags }}"
+    output_workspace_resource_ids = ["{{ output_workspace_resource_ids }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    endpoint {
+      address = "{{ address }}"
+      coverage_level = "{{ coverage_level }}"
+      excluded_ip_addresses = ["{{ excluded_ip_addresses }}"]
+      included_ip_addresses = ["{{ included_ip_addresses }}"]
+      name = "{{ name }}"
+      target_resource_id = "{{ target_resource_id }}"
+      target_resource_type = "{{ target_resource_type }}"
+      filter {
+        type = "{{ type }}"
+        item {
+          address = "{{ address }}"
+          type = "{{ type }}"
+        }
+      }
+    }
+    test_configuration {
+      name = "{{ name }}"
+      preferred_ip_version = "{{ preferred_ip_version }}"
+      protocol = "{{ protocol }}"
+      test_frequency_in_seconds = {{ test_frequency_in_seconds }}
+      http_configuration {
+        method = "{{ method }}"
+        path = "{{ path }}"
+        port = {{ port }}
+        prefer_https = {{ prefer_https }}
+        valid_status_code_ranges = ["{{ valid_status_code_ranges }}"]
+        request_header {
+          name = "{{ name }}"
+          value = "{{ value }}"
+        }
+      }
+      icmp_configuration {
+        trace_route_enabled = {{ trace_route_enabled }}
+      }
+      success_threshold {
+        checks_failed_percent = {{ checks_failed_percent }}
+        round_trip_time_ms = {{ round_trip_time_ms }}
+      }
+      tcp_configuration {
+        destination_port_behavior = "{{ destination_port_behavior }}"
+        port = {{ port }}
+        trace_route_enabled = {{ trace_route_enabled }}
+      }
+    }
+    test_group {
+      destination_endpoints = ["{{ destination_endpoints }}"]
+      enabled = {{ enabled }}
+      name = "{{ name }}"
+      source_endpoints = ["{{ source_endpoints }}"]
+      test_configuration_names = ["{{ test_configuration_names }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

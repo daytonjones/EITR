@@ -2,4 +2,9 @@ resource "google_billing_project_info" "example" {
     billing_account = "{{ billing_account }}"
     id = "{{ id }}"
     project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

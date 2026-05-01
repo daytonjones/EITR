@@ -1,0 +1,6 @@
+resource "awscc_bedrock_enforced_guardrail_configuration" "example" {
+    guardrail_identifier = "{{ guardrail_identifier }}"
+    guardrail_version = "{{ guardrail_version }}"
+    model_enforcement = "{{ model_enforcement }}"
+    selective_content_guarding = "{{ selective_content_guarding }}"
+}

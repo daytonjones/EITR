@@ -1,0 +1,72 @@
+resource "google_discovery_engine_widget_config" "example" {
+    collection_id = "{{ collection_id }}"
+    engine_id = "{{ engine_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    widget_config_id = "{{ widget_config_id }}"
+    access_settings {
+      allow_public_access = {{ allow_public_access }}
+      allowlisted_domains = ["{{ allowlisted_domains }}"]
+      enable_web_app = {{ enable_web_app }}
+      language_code = "{{ language_code }}"
+      workforce_identity_pool_provider = "{{ workforce_identity_pool_provider }}"
+    }
+    homepage_setting {
+      shortcuts {
+        destination_uri = "{{ destination_uri }}"
+        title = "{{ title }}"
+        icon {
+          url = "{{ url }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    ui_branding {
+      logo {
+        url = "{{ url }}"
+      }
+    }
+    ui_settings {
+      default_search_request_order_by = "{{ default_search_request_order_by }}"
+      disable_user_events_collection = {{ disable_user_events_collection }}
+      enable_autocomplete = {{ enable_autocomplete }}
+      enable_create_agent_button = {{ enable_create_agent_button }}
+      enable_people_search = {{ enable_people_search }}
+      enable_quality_feedback = {{ enable_quality_feedback }}
+      enable_safe_search = {{ enable_safe_search }}
+      enable_search_as_you_type = {{ enable_search_as_you_type }}
+      enable_visual_content_summary = {{ enable_visual_content_summary }}
+      interaction_type = "{{ interaction_type }}"
+      result_description_type = "{{ result_description_type }}"
+      data_store_ui_configs {
+        name = "{{ name }}"
+        facet_field {
+          display_name = "{{ display_name }}"
+          field = "{{ field }}"
+        }
+        fields_ui_components_map {
+          device_visibility = ["{{ device_visibility }}"]
+          display_template = "{{ display_template }}"
+          field = "{{ field }}"
+          ui_component = "{{ ui_component }}"
+        }
+      }
+      generative_answer_config {
+        disable_related_questions = {{ disable_related_questions }}
+        ignore_adversarial_query = {{ ignore_adversarial_query }}
+        ignore_low_relevant_content = {{ ignore_low_relevant_content }}
+        ignore_non_answer_seeking_query = {{ ignore_non_answer_seeking_query }}
+        image_source = "{{ image_source }}"
+        language_code = "{{ language_code }}"
+        max_rephrase_steps = {{ max_rephrase_steps }}
+        model_prompt_preamble = "{{ model_prompt_preamble }}"
+        model_version = "{{ model_version }}"
+        result_count = {{ result_count }}
+      }
+    }
+}

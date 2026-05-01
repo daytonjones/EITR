@@ -1,0 +1,7 @@
+resource "awscc_cloudfront_connection_group" "example" {
+    anycast_ip_list_id = "{{ anycast_ip_list_id }}"
+    enabled = {{ enabled }}
+    ipv_6_enabled = {{ ipv_6_enabled }}
+    name = "{{ name }}"
+    tags = "{{ tags }}"
+}

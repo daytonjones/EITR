@@ -1,8 +1,16 @@
 data "aws_identitystore_group" "example" {
-    description = "{{ description }}"
-    display_name = "{{ display_name }}"
-    external_ids = "{{ external_ids }}"
     group_id = "{{ group_id }}"
     id = "{{ id }}"
     identity_store_id = "{{ identity_store_id }}"
+    region = "{{ region }}"
+    alternate_identifier {
+      external_id {
+        id = "{{ id }}"
+        issuer = "{{ issuer }}"
+      }
+      unique_attribute {
+        attribute_path = "{{ attribute_path }}"
+        attribute_value = "{{ attribute_value }}"
+      }
+    }
 }

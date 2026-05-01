@@ -1,9 +1,25 @@
 resource "azurerm_virtual_machine_packet_capture" "example" {
     id = "{{ id }}"
-    maximum_bytes_per_packet = "{{ maximum_bytes_per_packet }}"
-    maximum_bytes_per_session = "{{ maximum_bytes_per_session }}"
-    maximum_capture_duration_in_seconds = "{{ maximum_capture_duration_in_seconds }}"
+    maximum_bytes_per_packet = {{ maximum_bytes_per_packet }}
+    maximum_bytes_per_session = {{ maximum_bytes_per_session }}
+    maximum_capture_duration_in_seconds = {{ maximum_capture_duration_in_seconds }}
     name = "{{ name }}"
     network_watcher_id = "{{ network_watcher_id }}"
     virtual_machine_id = "{{ virtual_machine_id }}"
+    filter {
+      local_ip_address = "{{ local_ip_address }}"
+      local_port = "{{ local_port }}"
+      protocol = "{{ protocol }}"
+      remote_ip_address = "{{ remote_ip_address }}"
+      remote_port = "{{ remote_port }}"
+    }
+    storage_location {
+      file_path = "{{ file_path }}"
+      storage_account_id = "{{ storage_account_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

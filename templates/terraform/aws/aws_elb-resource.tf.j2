@@ -1,22 +1,47 @@
 resource "aws_elb" "example" {
-    arn = "{{ arn }}"
-    availability_zones = "{{ availability_zones }}"
-    connection_draining = "{{ connection_draining }}"
-    connection_draining_timeout = "{{ connection_draining_timeout }}"
-    cross_zone_load_balancing = "{{ cross_zone_load_balancing }}"
+    availability_zones = ["{{ availability_zones }}"]
+    connection_draining = {{ connection_draining }}
+    connection_draining_timeout = {{ connection_draining_timeout }}
+    cross_zone_load_balancing = {{ cross_zone_load_balancing }}
     desync_mitigation_mode = "{{ desync_mitigation_mode }}"
-    dns_name = "{{ dns_name }}"
     id = "{{ id }}"
-    idle_timeout = "{{ idle_timeout }}"
-    instances = "{{ instances }}"
-    internal = "{{ internal }}"
+    idle_timeout = {{ idle_timeout }}
+    instances = ["{{ instances }}"]
+    internal = {{ internal }}
     name = "{{ name }}"
     name_prefix = "{{ name_prefix }}"
-    security_groups = "{{ security_groups }}"
+    region = "{{ region }}"
+    security_groups = ["{{ security_groups }}"]
     source_security_group = "{{ source_security_group }}"
-    source_security_group_id = "{{ source_security_group_id }}"
-    subnets = "{{ subnets }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    zone_id = "{{ zone_id }}"
+    subnets = ["{{ subnets }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    access_logs {
+      bucket = "{{ bucket }}"
+      bucket_prefix = "{{ bucket_prefix }}"
+      enabled = {{ enabled }}
+      interval = {{ interval }}
+    }
+    health_check {
+      healthy_threshold = {{ healthy_threshold }}
+      interval = {{ interval }}
+      target = "{{ target }}"
+      timeout = {{ timeout }}
+      unhealthy_threshold = {{ unhealthy_threshold }}
+    }
+    listener {
+      instance_port = {{ instance_port }}
+      instance_protocol = "{{ instance_protocol }}"
+      lb_port = {{ lb_port }}
+      lb_protocol = "{{ lb_protocol }}"
+      ssl_certificate_id = "{{ ssl_certificate_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
 }

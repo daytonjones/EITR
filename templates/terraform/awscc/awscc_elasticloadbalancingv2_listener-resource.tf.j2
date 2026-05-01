@@ -1,0 +1,11 @@
+resource "awscc_elasticloadbalancingv2_listener" "example" {
+    alpn_policy = ["{{ alpn_policy }}"]
+    certificates = "{{ certificates }}"
+    default_actions = "{{ default_actions }}"
+    listener_attributes = "{{ listener_attributes }}"
+    load_balancer_arn = "{{ load_balancer_arn }}"
+    mutual_authentication = "{{ mutual_authentication }}"
+    port = {{ port }}
+    protocol = "{{ protocol }}"
+    ssl_policy = "{{ ssl_policy }}"
+}

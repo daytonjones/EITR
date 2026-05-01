@@ -1,6 +1,6 @@
 resource "hcp_vault_radar_source_github_cloud" "example" {
+    detector_type = "{{ detector_type }}"
     github_organization = "{{ github_organization }}"
-    id = "{{ id }}"
     project_id = "{{ project_id }}"
     token = "{{ token }}"
 }

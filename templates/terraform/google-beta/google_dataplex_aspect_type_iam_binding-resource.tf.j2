@@ -1,9 +1,13 @@
 resource "google_dataplex_aspect_type_iam_binding" "example" {
     aspect_type_id = "{{ aspect_type_id }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
     location = "{{ location }}"
-    members = "{{ members }}"
+    members = ["{{ members }}"]
     project = "{{ project }}"
     role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

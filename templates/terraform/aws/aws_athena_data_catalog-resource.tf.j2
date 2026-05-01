@@ -1,10 +1,16 @@
 resource "aws_athena_data_catalog" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    parameters = "{{ parameters }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     type = "{{ type }}"
 }

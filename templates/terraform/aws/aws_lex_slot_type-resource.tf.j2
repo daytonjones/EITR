@@ -1,11 +1,17 @@
 resource "aws_lex_slot_type" "example" {
-    checksum = "{{ checksum }}"
-    create_version = "{{ create_version }}"
-    created_date = "{{ created_date }}"
+    create_version = {{ create_version }}
     description = "{{ description }}"
     id = "{{ id }}"
-    last_updated_date = "{{ last_updated_date }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     value_selection_strategy = "{{ value_selection_strategy }}"
-    version = "{{ version }}"
+    enumeration_value {
+      synonyms = ["{{ synonyms }}"]
+      value = "{{ value }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

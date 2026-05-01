@@ -7,4 +7,9 @@ resource "azurerm_site_recovery_network_mapping" "example" {
     source_recovery_fabric_name = "{{ source_recovery_fabric_name }}"
     target_network_id = "{{ target_network_id }}"
     target_recovery_fabric_name = "{{ target_recovery_fabric_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

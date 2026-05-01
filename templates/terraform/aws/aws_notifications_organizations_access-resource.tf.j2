@@ -1,0 +1,8 @@
+resource "aws_notifications_organizations_access" "example" {
+    enabled = {{ enabled }}
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

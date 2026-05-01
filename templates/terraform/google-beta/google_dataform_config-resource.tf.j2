@@ -1,0 +1,11 @@
+resource "google_dataform_config" "example" {
+    default_kms_key_name = "{{ default_kms_key_name }}"
+    id = "{{ id }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -7,8 +7,20 @@ resource "azurerm_managed_application_definition" "example" {
     lock_level = "{{ lock_level }}"
     main_template = "{{ main_template }}"
     name = "{{ name }}"
-    package_enabled = "{{ package_enabled }}"
+    package_enabled = {{ package_enabled }}
     package_file_uri = "{{ package_file_uri }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    authorization {
+      role_definition_id = "{{ role_definition_id }}"
+      service_principal_id = "{{ service_principal_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

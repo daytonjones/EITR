@@ -1,0 +1,9 @@
+resource "awscc_lambda_capacity_provider" "example" {
+    capacity_provider_name = "{{ capacity_provider_name }}"
+    capacity_provider_scaling_config = "{{ capacity_provider_scaling_config }}"
+    instance_requirements = "{{ instance_requirements }}"
+    kms_key_arn = "{{ kms_key_arn }}"
+    permissions_config = "{{ permissions_config }}"
+    tags = "{{ tags }}"
+    vpc_config = "{{ vpc_config }}"
+}

@@ -1,0 +1,22 @@
+resource "google_eventarc_message_bus" "example" {
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
+    crypto_key_name = "{{ crypto_key_name }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    message_bus_id = "{{ message_bus_id }}"
+    project = "{{ project }}"
+    logging_config {
+      log_severity = "{{ log_severity }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

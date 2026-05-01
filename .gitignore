@@ -165,3 +165,10 @@ cython_debug/
 # running the utilities/generate_tf_provider_templates.py script
 config/provider_schemas.json
 
+# temporary terraform working directory (created if generator fails mid-run)
+tf_temp/
+
+.claude
+CLAUDE.md
+resume
+

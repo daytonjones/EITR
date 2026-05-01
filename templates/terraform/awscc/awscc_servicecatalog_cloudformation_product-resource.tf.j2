@@ -1,0 +1,15 @@
+resource "awscc_servicecatalog_cloudformation_product" "example" {
+    accept_language = "{{ accept_language }}"
+    description = "{{ description }}"
+    distributor = "{{ distributor }}"
+    name = "{{ name }}"
+    owner = "{{ owner }}"
+    product_type = "{{ product_type }}"
+    provisioning_artifact_parameters = "{{ provisioning_artifact_parameters }}"
+    replace_provisioning_artifacts = {{ replace_provisioning_artifacts }}
+    source_connection = "{{ source_connection }}"
+    support_description = "{{ support_description }}"
+    support_email = "{{ support_email }}"
+    support_url = "{{ support_url }}"
+    tags = "{{ tags }}"
+}

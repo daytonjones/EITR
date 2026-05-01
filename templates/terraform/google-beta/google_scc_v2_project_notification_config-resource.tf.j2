@@ -3,8 +3,14 @@ resource "google_scc_v2_project_notification_config" "example" {
     description = "{{ description }}"
     id = "{{ id }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     project = "{{ project }}"
     pubsub_topic = "{{ pubsub_topic }}"
-    service_account = "{{ service_account }}"
+    streaming_config {
+      filter = "{{ filter }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

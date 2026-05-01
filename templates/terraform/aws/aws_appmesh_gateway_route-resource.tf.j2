@@ -1,13 +1,139 @@
 resource "aws_appmesh_gateway_route" "example" {
-    arn = "{{ arn }}"
-    created_date = "{{ created_date }}"
     id = "{{ id }}"
-    last_updated_date = "{{ last_updated_date }}"
     mesh_name = "{{ mesh_name }}"
     mesh_owner = "{{ mesh_owner }}"
     name = "{{ name }}"
-    resource_owner = "{{ resource_owner }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     virtual_gateway_name = "{{ virtual_gateway_name }}"
+    spec {
+      priority = {{ priority }}
+      grpc_route {
+        action {
+          target {
+            port = {{ port }}
+            virtual_service {
+              virtual_service_name = "{{ virtual_service_name }}"
+            }
+          }
+        }
+        match {
+          port = {{ port }}
+          service_name = "{{ service_name }}"
+        }
+      }
+      http2_route {
+        action {
+          rewrite {
+            hostname {
+              default_target_hostname = "{{ default_target_hostname }}"
+            }
+            path {
+              exact = "{{ exact }}"
+            }
+            prefix {
+              default_prefix = "{{ default_prefix }}"
+              value = "{{ value }}"
+            }
+          }
+          target {
+            port = {{ port }}
+            virtual_service {
+              virtual_service_name = "{{ virtual_service_name }}"
+            }
+          }
+        }
+        match {
+          port = {{ port }}
+          prefix = "{{ prefix }}"
+          header {
+            invert = {{ invert }}
+            name = "{{ name }}"
+            match {
+              exact = "{{ exact }}"
+              prefix = "{{ prefix }}"
+              regex = "{{ regex }}"
+              suffix = "{{ suffix }}"
+              range {
+                end = {{ end }}
+                start = {{ start }}
+              }
+            }
+          }
+          hostname {
+            exact = "{{ exact }}"
+            suffix = "{{ suffix }}"
+          }
+          path {
+            exact = "{{ exact }}"
+            regex = "{{ regex }}"
+          }
+          query_parameter {
+            name = "{{ name }}"
+            match {
+              exact = "{{ exact }}"
+            }
+          }
+        }
+      }
+      http_route {
+        action {
+          rewrite {
+            hostname {
+              default_target_hostname = "{{ default_target_hostname }}"
+            }
+            path {
+              exact = "{{ exact }}"
+            }
+            prefix {
+              default_prefix = "{{ default_prefix }}"
+              value = "{{ value }}"
+            }
+          }
+          target {
+            port = {{ port }}
+            virtual_service {
+              virtual_service_name = "{{ virtual_service_name }}"
+            }
+          }
+        }
+        match {
+          port = {{ port }}
+          prefix = "{{ prefix }}"
+          header {
+            invert = {{ invert }}
+            name = "{{ name }}"
+            match {
+              exact = "{{ exact }}"
+              prefix = "{{ prefix }}"
+              regex = "{{ regex }}"
+              suffix = "{{ suffix }}"
+              range {
+                end = {{ end }}
+                start = {{ start }}
+              }
+            }
+          }
+          hostname {
+            exact = "{{ exact }}"
+            suffix = "{{ suffix }}"
+          }
+          path {
+            exact = "{{ exact }}"
+            regex = "{{ regex }}"
+          }
+          query_parameter {
+            name = "{{ name }}"
+            match {
+              exact = "{{ exact }}"
+            }
+          }
+        }
+      }
+    }
 }

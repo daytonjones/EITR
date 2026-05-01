@@ -1,10 +1,25 @@
 resource "aws_backup_report_plan" "example" {
-    arn = "{{ arn }}"
-    creation_time = "{{ creation_time }}"
-    deployment_status = "{{ deployment_status }}"
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    report_delivery_channel {
+      formats = ["{{ formats }}"]
+      s3_bucket_name = "{{ s3_bucket_name }}"
+      s3_key_prefix = "{{ s3_key_prefix }}"
+    }
+    report_setting {
+      accounts = ["{{ accounts }}"]
+      framework_arns = ["{{ framework_arns }}"]
+      number_of_frameworks = {{ number_of_frameworks }}
+      organization_units = ["{{ organization_units }}"]
+      regions = ["{{ regions }}"]
+      report_template = "{{ report_template }}"
+    }
 }

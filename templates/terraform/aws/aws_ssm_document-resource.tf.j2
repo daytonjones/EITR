@@ -1,25 +1,24 @@
 resource "aws_ssm_document" "example" {
-    arn = "{{ arn }}"
     content = "{{ content }}"
-    created_date = "{{ created_date }}"
-    default_version = "{{ default_version }}"
-    description = "{{ description }}"
     document_format = "{{ document_format }}"
     document_type = "{{ document_type }}"
-    document_version = "{{ document_version }}"
-    hash = "{{ hash }}"
-    hash_type = "{{ hash_type }}"
     id = "{{ id }}"
-    latest_version = "{{ latest_version }}"
     name = "{{ name }}"
-    owner = "{{ owner }}"
-    parameter = "{{ parameter }}"
-    permissions = "{{ permissions }}"
-    platform_types = "{{ platform_types }}"
-    schema_version = "{{ schema_version }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    permissions = {
+        key = "{{ permissions_value }}"
+      }
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     target_type = "{{ target_type }}"
     version_name = "{{ version_name }}"
+    attachments_source {
+      key = "{{ key }}"
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
 }

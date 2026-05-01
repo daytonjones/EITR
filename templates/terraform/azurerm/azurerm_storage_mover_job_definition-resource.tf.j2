@@ -9,4 +9,10 @@ resource "azurerm_storage_mover_job_definition" "example" {
     storage_mover_project_id = "{{ storage_mover_project_id }}"
     target_name = "{{ target_name }}"
     target_sub_path = "{{ target_sub_path }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

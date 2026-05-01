@@ -3,4 +3,20 @@ resource "tfe_team_project_access" "example" {
     id = "{{ id }}"
     project_id = "{{ project_id }}"
     team_id = "{{ team_id }}"
+    project_access {
+      settings = "{{ settings }}"
+      teams = "{{ teams }}"
+      variable_sets = "{{ variable_sets }}"
+    }
+    workspace_access {
+      create = {{ create }}
+      delete = {{ delete }}
+      locking = {{ locking }}
+      move = {{ move }}
+      run_tasks = {{ run_tasks }}
+      runs = "{{ runs }}"
+      sentinel_mocks = "{{ sentinel_mocks }}"
+      state_versions = "{{ state_versions }}"
+      variables = "{{ variables }}"
+    }
 }

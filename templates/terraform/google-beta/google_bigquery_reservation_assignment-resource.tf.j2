@@ -3,8 +3,10 @@ resource "google_bigquery_reservation_assignment" "example" {
     id = "{{ id }}"
     job_type = "{{ job_type }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     project = "{{ project }}"
     reservation = "{{ reservation }}"
-    state = "{{ state }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

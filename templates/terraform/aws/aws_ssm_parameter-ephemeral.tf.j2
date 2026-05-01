@@ -1,0 +1,5 @@
+ephemeral "aws_ssm_parameter" "example" {
+    arn = "{{ arn }}"
+    region = "{{ region }}"
+    with_decryption = {{ with_decryption }}
+}

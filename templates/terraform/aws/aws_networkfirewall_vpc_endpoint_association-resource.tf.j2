@@ -1,0 +1,17 @@
+resource "aws_networkfirewall_vpc_endpoint_association" "example" {
+    description = "{{ description }}"
+    firewall_arn = "{{ firewall_arn }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    vpc_id = "{{ vpc_id }}"
+    subnet_mapping {
+      ip_address_type = "{{ ip_address_type }}"
+      subnet_id = "{{ subnet_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

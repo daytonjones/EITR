@@ -1,19 +1,65 @@
 resource "google_clouddeploy_automation" "example" {
-    annotations = "{{ annotations }}"
-    create_time = "{{ create_time }}"
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
     delivery_pipeline = "{{ delivery_pipeline }}"
     description = "{{ description }}"
-    effective_annotations = "{{ effective_annotations }}"
-    effective_labels = "{{ effective_labels }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
     service_account = "{{ service_account }}"
-    suspended = "{{ suspended }}"
-    terraform_labels = "{{ terraform_labels }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
+    suspended = {{ suspended }}
+    rules {
+      advance_rollout_rule {
+        id = "{{ id }}"
+        source_phases = ["{{ source_phases }}"]
+        wait = "{{ wait }}"
+      }
+      promote_release_rule {
+        destination_phase = "{{ destination_phase }}"
+        destination_target_id = "{{ destination_target_id }}"
+        id = "{{ id }}"
+        wait = "{{ wait }}"
+      }
+      repair_rollout_rule {
+        id = "{{ id }}"
+        jobs = ["{{ jobs }}"]
+        phases = ["{{ phases }}"]
+        repair_phases {
+          retry {
+            attempts = "{{ attempts }}"
+            backoff_mode = "{{ backoff_mode }}"
+            wait = "{{ wait }}"
+          }
+          rollback {
+            destination_phase = "{{ destination_phase }}"
+            disable_rollback_if_rollout_pending = {{ disable_rollback_if_rollout_pending }}
+          }
+        }
+      }
+      timed_promote_release_rule {
+        destination_phase = "{{ destination_phase }}"
+        destination_target_id = "{{ destination_target_id }}"
+        id = "{{ id }}"
+        schedule = "{{ schedule }}"
+        time_zone = "{{ time_zone }}"
+      }
+    }
+    selector {
+      targets {
+        id = "{{ id }}"
+        labels = {
+        key = "{{ labels_value }}"
+      }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -8,4 +8,29 @@ resource "azurerm_monitor_diagnostic_setting" "example" {
     partner_solution_id = "{{ partner_solution_id }}"
     storage_account_id = "{{ storage_account_id }}"
     target_resource_id = "{{ target_resource_id }}"
+    enabled_log {
+      category = "{{ category }}"
+      category_group = "{{ category_group }}"
+      retention_policy {
+        days = {{ days }}
+        enabled = {{ enabled }}
+      }
+    }
+    enabled_metric {
+      category = "{{ category }}"
+    }
+    metric {
+      category = "{{ category }}"
+      enabled = {{ enabled }}
+      retention_policy {
+        days = {{ days }}
+        enabled = {{ enabled }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

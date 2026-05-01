@@ -1,0 +1,17 @@
+resource "google_gemini_logging_setting_binding" "example" {
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    logging_setting_id = "{{ logging_setting_id }}"
+    product = "{{ product }}"
+    project = "{{ project }}"
+    setting_binding_id = "{{ setting_binding_id }}"
+    target = "{{ target }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

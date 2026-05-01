@@ -1,0 +1,18 @@
+resource "google_bigquery_datapolicyv2_data_policy" "example" {
+    data_policy_id = "{{ data_policy_id }}"
+    data_policy_type = "{{ data_policy_type }}"
+    etag = "{{ etag }}"
+    grantees = ["{{ grantees }}"]
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    data_masking_policy {
+      predefined_expression = "{{ predefined_expression }}"
+      routine = "{{ routine }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

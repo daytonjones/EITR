@@ -2,4 +2,13 @@ resource "aws_s3_bucket_cors_configuration" "example" {
     bucket = "{{ bucket }}"
     expected_bucket_owner = "{{ expected_bucket_owner }}"
     id = "{{ id }}"
+    region = "{{ region }}"
+    cors_rule {
+      allowed_headers = ["{{ allowed_headers }}"]
+      allowed_methods = ["{{ allowed_methods }}"]
+      allowed_origins = ["{{ allowed_origins }}"]
+      expose_headers = ["{{ expose_headers }}"]
+      id = "{{ id }}"
+      max_age_seconds = {{ max_age_seconds }}
+    }
 }

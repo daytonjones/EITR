@@ -1,11 +1,34 @@
 resource "aws_rbin_rule" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
-    id = "{{ id }}"
-    lock_end_time = "{{ lock_end_time }}"
-    lock_state = "{{ lock_state }}"
+    region = "{{ region }}"
     resource_type = "{{ resource_type }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    exclude_resource_tags {
+      resource_tag_key = "{{ resource_tag_key }}"
+      resource_tag_value = "{{ resource_tag_value }}"
+    }
+    lock_configuration {
+      unlock_delay {
+        unlock_delay_unit = "{{ unlock_delay_unit }}"
+        unlock_delay_value = {{ unlock_delay_value }}
+      }
+    }
+    resource_tags {
+      resource_tag_key = "{{ resource_tag_key }}"
+      resource_tag_value = "{{ resource_tag_value }}"
+    }
+    retention_period {
+      retention_period_unit = "{{ retention_period_unit }}"
+      retention_period_value = {{ retention_period_value }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

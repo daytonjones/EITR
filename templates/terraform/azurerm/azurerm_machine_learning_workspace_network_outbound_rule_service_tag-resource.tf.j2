@@ -1,0 +1,14 @@
+resource "azurerm_machine_learning_workspace_network_outbound_rule_service_tag" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    port_ranges = "{{ port_ranges }}"
+    protocol = "{{ protocol }}"
+    service_tag = "{{ service_tag }}"
+    workspace_id = "{{ workspace_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,9 +1,13 @@
 resource "aws_lambda_alias" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     function_name = "{{ function_name }}"
     function_version = "{{ function_version }}"
     id = "{{ id }}"
-    invoke_arn = "{{ invoke_arn }}"
     name = "{{ name }}"
+    region = "{{ region }}"
+    routing_config {
+      additional_version_weights = {
+        key = "{{ additional_version_weights_value }}"
+      }
+    }
 }

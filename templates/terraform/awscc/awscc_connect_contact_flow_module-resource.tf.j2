@@ -1,14 +1,10 @@
 resource "awscc_connect_contact_flow_module" "example" {
-    contact_flow_module_arn = "{{ contact_flow_module_arn }}"
     content = "{{ content }}"
     description = "{{ description }}"
-    id = "{{ id }}"
+    external_invocation_configuration = "{{ external_invocation_configuration }}"
     instance_arn = "{{ instance_arn }}"
     name = "{{ name }}"
+    settings = "{{ settings }}"
     state = "{{ state }}"
-    status = "{{ status }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
 }

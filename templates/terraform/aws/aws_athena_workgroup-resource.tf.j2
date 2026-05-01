@@ -1,10 +1,74 @@
 resource "aws_athena_workgroup" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
-    force_destroy = "{{ force_destroy }}"
+    force_destroy = {{ force_destroy }}
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     state = "{{ state }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    configuration {
+      bytes_scanned_cutoff_per_query = {{ bytes_scanned_cutoff_per_query }}
+      enable_minimum_encryption_configuration = {{ enable_minimum_encryption_configuration }}
+      enforce_workgroup_configuration = {{ enforce_workgroup_configuration }}
+      execution_role = "{{ execution_role }}"
+      publish_cloudwatch_metrics_enabled = {{ publish_cloudwatch_metrics_enabled }}
+      requester_pays_enabled = {{ requester_pays_enabled }}
+      customer_content_encryption_configuration {
+        kms_key = "{{ kms_key }}"
+      }
+      engine_version {
+        selected_engine_version = "{{ selected_engine_version }}"
+      }
+      identity_center_configuration {
+        enable_identity_center = {{ enable_identity_center }}
+        identity_center_instance_arn = "{{ identity_center_instance_arn }}"
+      }
+      managed_query_results_configuration {
+        enabled = {{ enabled }}
+        encryption_configuration {
+          kms_key = "{{ kms_key }}"
+        }
+      }
+      monitoring_configuration {
+        cloud_watch_logging_configuration {
+          enabled = {{ enabled }}
+          log_group = "{{ log_group }}"
+          log_stream_name_prefix = "{{ log_stream_name_prefix }}"
+          log_type {
+            key = "{{ key }}"
+            values = ["{{ values }}"]
+          }
+        }
+        managed_logging_configuration {
+          enabled = {{ enabled }}
+          kms_key = "{{ kms_key }}"
+        }
+        s3_logging_configuration {
+          enabled = {{ enabled }}
+          kms_key = "{{ kms_key }}"
+          log_location = "{{ log_location }}"
+        }
+      }
+      query_results_s3_access_grants_configuration {
+        authentication_type = "{{ authentication_type }}"
+        create_user_level_prefix = {{ create_user_level_prefix }}
+        enable_s3_access_grants = {{ enable_s3_access_grants }}
+      }
+      result_configuration {
+        expected_bucket_owner = "{{ expected_bucket_owner }}"
+        output_location = "{{ output_location }}"
+        acl_configuration {
+          s3_acl_option = "{{ s3_acl_option }}"
+        }
+        encryption_configuration {
+          encryption_option = "{{ encryption_option }}"
+          kms_key_arn = "{{ kms_key_arn }}"
+        }
+      }
+    }
 }

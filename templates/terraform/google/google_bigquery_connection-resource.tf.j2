@@ -2,10 +2,72 @@ resource "google_bigquery_connection" "example" {
     connection_id = "{{ connection_id }}"
     description = "{{ description }}"
     friendly_name = "{{ friendly_name }}"
-    has_credential = "{{ has_credential }}"
     id = "{{ id }}"
     kms_key_name = "{{ kms_key_name }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     project = "{{ project }}"
+    aws {
+      access_role {
+        iam_role_id = "{{ iam_role_id }}"
+      }
+    }
+    azure {
+      customer_tenant_id = "{{ customer_tenant_id }}"
+      federated_application_client_id = "{{ federated_application_client_id }}"
+    }
+    cloud_resource {
+    }
+    cloud_spanner {
+      database = "{{ database }}"
+      database_role = "{{ database_role }}"
+      max_parallelism = {{ max_parallelism }}
+      use_data_boost = {{ use_data_boost }}
+      use_parallelism = {{ use_parallelism }}
+      use_serverless_analytics = {{ use_serverless_analytics }}
+    }
+    cloud_sql {
+      database = "{{ database }}"
+      instance_id = "{{ instance_id }}"
+      type = "{{ type }}"
+      credential {
+        password = "{{ password }}"
+        username = "{{ username }}"
+      }
+    }
+    configuration {
+      connector_id = "{{ connector_id }}"
+      asset {
+        database = "{{ database }}"
+        google_cloud_resource = "{{ google_cloud_resource }}"
+      }
+      authentication {
+        username_password {
+          username = "{{ username }}"
+          password {
+            plaintext = "{{ plaintext }}"
+          }
+        }
+      }
+      endpoint {
+        host_port = "{{ host_port }}"
+      }
+      network {
+        private_service_connect {
+          network_attachment = "{{ network_attachment }}"
+        }
+      }
+    }
+    spark {
+      metastore_service_config {
+        metastore_service = "{{ metastore_service }}"
+      }
+      spark_history_server_config {
+        dataproc_cluster = "{{ dataproc_cluster }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -2,8 +2,22 @@ resource "azurerm_cdn_frontdoor_profile" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    resource_guid = "{{ resource_guid }}"
-    response_timeout_seconds = "{{ response_timeout_seconds }}"
+    response_timeout_seconds = {{ response_timeout_seconds }}
     sku_name = "{{ sku_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    log_scrubbing_rule {
+      match_variable = "{{ match_variable }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

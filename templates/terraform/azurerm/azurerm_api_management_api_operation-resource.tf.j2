@@ -8,4 +8,143 @@ resource "azurerm_api_management_api_operation" "example" {
     operation_id = "{{ operation_id }}"
     resource_group_name = "{{ resource_group_name }}"
     url_template = "{{ url_template }}"
+    request {
+      description = "{{ description }}"
+      header {
+        default_value = "{{ default_value }}"
+        description = "{{ description }}"
+        name = "{{ name }}"
+        required = {{ required }}
+        schema_id = "{{ schema_id }}"
+        type = "{{ type }}"
+        type_name = "{{ type_name }}"
+        values = ["{{ values }}"]
+        example {
+          description = "{{ description }}"
+          external_value = "{{ external_value }}"
+          name = "{{ name }}"
+          summary = "{{ summary }}"
+          value = "{{ value }}"
+        }
+      }
+      query_parameter {
+        default_value = "{{ default_value }}"
+        description = "{{ description }}"
+        name = "{{ name }}"
+        required = {{ required }}
+        schema_id = "{{ schema_id }}"
+        type = "{{ type }}"
+        type_name = "{{ type_name }}"
+        values = ["{{ values }}"]
+        example {
+          description = "{{ description }}"
+          external_value = "{{ external_value }}"
+          name = "{{ name }}"
+          summary = "{{ summary }}"
+          value = "{{ value }}"
+        }
+      }
+      representation {
+        content_type = "{{ content_type }}"
+        schema_id = "{{ schema_id }}"
+        type_name = "{{ type_name }}"
+        example {
+          description = "{{ description }}"
+          external_value = "{{ external_value }}"
+          name = "{{ name }}"
+          summary = "{{ summary }}"
+          value = "{{ value }}"
+        }
+        form_parameter {
+          default_value = "{{ default_value }}"
+          description = "{{ description }}"
+          name = "{{ name }}"
+          required = {{ required }}
+          schema_id = "{{ schema_id }}"
+          type = "{{ type }}"
+          type_name = "{{ type_name }}"
+          values = ["{{ values }}"]
+          example {
+            description = "{{ description }}"
+            external_value = "{{ external_value }}"
+            name = "{{ name }}"
+            summary = "{{ summary }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+    }
+    response {
+      description = "{{ description }}"
+      status_code = {{ status_code }}
+      header {
+        default_value = "{{ default_value }}"
+        description = "{{ description }}"
+        name = "{{ name }}"
+        required = {{ required }}
+        schema_id = "{{ schema_id }}"
+        type = "{{ type }}"
+        type_name = "{{ type_name }}"
+        values = ["{{ values }}"]
+        example {
+          description = "{{ description }}"
+          external_value = "{{ external_value }}"
+          name = "{{ name }}"
+          summary = "{{ summary }}"
+          value = "{{ value }}"
+        }
+      }
+      representation {
+        content_type = "{{ content_type }}"
+        schema_id = "{{ schema_id }}"
+        type_name = "{{ type_name }}"
+        example {
+          description = "{{ description }}"
+          external_value = "{{ external_value }}"
+          name = "{{ name }}"
+          summary = "{{ summary }}"
+          value = "{{ value }}"
+        }
+        form_parameter {
+          default_value = "{{ default_value }}"
+          description = "{{ description }}"
+          name = "{{ name }}"
+          required = {{ required }}
+          schema_id = "{{ schema_id }}"
+          type = "{{ type }}"
+          type_name = "{{ type_name }}"
+          values = ["{{ values }}"]
+          example {
+            description = "{{ description }}"
+            external_value = "{{ external_value }}"
+            name = "{{ name }}"
+            summary = "{{ summary }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+    }
+    template_parameter {
+      default_value = "{{ default_value }}"
+      description = "{{ description }}"
+      name = "{{ name }}"
+      required = {{ required }}
+      schema_id = "{{ schema_id }}"
+      type = "{{ type }}"
+      type_name = "{{ type_name }}"
+      values = ["{{ values }}"]
+      example {
+        description = "{{ description }}"
+        external_value = "{{ external_value }}"
+        name = "{{ name }}"
+        summary = "{{ summary }}"
+        value = "{{ value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

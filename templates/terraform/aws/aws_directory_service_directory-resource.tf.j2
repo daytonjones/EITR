@@ -1,18 +1,36 @@
 resource "aws_directory_service_directory" "example" {
-    access_url = "{{ access_url }}"
     alias = "{{ alias }}"
     description = "{{ description }}"
-    desired_number_of_domain_controllers = "{{ desired_number_of_domain_controllers }}"
-    dns_ip_addresses = "{{ dns_ip_addresses }}"
+    desired_number_of_domain_controllers = {{ desired_number_of_domain_controllers }}
     edition = "{{ edition }}"
-    enable_sso = "{{ enable_sso }}"
+    enable_directory_data_access = {{ enable_directory_data_access }}
+    enable_sso = {{ enable_sso }}
     id = "{{ id }}"
     name = "{{ name }}"
     password = "{{ password }}"
-    security_group_id = "{{ security_group_id }}"
+    region = "{{ region }}"
     short_name = "{{ short_name }}"
     size = "{{ size }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     type = "{{ type }}"
+    connect_settings {
+      customer_dns_ips = ["{{ customer_dns_ips }}"]
+      customer_username = "{{ customer_username }}"
+      subnet_ids = ["{{ subnet_ids }}"]
+      vpc_id = "{{ vpc_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    vpc_settings {
+      subnet_ids = ["{{ subnet_ids }}"]
+      vpc_id = "{{ vpc_id }}"
+    }
 }

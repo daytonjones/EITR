@@ -5,4 +5,16 @@ resource "google_bigtable_authorized_view" "example" {
     name = "{{ name }}"
     project = "{{ project }}"
     table_name = "{{ table_name }}"
+    subset_view {
+      row_prefixes = ["{{ row_prefixes }}"]
+      family_subsets {
+        family_name = "{{ family_name }}"
+        qualifier_prefixes = ["{{ qualifier_prefixes }}"]
+        qualifiers = ["{{ qualifiers }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
 }

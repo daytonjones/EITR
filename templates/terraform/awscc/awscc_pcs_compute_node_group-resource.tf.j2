@@ -1,0 +1,16 @@
+resource "awscc_pcs_compute_node_group" "example" {
+    ami_id = "{{ ami_id }}"
+    cluster_id = "{{ cluster_id }}"
+    custom_launch_template = "{{ custom_launch_template }}"
+    iam_instance_profile_arn = "{{ iam_instance_profile_arn }}"
+    instance_configs = "{{ instance_configs }}"
+    name = "{{ name }}"
+    purchase_option = "{{ purchase_option }}"
+    scaling_configuration = "{{ scaling_configuration }}"
+    slurm_configuration = "{{ slurm_configuration }}"
+    spot_options = "{{ spot_options }}"
+    subnet_ids = ["{{ subnet_ids }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

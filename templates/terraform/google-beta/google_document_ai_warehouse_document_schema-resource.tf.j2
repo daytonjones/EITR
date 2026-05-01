@@ -1,8 +1,73 @@
 resource "google_document_ai_warehouse_document_schema" "example" {
     display_name = "{{ display_name }}"
-    document_is_folder = "{{ document_is_folder }}"
+    document_is_folder = {{ document_is_folder }}
     id = "{{ id }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     project_number = "{{ project_number }}"
+    property_definitions {
+      display_name = "{{ display_name }}"
+      is_filterable = {{ is_filterable }}
+      is_metadata = {{ is_metadata }}
+      is_repeatable = {{ is_repeatable }}
+      is_required = {{ is_required }}
+      is_searchable = {{ is_searchable }}
+      name = "{{ name }}"
+      retrieval_importance = "{{ retrieval_importance }}"
+      date_time_type_options {
+      }
+      enum_type_options {
+        possible_values = ["{{ possible_values }}"]
+        validation_check_disabled = {{ validation_check_disabled }}
+      }
+      float_type_options {
+      }
+      integer_type_options {
+      }
+      map_type_options {
+      }
+      property_type_options {
+        property_definitions {
+          display_name = "{{ display_name }}"
+          is_filterable = {{ is_filterable }}
+          is_metadata = {{ is_metadata }}
+          is_repeatable = {{ is_repeatable }}
+          is_required = {{ is_required }}
+          is_searchable = {{ is_searchable }}
+          name = "{{ name }}"
+          retrieval_importance = "{{ retrieval_importance }}"
+          date_time_type_options {
+          }
+          enum_type_options {
+            possible_values = ["{{ possible_values }}"]
+            validation_check_disabled = {{ validation_check_disabled }}
+          }
+          float_type_options {
+          }
+          integer_type_options {
+          }
+          map_type_options {
+          }
+          schema_sources {
+            name = "{{ name }}"
+            processor_type = "{{ processor_type }}"
+          }
+          text_type_options {
+          }
+          timestamp_type_options {
+          }
+        }
+      }
+      schema_sources {
+        name = "{{ name }}"
+        processor_type = "{{ processor_type }}"
+      }
+      text_type_options {
+      }
+      timestamp_type_options {
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

@@ -1,17 +1,101 @@
 resource "google_artifact_registry_repository" "example" {
-    cleanup_policy_dry_run = "{{ cleanup_policy_dry_run }}"
-    create_time = "{{ create_time }}"
+    cleanup_policy_dry_run = {{ cleanup_policy_dry_run }}
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
     format = "{{ format }}"
     id = "{{ id }}"
     kms_key_name = "{{ kms_key_name }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     mode = "{{ mode }}"
-    name = "{{ name }}"
     project = "{{ project }}"
     repository_id = "{{ repository_id }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
+    cleanup_policies {
+      action = "{{ action }}"
+      id = "{{ id }}"
+      condition {
+        newer_than = "{{ newer_than }}"
+        older_than = "{{ older_than }}"
+        package_name_prefixes = ["{{ package_name_prefixes }}"]
+        tag_prefixes = ["{{ tag_prefixes }}"]
+        tag_state = "{{ tag_state }}"
+        version_name_prefixes = ["{{ version_name_prefixes }}"]
+      }
+      most_recent_versions {
+        keep_count = {{ keep_count }}
+        package_name_prefixes = ["{{ package_name_prefixes }}"]
+      }
+    }
+    docker_config {
+      immutable_tags = {{ immutable_tags }}
+    }
+    maven_config {
+      allow_snapshot_overwrites = {{ allow_snapshot_overwrites }}
+      version_policy = "{{ version_policy }}"
+    }
+    remote_repository_config {
+      description = "{{ description }}"
+      disable_upstream_validation = {{ disable_upstream_validation }}
+      apt_repository {
+        public_repository {
+          repository_base = "{{ repository_base }}"
+          repository_path = "{{ repository_path }}"
+        }
+      }
+      common_repository {
+        uri = "{{ uri }}"
+      }
+      docker_repository {
+        public_repository = "{{ public_repository }}"
+        custom_repository {
+          uri = "{{ uri }}"
+        }
+      }
+      maven_repository {
+        public_repository = "{{ public_repository }}"
+        custom_repository {
+          uri = "{{ uri }}"
+        }
+      }
+      npm_repository {
+        public_repository = "{{ public_repository }}"
+        custom_repository {
+          uri = "{{ uri }}"
+        }
+      }
+      python_repository {
+        public_repository = "{{ public_repository }}"
+        custom_repository {
+          uri = "{{ uri }}"
+        }
+      }
+      upstream_credentials {
+        username_password_credentials {
+          password_secret_version = "{{ password_secret_version }}"
+          username = "{{ username }}"
+        }
+      }
+      yum_repository {
+        public_repository {
+          repository_base = "{{ repository_base }}"
+          repository_path = "{{ repository_path }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    virtual_repository_config {
+      upstream_policies {
+        id = "{{ id }}"
+        priority = {{ priority }}
+        repository = "{{ repository }}"
+      }
+    }
+    vulnerability_scanning_config {
+      enablement_config = "{{ enablement_config }}"
+    }
 }

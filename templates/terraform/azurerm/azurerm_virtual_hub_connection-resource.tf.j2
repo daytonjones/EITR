@@ -1,7 +1,29 @@
 resource "azurerm_virtual_hub_connection" "example" {
     id = "{{ id }}"
-    internet_security_enabled = "{{ internet_security_enabled }}"
+    internet_security_enabled = {{ internet_security_enabled }}
     name = "{{ name }}"
     remote_virtual_network_id = "{{ remote_virtual_network_id }}"
     virtual_hub_id = "{{ virtual_hub_id }}"
+    routing {
+      associated_route_table_id = "{{ associated_route_table_id }}"
+      inbound_route_map_id = "{{ inbound_route_map_id }}"
+      outbound_route_map_id = "{{ outbound_route_map_id }}"
+      static_vnet_local_route_override_criteria = "{{ static_vnet_local_route_override_criteria }}"
+      static_vnet_propagate_static_routes_enabled = {{ static_vnet_propagate_static_routes_enabled }}
+      propagated_route_table {
+        labels = ["{{ labels }}"]
+        route_table_ids = ["{{ route_table_ids }}"]
+      }
+      static_vnet_route {
+        address_prefixes = ["{{ address_prefixes }}"]
+        name = "{{ name }}"
+        next_hop_ip_address = "{{ next_hop_ip_address }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

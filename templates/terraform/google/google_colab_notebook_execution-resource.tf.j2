@@ -1,0 +1,43 @@
+resource "google_colab_notebook_execution" "example" {
+    display_name = "{{ display_name }}"
+    execution_timeout = "{{ execution_timeout }}"
+    execution_user = "{{ execution_user }}"
+    gcs_output_uri = "{{ gcs_output_uri }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    notebook_execution_job_id = "{{ notebook_execution_job_id }}"
+    notebook_runtime_template_resource_name = "{{ notebook_runtime_template_resource_name }}"
+    project = "{{ project }}"
+    service_account = "{{ service_account }}"
+    custom_environment_spec {
+      machine_spec {
+        accelerator_count = {{ accelerator_count }}
+        accelerator_type = "{{ accelerator_type }}"
+        machine_type = "{{ machine_type }}"
+      }
+      network_spec {
+        enable_internet_access = {{ enable_internet_access }}
+        network = "{{ network }}"
+        subnetwork = "{{ subnetwork }}"
+      }
+      persistent_disk_spec {
+        disk_size_gb = "{{ disk_size_gb }}"
+        disk_type = "{{ disk_type }}"
+      }
+    }
+    dataform_repository_source {
+      commit_sha = "{{ commit_sha }}"
+      dataform_repository_resource_name = "{{ dataform_repository_resource_name }}"
+    }
+    direct_notebook_source {
+      content = "{{ content }}"
+    }
+    gcs_notebook_source {
+      generation = "{{ generation }}"
+      uri = "{{ uri }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

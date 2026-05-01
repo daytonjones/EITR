@@ -1,17 +1,60 @@
 resource "google_healthcare_fhir_store" "example" {
     complex_data_type_reference_parsing = "{{ complex_data_type_reference_parsing }}"
     dataset = "{{ dataset }}"
-    default_search_handling_strict = "{{ default_search_handling_strict }}"
-    disable_referential_integrity = "{{ disable_referential_integrity }}"
-    disable_resource_versioning = "{{ disable_resource_versioning }}"
-    effective_labels = "{{ effective_labels }}"
-    enable_history_import = "{{ enable_history_import }}"
-    enable_history_modifications = "{{ enable_history_modifications }}"
-    enable_update_create = "{{ enable_update_create }}"
+    default_search_handling_strict = {{ default_search_handling_strict }}
+    disable_referential_integrity = {{ disable_referential_integrity }}
+    disable_resource_versioning = {{ disable_resource_versioning }}
+    enable_history_import = {{ enable_history_import }}
+    enable_history_modifications = {{ enable_history_modifications }}
+    enable_update_create = {{ enable_update_create }}
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
-    self_link = "{{ self_link }}"
-    terraform_labels = "{{ terraform_labels }}"
     version = "{{ version }}"
+    consent_config {
+      access_enforced = {{ access_enforced }}
+      version = "{{ version }}"
+      access_determination_log_config {
+        log_level = "{{ log_level }}"
+      }
+      consent_header_handling {
+        profile = "{{ profile }}"
+      }
+    }
+    notification_config {
+      pubsub_topic = "{{ pubsub_topic }}"
+    }
+    notification_configs {
+      pubsub_topic = "{{ pubsub_topic }}"
+      send_full_resource = {{ send_full_resource }}
+      send_previous_resource_on_delete = {{ send_previous_resource_on_delete }}
+    }
+    stream_configs {
+      resource_types = ["{{ resource_types }}"]
+      bigquery_destination {
+        dataset_uri = "{{ dataset_uri }}"
+        schema_config {
+          recursive_structure_depth = {{ recursive_structure_depth }}
+          schema_type = "{{ schema_type }}"
+          last_updated_partition_config {
+            expiration_ms = "{{ expiration_ms }}"
+            type = "{{ type }}"
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    validation_config {
+      disable_fhirpath_validation = {{ disable_fhirpath_validation }}
+      disable_profile_validation = {{ disable_profile_validation }}
+      disable_reference_type_validation = {{ disable_reference_type_validation }}
+      disable_required_field_validation = {{ disable_required_field_validation }}
+      enabled_implementation_guides = ["{{ enabled_implementation_guides }}"]
+    }
 }

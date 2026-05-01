@@ -1,9 +1,148 @@
 resource "google_composer_environment" "example" {
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
     project = "{{ project }}"
     region = "{{ region }}"
-    terraform_labels = "{{ terraform_labels }}"
+    config {
+      enable_private_builds_only = {{ enable_private_builds_only }}
+      enable_private_environment = {{ enable_private_environment }}
+      environment_size = "{{ environment_size }}"
+      node_count = {{ node_count }}
+      resilience_mode = "{{ resilience_mode }}"
+      data_retention_config {
+        airflow_metadata_retention_config {
+          retention_days = {{ retention_days }}
+          retention_mode = "{{ retention_mode }}"
+        }
+        task_logs_retention_config {
+          storage_mode = "{{ storage_mode }}"
+        }
+      }
+      database_config {
+        machine_type = "{{ machine_type }}"
+        zone = "{{ zone }}"
+      }
+      encryption_config {
+        kms_key_name = "{{ kms_key_name }}"
+      }
+      maintenance_window {
+        end_time = "{{ end_time }}"
+        recurrence = "{{ recurrence }}"
+        start_time = "{{ start_time }}"
+      }
+      master_authorized_networks_config {
+        enabled = {{ enabled }}
+        cidr_blocks {
+          cidr_block = "{{ cidr_block }}"
+          display_name = "{{ display_name }}"
+        }
+      }
+      node_config {
+        composer_internal_ipv4_cidr_block = "{{ composer_internal_ipv4_cidr_block }}"
+        composer_network_attachment = "{{ composer_network_attachment }}"
+        disk_size_gb = {{ disk_size_gb }}
+        enable_ip_masq_agent = {{ enable_ip_masq_agent }}
+        machine_type = "{{ machine_type }}"
+        network = "{{ network }}"
+        oauth_scopes = ["{{ oauth_scopes }}"]
+        service_account = "{{ service_account }}"
+        subnetwork = "{{ subnetwork }}"
+        tags = ["{{ tags }}"]
+        zone = "{{ zone }}"
+        ip_allocation_policy {
+          cluster_ipv4_cidr_block = "{{ cluster_ipv4_cidr_block }}"
+          cluster_secondary_range_name = "{{ cluster_secondary_range_name }}"
+          services_ipv4_cidr_block = "{{ services_ipv4_cidr_block }}"
+          services_secondary_range_name = "{{ services_secondary_range_name }}"
+          use_ip_aliases = {{ use_ip_aliases }}
+        }
+      }
+      private_environment_config {
+        cloud_composer_connection_subnetwork = "{{ cloud_composer_connection_subnetwork }}"
+        cloud_composer_network_ipv4_cidr_block = "{{ cloud_composer_network_ipv4_cidr_block }}"
+        cloud_sql_ipv4_cidr_block = "{{ cloud_sql_ipv4_cidr_block }}"
+        connection_type = "{{ connection_type }}"
+        enable_private_endpoint = {{ enable_private_endpoint }}
+        enable_privately_used_public_ips = {{ enable_privately_used_public_ips }}
+        master_ipv4_cidr_block = "{{ master_ipv4_cidr_block }}"
+        web_server_ipv4_cidr_block = "{{ web_server_ipv4_cidr_block }}"
+      }
+      recovery_config {
+        scheduled_snapshots_config {
+          enabled = {{ enabled }}
+          snapshot_creation_schedule = "{{ snapshot_creation_schedule }}"
+          snapshot_location = "{{ snapshot_location }}"
+          time_zone = "{{ time_zone }}"
+        }
+      }
+      software_config {
+        airflow_config_overrides = {
+        key = "{{ airflow_config_overrides_value }}"
+      }
+        env_variables = {
+        key = "{{ env_variables_value }}"
+      }
+        image_version = "{{ image_version }}"
+        pypi_packages = {
+        key = "{{ pypi_packages_value }}"
+      }
+        python_version = "{{ python_version }}"
+        scheduler_count = {{ scheduler_count }}
+        web_server_plugins_mode = "{{ web_server_plugins_mode }}"
+        cloud_data_lineage_integration {
+          enabled = {{ enabled }}
+        }
+      }
+      web_server_config {
+        machine_type = "{{ machine_type }}"
+      }
+      web_server_network_access_control {
+        allowed_ip_range {
+          description = "{{ description }}"
+          value = "{{ value }}"
+        }
+      }
+      workloads_config {
+        dag_processor {
+          count = {{ count }}
+          cpu = {{ cpu }}
+          memory_gb = {{ memory_gb }}
+          storage_gb = {{ storage_gb }}
+        }
+        scheduler {
+          count = {{ count }}
+          cpu = {{ cpu }}
+          memory_gb = {{ memory_gb }}
+          storage_gb = {{ storage_gb }}
+        }
+        triggerer {
+          count = {{ count }}
+          cpu = {{ cpu }}
+          memory_gb = {{ memory_gb }}
+        }
+        web_server {
+          cpu = {{ cpu }}
+          memory_gb = {{ memory_gb }}
+          storage_gb = {{ storage_gb }}
+        }
+        worker {
+          cpu = {{ cpu }}
+          max_count = {{ max_count }}
+          memory_gb = {{ memory_gb }}
+          min_count = {{ min_count }}
+          storage_gb = {{ storage_gb }}
+        }
+      }
+    }
+    storage_config {
+      bucket = "{{ bucket }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

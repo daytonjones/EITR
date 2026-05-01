@@ -1,0 +1,18 @@
+resource "azurerm_mssql_managed_instance_start_stop_schedule" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    managed_instance_id = "{{ managed_instance_id }}"
+    timezone_id = "{{ timezone_id }}"
+    schedule {
+      start_day = "{{ start_day }}"
+      start_time = "{{ start_time }}"
+      stop_day = "{{ stop_day }}"
+      stop_time = "{{ stop_time }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

@@ -4,10 +4,22 @@ resource "google_cloudbuild_bitbucket_server_config" "example" {
     host_uri = "{{ host_uri }}"
     id = "{{ id }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     peered_network = "{{ peered_network }}"
     project = "{{ project }}"
     ssl_ca = "{{ ssl_ca }}"
     username = "{{ username }}"
-    webhook_key = "{{ webhook_key }}"
+    connected_repositories {
+      project_key = "{{ project_key }}"
+      repo_slug = "{{ repo_slug }}"
+    }
+    secrets {
+      admin_access_token_version_name = "{{ admin_access_token_version_name }}"
+      read_access_token_version_name = "{{ read_access_token_version_name }}"
+      webhook_secret_version_name = "{{ webhook_secret_version_name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

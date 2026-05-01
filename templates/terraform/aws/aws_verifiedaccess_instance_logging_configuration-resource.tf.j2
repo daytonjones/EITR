@@ -1,4 +1,23 @@
 resource "aws_verifiedaccess_instance_logging_configuration" "example" {
     id = "{{ id }}"
+    region = "{{ region }}"
     verifiedaccess_instance_id = "{{ verifiedaccess_instance_id }}"
+    access_logs {
+      include_trust_context = {{ include_trust_context }}
+      log_version = "{{ log_version }}"
+      cloudwatch_logs {
+        enabled = {{ enabled }}
+        log_group = "{{ log_group }}"
+      }
+      kinesis_data_firehose {
+        delivery_stream = "{{ delivery_stream }}"
+        enabled = {{ enabled }}
+      }
+      s3 {
+        bucket_name = "{{ bucket_name }}"
+        bucket_owner = "{{ bucket_owner }}"
+        enabled = {{ enabled }}
+        prefix = "{{ prefix }}"
+      }
+    }
 }

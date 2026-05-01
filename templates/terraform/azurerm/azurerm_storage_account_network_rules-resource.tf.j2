@@ -1,8 +1,18 @@
 resource "azurerm_storage_account_network_rules" "example" {
-    bypass = "{{ bypass }}"
+    bypass = ["{{ bypass }}"]
     default_action = "{{ default_action }}"
     id = "{{ id }}"
-    ip_rules = "{{ ip_rules }}"
+    ip_rules = ["{{ ip_rules }}"]
     storage_account_id = "{{ storage_account_id }}"
-    virtual_network_subnet_ids = "{{ virtual_network_subnet_ids }}"
+    virtual_network_subnet_ids = ["{{ virtual_network_subnet_ids }}"]
+    private_link_access {
+      endpoint_resource_id = "{{ endpoint_resource_id }}"
+      endpoint_tenant_id = "{{ endpoint_tenant_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

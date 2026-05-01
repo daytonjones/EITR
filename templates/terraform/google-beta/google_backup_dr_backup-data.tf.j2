@@ -1,0 +1,7 @@
+data "google_backup_dr_backup" "example" {
+    backup_vault_id = "{{ backup_vault_id }}"
+    data_source_id = "{{ data_source_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+}

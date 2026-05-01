@@ -1,0 +1,18 @@
+resource "aws_invoicing_invoice_unit" "example" {
+    description = "{{ description }}"
+    invoice_receiver = "{{ invoice_receiver }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tax_inheritance_disabled = {{ tax_inheritance_disabled }}
+    rule {
+      linked_accounts = ["{{ linked_accounts }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

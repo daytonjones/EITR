@@ -1,0 +1,12 @@
+resource "google_network_connectivity_hub_iam_binding" "example" {
+    hub = "{{ hub }}"
+    id = "{{ id }}"
+    members = ["{{ members }}"]
+    project = "{{ project }}"
+    role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

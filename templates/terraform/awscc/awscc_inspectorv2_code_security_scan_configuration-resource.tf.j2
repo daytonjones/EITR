@@ -1,0 +1,9 @@
+resource "awscc_inspectorv2_code_security_scan_configuration" "example" {
+    configuration = "{{ configuration }}"
+    level = "{{ level }}"
+    name = "{{ name }}"
+    scope_settings = "{{ scope_settings }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

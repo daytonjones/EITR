@@ -1,0 +1,5 @@
+resource "awscc_s3vectors_vector_bucket" "example" {
+    encryption_configuration = "{{ encryption_configuration }}"
+    tags = "{{ tags }}"
+    vector_bucket_name = "{{ vector_bucket_name }}"
+}

@@ -1,2 +1,3 @@
-function "region_from_id" {
-}
+# region_from_id()
+# Takes a single string argument, which should be a resource id, self link, or OP style resource name. This function will either return the region name from the input string or raise an error due to no region being present in the string. The function uses the presence of "regions/{{region}}/" in the input string to identify the region name, e.g. when the function is passed the id "projects/my-project/regions/us-central1/subnetworks/my-subnetwork" as an argument it will return "us-central1".
+# provider::{provider}::region_from_id()

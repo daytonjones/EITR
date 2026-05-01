@@ -1,4 +1,26 @@
 resource "google_apigee_addons_config" "example" {
     id = "{{ id }}"
     org = "{{ org }}"
+    addons_config {
+      advanced_api_ops_config {
+        enabled = {{ enabled }}
+      }
+      api_security_config {
+        enabled = {{ enabled }}
+      }
+      connectors_platform_config {
+        enabled = {{ enabled }}
+      }
+      integration_config {
+        enabled = {{ enabled }}
+      }
+      monetization_config {
+        enabled = {{ enabled }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

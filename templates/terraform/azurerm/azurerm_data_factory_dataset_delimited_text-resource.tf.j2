@@ -1,6 +1,8 @@
 resource "azurerm_data_factory_dataset_delimited_text" "example" {
-    additional_properties = "{{ additional_properties }}"
-    annotations = "{{ annotations }}"
+    additional_properties = {
+        key = "{{ additional_properties_value }}"
+      }
+    annotations = ["{{ annotations }}"]
     column_delimiter = "{{ column_delimiter }}"
     compression_codec = "{{ compression_codec }}"
     compression_level = "{{ compression_level }}"
@@ -8,13 +10,49 @@ resource "azurerm_data_factory_dataset_delimited_text" "example" {
     description = "{{ description }}"
     encoding = "{{ encoding }}"
     escape_character = "{{ escape_character }}"
-    first_row_as_header = "{{ first_row_as_header }}"
+    first_row_as_header = {{ first_row_as_header }}
     folder = "{{ folder }}"
     id = "{{ id }}"
     linked_service_name = "{{ linked_service_name }}"
     name = "{{ name }}"
     null_value = "{{ null_value }}"
-    parameters = "{{ parameters }}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
     quote_character = "{{ quote_character }}"
     row_delimiter = "{{ row_delimiter }}"
+    azure_blob_fs_location {
+      dynamic_file_system_enabled = {{ dynamic_file_system_enabled }}
+      dynamic_filename_enabled = {{ dynamic_filename_enabled }}
+      dynamic_path_enabled = {{ dynamic_path_enabled }}
+      file_system = "{{ file_system }}"
+      filename = "{{ filename }}"
+      path = "{{ path }}"
+    }
+    azure_blob_storage_location {
+      container = "{{ container }}"
+      dynamic_container_enabled = {{ dynamic_container_enabled }}
+      dynamic_filename_enabled = {{ dynamic_filename_enabled }}
+      dynamic_path_enabled = {{ dynamic_path_enabled }}
+      filename = "{{ filename }}"
+      path = "{{ path }}"
+    }
+    http_server_location {
+      dynamic_filename_enabled = {{ dynamic_filename_enabled }}
+      dynamic_path_enabled = {{ dynamic_path_enabled }}
+      filename = "{{ filename }}"
+      path = "{{ path }}"
+      relative_url = "{{ relative_url }}"
+    }
+    schema_column {
+      description = "{{ description }}"
+      name = "{{ name }}"
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

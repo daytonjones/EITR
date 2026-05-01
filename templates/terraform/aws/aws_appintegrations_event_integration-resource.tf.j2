@@ -1,9 +1,16 @@
 resource "aws_appintegrations_event_integration" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     eventbridge_bus = "{{ eventbridge_bus }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    event_filter {
+      source = "{{ source }}"
+    }
 }

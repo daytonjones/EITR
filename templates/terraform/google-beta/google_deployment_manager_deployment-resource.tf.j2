@@ -1,12 +1,27 @@
 resource "google_deployment_manager_deployment" "example" {
     create_policy = "{{ create_policy }}"
     delete_policy = "{{ delete_policy }}"
-    deployment_id = "{{ deployment_id }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    manifest = "{{ manifest }}"
     name = "{{ name }}"
-    preview = "{{ preview }}"
+    preview = {{ preview }}
     project = "{{ project }}"
-    self_link = "{{ self_link }}"
+    labels {
+      key = "{{ key }}"
+      value = "{{ value }}"
+    }
+    target {
+      config {
+        content = "{{ content }}"
+      }
+      imports {
+        content = "{{ content }}"
+        name = "{{ name }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

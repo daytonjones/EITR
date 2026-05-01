@@ -3,6 +3,14 @@ resource "azurerm_capacity_reservation_group" "example" {
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
-    zones = "{{ zones }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    zones = ["{{ zones }}"]
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

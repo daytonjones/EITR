@@ -1,7 +1,9 @@
 data "azurerm_app_configuration_keys" "example" {
     configuration_store_id = "{{ configuration_store_id }}"
     id = "{{ id }}"
-    items = "{{ items }}"
     key = "{{ key }}"
     label = "{{ label }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

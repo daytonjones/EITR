@@ -5,9 +5,17 @@ resource "azurerm_redis_enterprise_database" "example" {
     eviction_policy = "{{ eviction_policy }}"
     id = "{{ id }}"
     linked_database_group_nickname = "{{ linked_database_group_nickname }}"
-    linked_database_id = "{{ linked_database_id }}"
+    linked_database_id = ["{{ linked_database_id }}"]
     name = "{{ name }}"
-    port = "{{ port }}"
-    primary_access_key = "{{ primary_access_key }}"
-    secondary_access_key = "{{ secondary_access_key }}"
+    port = {{ port }}
+    module {
+      args = "{{ args }}"
+      name = "{{ name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

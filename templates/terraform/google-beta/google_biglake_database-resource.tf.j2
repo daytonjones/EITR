@@ -1,10 +1,17 @@
 resource "google_biglake_database" "example" {
     catalog = "{{ catalog }}"
-    create_time = "{{ create_time }}"
-    delete_time = "{{ delete_time }}"
-    expire_time = "{{ expire_time }}"
     id = "{{ id }}"
     name = "{{ name }}"
     type = "{{ type }}"
-    update_time = "{{ update_time }}"
+    hive_options {
+      location_uri = "{{ location_uri }}"
+      parameters = {
+        key = "{{ parameters_value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

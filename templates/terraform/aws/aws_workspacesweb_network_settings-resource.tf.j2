@@ -1,0 +1,9 @@
+resource "aws_workspacesweb_network_settings" "example" {
+    region = "{{ region }}"
+    security_group_ids = ["{{ security_group_ids }}"]
+    subnet_ids = ["{{ subnet_ids }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    vpc_id = "{{ vpc_id }}"
+}

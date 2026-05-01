@@ -1,0 +1,124 @@
+resource "google_ces_app" "example" {
+    app_id = "{{ app_id }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    global_instruction = "{{ global_instruction }}"
+    guardrails = ["{{ guardrails }}"]
+    id = "{{ id }}"
+    location = "{{ location }}"
+    metadata = {
+        key = "{{ metadata_value }}"
+      }
+    pinned = {{ pinned }}
+    project = "{{ project }}"
+    root_agent = "{{ root_agent }}"
+    audio_processing_config {
+      inactivity_timeout = "{{ inactivity_timeout }}"
+      ambient_sound_config {
+        gcs_uri = "{{ gcs_uri }}"
+        prebuilt_ambient_sound = "{{ prebuilt_ambient_sound }}"
+        volume_gain_db = {{ volume_gain_db }}
+      }
+      barge_in_config {
+        barge_in_awareness = {{ barge_in_awareness }}
+      }
+      synthesize_speech_configs {
+        language_code = "{{ language_code }}"
+        speaking_rate = {{ speaking_rate }}
+        voice = "{{ voice }}"
+      }
+    }
+    client_certificate_settings {
+      passphrase = "{{ passphrase }}"
+      private_key = "{{ private_key }}"
+      tls_certificate = "{{ tls_certificate }}"
+    }
+    data_store_settings {
+    }
+    default_channel_profile {
+      channel_type = "{{ channel_type }}"
+      disable_barge_in_control = {{ disable_barge_in_control }}
+      disable_dtmf = {{ disable_dtmf }}
+      profile_id = "{{ profile_id }}"
+      persona_property {
+        persona = "{{ persona }}"
+      }
+      web_widget_config {
+        modality = "{{ modality }}"
+        theme = "{{ theme }}"
+        web_widget_title = "{{ web_widget_title }}"
+      }
+    }
+    evaluation_metrics_thresholds {
+      golden_evaluation_metrics_thresholds {
+        expectation_level_metrics_thresholds {
+          tool_invocation_parameter_correctness_threshold = {{ tool_invocation_parameter_correctness_threshold }}
+        }
+        turn_level_metrics_thresholds {
+          overall_tool_invocation_correctness_threshold = {{ overall_tool_invocation_correctness_threshold }}
+          semantic_similarity_success_threshold = {{ semantic_similarity_success_threshold }}
+        }
+      }
+    }
+    language_settings {
+      default_language_code = "{{ default_language_code }}"
+      enable_multilingual_support = {{ enable_multilingual_support }}
+      fallback_action = "{{ fallback_action }}"
+      supported_language_codes = ["{{ supported_language_codes }}"]
+    }
+    logging_settings {
+      audio_recording_config {
+        gcs_bucket = "{{ gcs_bucket }}"
+        gcs_path_prefix = "{{ gcs_path_prefix }}"
+      }
+      bigquery_export_settings {
+        dataset = "{{ dataset }}"
+        enabled = {{ enabled }}
+        project = "{{ project }}"
+      }
+      cloud_logging_settings {
+        enable_cloud_logging = {{ enable_cloud_logging }}
+      }
+      conversation_logging_settings {
+        disable_conversation_logging = {{ disable_conversation_logging }}
+      }
+      redaction_config {
+        deidentify_template = "{{ deidentify_template }}"
+        enable_redaction = {{ enable_redaction }}
+        inspect_template = "{{ inspect_template }}"
+      }
+    }
+    model_settings {
+      model = "{{ model }}"
+      temperature = {{ temperature }}
+    }
+    time_zone_settings {
+      time_zone = "{{ time_zone }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    variable_declarations {
+      description = "{{ description }}"
+      name = "{{ name }}"
+      schema {
+        additional_properties = "{{ additional_properties }}"
+        any_of = "{{ any_of }}"
+        default = "{{ default }}"
+        defs = "{{ defs }}"
+        description = "{{ description }}"
+        enum = ["{{ enum }}"]
+        items = "{{ items }}"
+        nullable = {{ nullable }}
+        prefix_items = "{{ prefix_items }}"
+        properties = "{{ properties }}"
+        ref = "{{ ref }}"
+        required = ["{{ required }}"]
+        title = "{{ title }}"
+        type = "{{ type }}"
+        unique_items = {{ unique_items }}
+      }
+    }
+}

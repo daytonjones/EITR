@@ -6,4 +6,10 @@ resource "azurerm_api_management_redis_cache" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     redis_cache_id = "{{ redis_cache_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

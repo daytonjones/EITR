@@ -1,6 +1,8 @@
 resource "vault_transform_template" "example" {
     alphabet = "{{ alphabet }}"
-    decode_formats = "{{ decode_formats }}"
+    decode_formats = {
+        key = "{{ decode_formats_value }}"
+      }
     encode_format = "{{ encode_format }}"
     id = "{{ id }}"
     name = "{{ name }}"

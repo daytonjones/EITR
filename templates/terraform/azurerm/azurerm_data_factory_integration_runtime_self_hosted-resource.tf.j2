@@ -3,7 +3,14 @@ resource "azurerm_data_factory_integration_runtime_self_hosted" "example" {
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    primary_authorization_key = "{{ primary_authorization_key }}"
-    secondary_authorization_key = "{{ secondary_authorization_key }}"
-    self_contained_interactive_authoring_enabled = "{{ self_contained_interactive_authoring_enabled }}"
+    self_contained_interactive_authoring_enabled = {{ self_contained_interactive_authoring_enabled }}
+    rbac_authorization {
+      resource_id = "{{ resource_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,8 @@
+resource "awscc_omics_configuration" "example" {
+    description = "{{ description }}"
+    name = "{{ name }}"
+    run_configurations = "{{ run_configurations }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

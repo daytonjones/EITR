@@ -1,0 +1,16 @@
+resource "azurerm_mongo_cluster_user" "example" {
+    id = "{{ id }}"
+    identity_provider_type = "{{ identity_provider_type }}"
+    mongo_cluster_id = "{{ mongo_cluster_id }}"
+    object_id = "{{ object_id }}"
+    principal_type = "{{ principal_type }}"
+    role {
+      database = "{{ database }}"
+      name = "{{ name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
+}

@@ -2,4 +2,8 @@ resource "google_access_context_manager_egress_policy" "example" {
     egress_policy_name = "{{ egress_policy_name }}"
     id = "{{ id }}"
     resource = "{{ resource }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

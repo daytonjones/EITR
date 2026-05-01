@@ -1,0 +1,17 @@
+resource "google_network_security_sac_realm" "example" {
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    name = "{{ name }}"
+    project = "{{ project }}"
+    security_service = "{{ security_service }}"
+    symantec_options {
+      secret_path = "{{ secret_path }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

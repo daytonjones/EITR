@@ -5,6 +5,18 @@ resource "azurerm_hpc_cache_nfs_target" "example" {
     resource_group_name = "{{ resource_group_name }}"
     target_host_name = "{{ target_host_name }}"
     usage_model = "{{ usage_model }}"
-    verification_timer_in_seconds = "{{ verification_timer_in_seconds }}"
-    write_back_timer_in_seconds = "{{ write_back_timer_in_seconds }}"
+    verification_timer_in_seconds = {{ verification_timer_in_seconds }}
+    write_back_timer_in_seconds = {{ write_back_timer_in_seconds }}
+    namespace_junction {
+      access_policy_name = "{{ access_policy_name }}"
+      namespace_path = "{{ namespace_path }}"
+      nfs_export = "{{ nfs_export }}"
+      target_path = "{{ target_path }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

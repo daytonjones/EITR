@@ -1,9 +1,13 @@
 resource "aws_api_gateway_vpc_link" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    target_arns = "{{ target_arns }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    target_arns = ["{{ target_arns }}"]
 }

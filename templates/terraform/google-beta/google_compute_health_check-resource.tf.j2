@@ -1,14 +1,73 @@
 resource "google_compute_health_check" "example" {
-    check_interval_sec = "{{ check_interval_sec }}"
-    creation_timestamp = "{{ creation_timestamp }}"
+    check_interval_sec = {{ check_interval_sec }}
     description = "{{ description }}"
-    healthy_threshold = "{{ healthy_threshold }}"
+    healthy_threshold = {{ healthy_threshold }}
     id = "{{ id }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    self_link = "{{ self_link }}"
-    source_regions = "{{ source_regions }}"
-    timeout_sec = "{{ timeout_sec }}"
-    type = "{{ type }}"
-    unhealthy_threshold = "{{ unhealthy_threshold }}"
+    source_regions = ["{{ source_regions }}"]
+    timeout_sec = {{ timeout_sec }}
+    unhealthy_threshold = {{ unhealthy_threshold }}
+    grpc_health_check {
+      grpc_service_name = "{{ grpc_service_name }}"
+      port = {{ port }}
+      port_name = "{{ port_name }}"
+      port_specification = "{{ port_specification }}"
+    }
+    grpc_tls_health_check {
+      grpc_service_name = "{{ grpc_service_name }}"
+      port = {{ port }}
+      port_specification = "{{ port_specification }}"
+    }
+    http2_health_check {
+      host = "{{ host }}"
+      port = {{ port }}
+      port_name = "{{ port_name }}"
+      port_specification = "{{ port_specification }}"
+      proxy_header = "{{ proxy_header }}"
+      request_path = "{{ request_path }}"
+      response = "{{ response }}"
+    }
+    http_health_check {
+      host = "{{ host }}"
+      port = {{ port }}
+      port_name = "{{ port_name }}"
+      port_specification = "{{ port_specification }}"
+      proxy_header = "{{ proxy_header }}"
+      request_path = "{{ request_path }}"
+      response = "{{ response }}"
+    }
+    https_health_check {
+      host = "{{ host }}"
+      port = {{ port }}
+      port_name = "{{ port_name }}"
+      port_specification = "{{ port_specification }}"
+      proxy_header = "{{ proxy_header }}"
+      request_path = "{{ request_path }}"
+      response = "{{ response }}"
+    }
+    log_config {
+      enable = {{ enable }}
+    }
+    ssl_health_check {
+      port = {{ port }}
+      port_name = "{{ port_name }}"
+      port_specification = "{{ port_specification }}"
+      proxy_header = "{{ proxy_header }}"
+      request = "{{ request }}"
+      response = "{{ response }}"
+    }
+    tcp_health_check {
+      port = {{ port }}
+      port_name = "{{ port_name }}"
+      port_specification = "{{ port_specification }}"
+      proxy_header = "{{ proxy_header }}"
+      request = "{{ request }}"
+      response = "{{ response }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

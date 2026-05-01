@@ -1,9 +1,38 @@
 resource "azurerm_netapp_snapshot_policy" "example" {
     account_name = "{{ account_name }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    daily_schedule {
+      hour = {{ hour }}
+      minute = {{ minute }}
+      snapshots_to_keep = {{ snapshots_to_keep }}
+    }
+    hourly_schedule {
+      minute = {{ minute }}
+      snapshots_to_keep = {{ snapshots_to_keep }}
+    }
+    monthly_schedule {
+      days_of_month = ["{{ days_of_month }}"]
+      hour = {{ hour }}
+      minute = {{ minute }}
+      snapshots_to_keep = {{ snapshots_to_keep }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    weekly_schedule {
+      days_of_week = ["{{ days_of_week }}"]
+      hour = {{ hour }}
+      minute = {{ minute }}
+      snapshots_to_keep = {{ snapshots_to_keep }}
+    }
 }

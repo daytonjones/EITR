@@ -1,0 +1,14 @@
+resource "azurerm_network_manager_routing_rule_collection" "example" {
+    bgp_route_propagation_enabled = {{ bgp_route_propagation_enabled }}
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    network_group_ids = ["{{ network_group_ids }}"]
+    routing_configuration_id = "{{ routing_configuration_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

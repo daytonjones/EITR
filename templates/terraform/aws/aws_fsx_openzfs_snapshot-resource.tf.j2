@@ -1,9 +1,18 @@
 resource "aws_fsx_openzfs_snapshot" "example" {
-    arn = "{{ arn }}"
-    creation_time = "{{ creation_time }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     volume_id = "{{ volume_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

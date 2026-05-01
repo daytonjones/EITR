@@ -1,0 +1,16 @@
+resource "aws_bedrock_inference_profile" "example" {
+    description = "{{ description }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    model_source {
+      copy_from = "{{ copy_from }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

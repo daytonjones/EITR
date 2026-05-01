@@ -1,9 +1,13 @@
 resource "aws_dataexchange_data_set" "example" {
-    arn = "{{ arn }}"
     asset_type = "{{ asset_type }}"
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

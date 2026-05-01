@@ -2,4 +2,9 @@ resource "azurerm_subnet_network_security_group_association" "example" {
     id = "{{ id }}"
     network_security_group_id = "{{ network_security_group_id }}"
     subnet_id = "{{ subnet_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

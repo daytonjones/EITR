@@ -1,0 +1,74 @@
+resource "google_eventarc_pipeline" "example" {
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
+    crypto_key_name = "{{ crypto_key_name }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    pipeline_id = "{{ pipeline_id }}"
+    project = "{{ project }}"
+    destinations {
+      message_bus = "{{ message_bus }}"
+      topic = "{{ topic }}"
+      workflow = "{{ workflow }}"
+      authentication_config {
+        google_oidc {
+          audience = "{{ audience }}"
+          service_account = "{{ service_account }}"
+        }
+        oauth_token {
+          scope = "{{ scope }}"
+          service_account = "{{ service_account }}"
+        }
+      }
+      http_endpoint {
+        message_binding_template = "{{ message_binding_template }}"
+        uri = "{{ uri }}"
+      }
+      network_config {
+        network_attachment = "{{ network_attachment }}"
+      }
+      output_payload_format {
+        avro {
+          schema_definition = "{{ schema_definition }}"
+        }
+        json {
+        }
+        protobuf {
+          schema_definition = "{{ schema_definition }}"
+        }
+      }
+    }
+    input_payload_format {
+      avro {
+        schema_definition = "{{ schema_definition }}"
+      }
+      json {
+      }
+      protobuf {
+        schema_definition = "{{ schema_definition }}"
+      }
+    }
+    logging_config {
+      log_severity = "{{ log_severity }}"
+    }
+    mediations {
+      transformation {
+        transformation_template = "{{ transformation_template }}"
+      }
+    }
+    retry_policy {
+      max_attempts = {{ max_attempts }}
+      max_retry_delay = "{{ max_retry_delay }}"
+      min_retry_delay = "{{ min_retry_delay }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,6 +1,16 @@
 resource "azurerm_iotcentral_application_network_rule_set" "example" {
-    apply_to_device = "{{ apply_to_device }}"
+    apply_to_device = {{ apply_to_device }}
     default_action = "{{ default_action }}"
     id = "{{ id }}"
     iotcentral_application_id = "{{ iotcentral_application_id }}"
+    ip_rule {
+      ip_mask = "{{ ip_mask }}"
+      name = "{{ name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

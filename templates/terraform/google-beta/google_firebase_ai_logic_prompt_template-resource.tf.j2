@@ -1,0 +1,13 @@
+resource "google_firebase_ai_logic_prompt_template" "example" {
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    template_id = "{{ template_id }}"
+    template_string = "{{ template_string }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

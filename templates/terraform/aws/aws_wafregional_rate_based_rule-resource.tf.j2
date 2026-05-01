@@ -1,10 +1,19 @@
 resource "aws_wafregional_rate_based_rule" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     metric_name = "{{ metric_name }}"
     name = "{{ name }}"
     rate_key = "{{ rate_key }}"
-    rate_limit = "{{ rate_limit }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    rate_limit = {{ rate_limit }}
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    predicate {
+      data_id = "{{ data_id }}"
+      negated = {{ negated }}
+      type = "{{ type }}"
+    }
 }

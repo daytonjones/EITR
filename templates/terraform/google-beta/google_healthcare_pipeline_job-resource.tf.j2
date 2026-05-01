@@ -1,11 +1,44 @@
 resource "google_healthcare_pipeline_job" "example" {
     dataset = "{{ dataset }}"
-    disable_lineage = "{{ disable_lineage }}"
-    effective_labels = "{{ effective_labels }}"
+    disable_lineage = {{ disable_lineage }}
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
-    self_link = "{{ self_link }}"
-    terraform_labels = "{{ terraform_labels }}"
+    backfill_pipeline_job {
+      mapping_pipeline_job = "{{ mapping_pipeline_job }}"
+    }
+    mapping_pipeline_job {
+      fhir_store_destination = "{{ fhir_store_destination }}"
+      reconciliation_destination = {{ reconciliation_destination }}
+      fhir_streaming_source {
+        description = "{{ description }}"
+        fhir_store = "{{ fhir_store }}"
+      }
+      mapping_config {
+        description = "{{ description }}"
+        whistle_config_source {
+          import_uri_prefix = "{{ import_uri_prefix }}"
+          uri = "{{ uri }}"
+        }
+      }
+    }
+    reconciliation_pipeline_job {
+      fhir_store_destination = "{{ fhir_store_destination }}"
+      matching_uri_prefix = "{{ matching_uri_prefix }}"
+      merge_config {
+        description = "{{ description }}"
+        whistle_config_source {
+          import_uri_prefix = "{{ import_uri_prefix }}"
+          uri = "{{ uri }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,3 +1,29 @@
 data "kubernetes_persistent_volume_claim" "example" {
     id = "{{ id }}"
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      generate_name = "{{ generate_name }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      name = "{{ name }}"
+      namespace = "{{ namespace }}"
+    }
+    spec {
+      storage_class_name = "{{ storage_class_name }}"
+      volume_mode = "{{ volume_mode }}"
+      volume_name = "{{ volume_name }}"
+      selector {
+        match_labels = {
+        key = "{{ match_labels_value }}"
+      }
+        match_expressions {
+          key = "{{ key }}"
+          operator = "{{ operator }}"
+          values = ["{{ values }}"]
+        }
+      }
+    }
 }

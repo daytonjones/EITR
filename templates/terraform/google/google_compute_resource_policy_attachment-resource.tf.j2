@@ -1,0 +1,11 @@
+resource "google_compute_resource_policy_attachment" "example" {
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    zone = "{{ zone }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

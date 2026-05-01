@@ -1,12 +1,28 @@
 resource "aws_transfer_user" "example" {
-    arn = "{{ arn }}"
     home_directory = "{{ home_directory }}"
     home_directory_type = "{{ home_directory_type }}"
     id = "{{ id }}"
     policy = "{{ policy }}"
+    region = "{{ region }}"
     role = "{{ role }}"
     server_id = "{{ server_id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     user_name = "{{ user_name }}"
+    home_directory_mappings {
+      entry = "{{ entry }}"
+      target = "{{ target }}"
+    }
+    posix_profile {
+      gid = {{ gid }}
+      secondary_gids = ["{{ secondary_gids }}"]
+      uid = {{ uid }}
+    }
+    timeouts {
+      delete = "{{ delete }}"
+    }
 }

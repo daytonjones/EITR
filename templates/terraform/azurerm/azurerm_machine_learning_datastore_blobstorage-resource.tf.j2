@@ -2,11 +2,19 @@ resource "azurerm_machine_learning_datastore_blobstorage" "example" {
     account_key = "{{ account_key }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    is_default = "{{ is_default }}"
+    is_default = {{ is_default }}
     name = "{{ name }}"
     service_data_auth_identity = "{{ service_data_auth_identity }}"
     shared_access_signature = "{{ shared_access_signature }}"
     storage_container_id = "{{ storage_container_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     workspace_id = "{{ workspace_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

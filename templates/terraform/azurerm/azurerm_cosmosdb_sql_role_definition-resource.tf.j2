@@ -1,9 +1,18 @@
 resource "azurerm_cosmosdb_sql_role_definition" "example" {
     account_name = "{{ account_name }}"
-    assignable_scopes = "{{ assignable_scopes }}"
+    assignable_scopes = ["{{ assignable_scopes }}"]
     id = "{{ id }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     role_definition_id = "{{ role_definition_id }}"
     type = "{{ type }}"
+    permissions {
+      data_actions = ["{{ data_actions }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

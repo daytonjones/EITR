@@ -1,11 +1,124 @@
 resource "google_access_context_manager_service_perimeter" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
     parent = "{{ parent }}"
     perimeter_type = "{{ perimeter_type }}"
     title = "{{ title }}"
-    update_time = "{{ update_time }}"
-    use_explicit_dry_run_spec = "{{ use_explicit_dry_run_spec }}"
+    use_explicit_dry_run_spec = {{ use_explicit_dry_run_spec }}
+    spec {
+      access_levels = ["{{ access_levels }}"]
+      resources = ["{{ resources }}"]
+      restricted_services = ["{{ restricted_services }}"]
+      egress_policies {
+        title = "{{ title }}"
+        egress_from {
+          identities = ["{{ identities }}"]
+          identity_type = "{{ identity_type }}"
+          source_restriction = "{{ source_restriction }}"
+          sources {
+            access_level = "{{ access_level }}"
+            resource = "{{ resource }}"
+          }
+        }
+        egress_to {
+          external_resources = ["{{ external_resources }}"]
+          resources = ["{{ resources }}"]
+          roles = ["{{ roles }}"]
+          operations {
+            service_name = "{{ service_name }}"
+            method_selectors {
+              method = "{{ method }}"
+              permission = "{{ permission }}"
+            }
+          }
+        }
+      }
+      ingress_policies {
+        title = "{{ title }}"
+        ingress_from {
+          identities = ["{{ identities }}"]
+          identity_type = "{{ identity_type }}"
+          sources {
+            access_level = "{{ access_level }}"
+            resource = "{{ resource }}"
+          }
+        }
+        ingress_to {
+          resources = ["{{ resources }}"]
+          roles = ["{{ roles }}"]
+          operations {
+            service_name = "{{ service_name }}"
+            method_selectors {
+              method = "{{ method }}"
+              permission = "{{ permission }}"
+            }
+          }
+        }
+      }
+      vpc_accessible_services {
+        allowed_services = ["{{ allowed_services }}"]
+        enable_restriction = {{ enable_restriction }}
+      }
+    }
+    status {
+      access_levels = ["{{ access_levels }}"]
+      resources = ["{{ resources }}"]
+      restricted_services = ["{{ restricted_services }}"]
+      egress_policies {
+        title = "{{ title }}"
+        egress_from {
+          identities = ["{{ identities }}"]
+          identity_type = "{{ identity_type }}"
+          source_restriction = "{{ source_restriction }}"
+          sources {
+            access_level = "{{ access_level }}"
+            resource = "{{ resource }}"
+          }
+        }
+        egress_to {
+          external_resources = ["{{ external_resources }}"]
+          resources = ["{{ resources }}"]
+          roles = ["{{ roles }}"]
+          operations {
+            service_name = "{{ service_name }}"
+            method_selectors {
+              method = "{{ method }}"
+              permission = "{{ permission }}"
+            }
+          }
+        }
+      }
+      ingress_policies {
+        title = "{{ title }}"
+        ingress_from {
+          identities = ["{{ identities }}"]
+          identity_type = "{{ identity_type }}"
+          sources {
+            access_level = "{{ access_level }}"
+            resource = "{{ resource }}"
+          }
+        }
+        ingress_to {
+          resources = ["{{ resources }}"]
+          roles = ["{{ roles }}"]
+          operations {
+            service_name = "{{ service_name }}"
+            method_selectors {
+              method = "{{ method }}"
+              permission = "{{ permission }}"
+            }
+          }
+        }
+      }
+      vpc_accessible_services {
+        allowed_services = ["{{ allowed_services }}"]
+        enable_restriction = {{ enable_restriction }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

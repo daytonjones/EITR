@@ -1,0 +1,4 @@
+resource "awscc_ec2_ip_pool_route_table_association" "example" {
+    public_ipv_4_pool = "{{ public_ipv_4_pool }}"
+    route_table_id = "{{ route_table_id }}"
+}

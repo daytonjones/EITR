@@ -1,0 +1,7 @@
+resource "aws_cloudwatch_otel_enrichment" "example" {
+    region = "{{ region }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

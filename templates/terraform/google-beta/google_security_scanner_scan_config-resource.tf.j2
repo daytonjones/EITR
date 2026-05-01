@@ -1,12 +1,31 @@
 resource "google_security_scanner_scan_config" "example" {
-    blacklist_patterns = "{{ blacklist_patterns }}"
+    blacklist_patterns = ["{{ blacklist_patterns }}"]
     display_name = "{{ display_name }}"
     export_to_security_command_center = "{{ export_to_security_command_center }}"
     id = "{{ id }}"
-    max_qps = "{{ max_qps }}"
-    name = "{{ name }}"
+    max_qps = {{ max_qps }}
     project = "{{ project }}"
-    starting_urls = "{{ starting_urls }}"
-    target_platforms = "{{ target_platforms }}"
+    starting_urls = ["{{ starting_urls }}"]
+    target_platforms = ["{{ target_platforms }}"]
     user_agent = "{{ user_agent }}"
+    authentication {
+      custom_account {
+        login_url = "{{ login_url }}"
+        password = "{{ password }}"
+        username = "{{ username }}"
+      }
+      google_account {
+        password = "{{ password }}"
+        username = "{{ username }}"
+      }
+    }
+    schedule {
+      interval_duration_days = {{ interval_duration_days }}
+      schedule_time = "{{ schedule_time }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

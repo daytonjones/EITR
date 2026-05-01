@@ -3,4 +3,10 @@ resource "azurerm_logic_app_action_custom" "example" {
     id = "{{ id }}"
     logic_app_id = "{{ logic_app_id }}"
     name = "{{ name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

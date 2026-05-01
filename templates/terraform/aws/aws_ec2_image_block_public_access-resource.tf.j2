@@ -1,4 +1,8 @@
 resource "aws_ec2_image_block_public_access" "example" {
     id = "{{ id }}"
+    region = "{{ region }}"
     state = "{{ state }}"
+    timeouts {
+      update = "{{ update }}"
+    }
 }

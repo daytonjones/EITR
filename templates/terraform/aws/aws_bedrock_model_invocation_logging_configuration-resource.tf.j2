@@ -1,3 +1,21 @@
 resource "aws_bedrock_model_invocation_logging_configuration" "example" {
-    id = "{{ id }}"
+    region = "{{ region }}"
+    logging_config {
+      embedding_data_delivery_enabled = {{ embedding_data_delivery_enabled }}
+      image_data_delivery_enabled = {{ image_data_delivery_enabled }}
+      text_data_delivery_enabled = {{ text_data_delivery_enabled }}
+      video_data_delivery_enabled = {{ video_data_delivery_enabled }}
+      cloudwatch_config {
+        log_group_name = "{{ log_group_name }}"
+        role_arn = "{{ role_arn }}"
+        large_data_delivery_s3_config {
+          bucket_name = "{{ bucket_name }}"
+          key_prefix = "{{ key_prefix }}"
+        }
+      }
+      s3_config {
+        bucket_name = "{{ bucket_name }}"
+        key_prefix = "{{ key_prefix }}"
+      }
+    }
 }

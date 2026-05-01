@@ -1,17 +1,79 @@
 resource "aws_fms_policy" "example" {
-    arn = "{{ arn }}"
-    delete_all_policy_resources = "{{ delete_all_policy_resources }}"
-    delete_unused_fm_managed_resources = "{{ delete_unused_fm_managed_resources }}"
+    delete_all_policy_resources = {{ delete_all_policy_resources }}
+    delete_unused_fm_managed_resources = {{ delete_unused_fm_managed_resources }}
     description = "{{ description }}"
-    exclude_resource_tags = "{{ exclude_resource_tags }}"
+    exclude_resource_tags = {{ exclude_resource_tags }}
     id = "{{ id }}"
     name = "{{ name }}"
-    policy_update_token = "{{ policy_update_token }}"
-    remediation_enabled = "{{ remediation_enabled }}"
-    resource_set_ids = "{{ resource_set_ids }}"
-    resource_tags = "{{ resource_tags }}"
+    region = "{{ region }}"
+    remediation_enabled = {{ remediation_enabled }}
+    resource_set_ids = ["{{ resource_set_ids }}"]
+    resource_tag_logical_operator = "{{ resource_tag_logical_operator }}"
+    resource_tags = {
+        key = "{{ resource_tags_value }}"
+      }
     resource_type = "{{ resource_type }}"
-    resource_type_list = "{{ resource_type_list }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    resource_type_list = ["{{ resource_type_list }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    exclude_map {
+      account = ["{{ account }}"]
+      orgunit = ["{{ orgunit }}"]
+    }
+    include_map {
+      account = ["{{ account }}"]
+      orgunit = ["{{ orgunit }}"]
+    }
+    security_service_policy_data {
+      managed_service_data = "{{ managed_service_data }}"
+      type = "{{ type }}"
+      policy_option {
+        network_acl_common_policy {
+          network_acl_entry_set {
+            force_remediate_for_first_entries = {{ force_remediate_for_first_entries }}
+            force_remediate_for_last_entries = {{ force_remediate_for_last_entries }}
+            first_entry {
+              cidr_block = "{{ cidr_block }}"
+              egress = {{ egress }}
+              ipv6_cidr_block = "{{ ipv6_cidr_block }}"
+              protocol = "{{ protocol }}"
+              rule_action = "{{ rule_action }}"
+              icmp_type_code {
+                code = {{ code }}
+                type = {{ type }}
+              }
+              port_range {
+                from = {{ from }}
+                to = {{ to }}
+              }
+            }
+            last_entry {
+              cidr_block = "{{ cidr_block }}"
+              egress = {{ egress }}
+              ipv6_cidr_block = "{{ ipv6_cidr_block }}"
+              protocol = "{{ protocol }}"
+              rule_action = "{{ rule_action }}"
+              icmp_type_code {
+                code = {{ code }}
+                type = {{ type }}
+              }
+              port_range {
+                from = {{ from }}
+                to = {{ to }}
+              }
+            }
+          }
+        }
+        network_firewall_policy {
+          firewall_deployment_model = "{{ firewall_deployment_model }}"
+        }
+        third_party_firewall_policy {
+          firewall_deployment_model = "{{ firewall_deployment_model }}"
+        }
+      }
+    }
 }

@@ -1,0 +1,6 @@
+data "google_iap_web_cloud_run_service_iam_policy" "example" {
+    cloud_run_service_name = "{{ cloud_run_service_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+}

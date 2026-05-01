@@ -1,15 +1,17 @@
 resource "google_network_connectivity_hub" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
-    export_psc = "{{ export_psc }}"
+    export_psc = {{ export_psc }}
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
+    policy_mode = "{{ policy_mode }}"
+    preset_topology = "{{ preset_topology }}"
     project = "{{ project }}"
-    routing_vpcs = "{{ routing_vpcs }}"
-    state = "{{ state }}"
-    terraform_labels = "{{ terraform_labels }}"
-    unique_id = "{{ unique_id }}"
-    update_time = "{{ update_time }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

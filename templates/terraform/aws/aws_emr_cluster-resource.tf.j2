@@ -1,30 +1,154 @@
 resource "aws_emr_cluster" "example" {
     additional_info = "{{ additional_info }}"
-    applications = "{{ applications }}"
-    arn = "{{ arn }}"
+    applications = ["{{ applications }}"]
     autoscaling_role = "{{ autoscaling_role }}"
-    cluster_state = "{{ cluster_state }}"
     configurations = "{{ configurations }}"
     configurations_json = "{{ configurations_json }}"
     custom_ami_id = "{{ custom_ami_id }}"
-    ebs_root_volume_size = "{{ ebs_root_volume_size }}"
+    ebs_root_volume_size = {{ ebs_root_volume_size }}
     id = "{{ id }}"
-    keep_job_flow_alive_when_no_steps = "{{ keep_job_flow_alive_when_no_steps }}"
-    list_steps_states = "{{ list_steps_states }}"
+    keep_job_flow_alive_when_no_steps = {{ keep_job_flow_alive_when_no_steps }}
+    list_steps_states = ["{{ list_steps_states }}"]
     log_encryption_kms_key_id = "{{ log_encryption_kms_key_id }}"
     log_uri = "{{ log_uri }}"
-    master_public_dns = "{{ master_public_dns }}"
     name = "{{ name }}"
-    placement_group_config = "{{ placement_group_config }}"
+    os_release_label = "{{ os_release_label }}"
+    placement_group_config = ["{{ placement_group_config }}"]
+    region = "{{ region }}"
     release_label = "{{ release_label }}"
     scale_down_behavior = "{{ scale_down_behavior }}"
     security_configuration = "{{ security_configuration }}"
     service_role = "{{ service_role }}"
-    step = "{{ step }}"
-    step_concurrency_level = "{{ step_concurrency_level }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    termination_protection = "{{ termination_protection }}"
-    unhealthy_node_replacement = "{{ unhealthy_node_replacement }}"
-    visible_to_all_users = "{{ visible_to_all_users }}"
+    step = ["{{ step }}"]
+    step_concurrency_level = {{ step_concurrency_level }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    termination_protection = {{ termination_protection }}
+    unhealthy_node_replacement = {{ unhealthy_node_replacement }}
+    visible_to_all_users = {{ visible_to_all_users }}
+    auto_termination_policy {
+      idle_timeout = {{ idle_timeout }}
+    }
+    bootstrap_action {
+      args = ["{{ args }}"]
+      name = "{{ name }}"
+      path = "{{ path }}"
+    }
+    core_instance_fleet {
+      name = "{{ name }}"
+      target_on_demand_capacity = {{ target_on_demand_capacity }}
+      target_spot_capacity = {{ target_spot_capacity }}
+      instance_type_configs {
+        bid_price = "{{ bid_price }}"
+        bid_price_as_percentage_of_on_demand_price = {{ bid_price_as_percentage_of_on_demand_price }}
+        instance_type = "{{ instance_type }}"
+        weighted_capacity = {{ weighted_capacity }}
+        configurations {
+          classification = "{{ classification }}"
+          properties = {
+        key = "{{ properties_value }}"
+      }
+        }
+        ebs_config {
+          iops = {{ iops }}
+          size = {{ size }}
+          type = "{{ type }}"
+          volumes_per_instance = {{ volumes_per_instance }}
+        }
+      }
+      launch_specifications {
+        on_demand_specification {
+          allocation_strategy = "{{ allocation_strategy }}"
+        }
+        spot_specification {
+          allocation_strategy = "{{ allocation_strategy }}"
+          block_duration_minutes = {{ block_duration_minutes }}
+          timeout_action = "{{ timeout_action }}"
+          timeout_duration_minutes = {{ timeout_duration_minutes }}
+        }
+      }
+    }
+    core_instance_group {
+      autoscaling_policy = "{{ autoscaling_policy }}"
+      bid_price = "{{ bid_price }}"
+      instance_count = {{ instance_count }}
+      instance_type = "{{ instance_type }}"
+      name = "{{ name }}"
+      ebs_config {
+        iops = {{ iops }}
+        size = {{ size }}
+        throughput = {{ throughput }}
+        type = "{{ type }}"
+        volumes_per_instance = {{ volumes_per_instance }}
+      }
+    }
+    ec2_attributes {
+      additional_master_security_groups = "{{ additional_master_security_groups }}"
+      additional_slave_security_groups = "{{ additional_slave_security_groups }}"
+      emr_managed_master_security_group = "{{ emr_managed_master_security_group }}"
+      emr_managed_slave_security_group = "{{ emr_managed_slave_security_group }}"
+      instance_profile = "{{ instance_profile }}"
+      key_name = "{{ key_name }}"
+      service_access_security_group = "{{ service_access_security_group }}"
+      subnet_id = "{{ subnet_id }}"
+      subnet_ids = ["{{ subnet_ids }}"]
+    }
+    kerberos_attributes {
+      ad_domain_join_password = "{{ ad_domain_join_password }}"
+      ad_domain_join_user = "{{ ad_domain_join_user }}"
+      cross_realm_trust_principal_password = "{{ cross_realm_trust_principal_password }}"
+      kdc_admin_password = "{{ kdc_admin_password }}"
+      realm = "{{ realm }}"
+    }
+    master_instance_fleet {
+      name = "{{ name }}"
+      target_on_demand_capacity = {{ target_on_demand_capacity }}
+      target_spot_capacity = {{ target_spot_capacity }}
+      instance_type_configs {
+        bid_price = "{{ bid_price }}"
+        bid_price_as_percentage_of_on_demand_price = {{ bid_price_as_percentage_of_on_demand_price }}
+        instance_type = "{{ instance_type }}"
+        weighted_capacity = {{ weighted_capacity }}
+        configurations {
+          classification = "{{ classification }}"
+          properties = {
+        key = "{{ properties_value }}"
+      }
+        }
+        ebs_config {
+          iops = {{ iops }}
+          size = {{ size }}
+          type = "{{ type }}"
+          volumes_per_instance = {{ volumes_per_instance }}
+        }
+      }
+      launch_specifications {
+        on_demand_specification {
+          allocation_strategy = "{{ allocation_strategy }}"
+        }
+        spot_specification {
+          allocation_strategy = "{{ allocation_strategy }}"
+          block_duration_minutes = {{ block_duration_minutes }}
+          timeout_action = "{{ timeout_action }}"
+          timeout_duration_minutes = {{ timeout_duration_minutes }}
+        }
+      }
+    }
+    master_instance_group {
+      bid_price = "{{ bid_price }}"
+      instance_count = {{ instance_count }}
+      instance_type = "{{ instance_type }}"
+      name = "{{ name }}"
+      ebs_config {
+        iops = {{ iops }}
+        size = {{ size }}
+        throughput = {{ throughput }}
+        type = "{{ type }}"
+        volumes_per_instance = {{ volumes_per_instance }}
+      }
+    }
 }

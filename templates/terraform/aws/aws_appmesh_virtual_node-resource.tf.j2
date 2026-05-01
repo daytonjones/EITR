@@ -1,12 +1,226 @@
 resource "aws_appmesh_virtual_node" "example" {
-    arn = "{{ arn }}"
-    created_date = "{{ created_date }}"
     id = "{{ id }}"
-    last_updated_date = "{{ last_updated_date }}"
     mesh_name = "{{ mesh_name }}"
     mesh_owner = "{{ mesh_owner }}"
     name = "{{ name }}"
-    resource_owner = "{{ resource_owner }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    spec {
+      backend {
+        virtual_service {
+          virtual_service_name = "{{ virtual_service_name }}"
+          client_policy {
+            tls {
+              enforce = {{ enforce }}
+              ports = ["{{ ports }}"]
+              certificate {
+                file {
+                  certificate_chain = "{{ certificate_chain }}"
+                  private_key = "{{ private_key }}"
+                }
+                sds {
+                  secret_name = "{{ secret_name }}"
+                }
+              }
+              validation {
+                subject_alternative_names {
+                  match {
+                    exact = ["{{ exact }}"]
+                  }
+                }
+                trust {
+                  acm {
+                    certificate_authority_arns = ["{{ certificate_authority_arns }}"]
+                  }
+                  file {
+                    certificate_chain = "{{ certificate_chain }}"
+                  }
+                  sds {
+                    secret_name = "{{ secret_name }}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      backend_defaults {
+        client_policy {
+          tls {
+            enforce = {{ enforce }}
+            ports = ["{{ ports }}"]
+            certificate {
+              file {
+                certificate_chain = "{{ certificate_chain }}"
+                private_key = "{{ private_key }}"
+              }
+              sds {
+                secret_name = "{{ secret_name }}"
+              }
+            }
+            validation {
+              subject_alternative_names {
+                match {
+                  exact = ["{{ exact }}"]
+                }
+              }
+              trust {
+                acm {
+                  certificate_authority_arns = ["{{ certificate_authority_arns }}"]
+                }
+                file {
+                  certificate_chain = "{{ certificate_chain }}"
+                }
+                sds {
+                  secret_name = "{{ secret_name }}"
+                }
+              }
+            }
+          }
+        }
+      }
+      listener {
+        connection_pool {
+          grpc {
+            max_requests = {{ max_requests }}
+          }
+          http {
+            max_connections = {{ max_connections }}
+            max_pending_requests = {{ max_pending_requests }}
+          }
+          http2 {
+            max_requests = {{ max_requests }}
+          }
+          tcp {
+            max_connections = {{ max_connections }}
+          }
+        }
+        health_check {
+          healthy_threshold = {{ healthy_threshold }}
+          interval_millis = {{ interval_millis }}
+          path = "{{ path }}"
+          port = {{ port }}
+          protocol = "{{ protocol }}"
+          timeout_millis = {{ timeout_millis }}
+          unhealthy_threshold = {{ unhealthy_threshold }}
+        }
+        outlier_detection {
+          max_ejection_percent = {{ max_ejection_percent }}
+          max_server_errors = {{ max_server_errors }}
+          base_ejection_duration {
+            unit = "{{ unit }}"
+            value = {{ value }}
+          }
+          interval {
+            unit = "{{ unit }}"
+            value = {{ value }}
+          }
+        }
+        port_mapping {
+          port = {{ port }}
+          protocol = "{{ protocol }}"
+        }
+        timeout {
+          grpc {
+            idle {
+              unit = "{{ unit }}"
+              value = {{ value }}
+            }
+            per_request {
+              unit = "{{ unit }}"
+              value = {{ value }}
+            }
+          }
+          http {
+            idle {
+              unit = "{{ unit }}"
+              value = {{ value }}
+            }
+            per_request {
+              unit = "{{ unit }}"
+              value = {{ value }}
+            }
+          }
+          http2 {
+            idle {
+              unit = "{{ unit }}"
+              value = {{ value }}
+            }
+            per_request {
+              unit = "{{ unit }}"
+              value = {{ value }}
+            }
+          }
+          tcp {
+            idle {
+              unit = "{{ unit }}"
+              value = {{ value }}
+            }
+          }
+        }
+        tls {
+          mode = "{{ mode }}"
+          certificate {
+            acm {
+              certificate_arn = "{{ certificate_arn }}"
+            }
+            file {
+              certificate_chain = "{{ certificate_chain }}"
+              private_key = "{{ private_key }}"
+            }
+            sds {
+              secret_name = "{{ secret_name }}"
+            }
+          }
+          validation {
+            subject_alternative_names {
+              match {
+                exact = ["{{ exact }}"]
+              }
+            }
+            trust {
+              file {
+                certificate_chain = "{{ certificate_chain }}"
+              }
+              sds {
+                secret_name = "{{ secret_name }}"
+              }
+            }
+          }
+        }
+      }
+      logging {
+        access_log {
+          file {
+            path = "{{ path }}"
+            format {
+              text = "{{ text }}"
+              json {
+                key = "{{ key }}"
+                value = "{{ value }}"
+              }
+            }
+          }
+        }
+      }
+      service_discovery {
+        aws_cloud_map {
+          attributes = {
+        key = "{{ attributes_value }}"
+      }
+          namespace_name = "{{ namespace_name }}"
+          service_name = "{{ service_name }}"
+        }
+        dns {
+          hostname = "{{ hostname }}"
+          ip_preference = "{{ ip_preference }}"
+          response_type = "{{ response_type }}"
+        }
+      }
+    }
 }

@@ -1,15 +1,197 @@
 resource "azurerm_container_app" "example" {
     container_app_environment_id = "{{ container_app_environment_id }}"
-    custom_domain_verification_id = "{{ custom_domain_verification_id }}"
     id = "{{ id }}"
-    latest_revision_fqdn = "{{ latest_revision_fqdn }}"
-    latest_revision_name = "{{ latest_revision_name }}"
-    location = "{{ location }}"
-    max_inactive_revisions = "{{ max_inactive_revisions }}"
+    max_inactive_revisions = {{ max_inactive_revisions }}
     name = "{{ name }}"
-    outbound_ip_addresses = "{{ outbound_ip_addresses }}"
     resource_group_name = "{{ resource_group_name }}"
     revision_mode = "{{ revision_mode }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     workload_profile_name = "{{ workload_profile_name }}"
+    dapr {
+      app_id = "{{ app_id }}"
+      app_port = {{ app_port }}
+      app_protocol = "{{ app_protocol }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    ingress {
+      allow_insecure_connections = {{ allow_insecure_connections }}
+      client_certificate_mode = "{{ client_certificate_mode }}"
+      exposed_port = {{ exposed_port }}
+      external_enabled = {{ external_enabled }}
+      target_port = {{ target_port }}
+      transport = "{{ transport }}"
+      cors {
+        allow_credentials_enabled = {{ allow_credentials_enabled }}
+        allowed_headers = ["{{ allowed_headers }}"]
+        allowed_methods = ["{{ allowed_methods }}"]
+        allowed_origins = ["{{ allowed_origins }}"]
+        exposed_headers = ["{{ exposed_headers }}"]
+        max_age_in_seconds = {{ max_age_in_seconds }}
+      }
+      ip_security_restriction {
+        action = "{{ action }}"
+        description = "{{ description }}"
+        ip_address_range = "{{ ip_address_range }}"
+        name = "{{ name }}"
+      }
+      traffic_weight {
+        label = "{{ label }}"
+        latest_revision = {{ latest_revision }}
+        percentage = {{ percentage }}
+        revision_suffix = "{{ revision_suffix }}"
+      }
+    }
+    registry {
+      identity = "{{ identity }}"
+      password_secret_name = "{{ password_secret_name }}"
+      server = "{{ server }}"
+      username = "{{ username }}"
+    }
+    secret {
+      identity = "{{ identity }}"
+      key_vault_secret_id = "{{ key_vault_secret_id }}"
+      name = "{{ name }}"
+      value = "{{ value }}"
+    }
+    template {
+      cooldown_period_in_seconds = {{ cooldown_period_in_seconds }}
+      max_replicas = {{ max_replicas }}
+      min_replicas = {{ min_replicas }}
+      polling_interval_in_seconds = {{ polling_interval_in_seconds }}
+      revision_suffix = "{{ revision_suffix }}"
+      termination_grace_period_seconds = {{ termination_grace_period_seconds }}
+      azure_queue_scale_rule {
+        name = "{{ name }}"
+        queue_length = {{ queue_length }}
+        queue_name = "{{ queue_name }}"
+        authentication {
+          secret_name = "{{ secret_name }}"
+          trigger_parameter = "{{ trigger_parameter }}"
+        }
+      }
+      container {
+        args = ["{{ args }}"]
+        command = ["{{ command }}"]
+        cpu = {{ cpu }}
+        image = "{{ image }}"
+        memory = "{{ memory }}"
+        name = "{{ name }}"
+        env {
+          name = "{{ name }}"
+          secret_name = "{{ secret_name }}"
+          value = "{{ value }}"
+        }
+        liveness_probe {
+          failure_count_threshold = {{ failure_count_threshold }}
+          host = "{{ host }}"
+          initial_delay = {{ initial_delay }}
+          interval_seconds = {{ interval_seconds }}
+          path = "{{ path }}"
+          port = {{ port }}
+          timeout = {{ timeout }}
+          transport = "{{ transport }}"
+          header {
+            name = "{{ name }}"
+            value = "{{ value }}"
+          }
+        }
+        readiness_probe {
+          failure_count_threshold = {{ failure_count_threshold }}
+          host = "{{ host }}"
+          initial_delay = {{ initial_delay }}
+          interval_seconds = {{ interval_seconds }}
+          path = "{{ path }}"
+          port = {{ port }}
+          success_count_threshold = {{ success_count_threshold }}
+          timeout = {{ timeout }}
+          transport = "{{ transport }}"
+          header {
+            name = "{{ name }}"
+            value = "{{ value }}"
+          }
+        }
+        startup_probe {
+          failure_count_threshold = {{ failure_count_threshold }}
+          host = "{{ host }}"
+          initial_delay = {{ initial_delay }}
+          interval_seconds = {{ interval_seconds }}
+          path = "{{ path }}"
+          port = {{ port }}
+          timeout = {{ timeout }}
+          transport = "{{ transport }}"
+          header {
+            name = "{{ name }}"
+            value = "{{ value }}"
+          }
+        }
+        volume_mounts {
+          name = "{{ name }}"
+          path = "{{ path }}"
+          sub_path = "{{ sub_path }}"
+        }
+      }
+      custom_scale_rule {
+        custom_rule_type = "{{ custom_rule_type }}"
+        identity_id = "{{ identity_id }}"
+        metadata = {
+        key = "{{ metadata_value }}"
+      }
+        name = "{{ name }}"
+        authentication {
+          secret_name = "{{ secret_name }}"
+          trigger_parameter = "{{ trigger_parameter }}"
+        }
+      }
+      http_scale_rule {
+        concurrent_requests = "{{ concurrent_requests }}"
+        name = "{{ name }}"
+        authentication {
+          secret_name = "{{ secret_name }}"
+          trigger_parameter = "{{ trigger_parameter }}"
+        }
+      }
+      init_container {
+        args = ["{{ args }}"]
+        command = ["{{ command }}"]
+        cpu = {{ cpu }}
+        image = "{{ image }}"
+        memory = "{{ memory }}"
+        name = "{{ name }}"
+        env {
+          name = "{{ name }}"
+          secret_name = "{{ secret_name }}"
+          value = "{{ value }}"
+        }
+        volume_mounts {
+          name = "{{ name }}"
+          path = "{{ path }}"
+          sub_path = "{{ sub_path }}"
+        }
+      }
+      tcp_scale_rule {
+        concurrent_requests = "{{ concurrent_requests }}"
+        name = "{{ name }}"
+        authentication {
+          secret_name = "{{ secret_name }}"
+          trigger_parameter = "{{ trigger_parameter }}"
+        }
+      }
+      volume {
+        mount_options = "{{ mount_options }}"
+        name = "{{ name }}"
+        storage_name = "{{ storage_name }}"
+        storage_type = "{{ storage_type }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

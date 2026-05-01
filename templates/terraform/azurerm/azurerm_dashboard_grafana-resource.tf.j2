@@ -1,17 +1,40 @@
 resource "azurerm_dashboard_grafana" "example" {
-    api_key_enabled = "{{ api_key_enabled }}"
+    api_key_enabled = {{ api_key_enabled }}
     auto_generated_domain_name_label_scope = "{{ auto_generated_domain_name_label_scope }}"
-    deterministic_outbound_ip_enabled = "{{ deterministic_outbound_ip_enabled }}"
-    endpoint = "{{ endpoint }}"
+    deterministic_outbound_ip_enabled = {{ deterministic_outbound_ip_enabled }}
     grafana_major_version = "{{ grafana_major_version }}"
-    grafana_version = "{{ grafana_version }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    outbound_ip = "{{ outbound_ip }}"
-    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    public_network_access_enabled = {{ public_network_access_enabled }}
     resource_group_name = "{{ resource_group_name }}"
     sku = "{{ sku }}"
-    tags = "{{ tags }}"
-    zone_redundancy_enabled = "{{ zone_redundancy_enabled }}"
+    sku_size = "{{ sku_size }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    zone_redundancy_enabled = {{ zone_redundancy_enabled }}
+    azure_monitor_workspace_integrations {
+      resource_id = "{{ resource_id }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    smtp {
+      enabled = {{ enabled }}
+      from_address = "{{ from_address }}"
+      from_name = "{{ from_name }}"
+      host = "{{ host }}"
+      password = "{{ password }}"
+      start_tls_policy = "{{ start_tls_policy }}"
+      user = "{{ user }}"
+      verification_skip_enabled = {{ verification_skip_enabled }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

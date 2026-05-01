@@ -1,0 +1,18 @@
+resource "azurerm_mssql_job_target_group" "example" {
+    id = "{{ id }}"
+    job_agent_id = "{{ job_agent_id }}"
+    name = "{{ name }}"
+    job_target {
+      database_name = "{{ database_name }}"
+      elastic_pool_name = "{{ elastic_pool_name }}"
+      job_credential_id = "{{ job_credential_id }}"
+      membership_type = "{{ membership_type }}"
+      server_name = "{{ server_name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

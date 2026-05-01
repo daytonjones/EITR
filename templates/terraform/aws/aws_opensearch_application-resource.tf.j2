@@ -1,0 +1,26 @@
+resource "aws_opensearch_application" "example" {
+    kms_key_arn = "{{ kms_key_arn }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    app_config {
+      key = "{{ key }}"
+      value = "{{ value }}"
+    }
+    data_source {
+      data_source_arn = "{{ data_source_arn }}"
+      data_source_description = "{{ data_source_description }}"
+    }
+    iam_identity_center_options {
+      enabled = {{ enabled }}
+      iam_identity_center_instance_arn = "{{ iam_identity_center_instance_arn }}"
+      iam_role_for_identity_center_application_arn = "{{ iam_role_for_identity_center_application_arn }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

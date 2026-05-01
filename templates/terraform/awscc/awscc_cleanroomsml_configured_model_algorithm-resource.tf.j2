@@ -1,0 +1,9 @@
+resource "awscc_cleanroomsml_configured_model_algorithm" "example" {
+    description = "{{ description }}"
+    inference_container_config = "{{ inference_container_config }}"
+    kms_key_arn = "{{ kms_key_arn }}"
+    name = "{{ name }}"
+    role_arn = "{{ role_arn }}"
+    tags = "{{ tags }}"
+    training_container_config = "{{ training_container_config }}"
+}

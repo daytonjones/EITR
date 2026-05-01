@@ -1,0 +1,84 @@
+resource "google_vertex_ai_reasoning_engine" "example" {
+    deletion_policy = "{{ deletion_policy }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    project = "{{ project }}"
+    region = "{{ region }}"
+    encryption_spec {
+      kms_key_name = "{{ kms_key_name }}"
+    }
+    spec {
+      agent_framework = "{{ agent_framework }}"
+      class_methods = "{{ class_methods }}"
+      identity_type = "{{ identity_type }}"
+      service_account = "{{ service_account }}"
+      container_spec {
+        image_uri = "{{ image_uri }}"
+      }
+      deployment_spec {
+        container_concurrency = {{ container_concurrency }}
+        max_instances = {{ max_instances }}
+        min_instances = {{ min_instances }}
+        resource_limits = {
+        key = "{{ resource_limits_value }}"
+      }
+        env {
+          name = "{{ name }}"
+          value = "{{ value }}"
+        }
+        psc_interface_config {
+          network_attachment = "{{ network_attachment }}"
+          dns_peering_configs {
+            domain = "{{ domain }}"
+            target_network = "{{ target_network }}"
+            target_project = "{{ target_project }}"
+          }
+        }
+        secret_env {
+          name = "{{ name }}"
+          secret_ref {
+            secret = "{{ secret }}"
+            version = "{{ version }}"
+          }
+        }
+      }
+      package_spec {
+        dependency_files_gcs_uri = "{{ dependency_files_gcs_uri }}"
+        pickle_object_gcs_uri = "{{ pickle_object_gcs_uri }}"
+        python_version = "{{ python_version }}"
+        requirements_gcs_uri = "{{ requirements_gcs_uri }}"
+      }
+      source_code_spec {
+        developer_connect_source {
+          config {
+            dir = "{{ dir }}"
+            git_repository_link = "{{ git_repository_link }}"
+            revision = "{{ revision }}"
+          }
+        }
+        image_spec {
+          build_args = {
+        key = "{{ build_args_value }}"
+      }
+        }
+        inline_source {
+          source_archive = "{{ source_archive }}"
+        }
+        python_spec {
+          entrypoint_module = "{{ entrypoint_module }}"
+          entrypoint_object = "{{ entrypoint_object }}"
+          requirements_file = "{{ requirements_file }}"
+          version = "{{ version }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,0 +1,27 @@
+resource "google_network_connectivity_transport" "example" {
+    admin_enabled = {{ admin_enabled }}
+    advertised_routes = ["{{ advertised_routes }}"]
+    auto_accept = {{ auto_accept }}
+    bandwidth = "{{ bandwidth }}"
+    description = "{{ description }}"
+    hub = "{{ hub }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    mtu_limit = {{ mtu_limit }}
+    name = "{{ name }}"
+    network = "{{ network }}"
+    project = "{{ project }}"
+    provided_activation_key = "{{ provided_activation_key }}"
+    psc_routing_enabled = {{ psc_routing_enabled }}
+    region = "{{ region }}"
+    remote_account_id = "{{ remote_account_id }}"
+    remote_profile = "{{ remote_profile }}"
+    stack_type = "{{ stack_type }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

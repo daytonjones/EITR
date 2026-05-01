@@ -4,4 +4,10 @@ resource "aws_servicecatalog_principal_portfolio_association" "example" {
     portfolio_id = "{{ portfolio_id }}"
     principal_arn = "{{ principal_arn }}"
     principal_type = "{{ principal_type }}"
+    region = "{{ region }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

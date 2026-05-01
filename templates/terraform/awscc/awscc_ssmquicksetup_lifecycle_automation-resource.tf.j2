@@ -1,0 +1,10 @@
+resource "awscc_ssmquicksetup_lifecycle_automation" "example" {
+    automation_document = "{{ automation_document }}"
+    automation_parameters = {
+        key = "{{ automation_parameters_value }}"
+      }
+    resource_key = "{{ resource_key }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

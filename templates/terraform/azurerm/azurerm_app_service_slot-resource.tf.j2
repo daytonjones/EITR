@@ -1,16 +1,136 @@
 resource "azurerm_app_service_slot" "example" {
     app_service_name = "{{ app_service_name }}"
     app_service_plan_id = "{{ app_service_plan_id }}"
-    app_settings = "{{ app_settings }}"
-    client_affinity_enabled = "{{ client_affinity_enabled }}"
-    default_site_hostname = "{{ default_site_hostname }}"
-    enabled = "{{ enabled }}"
-    https_only = "{{ https_only }}"
+    app_settings = {
+        key = "{{ app_settings_value }}"
+      }
+    client_affinity_enabled = {{ client_affinity_enabled }}
+    enabled = {{ enabled }}
+    https_only = {{ https_only }}
     id = "{{ id }}"
     key_vault_reference_identity_id = "{{ key_vault_reference_identity_id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    site_credential = "{{ site_credential }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    auth_settings {
+      additional_login_params = {
+        key = "{{ additional_login_params_value }}"
+      }
+      allowed_external_redirect_urls = ["{{ allowed_external_redirect_urls }}"]
+      default_provider = "{{ default_provider }}"
+      enabled = {{ enabled }}
+      issuer = "{{ issuer }}"
+      runtime_version = "{{ runtime_version }}"
+      token_refresh_extension_hours = {{ token_refresh_extension_hours }}
+      token_store_enabled = {{ token_store_enabled }}
+      unauthenticated_client_action = "{{ unauthenticated_client_action }}"
+      active_directory {
+        allowed_audiences = ["{{ allowed_audiences }}"]
+        client_id = "{{ client_id }}"
+        client_secret = "{{ client_secret }}"
+      }
+      facebook {
+        app_id = "{{ app_id }}"
+        app_secret = "{{ app_secret }}"
+        oauth_scopes = ["{{ oauth_scopes }}"]
+      }
+      google {
+        client_id = "{{ client_id }}"
+        client_secret = "{{ client_secret }}"
+        oauth_scopes = ["{{ oauth_scopes }}"]
+      }
+      microsoft {
+        client_id = "{{ client_id }}"
+        client_secret = "{{ client_secret }}"
+        oauth_scopes = ["{{ oauth_scopes }}"]
+      }
+      twitter {
+        consumer_key = "{{ consumer_key }}"
+        consumer_secret = "{{ consumer_secret }}"
+      }
+    }
+    connection_string {
+      name = "{{ name }}"
+      type = "{{ type }}"
+      value = "{{ value }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    logs {
+      detailed_error_messages_enabled = {{ detailed_error_messages_enabled }}
+      failed_request_tracing_enabled = {{ failed_request_tracing_enabled }}
+      application_logs {
+        file_system_level = "{{ file_system_level }}"
+        azure_blob_storage {
+          level = "{{ level }}"
+          retention_in_days = {{ retention_in_days }}
+          sas_url = "{{ sas_url }}"
+        }
+      }
+      http_logs {
+        azure_blob_storage {
+          retention_in_days = {{ retention_in_days }}
+          sas_url = "{{ sas_url }}"
+        }
+        file_system {
+          retention_in_days = {{ retention_in_days }}
+          retention_in_mb = {{ retention_in_mb }}
+        }
+      }
+    }
+    site_config {
+      acr_use_managed_identity_credentials = {{ acr_use_managed_identity_credentials }}
+      acr_user_managed_identity_client_id = "{{ acr_user_managed_identity_client_id }}"
+      always_on = {{ always_on }}
+      app_command_line = "{{ app_command_line }}"
+      auto_swap_slot_name = "{{ auto_swap_slot_name }}"
+      default_documents = ["{{ default_documents }}"]
+      dotnet_framework_version = "{{ dotnet_framework_version }}"
+      ftps_state = "{{ ftps_state }}"
+      health_check_path = "{{ health_check_path }}"
+      http2_enabled = {{ http2_enabled }}
+      ip_restriction = ["{{ ip_restriction }}"]
+      java_container = "{{ java_container }}"
+      java_container_version = "{{ java_container_version }}"
+      java_version = "{{ java_version }}"
+      linux_fx_version = "{{ linux_fx_version }}"
+      local_mysql_enabled = {{ local_mysql_enabled }}
+      managed_pipeline_mode = "{{ managed_pipeline_mode }}"
+      min_tls_version = "{{ min_tls_version }}"
+      number_of_workers = {{ number_of_workers }}
+      php_version = "{{ php_version }}"
+      python_version = "{{ python_version }}"
+      remote_debugging_enabled = {{ remote_debugging_enabled }}
+      remote_debugging_version = "{{ remote_debugging_version }}"
+      scm_ip_restriction = ["{{ scm_ip_restriction }}"]
+      scm_type = "{{ scm_type }}"
+      scm_use_main_ip_restriction = {{ scm_use_main_ip_restriction }}
+      use_32_bit_worker_process = {{ use_32_bit_worker_process }}
+      vnet_route_all_enabled = {{ vnet_route_all_enabled }}
+      websockets_enabled = {{ websockets_enabled }}
+      windows_fx_version = "{{ windows_fx_version }}"
+      cors {
+        allowed_origins = ["{{ allowed_origins }}"]
+        support_credentials = {{ support_credentials }}
+      }
+    }
+    storage_account {
+      access_key = "{{ access_key }}"
+      account_name = "{{ account_name }}"
+      mount_path = "{{ mount_path }}"
+      name = "{{ name }}"
+      share_name = "{{ share_name }}"
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

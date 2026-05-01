@@ -1,0 +1,74 @@
+resource "google_compute_future_reservation" "example" {
+    auto_created_reservations_delete_time = "{{ auto_created_reservations_delete_time }}"
+    auto_delete_auto_created_reservations = {{ auto_delete_auto_created_reservations }}
+    deployment_type = "{{ deployment_type }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    name_prefix = "{{ name_prefix }}"
+    planning_status = "{{ planning_status }}"
+    project = "{{ project }}"
+    reservation_mode = "{{ reservation_mode }}"
+    reservation_name = "{{ reservation_name }}"
+    scheduling_type = "{{ scheduling_type }}"
+    specific_reservation_required = {{ specific_reservation_required }}
+    aggregate_reservation {
+      vm_family = "{{ vm_family }}"
+      workload_type = "{{ workload_type }}"
+      reserved_resources {
+        accelerator {
+          accelerator_count = {{ accelerator_count }}
+          accelerator_type = "{{ accelerator_type }}"
+        }
+      }
+    }
+    auto_created_reservations_duration {
+      nanos = {{ nanos }}
+      seconds = "{{ seconds }}"
+    }
+    commitment_info {
+      commitment_name = "{{ commitment_name }}"
+      commitment_plan = "{{ commitment_plan }}"
+      previous_commitment_terms = "{{ previous_commitment_terms }}"
+    }
+    share_settings {
+      projects = ["{{ projects }}"]
+      share_type = "{{ share_type }}"
+      project_map {
+        id = "{{ id }}"
+        project_id = "{{ project_id }}"
+      }
+    }
+    specific_sku_properties {
+      source_instance_template = "{{ source_instance_template }}"
+      total_count = "{{ total_count }}"
+      instance_properties {
+        location_hint = "{{ location_hint }}"
+        machine_type = "{{ machine_type }}"
+        maintenance_freeze_duration_hours = {{ maintenance_freeze_duration_hours }}
+        maintenance_interval = "{{ maintenance_interval }}"
+        min_cpu_platform = "{{ min_cpu_platform }}"
+        guest_accelerators {
+          accelerator_count = {{ accelerator_count }}
+          accelerator_type = "{{ accelerator_type }}"
+        }
+        local_ssds {
+          disk_size_gb = "{{ disk_size_gb }}"
+          interface = "{{ interface }}"
+        }
+      }
+    }
+    time_window {
+      end_time = "{{ end_time }}"
+      start_time = "{{ start_time }}"
+      duration {
+        nanos = {{ nanos }}
+        seconds = "{{ seconds }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

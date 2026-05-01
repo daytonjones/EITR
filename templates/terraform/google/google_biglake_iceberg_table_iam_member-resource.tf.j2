@@ -1,0 +1,14 @@
+resource "google_biglake_iceberg_table_iam_member" "example" {
+    catalog = "{{ catalog }}"
+    id = "{{ id }}"
+    member = "{{ member }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    project = "{{ project }}"
+    role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

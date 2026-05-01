@@ -4,4 +4,23 @@ resource "google_pubsub_lite_topic" "example" {
     project = "{{ project }}"
     region = "{{ region }}"
     zone = "{{ zone }}"
+    partition_config {
+      count = {{ count }}
+      capacity {
+        publish_mib_per_sec = {{ publish_mib_per_sec }}
+        subscribe_mib_per_sec = {{ subscribe_mib_per_sec }}
+      }
+    }
+    reservation_config {
+      throughput_reservation = "{{ throughput_reservation }}"
+    }
+    retention_config {
+      per_partition_bytes = "{{ per_partition_bytes }}"
+      period = "{{ period }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

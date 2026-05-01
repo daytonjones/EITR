@@ -1,9 +1,13 @@
 resource "google_dataplex_datascan_iam_binding" "example" {
     data_scan_id = "{{ data_scan_id }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
     location = "{{ location }}"
-    members = "{{ members }}"
+    members = ["{{ members }}"]
     project = "{{ project }}"
     role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

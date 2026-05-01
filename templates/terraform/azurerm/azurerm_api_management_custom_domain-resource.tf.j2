@@ -1,4 +1,56 @@
 resource "azurerm_api_management_custom_domain" "example" {
     api_management_id = "{{ api_management_id }}"
     id = "{{ id }}"
+    developer_portal {
+      certificate = "{{ certificate }}"
+      certificate_password = "{{ certificate_password }}"
+      host_name = "{{ host_name }}"
+      key_vault_certificate_id = "{{ key_vault_certificate_id }}"
+      key_vault_id = "{{ key_vault_id }}"
+      negotiate_client_certificate = {{ negotiate_client_certificate }}
+      ssl_keyvault_identity_client_id = "{{ ssl_keyvault_identity_client_id }}"
+    }
+    gateway {
+      certificate = "{{ certificate }}"
+      certificate_password = "{{ certificate_password }}"
+      default_ssl_binding = {{ default_ssl_binding }}
+      host_name = "{{ host_name }}"
+      key_vault_certificate_id = "{{ key_vault_certificate_id }}"
+      key_vault_id = "{{ key_vault_id }}"
+      negotiate_client_certificate = {{ negotiate_client_certificate }}
+      ssl_keyvault_identity_client_id = "{{ ssl_keyvault_identity_client_id }}"
+    }
+    management {
+      certificate = "{{ certificate }}"
+      certificate_password = "{{ certificate_password }}"
+      host_name = "{{ host_name }}"
+      key_vault_certificate_id = "{{ key_vault_certificate_id }}"
+      key_vault_id = "{{ key_vault_id }}"
+      negotiate_client_certificate = {{ negotiate_client_certificate }}
+      ssl_keyvault_identity_client_id = "{{ ssl_keyvault_identity_client_id }}"
+    }
+    portal {
+      certificate = "{{ certificate }}"
+      certificate_password = "{{ certificate_password }}"
+      host_name = "{{ host_name }}"
+      key_vault_certificate_id = "{{ key_vault_certificate_id }}"
+      key_vault_id = "{{ key_vault_id }}"
+      negotiate_client_certificate = {{ negotiate_client_certificate }}
+      ssl_keyvault_identity_client_id = "{{ ssl_keyvault_identity_client_id }}"
+    }
+    scm {
+      certificate = "{{ certificate }}"
+      certificate_password = "{{ certificate_password }}"
+      host_name = "{{ host_name }}"
+      key_vault_certificate_id = "{{ key_vault_certificate_id }}"
+      key_vault_id = "{{ key_vault_id }}"
+      negotiate_client_certificate = {{ negotiate_client_certificate }}
+      ssl_keyvault_identity_client_id = "{{ ssl_keyvault_identity_client_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

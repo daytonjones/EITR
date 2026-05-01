@@ -1,19 +1,10 @@
 resource "awscc_elasticache_user" "example" {
     access_string = "{{ access_string }}"
-    arn = "{{ arn }}"
-    authentication_mode = "{
-    passwords = {{ passwords }}
-    type = {{ type }}
-}"
+    authentication_mode = "{{ authentication_mode }}"
     engine = "{{ engine }}"
-    id = "{{ id }}"
-    no_password_required = "{{ no_password_required }}"
-    passwords = "{{ passwords }}"
-    status = "{{ status }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    no_password_required = {{ no_password_required }}
+    passwords = ["{{ passwords }}"]
+    tags = "{{ tags }}"
     user_id = "{{ user_id }}"
     user_name = "{{ user_name }}"
 }

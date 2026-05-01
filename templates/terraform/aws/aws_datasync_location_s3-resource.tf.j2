@@ -1,11 +1,17 @@
 resource "aws_datasync_location_s3" "example" {
-    agent_arns = "{{ agent_arns }}"
-    arn = "{{ arn }}"
+    agent_arns = ["{{ agent_arns }}"]
     id = "{{ id }}"
+    region = "{{ region }}"
     s3_bucket_arn = "{{ s3_bucket_arn }}"
     s3_storage_class = "{{ s3_storage_class }}"
     subdirectory = "{{ subdirectory }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    uri = "{{ uri }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    s3_config {
+      bucket_access_role_arn = "{{ bucket_access_role_arn }}"
+    }
 }

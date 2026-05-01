@@ -5,4 +5,7 @@ data "azurerm_platform_image" "example" {
     publisher = "{{ publisher }}"
     sku = "{{ sku }}"
     version = "{{ version }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

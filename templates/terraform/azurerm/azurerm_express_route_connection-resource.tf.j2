@@ -1,11 +1,27 @@
 resource "azurerm_express_route_connection" "example" {
     authorization_key = "{{ authorization_key }}"
-    enable_internet_security = "{{ enable_internet_security }}"
+    enable_internet_security = {{ enable_internet_security }}
     express_route_circuit_peering_id = "{{ express_route_circuit_peering_id }}"
-    express_route_gateway_bypass_enabled = "{{ express_route_gateway_bypass_enabled }}"
+    express_route_gateway_bypass_enabled = {{ express_route_gateway_bypass_enabled }}
     express_route_gateway_id = "{{ express_route_gateway_id }}"
     id = "{{ id }}"
+    internet_security_enabled = {{ internet_security_enabled }}
     name = "{{ name }}"
-    private_link_fast_path_enabled = "{{ private_link_fast_path_enabled }}"
-    routing_weight = "{{ routing_weight }}"
+    private_link_fast_path_enabled = {{ private_link_fast_path_enabled }}
+    routing_weight = {{ routing_weight }}
+    routing {
+      associated_route_table_id = "{{ associated_route_table_id }}"
+      inbound_route_map_id = "{{ inbound_route_map_id }}"
+      outbound_route_map_id = "{{ outbound_route_map_id }}"
+      propagated_route_table {
+        labels = ["{{ labels }}"]
+        route_table_ids = ["{{ route_table_ids }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

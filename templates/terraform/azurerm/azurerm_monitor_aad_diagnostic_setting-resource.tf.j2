@@ -5,4 +5,17 @@ resource "azurerm_monitor_aad_diagnostic_setting" "example" {
     log_analytics_workspace_id = "{{ log_analytics_workspace_id }}"
     name = "{{ name }}"
     storage_account_id = "{{ storage_account_id }}"
+    enabled_log {
+      category = "{{ category }}"
+      retention_policy {
+        days = {{ days }}
+        enabled = {{ enabled }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

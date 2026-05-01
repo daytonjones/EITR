@@ -1,0 +1,13 @@
+resource "azurerm_network_security_perimeter_association" "example" {
+    access_mode = "{{ access_mode }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    network_security_perimeter_profile_id = "{{ network_security_perimeter_profile_id }}"
+    resource_id = "{{ resource_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

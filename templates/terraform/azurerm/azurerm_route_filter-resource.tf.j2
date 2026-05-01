@@ -3,6 +3,14 @@ resource "azurerm_route_filter" "example" {
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    rule = "{{ rule }}"
-    tags = "{{ tags }}"
+    rule = ["{{ rule }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

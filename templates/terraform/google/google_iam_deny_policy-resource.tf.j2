@@ -1,7 +1,26 @@
 resource "google_iam_deny_policy" "example" {
     display_name = "{{ display_name }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
     name = "{{ name }}"
     parent = "{{ parent }}"
+    rules {
+      description = "{{ description }}"
+      deny_rule {
+        denied_permissions = ["{{ denied_permissions }}"]
+        denied_principals = ["{{ denied_principals }}"]
+        exception_permissions = ["{{ exception_permissions }}"]
+        exception_principals = ["{{ exception_principals }}"]
+        denial_condition {
+          description = "{{ description }}"
+          expression = "{{ expression }}"
+          location = "{{ location }}"
+          title = "{{ title }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -6,4 +6,18 @@ resource "azurerm_data_protection_backup_instance_kubernetes_cluster" "example" 
     name = "{{ name }}"
     snapshot_resource_group_name = "{{ snapshot_resource_group_name }}"
     vault_id = "{{ vault_id }}"
+    backup_datasource_parameters {
+      cluster_scoped_resources_enabled = {{ cluster_scoped_resources_enabled }}
+      excluded_namespaces = ["{{ excluded_namespaces }}"]
+      excluded_resource_types = ["{{ excluded_resource_types }}"]
+      included_namespaces = ["{{ included_namespaces }}"]
+      included_resource_types = ["{{ included_resource_types }}"]
+      label_selectors = ["{{ label_selectors }}"]
+      volume_snapshot_enabled = {{ volume_snapshot_enabled }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

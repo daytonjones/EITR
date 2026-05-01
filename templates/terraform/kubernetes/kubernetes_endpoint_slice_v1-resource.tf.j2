@@ -1,4 +1,39 @@
 resource "kubernetes_endpoint_slice_v1" "example" {
     address_type = "{{ address_type }}"
     id = "{{ id }}"
+    endpoint {
+      addresses = ["{{ addresses }}"]
+      hostname = "{{ hostname }}"
+      node_name = "{{ node_name }}"
+      zone = "{{ zone }}"
+      condition {
+        ready = {{ ready }}
+        serving = {{ serving }}
+        terminating = {{ terminating }}
+      }
+      target_ref {
+        field_path = "{{ field_path }}"
+        name = "{{ name }}"
+        namespace = "{{ namespace }}"
+        resource_version = "{{ resource_version }}"
+        uid = "{{ uid }}"
+      }
+    }
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      generate_name = "{{ generate_name }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      name = "{{ name }}"
+      namespace = "{{ namespace }}"
+    }
+    port {
+      app_protocol = "{{ app_protocol }}"
+      name = "{{ name }}"
+      port = "{{ port }}"
+      protocol = "{{ protocol }}"
+    }
 }

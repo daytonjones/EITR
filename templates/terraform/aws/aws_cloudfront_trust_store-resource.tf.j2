@@ -1,0 +1,19 @@
+resource "aws_cloudfront_trust_store" "example" {
+    name = "{{ name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    ca_certificates_bundle_source {
+      ca_certificates_bundle_s3_location {
+        bucket = "{{ bucket }}"
+        key = "{{ key }}"
+        region = "{{ region }}"
+        version = "{{ version }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

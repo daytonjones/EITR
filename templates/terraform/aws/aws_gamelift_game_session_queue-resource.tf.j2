@@ -1,11 +1,19 @@
 resource "aws_gamelift_game_session_queue" "example" {
-    arn = "{{ arn }}"
     custom_event_data = "{{ custom_event_data }}"
-    destinations = "{{ destinations }}"
+    destinations = ["{{ destinations }}"]
     id = "{{ id }}"
     name = "{{ name }}"
     notification_target = "{{ notification_target }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    timeout_in_seconds = "{{ timeout_in_seconds }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    timeout_in_seconds = {{ timeout_in_seconds }}
+    player_latency_policy {
+      maximum_individual_player_latency_milliseconds = {{ maximum_individual_player_latency_milliseconds }}
+      policy_duration_seconds = {{ policy_duration_seconds }}
+    }
 }

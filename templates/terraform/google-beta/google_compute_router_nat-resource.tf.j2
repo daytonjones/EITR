@@ -1,24 +1,53 @@
 resource "google_compute_router_nat" "example" {
     auto_network_tier = "{{ auto_network_tier }}"
-    drain_nat_ips = "{{ drain_nat_ips }}"
-    enable_dynamic_port_allocation = "{{ enable_dynamic_port_allocation }}"
-    enable_endpoint_independent_mapping = "{{ enable_endpoint_independent_mapping }}"
-    endpoint_types = "{{ endpoint_types }}"
-    icmp_idle_timeout_sec = "{{ icmp_idle_timeout_sec }}"
+    drain_nat_ips = ["{{ drain_nat_ips }}"]
+    enable_dynamic_port_allocation = {{ enable_dynamic_port_allocation }}
+    enable_endpoint_independent_mapping = {{ enable_endpoint_independent_mapping }}
+    endpoint_types = ["{{ endpoint_types }}"]
+    icmp_idle_timeout_sec = {{ icmp_idle_timeout_sec }}
     id = "{{ id }}"
-    initial_nat_ips = "{{ initial_nat_ips }}"
-    max_ports_per_vm = "{{ max_ports_per_vm }}"
-    min_ports_per_vm = "{{ min_ports_per_vm }}"
+    initial_nat_ips = ["{{ initial_nat_ips }}"]
+    max_ports_per_vm = {{ max_ports_per_vm }}
+    min_ports_per_vm = {{ min_ports_per_vm }}
     name = "{{ name }}"
     nat_ip_allocate_option = "{{ nat_ip_allocate_option }}"
-    nat_ips = "{{ nat_ips }}"
+    nat_ips = ["{{ nat_ips }}"]
     project = "{{ project }}"
     region = "{{ region }}"
     router = "{{ router }}"
     source_subnetwork_ip_ranges_to_nat = "{{ source_subnetwork_ip_ranges_to_nat }}"
-    tcp_established_idle_timeout_sec = "{{ tcp_established_idle_timeout_sec }}"
-    tcp_time_wait_timeout_sec = "{{ tcp_time_wait_timeout_sec }}"
-    tcp_transitory_idle_timeout_sec = "{{ tcp_transitory_idle_timeout_sec }}"
+    source_subnetwork_ip_ranges_to_nat64 = "{{ source_subnetwork_ip_ranges_to_nat64 }}"
+    tcp_established_idle_timeout_sec = {{ tcp_established_idle_timeout_sec }}
+    tcp_time_wait_timeout_sec = {{ tcp_time_wait_timeout_sec }}
+    tcp_transitory_idle_timeout_sec = {{ tcp_transitory_idle_timeout_sec }}
     type = "{{ type }}"
-    udp_idle_timeout_sec = "{{ udp_idle_timeout_sec }}"
+    udp_idle_timeout_sec = {{ udp_idle_timeout_sec }}
+    log_config {
+      enable = {{ enable }}
+      filter = "{{ filter }}"
+    }
+    nat64_subnetwork {
+      name = "{{ name }}"
+    }
+    rules {
+      description = "{{ description }}"
+      match = "{{ match }}"
+      rule_number = {{ rule_number }}
+      action {
+        source_nat_active_ips = ["{{ source_nat_active_ips }}"]
+        source_nat_active_ranges = ["{{ source_nat_active_ranges }}"]
+        source_nat_drain_ips = ["{{ source_nat_drain_ips }}"]
+        source_nat_drain_ranges = ["{{ source_nat_drain_ranges }}"]
+      }
+    }
+    subnetwork {
+      name = "{{ name }}"
+      secondary_ip_range_names = ["{{ secondary_ip_range_names }}"]
+      source_ip_ranges_to_nat = ["{{ source_ip_ranges_to_nat }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

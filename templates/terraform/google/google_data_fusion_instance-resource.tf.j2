@@ -1,29 +1,51 @@
 resource "google_data_fusion_instance" "example" {
-    api_endpoint = "{{ api_endpoint }}"
-    create_time = "{{ create_time }}"
     dataproc_service_account = "{{ dataproc_service_account }}"
     description = "{{ description }}"
     display_name = "{{ display_name }}"
-    effective_labels = "{{ effective_labels }}"
-    enable_rbac = "{{ enable_rbac }}"
-    enable_stackdriver_logging = "{{ enable_stackdriver_logging }}"
-    enable_stackdriver_monitoring = "{{ enable_stackdriver_monitoring }}"
-    gcs_bucket = "{{ gcs_bucket }}"
+    enable_rbac = {{ enable_rbac }}
+    enable_stackdriver_logging = {{ enable_stackdriver_logging }}
+    enable_stackdriver_monitoring = {{ enable_stackdriver_monitoring }}
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
-    options = "{{ options }}"
-    p4_service_account = "{{ p4_service_account }}"
-    private_instance = "{{ private_instance }}"
+    options = {
+        key = "{{ options_value }}"
+      }
+    patch_revision = "{{ patch_revision }}"
+    private_instance = {{ private_instance }}
     project = "{{ project }}"
     region = "{{ region }}"
-    service_endpoint = "{{ service_endpoint }}"
-    state = "{{ state }}"
-    state_message = "{{ state_message }}"
-    tenant_project_id = "{{ tenant_project_id }}"
-    terraform_labels = "{{ terraform_labels }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     type = "{{ type }}"
-    update_time = "{{ update_time }}"
     version = "{{ version }}"
     zone = "{{ zone }}"
+    accelerators {
+      accelerator_type = "{{ accelerator_type }}"
+      state = "{{ state }}"
+    }
+    crypto_key_config {
+      key_reference = "{{ key_reference }}"
+    }
+    event_publish_config {
+      enabled = {{ enabled }}
+      topic = "{{ topic }}"
+    }
+    network_config {
+      connection_type = "{{ connection_type }}"
+      ip_allocation = "{{ ip_allocation }}"
+      network = "{{ network }}"
+      private_service_connect_config {
+        network_attachment = "{{ network_attachment }}"
+        unreachable_cidr_block = "{{ unreachable_cidr_block }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

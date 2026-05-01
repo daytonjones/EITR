@@ -1,0 +1,13 @@
+resource "google_bigtable_logical_view" "example" {
+    deletion_protection = {{ deletion_protection }}
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    logical_view_id = "{{ logical_view_id }}"
+    project = "{{ project }}"
+    query = "{{ query }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

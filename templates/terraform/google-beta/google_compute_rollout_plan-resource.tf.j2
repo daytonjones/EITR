@@ -1,0 +1,39 @@
+resource "google_compute_rollout_plan" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    location_scope = "{{ location_scope }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+    waves {
+      display_name = "{{ display_name }}"
+      orchestration_options {
+        max_concurrent_locations = {{ max_concurrent_locations }}
+        max_concurrent_resources_per_location = {{ max_concurrent_resources_per_location }}
+        delays {
+          delimiter = "{{ delimiter }}"
+          duration = "{{ duration }}"
+          type = "{{ type }}"
+        }
+      }
+      selectors {
+        location_selector {
+          included_locations = ["{{ included_locations }}"]
+        }
+        resource_hierarchy_selector {
+          included_folders = ["{{ included_folders }}"]
+          included_organizations = ["{{ included_organizations }}"]
+          included_projects = ["{{ included_projects }}"]
+        }
+      }
+      validation {
+        type = "{{ type }}"
+        time_based_validation_metadata {
+          wait_duration = "{{ wait_duration }}"
+        }
+      }
+    }
+}

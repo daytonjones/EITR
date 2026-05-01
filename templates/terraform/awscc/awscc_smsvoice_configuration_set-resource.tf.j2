@@ -1,0 +1,8 @@
+resource "awscc_smsvoice_configuration_set" "example" {
+    configuration_set_name = "{{ configuration_set_name }}"
+    default_sender_id = "{{ default_sender_id }}"
+    event_destinations = "{{ event_destinations }}"
+    message_feedback_enabled = {{ message_feedback_enabled }}
+    protect_configuration_id = "{{ protect_configuration_id }}"
+    tags = "{{ tags }}"
+}

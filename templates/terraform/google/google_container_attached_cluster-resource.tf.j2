@@ -1,21 +1,51 @@
 resource "google_container_attached_cluster" "example" {
-    annotations = "{{ annotations }}"
-    cluster_region = "{{ cluster_region }}"
-    create_time = "{{ create_time }}"
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
     deletion_policy = "{{ deletion_policy }}"
     description = "{{ description }}"
     distribution = "{{ distribution }}"
-    effective_annotations = "{{ effective_annotations }}"
-    errors = "{{ errors }}"
     id = "{{ id }}"
-    kubernetes_version = "{{ kubernetes_version }}"
     location = "{{ location }}"
     name = "{{ name }}"
     platform_version = "{{ platform_version }}"
     project = "{{ project }}"
-    reconciling = "{{ reconciling }}"
-    state = "{{ state }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
-    workload_identity_config = "{{ workload_identity_config }}"
+    authorization {
+      admin_groups = ["{{ admin_groups }}"]
+      admin_users = ["{{ admin_users }}"]
+    }
+    binary_authorization {
+      evaluation_mode = "{{ evaluation_mode }}"
+    }
+    fleet {
+      project = "{{ project }}"
+    }
+    logging_config {
+      component_config {
+        enable_components = ["{{ enable_components }}"]
+      }
+    }
+    monitoring_config {
+      managed_prometheus_config {
+        enabled = {{ enabled }}
+      }
+    }
+    oidc_config {
+      issuer_url = "{{ issuer_url }}"
+      jwks = "{{ jwks }}"
+    }
+    proxy_config {
+      kubernetes_secret {
+        name = "{{ name }}"
+        namespace = "{{ namespace }}"
+      }
+    }
+    security_posture_config {
+      vulnerability_mode = "{{ vulnerability_mode }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,14 +1,105 @@
 resource "aws_kinesis_analytics_application" "example" {
-    arn = "{{ arn }}"
     code = "{{ code }}"
-    create_timestamp = "{{ create_timestamp }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    last_update_timestamp = "{{ last_update_timestamp }}"
     name = "{{ name }}"
-    start_application = "{{ start_application }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    version = "{{ version }}"
+    region = "{{ region }}"
+    start_application = {{ start_application }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    cloudwatch_logging_options {
+      log_stream_arn = "{{ log_stream_arn }}"
+      role_arn = "{{ role_arn }}"
+    }
+    inputs {
+      name_prefix = "{{ name_prefix }}"
+      kinesis_firehose {
+        resource_arn = "{{ resource_arn }}"
+        role_arn = "{{ role_arn }}"
+      }
+      kinesis_stream {
+        resource_arn = "{{ resource_arn }}"
+        role_arn = "{{ role_arn }}"
+      }
+      parallelism {
+        count = {{ count }}
+      }
+      processing_configuration {
+        lambda {
+          resource_arn = "{{ resource_arn }}"
+          role_arn = "{{ role_arn }}"
+        }
+      }
+      schema {
+        record_encoding = "{{ record_encoding }}"
+        record_columns {
+          mapping = "{{ mapping }}"
+          name = "{{ name }}"
+          sql_type = "{{ sql_type }}"
+        }
+        record_format {
+          mapping_parameters {
+            csv {
+              record_column_delimiter = "{{ record_column_delimiter }}"
+              record_row_delimiter = "{{ record_row_delimiter }}"
+            }
+            json {
+              record_row_path = "{{ record_row_path }}"
+            }
+          }
+        }
+      }
+      starting_position_configuration {
+        starting_position = "{{ starting_position }}"
+      }
+    }
+    outputs {
+      name = "{{ name }}"
+      kinesis_firehose {
+        resource_arn = "{{ resource_arn }}"
+        role_arn = "{{ role_arn }}"
+      }
+      kinesis_stream {
+        resource_arn = "{{ resource_arn }}"
+        role_arn = "{{ role_arn }}"
+      }
+      lambda {
+        resource_arn = "{{ resource_arn }}"
+        role_arn = "{{ role_arn }}"
+      }
+      schema {
+        record_format_type = "{{ record_format_type }}"
+      }
+    }
+    reference_data_sources {
+      table_name = "{{ table_name }}"
+      s3 {
+        bucket_arn = "{{ bucket_arn }}"
+        file_key = "{{ file_key }}"
+        role_arn = "{{ role_arn }}"
+      }
+      schema {
+        record_encoding = "{{ record_encoding }}"
+        record_columns {
+          mapping = "{{ mapping }}"
+          name = "{{ name }}"
+          sql_type = "{{ sql_type }}"
+        }
+        record_format {
+          mapping_parameters {
+            csv {
+              record_column_delimiter = "{{ record_column_delimiter }}"
+              record_row_delimiter = "{{ record_row_delimiter }}"
+            }
+            json {
+              record_row_path = "{{ record_row_path }}"
+            }
+          }
+        }
+      }
+    }
 }

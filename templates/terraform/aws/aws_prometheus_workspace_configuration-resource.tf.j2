@@ -1,0 +1,17 @@
+resource "aws_prometheus_workspace_configuration" "example" {
+    region = "{{ region }}"
+    retention_period_in_days = {{ retention_period_in_days }}
+    workspace_id = "{{ workspace_id }}"
+    limits_per_label_set {
+      label_set = {
+        key = "{{ label_set_value }}"
+      }
+      limits {
+        max_series = {{ max_series }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
+}

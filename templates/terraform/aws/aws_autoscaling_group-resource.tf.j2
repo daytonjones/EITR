@@ -1,37 +1,181 @@
 resource "aws_autoscaling_group" "example" {
-    arn = "{{ arn }}"
-    availability_zones = "{{ availability_zones }}"
-    capacity_rebalance = "{{ capacity_rebalance }}"
+    availability_zones = ["{{ availability_zones }}"]
+    capacity_rebalance = {{ capacity_rebalance }}
     context = "{{ context }}"
-    default_cooldown = "{{ default_cooldown }}"
-    default_instance_warmup = "{{ default_instance_warmup }}"
-    desired_capacity = "{{ desired_capacity }}"
+    default_cooldown = {{ default_cooldown }}
+    default_instance_warmup = {{ default_instance_warmup }}
+    desired_capacity = {{ desired_capacity }}
     desired_capacity_type = "{{ desired_capacity_type }}"
-    enabled_metrics = "{{ enabled_metrics }}"
-    force_delete = "{{ force_delete }}"
-    force_delete_warm_pool = "{{ force_delete_warm_pool }}"
-    health_check_grace_period = "{{ health_check_grace_period }}"
+    enabled_metrics = ["{{ enabled_metrics }}"]
+    force_delete = {{ force_delete }}
+    force_delete_warm_pool = {{ force_delete_warm_pool }}
+    health_check_grace_period = {{ health_check_grace_period }}
     health_check_type = "{{ health_check_type }}"
     id = "{{ id }}"
-    ignore_failed_scaling_activities = "{{ ignore_failed_scaling_activities }}"
+    ignore_failed_scaling_activities = {{ ignore_failed_scaling_activities }}
     launch_configuration = "{{ launch_configuration }}"
-    load_balancers = "{{ load_balancers }}"
-    max_instance_lifetime = "{{ max_instance_lifetime }}"
-    max_size = "{{ max_size }}"
+    load_balancers = ["{{ load_balancers }}"]
+    max_instance_lifetime = {{ max_instance_lifetime }}
+    max_size = {{ max_size }}
     metrics_granularity = "{{ metrics_granularity }}"
-    min_elb_capacity = "{{ min_elb_capacity }}"
-    min_size = "{{ min_size }}"
+    min_elb_capacity = {{ min_elb_capacity }}
+    min_size = {{ min_size }}
     name = "{{ name }}"
     name_prefix = "{{ name_prefix }}"
     placement_group = "{{ placement_group }}"
-    predicted_capacity = "{{ predicted_capacity }}"
-    protect_from_scale_in = "{{ protect_from_scale_in }}"
+    protect_from_scale_in = {{ protect_from_scale_in }}
+    region = "{{ region }}"
     service_linked_role_arn = "{{ service_linked_role_arn }}"
-    suspended_processes = "{{ suspended_processes }}"
-    target_group_arns = "{{ target_group_arns }}"
-    termination_policies = "{{ termination_policies }}"
-    vpc_zone_identifier = "{{ vpc_zone_identifier }}"
+    suspended_processes = ["{{ suspended_processes }}"]
+    target_group_arns = ["{{ target_group_arns }}"]
+    termination_policies = ["{{ termination_policies }}"]
+    vpc_zone_identifier = ["{{ vpc_zone_identifier }}"]
     wait_for_capacity_timeout = "{{ wait_for_capacity_timeout }}"
-    wait_for_elb_capacity = "{{ wait_for_elb_capacity }}"
-    warm_pool_size = "{{ warm_pool_size }}"
+    wait_for_elb_capacity = {{ wait_for_elb_capacity }}
+    availability_zone_distribution {
+      capacity_distribution_strategy = "{{ capacity_distribution_strategy }}"
+    }
+    capacity_reservation_specification {
+      capacity_reservation_preference = "{{ capacity_reservation_preference }}"
+      capacity_reservation_target {
+        capacity_reservation_ids = ["{{ capacity_reservation_ids }}"]
+        capacity_reservation_resource_group_arns = ["{{ capacity_reservation_resource_group_arns }}"]
+      }
+    }
+    initial_lifecycle_hook {
+      default_result = "{{ default_result }}"
+      heartbeat_timeout = {{ heartbeat_timeout }}
+      lifecycle_transition = "{{ lifecycle_transition }}"
+      name = "{{ name }}"
+      notification_metadata = "{{ notification_metadata }}"
+      notification_target_arn = "{{ notification_target_arn }}"
+      role_arn = "{{ role_arn }}"
+    }
+    instance_maintenance_policy {
+      max_healthy_percentage = {{ max_healthy_percentage }}
+      min_healthy_percentage = {{ min_healthy_percentage }}
+    }
+    instance_refresh {
+      strategy = "{{ strategy }}"
+      triggers = ["{{ triggers }}"]
+      preferences {
+        auto_rollback = {{ auto_rollback }}
+        checkpoint_delay = "{{ checkpoint_delay }}"
+        checkpoint_percentages = ["{{ checkpoint_percentages }}"]
+        instance_warmup = "{{ instance_warmup }}"
+        max_healthy_percentage = {{ max_healthy_percentage }}
+        min_healthy_percentage = {{ min_healthy_percentage }}
+        scale_in_protected_instances = "{{ scale_in_protected_instances }}"
+        skip_matching = {{ skip_matching }}
+        standby_instances = "{{ standby_instances }}"
+        alarm_specification {
+          alarms = ["{{ alarms }}"]
+        }
+      }
+    }
+    launch_template {
+      id = "{{ id }}"
+      name = "{{ name }}"
+      version = "{{ version }}"
+    }
+    mixed_instances_policy {
+      instances_distribution {
+        on_demand_allocation_strategy = "{{ on_demand_allocation_strategy }}"
+        on_demand_base_capacity = {{ on_demand_base_capacity }}
+        on_demand_percentage_above_base_capacity = {{ on_demand_percentage_above_base_capacity }}
+        spot_allocation_strategy = "{{ spot_allocation_strategy }}"
+        spot_instance_pools = {{ spot_instance_pools }}
+        spot_max_price = "{{ spot_max_price }}"
+      }
+      launch_template {
+        launch_template_specification {
+          launch_template_id = "{{ launch_template_id }}"
+          launch_template_name = "{{ launch_template_name }}"
+          version = "{{ version }}"
+        }
+        override {
+          instance_type = "{{ instance_type }}"
+          weighted_capacity = "{{ weighted_capacity }}"
+          instance_requirements {
+            accelerator_manufacturers = ["{{ accelerator_manufacturers }}"]
+            accelerator_names = ["{{ accelerator_names }}"]
+            accelerator_types = ["{{ accelerator_types }}"]
+            allowed_instance_types = ["{{ allowed_instance_types }}"]
+            bare_metal = "{{ bare_metal }}"
+            burstable_performance = "{{ burstable_performance }}"
+            cpu_manufacturers = ["{{ cpu_manufacturers }}"]
+            excluded_instance_types = ["{{ excluded_instance_types }}"]
+            instance_generations = ["{{ instance_generations }}"]
+            local_storage = "{{ local_storage }}"
+            local_storage_types = ["{{ local_storage_types }}"]
+            max_spot_price_as_percentage_of_optimal_on_demand_price = {{ max_spot_price_as_percentage_of_optimal_on_demand_price }}
+            on_demand_max_price_percentage_over_lowest_price = {{ on_demand_max_price_percentage_over_lowest_price }}
+            require_hibernate_support = {{ require_hibernate_support }}
+            spot_max_price_percentage_over_lowest_price = {{ spot_max_price_percentage_over_lowest_price }}
+            accelerator_count {
+              max = {{ max }}
+              min = {{ min }}
+            }
+            accelerator_total_memory_mib {
+              max = {{ max }}
+              min = {{ min }}
+            }
+            baseline_ebs_bandwidth_mbps {
+              max = {{ max }}
+              min = {{ min }}
+            }
+            memory_gib_per_vcpu {
+              max = {{ max }}
+              min = {{ min }}
+            }
+            memory_mib {
+              max = {{ max }}
+              min = {{ min }}
+            }
+            network_bandwidth_gbps {
+              max = {{ max }}
+              min = {{ min }}
+            }
+            network_interface_count {
+              max = {{ max }}
+              min = {{ min }}
+            }
+            total_local_storage_gb {
+              max = {{ max }}
+              min = {{ min }}
+            }
+            vcpu_count {
+              max = {{ max }}
+              min = {{ min }}
+            }
+          }
+          launch_template_specification {
+            launch_template_id = "{{ launch_template_id }}"
+            launch_template_name = "{{ launch_template_name }}"
+            version = "{{ version }}"
+          }
+        }
+      }
+    }
+    tag {
+      key = "{{ key }}"
+      propagate_at_launch = {{ propagate_at_launch }}
+      value = "{{ value }}"
+    }
+    timeouts {
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    traffic_source {
+      identifier = "{{ identifier }}"
+      type = "{{ type }}"
+    }
+    warm_pool {
+      max_group_prepared_capacity = {{ max_group_prepared_capacity }}
+      min_size = {{ min_size }}
+      pool_state = "{{ pool_state }}"
+      instance_reuse_policy {
+        reuse_on_scale_in = {{ reuse_on_scale_in }}
+      }
+    }
 }

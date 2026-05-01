@@ -1,5 +1,12 @@
 resource "aws_ecr_registry_scanning_configuration" "example" {
     id = "{{ id }}"
-    registry_id = "{{ registry_id }}"
+    region = "{{ region }}"
     scan_type = "{{ scan_type }}"
+    rule {
+      scan_frequency = "{{ scan_frequency }}"
+      repository_filter {
+        filter = "{{ filter }}"
+        filter_type = "{{ filter_type }}"
+      }
+    }
 }

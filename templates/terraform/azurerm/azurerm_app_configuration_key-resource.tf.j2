@@ -5,9 +5,17 @@ resource "azurerm_app_configuration_key" "example" {
     id = "{{ id }}"
     key = "{{ key }}"
     label = "{{ label }}"
-    locked = "{{ locked }}"
-    tags = "{{ tags }}"
+    locked = {{ locked }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
     type = "{{ type }}"
     value = "{{ value }}"
     vault_key_reference = "{{ vault_key_reference }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

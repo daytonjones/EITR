@@ -1,12 +1,16 @@
 resource "google_netapp_volume_snapshot" "example" {
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    terraform_labels = "{{ terraform_labels }}"
-    used_bytes = "{{ used_bytes }}"
     volume_name = "{{ volume_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

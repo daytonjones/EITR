@@ -1,0 +1,5 @@
+resource "aws_s3tables_table_bucket_policy" "example" {
+    region = "{{ region }}"
+    resource_policy = "{{ resource_policy }}"
+    table_bucket_arn = "{{ table_bucket_arn }}"
+}

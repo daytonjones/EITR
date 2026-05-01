@@ -3,4 +3,8 @@ resource "aws_networkmanager_link_association" "example" {
     global_network_id = "{{ global_network_id }}"
     id = "{{ id }}"
     link_id = "{{ link_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

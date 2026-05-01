@@ -1,0 +1,27 @@
+resource "aws_bedrockagentcore_browser" "example" {
+    description = "{{ description }}"
+    execution_role_arn = "{{ execution_role_arn }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    network_configuration {
+      network_mode = "{{ network_mode }}"
+      vpc_config {
+        security_groups = ["{{ security_groups }}"]
+        subnets = ["{{ subnets }}"]
+      }
+    }
+    recording {
+      enabled = {{ enabled }}
+      s3_location {
+        bucket = "{{ bucket }}"
+        prefix = "{{ prefix }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

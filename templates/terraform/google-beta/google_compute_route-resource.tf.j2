@@ -8,14 +8,18 @@ resource "google_compute_route" "example" {
     next_hop_ilb = "{{ next_hop_ilb }}"
     next_hop_instance = "{{ next_hop_instance }}"
     next_hop_instance_zone = "{{ next_hop_instance_zone }}"
-    next_hop_inter_region_cost = "{{ next_hop_inter_region_cost }}"
     next_hop_ip = "{{ next_hop_ip }}"
-    next_hop_med = "{{ next_hop_med }}"
-    next_hop_network = "{{ next_hop_network }}"
-    next_hop_origin = "{{ next_hop_origin }}"
     next_hop_vpn_tunnel = "{{ next_hop_vpn_tunnel }}"
-    priority = "{{ priority }}"
+    priority = {{ priority }}
     project = "{{ project }}"
-    self_link = "{{ self_link }}"
-    tags = "{{ tags }}"
+    tags = ["{{ tags }}"]
+    params {
+      resource_manager_tags = {
+        key = "{{ resource_manager_tags_value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

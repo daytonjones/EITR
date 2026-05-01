@@ -1,7 +1,11 @@
 resource "google_iap_web_iam_binding" "example" {
-    etag = "{{ etag }}"
     id = "{{ id }}"
-    members = "{{ members }}"
+    members = ["{{ members }}"]
     project = "{{ project }}"
     role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

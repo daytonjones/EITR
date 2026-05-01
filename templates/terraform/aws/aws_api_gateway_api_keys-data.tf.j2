@@ -1,0 +1,5 @@
+data "aws_api_gateway_api_keys" "example" {
+    customer_id = "{{ customer_id }}"
+    include_values = {{ include_values }}
+    region = "{{ region }}"
+}

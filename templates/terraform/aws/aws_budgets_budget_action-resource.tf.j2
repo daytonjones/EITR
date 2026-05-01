@@ -1,14 +1,45 @@
 resource "aws_budgets_budget_action" "example" {
     account_id = "{{ account_id }}"
-    action_id = "{{ action_id }}"
     action_type = "{{ action_type }}"
     approval_model = "{{ approval_model }}"
-    arn = "{{ arn }}"
     budget_name = "{{ budget_name }}"
     execution_role_arn = "{{ execution_role_arn }}"
     id = "{{ id }}"
     notification_type = "{{ notification_type }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    action_threshold {
+      action_threshold_type = "{{ action_threshold_type }}"
+      action_threshold_value = {{ action_threshold_value }}
+    }
+    definition {
+      iam_action_definition {
+        groups = ["{{ groups }}"]
+        policy_arn = "{{ policy_arn }}"
+        roles = ["{{ roles }}"]
+        users = ["{{ users }}"]
+      }
+      scp_action_definition {
+        policy_id = "{{ policy_id }}"
+        target_ids = ["{{ target_ids }}"]
+      }
+      ssm_action_definition {
+        action_sub_type = "{{ action_sub_type }}"
+        instance_ids = ["{{ instance_ids }}"]
+        region = "{{ region }}"
+      }
+    }
+    subscriber {
+      address = "{{ address }}"
+      subscription_type = "{{ subscription_type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

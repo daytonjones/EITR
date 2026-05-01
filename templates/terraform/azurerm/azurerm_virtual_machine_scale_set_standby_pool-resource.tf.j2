@@ -1,0 +1,21 @@
+resource "azurerm_virtual_machine_scale_set_standby_pool" "example" {
+    attached_virtual_machine_scale_set_id = "{{ attached_virtual_machine_scale_set_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    virtual_machine_state = "{{ virtual_machine_state }}"
+    elasticity_profile {
+      max_ready_capacity = {{ max_ready_capacity }}
+      min_ready_capacity = {{ min_ready_capacity }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

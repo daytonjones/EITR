@@ -1,4 +1,28 @@
 resource "azuread_application_optional_claims" "example" {
     application_id = "{{ application_id }}"
     id = "{{ id }}"
+    access_token {
+      additional_properties = ["{{ additional_properties }}"]
+      essential = {{ essential }}
+      name = "{{ name }}"
+      source = "{{ source }}"
+    }
+    id_token {
+      additional_properties = ["{{ additional_properties }}"]
+      essential = {{ essential }}
+      name = "{{ name }}"
+      source = "{{ source }}"
+    }
+    saml2_token {
+      additional_properties = ["{{ additional_properties }}"]
+      essential = {{ essential }}
+      name = "{{ name }}"
+      source = "{{ source }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

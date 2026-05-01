@@ -1,7 +1,6 @@
 data "hcs_plan_defaults" "example" {
     id = "{{ id }}"
-    offer = "{{ offer }}"
-    plan_name = "{{ plan_name }}"
-    plan_version = "{{ plan_version }}"
-    publisher = "{{ publisher }}"
+    timeouts {
+      default = "{{ default }}"
+    }
 }

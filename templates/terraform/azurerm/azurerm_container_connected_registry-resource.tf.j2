@@ -1,6 +1,6 @@
 resource "azurerm_container_connected_registry" "example" {
-    audit_log_enabled = "{{ audit_log_enabled }}"
-    client_token_ids = "{{ client_token_ids }}"
+    audit_log_enabled = {{ audit_log_enabled }}
+    client_token_ids = ["{{ client_token_ids }}"]
     container_registry_id = "{{ container_registry_id }}"
     id = "{{ id }}"
     log_level = "{{ log_level }}"
@@ -11,4 +11,16 @@ resource "azurerm_container_connected_registry" "example" {
     sync_schedule = "{{ sync_schedule }}"
     sync_token_id = "{{ sync_token_id }}"
     sync_window = "{{ sync_window }}"
+    notification {
+      action = "{{ action }}"
+      digest = "{{ digest }}"
+      name = "{{ name }}"
+      tag = "{{ tag }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

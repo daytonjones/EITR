@@ -1,0 +1,8 @@
+data "google_backup_dr_data_sources" "example" {
+    backup_vault_id = "{{ backup_vault_id }}"
+    filter = "{{ filter }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    order_by = "{{ order_by }}"
+    project = "{{ project }}"
+}

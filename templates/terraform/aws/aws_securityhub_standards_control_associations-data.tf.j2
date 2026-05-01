@@ -1,5 +1,4 @@
 data "aws_securityhub_standards_control_associations" "example" {
-    id = "{{ id }}"
+    region = "{{ region }}"
     security_control_id = "{{ security_control_id }}"
-    standards_control_associations = "{{ standards_control_associations }}"
 }

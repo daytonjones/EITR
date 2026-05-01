@@ -5,11 +5,11 @@ resource "azurerm_public_ip" "example" {
     domain_name_label = "{{ domain_name_label }}"
     domain_name_label_scope = "{{ domain_name_label_scope }}"
     edge_zone = "{{ edge_zone }}"
-    fqdn = "{{ fqdn }}"
     id = "{{ id }}"
-    idle_timeout_in_minutes = "{{ idle_timeout_in_minutes }}"
-    ip_address = "{{ ip_address }}"
-    ip_tags = "{{ ip_tags }}"
+    idle_timeout_in_minutes = {{ idle_timeout_in_minutes }}
+    ip_tags = {
+        key = "{{ ip_tags_value }}"
+      }
     ip_version = "{{ ip_version }}"
     location = "{{ location }}"
     name = "{{ name }}"
@@ -18,6 +18,14 @@ resource "azurerm_public_ip" "example" {
     reverse_fqdn = "{{ reverse_fqdn }}"
     sku = "{{ sku }}"
     sku_tier = "{{ sku_tier }}"
-    tags = "{{ tags }}"
-    zones = "{{ zones }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    zones = ["{{ zones }}"]
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

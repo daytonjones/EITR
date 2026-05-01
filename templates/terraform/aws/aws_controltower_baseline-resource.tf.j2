@@ -1,0 +1,18 @@
+resource "aws_controltower_baseline" "example" {
+    baseline_identifier = "{{ baseline_identifier }}"
+    baseline_version = "{{ baseline_version }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    target_identifier = "{{ target_identifier }}"
+    parameters {
+      key = "{{ key }}"
+      value = "{{ value }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

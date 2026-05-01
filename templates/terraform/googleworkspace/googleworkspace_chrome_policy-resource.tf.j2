@@ -1,4 +1,10 @@
 resource "googleworkspace_chrome_policy" "example" {
     id = "{{ id }}"
     org_unit_id = "{{ org_unit_id }}"
+    policies {
+      schema_name = "{{ schema_name }}"
+      schema_values = {
+        key = "{{ schema_values_value }}"
+      }
+    }
 }

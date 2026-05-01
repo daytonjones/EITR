@@ -1,0 +1,8 @@
+resource "awscc_batch_consumable_resource" "example" {
+    consumable_resource_name = "{{ consumable_resource_name }}"
+    resource_type = "{{ resource_type }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    total_quantity = {{ total_quantity }}
+}

@@ -1,16 +1,80 @@
 resource "azurerm_frontdoor" "example" {
-    backend_pool_health_probes = "{{ backend_pool_health_probes }}"
-    backend_pool_load_balancing_settings = "{{ backend_pool_load_balancing_settings }}"
-    backend_pools = "{{ backend_pools }}"
-    cname = "{{ cname }}"
-    explicit_resource_order = "{{ explicit_resource_order }}"
     friendly_name = "{{ friendly_name }}"
-    frontend_endpoints = "{{ frontend_endpoints }}"
-    header_frontdoor_id = "{{ header_frontdoor_id }}"
     id = "{{ id }}"
-    load_balancer_enabled = "{{ load_balancer_enabled }}"
+    load_balancer_enabled = {{ load_balancer_enabled }}
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    routing_rules = "{{ routing_rules }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    backend_pool {
+      health_probe_name = "{{ health_probe_name }}"
+      load_balancing_name = "{{ load_balancing_name }}"
+      name = "{{ name }}"
+      backend {
+        address = "{{ address }}"
+        enabled = {{ enabled }}
+        host_header = "{{ host_header }}"
+        http_port = {{ http_port }}
+        https_port = {{ https_port }}
+        priority = {{ priority }}
+        weight = {{ weight }}
+      }
+    }
+    backend_pool_health_probe {
+      enabled = {{ enabled }}
+      interval_in_seconds = {{ interval_in_seconds }}
+      name = "{{ name }}"
+      path = "{{ path }}"
+      probe_method = "{{ probe_method }}"
+      protocol = "{{ protocol }}"
+    }
+    backend_pool_load_balancing {
+      additional_latency_milliseconds = {{ additional_latency_milliseconds }}
+      name = "{{ name }}"
+      sample_size = {{ sample_size }}
+      successful_samples_required = {{ successful_samples_required }}
+    }
+    backend_pool_settings {
+      backend_pools_send_receive_timeout_seconds = {{ backend_pools_send_receive_timeout_seconds }}
+      enforce_backend_pools_certificate_name_check = {{ enforce_backend_pools_certificate_name_check }}
+    }
+    frontend_endpoint {
+      host_name = "{{ host_name }}"
+      name = "{{ name }}"
+      session_affinity_enabled = {{ session_affinity_enabled }}
+      session_affinity_ttl_seconds = {{ session_affinity_ttl_seconds }}
+      web_application_firewall_policy_link_id = "{{ web_application_firewall_policy_link_id }}"
+    }
+    routing_rule {
+      accepted_protocols = ["{{ accepted_protocols }}"]
+      enabled = {{ enabled }}
+      frontend_endpoints = ["{{ frontend_endpoints }}"]
+      name = "{{ name }}"
+      patterns_to_match = ["{{ patterns_to_match }}"]
+      forwarding_configuration {
+        backend_pool_name = "{{ backend_pool_name }}"
+        cache_duration = "{{ cache_duration }}"
+        cache_enabled = {{ cache_enabled }}
+        cache_query_parameter_strip_directive = "{{ cache_query_parameter_strip_directive }}"
+        cache_query_parameters = ["{{ cache_query_parameters }}"]
+        cache_use_dynamic_compression = {{ cache_use_dynamic_compression }}
+        custom_forwarding_path = "{{ custom_forwarding_path }}"
+        forwarding_protocol = "{{ forwarding_protocol }}"
+      }
+      redirect_configuration {
+        custom_fragment = "{{ custom_fragment }}"
+        custom_host = "{{ custom_host }}"
+        custom_path = "{{ custom_path }}"
+        custom_query_string = "{{ custom_query_string }}"
+        redirect_protocol = "{{ redirect_protocol }}"
+        redirect_type = "{{ redirect_type }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

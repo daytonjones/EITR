@@ -1,0 +1,10 @@
+resource "awscc_workspacesweb_session_logger" "example" {
+    additional_encryption_context = {
+        key = "{{ additional_encryption_context_value }}"
+      }
+    customer_managed_key = "{{ customer_managed_key }}"
+    display_name = "{{ display_name }}"
+    event_filter = "{{ event_filter }}"
+    log_configuration = "{{ log_configuration }}"
+    tags = "{{ tags }}"
+}

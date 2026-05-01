@@ -1,7 +1,6 @@
 resource "aws_dms_endpoint" "example" {
     certificate_arn = "{{ certificate_arn }}"
     database_name = "{{ database_name }}"
-    endpoint_arn = "{{ endpoint_arn }}"
     endpoint_id = "{{ endpoint_id }}"
     endpoint_type = "{{ endpoint_type }}"
     engine_name = "{{ engine_name }}"
@@ -9,14 +8,159 @@ resource "aws_dms_endpoint" "example" {
     id = "{{ id }}"
     kms_key_arn = "{{ kms_key_arn }}"
     password = "{{ password }}"
-    pause_replication_tasks = "{{ pause_replication_tasks }}"
-    port = "{{ port }}"
+    pause_replication_tasks = {{ pause_replication_tasks }}
+    port = {{ port }}
+    region = "{{ region }}"
     secrets_manager_access_role_arn = "{{ secrets_manager_access_role_arn }}"
     secrets_manager_arn = "{{ secrets_manager_arn }}"
     server_name = "{{ server_name }}"
     service_access_role = "{{ service_access_role }}"
     ssl_mode = "{{ ssl_mode }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     username = "{{ username }}"
+    elasticsearch_settings {
+      endpoint_uri = "{{ endpoint_uri }}"
+      error_retry_duration = {{ error_retry_duration }}
+      full_load_error_percentage = {{ full_load_error_percentage }}
+      service_access_role_arn = "{{ service_access_role_arn }}"
+      use_new_mapping_type = {{ use_new_mapping_type }}
+    }
+    kafka_settings {
+      broker = "{{ broker }}"
+      include_control_details = {{ include_control_details }}
+      include_null_and_empty = {{ include_null_and_empty }}
+      include_partition_value = {{ include_partition_value }}
+      include_table_alter_operations = {{ include_table_alter_operations }}
+      include_transaction_details = {{ include_transaction_details }}
+      message_format = "{{ message_format }}"
+      message_max_bytes = {{ message_max_bytes }}
+      no_hex_prefix = {{ no_hex_prefix }}
+      partition_include_schema_table = {{ partition_include_schema_table }}
+      sasl_mechanism = "{{ sasl_mechanism }}"
+      sasl_password = "{{ sasl_password }}"
+      sasl_username = "{{ sasl_username }}"
+      security_protocol = "{{ security_protocol }}"
+      ssl_ca_certificate_arn = "{{ ssl_ca_certificate_arn }}"
+      ssl_client_certificate_arn = "{{ ssl_client_certificate_arn }}"
+      ssl_client_key_arn = "{{ ssl_client_key_arn }}"
+      ssl_client_key_password = "{{ ssl_client_key_password }}"
+      topic = "{{ topic }}"
+    }
+    kinesis_settings {
+      include_control_details = {{ include_control_details }}
+      include_null_and_empty = {{ include_null_and_empty }}
+      include_partition_value = {{ include_partition_value }}
+      include_table_alter_operations = {{ include_table_alter_operations }}
+      include_transaction_details = {{ include_transaction_details }}
+      message_format = "{{ message_format }}"
+      partition_include_schema_table = {{ partition_include_schema_table }}
+      service_access_role_arn = "{{ service_access_role_arn }}"
+      stream_arn = "{{ stream_arn }}"
+      use_large_integer_value = {{ use_large_integer_value }}
+    }
+    mongodb_settings {
+      auth_mechanism = "{{ auth_mechanism }}"
+      auth_source = "{{ auth_source }}"
+      auth_type = "{{ auth_type }}"
+      docs_to_investigate = "{{ docs_to_investigate }}"
+      extract_doc_id = "{{ extract_doc_id }}"
+      nesting_level = "{{ nesting_level }}"
+      use_update_lookup = {{ use_update_lookup }}
+    }
+    mysql_settings {
+      after_connect_script = "{{ after_connect_script }}"
+      authentication_method = "{{ authentication_method }}"
+      clean_source_metadata_on_mismatch = {{ clean_source_metadata_on_mismatch }}
+      events_poll_interval = {{ events_poll_interval }}
+      execute_timeout = {{ execute_timeout }}
+      max_file_size = {{ max_file_size }}
+      parallel_load_threads = {{ parallel_load_threads }}
+      server_timezone = "{{ server_timezone }}"
+      service_access_role_arn = "{{ service_access_role_arn }}"
+      target_db_type = "{{ target_db_type }}"
+    }
+    oracle_settings {
+      access_alternate_directly = {{ access_alternate_directly }}
+      add_supplemental_logging = {{ add_supplemental_logging }}
+      additional_archived_log_dest_id = {{ additional_archived_log_dest_id }}
+      allow_selected_nested_tables = {{ allow_selected_nested_tables }}
+      archived_log_dest_id = {{ archived_log_dest_id }}
+      archived_logs_only = {{ archived_logs_only }}
+      asm_password = "{{ asm_password }}"
+      asm_server = "{{ asm_server }}"
+      asm_user = "{{ asm_user }}"
+      authentication_method = "{{ authentication_method }}"
+      char_length_semantics = "{{ char_length_semantics }}"
+      convert_timestamp_with_zone_to_utc = {{ convert_timestamp_with_zone_to_utc }}
+      direct_path_no_log = {{ direct_path_no_log }}
+      direct_path_parallel_load = {{ direct_path_parallel_load }}
+      enable_homogenous_tablespace = {{ enable_homogenous_tablespace }}
+      extra_archived_log_dest_ids = ["{{ extra_archived_log_dest_ids }}"]
+      fail_task_on_lob_truncation = {{ fail_task_on_lob_truncation }}
+      number_datatype_scale = {{ number_datatype_scale }}
+      open_transaction_window = {{ open_transaction_window }}
+      oracle_path_prefix = "{{ oracle_path_prefix }}"
+      parallel_asm_read_threads = {{ parallel_asm_read_threads }}
+      read_ahead_blocks = {{ read_ahead_blocks }}
+      read_table_space_name = {{ read_table_space_name }}
+      replace_path_prefix = {{ replace_path_prefix }}
+      retry_interval = {{ retry_interval }}
+      secrets_manager_oracle_asm_access_role_arn = "{{ secrets_manager_oracle_asm_access_role_arn }}"
+      secrets_manager_oracle_asm_secret_id = "{{ secrets_manager_oracle_asm_secret_id }}"
+      security_db_encryption = "{{ security_db_encryption }}"
+      security_db_encryption_name = "{{ security_db_encryption_name }}"
+      spatial_data_option_to_geo_json_function_name = "{{ spatial_data_option_to_geo_json_function_name }}"
+      standby_delay_time = {{ standby_delay_time }}
+      trim_space_in_char = {{ trim_space_in_char }}
+      use_alternate_folder_for_online = {{ use_alternate_folder_for_online }}
+      use_bfile = {{ use_bfile }}
+      use_direct_path_full_load = {{ use_direct_path_full_load }}
+      use_logminer_reader = {{ use_logminer_reader }}
+      use_path_prefix = "{{ use_path_prefix }}"
+    }
+    postgres_settings {
+      after_connect_script = "{{ after_connect_script }}"
+      authentication_method = "{{ authentication_method }}"
+      babelfish_database_name = "{{ babelfish_database_name }}"
+      capture_ddls = {{ capture_ddls }}
+      database_mode = "{{ database_mode }}"
+      ddl_artifacts_schema = "{{ ddl_artifacts_schema }}"
+      execute_timeout = {{ execute_timeout }}
+      fail_tasks_on_lob_truncation = {{ fail_tasks_on_lob_truncation }}
+      heartbeat_enable = {{ heartbeat_enable }}
+      heartbeat_frequency = {{ heartbeat_frequency }}
+      heartbeat_schema = "{{ heartbeat_schema }}"
+      map_boolean_as_boolean = {{ map_boolean_as_boolean }}
+      map_jsonb_as_clob = {{ map_jsonb_as_clob }}
+      map_long_varchar_as = "{{ map_long_varchar_as }}"
+      max_file_size = {{ max_file_size }}
+      plugin_name = "{{ plugin_name }}"
+      service_access_role_arn = "{{ service_access_role_arn }}"
+      slot_name = "{{ slot_name }}"
+    }
+    redis_settings {
+      auth_password = "{{ auth_password }}"
+      auth_type = "{{ auth_type }}"
+      auth_user_name = "{{ auth_user_name }}"
+      port = {{ port }}
+      server_name = "{{ server_name }}"
+      ssl_ca_certificate_arn = "{{ ssl_ca_certificate_arn }}"
+      ssl_security_protocol = "{{ ssl_security_protocol }}"
+    }
+    redshift_settings {
+      bucket_folder = "{{ bucket_folder }}"
+      bucket_name = "{{ bucket_name }}"
+      encryption_mode = "{{ encryption_mode }}"
+      server_side_encryption_kms_key_id = "{{ server_side_encryption_kms_key_id }}"
+      service_access_role_arn = "{{ service_access_role_arn }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

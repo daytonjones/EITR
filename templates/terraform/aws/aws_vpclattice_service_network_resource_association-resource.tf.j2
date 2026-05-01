@@ -1,0 +1,13 @@
+resource "aws_vpclattice_service_network_resource_association" "example" {
+    private_dns_enabled = {{ private_dns_enabled }}
+    region = "{{ region }}"
+    resource_configuration_identifier = "{{ resource_configuration_identifier }}"
+    service_network_identifier = "{{ service_network_identifier }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

@@ -1,0 +1,28 @@
+resource "aws_dynamodb_global_secondary_index" "example" {
+    index_name = "{{ index_name }}"
+    region = "{{ region }}"
+    table_name = "{{ table_name }}"
+    warm_throughput = {{ warm_throughput }}
+    key_schema {
+      attribute_name = "{{ attribute_name }}"
+      attribute_type = "{{ attribute_type }}"
+      key_type = "{{ key_type }}"
+    }
+    on_demand_throughput {
+      max_read_request_units = {{ max_read_request_units }}
+      max_write_request_units = {{ max_write_request_units }}
+    }
+    projection {
+      non_key_attributes = ["{{ non_key_attributes }}"]
+      projection_type = "{{ projection_type }}"
+    }
+    provisioned_throughput {
+      read_capacity_units = {{ read_capacity_units }}
+      write_capacity_units = {{ write_capacity_units }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

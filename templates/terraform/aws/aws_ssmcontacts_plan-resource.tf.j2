@@ -1,4 +1,18 @@
 resource "aws_ssmcontacts_plan" "example" {
     contact_id = "{{ contact_id }}"
     id = "{{ id }}"
+    region = "{{ region }}"
+    stage {
+      duration_in_minutes = {{ duration_in_minutes }}
+      target {
+        channel_target_info {
+          contact_channel_id = "{{ contact_channel_id }}"
+          retry_interval_in_minutes = {{ retry_interval_in_minutes }}
+        }
+        contact_target_info {
+          contact_id = "{{ contact_id }}"
+          is_essential = {{ is_essential }}
+        }
+      }
+    }
 }

@@ -1,8 +1,70 @@
 resource "aws_cloudwatch_event_connection" "example" {
-    arn = "{{ arn }}"
     authorization_type = "{{ authorization_type }}"
     description = "{{ description }}"
     id = "{{ id }}"
+    kms_key_identifier = "{{ kms_key_identifier }}"
     name = "{{ name }}"
-    secret_arn = "{{ secret_arn }}"
+    region = "{{ region }}"
+    auth_parameters {
+      api_key {
+        key = "{{ key }}"
+        value = "{{ value }}"
+      }
+      basic {
+        password = "{{ password }}"
+        username = "{{ username }}"
+      }
+      connectivity_parameters {
+        resource_parameters {
+          resource_configuration_arn = "{{ resource_configuration_arn }}"
+        }
+      }
+      invocation_http_parameters {
+        body {
+          is_value_secret = {{ is_value_secret }}
+          key = "{{ key }}"
+          value = "{{ value }}"
+        }
+        header {
+          is_value_secret = {{ is_value_secret }}
+          key = "{{ key }}"
+          value = "{{ value }}"
+        }
+        query_string {
+          is_value_secret = {{ is_value_secret }}
+          key = "{{ key }}"
+          value = "{{ value }}"
+        }
+      }
+      oauth {
+        authorization_endpoint = "{{ authorization_endpoint }}"
+        http_method = "{{ http_method }}"
+        client_parameters {
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+        }
+        oauth_http_parameters {
+          body {
+            is_value_secret = {{ is_value_secret }}
+            key = "{{ key }}"
+            value = "{{ value }}"
+          }
+          header {
+            is_value_secret = {{ is_value_secret }}
+            key = "{{ key }}"
+            value = "{{ value }}"
+          }
+          query_string {
+            is_value_secret = {{ is_value_secret }}
+            key = "{{ key }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+    }
+    invocation_connectivity_parameters {
+      resource_parameters {
+        resource_configuration_arn = "{{ resource_configuration_arn }}"
+      }
+    }
 }

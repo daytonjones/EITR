@@ -1,8 +1,25 @@
 resource "tfe_team" "example" {
-    allow_member_token_management = "{{ allow_member_token_management }}"
+    allow_member_token_management = {{ allow_member_token_management }}
     id = "{{ id }}"
     name = "{{ name }}"
     organization = "{{ organization }}"
     sso_team_id = "{{ sso_team_id }}"
     visibility = "{{ visibility }}"
+    organization_access {
+      access_secret_teams = {{ access_secret_teams }}
+      manage_agent_pools = {{ manage_agent_pools }}
+      manage_membership = {{ manage_membership }}
+      manage_modules = {{ manage_modules }}
+      manage_organization_access = {{ manage_organization_access }}
+      manage_policies = {{ manage_policies }}
+      manage_policy_overrides = {{ manage_policy_overrides }}
+      manage_projects = {{ manage_projects }}
+      manage_providers = {{ manage_providers }}
+      manage_run_tasks = {{ manage_run_tasks }}
+      manage_teams = {{ manage_teams }}
+      manage_vcs_settings = {{ manage_vcs_settings }}
+      manage_workspaces = {{ manage_workspaces }}
+      read_projects = {{ read_projects }}
+      read_workspaces = {{ read_workspaces }}
+    }
 }

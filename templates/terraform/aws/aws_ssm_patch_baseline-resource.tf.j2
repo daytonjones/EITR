@@ -1,15 +1,38 @@
 resource "aws_ssm_patch_baseline" "example" {
-    approved_patches = "{{ approved_patches }}"
+    approved_patches = ["{{ approved_patches }}"]
     approved_patches_compliance_level = "{{ approved_patches_compliance_level }}"
-    approved_patches_enable_non_security = "{{ approved_patches_enable_non_security }}"
-    arn = "{{ arn }}"
+    approved_patches_enable_non_security = {{ approved_patches_enable_non_security }}
+    available_security_updates_compliance_status = "{{ available_security_updates_compliance_status }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    json = "{{ json }}"
     name = "{{ name }}"
     operating_system = "{{ operating_system }}"
-    rejected_patches = "{{ rejected_patches }}"
+    region = "{{ region }}"
+    rejected_patches = ["{{ rejected_patches }}"]
     rejected_patches_action = "{{ rejected_patches_action }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    approval_rule {
+      approve_after_days = {{ approve_after_days }}
+      approve_until_date = "{{ approve_until_date }}"
+      compliance_level = "{{ compliance_level }}"
+      enable_non_security = {{ enable_non_security }}
+      patch_filter {
+        key = "{{ key }}"
+        values = ["{{ values }}"]
+      }
+    }
+    global_filter {
+      key = "{{ key }}"
+      values = ["{{ values }}"]
+    }
+    source {
+      configuration = "{{ configuration }}"
+      name = "{{ name }}"
+      products = ["{{ products }}"]
+    }
 }

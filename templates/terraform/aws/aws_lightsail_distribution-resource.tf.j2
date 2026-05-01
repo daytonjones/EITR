@@ -1,19 +1,51 @@
 resource "aws_lightsail_distribution" "example" {
-    alternative_domain_names = "{{ alternative_domain_names }}"
-    arn = "{{ arn }}"
     bundle_id = "{{ bundle_id }}"
     certificate_name = "{{ certificate_name }}"
-    created_at = "{{ created_at }}"
-    domain_name = "{{ domain_name }}"
     id = "{{ id }}"
     ip_address_type = "{{ ip_address_type }}"
-    is_enabled = "{{ is_enabled }}"
-    location = "{{ location }}"
+    is_enabled = {{ is_enabled }}
     name = "{{ name }}"
-    origin_public_dns = "{{ origin_public_dns }}"
-    resource_type = "{{ resource_type }}"
-    status = "{{ status }}"
-    support_code = "{{ support_code }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    cache_behavior {
+      behavior = "{{ behavior }}"
+      path = "{{ path }}"
+    }
+    cache_behavior_settings {
+      allowed_http_methods = "{{ allowed_http_methods }}"
+      cached_http_methods = "{{ cached_http_methods }}"
+      default_ttl = {{ default_ttl }}
+      maximum_ttl = {{ maximum_ttl }}
+      minimum_ttl = {{ minimum_ttl }}
+      forwarded_cookies {
+        cookies_allow_list = ["{{ cookies_allow_list }}"]
+        option = "{{ option }}"
+      }
+      forwarded_headers {
+        headers_allow_list = ["{{ headers_allow_list }}"]
+        option = "{{ option }}"
+      }
+      forwarded_query_strings {
+        option = {{ option }}
+        query_strings_allowed_list = ["{{ query_strings_allowed_list }}"]
+      }
+    }
+    default_cache_behavior {
+      behavior = "{{ behavior }}"
+    }
+    origin {
+      name = "{{ name }}"
+      protocol_policy = "{{ protocol_policy }}"
+      region_name = "{{ region_name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

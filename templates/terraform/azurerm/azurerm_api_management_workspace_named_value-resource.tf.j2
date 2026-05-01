@@ -1,0 +1,19 @@
+resource "azurerm_api_management_workspace_named_value" "example" {
+    api_management_workspace_id = "{{ api_management_workspace_id }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    secret = {{ secret }}
+    tags = ["{{ tags }}"]
+    value = "{{ value }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    value_from_key_vault {
+      identity_client_id = "{{ identity_client_id }}"
+      secret_id = "{{ secret_id }}"
+    }
+}

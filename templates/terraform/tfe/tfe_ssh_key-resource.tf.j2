@@ -1,6 +1,7 @@
 resource "tfe_ssh_key" "example" {
-    id = "{{ id }}"
     key = "{{ key }}"
+    key_wo = "{{ key_wo }}"
+    key_wo_version = {{ key_wo_version }}
     name = "{{ name }}"
     organization = "{{ organization }}"
 }

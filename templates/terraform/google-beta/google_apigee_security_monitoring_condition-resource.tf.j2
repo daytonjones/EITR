@@ -1,0 +1,14 @@
+resource "google_apigee_security_monitoring_condition" "example" {
+    condition_id = "{{ condition_id }}"
+    id = "{{ id }}"
+    org_id = "{{ org_id }}"
+    profile = "{{ profile }}"
+    scope = "{{ scope }}"
+    include_all_resources {
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

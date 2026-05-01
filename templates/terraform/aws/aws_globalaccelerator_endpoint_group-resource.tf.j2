@@ -1,12 +1,26 @@
 resource "aws_globalaccelerator_endpoint_group" "example" {
-    arn = "{{ arn }}"
     endpoint_group_region = "{{ endpoint_group_region }}"
-    health_check_interval_seconds = "{{ health_check_interval_seconds }}"
+    health_check_interval_seconds = {{ health_check_interval_seconds }}
     health_check_path = "{{ health_check_path }}"
-    health_check_port = "{{ health_check_port }}"
+    health_check_port = {{ health_check_port }}
     health_check_protocol = "{{ health_check_protocol }}"
     id = "{{ id }}"
     listener_arn = "{{ listener_arn }}"
-    threshold_count = "{{ threshold_count }}"
-    traffic_dial_percentage = "{{ traffic_dial_percentage }}"
+    threshold_count = {{ threshold_count }}
+    traffic_dial_percentage = {{ traffic_dial_percentage }}
+    endpoint_configuration {
+      attachment_arn = "{{ attachment_arn }}"
+      client_ip_preservation_enabled = {{ client_ip_preservation_enabled }}
+      endpoint_id = "{{ endpoint_id }}"
+      weight = {{ weight }}
+    }
+    port_override {
+      endpoint_port = {{ endpoint_port }}
+      listener_port = {{ listener_port }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,22 @@
+data "vault_transit_verify" "example" {
+    batch_input = ["{{ batch_input }}"]
+    batch_results = ["{{ batch_results }}"]
+    cmac = "{{ cmac }}"
+    context = "{{ context }}"
+    hash_algorithm = "{{ hash_algorithm }}"
+    hmac = "{{ hmac }}"
+    id = "{{ id }}"
+    input = "{{ input }}"
+    mac_length = {{ mac_length }}
+    marshaling_algorithm = "{{ marshaling_algorithm }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    path = "{{ path }}"
+    prehashed = {{ prehashed }}
+    reference = "{{ reference }}"
+    salt_length = "{{ salt_length }}"
+    signature = "{{ signature }}"
+    signature_algorithm = "{{ signature_algorithm }}"
+    signature_context = "{{ signature_context }}"
+    valid = {{ valid }}
+}

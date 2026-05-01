@@ -1,0 +1,9 @@
+resource "awscc_rtbfabric_link" "example" {
+    gateway_id = "{{ gateway_id }}"
+    http_responder_allowed = {{ http_responder_allowed }}
+    link_attributes = "{{ link_attributes }}"
+    link_log_settings = "{{ link_log_settings }}"
+    module_configuration_list = "{{ module_configuration_list }}"
+    peer_gateway_id = "{{ peer_gateway_id }}"
+    tags = "{{ tags }}"
+}

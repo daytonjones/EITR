@@ -1,9 +1,131 @@
 resource "aws_dlm_lifecycle_policy" "example" {
-    arn = "{{ arn }}"
+    default_policy = "{{ default_policy }}"
     description = "{{ description }}"
     execution_role_arn = "{{ execution_role_arn }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     state = "{{ state }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    policy_details {
+      copy_tags = {{ copy_tags }}
+      create_interval = {{ create_interval }}
+      extend_deletion = {{ extend_deletion }}
+      policy_language = "{{ policy_language }}"
+      policy_type = "{{ policy_type }}"
+      resource_locations = ["{{ resource_locations }}"]
+      resource_type = "{{ resource_type }}"
+      resource_types = ["{{ resource_types }}"]
+      retain_interval = {{ retain_interval }}
+      target_tags = {
+        key = "{{ target_tags_value }}"
+      }
+      action {
+        name = "{{ name }}"
+        cross_region_copy {
+          target = "{{ target }}"
+          encryption_configuration {
+            cmk_arn = "{{ cmk_arn }}"
+            encrypted = {{ encrypted }}
+          }
+          retain_rule {
+            interval = {{ interval }}
+            interval_unit = "{{ interval_unit }}"
+          }
+        }
+      }
+      event_source {
+        type = "{{ type }}"
+        parameters {
+          description_regex = "{{ description_regex }}"
+          event_type = "{{ event_type }}"
+          snapshot_owner = ["{{ snapshot_owner }}"]
+        }
+      }
+      exclusions {
+        exclude_boot_volumes = {{ exclude_boot_volumes }}
+        exclude_tags = {
+        key = "{{ exclude_tags_value }}"
+      }
+        exclude_volume_types = ["{{ exclude_volume_types }}"]
+      }
+      parameters {
+        exclude_boot_volume = {{ exclude_boot_volume }}
+        no_reboot = {{ no_reboot }}
+      }
+      schedule {
+        copy_tags = {{ copy_tags }}
+        name = "{{ name }}"
+        tags_to_add = {
+        key = "{{ tags_to_add_value }}"
+      }
+        variable_tags = {
+        key = "{{ variable_tags_value }}"
+      }
+        archive_rule {
+          archive_retain_rule {
+            retention_archive_tier {
+              count = {{ count }}
+              interval = {{ interval }}
+              interval_unit = "{{ interval_unit }}"
+            }
+          }
+        }
+        create_rule {
+          cron_expression = "{{ cron_expression }}"
+          interval = {{ interval }}
+          interval_unit = "{{ interval_unit }}"
+          location = "{{ location }}"
+          times = ["{{ times }}"]
+          scripts {
+            execute_operation_on_script_failure = {{ execute_operation_on_script_failure }}
+            execution_handler = "{{ execution_handler }}"
+            execution_handler_service = "{{ execution_handler_service }}"
+            execution_timeout = {{ execution_timeout }}
+            maximum_retry_count = {{ maximum_retry_count }}
+            stages = ["{{ stages }}"]
+          }
+        }
+        cross_region_copy_rule {
+          cmk_arn = "{{ cmk_arn }}"
+          copy_tags = {{ copy_tags }}
+          encrypted = {{ encrypted }}
+          target = "{{ target }}"
+          target_region = "{{ target_region }}"
+          deprecate_rule {
+            interval = {{ interval }}
+            interval_unit = "{{ interval_unit }}"
+          }
+          retain_rule {
+            interval = {{ interval }}
+            interval_unit = "{{ interval_unit }}"
+          }
+        }
+        deprecate_rule {
+          count = {{ count }}
+          interval = {{ interval }}
+          interval_unit = "{{ interval_unit }}"
+        }
+        fast_restore_rule {
+          availability_zones = ["{{ availability_zones }}"]
+          count = {{ count }}
+          interval = {{ interval }}
+          interval_unit = "{{ interval_unit }}"
+        }
+        retain_rule {
+          count = {{ count }}
+          interval = {{ interval }}
+          interval_unit = "{{ interval_unit }}"
+        }
+        share_rule {
+          target_accounts = ["{{ target_accounts }}"]
+          unshare_interval = {{ unshare_interval }}
+          unshare_interval_unit = "{{ unshare_interval_unit }}"
+        }
+      }
+    }
 }

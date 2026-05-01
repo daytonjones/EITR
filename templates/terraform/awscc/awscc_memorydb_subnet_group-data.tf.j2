@@ -1,11 +1,3 @@
 data "awscc_memorydb_subnet_group" "example" {
-    arn = "{{ arn }}"
-    description = "{{ description }}"
     id = "{{ id }}"
-    subnet_group_name = "{{ subnet_group_name }}"
-    subnet_ids = "{{ subnet_ids }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
 }

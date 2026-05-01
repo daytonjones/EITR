@@ -1,0 +1,47 @@
+resource "google_dataproc_session_template" "example" {
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    environment_config {
+      execution_config {
+        idle_ttl = "{{ idle_ttl }}"
+        kms_key = "{{ kms_key }}"
+        network_tags = ["{{ network_tags }}"]
+        service_account = "{{ service_account }}"
+        staging_bucket = "{{ staging_bucket }}"
+        subnetwork_uri = "{{ subnetwork_uri }}"
+        ttl = "{{ ttl }}"
+        authentication_config {
+          user_workload_authentication_type = "{{ user_workload_authentication_type }}"
+        }
+      }
+      peripherals_config {
+        metastore_service = "{{ metastore_service }}"
+        spark_history_server_config {
+          dataproc_cluster = "{{ dataproc_cluster }}"
+        }
+      }
+    }
+    jupyter_session {
+      display_name = "{{ display_name }}"
+      kernel = "{{ kernel }}"
+    }
+    runtime_config {
+      container_image = "{{ container_image }}"
+      properties = {
+        key = "{{ properties_value }}"
+      }
+      version = "{{ version }}"
+    }
+    spark_connect_session {
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

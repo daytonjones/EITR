@@ -1,0 +1,13 @@
+resource "google_compute_instant_snapshot_iam_binding" "example" {
+    id = "{{ id }}"
+    members = ["{{ members }}"]
+    name = "{{ name }}"
+    project = "{{ project }}"
+    role = "{{ role }}"
+    zone = "{{ zone }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

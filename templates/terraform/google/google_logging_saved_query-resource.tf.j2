@@ -1,0 +1,25 @@
+resource "google_logging_saved_query" "example" {
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    parent = "{{ parent }}"
+    visibility = "{{ visibility }}"
+    logging_query {
+      filter = "{{ filter }}"
+      summary_field_end = {{ summary_field_end }}
+      summary_field_start = {{ summary_field_start }}
+      summary_fields {
+        field = "{{ field }}"
+      }
+    }
+    ops_analytics_query {
+      sql_query_text = "{{ sql_query_text }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

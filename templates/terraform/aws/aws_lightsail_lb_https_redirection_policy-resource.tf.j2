@@ -1,5 +1,6 @@
 resource "aws_lightsail_lb_https_redirection_policy" "example" {
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     lb_name = "{{ lb_name }}"
+    region = "{{ region }}"
 }

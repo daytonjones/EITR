@@ -1,8 +1,157 @@
 resource "azurerm_cdn_frontdoor_rule" "example" {
     behavior_on_match = "{{ behavior_on_match }}"
     cdn_frontdoor_rule_set_id = "{{ cdn_frontdoor_rule_set_id }}"
-    cdn_frontdoor_rule_set_name = "{{ cdn_frontdoor_rule_set_name }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    order = "{{ order }}"
+    order = {{ order }}
+    actions {
+      request_header_action {
+        header_action = "{{ header_action }}"
+        header_name = "{{ header_name }}"
+        value = "{{ value }}"
+      }
+      response_header_action {
+        header_action = "{{ header_action }}"
+        header_name = "{{ header_name }}"
+        value = "{{ value }}"
+      }
+      route_configuration_override_action {
+        cache_behavior = "{{ cache_behavior }}"
+        cache_duration = "{{ cache_duration }}"
+        cdn_frontdoor_origin_group_id = "{{ cdn_frontdoor_origin_group_id }}"
+        compression_enabled = {{ compression_enabled }}
+        forwarding_protocol = "{{ forwarding_protocol }}"
+        query_string_caching_behavior = "{{ query_string_caching_behavior }}"
+        query_string_parameters = ["{{ query_string_parameters }}"]
+      }
+      url_redirect_action {
+        destination_fragment = "{{ destination_fragment }}"
+        destination_hostname = "{{ destination_hostname }}"
+        destination_path = "{{ destination_path }}"
+        query_string = "{{ query_string }}"
+        redirect_protocol = "{{ redirect_protocol }}"
+        redirect_type = "{{ redirect_type }}"
+      }
+      url_rewrite_action {
+        destination = "{{ destination }}"
+        preserve_unmatched_path = {{ preserve_unmatched_path }}
+        source_pattern = "{{ source_pattern }}"
+      }
+    }
+    conditions {
+      client_port_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+      }
+      cookies_condition {
+        cookie_name = "{{ cookie_name }}"
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+        transforms = ["{{ transforms }}"]
+      }
+      host_name_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+        transforms = ["{{ transforms }}"]
+      }
+      http_version_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+      }
+      is_device_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+      }
+      post_args_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+        post_args_name = "{{ post_args_name }}"
+        transforms = ["{{ transforms }}"]
+      }
+      query_string_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+        transforms = ["{{ transforms }}"]
+      }
+      remote_address_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+      }
+      request_body_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+        transforms = ["{{ transforms }}"]
+      }
+      request_header_condition {
+        header_name = "{{ header_name }}"
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+        transforms = ["{{ transforms }}"]
+      }
+      request_method_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+      }
+      request_scheme_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+      }
+      request_uri_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+        transforms = ["{{ transforms }}"]
+      }
+      server_port_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+      }
+      socket_address_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+      }
+      ssl_protocol_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+      }
+      url_file_extension_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+        transforms = ["{{ transforms }}"]
+      }
+      url_filename_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+        transforms = ["{{ transforms }}"]
+      }
+      url_path_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+        transforms = ["{{ transforms }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

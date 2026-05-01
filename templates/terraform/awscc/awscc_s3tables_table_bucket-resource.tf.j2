@@ -1,0 +1,9 @@
+resource "awscc_s3tables_table_bucket" "example" {
+    encryption_configuration = "{{ encryption_configuration }}"
+    metrics_configuration = "{{ metrics_configuration }}"
+    replication_configuration = "{{ replication_configuration }}"
+    storage_class_configuration = "{{ storage_class_configuration }}"
+    table_bucket_name = "{{ table_bucket_name }}"
+    tags = "{{ tags }}"
+    unreferenced_file_removal = "{{ unreferenced_file_removal }}"
+}

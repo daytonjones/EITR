@@ -1,0 +1,10 @@
+resource "aws_opensearchserverless_collection_group" "example" {
+    capacity_limits = ["{{ capacity_limits }}"]
+    description = "{{ description }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+    standby_replicas = "{{ standby_replicas }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

@@ -1,18 +1,146 @@
 resource "google_dataplex_datascan" "example" {
-    create_time = "{{ create_time }}"
     data_scan_id = "{{ data_scan_id }}"
     description = "{{ description }}"
     display_name = "{{ display_name }}"
-    effective_labels = "{{ effective_labels }}"
-    execution_status = "{{ execution_status }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    state = "{{ state }}"
-    terraform_labels = "{{ terraform_labels }}"
-    type = "{{ type }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
+    data {
+      entity = "{{ entity }}"
+      resource = "{{ resource }}"
+    }
+    data_discovery_spec {
+      bigquery_publishing_config {
+        connection = "{{ connection }}"
+        location = "{{ location }}"
+        project = "{{ project }}"
+        table_type = "{{ table_type }}"
+      }
+      storage_config {
+        exclude_patterns = ["{{ exclude_patterns }}"]
+        include_patterns = ["{{ include_patterns }}"]
+        csv_options {
+          delimiter = "{{ delimiter }}"
+          encoding = "{{ encoding }}"
+          header_rows = {{ header_rows }}
+          quote = "{{ quote }}"
+          type_inference_disabled = {{ type_inference_disabled }}
+        }
+        json_options {
+          encoding = "{{ encoding }}"
+          type_inference_disabled = {{ type_inference_disabled }}
+        }
+      }
+    }
+    data_documentation_spec {
+    }
+    data_profile_spec {
+      catalog_publishing_enabled = {{ catalog_publishing_enabled }}
+      row_filter = "{{ row_filter }}"
+      sampling_percent = {{ sampling_percent }}
+      exclude_fields {
+        field_names = ["{{ field_names }}"]
+      }
+      include_fields {
+        field_names = ["{{ field_names }}"]
+      }
+      post_scan_actions {
+        bigquery_export {
+          results_table = "{{ results_table }}"
+        }
+      }
+    }
+    data_quality_spec {
+      catalog_publishing_enabled = {{ catalog_publishing_enabled }}
+      row_filter = "{{ row_filter }}"
+      sampling_percent = {{ sampling_percent }}
+      post_scan_actions {
+        bigquery_export {
+          results_table = "{{ results_table }}"
+        }
+        notification_report {
+          job_end_trigger {
+          }
+          job_failure_trigger {
+          }
+          recipients {
+            emails = ["{{ emails }}"]
+          }
+          score_threshold_trigger {
+            score_threshold = {{ score_threshold }}
+          }
+        }
+      }
+      rules {
+        column = "{{ column }}"
+        description = "{{ description }}"
+        dimension = "{{ dimension }}"
+        ignore_null = {{ ignore_null }}
+        name = "{{ name }}"
+        suspended = {{ suspended }}
+        threshold = {{ threshold }}
+        non_null_expectation {
+        }
+        range_expectation {
+          max_value = "{{ max_value }}"
+          min_value = "{{ min_value }}"
+          strict_max_enabled = {{ strict_max_enabled }}
+          strict_min_enabled = {{ strict_min_enabled }}
+        }
+        regex_expectation {
+          regex = "{{ regex }}"
+        }
+        row_condition_expectation {
+          sql_expression = "{{ sql_expression }}"
+        }
+        set_expectation {
+          values = ["{{ values }}"]
+        }
+        sql_assertion {
+          sql_statement = "{{ sql_statement }}"
+        }
+        statistic_range_expectation {
+          max_value = "{{ max_value }}"
+          min_value = "{{ min_value }}"
+          statistic = "{{ statistic }}"
+          strict_max_enabled = {{ strict_max_enabled }}
+          strict_min_enabled = {{ strict_min_enabled }}
+        }
+        table_condition_expectation {
+          sql_expression = "{{ sql_expression }}"
+        }
+        uniqueness_expectation {
+        }
+      }
+    }
+    execution_identity {
+      dataplex_service_agent {
+      }
+      service_account {
+        email = "{{ email }}"
+      }
+      user_credential {
+      }
+    }
+    execution_spec {
+      field = "{{ field }}"
+      trigger {
+        on_demand {
+        }
+        one_time {
+          ttl_after_scan_completion = "{{ ttl_after_scan_completion }}"
+        }
+        schedule {
+          cron = "{{ cron }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

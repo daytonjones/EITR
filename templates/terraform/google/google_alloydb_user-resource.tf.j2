@@ -1,9 +1,15 @@
 resource "google_alloydb_user" "example" {
     cluster = "{{ cluster }}"
-    database_roles = "{{ database_roles }}"
+    database_roles = ["{{ database_roles }}"]
     id = "{{ id }}"
-    name = "{{ name }}"
     password = "{{ password }}"
+    password_wo = "{{ password_wo }}"
+    password_wo_version = "{{ password_wo_version }}"
     user_id = "{{ user_id }}"
     user_type = "{{ user_type }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,5 +1,5 @@
 resource "vsphere_file" "example" {
-    create_directories = "{{ create_directories }}"
+    create_directories = {{ create_directories }}
     datacenter = "{{ datacenter }}"
     datastore = "{{ datastore }}"
     destination_file = "{{ destination_file }}"

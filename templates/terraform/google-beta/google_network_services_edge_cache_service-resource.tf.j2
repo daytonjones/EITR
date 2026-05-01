@@ -1,17 +1,138 @@
 resource "google_network_services_edge_cache_service" "example" {
     description = "{{ description }}"
-    disable_http2 = "{{ disable_http2 }}"
-    disable_quic = "{{ disable_quic }}"
+    disable_http2 = {{ disable_http2 }}
+    disable_quic = {{ disable_quic }}
     edge_security_policy = "{{ edge_security_policy }}"
-    edge_ssl_certificates = "{{ edge_ssl_certificates }}"
-    effective_labels = "{{ effective_labels }}"
+    edge_ssl_certificates = ["{{ edge_ssl_certificates }}"]
     id = "{{ id }}"
-    ipv4_addresses = "{{ ipv4_addresses }}"
-    ipv6_addresses = "{{ ipv6_addresses }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
     project = "{{ project }}"
-    require_tls = "{{ require_tls }}"
+    require_tls = {{ require_tls }}
     ssl_policy = "{{ ssl_policy }}"
-    terraform_labels = "{{ terraform_labels }}"
+    log_config {
+      enable = {{ enable }}
+      sample_rate = {{ sample_rate }}
+    }
+    routing {
+      host_rule {
+        description = "{{ description }}"
+        hosts = ["{{ hosts }}"]
+        path_matcher = "{{ path_matcher }}"
+      }
+      path_matcher {
+        description = "{{ description }}"
+        name = "{{ name }}"
+        route_rule {
+          description = "{{ description }}"
+          origin = "{{ origin }}"
+          priority = "{{ priority }}"
+          header_action {
+            request_header_to_add {
+              header_name = "{{ header_name }}"
+              header_value = "{{ header_value }}"
+              replace = {{ replace }}
+            }
+            request_header_to_remove {
+              header_name = "{{ header_name }}"
+            }
+            response_header_to_add {
+              header_name = "{{ header_name }}"
+              header_value = "{{ header_value }}"
+              replace = {{ replace }}
+            }
+            response_header_to_remove {
+              header_name = "{{ header_name }}"
+            }
+          }
+          match_rule {
+            full_path_match = "{{ full_path_match }}"
+            ignore_case = {{ ignore_case }}
+            path_template_match = "{{ path_template_match }}"
+            prefix_match = "{{ prefix_match }}"
+            header_match {
+              exact_match = "{{ exact_match }}"
+              header_name = "{{ header_name }}"
+              invert_match = {{ invert_match }}
+              prefix_match = "{{ prefix_match }}"
+              present_match = {{ present_match }}
+              suffix_match = "{{ suffix_match }}"
+            }
+            query_parameter_match {
+              exact_match = "{{ exact_match }}"
+              name = "{{ name }}"
+              present_match = {{ present_match }}
+            }
+          }
+          route_action {
+            compression_mode = "{{ compression_mode }}"
+            cdn_policy {
+              cache_mode = "{{ cache_mode }}"
+              client_ttl = "{{ client_ttl }}"
+              default_ttl = "{{ default_ttl }}"
+              max_ttl = "{{ max_ttl }}"
+              negative_caching = {{ negative_caching }}
+              negative_caching_policy = {
+        key = "{{ negative_caching_policy_value }}"
+      }
+              signed_request_keyset = "{{ signed_request_keyset }}"
+              signed_request_maximum_expiration_ttl = "{{ signed_request_maximum_expiration_ttl }}"
+              signed_request_mode = "{{ signed_request_mode }}"
+              add_signatures {
+                actions = ["{{ actions }}"]
+                copied_parameters = ["{{ copied_parameters }}"]
+                keyset = "{{ keyset }}"
+                token_query_parameter = "{{ token_query_parameter }}"
+                token_ttl = "{{ token_ttl }}"
+              }
+              cache_key_policy {
+                exclude_host = {{ exclude_host }}
+                exclude_query_string = {{ exclude_query_string }}
+                excluded_query_parameters = ["{{ excluded_query_parameters }}"]
+                include_protocol = {{ include_protocol }}
+                included_cookie_names = ["{{ included_cookie_names }}"]
+                included_header_names = ["{{ included_header_names }}"]
+                included_query_parameters = ["{{ included_query_parameters }}"]
+              }
+              signed_token_options {
+                allowed_signature_algorithms = ["{{ allowed_signature_algorithms }}"]
+                token_query_parameter = "{{ token_query_parameter }}"
+              }
+            }
+            cors_policy {
+              allow_credentials = {{ allow_credentials }}
+              allow_headers = ["{{ allow_headers }}"]
+              allow_methods = ["{{ allow_methods }}"]
+              allow_origins = ["{{ allow_origins }}"]
+              disabled = {{ disabled }}
+              expose_headers = ["{{ expose_headers }}"]
+              max_age = "{{ max_age }}"
+            }
+            url_rewrite {
+              host_rewrite = "{{ host_rewrite }}"
+              path_prefix_rewrite = "{{ path_prefix_rewrite }}"
+              path_template_rewrite = "{{ path_template_rewrite }}"
+            }
+          }
+          route_methods {
+            allowed_methods = ["{{ allowed_methods }}"]
+          }
+          url_redirect {
+            host_redirect = "{{ host_redirect }}"
+            https_redirect = {{ https_redirect }}
+            path_redirect = "{{ path_redirect }}"
+            prefix_redirect = "{{ prefix_redirect }}"
+            redirect_response_code = "{{ redirect_response_code }}"
+            strip_query = {{ strip_query }}
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

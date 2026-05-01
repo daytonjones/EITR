@@ -1,0 +1,13 @@
+resource "google_compute_region_backend_bucket_iam_member" "example" {
+    id = "{{ id }}"
+    member = "{{ member }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

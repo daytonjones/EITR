@@ -1,25 +1,200 @@
 resource "google_sql_database_instance" "example" {
-    available_maintenance_versions = "{{ available_maintenance_versions }}"
-    connection_name = "{{ connection_name }}"
+    backupdr_backup = "{{ backupdr_backup }}"
     database_version = "{{ database_version }}"
-    deletion_protection = "{{ deletion_protection }}"
-    dns_name = "{{ dns_name }}"
+    deletion_protection = {{ deletion_protection }}
     encryption_key_name = "{{ encryption_key_name }}"
-    first_ip_address = "{{ first_ip_address }}"
+    final_backup_description = "{{ final_backup_description }}"
     id = "{{ id }}"
     instance_type = "{{ instance_type }}"
-    ip_address = "{{ ip_address }}"
     maintenance_version = "{{ maintenance_version }}"
     master_instance_name = "{{ master_instance_name }}"
     name = "{{ name }}"
-    private_ip_address = "{{ private_ip_address }}"
+    node_count = {{ node_count }}
     project = "{{ project }}"
-    psc_service_attachment_link = "{{ psc_service_attachment_link }}"
-    public_ip_address = "{{ public_ip_address }}"
     region = "{{ region }}"
-    replica_names = "{{ replica_names }}"
+    replica_names = ["{{ replica_names }}"]
     root_password = "{{ root_password }}"
-    self_link = "{{ self_link }}"
-    server_ca_cert = "{{ server_ca_cert }}"
-    service_account_email_address = "{{ service_account_email_address }}"
+    root_password_wo = "{{ root_password_wo }}"
+    root_password_wo_version = "{{ root_password_wo_version }}"
+    clone {
+      allocated_ip_range = "{{ allocated_ip_range }}"
+      database_names = ["{{ database_names }}"]
+      point_in_time = "{{ point_in_time }}"
+      preferred_zone = "{{ preferred_zone }}"
+      source_instance_deletion_time = "{{ source_instance_deletion_time }}"
+      source_instance_name = "{{ source_instance_name }}"
+      source_project = "{{ source_project }}"
+    }
+    point_in_time_restore_context {
+      allocated_ip_range = "{{ allocated_ip_range }}"
+      datasource = "{{ datasource }}"
+      point_in_time = "{{ point_in_time }}"
+      preferred_zone = "{{ preferred_zone }}"
+      region = "{{ region }}"
+      target_instance = "{{ target_instance }}"
+    }
+    replica_configuration {
+      ca_certificate = "{{ ca_certificate }}"
+      cascadable_replica = {{ cascadable_replica }}
+      client_certificate = "{{ client_certificate }}"
+      client_key = "{{ client_key }}"
+      connect_retry_interval = {{ connect_retry_interval }}
+      dump_file_path = "{{ dump_file_path }}"
+      failover_target = {{ failover_target }}
+      master_heartbeat_period = {{ master_heartbeat_period }}
+      password = "{{ password }}"
+      ssl_cipher = "{{ ssl_cipher }}"
+      username = "{{ username }}"
+      verify_server_certificate = {{ verify_server_certificate }}
+    }
+    replication_cluster {
+      failover_dr_replica_name = "{{ failover_dr_replica_name }}"
+      psa_write_endpoint = "{{ psa_write_endpoint }}"
+    }
+    restore_backup_context {
+      backup_run_id = {{ backup_run_id }}
+      instance_id = "{{ instance_id }}"
+      project = "{{ project }}"
+    }
+    settings {
+      activation_policy = "{{ activation_policy }}"
+      auto_upgrade_enabled = {{ auto_upgrade_enabled }}
+      availability_type = "{{ availability_type }}"
+      collation = "{{ collation }}"
+      connector_enforcement = "{{ connector_enforcement }}"
+      data_api_access = "{{ data_api_access }}"
+      deletion_protection_enabled = {{ deletion_protection_enabled }}
+      disk_autoresize = {{ disk_autoresize }}
+      disk_autoresize_limit = {{ disk_autoresize_limit }}
+      disk_size = {{ disk_size }}
+      disk_type = "{{ disk_type }}"
+      edition = "{{ edition }}"
+      enable_dataplex_integration = {{ enable_dataplex_integration }}
+      enable_google_ml_integration = {{ enable_google_ml_integration }}
+      pricing_plan = "{{ pricing_plan }}"
+      retain_backups_on_delete = {{ retain_backups_on_delete }}
+      tier = "{{ tier }}"
+      time_zone = "{{ time_zone }}"
+      user_labels = {
+        key = "{{ user_labels_value }}"
+      }
+      active_directory_config {
+        domain = "{{ domain }}"
+      }
+      advanced_machine_features {
+        threads_per_core = {{ threads_per_core }}
+      }
+      backup_configuration {
+        binary_log_enabled = {{ binary_log_enabled }}
+        enabled = {{ enabled }}
+        location = "{{ location }}"
+        point_in_time_recovery_enabled = {{ point_in_time_recovery_enabled }}
+        start_time = "{{ start_time }}"
+        transaction_log_retention_days = {{ transaction_log_retention_days }}
+        backup_retention_settings {
+          retained_backups = {{ retained_backups }}
+          retention_unit = "{{ retention_unit }}"
+        }
+      }
+      connection_pool_config {
+        connection_pooling_enabled = {{ connection_pooling_enabled }}
+        flags {
+          name = "{{ name }}"
+          value = "{{ value }}"
+        }
+      }
+      data_cache_config {
+        data_cache_enabled = {{ data_cache_enabled }}
+      }
+      database_flags {
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+      deny_maintenance_period {
+        end_date = "{{ end_date }}"
+        start_date = "{{ start_date }}"
+        time = "{{ time }}"
+      }
+      entraid_config {
+        application_id = "{{ application_id }}"
+        tenant_id = "{{ tenant_id }}"
+      }
+      final_backup_config {
+        enabled = {{ enabled }}
+        retention_days = {{ retention_days }}
+      }
+      insights_config {
+        enhanced_query_insights_enabled = {{ enhanced_query_insights_enabled }}
+        query_insights_enabled = {{ query_insights_enabled }}
+        query_plans_per_minute = {{ query_plans_per_minute }}
+        query_string_length = {{ query_string_length }}
+        record_application_tags = {{ record_application_tags }}
+        record_client_address = {{ record_client_address }}
+      }
+      ip_configuration {
+        allocated_ip_range = "{{ allocated_ip_range }}"
+        custom_subject_alternative_names = ["{{ custom_subject_alternative_names }}"]
+        enable_private_path_for_google_cloud_services = {{ enable_private_path_for_google_cloud_services }}
+        ipv4_enabled = {{ ipv4_enabled }}
+        private_network = "{{ private_network }}"
+        server_ca_mode = "{{ server_ca_mode }}"
+        server_ca_pool = "{{ server_ca_pool }}"
+        server_certificate_rotation_mode = "{{ server_certificate_rotation_mode }}"
+        ssl_mode = "{{ ssl_mode }}"
+        authorized_networks {
+          expiration_time = "{{ expiration_time }}"
+          name = "{{ name }}"
+          value = "{{ value }}"
+        }
+        psc_config {
+          allowed_consumer_projects = ["{{ allowed_consumer_projects }}"]
+          network_attachment_uri = "{{ network_attachment_uri }}"
+          psc_enabled = {{ psc_enabled }}
+          psc_auto_connections {
+            consumer_network = "{{ consumer_network }}"
+            consumer_service_project_id = "{{ consumer_service_project_id }}"
+          }
+        }
+      }
+      location_preference {
+        follow_gae_application = "{{ follow_gae_application }}"
+        secondary_zone = "{{ secondary_zone }}"
+        zone = "{{ zone }}"
+      }
+      maintenance_window {
+        day = {{ day }}
+        hour = {{ hour }}
+        update_track = "{{ update_track }}"
+      }
+      password_validation_policy {
+        complexity = "{{ complexity }}"
+        disallow_username_substring = {{ disallow_username_substring }}
+        enable_password_policy = {{ enable_password_policy }}
+        min_length = {{ min_length }}
+        password_change_interval = "{{ password_change_interval }}"
+        reuse_interval = {{ reuse_interval }}
+      }
+      read_pool_auto_scale_config {
+        disable_scale_in = {{ disable_scale_in }}
+        enabled = {{ enabled }}
+        max_node_count = {{ max_node_count }}
+        min_node_count = {{ min_node_count }}
+        scale_in_cooldown_seconds = {{ scale_in_cooldown_seconds }}
+        scale_out_cooldown_seconds = {{ scale_out_cooldown_seconds }}
+        target_metrics {
+          metric = "{{ metric }}"
+          target_value = {{ target_value }}
+        }
+      }
+      sql_server_audit_config {
+        bucket = "{{ bucket }}"
+        retention_interval = "{{ retention_interval }}"
+        upload_interval = "{{ upload_interval }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

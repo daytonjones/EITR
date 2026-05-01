@@ -1,7 +1,11 @@
 resource "google_tags_tag_value_iam_binding" "example" {
-    etag = "{{ etag }}"
     id = "{{ id }}"
-    members = "{{ members }}"
+    members = ["{{ members }}"]
     role = "{{ role }}"
     tag_value = "{{ tag_value }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

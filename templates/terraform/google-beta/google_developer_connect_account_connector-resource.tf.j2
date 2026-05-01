@@ -1,0 +1,39 @@
+resource "google_developer_connect_account_connector" "example" {
+    account_connector_id = "{{ account_connector_id }}"
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
+    etag = "{{ etag }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    custom_oauth_config {
+      auth_uri = "{{ auth_uri }}"
+      client_id = "{{ client_id }}"
+      client_secret = "{{ client_secret }}"
+      host_uri = "{{ host_uri }}"
+      pkce_disabled = {{ pkce_disabled }}
+      scm_provider = "{{ scm_provider }}"
+      scopes = ["{{ scopes }}"]
+      ssl_ca_certificate = "{{ ssl_ca_certificate }}"
+      token_uri = "{{ token_uri }}"
+      service_directory_config {
+        service = "{{ service }}"
+      }
+    }
+    provider_oauth_config {
+      scopes = ["{{ scopes }}"]
+      system_provider_id = "{{ system_provider_id }}"
+    }
+    proxy_config {
+      enabled = {{ enabled }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

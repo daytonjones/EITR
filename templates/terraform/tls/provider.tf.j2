@@ -1,2 +1,8 @@
 provider "tls" {
+    proxy {
+      from_env = {{ from_env }}
+      password = "{{ password }}"
+      url = "{{ url }}"
+      username = "{{ username }}"
+    }
 }

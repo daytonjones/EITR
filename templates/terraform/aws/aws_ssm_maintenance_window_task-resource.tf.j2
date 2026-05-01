@@ -1,15 +1,59 @@
 resource "aws_ssm_maintenance_window_task" "example" {
-    arn = "{{ arn }}"
     cutoff_behavior = "{{ cutoff_behavior }}"
     description = "{{ description }}"
     id = "{{ id }}"
     max_concurrency = "{{ max_concurrency }}"
     max_errors = "{{ max_errors }}"
     name = "{{ name }}"
-    priority = "{{ priority }}"
+    priority = {{ priority }}
+    region = "{{ region }}"
     service_role_arn = "{{ service_role_arn }}"
     task_arn = "{{ task_arn }}"
     task_type = "{{ task_type }}"
     window_id = "{{ window_id }}"
-    window_task_id = "{{ window_task_id }}"
+    targets {
+      key = "{{ key }}"
+      values = ["{{ values }}"]
+    }
+    task_invocation_parameters {
+      automation_parameters {
+        document_version = "{{ document_version }}"
+        parameter {
+          name = "{{ name }}"
+          values = ["{{ values }}"]
+        }
+      }
+      lambda_parameters {
+        client_context = "{{ client_context }}"
+        payload = "{{ payload }}"
+        qualifier = "{{ qualifier }}"
+      }
+      run_command_parameters {
+        comment = "{{ comment }}"
+        document_hash = "{{ document_hash }}"
+        document_hash_type = "{{ document_hash_type }}"
+        document_version = "{{ document_version }}"
+        output_s3_bucket = "{{ output_s3_bucket }}"
+        output_s3_key_prefix = "{{ output_s3_key_prefix }}"
+        service_role_arn = "{{ service_role_arn }}"
+        timeout_seconds = {{ timeout_seconds }}
+        cloudwatch_config {
+          cloudwatch_log_group_name = "{{ cloudwatch_log_group_name }}"
+          cloudwatch_output_enabled = {{ cloudwatch_output_enabled }}
+        }
+        notification_config {
+          notification_arn = "{{ notification_arn }}"
+          notification_events = ["{{ notification_events }}"]
+          notification_type = "{{ notification_type }}"
+        }
+        parameter {
+          name = "{{ name }}"
+          values = ["{{ values }}"]
+        }
+      }
+      step_functions_parameters {
+        input = "{{ input }}"
+        name = "{{ name }}"
+      }
+    }
 }

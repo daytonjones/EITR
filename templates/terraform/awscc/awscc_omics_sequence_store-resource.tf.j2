@@ -1,14 +1,13 @@
 resource "awscc_omics_sequence_store" "example" {
-    arn = "{{ arn }}"
-    creation_time = "{{ creation_time }}"
+    access_log_location = "{{ access_log_location }}"
     description = "{{ description }}"
+    e_tag_algorithm_family = "{{ e_tag_algorithm_family }}"
     fallback_location = "{{ fallback_location }}"
-    id = "{{ id }}"
     name = "{{ name }}"
-    sequence_store_id = "{{ sequence_store_id }}"
-    sse_config = "{
-    key_arn = {{ key_arn }}
-    type = {{ type }}
-}"
-    tags = "{{ tags }}"
+    propagated_set_level_tags = ["{{ propagated_set_level_tags }}"]
+    s3_access_policy = "{{ s3_access_policy }}"
+    sse_config = "{{ sse_config }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
 }

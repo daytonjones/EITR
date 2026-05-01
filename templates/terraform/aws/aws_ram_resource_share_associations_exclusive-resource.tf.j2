@@ -1,0 +1,7 @@
+resource "aws_ram_resource_share_associations_exclusive" "example" {
+    principals = ["{{ principals }}"]
+    region = "{{ region }}"
+    resource_arns = ["{{ resource_arns }}"]
+    resource_share_arn = "{{ resource_share_arn }}"
+    sources = ["{{ sources }}"]
+}

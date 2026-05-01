@@ -3,4 +3,12 @@ resource "tfe_team_access" "example" {
     id = "{{ id }}"
     team_id = "{{ team_id }}"
     workspace_id = "{{ workspace_id }}"
+    permissions {
+      run_tasks = {{ run_tasks }}
+      runs = "{{ runs }}"
+      sentinel_mocks = "{{ sentinel_mocks }}"
+      state_versions = "{{ state_versions }}"
+      variables = "{{ variables }}"
+      workspace_locking = {{ workspace_locking }}
+    }
 }

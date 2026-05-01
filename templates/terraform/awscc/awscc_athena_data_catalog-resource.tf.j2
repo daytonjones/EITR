@@ -1,11 +1,12 @@
 resource "awscc_athena_data_catalog" "example" {
+    connection_type = "{{ connection_type }}"
     description = "{{ description }}"
-    id = "{{ id }}"
+    error = "{{ error }}"
     name = "{{ name }}"
-    parameters = "{{ parameters }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
+    status = "{{ status }}"
+    tags = "{{ tags }}"
     type = "{{ type }}"
 }

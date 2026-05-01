@@ -1,0 +1,8 @@
+data "azurerm_dev_center_project" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    timeouts {
+      read = "{{ read }}"
+    }
+}

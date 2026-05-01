@@ -1,19 +1,38 @@
 resource "google_compute_firewall" "example" {
-    creation_timestamp = "{{ creation_timestamp }}"
     description = "{{ description }}"
-    destination_ranges = "{{ destination_ranges }}"
+    destination_ranges = ["{{ destination_ranges }}"]
     direction = "{{ direction }}"
-    disabled = "{{ disabled }}"
-    enable_logging = "{{ enable_logging }}"
+    disabled = {{ disabled }}
+    enable_logging = {{ enable_logging }}
     id = "{{ id }}"
     name = "{{ name }}"
     network = "{{ network }}"
-    priority = "{{ priority }}"
+    priority = {{ priority }}
     project = "{{ project }}"
-    self_link = "{{ self_link }}"
-    source_ranges = "{{ source_ranges }}"
-    source_service_accounts = "{{ source_service_accounts }}"
-    source_tags = "{{ source_tags }}"
-    target_service_accounts = "{{ target_service_accounts }}"
-    target_tags = "{{ target_tags }}"
+    source_ranges = ["{{ source_ranges }}"]
+    source_service_accounts = ["{{ source_service_accounts }}"]
+    source_tags = ["{{ source_tags }}"]
+    target_service_accounts = ["{{ target_service_accounts }}"]
+    target_tags = ["{{ target_tags }}"]
+    allow {
+      ports = ["{{ ports }}"]
+      protocol = "{{ protocol }}"
+    }
+    deny {
+      ports = ["{{ ports }}"]
+      protocol = "{{ protocol }}"
+    }
+    log_config {
+      metadata = "{{ metadata }}"
+    }
+    params {
+      resource_manager_tags = {
+        key = "{{ resource_manager_tags_value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

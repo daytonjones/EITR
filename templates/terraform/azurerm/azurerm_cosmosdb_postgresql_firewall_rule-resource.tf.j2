@@ -4,4 +4,10 @@ resource "azurerm_cosmosdb_postgresql_firewall_rule" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     start_ip_address = "{{ start_ip_address }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

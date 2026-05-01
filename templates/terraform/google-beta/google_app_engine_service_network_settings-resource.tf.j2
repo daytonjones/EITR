@@ -2,4 +2,12 @@ resource "google_app_engine_service_network_settings" "example" {
     id = "{{ id }}"
     project = "{{ project }}"
     service = "{{ service }}"
+    network_settings {
+      ingress_traffic_allowed = "{{ ingress_traffic_allowed }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,331 @@
+resource "aws_sagemaker_hyper_parameter_tuning_job" "example" {
+    name = "{{ name }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    autotune {
+      mode = "{{ mode }}"
+    }
+    config {
+      random_seed = {{ random_seed }}
+      strategy = "{{ strategy }}"
+      training_job_early_stopping_type = "{{ training_job_early_stopping_type }}"
+      objective {
+        metric_name = "{{ metric_name }}"
+        type = "{{ type }}"
+      }
+      parameter_ranges {
+        auto_parameters {
+          name = "{{ name }}"
+          value_hint = "{{ value_hint }}"
+        }
+        categorical_parameter_ranges {
+          name = "{{ name }}"
+          values = ["{{ values }}"]
+        }
+        continuous_parameter_ranges {
+          max_value = "{{ max_value }}"
+          min_value = "{{ min_value }}"
+          name = "{{ name }}"
+          scaling_type = "{{ scaling_type }}"
+        }
+        integer_parameter_ranges {
+          max_value = "{{ max_value }}"
+          min_value = "{{ min_value }}"
+          name = "{{ name }}"
+          scaling_type = "{{ scaling_type }}"
+        }
+      }
+      resource_limits {
+        max_number_of_training_jobs = {{ max_number_of_training_jobs }}
+        max_parallel_training_jobs = {{ max_parallel_training_jobs }}
+        max_runtime_in_seconds = {{ max_runtime_in_seconds }}
+      }
+      strategy_config {
+        hyperband_strategy_config {
+          max_resource = {{ max_resource }}
+          min_resource = {{ min_resource }}
+        }
+      }
+      tuning_job_completion_criteria {
+        target_objective_metric_value = {{ target_objective_metric_value }}
+        best_objective_not_improving {
+          max_number_of_training_jobs_not_improving = {{ max_number_of_training_jobs_not_improving }}
+        }
+        convergence_detected {
+          complete_on_convergence = "{{ complete_on_convergence }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+    training_job_definition {
+      definition_name = "{{ definition_name }}"
+      enable_inter_container_traffic_encryption = {{ enable_inter_container_traffic_encryption }}
+      enable_managed_spot_training = {{ enable_managed_spot_training }}
+      enable_network_isolation = {{ enable_network_isolation }}
+      environment = {
+        key = "{{ environment_value }}"
+      }
+      retry_strategy = ["{{ retry_strategy }}"]
+      role_arn = "{{ role_arn }}"
+      static_hyper_parameters = {
+        key = "{{ static_hyper_parameters_value }}"
+      }
+      algorithm_specification {
+        algorithm_name = "{{ algorithm_name }}"
+        training_image = "{{ training_image }}"
+        training_input_mode = "{{ training_input_mode }}"
+        metric_definitions {
+          name = "{{ name }}"
+          regex = "{{ regex }}"
+        }
+      }
+      checkpoint_config {
+        local_path = "{{ local_path }}"
+        s3_uri = "{{ s3_uri }}"
+      }
+      hyper_parameter_ranges {
+        auto_parameters {
+          name = "{{ name }}"
+          value_hint = "{{ value_hint }}"
+        }
+        categorical_parameter_ranges {
+          name = "{{ name }}"
+          values = ["{{ values }}"]
+        }
+        continuous_parameter_ranges {
+          max_value = "{{ max_value }}"
+          min_value = "{{ min_value }}"
+          name = "{{ name }}"
+          scaling_type = "{{ scaling_type }}"
+        }
+        integer_parameter_ranges {
+          max_value = "{{ max_value }}"
+          min_value = "{{ min_value }}"
+          name = "{{ name }}"
+          scaling_type = "{{ scaling_type }}"
+        }
+      }
+      hyper_parameter_tuning_resource_config {
+        allocation_strategy = "{{ allocation_strategy }}"
+        instance_count = {{ instance_count }}
+        instance_type = "{{ instance_type }}"
+        volume_kms_key_id = "{{ volume_kms_key_id }}"
+        volume_size_in_gb = {{ volume_size_in_gb }}
+        instance_configs {
+          instance_count = {{ instance_count }}
+          instance_type = "{{ instance_type }}"
+          volume_size_in_gb = {{ volume_size_in_gb }}
+        }
+      }
+      input_data_config {
+        channel_name = "{{ channel_name }}"
+        compression_type = "{{ compression_type }}"
+        content_type = "{{ content_type }}"
+        input_mode = "{{ input_mode }}"
+        record_wrapper_type = "{{ record_wrapper_type }}"
+        data_source {
+          file_system_data_source {
+            directory_path = "{{ directory_path }}"
+            file_system_access_mode = "{{ file_system_access_mode }}"
+            file_system_id = "{{ file_system_id }}"
+            file_system_type = "{{ file_system_type }}"
+          }
+          s3_data_source {
+            attribute_names = ["{{ attribute_names }}"]
+            instance_group_names = ["{{ instance_group_names }}"]
+            s3_data_distribution_type = "{{ s3_data_distribution_type }}"
+            s3_data_type = "{{ s3_data_type }}"
+            s3_uri = "{{ s3_uri }}"
+            hub_access_config {
+              hub_content_arn = "{{ hub_content_arn }}"
+            }
+            model_access_config {
+              accept_eula = {{ accept_eula }}
+            }
+          }
+        }
+        shuffle_config {
+          seed = {{ seed }}
+        }
+      }
+      output_data_config {
+        compression_type = "{{ compression_type }}"
+        kms_key_id = "{{ kms_key_id }}"
+        s3_output_path = "{{ s3_output_path }}"
+      }
+      resource_config {
+        instance_count = {{ instance_count }}
+        instance_type = "{{ instance_type }}"
+        keep_alive_period_in_seconds = {{ keep_alive_period_in_seconds }}
+        training_plan_arn = "{{ training_plan_arn }}"
+        volume_kms_key_id = "{{ volume_kms_key_id }}"
+        volume_size_in_gb = {{ volume_size_in_gb }}
+        instance_groups {
+          instance_count = {{ instance_count }}
+          instance_group_name = "{{ instance_group_name }}"
+          instance_type = "{{ instance_type }}"
+        }
+        instance_placement_config {
+          enable_multiple_jobs = {{ enable_multiple_jobs }}
+          placement_specifications {
+            instance_count = {{ instance_count }}
+            ultra_server_id = "{{ ultra_server_id }}"
+          }
+        }
+      }
+      stopping_condition {
+        max_pending_time_in_seconds = {{ max_pending_time_in_seconds }}
+        max_runtime_in_seconds = {{ max_runtime_in_seconds }}
+        max_wait_time_in_seconds = {{ max_wait_time_in_seconds }}
+      }
+      tuning_objective {
+        metric_name = "{{ metric_name }}"
+        type = "{{ type }}"
+      }
+      vpc_config {
+        security_group_ids = ["{{ security_group_ids }}"]
+        subnets = ["{{ subnets }}"]
+      }
+    }
+    training_job_definitions {
+      definition_name = "{{ definition_name }}"
+      enable_inter_container_traffic_encryption = {{ enable_inter_container_traffic_encryption }}
+      enable_managed_spot_training = {{ enable_managed_spot_training }}
+      enable_network_isolation = {{ enable_network_isolation }}
+      environment = {
+        key = "{{ environment_value }}"
+      }
+      retry_strategy = ["{{ retry_strategy }}"]
+      role_arn = "{{ role_arn }}"
+      static_hyper_parameters = {
+        key = "{{ static_hyper_parameters_value }}"
+      }
+      algorithm_specification {
+        algorithm_name = "{{ algorithm_name }}"
+        training_image = "{{ training_image }}"
+        training_input_mode = "{{ training_input_mode }}"
+        metric_definitions {
+          name = "{{ name }}"
+          regex = "{{ regex }}"
+        }
+      }
+      checkpoint_config {
+        local_path = "{{ local_path }}"
+        s3_uri = "{{ s3_uri }}"
+      }
+      hyper_parameter_ranges {
+        auto_parameters {
+          name = "{{ name }}"
+          value_hint = "{{ value_hint }}"
+        }
+        categorical_parameter_ranges {
+          name = "{{ name }}"
+          values = ["{{ values }}"]
+        }
+        continuous_parameter_ranges {
+          max_value = "{{ max_value }}"
+          min_value = "{{ min_value }}"
+          name = "{{ name }}"
+          scaling_type = "{{ scaling_type }}"
+        }
+        integer_parameter_ranges {
+          max_value = "{{ max_value }}"
+          min_value = "{{ min_value }}"
+          name = "{{ name }}"
+          scaling_type = "{{ scaling_type }}"
+        }
+      }
+      hyper_parameter_tuning_resource_config {
+        allocation_strategy = "{{ allocation_strategy }}"
+        instance_count = {{ instance_count }}
+        instance_type = "{{ instance_type }}"
+        volume_kms_key_id = "{{ volume_kms_key_id }}"
+        volume_size_in_gb = {{ volume_size_in_gb }}
+        instance_configs {
+          instance_count = {{ instance_count }}
+          instance_type = "{{ instance_type }}"
+          volume_size_in_gb = {{ volume_size_in_gb }}
+        }
+      }
+      input_data_config {
+        channel_name = "{{ channel_name }}"
+        compression_type = "{{ compression_type }}"
+        content_type = "{{ content_type }}"
+        input_mode = "{{ input_mode }}"
+        record_wrapper_type = "{{ record_wrapper_type }}"
+        data_source {
+          file_system_data_source {
+            directory_path = "{{ directory_path }}"
+            file_system_access_mode = "{{ file_system_access_mode }}"
+            file_system_id = "{{ file_system_id }}"
+            file_system_type = "{{ file_system_type }}"
+          }
+          s3_data_source {
+            attribute_names = ["{{ attribute_names }}"]
+            instance_group_names = ["{{ instance_group_names }}"]
+            s3_data_distribution_type = "{{ s3_data_distribution_type }}"
+            s3_data_type = "{{ s3_data_type }}"
+            s3_uri = "{{ s3_uri }}"
+            hub_access_config {
+              hub_content_arn = "{{ hub_content_arn }}"
+            }
+            model_access_config {
+              accept_eula = {{ accept_eula }}
+            }
+          }
+        }
+        shuffle_config {
+          seed = {{ seed }}
+        }
+      }
+      output_data_config {
+        compression_type = "{{ compression_type }}"
+        kms_key_id = "{{ kms_key_id }}"
+        s3_output_path = "{{ s3_output_path }}"
+      }
+      resource_config {
+        instance_count = {{ instance_count }}
+        instance_type = "{{ instance_type }}"
+        keep_alive_period_in_seconds = {{ keep_alive_period_in_seconds }}
+        training_plan_arn = "{{ training_plan_arn }}"
+        volume_kms_key_id = "{{ volume_kms_key_id }}"
+        volume_size_in_gb = {{ volume_size_in_gb }}
+        instance_groups {
+          instance_count = {{ instance_count }}
+          instance_group_name = "{{ instance_group_name }}"
+          instance_type = "{{ instance_type }}"
+        }
+        instance_placement_config {
+          enable_multiple_jobs = {{ enable_multiple_jobs }}
+          placement_specifications {
+            instance_count = {{ instance_count }}
+            ultra_server_id = "{{ ultra_server_id }}"
+          }
+        }
+      }
+      stopping_condition {
+        max_pending_time_in_seconds = {{ max_pending_time_in_seconds }}
+        max_runtime_in_seconds = {{ max_runtime_in_seconds }}
+        max_wait_time_in_seconds = {{ max_wait_time_in_seconds }}
+      }
+      tuning_objective {
+        metric_name = "{{ metric_name }}"
+        type = "{{ type }}"
+      }
+      vpc_config {
+        security_group_ids = ["{{ security_group_ids }}"]
+        subnets = ["{{ subnets }}"]
+      }
+    }
+    warm_start_config {
+      warm_start_type = "{{ warm_start_type }}"
+      parent_hyper_parameter_tuning_jobs {
+        name = "{{ name }}"
+      }
+    }
+}

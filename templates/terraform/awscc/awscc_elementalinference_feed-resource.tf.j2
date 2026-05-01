@@ -1,0 +1,7 @@
+resource "awscc_elementalinference_feed" "example" {
+    name = "{{ name }}"
+    outputs = "{{ outputs }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

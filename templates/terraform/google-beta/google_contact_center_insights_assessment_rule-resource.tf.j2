@@ -1,0 +1,25 @@
+resource "google_contact_center_insights_assessment_rule" "example" {
+    active = {{ active }}
+    assessment_rule_id = "{{ assessment_rule_id }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    sample_rule {
+      conversation_filter = "{{ conversation_filter }}"
+      dimension = "{{ dimension }}"
+      sample_percentage = {{ sample_percentage }}
+      sample_row = {{ sample_row }}
+    }
+    schedule_info {
+      end_time = "{{ end_time }}"
+      schedule = "{{ schedule }}"
+      start_time = "{{ start_time }}"
+      time_zone = "{{ time_zone }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

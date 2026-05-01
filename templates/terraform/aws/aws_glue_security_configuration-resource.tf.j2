@@ -1,4 +1,19 @@
 resource "aws_glue_security_configuration" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
+    encryption_configuration {
+      cloudwatch_encryption {
+        cloudwatch_encryption_mode = "{{ cloudwatch_encryption_mode }}"
+        kms_key_arn = "{{ kms_key_arn }}"
+      }
+      job_bookmarks_encryption {
+        job_bookmarks_encryption_mode = "{{ job_bookmarks_encryption_mode }}"
+        kms_key_arn = "{{ kms_key_arn }}"
+      }
+      s3_encryption {
+        kms_key_arn = "{{ kms_key_arn }}"
+        s3_encryption_mode = "{{ s3_encryption_mode }}"
+      }
+    }
 }

@@ -1,18 +1,33 @@
 resource "google_gkeonprem_bare_metal_node_pool" "example" {
-    annotations = "{{ annotations }}"
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
     bare_metal_cluster = "{{ bare_metal_cluster }}"
-    create_time = "{{ create_time }}"
-    delete_time = "{{ delete_time }}"
     display_name = "{{ display_name }}"
-    effective_annotations = "{{ effective_annotations }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    reconciling = "{{ reconciling }}"
-    state = "{{ state }}"
-    status = "{{ status }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
+    node_pool_config {
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      operating_system = "{{ operating_system }}"
+      node_configs {
+        labels = {
+        key = "{{ labels_value }}"
+      }
+        node_ip = "{{ node_ip }}"
+      }
+      taints {
+        effect = "{{ effect }}"
+        key = "{{ key }}"
+        value = "{{ value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

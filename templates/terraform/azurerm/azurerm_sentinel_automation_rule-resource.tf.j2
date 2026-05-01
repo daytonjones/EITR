@@ -1,12 +1,37 @@
 resource "azurerm_sentinel_automation_rule" "example" {
     condition_json = "{{ condition_json }}"
     display_name = "{{ display_name }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     expiration = "{{ expiration }}"
     id = "{{ id }}"
     log_analytics_workspace_id = "{{ log_analytics_workspace_id }}"
     name = "{{ name }}"
-    order = "{{ order }}"
+    order = {{ order }}
     triggers_on = "{{ triggers_on }}"
     triggers_when = "{{ triggers_when }}"
+    action_incident {
+      classification = "{{ classification }}"
+      classification_comment = "{{ classification_comment }}"
+      labels = ["{{ labels }}"]
+      order = {{ order }}
+      owner_id = "{{ owner_id }}"
+      severity = "{{ severity }}"
+      status = "{{ status }}"
+    }
+    action_incident_task {
+      description = "{{ description }}"
+      order = {{ order }}
+      title = "{{ title }}"
+    }
+    action_playbook {
+      logic_app_id = "{{ logic_app_id }}"
+      order = {{ order }}
+      tenant_id = "{{ tenant_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

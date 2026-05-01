@@ -1,0 +1,13 @@
+data "vault_transit_cmac" "example" {
+    batch_input = ["{{ batch_input }}"]
+    batch_results = ["{{ batch_results }}"]
+    cmac = "{{ cmac }}"
+    id = "{{ id }}"
+    input = "{{ input }}"
+    key_version = {{ key_version }}
+    mac_length = {{ mac_length }}
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    path = "{{ path }}"
+    url_mac_length = {{ url_mac_length }}
+}

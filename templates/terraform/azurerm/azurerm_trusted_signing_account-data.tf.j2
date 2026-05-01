@@ -1,0 +1,8 @@
+data "azurerm_trusted_signing_account" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    timeouts {
+      read = "{{ read }}"
+    }
+}

@@ -1,8 +1,27 @@
 resource "aws_resourcegroups_group" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    configuration {
+      type = "{{ type }}"
+      parameters {
+        name = "{{ name }}"
+        values = ["{{ values }}"]
+      }
+    }
+    resource_query {
+      query = "{{ query }}"
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
 }

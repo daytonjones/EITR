@@ -1,13 +1,36 @@
 resource "aws_appstream_stack" "example" {
-    arn = "{{ arn }}"
-    created_time = "{{ created_time }}"
     description = "{{ description }}"
     display_name = "{{ display_name }}"
-    embed_host_domains = "{{ embed_host_domains }}"
+    embed_host_domains = ["{{ embed_host_domains }}"]
     feedback_url = "{{ feedback_url }}"
     id = "{{ id }}"
     name = "{{ name }}"
     redirect_url = "{{ redirect_url }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    access_endpoints {
+      endpoint_type = "{{ endpoint_type }}"
+      vpce_id = "{{ vpce_id }}"
+    }
+    application_settings {
+      enabled = {{ enabled }}
+      settings_group = "{{ settings_group }}"
+    }
+    storage_connectors {
+      connector_type = "{{ connector_type }}"
+      domains = ["{{ domains }}"]
+      resource_identifier = "{{ resource_identifier }}"
+    }
+    streaming_experience_settings {
+      preferred_protocol = "{{ preferred_protocol }}"
+    }
+    user_settings {
+      action = "{{ action }}"
+      permission = "{{ permission }}"
+    }
 }

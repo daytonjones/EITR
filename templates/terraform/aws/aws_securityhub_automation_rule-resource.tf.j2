@@ -1,11 +1,221 @@
 resource "aws_securityhub_automation_rule" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
-    id = "{{ id }}"
-    is_terminal = "{{ is_terminal }}"
+    is_terminal = {{ is_terminal }}
+    region = "{{ region }}"
     rule_name = "{{ rule_name }}"
-    rule_order = "{{ rule_order }}"
+    rule_order = {{ rule_order }}
     rule_status = "{{ rule_status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    actions {
+      type = "{{ type }}"
+      finding_fields_update {
+        confidence = {{ confidence }}
+        criticality = {{ criticality }}
+        types = ["{{ types }}"]
+        user_defined_fields = {
+        key = "{{ user_defined_fields_value }}"
+      }
+        verification_state = "{{ verification_state }}"
+        note {
+          text = "{{ text }}"
+          updated_by = "{{ updated_by }}"
+        }
+        related_findings {
+          id = "{{ id }}"
+          product_arn = "{{ product_arn }}"
+        }
+        severity {
+          label = "{{ label }}"
+          product = {{ product }}
+        }
+        workflow {
+          status = "{{ status }}"
+        }
+      }
+    }
+    criteria {
+      aws_account_id {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      aws_account_name {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      company_name {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      compliance_associated_standards_id {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      compliance_security_control_id {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      compliance_status {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      confidence {
+        eq = {{ eq }}
+        gt = {{ gt }}
+        gte = {{ gte }}
+        lt = {{ lt }}
+        lte = {{ lte }}
+      }
+      created_at {
+        end = "{{ end }}"
+        start = "{{ start }}"
+        date_range {
+          unit = "{{ unit }}"
+          value = {{ value }}
+        }
+      }
+      criticality {
+        eq = {{ eq }}
+        gt = {{ gt }}
+        gte = {{ gte }}
+        lt = {{ lt }}
+        lte = {{ lte }}
+      }
+      description {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      first_observed_at {
+        end = "{{ end }}"
+        start = "{{ start }}"
+        date_range {
+          unit = "{{ unit }}"
+          value = {{ value }}
+        }
+      }
+      generator_id {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      id {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      last_observed_at {
+        end = "{{ end }}"
+        start = "{{ start }}"
+        date_range {
+          unit = "{{ unit }}"
+          value = {{ value }}
+        }
+      }
+      note_text {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      note_updated_at {
+        end = "{{ end }}"
+        start = "{{ start }}"
+        date_range {
+          unit = "{{ unit }}"
+          value = {{ value }}
+        }
+      }
+      note_updated_by {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      product_arn {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      product_name {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      record_state {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      related_findings_id {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      related_findings_product_arn {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      resource_application_arn {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      resource_application_name {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      resource_details_other {
+        comparison = "{{ comparison }}"
+        key = "{{ key }}"
+        value = "{{ value }}"
+      }
+      resource_id {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      resource_partition {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      resource_region {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      resource_tags {
+        comparison = "{{ comparison }}"
+        key = "{{ key }}"
+        value = "{{ value }}"
+      }
+      resource_type {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      severity_label {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      source_url {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      title {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      type {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      updated_at {
+        end = "{{ end }}"
+        start = "{{ start }}"
+        date_range {
+          unit = "{{ unit }}"
+          value = {{ value }}
+        }
+      }
+      user_defined_fields {
+        comparison = "{{ comparison }}"
+        key = "{{ key }}"
+        value = "{{ value }}"
+      }
+      verification_state {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+      workflow_status {
+        comparison = "{{ comparison }}"
+        value = "{{ value }}"
+      }
+    }
 }

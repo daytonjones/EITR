@@ -1,15 +1,23 @@
 resource "google_certificate_manager_certificate_issuance_config" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
     key_algorithm = "{{ key_algorithm }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     lifetime = "{{ lifetime }}"
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    rotation_window_percentage = "{{ rotation_window_percentage }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
+    rotation_window_percentage = {{ rotation_window_percentage }}
+    certificate_authority_config {
+      certificate_authority_service_config {
+        ca_pool = "{{ ca_pool }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

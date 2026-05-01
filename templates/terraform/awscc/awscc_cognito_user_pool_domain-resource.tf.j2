@@ -1,0 +1,6 @@
+resource "awscc_cognito_user_pool_domain" "example" {
+    custom_domain_config = "{{ custom_domain_config }}"
+    domain = "{{ domain }}"
+    managed_login_version = {{ managed_login_version }}
+    user_pool_id = "{{ user_pool_id }}"
+}

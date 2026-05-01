@@ -1,6 +1,9 @@
 resource "google_project_iam_audit_config" "example" {
-    etag = "{{ etag }}"
     id = "{{ id }}"
     project = "{{ project }}"
     service = "{{ service }}"
+    audit_log_config {
+      exempted_members = ["{{ exempted_members }}"]
+      log_type = "{{ log_type }}"
+    }
 }

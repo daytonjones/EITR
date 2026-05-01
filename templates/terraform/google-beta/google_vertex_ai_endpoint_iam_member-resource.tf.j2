@@ -1,9 +1,13 @@
 resource "google_vertex_ai_endpoint_iam_member" "example" {
     endpoint = "{{ endpoint }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
     location = "{{ location }}"
     member = "{{ member }}"
     project = "{{ project }}"
     role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

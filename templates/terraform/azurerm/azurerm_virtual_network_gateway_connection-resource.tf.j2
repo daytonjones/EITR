@@ -1,25 +1,52 @@
 resource "azurerm_virtual_network_gateway_connection" "example" {
     authorization_key = "{{ authorization_key }}"
+    bgp_enabled = {{ bgp_enabled }}
     connection_mode = "{{ connection_mode }}"
     connection_protocol = "{{ connection_protocol }}"
-    dpd_timeout_seconds = "{{ dpd_timeout_seconds }}"
-    egress_nat_rule_ids = "{{ egress_nat_rule_ids }}"
-    enable_bgp = "{{ enable_bgp }}"
+    dpd_timeout_seconds = {{ dpd_timeout_seconds }}
+    egress_nat_rule_ids = ["{{ egress_nat_rule_ids }}"]
+    enable_bgp = {{ enable_bgp }}
     express_route_circuit_id = "{{ express_route_circuit_id }}"
-    express_route_gateway_bypass = "{{ express_route_gateway_bypass }}"
+    express_route_gateway_bypass = {{ express_route_gateway_bypass }}
     id = "{{ id }}"
-    ingress_nat_rule_ids = "{{ ingress_nat_rule_ids }}"
-    local_azure_ip_address_enabled = "{{ local_azure_ip_address_enabled }}"
+    ingress_nat_rule_ids = ["{{ ingress_nat_rule_ids }}"]
+    local_azure_ip_address_enabled = {{ local_azure_ip_address_enabled }}
     local_network_gateway_id = "{{ local_network_gateway_id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     peer_virtual_network_gateway_id = "{{ peer_virtual_network_gateway_id }}"
-    private_link_fast_path_enabled = "{{ private_link_fast_path_enabled }}"
+    private_link_fast_path_enabled = {{ private_link_fast_path_enabled }}
     resource_group_name = "{{ resource_group_name }}"
-    routing_weight = "{{ routing_weight }}"
+    routing_weight = {{ routing_weight }}
     shared_key = "{{ shared_key }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     type = "{{ type }}"
-    use_policy_based_traffic_selectors = "{{ use_policy_based_traffic_selectors }}"
+    use_policy_based_traffic_selectors = {{ use_policy_based_traffic_selectors }}
     virtual_network_gateway_id = "{{ virtual_network_gateway_id }}"
+    custom_bgp_addresses {
+      primary = "{{ primary }}"
+      secondary = "{{ secondary }}"
+    }
+    ipsec_policy {
+      dh_group = "{{ dh_group }}"
+      ike_encryption = "{{ ike_encryption }}"
+      ike_integrity = "{{ ike_integrity }}"
+      ipsec_encryption = "{{ ipsec_encryption }}"
+      ipsec_integrity = "{{ ipsec_integrity }}"
+      pfs_group = "{{ pfs_group }}"
+      sa_datasize = {{ sa_datasize }}
+      sa_lifetime = {{ sa_lifetime }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    traffic_selector_policy {
+      local_address_cidrs = ["{{ local_address_cidrs }}"]
+      remote_address_cidrs = ["{{ remote_address_cidrs }}"]
+    }
 }

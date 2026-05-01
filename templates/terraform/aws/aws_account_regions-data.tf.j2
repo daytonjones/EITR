@@ -1,0 +1,4 @@
+data "aws_account_regions" "example" {
+    account_id = "{{ account_id }}"
+    region_opt_status_contains = ["{{ region_opt_status_contains }}"]
+}

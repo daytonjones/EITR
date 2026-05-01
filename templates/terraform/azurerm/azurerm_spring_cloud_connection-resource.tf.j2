@@ -5,4 +5,22 @@ resource "azurerm_spring_cloud_connection" "example" {
     spring_cloud_id = "{{ spring_cloud_id }}"
     target_resource_id = "{{ target_resource_id }}"
     vnet_solution = "{{ vnet_solution }}"
+    authentication {
+      certificate = "{{ certificate }}"
+      client_id = "{{ client_id }}"
+      name = "{{ name }}"
+      principal_id = "{{ principal_id }}"
+      secret = "{{ secret }}"
+      subscription_id = "{{ subscription_id }}"
+      type = "{{ type }}"
+    }
+    secret_store {
+      key_vault_id = "{{ key_vault_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,13 @@
+resource "vault_oci_auth_backend" "example" {
+    description = "{{ description }}"
+    disable_automated_rotation = {{ disable_automated_rotation }}
+    disable_remount = {{ disable_remount }}
+    home_tenancy_id = "{{ home_tenancy_id }}"
+    id = "{{ id }}"
+    namespace = "{{ namespace }}"
+    path = "{{ path }}"
+    rotation_period = {{ rotation_period }}
+    rotation_schedule = "{{ rotation_schedule }}"
+    rotation_window = {{ rotation_window }}
+    tune = ["{{ tune }}"]
+}

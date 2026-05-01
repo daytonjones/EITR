@@ -1,4 +1,11 @@
 data "aws_ec2_transit_gateway_vpc_attachments" "example" {
     id = "{{ id }}"
-    ids = "{{ ids }}"
+    region = "{{ region }}"
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
+    timeouts {
+      read = "{{ read }}"
+    }
 }

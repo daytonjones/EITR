@@ -1,7 +1,6 @@
 resource "aws_synthetics_group_association" "example" {
     canary_arn = "{{ canary_arn }}"
-    group_arn = "{{ group_arn }}"
-    group_id = "{{ group_id }}"
     group_name = "{{ group_name }}"
     id = "{{ id }}"
+    region = "{{ region }}"
 }

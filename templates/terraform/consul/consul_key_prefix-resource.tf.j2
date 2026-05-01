@@ -4,6 +4,13 @@ resource "consul_key_prefix" "example" {
     namespace = "{{ namespace }}"
     partition = "{{ partition }}"
     path_prefix = "{{ path_prefix }}"
-    subkeys = "{{ subkeys }}"
+    subkeys = {
+        key = "{{ subkeys_value }}"
+      }
     token = "{{ token }}"
+    subkey {
+      flags = {{ flags }}
+      path = "{{ path }}"
+      value = "{{ value }}"
+    }
 }

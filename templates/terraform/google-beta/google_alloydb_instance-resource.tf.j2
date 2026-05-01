@@ -1,24 +1,79 @@
 resource "google_alloydb_instance" "example" {
-    annotations = "{{ annotations }}"
+    activation_policy = "{{ activation_policy }}"
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
     availability_type = "{{ availability_type }}"
     cluster = "{{ cluster }}"
-    create_time = "{{ create_time }}"
-    database_flags = "{{ database_flags }}"
+    database_flags = {
+        key = "{{ database_flags_value }}"
+      }
     display_name = "{{ display_name }}"
-    effective_annotations = "{{ effective_annotations }}"
-    effective_labels = "{{ effective_labels }}"
     gce_zone = "{{ gce_zone }}"
     id = "{{ id }}"
     instance_id = "{{ instance_id }}"
     instance_type = "{{ instance_type }}"
-    ip_address = "{{ ip_address }}"
-    labels = "{{ labels }}"
-    name = "{{ name }}"
-    outbound_public_ip_addresses = "{{ outbound_public_ip_addresses }}"
-    public_ip_address = "{{ public_ip_address }}"
-    reconciling = "{{ reconciling }}"
-    state = "{{ state }}"
-    terraform_labels = "{{ terraform_labels }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    client_connection_config {
+      require_connectors = {{ require_connectors }}
+      ssl_config {
+        ssl_mode = "{{ ssl_mode }}"
+      }
+    }
+    connection_pool_config {
+      enabled = {{ enabled }}
+      flags = {
+        key = "{{ flags_value }}"
+      }
+    }
+    machine_config {
+      cpu_count = {{ cpu_count }}
+      machine_type = "{{ machine_type }}"
+    }
+    network_config {
+      allocated_ip_range_override = "{{ allocated_ip_range_override }}"
+      enable_outbound_public_ip = {{ enable_outbound_public_ip }}
+      enable_public_ip = {{ enable_public_ip }}
+      authorized_external_networks {
+        cidr_range = "{{ cidr_range }}"
+      }
+    }
+    observability_config {
+      assistive_experiences_enabled = {{ assistive_experiences_enabled }}
+      enabled = {{ enabled }}
+      max_query_string_length = {{ max_query_string_length }}
+      preserve_comments = {{ preserve_comments }}
+      query_plans_per_minute = {{ query_plans_per_minute }}
+      record_application_tags = {{ record_application_tags }}
+      track_active_queries = {{ track_active_queries }}
+      track_client_address = {{ track_client_address }}
+      track_wait_event_types = {{ track_wait_event_types }}
+      track_wait_events = {{ track_wait_events }}
+    }
+    psc_instance_config {
+      allowed_consumer_projects = ["{{ allowed_consumer_projects }}"]
+      psc_auto_connections {
+        consumer_network = "{{ consumer_network }}"
+        consumer_project = "{{ consumer_project }}"
+      }
+      psc_interface_configs {
+        network_attachment_resource = "{{ network_attachment_resource }}"
+      }
+    }
+    query_insights_config {
+      query_plans_per_minute = {{ query_plans_per_minute }}
+      query_string_length = {{ query_string_length }}
+      record_application_tags = {{ record_application_tags }}
+      record_client_address = {{ record_client_address }}
+    }
+    read_pool_config {
+      node_count = {{ node_count }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

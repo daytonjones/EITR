@@ -1,13 +1,49 @@
 resource "google_compute_network_firewall_policy_with_rules" "example" {
-    creation_timestamp = "{{ creation_timestamp }}"
     description = "{{ description }}"
-    fingerprint = "{{ fingerprint }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    network_firewall_policy_id = "{{ network_firewall_policy_id }}"
-    predefined_rules = "{{ predefined_rules }}"
+    policy_type = "{{ policy_type }}"
     project = "{{ project }}"
-    rule_tuple_count = "{{ rule_tuple_count }}"
-    self_link = "{{ self_link }}"
-    self_link_with_id = "{{ self_link_with_id }}"
+    rule {
+      action = "{{ action }}"
+      description = "{{ description }}"
+      direction = "{{ direction }}"
+      disabled = {{ disabled }}
+      enable_logging = {{ enable_logging }}
+      priority = {{ priority }}
+      rule_name = "{{ rule_name }}"
+      security_profile_group = "{{ security_profile_group }}"
+      target_service_accounts = ["{{ target_service_accounts }}"]
+      tls_inspect = {{ tls_inspect }}
+      match {
+        dest_address_groups = ["{{ dest_address_groups }}"]
+        dest_fqdns = ["{{ dest_fqdns }}"]
+        dest_ip_ranges = ["{{ dest_ip_ranges }}"]
+        dest_network_scope = "{{ dest_network_scope }}"
+        dest_region_codes = ["{{ dest_region_codes }}"]
+        dest_threat_intelligences = ["{{ dest_threat_intelligences }}"]
+        src_address_groups = ["{{ src_address_groups }}"]
+        src_fqdns = ["{{ src_fqdns }}"]
+        src_ip_ranges = ["{{ src_ip_ranges }}"]
+        src_network_scope = "{{ src_network_scope }}"
+        src_networks = ["{{ src_networks }}"]
+        src_region_codes = ["{{ src_region_codes }}"]
+        src_threat_intelligences = ["{{ src_threat_intelligences }}"]
+        layer4_config {
+          ip_protocol = "{{ ip_protocol }}"
+          ports = ["{{ ports }}"]
+        }
+        src_secure_tag {
+          name = "{{ name }}"
+        }
+      }
+      target_secure_tag {
+        name = "{{ name }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

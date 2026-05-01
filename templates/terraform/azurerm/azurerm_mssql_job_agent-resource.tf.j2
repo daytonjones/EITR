@@ -3,5 +3,18 @@ resource "azurerm_mssql_job_agent" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
+    sku = "{{ sku }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

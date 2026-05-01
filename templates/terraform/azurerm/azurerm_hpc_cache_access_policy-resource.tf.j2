@@ -2,4 +2,20 @@ resource "azurerm_hpc_cache_access_policy" "example" {
     hpc_cache_id = "{{ hpc_cache_id }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    access_rule {
+      access = "{{ access }}"
+      anonymous_gid = {{ anonymous_gid }}
+      anonymous_uid = {{ anonymous_uid }}
+      filter = "{{ filter }}"
+      root_squash_enabled = {{ root_squash_enabled }}
+      scope = "{{ scope }}"
+      submount_access_enabled = {{ submount_access_enabled }}
+      suid_enabled = {{ suid_enabled }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,14 +1,19 @@
 resource "aws_cloudhsm_v2_cluster" "example" {
-    cluster_certificates = "{{ cluster_certificates }}"
-    cluster_id = "{{ cluster_id }}"
-    cluster_state = "{{ cluster_state }}"
     hsm_type = "{{ hsm_type }}"
     id = "{{ id }}"
     mode = "{{ mode }}"
-    security_group_id = "{{ security_group_id }}"
+    region = "{{ region }}"
     source_backup_identifier = "{{ source_backup_identifier }}"
-    subnet_ids = "{{ subnet_ids }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    vpc_id = "{{ vpc_id }}"
+    subnet_ids = ["{{ subnet_ids }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

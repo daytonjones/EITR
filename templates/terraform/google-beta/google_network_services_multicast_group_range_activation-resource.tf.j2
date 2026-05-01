@@ -1,0 +1,20 @@
+resource "google_network_services_multicast_group_range_activation" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    multicast_domain_activation = "{{ multicast_domain_activation }}"
+    multicast_group_range = "{{ multicast_group_range }}"
+    multicast_group_range_activation_id = "{{ multicast_group_range_activation_id }}"
+    project = "{{ project }}"
+    log_config {
+      enabled = {{ enabled }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

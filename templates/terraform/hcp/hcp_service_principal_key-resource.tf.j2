@@ -1,7 +1,6 @@
 resource "hcp_service_principal_key" "example" {
-    client_id = "{{ client_id }}"
-    client_secret = "{{ client_secret }}"
-    resource_name = "{{ resource_name }}"
-    rotate_triggers = "{{ rotate_triggers }}"
+    rotate_triggers = {
+        key = "{{ rotate_triggers_value }}"
+      }
     service_principal = "{{ service_principal }}"
 }

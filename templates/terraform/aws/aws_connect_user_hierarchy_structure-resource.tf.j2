@@ -1,4 +1,22 @@
 resource "aws_connect_user_hierarchy_structure" "example" {
     id = "{{ id }}"
     instance_id = "{{ instance_id }}"
+    region = "{{ region }}"
+    hierarchy_structure {
+      level_five {
+        name = "{{ name }}"
+      }
+      level_four {
+        name = "{{ name }}"
+      }
+      level_one {
+        name = "{{ name }}"
+      }
+      level_three {
+        name = "{{ name }}"
+      }
+      level_two {
+        name = "{{ name }}"
+      }
+    }
 }

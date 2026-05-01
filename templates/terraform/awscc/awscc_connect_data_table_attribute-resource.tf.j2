@@ -1,0 +1,9 @@
+resource "awscc_connect_data_table_attribute" "example" {
+    data_table_arn = "{{ data_table_arn }}"
+    description = "{{ description }}"
+    instance_arn = "{{ instance_arn }}"
+    name = "{{ name }}"
+    primary = {{ primary }}
+    validation = "{{ validation }}"
+    value_type = "{{ value_type }}"
+}

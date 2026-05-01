@@ -1,4 +1,6 @@
 provider "tfmigrate" {
-    github_token = "{{ github_token }}"
+    allow_commit_push = {{ allow_commit_push }}
+    create_pr = {{ create_pr }}
+    git_pat_token = "{{ git_pat_token }}"
     hostname = "{{ hostname }}"
 }

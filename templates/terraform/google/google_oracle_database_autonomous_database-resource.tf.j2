@@ -2,16 +2,50 @@ resource "google_oracle_database_autonomous_database" "example" {
     admin_password = "{{ admin_password }}"
     autonomous_database_id = "{{ autonomous_database_id }}"
     cidr = "{{ cidr }}"
-    create_time = "{{ create_time }}"
     database = "{{ database }}"
+    deletion_protection = {{ deletion_protection }}
     display_name = "{{ display_name }}"
-    effective_labels = "{{ effective_labels }}"
-    entitlement_id = "{{ entitlement_id }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
-    name = "{{ name }}"
     network = "{{ network }}"
+    odb_network = "{{ odb_network }}"
+    odb_subnet = "{{ odb_subnet }}"
     project = "{{ project }}"
-    terraform_labels = "{{ terraform_labels }}"
+    properties {
+      backup_retention_period_days = {{ backup_retention_period_days }}
+      character_set = "{{ character_set }}"
+      compute_count = {{ compute_count }}
+      cpu_core_count = {{ cpu_core_count }}
+      data_storage_size_gb = {{ data_storage_size_gb }}
+      data_storage_size_tb = {{ data_storage_size_tb }}
+      db_edition = "{{ db_edition }}"
+      db_version = "{{ db_version }}"
+      db_workload = "{{ db_workload }}"
+      is_auto_scaling_enabled = {{ is_auto_scaling_enabled }}
+      is_storage_auto_scaling_enabled = {{ is_storage_auto_scaling_enabled }}
+      license_type = "{{ license_type }}"
+      maintenance_schedule_type = "{{ maintenance_schedule_type }}"
+      mtls_connection_required = {{ mtls_connection_required }}
+      n_character_set = "{{ n_character_set }}"
+      operations_insights_state = "{{ operations_insights_state }}"
+      private_endpoint_ip = "{{ private_endpoint_ip }}"
+      private_endpoint_label = "{{ private_endpoint_label }}"
+      secret_id = "{{ secret_id }}"
+      vault_id = "{{ vault_id }}"
+      customer_contacts {
+        email = "{{ email }}"
+      }
+    }
+    source_config {
+      automatic_backups_replication_enabled = {{ automatic_backups_replication_enabled }}
+      autonomous_database = "{{ autonomous_database }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

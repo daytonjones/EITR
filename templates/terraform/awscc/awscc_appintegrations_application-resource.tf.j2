@@ -1,19 +1,13 @@
 resource "awscc_appintegrations_application" "example" {
-    application_arn = "{{ application_arn }}"
-    application_id = "{{ application_id }}"
-    application_source_config = "{
-    external_url_config = {
-    access_url = {{ access_url }}
-    approved_origins = {{ approved_origins }}
-}
-}"
+    application_config = "{{ application_config }}"
+    application_source_config = "{{ application_source_config }}"
+    application_type = "{{ application_type }}"
     description = "{{ description }}"
-    id = "{{ id }}"
+    iframe_config = "{{ iframe_config }}"
+    initialization_timeout = {{ initialization_timeout }}
+    is_service = {{ is_service }}
     name = "{{ name }}"
     namespace = "{{ namespace }}"
-    permissions = "{{ permissions }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    permissions = ["{{ permissions }}"]
+    tags = "{{ tags }}"
 }

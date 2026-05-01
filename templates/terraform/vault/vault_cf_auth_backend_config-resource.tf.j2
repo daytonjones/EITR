@@ -1,0 +1,13 @@
+resource "vault_cf_auth_backend_config" "example" {
+    cf_api_addr = "{{ cf_api_addr }}"
+    cf_api_trusted_certificates = ["{{ cf_api_trusted_certificates }}"]
+    cf_password_wo = "{{ cf_password_wo }}"
+    cf_password_wo_version = {{ cf_password_wo_version }}
+    cf_timeout = {{ cf_timeout }}
+    cf_username = "{{ cf_username }}"
+    identity_ca_certificates = ["{{ identity_ca_certificates }}"]
+    login_max_seconds_not_after = {{ login_max_seconds_not_after }}
+    login_max_seconds_not_before = {{ login_max_seconds_not_before }}
+    mount = "{{ mount }}"
+    namespace = "{{ namespace }}"
+}

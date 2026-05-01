@@ -1,0 +1,12 @@
+resource "awscc_datazone_project_profile" "example" {
+    allow_custom_project_resource_tags = {{ allow_custom_project_resource_tags }}
+    description = "{{ description }}"
+    domain_identifier = "{{ domain_identifier }}"
+    domain_unit_identifier = "{{ domain_unit_identifier }}"
+    environment_configurations = "{{ environment_configurations }}"
+    name = "{{ name }}"
+    project_resource_tags = "{{ project_resource_tags }}"
+    project_resource_tags_description = "{{ project_resource_tags_description }}"
+    status = "{{ status }}"
+    use_default_configurations = {{ use_default_configurations }}
+}

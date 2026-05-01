@@ -1,2 +1,3 @@
-function "zone_from_id" {
-}
+# zone_from_id()
+# Takes a single string argument, which should be an id or self link of a resource. This function will either return the zone name from the input string or raise an error due to no zone being present in the string. The function uses the presence of "zones/{{zone}}/" in the input string to identify the zone name, e.g. when the function is passed the id "projects/my-project/zones/us-central1-c/instances/my-instance" as an argument it will return "us-central1-c".
+# provider::{provider}::zone_from_id()

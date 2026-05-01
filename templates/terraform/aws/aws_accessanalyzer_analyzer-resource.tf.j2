@@ -1,8 +1,32 @@
 resource "aws_accessanalyzer_analyzer" "example" {
     analyzer_name = "{{ analyzer_name }}"
-    arn = "{{ arn }}"
     id = "{{ id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     type = "{{ type }}"
+    configuration {
+      internal_access {
+        analysis_rule {
+          inclusion {
+            account_ids = ["{{ account_ids }}"]
+            resource_arns = ["{{ resource_arns }}"]
+            resource_types = ["{{ resource_types }}"]
+          }
+        }
+      }
+      unused_access {
+        unused_access_age = {{ unused_access_age }}
+        analysis_rule {
+          exclusion {
+            account_ids = ["{{ account_ids }}"]
+            resource_tags = ["{{ resource_tags }}"]
+          }
+        }
+      }
+    }
 }

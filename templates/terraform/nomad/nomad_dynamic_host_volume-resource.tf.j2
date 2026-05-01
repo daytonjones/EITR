@@ -1,0 +1,21 @@
+resource "nomad_dynamic_host_volume" "example" {
+    capacity_max = "{{ capacity_max }}"
+    capacity_min = "{{ capacity_min }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    node_id = "{{ node_id }}"
+    node_pool = "{{ node_pool }}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
+    plugin_id = "{{ plugin_id }}"
+    capability {
+      access_mode = "{{ access_mode }}"
+      attachment_mode = "{{ attachment_mode }}"
+    }
+    constraint {
+      attribute = "{{ attribute }}"
+      operator = "{{ operator }}"
+      value = "{{ value }}"
+    }
+}

@@ -1,5 +1,9 @@
 resource "aws_wafregional_web_acl_association" "example" {
     id = "{{ id }}"
+    region = "{{ region }}"
     resource_arn = "{{ resource_arn }}"
     web_acl_id = "{{ web_acl_id }}"
+    timeouts {
+      create = "{{ create }}"
+    }
 }

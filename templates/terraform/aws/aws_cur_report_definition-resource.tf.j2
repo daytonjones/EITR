@@ -1,17 +1,20 @@
 resource "aws_cur_report_definition" "example" {
-    additional_artifacts = "{{ additional_artifacts }}"
-    additional_schema_elements = "{{ additional_schema_elements }}"
-    arn = "{{ arn }}"
+    additional_artifacts = ["{{ additional_artifacts }}"]
+    additional_schema_elements = ["{{ additional_schema_elements }}"]
     compression = "{{ compression }}"
     format = "{{ format }}"
     id = "{{ id }}"
-    refresh_closed_reports = "{{ refresh_closed_reports }}"
+    refresh_closed_reports = {{ refresh_closed_reports }}
     report_name = "{{ report_name }}"
     report_versioning = "{{ report_versioning }}"
     s3_bucket = "{{ s3_bucket }}"
     s3_prefix = "{{ s3_prefix }}"
     s3_region = "{{ s3_region }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     time_unit = "{{ time_unit }}"
 }

@@ -1,13 +1,21 @@
 resource "google_vertex_ai_feature_group" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
     project = "{{ project }}"
     region = "{{ region }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
+    big_query {
+      entity_id_columns = ["{{ entity_id_columns }}"]
+      big_query_source {
+        input_uri = "{{ input_uri }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

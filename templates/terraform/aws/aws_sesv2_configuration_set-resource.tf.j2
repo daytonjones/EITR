@@ -1,7 +1,37 @@
 resource "aws_sesv2_configuration_set" "example" {
-    arn = "{{ arn }}"
     configuration_set_name = "{{ configuration_set_name }}"
     id = "{{ id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    delivery_options {
+      max_delivery_seconds = {{ max_delivery_seconds }}
+      sending_pool_name = "{{ sending_pool_name }}"
+      tls_policy = "{{ tls_policy }}"
+    }
+    reputation_options {
+      reputation_metrics_enabled = {{ reputation_metrics_enabled }}
+    }
+    sending_options {
+      sending_enabled = {{ sending_enabled }}
+    }
+    suppression_options {
+      suppressed_reasons = ["{{ suppressed_reasons }}"]
+    }
+    tracking_options {
+      custom_redirect_domain = "{{ custom_redirect_domain }}"
+      https_policy = "{{ https_policy }}"
+    }
+    vdm_options {
+      dashboard_options {
+        engagement_metrics = "{{ engagement_metrics }}"
+      }
+      guardian_options {
+        optimized_shared_delivery = "{{ optimized_shared_delivery }}"
+      }
+    }
 }

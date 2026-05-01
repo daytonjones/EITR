@@ -5,5 +5,5 @@ resource "vault_identity_oidc_role" "example" {
     name = "{{ name }}"
     namespace = "{{ namespace }}"
     template = "{{ template }}"
-    ttl = "{{ ttl }}"
+    ttl = {{ ttl }}
 }

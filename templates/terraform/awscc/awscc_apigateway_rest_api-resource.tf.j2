@@ -1,31 +1,19 @@
 resource "awscc_apigateway_rest_api" "example" {
     api_key_source_type = "{{ api_key_source_type }}"
-    binary_media_types = "{{ binary_media_types }}"
+    binary_media_types = ["{{ binary_media_types }}"]
     body = "{{ body }}"
-    body_s3_location = "{
-    bucket = {{ bucket }}
-    e_tag = {{ e_tag }}
-    key = {{ key }}
-    version = {{ version }}
-}"
+    body_s3_location = "{{ body_s3_location }}"
     clone_from = "{{ clone_from }}"
     description = "{{ description }}"
-    disable_execute_api_endpoint = "{{ disable_execute_api_endpoint }}"
-    endpoint_configuration = "{
-    types = {{ types }}
-    vpc_endpoint_ids = {{ vpc_endpoint_ids }}
-}"
-    fail_on_warnings = "{{ fail_on_warnings }}"
-    id = "{{ id }}"
-    minimum_compression_size = "{{ minimum_compression_size }}"
+    disable_execute_api_endpoint = {{ disable_execute_api_endpoint }}
+    endpoint_access_mode = "{{ endpoint_access_mode }}"
+    endpoint_configuration = "{{ endpoint_configuration }}"
+    fail_on_warnings = {{ fail_on_warnings }}
+    minimum_compression_size = {{ minimum_compression_size }}
     mode = "{{ mode }}"
     name = "{{ name }}"
     parameters = "{{ parameters }}"
     policy = "{{ policy }}"
-    rest_api_id = "{{ rest_api_id }}"
-    root_resource_id = "{{ root_resource_id }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    security_policy = "{{ security_policy }}"
+    tags = "{{ tags }}"
 }

@@ -1,6 +1,5 @@
 data "aws_ses_domain_identity" "example" {
-    arn = "{{ arn }}"
     domain = "{{ domain }}"
     id = "{{ id }}"
-    verification_token = "{{ verification_token }}"
+    region = "{{ region }}"
 }

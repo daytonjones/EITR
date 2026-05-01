@@ -1,0 +1,10 @@
+data "aws_ec2_service_link_virtual_interfaces" "example" {
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
+}

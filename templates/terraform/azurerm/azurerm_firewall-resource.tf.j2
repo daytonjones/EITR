@@ -1,15 +1,37 @@
 resource "azurerm_firewall" "example" {
-    dns_proxy_enabled = "{{ dns_proxy_enabled }}"
-    dns_servers = "{{ dns_servers }}"
+    dns_proxy_enabled = {{ dns_proxy_enabled }}
+    dns_servers = ["{{ dns_servers }}"]
     firewall_policy_id = "{{ firewall_policy_id }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    private_ip_ranges = "{{ private_ip_ranges }}"
+    private_ip_ranges = ["{{ private_ip_ranges }}"]
     resource_group_name = "{{ resource_group_name }}"
     sku_name = "{{ sku_name }}"
     sku_tier = "{{ sku_tier }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     threat_intel_mode = "{{ threat_intel_mode }}"
-    zones = "{{ zones }}"
+    zones = ["{{ zones }}"]
+    ip_configuration {
+      name = "{{ name }}"
+      public_ip_address_id = "{{ public_ip_address_id }}"
+      subnet_id = "{{ subnet_id }}"
+    }
+    management_ip_configuration {
+      name = "{{ name }}"
+      public_ip_address_id = "{{ public_ip_address_id }}"
+      subnet_id = "{{ subnet_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    virtual_hub {
+      public_ip_count = {{ public_ip_count }}
+      virtual_hub_id = "{{ virtual_hub_id }}"
+    }
 }

@@ -5,4 +5,10 @@ resource "azurerm_cosmosdb_sql_trigger" "example" {
     name = "{{ name }}"
     operation = "{{ operation }}"
     type = "{{ type }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

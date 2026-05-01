@@ -1,12 +1,19 @@
 resource "aws_datasync_location_efs" "example" {
     access_point_arn = "{{ access_point_arn }}"
-    arn = "{{ arn }}"
     efs_file_system_arn = "{{ efs_file_system_arn }}"
     file_system_access_role_arn = "{{ file_system_access_role_arn }}"
     id = "{{ id }}"
     in_transit_encryption = "{{ in_transit_encryption }}"
+    region = "{{ region }}"
     subdirectory = "{{ subdirectory }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    uri = "{{ uri }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    ec2_config {
+      security_group_arns = ["{{ security_group_arns }}"]
+      subnet_arn = "{{ subnet_arn }}"
+    }
 }

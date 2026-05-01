@@ -1,7 +1,6 @@
 resource "aws_ssm_service_setting" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     setting_id = "{{ setting_id }}"
     setting_value = "{{ setting_value }}"
-    status = "{{ status }}"
 }

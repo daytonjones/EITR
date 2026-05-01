@@ -1,7 +1,16 @@
 resource "aws_sagemaker_code_repository" "example" {
-    arn = "{{ arn }}"
     code_repository_name = "{{ code_repository_name }}"
     id = "{{ id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    git_config {
+      branch = "{{ branch }}"
+      repository_url = "{{ repository_url }}"
+      secret_arn = "{{ secret_arn }}"
+    }
 }

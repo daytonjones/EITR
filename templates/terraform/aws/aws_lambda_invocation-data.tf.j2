@@ -3,5 +3,6 @@ data "aws_lambda_invocation" "example" {
     id = "{{ id }}"
     input = "{{ input }}"
     qualifier = "{{ qualifier }}"
-    result = "{{ result }}"
+    region = "{{ region }}"
+    tenant_id = "{{ tenant_id }}"
 }

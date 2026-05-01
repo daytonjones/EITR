@@ -1,18 +1,22 @@
 resource "aws_emr_studio" "example" {
-    arn = "{{ arn }}"
     auth_mode = "{{ auth_mode }}"
     default_s3_location = "{{ default_s3_location }}"
     description = "{{ description }}"
+    encryption_key_arn = "{{ encryption_key_arn }}"
     engine_security_group_id = "{{ engine_security_group_id }}"
     id = "{{ id }}"
     idp_auth_url = "{{ idp_auth_url }}"
     idp_relay_state_parameter_name = "{{ idp_relay_state_parameter_name }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     service_role = "{{ service_role }}"
-    subnet_ids = "{{ subnet_ids }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    url = "{{ url }}"
+    subnet_ids = ["{{ subnet_ids }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     user_role = "{{ user_role }}"
     vpc_id = "{{ vpc_id }}"
     workspace_security_group_id = "{{ workspace_security_group_id }}"

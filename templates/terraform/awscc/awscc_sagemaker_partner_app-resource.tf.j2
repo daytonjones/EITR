@@ -1,0 +1,15 @@
+resource "awscc_sagemaker_partner_app" "example" {
+    app_version = "{{ app_version }}"
+    application_config = "{{ application_config }}"
+    auth_type = "{{ auth_type }}"
+    client_token = "{{ client_token }}"
+    enable_auto_minor_version_upgrade = {{ enable_auto_minor_version_upgrade }}
+    enable_iam_session_based_identity = {{ enable_iam_session_based_identity }}
+    execution_role_arn = "{{ execution_role_arn }}"
+    kms_key_id = "{{ kms_key_id }}"
+    maintenance_config = "{{ maintenance_config }}"
+    name = "{{ name }}"
+    tags = "{{ tags }}"
+    tier = "{{ tier }}"
+    type = "{{ type }}"
+}

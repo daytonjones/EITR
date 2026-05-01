@@ -1,6 +1,9 @@
 resource "google_firebase_storage_bucket" "example" {
     bucket_id = "{{ bucket_id }}"
     id = "{{ id }}"
-    name = "{{ name }}"
     project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

@@ -4,5 +4,12 @@ resource "azurerm_kusto_cluster_customer_managed_key" "example" {
     key_name = "{{ key_name }}"
     key_vault_id = "{{ key_vault_id }}"
     key_version = "{{ key_version }}"
+    managed_hsm_key_id = "{{ managed_hsm_key_id }}"
     user_identity = "{{ user_identity }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

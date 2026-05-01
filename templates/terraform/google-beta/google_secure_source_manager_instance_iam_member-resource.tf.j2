@@ -1,9 +1,13 @@
 resource "google_secure_source_manager_instance_iam_member" "example" {
-    etag = "{{ etag }}"
     id = "{{ id }}"
     instance_id = "{{ instance_id }}"
     location = "{{ location }}"
     member = "{{ member }}"
     project = "{{ project }}"
     role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

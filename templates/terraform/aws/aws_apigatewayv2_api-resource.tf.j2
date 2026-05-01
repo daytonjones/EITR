@@ -1,20 +1,31 @@
 resource "aws_apigatewayv2_api" "example" {
-    api_endpoint = "{{ api_endpoint }}"
     api_key_selection_expression = "{{ api_key_selection_expression }}"
-    arn = "{{ arn }}"
     body = "{{ body }}"
     credentials_arn = "{{ credentials_arn }}"
     description = "{{ description }}"
-    disable_execute_api_endpoint = "{{ disable_execute_api_endpoint }}"
-    execution_arn = "{{ execution_arn }}"
-    fail_on_warnings = "{{ fail_on_warnings }}"
+    disable_execute_api_endpoint = {{ disable_execute_api_endpoint }}
+    fail_on_warnings = {{ fail_on_warnings }}
     id = "{{ id }}"
+    ip_address_type = "{{ ip_address_type }}"
     name = "{{ name }}"
     protocol_type = "{{ protocol_type }}"
+    region = "{{ region }}"
     route_key = "{{ route_key }}"
     route_selection_expression = "{{ route_selection_expression }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     target = "{{ target }}"
     version = "{{ version }}"
+    cors_configuration {
+      allow_credentials = {{ allow_credentials }}
+      allow_headers = ["{{ allow_headers }}"]
+      allow_methods = ["{{ allow_methods }}"]
+      allow_origins = ["{{ allow_origins }}"]
+      expose_headers = ["{{ expose_headers }}"]
+      max_age = {{ max_age }}
+    }
 }

@@ -1,0 +1,7 @@
+resource "awscc_dsql_cluster" "example" {
+    deletion_protection_enabled = {{ deletion_protection_enabled }}
+    kms_encryption_key = "{{ kms_encryption_key }}"
+    multi_region_properties = "{{ multi_region_properties }}"
+    policy_document = "{{ policy_document }}"
+    tags = "{{ tags }}"
+}

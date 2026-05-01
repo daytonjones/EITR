@@ -5,5 +5,9 @@ resource "azurerm_app_service_custom_hostname_binding" "example" {
     resource_group_name = "{{ resource_group_name }}"
     ssl_state = "{{ ssl_state }}"
     thumbprint = "{{ thumbprint }}"
-    virtual_ip = "{{ virtual_ip }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

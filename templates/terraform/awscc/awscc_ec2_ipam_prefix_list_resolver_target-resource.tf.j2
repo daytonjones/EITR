@@ -1,0 +1,8 @@
+resource "awscc_ec2_ipam_prefix_list_resolver_target" "example" {
+    desired_version = {{ desired_version }}
+    ipam_prefix_list_resolver_id = "{{ ipam_prefix_list_resolver_id }}"
+    prefix_list_id = "{{ prefix_list_id }}"
+    prefix_list_region = "{{ prefix_list_region }}"
+    tags = "{{ tags }}"
+    track_latest_version = {{ track_latest_version }}
+}

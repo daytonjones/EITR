@@ -1,9 +1,55 @@
 resource "aws_keyspaces_table" "example" {
-    arn = "{{ arn }}"
-    default_time_to_live = "{{ default_time_to_live }}"
+    default_time_to_live = {{ default_time_to_live }}
     id = "{{ id }}"
     keyspace_name = "{{ keyspace_name }}"
+    region = "{{ region }}"
     table_name = "{{ table_name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    capacity_specification {
+      read_capacity_units = {{ read_capacity_units }}
+      throughput_mode = "{{ throughput_mode }}"
+      write_capacity_units = {{ write_capacity_units }}
+    }
+    client_side_timestamps {
+      status = "{{ status }}"
+    }
+    comment {
+      message = "{{ message }}"
+    }
+    encryption_specification {
+      kms_key_identifier = "{{ kms_key_identifier }}"
+      type = "{{ type }}"
+    }
+    point_in_time_recovery {
+      status = "{{ status }}"
+    }
+    schema_definition {
+      clustering_key {
+        name = "{{ name }}"
+        order_by = "{{ order_by }}"
+      }
+      column {
+        name = "{{ name }}"
+        type = "{{ type }}"
+      }
+      partition_key {
+        name = "{{ name }}"
+      }
+      static_column {
+        name = "{{ name }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    ttl {
+      status = "{{ status }}"
+    }
 }

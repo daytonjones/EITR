@@ -1,9 +1,13 @@
 resource "aws_elasticache_user_group" "example" {
-    arn = "{{ arn }}"
     engine = "{{ engine }}"
     id = "{{ id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     user_group_id = "{{ user_group_id }}"
-    user_ids = "{{ user_ids }}"
+    user_ids = ["{{ user_ids }}"]
 }

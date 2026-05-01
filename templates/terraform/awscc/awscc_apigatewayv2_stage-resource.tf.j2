@@ -1,0 +1,13 @@
+resource "awscc_apigatewayv2_stage" "example" {
+    access_log_settings = "{{ access_log_settings }}"
+    api_id = "{{ api_id }}"
+    auto_deploy = {{ auto_deploy }}
+    client_certificate_id = "{{ client_certificate_id }}"
+    default_route_settings = "{{ default_route_settings }}"
+    deployment_id = "{{ deployment_id }}"
+    description = "{{ description }}"
+    route_settings = "{{ route_settings }}"
+    stage_name = "{{ stage_name }}"
+    stage_variables = "{{ stage_variables }}"
+    tags = "{{ tags }}"
+}

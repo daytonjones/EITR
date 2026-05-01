@@ -2,4 +2,9 @@ resource "vsphere_vm_storage_policy" "example" {
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    tag_rules {
+      include_datastores_with_tags = {{ include_datastores_with_tags }}
+      tag_category = "{{ tag_category }}"
+      tags = ["{{ tags }}"]
+    }
 }

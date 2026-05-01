@@ -1,8 +1,16 @@
 resource "google_sourcerepo_repository" "example" {
-    create_ignore_already_exists = "{{ create_ignore_already_exists }}"
+    create_ignore_already_exists = {{ create_ignore_already_exists }}
     id = "{{ id }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    size = "{{ size }}"
-    url = "{{ url }}"
+    pubsub_configs {
+      message_format = "{{ message_format }}"
+      service_account_email = "{{ service_account_email }}"
+      topic = "{{ topic }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

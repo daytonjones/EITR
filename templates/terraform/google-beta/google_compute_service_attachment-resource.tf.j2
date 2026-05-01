@@ -1,18 +1,32 @@
 resource "google_compute_service_attachment" "example" {
-    connected_endpoints = "{{ connected_endpoints }}"
     connection_preference = "{{ connection_preference }}"
-    consumer_reject_lists = "{{ consumer_reject_lists }}"
+    consumer_reject_lists = ["{{ consumer_reject_lists }}"]
     description = "{{ description }}"
-    domain_names = "{{ domain_names }}"
-    enable_proxy_protocol = "{{ enable_proxy_protocol }}"
-    fingerprint = "{{ fingerprint }}"
+    domain_names = ["{{ domain_names }}"]
+    enable_proxy_protocol = {{ enable_proxy_protocol }}
     id = "{{ id }}"
     name = "{{ name }}"
-    nat_subnets = "{{ nat_subnets }}"
+    nat_subnets = ["{{ nat_subnets }}"]
     project = "{{ project }}"
-    propagated_connection_limit = "{{ propagated_connection_limit }}"
-    reconcile_connections = "{{ reconcile_connections }}"
+    propagated_connection_limit = {{ propagated_connection_limit }}
+    reconcile_connections = {{ reconcile_connections }}
     region = "{{ region }}"
-    self_link = "{{ self_link }}"
+    send_propagated_connection_limit_if_zero = {{ send_propagated_connection_limit_if_zero }}
+    show_nat_ips = {{ show_nat_ips }}
     target_service = "{{ target_service }}"
+    consumer_accept_lists {
+      connection_limit = {{ connection_limit }}
+      endpoint_url = "{{ endpoint_url }}"
+      network_url = "{{ network_url }}"
+      project_id_or_num = "{{ project_id_or_num }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    tunneling_config {
+      encapsulation_profile = "{{ encapsulation_profile }}"
+      routing_mode = "{{ routing_mode }}"
+    }
 }

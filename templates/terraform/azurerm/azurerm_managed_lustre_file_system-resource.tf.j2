@@ -1,12 +1,42 @@
 resource "azurerm_managed_lustre_file_system" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
-    mgs_address = "{{ mgs_address }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     sku_name = "{{ sku_name }}"
-    storage_capacity_in_tb = "{{ storage_capacity_in_tb }}"
+    storage_capacity_in_tb = {{ storage_capacity_in_tb }}
     subnet_id = "{{ subnet_id }}"
-    tags = "{{ tags }}"
-    zones = "{{ zones }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    zones = ["{{ zones }}"]
+    encryption_key {
+      key_url = "{{ key_url }}"
+      source_vault_id = "{{ source_vault_id }}"
+    }
+    hsm_setting {
+      container_id = "{{ container_id }}"
+      import_prefix = "{{ import_prefix }}"
+      logging_container_id = "{{ logging_container_id }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    maintenance_window {
+      day_of_week = "{{ day_of_week }}"
+      time_of_day_in_utc = "{{ time_of_day_in_utc }}"
+    }
+    root_squash {
+      mode = "{{ mode }}"
+      no_squash_nids = "{{ no_squash_nids }}"
+      squash_gid = {{ squash_gid }}
+      squash_uid = {{ squash_uid }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

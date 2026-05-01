@@ -1,8 +1,50 @@
 resource "aws_lakeformation_permissions" "example" {
     catalog_id = "{{ catalog_id }}"
-    catalog_resource = "{{ catalog_resource }}"
+    catalog_resource = {{ catalog_resource }}
     id = "{{ id }}"
-    permissions = "{{ permissions }}"
-    permissions_with_grant_option = "{{ permissions_with_grant_option }}"
+    permissions = ["{{ permissions }}"]
+    permissions_with_grant_option = ["{{ permissions_with_grant_option }}"]
     principal = "{{ principal }}"
+    region = "{{ region }}"
+    data_cells_filter {
+      database_name = "{{ database_name }}"
+      name = "{{ name }}"
+      table_catalog_id = "{{ table_catalog_id }}"
+      table_name = "{{ table_name }}"
+    }
+    data_location {
+      arn = "{{ arn }}"
+      catalog_id = "{{ catalog_id }}"
+    }
+    database {
+      catalog_id = "{{ catalog_id }}"
+      name = "{{ name }}"
+    }
+    lf_tag {
+      catalog_id = "{{ catalog_id }}"
+      key = "{{ key }}"
+      values = ["{{ values }}"]
+    }
+    lf_tag_policy {
+      catalog_id = "{{ catalog_id }}"
+      resource_type = "{{ resource_type }}"
+      expression {
+        key = "{{ key }}"
+        values = ["{{ values }}"]
+      }
+    }
+    table {
+      catalog_id = "{{ catalog_id }}"
+      database_name = "{{ database_name }}"
+      name = "{{ name }}"
+      wildcard = {{ wildcard }}
+    }
+    table_with_columns {
+      catalog_id = "{{ catalog_id }}"
+      column_names = ["{{ column_names }}"]
+      database_name = "{{ database_name }}"
+      excluded_column_names = ["{{ excluded_column_names }}"]
+      name = "{{ name }}"
+      wildcard = {{ wildcard }}
+    }
 }

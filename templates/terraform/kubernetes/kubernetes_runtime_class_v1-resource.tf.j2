@@ -1,4 +1,14 @@
 resource "kubernetes_runtime_class_v1" "example" {
     handler = "{{ handler }}"
     id = "{{ id }}"
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      generate_name = "{{ generate_name }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      name = "{{ name }}"
+    }
 }

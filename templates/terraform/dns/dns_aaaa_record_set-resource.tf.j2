@@ -1,7 +1,7 @@
 resource "dns_aaaa_record_set" "example" {
-    addresses = "{{ addresses }}"
+    addresses = ["{{ addresses }}"]
     id = "{{ id }}"
     name = "{{ name }}"
-    ttl = "{{ ttl }}"
+    ttl = {{ ttl }}
     zone = "{{ zone }}"
 }

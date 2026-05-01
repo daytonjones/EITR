@@ -1,0 +1,7 @@
+resource "google_iap_web_region_forwarding_rule_service_iam_policy" "example" {
+    forwarding_rule_region_service_name = "{{ forwarding_rule_region_service_name }}"
+    id = "{{ id }}"
+    policy_data = "{{ policy_data }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+}

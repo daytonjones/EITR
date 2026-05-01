@@ -1,10 +1,129 @@
 resource "aws_quicksight_data_source" "example" {
-    arn = "{{ arn }}"
     aws_account_id = "{{ aws_account_id }}"
     data_source_id = "{{ data_source_id }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     type = "{{ type }}"
+    credentials {
+      copy_source_arn = "{{ copy_source_arn }}"
+      secret_arn = "{{ secret_arn }}"
+      credential_pair {
+        password = "{{ password }}"
+        username = "{{ username }}"
+      }
+    }
+    parameters {
+      amazon_elasticsearch {
+        domain = "{{ domain }}"
+      }
+      athena {
+        work_group = "{{ work_group }}"
+      }
+      aurora {
+        database = "{{ database }}"
+        host = "{{ host }}"
+        port = {{ port }}
+      }
+      aurora_postgresql {
+        database = "{{ database }}"
+        host = "{{ host }}"
+        port = {{ port }}
+      }
+      aws_iot_analytics {
+        data_set_name = "{{ data_set_name }}"
+      }
+      databricks {
+        host = "{{ host }}"
+        port = {{ port }}
+        sql_endpoint_path = "{{ sql_endpoint_path }}"
+      }
+      jira {
+        site_base_url = "{{ site_base_url }}"
+      }
+      maria_db {
+        database = "{{ database }}"
+        host = "{{ host }}"
+        port = {{ port }}
+      }
+      mysql {
+        database = "{{ database }}"
+        host = "{{ host }}"
+        port = {{ port }}
+      }
+      oracle {
+        database = "{{ database }}"
+        host = "{{ host }}"
+        port = {{ port }}
+      }
+      postgresql {
+        database = "{{ database }}"
+        host = "{{ host }}"
+        port = {{ port }}
+      }
+      presto {
+        catalog = "{{ catalog }}"
+        host = "{{ host }}"
+        port = {{ port }}
+      }
+      rds {
+        database = "{{ database }}"
+        instance_id = "{{ instance_id }}"
+      }
+      redshift {
+        cluster_id = "{{ cluster_id }}"
+        database = "{{ database }}"
+        host = "{{ host }}"
+        port = {{ port }}
+      }
+      s3 {
+        role_arn = "{{ role_arn }}"
+        manifest_file_location {
+          bucket = "{{ bucket }}"
+          key = "{{ key }}"
+        }
+      }
+      service_now {
+        site_base_url = "{{ site_base_url }}"
+      }
+      snowflake {
+        database = "{{ database }}"
+        host = "{{ host }}"
+        warehouse = "{{ warehouse }}"
+      }
+      spark {
+        host = "{{ host }}"
+        port = {{ port }}
+      }
+      sql_server {
+        database = "{{ database }}"
+        host = "{{ host }}"
+        port = {{ port }}
+      }
+      teradata {
+        database = "{{ database }}"
+        host = "{{ host }}"
+        port = {{ port }}
+      }
+      twitter {
+        max_rows = {{ max_rows }}
+        query = "{{ query }}"
+      }
+    }
+    permission {
+      actions = ["{{ actions }}"]
+      principal = "{{ principal }}"
+    }
+    ssl_properties {
+      disable_ssl = {{ disable_ssl }}
+    }
+    vpc_connection_properties {
+      vpc_connection_arn = "{{ vpc_connection_arn }}"
+    }
 }

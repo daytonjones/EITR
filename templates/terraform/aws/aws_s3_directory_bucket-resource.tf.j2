@@ -1,8 +1,14 @@
 resource "aws_s3_directory_bucket" "example" {
-    arn = "{{ arn }}"
     bucket = "{{ bucket }}"
     data_redundancy = "{{ data_redundancy }}"
-    force_destroy = "{{ force_destroy }}"
-    id = "{{ id }}"
+    force_destroy = {{ force_destroy }}
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     type = "{{ type }}"
+    location {
+      name = "{{ name }}"
+      type = "{{ type }}"
+    }
 }

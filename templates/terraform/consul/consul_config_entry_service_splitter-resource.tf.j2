@@ -1,7 +1,34 @@
 resource "consul_config_entry_service_splitter" "example" {
     id = "{{ id }}"
-    meta = "{{ meta }}"
+    meta = {
+        key = "{{ meta_value }}"
+      }
     name = "{{ name }}"
     namespace = "{{ namespace }}"
     partition = "{{ partition }}"
+    splits {
+      namespace = "{{ namespace }}"
+      partition = "{{ partition }}"
+      service = "{{ service }}"
+      service_subset = "{{ service_subset }}"
+      weight = {{ weight }}
+      request_headers {
+        add = {
+        key = "{{ add_value }}"
+      }
+        remove = ["{{ remove }}"]
+        set = {
+        key = "{{ set_value }}"
+      }
+      }
+      response_headers {
+        add = {
+        key = "{{ add_value }}"
+      }
+        remove = ["{{ remove }}"]
+        set = {
+        key = "{{ set_value }}"
+      }
+      }
+    }
 }

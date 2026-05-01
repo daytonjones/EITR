@@ -1,0 +1,15 @@
+resource "google_parameter_manager_parameter" "example" {
+    format = "{{ format }}"
+    id = "{{ id }}"
+    kms_key = "{{ kms_key }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    parameter_id = "{{ parameter_id }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

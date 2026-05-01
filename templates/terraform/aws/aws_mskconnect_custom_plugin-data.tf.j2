@@ -1,9 +1,8 @@
 data "aws_mskconnect_custom_plugin" "example" {
-    arn = "{{ arn }}"
-    description = "{{ description }}"
     id = "{{ id }}"
-    latest_revision = "{{ latest_revision }}"
     name = "{{ name }}"
-    state = "{{ state }}"
-    tags = "{{ tags }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
 }

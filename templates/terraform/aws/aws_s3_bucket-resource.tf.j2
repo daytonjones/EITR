@@ -1,20 +1,135 @@
 resource "aws_s3_bucket" "example" {
     acceleration_status = "{{ acceleration_status }}"
     acl = "{{ acl }}"
-    arn = "{{ arn }}"
     bucket = "{{ bucket }}"
-    bucket_domain_name = "{{ bucket_domain_name }}"
+    bucket_namespace = "{{ bucket_namespace }}"
     bucket_prefix = "{{ bucket_prefix }}"
-    bucket_regional_domain_name = "{{ bucket_regional_domain_name }}"
-    force_destroy = "{{ force_destroy }}"
-    hosted_zone_id = "{{ hosted_zone_id }}"
+    force_destroy = {{ force_destroy }}
     id = "{{ id }}"
-    object_lock_enabled = "{{ object_lock_enabled }}"
+    object_lock_enabled = {{ object_lock_enabled }}
     policy = "{{ policy }}"
     region = "{{ region }}"
     request_payer = "{{ request_payer }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    website_domain = "{{ website_domain }}"
-    website_endpoint = "{{ website_endpoint }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    cors_rule {
+      allowed_headers = ["{{ allowed_headers }}"]
+      allowed_methods = ["{{ allowed_methods }}"]
+      allowed_origins = ["{{ allowed_origins }}"]
+      expose_headers = ["{{ expose_headers }}"]
+      max_age_seconds = {{ max_age_seconds }}
+    }
+    grant {
+      id = "{{ id }}"
+      permissions = ["{{ permissions }}"]
+      type = "{{ type }}"
+      uri = "{{ uri }}"
+    }
+    lifecycle_rule {
+      abort_incomplete_multipart_upload_days = {{ abort_incomplete_multipart_upload_days }}
+      enabled = {{ enabled }}
+      id = "{{ id }}"
+      prefix = "{{ prefix }}"
+      tags = {
+        key = "{{ tags_value }}"
+      }
+      expiration {
+        date = "{{ date }}"
+        days = {{ days }}
+        expired_object_delete_marker = {{ expired_object_delete_marker }}
+      }
+      noncurrent_version_expiration {
+        days = {{ days }}
+      }
+      noncurrent_version_transition {
+        days = {{ days }}
+        storage_class = "{{ storage_class }}"
+      }
+      transition {
+        date = "{{ date }}"
+        days = {{ days }}
+        storage_class = "{{ storage_class }}"
+      }
+    }
+    logging {
+      target_bucket = "{{ target_bucket }}"
+      target_prefix = "{{ target_prefix }}"
+    }
+    object_lock_configuration {
+      object_lock_enabled = "{{ object_lock_enabled }}"
+      rule {
+        default_retention {
+          days = {{ days }}
+          mode = "{{ mode }}"
+          years = {{ years }}
+        }
+      }
+    }
+    replication_configuration {
+      role = "{{ role }}"
+      rules {
+        delete_marker_replication_status = "{{ delete_marker_replication_status }}"
+        id = "{{ id }}"
+        prefix = "{{ prefix }}"
+        priority = {{ priority }}
+        status = "{{ status }}"
+        destination {
+          account_id = "{{ account_id }}"
+          bucket = "{{ bucket }}"
+          replica_kms_key_id = "{{ replica_kms_key_id }}"
+          storage_class = "{{ storage_class }}"
+          access_control_translation {
+            owner = "{{ owner }}"
+          }
+          metrics {
+            minutes = {{ minutes }}
+            status = "{{ status }}"
+          }
+          replication_time {
+            minutes = {{ minutes }}
+            status = "{{ status }}"
+          }
+        }
+        filter {
+          prefix = "{{ prefix }}"
+          tags = {
+        key = "{{ tags_value }}"
+      }
+        }
+        source_selection_criteria {
+          sse_kms_encrypted_objects {
+            enabled = {{ enabled }}
+          }
+        }
+      }
+    }
+    server_side_encryption_configuration {
+      rule {
+        bucket_key_enabled = {{ bucket_key_enabled }}
+        apply_server_side_encryption_by_default {
+          kms_master_key_id = "{{ kms_master_key_id }}"
+          sse_algorithm = "{{ sse_algorithm }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    versioning {
+      enabled = {{ enabled }}
+      mfa_delete = {{ mfa_delete }}
+    }
+    website {
+      error_document = "{{ error_document }}"
+      index_document = "{{ index_document }}"
+      redirect_all_requests_to = "{{ redirect_all_requests_to }}"
+      routing_rules = "{{ routing_rules }}"
+    }
 }

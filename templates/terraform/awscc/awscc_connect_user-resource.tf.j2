@@ -1,33 +1,18 @@
 resource "awscc_connect_user" "example" {
+    after_contact_work_configs = "{{ after_contact_work_configs }}"
+    auto_accept_configs = "{{ auto_accept_configs }}"
     directory_user_id = "{{ directory_user_id }}"
     hierarchy_group_arn = "{{ hierarchy_group_arn }}"
-    id = "{{ id }}"
-    identity_info = "{
-    email = {{ email }}
-    first_name = {{ first_name }}
-    last_name = {{ last_name }}
-    mobile = {{ mobile }}
-    secondary_email = {{ secondary_email }}
-}"
+    identity_info = "{{ identity_info }}"
     instance_arn = "{{ instance_arn }}"
     password = "{{ password }}"
-    phone_config = "{
-    after_contact_work_time_limit = {{ after_contact_work_time_limit }}
-    auto_accept = {{ auto_accept }}
-    desk_phone_number = {{ desk_phone_number }}
-    phone_type = {{ phone_type }}
-}"
+    persistent_connection_configs = "{{ persistent_connection_configs }}"
+    phone_config = "{{ phone_config }}"
+    phone_number_configs = "{{ phone_number_configs }}"
     routing_profile_arn = "{{ routing_profile_arn }}"
-    security_profile_arns = "{{ security_profile_arns }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
-    user_arn = "{{ user_arn }}"
-    user_proficiencies = "{
-    attribute_name = {{ attribute_name }}
-    attribute_value = {{ attribute_value }}
-    level = {{ level }}
-}"
+    security_profile_arns = ["{{ security_profile_arns }}"]
+    tags = "{{ tags }}"
+    user_proficiencies = "{{ user_proficiencies }}"
     username = "{{ username }}"
+    voice_enhancement_configs = "{{ voice_enhancement_configs }}"
 }

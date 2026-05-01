@@ -4,4 +4,9 @@ resource "azurerm_api_management_product_group" "example" {
     id = "{{ id }}"
     product_id = "{{ product_id }}"
     resource_group_name = "{{ resource_group_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

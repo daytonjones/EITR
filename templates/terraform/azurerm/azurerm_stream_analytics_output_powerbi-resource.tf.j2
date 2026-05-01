@@ -8,4 +8,10 @@ resource "azurerm_stream_analytics_output_powerbi" "example" {
     table = "{{ table }}"
     token_user_display_name = "{{ token_user_display_name }}"
     token_user_principal_name = "{{ token_user_principal_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

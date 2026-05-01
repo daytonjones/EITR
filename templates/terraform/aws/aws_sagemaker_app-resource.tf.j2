@@ -1,11 +1,22 @@
 resource "aws_sagemaker_app" "example" {
     app_name = "{{ app_name }}"
     app_type = "{{ app_type }}"
-    arn = "{{ arn }}"
     domain_id = "{{ domain_id }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     space_name = "{{ space_name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     user_profile_name = "{{ user_profile_name }}"
+    resource_spec {
+      instance_type = "{{ instance_type }}"
+      lifecycle_config_arn = "{{ lifecycle_config_arn }}"
+      sagemaker_image_arn = "{{ sagemaker_image_arn }}"
+      sagemaker_image_version_alias = "{{ sagemaker_image_version_alias }}"
+      sagemaker_image_version_arn = "{{ sagemaker_image_version_arn }}"
+    }
 }

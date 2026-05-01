@@ -3,9 +3,17 @@ resource "aws_redshiftdata_statement" "example" {
     database = "{{ database }}"
     db_user = "{{ db_user }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     secret_arn = "{{ secret_arn }}"
     sql = "{{ sql }}"
     statement_name = "{{ statement_name }}"
-    with_event = "{{ with_event }}"
+    with_event = {{ with_event }}
     workgroup_name = "{{ workgroup_name }}"
+    parameters {
+      name = "{{ name }}"
+      value = "{{ value }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+    }
 }

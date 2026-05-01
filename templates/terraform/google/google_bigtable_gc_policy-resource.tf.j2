@@ -3,9 +3,20 @@ resource "google_bigtable_gc_policy" "example" {
     deletion_policy = "{{ deletion_policy }}"
     gc_rules = "{{ gc_rules }}"
     id = "{{ id }}"
-    ignore_warnings = "{{ ignore_warnings }}"
+    ignore_warnings = {{ ignore_warnings }}
     instance_name = "{{ instance_name }}"
     mode = "{{ mode }}"
     project = "{{ project }}"
     table = "{{ table }}"
+    max_age {
+      days = {{ days }}
+      duration = "{{ duration }}"
+    }
+    max_version {
+      number = {{ number }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

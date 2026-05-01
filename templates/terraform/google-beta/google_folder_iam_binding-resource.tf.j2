@@ -1,7 +1,11 @@
 resource "google_folder_iam_binding" "example" {
-    etag = "{{ etag }}"
     folder = "{{ folder }}"
     id = "{{ id }}"
-    members = "{{ members }}"
+    members = ["{{ members }}"]
     role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

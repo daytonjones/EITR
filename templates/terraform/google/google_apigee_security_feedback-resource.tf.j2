@@ -1,0 +1,18 @@
+resource "google_apigee_security_feedback" "example" {
+    comment = "{{ comment }}"
+    display_name = "{{ display_name }}"
+    feedback_id = "{{ feedback_id }}"
+    feedback_type = "{{ feedback_type }}"
+    id = "{{ id }}"
+    org_id = "{{ org_id }}"
+    reason = "{{ reason }}"
+    feedback_contexts {
+      attribute = "{{ attribute }}"
+      values = ["{{ values }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

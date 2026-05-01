@@ -1,0 +1,18 @@
+resource "google_network_security_backend_authentication_config" "example" {
+    client_certificate = "{{ client_certificate }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    trust_config = "{{ trust_config }}"
+    well_known_roots = "{{ well_known_roots }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -6,19 +6,37 @@ resource "google_storage_bucket_object" "example" {
     content_encoding = "{{ content_encoding }}"
     content_language = "{{ content_language }}"
     content_type = "{{ content_type }}"
-    crc32c = "{{ crc32c }}"
+    deletion_policy = "{{ deletion_policy }}"
     detect_md5hash = "{{ detect_md5hash }}"
-    event_based_hold = "{{ event_based_hold }}"
-    generation = "{{ generation }}"
+    event_based_hold = {{ event_based_hold }}
+    force_empty_content_type = {{ force_empty_content_type }}
     id = "{{ id }}"
     kms_key_name = "{{ kms_key_name }}"
-    md5hash = "{{ md5hash }}"
-    media_link = "{{ media_link }}"
-    metadata = "{{ metadata }}"
+    metadata = {
+        key = "{{ metadata_value }}"
+      }
     name = "{{ name }}"
-    output_name = "{{ output_name }}"
-    self_link = "{{ self_link }}"
     source = "{{ source }}"
+    source_md5hash = "{{ source_md5hash }}"
     storage_class = "{{ storage_class }}"
-    temporary_hold = "{{ temporary_hold }}"
+    temporary_hold = {{ temporary_hold }}
+    contexts {
+      custom {
+        key = "{{ key }}"
+        value = "{{ value }}"
+      }
+    }
+    customer_encryption {
+      encryption_algorithm = "{{ encryption_algorithm }}"
+      encryption_key = "{{ encryption_key }}"
+    }
+    retention {
+      mode = "{{ mode }}"
+      retain_until_time = "{{ retain_until_time }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

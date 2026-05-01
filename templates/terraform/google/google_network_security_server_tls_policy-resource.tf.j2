@@ -1,13 +1,36 @@
 resource "google_network_security_server_tls_policy" "example" {
-    allow_open = "{{ allow_open }}"
-    create_time = "{{ create_time }}"
+    allow_open = {{ allow_open }}
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
+    mtls_policy {
+      client_validation_mode = "{{ client_validation_mode }}"
+      client_validation_trust_config = "{{ client_validation_trust_config }}"
+      client_validation_ca {
+        certificate_provider_instance {
+          plugin_instance = "{{ plugin_instance }}"
+        }
+        grpc_endpoint {
+          target_uri = "{{ target_uri }}"
+        }
+      }
+    }
+    server_certificate {
+      certificate_provider_instance {
+        plugin_instance = "{{ plugin_instance }}"
+      }
+      grpc_endpoint {
+        target_uri = "{{ target_uri }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

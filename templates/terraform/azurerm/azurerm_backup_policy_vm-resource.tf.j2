@@ -1,9 +1,56 @@
 resource "azurerm_backup_policy_vm" "example" {
+    consistency_type = "{{ consistency_type }}"
     id = "{{ id }}"
-    instant_restore_retention_days = "{{ instant_restore_retention_days }}"
+    instant_restore_retention_days = {{ instant_restore_retention_days }}
     name = "{{ name }}"
     policy_type = "{{ policy_type }}"
     recovery_vault_name = "{{ recovery_vault_name }}"
     resource_group_name = "{{ resource_group_name }}"
     timezone = "{{ timezone }}"
+    backup {
+      frequency = "{{ frequency }}"
+      hour_duration = {{ hour_duration }}
+      hour_interval = {{ hour_interval }}
+      time = "{{ time }}"
+      weekdays = ["{{ weekdays }}"]
+    }
+    instant_restore_resource_group {
+      prefix = "{{ prefix }}"
+      suffix = "{{ suffix }}"
+    }
+    retention_daily {
+      count = {{ count }}
+    }
+    retention_monthly {
+      count = {{ count }}
+      days = ["{{ days }}"]
+      include_last_days = {{ include_last_days }}
+      weekdays = ["{{ weekdays }}"]
+      weeks = ["{{ weeks }}"]
+    }
+    retention_weekly {
+      count = {{ count }}
+      weekdays = ["{{ weekdays }}"]
+    }
+    retention_yearly {
+      count = {{ count }}
+      days = ["{{ days }}"]
+      include_last_days = {{ include_last_days }}
+      months = ["{{ months }}"]
+      weekdays = ["{{ weekdays }}"]
+      weeks = ["{{ weeks }}"]
+    }
+    tiering_policy {
+      archived_restore_point {
+        duration = {{ duration }}
+        duration_type = "{{ duration_type }}"
+        mode = "{{ mode }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

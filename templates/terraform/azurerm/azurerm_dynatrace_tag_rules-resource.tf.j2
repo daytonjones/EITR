@@ -1,0 +1,29 @@
+resource "azurerm_dynatrace_tag_rules" "example" {
+    id = "{{ id }}"
+    monitor_id = "{{ monitor_id }}"
+    name = "{{ name }}"
+    log_rule {
+      send_activity_logs_enabled = {{ send_activity_logs_enabled }}
+      send_azure_active_directory_logs_enabled = {{ send_azure_active_directory_logs_enabled }}
+      send_subscription_logs_enabled = {{ send_subscription_logs_enabled }}
+      filtering_tag {
+        action = "{{ action }}"
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+    }
+    metric_rule {
+      sending_metrics_enabled = {{ sending_metrics_enabled }}
+      filtering_tag {
+        action = "{{ action }}"
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

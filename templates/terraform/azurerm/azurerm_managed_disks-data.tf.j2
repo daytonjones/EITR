@@ -1,0 +1,7 @@
+data "azurerm_managed_disks" "example" {
+    id = "{{ id }}"
+    resource_group_name = "{{ resource_group_name }}"
+    timeouts {
+      read = "{{ read }}"
+    }
+}

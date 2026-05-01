@@ -1,0 +1,20 @@
+resource "google_compute_router_named_set" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    router = "{{ router }}"
+    type = "{{ type }}"
+    elements {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      location = "{{ location }}"
+      title = "{{ title }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

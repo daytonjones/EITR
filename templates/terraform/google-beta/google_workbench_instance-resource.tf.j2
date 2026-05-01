@@ -1,21 +1,78 @@
 resource "google_workbench_instance" "example" {
-    create_time = "{{ create_time }}"
-    creator = "{{ creator }}"
     desired_state = "{{ desired_state }}"
-    disable_proxy_access = "{{ disable_proxy_access }}"
-    effective_labels = "{{ effective_labels }}"
-    health_info = "{{ health_info }}"
-    health_state = "{{ health_state }}"
+    disable_proxy_access = {{ disable_proxy_access }}
+    enable_managed_euc = {{ enable_managed_euc }}
+    enable_third_party_identity = {{ enable_third_party_identity }}
     id = "{{ id }}"
     instance_id = "{{ instance_id }}"
-    instance_owners = "{{ instance_owners }}"
-    labels = "{{ labels }}"
+    instance_owners = ["{{ instance_owners }}"]
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    proxy_uri = "{{ proxy_uri }}"
-    state = "{{ state }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
-    upgrade_history = "{{ upgrade_history }}"
+    gce_setup {
+      disable_public_ip = {{ disable_public_ip }}
+      enable_ip_forwarding = {{ enable_ip_forwarding }}
+      machine_type = "{{ machine_type }}"
+      metadata = {
+        key = "{{ metadata_value }}"
+      }
+      tags = ["{{ tags }}"]
+      accelerator_configs {
+        core_count = "{{ core_count }}"
+        type = "{{ type }}"
+      }
+      boot_disk {
+        disk_encryption = "{{ disk_encryption }}"
+        disk_size_gb = "{{ disk_size_gb }}"
+        disk_type = "{{ disk_type }}"
+        kms_key = "{{ kms_key }}"
+      }
+      confidential_instance_config {
+        confidential_instance_type = "{{ confidential_instance_type }}"
+      }
+      container_image {
+        repository = "{{ repository }}"
+        tag = "{{ tag }}"
+      }
+      data_disks {
+        disk_encryption = "{{ disk_encryption }}"
+        disk_size_gb = "{{ disk_size_gb }}"
+        disk_type = "{{ disk_type }}"
+        kms_key = "{{ kms_key }}"
+      }
+      network_interfaces {
+        network = "{{ network }}"
+        nic_type = "{{ nic_type }}"
+        subnet = "{{ subnet }}"
+        access_configs {
+          external_ip = "{{ external_ip }}"
+        }
+      }
+      reservation_affinity {
+        consume_reservation_type = "{{ consume_reservation_type }}"
+        key = "{{ key }}"
+        values = ["{{ values }}"]
+      }
+      service_accounts {
+        email = "{{ email }}"
+      }
+      shielded_instance_config {
+        enable_integrity_monitoring = {{ enable_integrity_monitoring }}
+        enable_secure_boot = {{ enable_secure_boot }}
+        enable_vtpm = {{ enable_vtpm }}
+      }
+      vm_image {
+        family = "{{ family }}"
+        name = "{{ name }}"
+        project = "{{ project }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

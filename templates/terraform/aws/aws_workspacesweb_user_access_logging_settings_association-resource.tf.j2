@@ -1,0 +1,5 @@
+resource "aws_workspacesweb_user_access_logging_settings_association" "example" {
+    portal_arn = "{{ portal_arn }}"
+    region = "{{ region }}"
+    user_access_logging_settings_arn = "{{ user_access_logging_settings_arn }}"
+}

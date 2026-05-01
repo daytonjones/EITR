@@ -7,6 +7,14 @@ resource "azurerm_dev_test_policy" "example" {
     name = "{{ name }}"
     policy_set_name = "{{ policy_set_name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     threshold = "{{ threshold }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

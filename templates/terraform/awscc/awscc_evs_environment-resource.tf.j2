@@ -1,0 +1,16 @@
+resource "awscc_evs_environment" "example" {
+    connectivity_info = "{{ connectivity_info }}"
+    environment_name = "{{ environment_name }}"
+    hosts = "{{ hosts }}"
+    initial_vlans = "{{ initial_vlans }}"
+    kms_key_id = "{{ kms_key_id }}"
+    license_info = "{{ license_info }}"
+    service_access_security_groups = "{{ service_access_security_groups }}"
+    service_access_subnet_id = "{{ service_access_subnet_id }}"
+    site_id = "{{ site_id }}"
+    tags = "{{ tags }}"
+    terms_accepted = {{ terms_accepted }}
+    vcf_hostnames = "{{ vcf_hostnames }}"
+    vcf_version = "{{ vcf_version }}"
+    vpc_id = "{{ vpc_id }}"
+}

@@ -1,0 +1,10 @@
+resource "awscc_codepipeline_webhook" "example" {
+    authentication = "{{ authentication }}"
+    authentication_configuration = "{{ authentication_configuration }}"
+    filters = "{{ filters }}"
+    name = "{{ name }}"
+    register_with_third_party = {{ register_with_third_party }}
+    target_action = "{{ target_action }}"
+    target_pipeline = "{{ target_pipeline }}"
+    target_pipeline_version = {{ target_pipeline_version }}
+}

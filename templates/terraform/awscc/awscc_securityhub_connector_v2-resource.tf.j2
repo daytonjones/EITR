@@ -1,0 +1,9 @@
+resource "awscc_securityhub_connector_v2" "example" {
+    description = "{{ description }}"
+    kms_key_arn = "{{ kms_key_arn }}"
+    name = "{{ name }}"
+    provider_name = "{{ provider_name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

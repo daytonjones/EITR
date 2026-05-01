@@ -1,10 +1,15 @@
 resource "azurerm_log_analytics_data_export_rule" "example" {
     destination_resource_id = "{{ destination_resource_id }}"
-    enabled = "{{ enabled }}"
-    export_rule_id = "{{ export_rule_id }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    table_names = "{{ table_names }}"
+    table_names = ["{{ table_names }}"]
     workspace_resource_id = "{{ workspace_resource_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

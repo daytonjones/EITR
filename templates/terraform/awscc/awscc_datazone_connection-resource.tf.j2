@@ -1,0 +1,11 @@
+resource "awscc_datazone_connection" "example" {
+    aws_location = "{{ aws_location }}"
+    description = "{{ description }}"
+    domain_identifier = "{{ domain_identifier }}"
+    enable_trusted_identity_propagation = {{ enable_trusted_identity_propagation }}
+    environment_identifier = "{{ environment_identifier }}"
+    name = "{{ name }}"
+    project_identifier = "{{ project_identifier }}"
+    props = "{{ props }}"
+    scope = "{{ scope }}"
+}

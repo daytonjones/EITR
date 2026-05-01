@@ -1,10 +1,56 @@
 resource "google_compute_autoscaler" "example" {
-    creation_timestamp = "{{ creation_timestamp }}"
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    self_link = "{{ self_link }}"
     target = "{{ target }}"
     zone = "{{ zone }}"
+    autoscaling_policy {
+      cooldown_period = {{ cooldown_period }}
+      max_replicas = {{ max_replicas }}
+      min_replicas = {{ min_replicas }}
+      mode = "{{ mode }}"
+      cpu_utilization {
+        predictive_method = "{{ predictive_method }}"
+        target = {{ target }}
+      }
+      load_balancing_utilization {
+        target = {{ target }}
+      }
+      metric {
+        filter = "{{ filter }}"
+        name = "{{ name }}"
+        single_instance_assignment = {{ single_instance_assignment }}
+        target = {{ target }}
+        type = "{{ type }}"
+      }
+      scale_down_control {
+        time_window_sec = {{ time_window_sec }}
+        max_scaled_down_replicas {
+          fixed = {{ fixed }}
+          percent = {{ percent }}
+        }
+      }
+      scale_in_control {
+        time_window_sec = {{ time_window_sec }}
+        max_scaled_in_replicas {
+          fixed = {{ fixed }}
+          percent = {{ percent }}
+        }
+      }
+      scaling_schedules {
+        description = "{{ description }}"
+        disabled = {{ disabled }}
+        duration_sec = {{ duration_sec }}
+        min_required_replicas = {{ min_required_replicas }}
+        name = "{{ name }}"
+        schedule = "{{ schedule }}"
+        time_zone = "{{ time_zone }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

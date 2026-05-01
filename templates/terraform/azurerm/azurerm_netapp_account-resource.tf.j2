@@ -3,5 +3,33 @@ resource "azurerm_netapp_account" "example" {
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    active_directory {
+      aes_encryption_enabled = {{ aes_encryption_enabled }}
+      dns_servers = ["{{ dns_servers }}"]
+      domain = "{{ domain }}"
+      kerberos_ad_name = "{{ kerberos_ad_name }}"
+      kerberos_kdc_ip = "{{ kerberos_kdc_ip }}"
+      ldap_over_tls_enabled = {{ ldap_over_tls_enabled }}
+      ldap_signing_enabled = {{ ldap_signing_enabled }}
+      local_nfs_users_with_ldap_allowed = {{ local_nfs_users_with_ldap_allowed }}
+      organizational_unit = "{{ organizational_unit }}"
+      password = "{{ password }}"
+      server_root_ca_certificate = "{{ server_root_ca_certificate }}"
+      site_name = "{{ site_name }}"
+      smb_server_name = "{{ smb_server_name }}"
+      username = "{{ username }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

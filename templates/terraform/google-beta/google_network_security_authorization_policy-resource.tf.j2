@@ -1,13 +1,31 @@
 resource "google_network_security_authorization_policy" "example" {
     action = "{{ action }}"
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
+    rules {
+      destinations {
+        hosts = ["{{ hosts }}"]
+        methods = ["{{ methods }}"]
+        ports = ["{{ ports }}"]
+        http_header_match {
+          header_name = "{{ header_name }}"
+          regex_match = "{{ regex_match }}"
+        }
+      }
+      sources {
+        ip_blocks = ["{{ ip_blocks }}"]
+        principals = ["{{ principals }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

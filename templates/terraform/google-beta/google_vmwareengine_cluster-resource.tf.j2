@@ -1,8 +1,48 @@
 resource "google_vmwareengine_cluster" "example" {
     id = "{{ id }}"
-    management = "{{ management }}"
     name = "{{ name }}"
     parent = "{{ parent }}"
-    state = "{{ state }}"
-    uid = "{{ uid }}"
+    autoscaling_settings {
+      cool_down_period = "{{ cool_down_period }}"
+      max_cluster_node_count = {{ max_cluster_node_count }}
+      min_cluster_node_count = {{ min_cluster_node_count }}
+      autoscaling_policies {
+        autoscale_policy_id = "{{ autoscale_policy_id }}"
+        node_type_id = "{{ node_type_id }}"
+        scale_out_size = {{ scale_out_size }}
+        consumed_memory_thresholds {
+          scale_in = {{ scale_in }}
+          scale_out = {{ scale_out }}
+        }
+        cpu_thresholds {
+          scale_in = {{ scale_in }}
+          scale_out = {{ scale_out }}
+        }
+        storage_thresholds {
+          scale_in = {{ scale_in }}
+          scale_out = {{ scale_out }}
+        }
+      }
+    }
+    datastore_mount_config {
+      access_mode = "{{ access_mode }}"
+      datastore = "{{ datastore }}"
+      ignore_colocation = {{ ignore_colocation }}
+      nfs_version = "{{ nfs_version }}"
+      datastore_network {
+        connection_count = {{ connection_count }}
+        mtu = {{ mtu }}
+        subnet = "{{ subnet }}"
+      }
+    }
+    node_type_configs {
+      custom_core_count = {{ custom_core_count }}
+      node_count = {{ node_count }}
+      node_type_id = "{{ node_type_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

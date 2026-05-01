@@ -1,10 +1,72 @@
 resource "azurerm_automation_software_update_configuration" "example" {
     automation_account_id = "{{ automation_account_id }}"
     duration = "{{ duration }}"
-    error_code = "{{ error_code }}"
-    error_message = "{{ error_message }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    non_azure_computer_names = "{{ non_azure_computer_names }}"
-    virtual_machine_ids = "{{ virtual_machine_ids }}"
+    non_azure_computer_names = ["{{ non_azure_computer_names }}"]
+    virtual_machine_ids = ["{{ virtual_machine_ids }}"]
+    linux {
+      classifications_included = ["{{ classifications_included }}"]
+      excluded_packages = ["{{ excluded_packages }}"]
+      included_packages = ["{{ included_packages }}"]
+      reboot = "{{ reboot }}"
+    }
+    post_task {
+      parameters = {
+        key = "{{ parameters_value }}"
+      }
+      source = "{{ source }}"
+    }
+    pre_task {
+      parameters = {
+        key = "{{ parameters_value }}"
+      }
+      source = "{{ source }}"
+    }
+    schedule {
+      advanced_month_days = ["{{ advanced_month_days }}"]
+      advanced_week_days = ["{{ advanced_week_days }}"]
+      description = "{{ description }}"
+      expiry_time = "{{ expiry_time }}"
+      expiry_time_offset_minutes = {{ expiry_time_offset_minutes }}
+      frequency = "{{ frequency }}"
+      interval = {{ interval }}
+      is_enabled = {{ is_enabled }}
+      next_run = "{{ next_run }}"
+      next_run_offset_minutes = {{ next_run_offset_minutes }}
+      start_time = "{{ start_time }}"
+      start_time_offset_minutes = {{ start_time_offset_minutes }}
+      time_zone = "{{ time_zone }}"
+      monthly_occurrence {
+        day = "{{ day }}"
+        occurrence = {{ occurrence }}
+      }
+    }
+    target {
+      azure_query {
+        locations = ["{{ locations }}"]
+        scope = ["{{ scope }}"]
+        tag_filter = "{{ tag_filter }}"
+        tags {
+          tag = "{{ tag }}"
+          values = ["{{ values }}"]
+        }
+      }
+      non_azure_query {
+        function_alias = "{{ function_alias }}"
+        workspace_id = "{{ workspace_id }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    windows {
+      classifications_included = ["{{ classifications_included }}"]
+      excluded_knowledge_base_numbers = ["{{ excluded_knowledge_base_numbers }}"]
+      included_knowledge_base_numbers = ["{{ included_knowledge_base_numbers }}"]
+      reboot = "{{ reboot }}"
+    }
 }

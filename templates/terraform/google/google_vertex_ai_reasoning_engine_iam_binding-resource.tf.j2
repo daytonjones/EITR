@@ -1,0 +1,13 @@
+resource "google_vertex_ai_reasoning_engine_iam_binding" "example" {
+    id = "{{ id }}"
+    members = ["{{ members }}"]
+    project = "{{ project }}"
+    reasoning_engine = "{{ reasoning_engine }}"
+    region = "{{ region }}"
+    role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

@@ -2,4 +2,15 @@ resource "azurerm_virtual_hub_routing_intent" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     virtual_hub_id = "{{ virtual_hub_id }}"
+    routing_policy {
+      destinations = ["{{ destinations }}"]
+      name = "{{ name }}"
+      next_hop = "{{ next_hop }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

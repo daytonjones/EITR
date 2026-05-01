@@ -1,9 +1,25 @@
 resource "aws_ivs_recording_configuration" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    recording_reconnect_window_seconds = "{{ recording_reconnect_window_seconds }}"
-    state = "{{ state }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    recording_reconnect_window_seconds = {{ recording_reconnect_window_seconds }}
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    destination_configuration {
+      s3 {
+        bucket_name = "{{ bucket_name }}"
+      }
+    }
+    thumbnail_configuration {
+      recording_mode = "{{ recording_mode }}"
+      target_interval_seconds = {{ target_interval_seconds }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

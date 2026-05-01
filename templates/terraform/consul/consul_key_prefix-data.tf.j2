@@ -4,7 +4,10 @@ data "consul_key_prefix" "example" {
     namespace = "{{ namespace }}"
     partition = "{{ partition }}"
     path_prefix = "{{ path_prefix }}"
-    subkeys = "{{ subkeys }}"
     token = "{{ token }}"
-    var = "{{ var }}"
+    subkey {
+      default = "{{ default }}"
+      name = "{{ name }}"
+      path = "{{ path }}"
+    }
 }

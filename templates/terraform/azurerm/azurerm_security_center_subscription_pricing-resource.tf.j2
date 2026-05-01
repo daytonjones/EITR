@@ -3,4 +3,16 @@ resource "azurerm_security_center_subscription_pricing" "example" {
     resource_type = "{{ resource_type }}"
     subplan = "{{ subplan }}"
     tier = "{{ tier }}"
+    extension {
+      additional_extension_properties = {
+        key = "{{ additional_extension_properties_value }}"
+      }
+      name = "{{ name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

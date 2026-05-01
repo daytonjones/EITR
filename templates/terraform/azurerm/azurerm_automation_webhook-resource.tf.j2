@@ -1,12 +1,20 @@
 resource "azurerm_automation_webhook" "example" {
     automation_account_name = "{{ automation_account_name }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     expiry_time = "{{ expiry_time }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    parameters = "{{ parameters }}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
     resource_group_name = "{{ resource_group_name }}"
     run_on_worker_group = "{{ run_on_worker_group }}"
     runbook_name = "{{ runbook_name }}"
     uri = "{{ uri }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,40 @@
+resource "aws_cloudfront_distribution_tenant" "example" {
+    connection_group_id = "{{ connection_group_id }}"
+    distribution_id = "{{ distribution_id }}"
+    enabled = {{ enabled }}
+    name = "{{ name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    wait_for_deployment = {{ wait_for_deployment }}
+    customizations {
+      certificate {
+        arn = "{{ arn }}"
+      }
+      geo_restriction {
+        locations = ["{{ locations }}"]
+        restriction_type = "{{ restriction_type }}"
+      }
+      web_acl {
+        action = "{{ action }}"
+        arn = "{{ arn }}"
+      }
+    }
+    domain {
+      domain = "{{ domain }}"
+    }
+    managed_certificate_request {
+      certificate_transparency_logging_preference = "{{ certificate_transparency_logging_preference }}"
+      primary_domain_name = "{{ primary_domain_name }}"
+      validation_token_host = "{{ validation_token_host }}"
+    }
+    parameter {
+      name = "{{ name }}"
+      value = "{{ value }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,14 +1,28 @@
 resource "aws_workspaces_workspace" "example" {
     bundle_id = "{{ bundle_id }}"
-    computer_name = "{{ computer_name }}"
     directory_id = "{{ directory_id }}"
     id = "{{ id }}"
-    ip_address = "{{ ip_address }}"
-    root_volume_encryption_enabled = "{{ root_volume_encryption_enabled }}"
-    state = "{{ state }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    root_volume_encryption_enabled = {{ root_volume_encryption_enabled }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     user_name = "{{ user_name }}"
-    user_volume_encryption_enabled = "{{ user_volume_encryption_enabled }}"
+    user_volume_encryption_enabled = {{ user_volume_encryption_enabled }}
     volume_encryption_key = "{{ volume_encryption_key }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    workspace_properties {
+      compute_type_name = "{{ compute_type_name }}"
+      root_volume_size_gib = {{ root_volume_size_gib }}
+      running_mode = "{{ running_mode }}"
+      running_mode_auto_stop_timeout_in_minutes = {{ running_mode_auto_stop_timeout_in_minutes }}
+      user_volume_size_gib = {{ user_volume_size_gib }}
+    }
 }

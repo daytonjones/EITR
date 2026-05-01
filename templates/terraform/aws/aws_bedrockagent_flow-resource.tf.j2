@@ -1,0 +1,185 @@
+resource "aws_bedrockagent_flow" "example" {
+    customer_encryption_key_arn = "{{ customer_encryption_key_arn }}"
+    description = "{{ description }}"
+    execution_role_arn = "{{ execution_role_arn }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    definition {
+      connection {
+        name = "{{ name }}"
+        source = "{{ source }}"
+        target = "{{ target }}"
+        type = "{{ type }}"
+        configuration {
+          conditional {
+            condition = "{{ condition }}"
+          }
+          data {
+            source_output = "{{ source_output }}"
+            target_input = "{{ target_input }}"
+          }
+        }
+      }
+      node {
+        name = "{{ name }}"
+        type = "{{ type }}"
+        configuration {
+          agent {
+            agent_alias_arn = "{{ agent_alias_arn }}"
+          }
+          collector {
+          }
+          condition {
+            condition {
+              expression = "{{ expression }}"
+              name = "{{ name }}"
+            }
+          }
+          inline_code {
+            code = "{{ code }}"
+            language = "{{ language }}"
+          }
+          input {
+          }
+          iterator {
+          }
+          knowledge_base {
+            knowledge_base_id = "{{ knowledge_base_id }}"
+            model_id = "{{ model_id }}"
+            number_of_results = {{ number_of_results }}
+            guardrail_configuration {
+              guardrail_identifier = "{{ guardrail_identifier }}"
+              guardrail_version = "{{ guardrail_version }}"
+            }
+            inference_configuration {
+              text {
+                max_tokens = {{ max_tokens }}
+                stop_sequences = ["{{ stop_sequences }}"]
+                temperature = {{ temperature }}
+                top_p = {{ top_p }}
+              }
+            }
+          }
+          lambda_function {
+            lambda_arn = "{{ lambda_arn }}"
+          }
+          lex {
+            bot_alias_arn = "{{ bot_alias_arn }}"
+            locale_id = "{{ locale_id }}"
+          }
+          output {
+          }
+          prompt {
+            guardrail_configuration {
+              guardrail_identifier = "{{ guardrail_identifier }}"
+              guardrail_version = "{{ guardrail_version }}"
+            }
+            source_configuration {
+              inline {
+                additional_model_request_fields = "{{ additional_model_request_fields }}"
+                model_id = "{{ model_id }}"
+                template_type = "{{ template_type }}"
+                inference_configuration {
+                  text {
+                    max_tokens = {{ max_tokens }}
+                    stop_sequences = ["{{ stop_sequences }}"]
+                    temperature = {{ temperature }}
+                    top_p = {{ top_p }}
+                  }
+                }
+                template_configuration {
+                  chat {
+                    input_variable {
+                      name = "{{ name }}"
+                    }
+                    message {
+                      role = "{{ role }}"
+                      content {
+                        text = "{{ text }}"
+                        cache_point {
+                          type = "{{ type }}"
+                        }
+                      }
+                    }
+                    system {
+                      text = "{{ text }}"
+                      cache_point {
+                        type = "{{ type }}"
+                      }
+                    }
+                    tool_configuration {
+                      tool {
+                        cache_point {
+                          type = "{{ type }}"
+                        }
+                        tool_spec {
+                          description = "{{ description }}"
+                          name = "{{ name }}"
+                          input_schema {
+                            json = "{{ json }}"
+                          }
+                        }
+                      }
+                      tool_choice {
+                        any {
+                        }
+                        auto {
+                        }
+                        tool {
+                          name = "{{ name }}"
+                        }
+                      }
+                    }
+                  }
+                  text {
+                    text = "{{ text }}"
+                    cache_point {
+                      type = "{{ type }}"
+                    }
+                    input_variable {
+                      name = "{{ name }}"
+                    }
+                  }
+                }
+              }
+              resource {
+                prompt_arn = "{{ prompt_arn }}"
+              }
+            }
+          }
+          retrieval {
+            service_configuration {
+              s3 {
+                bucket_name = "{{ bucket_name }}"
+              }
+            }
+          }
+          storage {
+            service_configuration {
+              s3 {
+                bucket_name = "{{ bucket_name }}"
+              }
+            }
+          }
+        }
+        input {
+          category = "{{ category }}"
+          expression = "{{ expression }}"
+          name = "{{ name }}"
+          type = "{{ type }}"
+        }
+        output {
+          name = "{{ name }}"
+          type = "{{ type }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

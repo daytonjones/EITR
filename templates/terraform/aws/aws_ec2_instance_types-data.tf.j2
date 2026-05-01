@@ -1,4 +1,11 @@
 data "aws_ec2_instance_types" "example" {
     id = "{{ id }}"
-    instance_types = "{{ instance_types }}"
+    region = "{{ region }}"
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
+    timeouts {
+      read = "{{ read }}"
+    }
 }

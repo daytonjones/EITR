@@ -1,15 +1,100 @@
 resource "azurestack_virtual_machine" "example" {
     availability_set_id = "{{ availability_set_id }}"
-    delete_data_disks_on_termination = "{{ delete_data_disks_on_termination }}"
-    delete_os_disk_on_termination = "{{ delete_os_disk_on_termination }}"
+    delete_data_disks_on_termination = {{ delete_data_disks_on_termination }}
+    delete_os_disk_on_termination = {{ delete_os_disk_on_termination }}
     id = "{{ id }}"
     license_type = "{{ license_type }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    network_interface_ids = "{{ network_interface_ids }}"
+    network_interface_ids = ["{{ network_interface_ids }}"]
     primary_network_interface_id = "{{ primary_network_interface_id }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     vm_size = "{{ vm_size }}"
-    zones = "{{ zones }}"
+    zones = ["{{ zones }}"]
+    boot_diagnostics {
+      enabled = {{ enabled }}
+      storage_uri = "{{ storage_uri }}"
+    }
+    identity {
+      type = "{{ type }}"
+    }
+    os_profile {
+      admin_password = "{{ admin_password }}"
+      admin_username = "{{ admin_username }}"
+      computer_name = "{{ computer_name }}"
+      custom_data = "{{ custom_data }}"
+    }
+    os_profile_linux_config {
+      disable_password_authentication = {{ disable_password_authentication }}
+      ssh_keys {
+        key_data = "{{ key_data }}"
+        path = "{{ path }}"
+      }
+    }
+    os_profile_secrets {
+      source_vault_id = "{{ source_vault_id }}"
+      vault_certificates {
+        certificate_store = "{{ certificate_store }}"
+        certificate_url = "{{ certificate_url }}"
+      }
+    }
+    os_profile_windows_config {
+      enable_automatic_upgrades = {{ enable_automatic_upgrades }}
+      provision_vm_agent = {{ provision_vm_agent }}
+      timezone = "{{ timezone }}"
+      additional_unattend_config {
+        component = "{{ component }}"
+        content = "{{ content }}"
+        pass = "{{ pass }}"
+        setting_name = "{{ setting_name }}"
+      }
+      winrm {
+        certificate_url = "{{ certificate_url }}"
+        protocol = "{{ protocol }}"
+      }
+    }
+    plan {
+      name = "{{ name }}"
+      product = "{{ product }}"
+      publisher = "{{ publisher }}"
+    }
+    storage_data_disk {
+      caching = "{{ caching }}"
+      create_option = "{{ create_option }}"
+      disk_size_gb = {{ disk_size_gb }}
+      lun = {{ lun }}
+      managed_disk_id = "{{ managed_disk_id }}"
+      managed_disk_type = "{{ managed_disk_type }}"
+      name = "{{ name }}"
+      vhd_uri = "{{ vhd_uri }}"
+      write_accelerator_enabled = {{ write_accelerator_enabled }}
+    }
+    storage_image_reference {
+      id = "{{ id }}"
+      offer = "{{ offer }}"
+      publisher = "{{ publisher }}"
+      sku = "{{ sku }}"
+      version = "{{ version }}"
+    }
+    storage_os_disk {
+      caching = "{{ caching }}"
+      create_option = "{{ create_option }}"
+      disk_size_gb = {{ disk_size_gb }}
+      image_uri = "{{ image_uri }}"
+      managed_disk_id = "{{ managed_disk_id }}"
+      managed_disk_type = "{{ managed_disk_type }}"
+      name = "{{ name }}"
+      os_type = "{{ os_type }}"
+      vhd_uri = "{{ vhd_uri }}"
+      write_accelerator_enabled = {{ write_accelerator_enabled }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

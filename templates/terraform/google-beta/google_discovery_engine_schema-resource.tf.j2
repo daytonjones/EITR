@@ -3,7 +3,10 @@ resource "google_discovery_engine_schema" "example" {
     id = "{{ id }}"
     json_schema = "{{ json_schema }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     project = "{{ project }}"
     schema_id = "{{ schema_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

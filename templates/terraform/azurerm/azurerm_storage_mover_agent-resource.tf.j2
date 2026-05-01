@@ -5,4 +5,10 @@ resource "azurerm_storage_mover_agent" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     storage_mover_id = "{{ storage_mover_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

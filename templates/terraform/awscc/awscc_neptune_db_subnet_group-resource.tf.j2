@@ -1,0 +1,6 @@
+resource "awscc_neptune_db_subnet_group" "example" {
+    db_subnet_group_description = "{{ db_subnet_group_description }}"
+    db_subnet_group_name = "{{ db_subnet_group_name }}"
+    subnet_ids = ["{{ subnet_ids }}"]
+    tags = "{{ tags }}"
+}

@@ -1,18 +1,85 @@
 resource "google_clouddomains_registration" "example" {
-    contact_notices = "{{ contact_notices }}"
-    create_time = "{{ create_time }}"
+    contact_notices = ["{{ contact_notices }}"]
     domain_name = "{{ domain_name }}"
-    domain_notices = "{{ domain_notices }}"
-    effective_labels = "{{ effective_labels }}"
-    expire_time = "{{ expire_time }}"
+    domain_notices = ["{{ domain_notices }}"]
     id = "{{ id }}"
-    issues = "{{ issues }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    register_failure_reason = "{{ register_failure_reason }}"
-    state = "{{ state }}"
-    supported_privacy = "{{ supported_privacy }}"
-    terraform_labels = "{{ terraform_labels }}"
+    contact_settings {
+      privacy = "{{ privacy }}"
+      admin_contact {
+        email = "{{ email }}"
+        fax_number = "{{ fax_number }}"
+        phone_number = "{{ phone_number }}"
+        postal_address {
+          address_lines = ["{{ address_lines }}"]
+          administrative_area = "{{ administrative_area }}"
+          locality = "{{ locality }}"
+          organization = "{{ organization }}"
+          postal_code = "{{ postal_code }}"
+          recipients = ["{{ recipients }}"]
+          region_code = "{{ region_code }}"
+        }
+      }
+      registrant_contact {
+        email = "{{ email }}"
+        fax_number = "{{ fax_number }}"
+        phone_number = "{{ phone_number }}"
+        postal_address {
+          address_lines = ["{{ address_lines }}"]
+          administrative_area = "{{ administrative_area }}"
+          locality = "{{ locality }}"
+          organization = "{{ organization }}"
+          postal_code = "{{ postal_code }}"
+          recipients = ["{{ recipients }}"]
+          region_code = "{{ region_code }}"
+        }
+      }
+      technical_contact {
+        email = "{{ email }}"
+        fax_number = "{{ fax_number }}"
+        phone_number = "{{ phone_number }}"
+        postal_address {
+          address_lines = ["{{ address_lines }}"]
+          administrative_area = "{{ administrative_area }}"
+          locality = "{{ locality }}"
+          organization = "{{ organization }}"
+          postal_code = "{{ postal_code }}"
+          recipients = ["{{ recipients }}"]
+          region_code = "{{ region_code }}"
+        }
+      }
+    }
+    dns_settings {
+      custom_dns {
+        name_servers = ["{{ name_servers }}"]
+        ds_records {
+          algorithm = "{{ algorithm }}"
+          digest = "{{ digest }}"
+          digest_type = "{{ digest_type }}"
+          key_tag = {{ key_tag }}
+        }
+      }
+      glue_records {
+        host_name = "{{ host_name }}"
+        ipv4_addresses = ["{{ ipv4_addresses }}"]
+        ipv6_addresses = ["{{ ipv6_addresses }}"]
+      }
+    }
+    management_settings {
+      preferred_renewal_method = "{{ preferred_renewal_method }}"
+      transfer_lock_state = "{{ transfer_lock_state }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    yearly_price {
+      currency_code = "{{ currency_code }}"
+      units = "{{ units }}"
+    }
 }

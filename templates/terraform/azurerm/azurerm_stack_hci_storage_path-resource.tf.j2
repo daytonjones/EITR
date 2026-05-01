@@ -5,5 +5,13 @@ resource "azurerm_stack_hci_storage_path" "example" {
     name = "{{ name }}"
     path = "{{ path }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

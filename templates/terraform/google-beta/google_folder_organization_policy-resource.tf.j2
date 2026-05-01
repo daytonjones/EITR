@@ -1,8 +1,30 @@
 resource "google_folder_organization_policy" "example" {
     constraint = "{{ constraint }}"
-    etag = "{{ etag }}"
     folder = "{{ folder }}"
     id = "{{ id }}"
-    update_time = "{{ update_time }}"
-    version = "{{ version }}"
+    version = {{ version }}
+    boolean_policy {
+      enforced = {{ enforced }}
+    }
+    list_policy {
+      inherit_from_parent = {{ inherit_from_parent }}
+      suggested_value = "{{ suggested_value }}"
+      allow {
+        all = {{ all }}
+        values = ["{{ values }}"]
+      }
+      deny {
+        all = {{ all }}
+        values = ["{{ values }}"]
+      }
+    }
+    restore_policy {
+      default = {{ default }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

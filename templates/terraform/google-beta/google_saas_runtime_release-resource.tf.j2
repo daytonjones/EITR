@@ -1,0 +1,29 @@
+resource "google_saas_runtime_release" "example" {
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    release_id = "{{ release_id }}"
+    unit_kind = "{{ unit_kind }}"
+    blueprint {
+      package = "{{ package }}"
+    }
+    input_variable_defaults {
+      type = "{{ type }}"
+      value = "{{ value }}"
+      variable = "{{ variable }}"
+    }
+    release_requirements {
+      upgradeable_from_releases = ["{{ upgradeable_from_releases }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

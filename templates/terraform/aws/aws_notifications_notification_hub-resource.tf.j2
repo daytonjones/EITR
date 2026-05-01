@@ -1,0 +1,7 @@
+resource "aws_notifications_notification_hub" "example" {
+    notification_hub_region = "{{ notification_hub_region }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

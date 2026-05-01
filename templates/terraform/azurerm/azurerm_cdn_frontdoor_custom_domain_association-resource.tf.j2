@@ -1,5 +1,11 @@
 resource "azurerm_cdn_frontdoor_custom_domain_association" "example" {
     cdn_frontdoor_custom_domain_id = "{{ cdn_frontdoor_custom_domain_id }}"
-    cdn_frontdoor_route_ids = "{{ cdn_frontdoor_route_ids }}"
+    cdn_frontdoor_route_ids = ["{{ cdn_frontdoor_route_ids }}"]
     id = "{{ id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

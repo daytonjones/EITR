@@ -1,0 +1,22 @@
+resource "google_chronicle_watchlist" "example" {
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    location = "{{ location }}"
+    multiplying_factor = {{ multiplying_factor }}
+    project = "{{ project }}"
+    watchlist_id = "{{ watchlist_id }}"
+    entity_population_mechanism {
+      manual {
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    watchlist_user_preferences {
+      pinned = {{ pinned }}
+    }
+}

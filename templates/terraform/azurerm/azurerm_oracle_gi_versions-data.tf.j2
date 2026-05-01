@@ -1,5 +1,9 @@
 data "azurerm_oracle_gi_versions" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
-    versions = "{{ versions }}"
+    shape = "{{ shape }}"
+    zone = "{{ zone }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

@@ -1,9 +1,33 @@
 resource "aws_elastictranscoder_pipeline" "example" {
-    arn = "{{ arn }}"
     aws_kms_key_arn = "{{ aws_kms_key_arn }}"
     id = "{{ id }}"
     input_bucket = "{{ input_bucket }}"
     name = "{{ name }}"
     output_bucket = "{{ output_bucket }}"
+    region = "{{ region }}"
     role = "{{ role }}"
+    content_config {
+      bucket = "{{ bucket }}"
+      storage_class = "{{ storage_class }}"
+    }
+    content_config_permissions {
+      access = ["{{ access }}"]
+      grantee = "{{ grantee }}"
+      grantee_type = "{{ grantee_type }}"
+    }
+    notifications {
+      completed = "{{ completed }}"
+      error = "{{ error }}"
+      progressing = "{{ progressing }}"
+      warning = "{{ warning }}"
+    }
+    thumbnail_config {
+      bucket = "{{ bucket }}"
+      storage_class = "{{ storage_class }}"
+    }
+    thumbnail_config_permissions {
+      access = ["{{ access }}"]
+      grantee = "{{ grantee }}"
+      grantee_type = "{{ grantee_type }}"
+    }
 }

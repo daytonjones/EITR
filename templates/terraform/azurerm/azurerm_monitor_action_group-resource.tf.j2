@@ -1,9 +1,88 @@
 resource "azurerm_monitor_action_group" "example" {
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     short_name = "{{ short_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    arm_role_receiver {
+      name = "{{ name }}"
+      role_id = "{{ role_id }}"
+      use_common_alert_schema = {{ use_common_alert_schema }}
+    }
+    automation_runbook_receiver {
+      automation_account_id = "{{ automation_account_id }}"
+      is_global_runbook = {{ is_global_runbook }}
+      name = "{{ name }}"
+      runbook_name = "{{ runbook_name }}"
+      service_uri = "{{ service_uri }}"
+      use_common_alert_schema = {{ use_common_alert_schema }}
+      webhook_resource_id = "{{ webhook_resource_id }}"
+    }
+    azure_app_push_receiver {
+      email_address = "{{ email_address }}"
+      name = "{{ name }}"
+    }
+    azure_function_receiver {
+      function_app_resource_id = "{{ function_app_resource_id }}"
+      function_name = "{{ function_name }}"
+      http_trigger_url = "{{ http_trigger_url }}"
+      name = "{{ name }}"
+      use_common_alert_schema = {{ use_common_alert_schema }}
+    }
+    email_receiver {
+      email_address = "{{ email_address }}"
+      name = "{{ name }}"
+      use_common_alert_schema = {{ use_common_alert_schema }}
+    }
+    event_hub_receiver {
+      event_hub_name = "{{ event_hub_name }}"
+      event_hub_namespace = "{{ event_hub_namespace }}"
+      name = "{{ name }}"
+      subscription_id = "{{ subscription_id }}"
+      tenant_id = "{{ tenant_id }}"
+      use_common_alert_schema = {{ use_common_alert_schema }}
+    }
+    itsm_receiver {
+      connection_id = "{{ connection_id }}"
+      name = "{{ name }}"
+      region = "{{ region }}"
+      ticket_configuration = "{{ ticket_configuration }}"
+      workspace_id = "{{ workspace_id }}"
+    }
+    logic_app_receiver {
+      callback_url = "{{ callback_url }}"
+      name = "{{ name }}"
+      resource_id = "{{ resource_id }}"
+      use_common_alert_schema = {{ use_common_alert_schema }}
+    }
+    sms_receiver {
+      country_code = "{{ country_code }}"
+      name = "{{ name }}"
+      phone_number = "{{ phone_number }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    voice_receiver {
+      country_code = "{{ country_code }}"
+      name = "{{ name }}"
+      phone_number = "{{ phone_number }}"
+    }
+    webhook_receiver {
+      name = "{{ name }}"
+      service_uri = "{{ service_uri }}"
+      use_common_alert_schema = {{ use_common_alert_schema }}
+      aad_auth {
+        identifier_uri = "{{ identifier_uri }}"
+        object_id = "{{ object_id }}"
+        tenant_id = "{{ tenant_id }}"
+      }
+    }
 }

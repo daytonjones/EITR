@@ -1,7 +1,8 @@
 resource "aws_pinpoint_baidu_channel" "example" {
     api_key = "{{ api_key }}"
     application_id = "{{ application_id }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
+    region = "{{ region }}"
     secret_key = "{{ secret_key }}"
 }

@@ -1,418 +1,923 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light" class="h-full">
+<html lang="en" data-theme="dark" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js" defer></script>
     <link rel="icon" href="/static/eitr.ico" type="image/x-icon">
-    <title>EITR - Terraform Config Generator</title>
+    <title>EITR — Terraform Config Generator</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: ['selector', '[data-theme="dark"]'],
+            theme: {
+                extend: {
+                    colors: {
+                        bg:      'var(--bg)',
+                        surface: 'var(--surface)',
+                        raised:  'var(--raised)',
+                        line:    'var(--border)',
+                        prose:   'var(--text)',
+                        muted:   'var(--muted)',
+                        gold:    'var(--gold)',
+                    },
+                    fontFamily: {
+                        mono: ['"JetBrains Mono"', '"Fira Code"', 'Consolas', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js" defer></script>
+
+    <script>var require = { paths: { vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.52.0/min/vs' } };</script>
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.52.0/min/vs/loader.js"></script>
+
     <style>
-        .text-shadow {
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+        /* ── Theme tokens ──────────────────────────────────────────────── */
+        :root, [data-theme="dark"] {
+            --bg:      #0d1117;
+            --surface: #161b22;
+            --raised:  #21262d;
+            --border:  #30363d;
+            --text:    #e6edf3;
+            --muted:   #7d8590;
+            --gold:    #d4a847;
+            --code-fg: #7ee787;
         }
-        .highlight {
-            font-size: 2rem;
-            color: yellow;
-            font-weight: bold;
-            font-style: italic;
-        }
-        .title {
-            font-family: Arial, sans-serif;
-            font-size: 1rem;
-            display: block;
-            margin: 10px 10px 0 0;
-            padding: 5px 10px;
-            align-items: baseline;
-        }
-        .word {
-            margin: 0 0.3rem;
-        }
-        #save-buttons {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-        }
-    
-        #save-buttons button {
-            margin: 0 10px;
-            flex: 1;
-            max-width: 200px;
-            text-align: center;
+        [data-theme="light"] {
+            --bg:      #f6f8fa;
+            --surface: #ffffff;
+            --raised:  #f0f2f5;
+            --border:  #d0d7de;
+            --text:    #1f2328;
+            --muted:   #656d76;
+            --gold:    #9a6700;
+            --code-fg: #116329;
         }
 
+        /* ── Base ──────────────────────────────────────────────────────── */
+        html, body { height: 100%; overflow: hidden; }
+        body { color: var(--text); }
+
+        /* ── Background layers ──────────────────────────────────────────── */
+        #bg-img     { position: fixed; inset: 0; z-index: -2; overflow: hidden; }
+        #bg-img img { width: 100%; height: 100%; object-fit: cover; }
+        #bg-overlay { position: fixed; inset: 0; z-index: -1; }
+        [data-theme="dark"]  #bg-overlay { background: rgba(13, 17, 23, 0.83); }
+        [data-theme="light"] #bg-overlay { background: rgba(246, 248, 250, 0.88); }
+
+        /* ── Scrollbars ────────────────────────────────────────────────── */
+        .scroll::-webkit-scrollbar { width: 4px; height: 4px; }
+        .scroll::-webkit-scrollbar-track { background: transparent; }
+        .scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+        /* ── Provider avatar ────────────────────────────────────────────── */
+        .avatar {
+            width: 26px; height: 26px; border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 10px; font-weight: 700; flex-shrink: 0;
+            font-family: monospace;
+        }
+
+        /* ── EITR acro letters ──────────────────────────────────────────── */
+        .acro { color: var(--gold); font-style: italic; font-weight: 800; }
+
+        /* ── Type badge ─────────────────────────────────────────────────── */
+        .type-badge {
+            font-size: 10px; padding: 1px 7px; border-radius: 9999px;
+            font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
+            flex-shrink: 0;
+        }
+
+        /* ── Monaco host ────────────────────────────────────────────────── */
+        .monaco-host { overflow: hidden; }
+
+        /* ── Pre code view ──────────────────────────────────────────────── */
+        .code-pre {
+            color: var(--code-fg);
+            background: var(--raised);
+            font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+            font-size: 12px;
+            line-height: 1.6;
+            padding: 12px 16px;
+            overflow: auto;
+            white-space: pre-wrap;
+            max-height: 540px;
+        }
+        .code-pre:focus-visible { outline: none; }
+
+        /* ── Card ───────────────────────────────────────────────────────── */
+        .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+        .card-head { background: var(--raised); border-bottom: 1px solid var(--border); }
+        .card-foot { background: var(--raised); border-top: 1px solid var(--border); }
+
+        /* ── Sidebar ────────────────────────────────────────────────────── */
+        #sidebar { background: var(--surface); border-right: 1px solid var(--border); }
+
+        /* ── Header ─────────────────────────────────────────────────────── */
+        #topbar { background: var(--surface); border-bottom: 1px solid var(--border); }
+
+        /* ── Action bar ─────────────────────────────────────────────────── */
+        #actionBar {
+            background: color-mix(in srgb, var(--bg) 92%, transparent);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(8px);
+        }
+
+        /* ── Search ─────────────────────────────────────────────────────── */
+        #searchResults {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+        #searchResults button:hover { background: var(--raised); }
+        #searchResults button { border-bottom: 1px solid var(--border); }
+        #searchResults button:last-child { border-bottom: none; }
+
+        /* ── Checkbox ───────────────────────────────────────────────────── */
+        .rc { accent-color: #58a6ff; cursor: pointer; }
+
+        /* ── Transitions ────────────────────────────────────────────────── */
+        .sidebar-anim { transition: transform 0.2s ease; }
+        .btn-anim { transition: background 0.15s, color 0.15s, border-color 0.15s; }
+
+        /* ── Tooltip ────────────────────────────────────────────────────── */
+        #logoTip {
+            background: var(--raised); border: 1px solid var(--border);
+            border-radius: 8px; padding: 10px 14px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            pointer-events: none;
+        }
+
+        /* ── Section divider ────────────────────────────────────────────── */
+        .section-rule { border-top: 1px solid var(--border); }
     </style>
 </head>
-<body class="bg-cover bg-center h-full relative">
-    <!-- Background Image -->
-    <div class="fixed inset-0 z-0">
-        <img src="static/eitr_background.jpeg" alt="Background image of EITR" class="object-cover w-full h-full">
+
+<body class="flex flex-col">
+
+<!-- ── Background ───────────────────────────────────────────────────────── -->
+<div id="bg-img"><img src="/static/eitr_background.jpeg" alt=""></div>
+<div id="bg-overlay"></div>
+
+<!-- ── Top bar ──────────────────────────────────────────────────────────── -->
+<header id="topbar" class="flex-shrink-0 flex items-center px-4 h-13 gap-3" style="height:52px;">
+
+    <!-- Logo + wordmark -->
+    <div class="relative flex items-center gap-2.5">
+        <img id="logoImg" src="/static/eitr.png" alt="EITR" class="h-7 w-7 cursor-pointer select-none flex-shrink-0">
+        <div id="logoTip" class="absolute hidden top-9 left-0 w-72 text-sm z-50" style="color:var(--muted)">
+            In Norse mythology, <em style="color:var(--text)">eitr</em> is a primordial substance
+            of raw creation — the perfect name for a tool that shapes infrastructure.
+        </div>
+        <span class="text-sm font-semibold tracking-wide hidden sm:inline">
+            <span class="acro">E</span>nvironment&nbsp;
+            <span class="acro">I</span>nfrastructure&nbsp;
+            <span class="acro">T</span>erraform&nbsp;
+            <span class="acro">R</span>enderer
+        </span>
+        <span class="text-base font-bold sm:hidden" style="color:var(--gold)">EITR</span>
     </div>
 
-    <!-- Header -->
-    <header class="relative z-50 bg-opacity-99 text-white p-4 text-center">
-        <div class="relative inline-block">
-            <center>
-                <img 
-                    src="static/eitr.png" 
-                    alt="EITR logo" 
-                    width="10%" 
-                    height="10%" 
-                    class="cursor-pointer" 
-                    id="eitrImage">
-                <h1 class="title">
-                    <span class="highlight">E</span><span class="word">nvironment</span>
-                    <span class="highlight">I</span><span class="word">nfrastructure</span>
-                    <span class="highlight">T</span><span class="word">erraform</span>
-                    <span class="highlight">R</span><span class="word">enderer</span>
-                </h1>
-            </center>
-            <div id="hoverText" class="absolute hidden bg-gray-700 text-white text-sm rounded p-4 w-[500px] max-w-none mt-4 shadow-lg z-50">
-                In Norse mythology, <i>eitr</i> (pronounced as "ater" or "either") is a substance representing raw potential and creation. The perfect name for a tool that helps shape and define infrastructure.
+    <!-- Stats pill -->
+    <span class="hidden md:inline text-xs px-2 py-0.5 rounded-full"
+          style="background:var(--raised); color:var(--muted); border:1px solid var(--border)">
+        {{ total_providers }} providers · {{ total_resources }} resources
+    </span>
+
+    <div class="flex-1"></div>
+
+    <!-- Theme toggle -->
+    <button id="themeBtn" class="btn-anim p-1.5 rounded-lg"
+            style="color:var(--muted); border:1px solid transparent"
+            title="Toggle theme"
+            onmouseover="this.style.borderColor='var(--border)'"
+            onmouseout="this.style.borderColor='transparent'">
+        <svg id="moonSvg" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+        </svg>
+        <svg id="sunSvg" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+        </svg>
+    </button>
+
+    <!-- Mobile sidebar toggle -->
+    <button id="menuBtn" class="md:hidden btn-anim p-1.5 rounded-lg"
+            style="color:var(--muted); border:1px solid var(--border)">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+</header>
+
+<!-- ── App shell ─────────────────────────────────────────────────────────── -->
+<div class="flex flex-1 overflow-hidden">
+
+    <!-- ── Sidebar ──────────────────────────────────────────────────────── -->
+    <aside id="sidebar"
+           class="sidebar-anim scroll flex-shrink-0 flex flex-col overflow-hidden
+                  fixed inset-y-0 left-0 z-40 w-72
+                  md:relative md:translate-x-0 -translate-x-full"
+           style="top:52px; bottom:0;">
+
+        <!-- Search -->
+        <div class="p-3 flex-shrink-0" style="border-bottom:1px solid var(--border)">
+            <div class="relative">
+                <svg class="absolute left-2.5 top-2 w-4 h-4 pointer-events-none"
+                     style="color:var(--muted)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+                <input id="searchInput" type="text" placeholder="Search resources…"
+                       class="w-full text-sm rounded-lg pl-8 pr-3 py-1.5 focus:outline-none"
+                       style="background:var(--bg); border:1px solid var(--border); color:var(--text)">
+            </div>
+            <div id="searchResults" class="hidden absolute z-50 mt-1 w-64 max-h-72 overflow-y-auto scroll"></div>
+        </div>
+
+        <!-- Provider list -->
+        <div class="flex-1 overflow-y-auto scroll p-2">
+            {% for provider in providers %}
+            {% set avatar_colors = [
+                'background:#1d3557;color:#74b3ff',
+                'background:#1b3a1b;color:#7ee787',
+                'background:#3d1f5e;color:#c9a0ff',
+                'background:#3a1f00;color:#ffa657',
+                'background:#1a3030;color:#56d364',
+                'background:#3a0020;color:#ff7eb3',
+                'background:#2a2a00;color:#e3b341',
+                'background:#001a3a;color:#79c0ff',
+                'background:#3a1010;color:#ff6e6e',
+                'background:#00303a;color:#56d4dd'
+            ] %}
+            {% set ac = avatar_colors[loop.index0 % 10] %}
+
+            <div x-data="{ open: false }" class="mb-1">
+                <button @click="open = !open"
+                        class="btn-anim w-full flex items-center gap-2 px-2 py-1.5 rounded-lg text-left"
+                        style="color:var(--text)"
+                        onmouseover="this.style.background='var(--raised)'"
+                        onmouseout="this.style.background='transparent'">
+                    <div class="avatar" style="{{ ac }}">{{ provider.name[:2].upper() }}</div>
+                    <span class="flex-1 text-sm font-medium truncate">{{ provider.description }}</span>
+                    {% set total = namespace(n=0) %}
+                    {% for k, v in provider.schemas.items() %}{% set total.n = total.n + v|length %}{% endfor %}
+                    <span class="text-xs flex-shrink-0 px-1.5 py-0.5 rounded-full"
+                          style="background:var(--bg); color:var(--muted)">{{ total.n }}</span>
+                    <svg class="w-3 h-3 flex-shrink-0 transition-transform duration-150"
+                         :class="open ? 'rotate-90' : ''"
+                         style="color:var(--muted)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+
+                <div x-show="open"
+                     x-transition:enter="transition-all duration-100 ease-out"
+                     x-transition:enter-start="opacity-0 -translate-y-1"
+                     x-transition:enter-end="opacity-100 translate-y-0"
+                     class="ml-3 pl-3 pt-1 pb-2 space-y-2"
+                     style="border-left:2px solid var(--border)">
+
+                    {% set LABELS = {
+                        'provider':                   'Provider Config',
+                        'resource_schemas':           'Resources',
+                        'data_source_schemas':        'Data Sources',
+                        'ephemeral_resource_schemas': 'Ephemeral Resources',
+                        'functions':                  'Functions'
+                    } %}
+
+                    {% for schema_type, items in provider.schemas.items() %}
+                    {% if items|length > 0 %}
+                    <div>
+                        <div class="text-[10px] font-semibold uppercase tracking-widest px-1 py-0.5 mb-0.5"
+                             style="color:var(--muted)">
+                            {{ LABELS.get(schema_type, schema_type.replace('_',' ').title()) }}
+                            {% if schema_type != 'provider' %}
+                            <span class="font-normal normal-case tracking-normal">({{ items|length }})</span>
+                            {% endif %}
+                        </div>
+                        <div class="space-y-px">
+                            {% if schema_type == 'provider' %}
+                            <label class="flex items-center gap-2 px-1 py-0.5 rounded cursor-pointer"
+                                   onmouseover="this.style.background='var(--raised)'"
+                                   onmouseout="this.style.background='transparent'">
+                                <input type="checkbox" class="rc"
+                                       data-provider="{{ provider.name }}"
+                                       data-schema-type="{{ schema_type }}"
+                                       data-resource="config">
+                                <span class="text-xs font-mono truncate" style="color:var(--muted)">config</span>
+                            </label>
+                            {% else %}
+                            {% for item in items %}
+                            <label class="flex items-center gap-2 px-1 py-0.5 rounded cursor-pointer"
+                                   onmouseover="this.style.background='var(--raised)'"
+                                   onmouseout="this.style.background='transparent'">
+                                <input type="checkbox" class="rc"
+                                       data-provider="{{ provider.name }}"
+                                       data-schema-type="{{ schema_type }}"
+                                       data-resource="{{ item }}">
+                                <span class="text-xs font-mono truncate" style="color:var(--muted)">{{ item }}</span>
+                            </label>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+
+            <!-- Footer in sidebar -->
+            <div class="mt-4 px-2 pb-2 text-xs" style="color:var(--muted)">
+                EITR © <span id="currentYear"></span> Dayton Jones
             </div>
         </div>
-    </header>
+    </aside>
 
-    <!-- Main Layout -->
-    <div x-data="{ isSidebarOpen: true }" class="relative z-10 flex h-full">
-        <!-- Sidebar Navbar -->
-        <nav 
-            class="w-full md:w-1/6 bg-opacity-99 text-white overflow-y-auto h-full p-4 transition-transform duration-300 transform md:translate-x-0" 
-            :class="{ '-translate-x-full': !isSidebarOpen }">
-            <button 
-                class="block md:hidden mb-4 text-white bg-gray-700 px-4 py-2 rounded" 
-                @click="isSidebarOpen = !isSidebarOpen">
-                Toggle Sidebar
+    <!-- Mobile overlay -->
+    <div id="overlay" class="hidden fixed inset-0 bg-black/60 z-30 md:hidden"></div>
+
+    <!-- ── Main ─────────────────────────────────────────────────────────── -->
+    <main class="flex-1 flex flex-col overflow-hidden">
+
+        <!-- Sticky action bar -->
+        <div id="actionBar" class="hidden flex-shrink-0 flex items-center gap-2 px-4 py-2 flex-wrap z-10"
+             style="position:sticky;top:0;">
+            <span class="text-xs" style="color:var(--muted)">Export:</span>
+            <button id="saveHclBtn"
+                    class="btn-anim flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold"
+                    style="color:#3fb950;background:rgba(63,185,80,.08);border:1px solid rgba(63,185,80,.3)">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                HCL
             </button>
-            <h2 class="text-2xl font-bold mb-4 text-center">Providers</h2>
-            <p class="text-white-300 mb-6"><i>Select a provider and its resources to start generating Terraform configuration.</i></p>
-            <div>
-                {% for provider in providers %}
-                <div x-data="{ open: false }" class="mb-4">
-                    <button 
-                        @click="open = !open" 
-                        class="w-full text-left px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded">
-                        {{ provider.description }}
-                    </button>
-                    <div x-show="open" x-transition class="mt-2 pl-4 space-y-4">
-                        {% for schema_type, items in provider.schemas.items() %}
-                        {% if items|length > 0 %}
-                        <div>
-                            <h4 class="text-gray-400 font-semibold capitalize">{{ schema_type.replace('_', ' ') }}</h4>
-                            <div class="pl-4 space-y-2">
-                                {% if schema_type == 'provider' %}
-                                <label class="flex items-center space-x-2">
-                                    <input type="checkbox"
-                                           name="{{ provider.name }}_{{ schema_type }}"
-                                           value="config"
-                                           class="resource-checkbox"
-                                           data-resource="config"
-                                           data-provider="{{ provider.name }}">
-                                    <span>config</span>
-                                </label>
-                                {% else %}
-                                {% for item in items %}
-                                <label class="flex items-center space-x-2">
-                                    <input type="checkbox" 
-                                           name="{{ provider.name }}_{{ schema_type }}" 
-                                           value="{{ item }}" 
-                                           class="resource-checkbox" 
-                                           data-resource="{{ item }}"
-                                           data-provider="{{ provider.name }}">
-                                    <span>{{ item }}</span>
-                                </label>
-                                {% endfor %}
-                                {% endif %}
-                            </div>
-                        </div>
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </nav>
+            <button id="saveJsonBtn"
+                    class="btn-anim flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold"
+                    style="color:#58a6ff;background:rgba(88,166,255,.08);border:1px solid rgba(88,166,255,.3)">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                JSON
+            </button>
+            <div class="flex-1"></div>
+            <button id="resetBtn"
+                    class="btn-anim flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold"
+                    style="color:#f85149;border:1px solid transparent"
+                    onmouseover="this.style.borderColor='rgba(248,81,73,.3)';this.style.background='rgba(248,81,73,.08)'"
+                    onmouseout="this.style.borderColor='transparent';this.style.background='transparent'">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                </svg>
+                Clear all
+            </button>
+        </div>
 
-        <!-- Main Content -->
-        <main class="w-full md:w-5/6 bg-opacity-99 p-6 overflow-y-auto">
-            <div class="mt-6 hidden" id="save-buttons">
-                <button
-                    class="bg-green-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
-                    id="saveJsonBtn">
-                    <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
-                    </svg>
-                    <span>Save as JSON</span>
-                </button>
-                <button
-                    class="bg-green-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
-                    id="saveHclBtn">
-                    <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
-                    </svg>
-                    <span>Save as HCL</span>
-                </button>
-                <button
-                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
-                    id="resetConfigBtn">
-                    <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
-                    </svg>
-                    <span>Clear Config</span>
-                </button>
-            </div>
-            <div id="config-display" class="space-y-4"></div>
-        </main>
-    </div>
+        <!-- Scrollable content -->
+        <div class="flex-1 overflow-y-auto scroll">
+            <div id="configDisplay" class="p-4 space-y-4 max-w-4xl mx-auto"></div>
 
-    <!-- Footer -->
-    <footer class="relative z-10 bg-opacity-90 text-white p-4 text-left">
-        <p>
-            {{ total_providers }} providers with {{ total_resources }} resources
-        </p>
-        <p>EITR &copy; <span id="current-year"></span> Dayton Jones</p>
-    </footer>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const configDisplay = document.getElementById("config-display");
-            const saveButtons = document.getElementById("save-buttons");
-    
-            const CONFIG_STORAGE_KEY = "eitr_config";
-    
-            const editedTemplates = {};
-    
-            const fetchTemplate = async (provider, schemaType, resource) => {
-                const key = `${provider}_${schemaType}_${resource}`;
-                if (editedTemplates[key]) {
-                    return editedTemplates[key];
-                }
-    
-                try {
-                    const response = await fetch(`/load_templates/${provider}/${schemaType}/${resource}`);
-                    if (!response.ok) throw new Error("Failed to load template");
-    
-                    const data = await response.json();
-                    return data[schemaType] || "No template found";
-                } catch (error) {
-                    console.error(`Error loading template for ${provider} - ${schemaType} - ${resource}:`, error);
-                    return "Error loading template.";
-                }
-            };
-    
-            const loadConfigFromStorage = () => {
-                const config = localStorage.getItem(CONFIG_STORAGE_KEY);
-                return config ? JSON.parse(config) : {};
-            };
-    
-            const saveConfigToStorage = (config) => {
-                localStorage.setItem(CONFIG_STORAGE_KEY, JSON.stringify(config));
-            };
-    
-            const attachCheckboxListeners = () => {
-                const resourceCheckboxes = document.querySelectorAll(".resource-checkbox");
-                resourceCheckboxes.forEach((checkbox) => {
-                    checkbox.replaceWith(checkbox.cloneNode(true));
-                });
-    
-                const newResourceCheckboxes = document.querySelectorAll(".resource-checkbox");
-                newResourceCheckboxes.forEach((checkbox) => {
-                    checkbox.addEventListener("change", async () => {
-                        const provider = checkbox.dataset.provider;
-                        const resource = checkbox.dataset.resource;
-                        const schemaType = checkbox.name.split("_")[1];
-                        const action = checkbox.checked ? "add" : "remove";
-    
-                        const config = loadConfigFromStorage();
-                        if (action === "add") {
-                            config[provider] = config[provider] || {};
-                            config[provider][schemaType] = config[provider][schemaType] || [];
-                            if (!config[provider][schemaType].includes(resource)) {
-                                config[provider][schemaType].push(resource);
-                            }
-                        } else {
-                            if (config[provider] && config[provider][schemaType]) {
-                                config[provider][schemaType] = config[provider][schemaType].filter(
-                                    (item) => item !== resource
-                                );
-                                if (config[provider][schemaType].length === 0) {
-                                    delete config[provider][schemaType];
-                                }
-                                if (Object.keys(config[provider]).length === 0) {
-                                    delete config[provider];
-                                }
-                            }
-                        }
-                        saveConfigToStorage(config);
-                        await refreshConfigDisplay();
-                    });
-                });
-            };
-    
-            const refreshConfigDisplay = async () => {
-                configDisplay.innerHTML = ""; // Clear the current display
-                const config = loadConfigFromStorage();
-    
-                for (const [provider, schemas] of Object.entries(config)) {
-                    const providerSection = document.createElement("div");
-                    providerSection.className = "p-4 bg-gray-700 rounded mb-4";
-    
-                    const providerHeader = document.createElement("button");
-                    providerHeader.className =
-                        "w-full text-left text-lg font-bold text-white px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded";
-                    providerHeader.innerHTML = `:: ${provider.toUpperCase()} ::`;
-                    providerHeader.addEventListener("click", () => {
-                        providerContent.classList.toggle("hidden");
-                    });
-    
-                    const providerContent = document.createElement("div");
-                    providerContent.className = "mt-2 space-y-4";
-    
-                    const sortedSchemaTypes = Object.keys(schemas).sort((a, b) => {
-                        if (a === "provider") return -1;
-                        if (b === "provider") return 1;
-                        return a.localeCompare(b);
-                    });
-    
-                    for (const schemaType of sortedSchemaTypes) {
-                        const resources = schemas[schemaType];
-                        const schemaSection = document.createElement("div");
-                        schemaSection.className = "mb-2";
-                        schemaSection.innerHTML = `<h4 class=\"font-semibold text-gray-300 capitalize\">${schemaType}</h4>`;
-                        for (const resource of resources) {
-                            const templateContent = await fetchTemplate(provider, schemaType, resource);
-                            const resourceDiv = createResourceDiv(provider, schemaType, resource, templateContent);
-                            schemaSection.appendChild(resourceDiv);
-                        }
-                        providerContent.appendChild(schemaSection);
-                    }
-    
-                    providerSection.appendChild(providerHeader);
-                    providerSection.appendChild(providerContent);
-                    configDisplay.appendChild(providerSection);
-                }
-    
-                saveButtons.style.display = configDisplay.children.length > 0 ? "block" : "none";
-    
-                attachCheckboxListeners();
-            };
-    
-            const createResourceDiv = (provider, schemaType, resource, templateContent) => {
-                const resourceDiv = document.createElement("div");
-                resourceDiv.className = "p-2 bg-gray-800 rounded mt-2";
-    
-                const preElement = document.createElement("pre");
-                preElement.className = "text-xs bg-gray-900 text-white p-2 rounded overflow-auto";
-                preElement.contentEditable = false;
-                preElement.innerText = templateContent;
-    
-                const buttonContainer = document.createElement("div");
-                buttonContainer.className = "mt-2 space-x-2";
-                const editButton = document.createElement("button");
-                editButton.className = "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded";
-                editButton.innerText = "Edit";
-                const saveButton = document.createElement("button");
-                saveButton.className = "bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded hidden";
-                saveButton.innerText = "Save";
-    
-                editButton.addEventListener("click", () => {
-                    preElement.contentEditable = true;
-                    preElement.focus();
-                    editButton.classList.add("hidden");
-                    saveButton.classList.remove("hidden");
-                });
-    
-                saveButton.addEventListener("click", () => {
-                    preElement.contentEditable = false;
-                    const updatedTemplate = preElement.innerText;
-    
-                    const key = `${provider}_${schemaType}_${resource}`;
-                    editedTemplates[key] = updatedTemplate;
-    
-                    editButton.classList.remove("hidden");
-                    saveButton.classList.add("hidden");
-                });
-    
-                buttonContainer.appendChild(editButton);
-                buttonContainer.appendChild(saveButton);
-                resourceDiv.appendChild(preElement);
-                resourceDiv.appendChild(buttonContainer);
-    
-                return resourceDiv;
-            };
-    
-            document.getElementById("resetConfigBtn").addEventListener("click", () => {
-                localStorage.removeItem(CONFIG_STORAGE_KEY);
-                configDisplay.innerHTML = "";
-                saveButtons.style.display = "none";
-    
-                // Clear all checkboxes
-                const resourceCheckboxes = document.querySelectorAll(".resource-checkbox");
-                resourceCheckboxes.forEach((checkbox) => {
-                    checkbox.checked = false;
-                });
-            });
-    
-            const saveConfig = async (format) => {
-                try {
-                    const templates = Array.from(configDisplay.querySelectorAll("pre"))
-                        .map((pre) => pre.innerText)
-                        .join("\n\n");
-    
-                    if (!templates) {
-                        console.error("No templates available to save.");
-                        return;
-                    }
-    
-                    const response = await fetch(`/save_config/${format}`, {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ config: templates }),
-                    });
-    
-                    if (response.ok) {
-                        const { config } = await response.json();
-                        const blob = new Blob([config], {
-                            type: format === "json" ? "application/json" : "application/x-hcl",
-                        });
-                        const downloadUrl = window.URL.createObjectURL(blob);
-                        const link = document.createElement("a");
-                        link.href = downloadUrl;
-                        link.download = `eitr_generated_tf_config_${new Date()
-                            .toISOString()
-                            .slice(0, 19)
-                            .replace(/:/g, "-")}.${format}`;
-                        document.body.appendChild(link);
-                        link.click();
-                        link.remove();
-                    } else {
-                        console.error(`Error saving ${format.toUpperCase()} configuration.`);
-                    }
-                } catch (error) {
-                    console.error("Error saving configuration:", error);
-                }
-            };
-    
-            document.getElementById("saveJsonBtn").addEventListener("click", () => saveConfig("json"));
-            document.getElementById("saveHclBtn").addEventListener("click", () => saveConfig("hcl"));
-    
-            // Hover effect for logo
-            const image = document.getElementById("eitrImage");
-            const hoverText = document.getElementById("hoverText");
-    
-            image.addEventListener("mouseover", () => {
-                hoverText.classList.remove("hidden");
-            });
-    
-            image.addEventListener("mouseout", () => {
-                hoverText.classList.add("hidden");
-            });
-    
-            document.getElementById("current-year").textContent = new Date().getFullYear();
-    
-            refreshConfigDisplay();
+            <!-- Empty state -->
+            <div id="emptyState" class="hidden flex flex-col items-center justify-center min-h-80 gap-3" style="color:var(--muted)">
+                <svg class="w-14 h-14 opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                <p class="text-base font-medium" style="color:var(--text)">No resources selected</p>
+                <p class="text-sm">Pick providers and resources from the sidebar to begin.</p>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+// ── Monaco setup ─────────────────────────────────────────────────────────
+let monacoReady = false;
+
+require(['vs/editor/editor.main'], () => {
+    monaco.languages.register({ id: 'hcl' });
+
+    monaco.languages.setMonarchTokensProvider('hcl', {
+        keywords: ['resource','data','provider','variable','output','locals',
+                   'module','terraform','required_providers','ephemeral','moved','import'],
+        tokenizer: {
+            root: [
+                [/\{\{[^}]*\}\}/,        'jinja'],
+                [/#[^\n]*/,              'comment'],
+                [/\/\/[^\n]*/,           'comment'],
+                [/\/\*/,                 { token:'comment', next:'@block' }],
+                [/"(?:[^"\\]|\\.)*"/,    'string'],
+                [/<<-?(\w+)/,            { token:'heredoc', next:'@heredoc.$1' }],
+                [/\b(?:resource|data|provider|variable|output|locals|module|terraform|required_providers|ephemeral|moved|import)\b/, 'keyword'],
+                [/\b(?:true|false|null)\b/, 'constant'],
+                [/[a-z_]\w*(?=\s*[=\{])/, 'attribute'],
+                [/[{}()\[\]]/,           'bracket'],
+                [/[=!<>|&?:]+/,          'operator'],
+                [/\d+(?:\.\d+)?/,        'number'],
+            ],
+            block: [
+                [/[^/*]+/, 'comment'],
+                [/\*\//,   { token:'comment', next:'@pop' }],
+                [/[/*]/,   'comment'],
+            ],
+            heredoc: [
+                [/^\s*(\w+)\s*$/, { cases: { '$1==$S2': { token:'heredoc', next:'@pop' }, '@default':'string' } }],
+                [/./, 'string'],
+            ],
+        }
+    });
+
+    const darkRules = [
+        { token:'keyword',   foreground:'79c0ff', fontStyle:'bold' },
+        { token:'constant',  foreground:'ff7b72' },
+        { token:'string',    foreground:'a5d6ff' },
+        { token:'comment',   foreground:'8b949e', fontStyle:'italic' },
+        { token:'jinja',     foreground:'d4a847', fontStyle:'bold' },
+        { token:'attribute', foreground:'e6edf3' },
+        { token:'bracket',   foreground:'79c0ff' },
+        { token:'operator',  foreground:'ff7b72' },
+        { token:'number',    foreground:'f2cc60' },
+        { token:'heredoc',   foreground:'a5d6ff' },
+    ];
+
+    monaco.editor.defineTheme('eitr-dark', {
+        base:'vs-dark', inherit:true, rules: darkRules,
+        colors:{
+            'editor.background':'#21262d',
+            'editor.foreground':'#e6edf3',
+            'editor.lineHighlightBackground':'#2d333b',
+            'editor.selectionBackground':'#264f7855',
+            'editorCursor.foreground':'#d4a847',
+            'editorLineNumber.foreground':'#484f58',
+            'editorLineNumber.activeForeground':'#7d8590',
+            'editorGutter.background':'#21262d',
+        }
+    });
+
+    monaco.editor.defineTheme('eitr-light', {
+        base:'vs', inherit:true,
+        rules:[
+            { token:'keyword',   foreground:'0550ae', fontStyle:'bold' },
+            { token:'constant',  foreground:'cf222e' },
+            { token:'string',    foreground:'0a3069' },
+            { token:'comment',   foreground:'57606a', fontStyle:'italic' },
+            { token:'jinja',     foreground:'953800', fontStyle:'bold' },
+            { token:'attribute', foreground:'24292f' },
+            { token:'number',    foreground:'0550ae' },
+        ],
+        colors:{
+            'editor.background':'#f0f2f5',
+            'editor.lineHighlightBackground':'#e8ebef',
+            'editorLineNumber.foreground':'#8c959f',
+        }
+    });
+
+    monacoReady = true;
+    document.dispatchEvent(new Event('monacoReady'));
+});
+
+// ── App ───────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+    const CONFIG_KEY = 'eitr_config';
+
+    const SCHEMA_LABELS = {
+        provider:                   'Provider Config',
+        resource_schemas:           'Resources',
+        data_source_schemas:        'Data Sources',
+        ephemeral_resource_schemas: 'Ephemeral Resources',
+        functions:                  'Functions',
+    };
+
+    const BADGE_STYLE = {
+        provider:                   'background:rgba(188,140,255,.15);color:#c8a0ff',
+        resource_schemas:           'background:rgba(88,166,255,.15);color:#79c0ff',
+        data_source_schemas:        'background:rgba(86,211,212,.15);color:#56d4dd',
+        ephemeral_resource_schemas: 'background:rgba(240,136,62,.15);color:#f0a860',
+        functions:                  'background:rgba(255,120,180,.15);color:#ff7eb3',
+    };
+
+    // DOM refs
+    const get        = id => document.getElementById(id);
+    const configDisp = get('configDisplay');
+    const actionBar  = get('actionBar');
+    const emptyState = get('emptyState');
+
+    // Template cache (page-lifetime; server is durable source)
+    const cache    = {};
+    const editors  = new Map(); // cardKey -> monaco instance
+
+    // ── Theme ──────────────────────────────────────────────────────────
+    const html     = document.documentElement;
+    const isDark   = () => html.dataset.theme === 'dark';
+    const setTheme = dark => {
+        html.dataset.theme = dark ? 'dark' : 'light';
+        get('moonSvg').classList.toggle('hidden', !dark);
+        get('sunSvg').classList.toggle('hidden',  dark);
+        if (monacoReady) monaco.editor.setTheme(dark ? 'eitr-dark' : 'eitr-light');
+        localStorage.setItem('eitr_theme', dark ? 'dark' : 'light');
+    };
+    setTheme(localStorage.getItem('eitr_theme') !== 'light');
+    get('themeBtn').addEventListener('click', () => setTheme(!isDark()));
+
+    // ── Mobile sidebar ─────────────────────────────────────────────────
+    const sidebar = get('sidebar');
+    const overlay = get('overlay');
+    const openSb  = () => { sidebar.classList.remove('-translate-x-full'); overlay.classList.remove('hidden'); };
+    const closeSb = () => { sidebar.classList.add('-translate-x-full');    overlay.classList.add('hidden'); };
+    get('menuBtn').addEventListener('click', () => sidebar.classList.contains('-translate-x-full') ? openSb() : closeSb());
+    overlay.addEventListener('click', closeSb);
+
+    // ── Logo tooltip ────────────────────────────────────────────────────
+    const logoImg = get('logoImg');
+    const logoTip = get('logoTip');
+    logoImg.addEventListener('mouseover', () => logoTip.classList.remove('hidden'));
+    logoImg.addEventListener('mouseout',  () => logoTip.classList.add('hidden'));
+
+    // ── Storage ─────────────────────────────────────────────────────────
+    const getConfig = () => JSON.parse(localStorage.getItem(CONFIG_KEY) || '{}');
+    const setConfig = c => localStorage.setItem(CONFIG_KEY, JSON.stringify(c));
+
+    // ── Template API ─────────────────────────────────────────────────────
+    const fetchTemplate = async (provider, schemaType, resource) => {
+        const key = `${provider}|${schemaType}|${resource}`;
+        if (cache[key]) return cache[key];
+        try {
+            const r = await fetch(`/load_template/${provider}/${schemaType}/${resource}`);
+            if (!r.ok) return { content: '# Template not found', isCustom: false };
+            const d = await r.json();
+            const result = { content: d.content, isCustom: d.is_custom };
+            cache[key] = result;
+            return result;
+        } catch { return { content: '# Error loading template', isCustom: false }; }
+    };
+
+    const saveToServer = async (provider, schemaType, resource, content) => {
+        cache[`${provider}|${schemaType}|${resource}`] = { content, isCustom: true };
+        await fetch('/save_template', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ provider, schema_type: schemaType, resource, content }),
         });
-    </script>
-  </body>
-</html>
+    };
 
+    const resetOnServer = async (provider, schemaType, resource) => {
+        delete cache[`${provider}|${schemaType}|${resource}`];
+        await fetch(`/reset_template/${provider}/${schemaType}/${resource}`, { method: 'DELETE' });
+        return fetchTemplate(provider, schemaType, resource);
+    };
+
+    // ── Monaco helpers ───────────────────────────────────────────────────
+    const mountEditor = (host, content) => {
+        const lines  = content.split('\n').length;
+        const height = Math.min(Math.max(lines * 19 + 24, 80), 540);
+        host.style.height = `${height}px`;
+        return monaco.editor.create(host, {
+            value: content,
+            language: 'hcl',
+            theme: isDark() ? 'eitr-dark' : 'eitr-light',
+            minimap: { enabled: false },
+            scrollBeyondLastLine: false,
+            automaticLayout: true,
+            fontSize: 12,
+            fontFamily: '"JetBrains Mono","Fira Code",Consolas,monospace',
+            fontLigatures: true,
+            lineNumbers: 'on',
+            renderLineHighlight: 'line',
+            wordWrap: 'on',
+            padding: { top: 8, bottom: 8 },
+            overviewRulerLanes: 0,
+            scrollbar: { verticalScrollbarSize: 4, horizontalScrollbarSize: 4 },
+        });
+    };
+
+    // ── Card builder ─────────────────────────────────────────────────────
+    const mkBtn = (label, style, iconPath) => {
+        const b = document.createElement('button');
+        b.className = 'btn-anim flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold';
+        b.style.cssText = style;
+        if (iconPath) {
+            const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+            svg.setAttribute('class','w-3 h-3 flex-shrink-0');
+            svg.setAttribute('fill','none'); svg.setAttribute('stroke','currentColor'); svg.setAttribute('viewBox','0 0 24 24');
+            const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+            path.setAttribute('stroke-linecap','round'); path.setAttribute('stroke-linejoin','round');
+            path.setAttribute('stroke-width','2'); path.setAttribute('d', iconPath);
+            svg.appendChild(path); b.appendChild(svg);
+        }
+        b.appendChild(document.createTextNode(label));
+        return b;
+    };
+
+    const createCard = (provider, schemaType, resource, content, isCustom) => {
+        const cardKey = `${provider}|${schemaType}|${resource}`;
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.dataset.cardKey = cardKey;
+
+        // ── Header
+        const head = document.createElement('div');
+        head.className = 'card-head flex items-center gap-2 px-4 py-2';
+
+        const nameEl = document.createElement('span');
+        nameEl.className = 'text-sm font-mono font-medium flex-1 truncate';
+        nameEl.style.color = 'var(--text)';
+        nameEl.textContent = resource;
+
+        const typeBadge = document.createElement('span');
+        typeBadge.className = 'type-badge';
+        typeBadge.style.cssText = BADGE_STYLE[schemaType] || 'background:rgba(255,255,255,.1);color:var(--muted)';
+        typeBadge.textContent = SCHEMA_LABELS[schemaType] || schemaType;
+
+        const customBadge = document.createElement('span');
+        customBadge.className = 'type-badge' + (isCustom ? '' : ' hidden');
+        customBadge.style.cssText = 'background:rgba(212,168,71,.15);color:#d4a847';
+        customBadge.textContent = 'customized';
+
+        head.append(nameEl, typeBadge, customBadge);
+        card.appendChild(head);
+
+        // ── Code view (pre — shown when not editing)
+        const pre = document.createElement('pre');
+        pre.className = 'code-pre';
+        pre.textContent = content;
+        card.appendChild(pre);
+
+        // ── Monaco host (hidden until edit)
+        const monacoHost = document.createElement('div');
+        monacoHost.className = 'monaco-host hidden';
+        card.appendChild(monacoHost);
+
+        // ── Footer
+        const foot = document.createElement('div');
+        foot.className = 'card-foot flex items-center gap-2 px-3 py-2';
+
+        const editBtn   = mkBtn('Edit',             'color:var(--muted)', 'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z');
+        const saveBtn   = mkBtn('Save',             'color:#3fb950;display:none', 'M5 13l4 4L19 7');
+        const cancelBtn = mkBtn('Cancel',           'color:var(--muted);display:none', '');
+        const resetBtn  = mkBtn('Reset to default', 'color:#f0883e' + (isCustom ? '' : ';display:none'), '');
+
+        let origContent = content;
+        let editorInst  = null;
+
+        const enterEdit = () => {
+            origContent = pre.textContent;
+            pre.classList.add('hidden');
+            monacoHost.classList.remove('hidden');
+
+            const initEditor = () => {
+                editorInst = mountEditor(monacoHost, origContent);
+                editors.set(cardKey, editorInst);
+            };
+
+            if (monacoReady) {
+                initEditor();
+            } else {
+                // Fallback contenteditable until Monaco loads
+                monacoHost.innerHTML = '';
+                const fallback = document.createElement('pre');
+                fallback.className = 'code-pre outline-none';
+                fallback.contentEditable = 'true';
+                fallback.textContent = origContent;
+                monacoHost.appendChild(fallback);
+                document.addEventListener('monacoReady', () => {
+                    if (!monacoHost.classList.contains('hidden')) {
+                        const cur = fallback.textContent;
+                        monacoHost.innerHTML = '';
+                        editorInst = mountEditor(monacoHost, cur);
+                        editors.set(cardKey, editorInst);
+                    }
+                }, { once: true });
+            }
+
+            editBtn.style.display   = 'none';
+            resetBtn.style.display  = 'none';
+            saveBtn.style.display   = '';
+            cancelBtn.style.display = '';
+        };
+
+        const exitEdit = newContent => {
+            if (editorInst) { editorInst.dispose(); editorInst = null; editors.delete(cardKey); }
+            monacoHost.innerHTML = '';
+            monacoHost.classList.add('hidden');
+            if (newContent !== undefined) pre.textContent = newContent;
+            pre.classList.remove('hidden');
+            editBtn.style.display   = '';
+            saveBtn.style.display   = 'none';
+            cancelBtn.style.display = 'none';
+            if (isCustom) resetBtn.style.display = '';
+        };
+
+        editBtn.addEventListener('click', enterEdit);
+        cancelBtn.addEventListener('click', () => exitEdit(undefined));
+
+        saveBtn.addEventListener('click', async () => {
+            const updated = editorInst
+                ? editorInst.getValue()
+                : monacoHost.querySelector('pre')?.textContent || pre.textContent;
+            exitEdit(updated);
+            await saveToServer(provider, schemaType, resource, updated);
+            isCustom = true;
+            customBadge.classList.remove('hidden');
+            resetBtn.style.display = '';
+        });
+
+        resetBtn.addEventListener('click', async () => {
+            resetBtn.textContent = 'Resetting…';
+            resetBtn.disabled = true;
+            const { content: def } = await resetOnServer(provider, schemaType, resource);
+            pre.textContent = def;
+            isCustom = false;
+            customBadge.classList.add('hidden');
+            resetBtn.style.display  = 'none';
+            resetBtn.textContent    = 'Reset to default';
+            resetBtn.disabled       = false;
+        });
+
+        foot.append(editBtn, saveBtn, cancelBtn, resetBtn);
+        card.appendChild(foot);
+        return card;
+    };
+
+    // ── Config display ────────────────────────────────────────────────────
+    const refreshDisplay = async () => {
+        configDisp.innerHTML = '';
+        const config  = getConfig();
+        const entries = Object.entries(config);
+
+        if (!entries.length) {
+            actionBar.classList.add('hidden');
+            emptyState.classList.remove('hidden');
+            return;
+        }
+        actionBar.classList.remove('hidden');
+        emptyState.classList.add('hidden');
+
+        for (const [provider, schemas] of entries) {
+            // Provider section header
+            const section = document.createElement('div');
+            const hdr = document.createElement('div');
+            hdr.className = 'flex items-center gap-3 mb-3';
+            const hdrLabel = document.createElement('span');
+            hdrLabel.className = 'text-xs font-semibold uppercase tracking-wider';
+            hdrLabel.style.color = 'var(--muted)';
+            hdrLabel.textContent = provider;
+            const hdrLine = document.createElement('div');
+            hdrLine.className = 'flex-1 section-rule';
+            hdr.append(hdrLabel, hdrLine);
+            section.appendChild(hdr);
+
+            const grid = document.createElement('div');
+            grid.className = 'space-y-3';
+
+            const order = Object.keys(schemas).sort((a,b) =>
+                a === 'provider' ? -1 : b === 'provider' ? 1 : a.localeCompare(b));
+
+            for (const schemaType of order) {
+                for (const resource of schemas[schemaType]) {
+                    const { content, isCustom } = await fetchTemplate(provider, schemaType, resource);
+                    grid.appendChild(createCard(provider, schemaType, resource, content, isCustom));
+                }
+            }
+
+            section.appendChild(grid);
+            configDisp.appendChild(section);
+        }
+    };
+
+    // ── Checkbox state restoration ────────────────────────────────────────
+    const restoreCheckboxes = () => {
+        const config = getConfig();
+        for (const [provider, schemas] of Object.entries(config)) {
+            for (const [schemaType, resources] of Object.entries(schemas)) {
+                for (const resource of resources) {
+                    const cb = document.querySelector(
+                        `.rc[data-provider="${provider}"][data-schema-type="${schemaType}"][data-resource="${resource}"]`
+                    );
+                    if (cb) cb.checked = true;
+                }
+            }
+        }
+    };
+
+    // ── Checkbox event delegation ─────────────────────────────────────────
+    document.querySelector('aside').addEventListener('change', async e => {
+        const cb = e.target.closest('.rc');
+        if (!cb) return;
+        const { provider, schemaType, resource } = cb.dataset;
+        const config = getConfig();
+        if (cb.checked) {
+            config[provider] = config[provider] || {};
+            config[provider][schemaType] = config[provider][schemaType] || [];
+            if (!config[provider][schemaType].includes(resource)) config[provider][schemaType].push(resource);
+        } else {
+            const s = config[provider];
+            if (s?.[schemaType]) {
+                s[schemaType] = s[schemaType].filter(r => r !== resource);
+                if (!s[schemaType].length) delete s[schemaType];
+                if (!Object.keys(s).length) delete config[provider];
+            }
+        }
+        setConfig(config);
+        await refreshDisplay();
+    });
+
+    // ── Reset ─────────────────────────────────────────────────────────────
+    get('resetBtn').addEventListener('click', () => {
+        if (!confirm('Clear all selections? Custom template edits are preserved on the server.')) return;
+        editors.forEach(ed => ed.dispose());
+        editors.clear();
+        localStorage.removeItem(CONFIG_KEY);
+        document.querySelectorAll('.rc').forEach(cb => cb.checked = false);
+        refreshDisplay();
+    });
+
+    // ── Export ────────────────────────────────────────────────────────────
+    const exportConfig = async format => {
+        // Sync any active editor values into their pre elements before collecting
+        editors.forEach((ed, key) => {
+            const card = configDisp.querySelector(`[data-card-key="${key}"]`);
+            const pre  = card?.querySelector('pre.code-pre');
+            if (pre) pre.textContent = ed.getValue();
+        });
+
+        const combined = Array.from(configDisp.querySelectorAll('pre.code-pre'))
+            .map(p => p.textContent).join('\n\n');
+        if (!combined.trim()) return;
+
+        try {
+            const res = await fetch(`/save_config/${format}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ config: combined }),
+            });
+            if (!res.ok) { const { error } = await res.json(); alert(`Export failed: ${error}`); return; }
+            const { config, filename } = await res.json();
+            const url = URL.createObjectURL(new Blob([config], { type: 'text/plain' }));
+            const a   = Object.assign(document.createElement('a'), { href: url, download: filename });
+            document.body.appendChild(a); a.click(); a.remove();
+            URL.revokeObjectURL(url);
+        } catch (err) { console.error('Export error:', err); }
+    };
+
+    get('saveHclBtn').addEventListener('click',  () => exportConfig('hcl'));
+    get('saveJsonBtn').addEventListener('click', () => exportConfig('json'));
+
+    // ── Search ────────────────────────────────────────────────────────────
+    const searchInput = get('searchInput');
+    const searchRes   = get('searchResults');
+    let searchTimer;
+
+    searchInput.addEventListener('input', () => {
+        clearTimeout(searchTimer);
+        const q = searchInput.value.trim();
+        if (q.length < 2) { searchRes.classList.add('hidden'); return; }
+        searchTimer = setTimeout(async () => {
+            const { results } = await (await fetch(`/search?q=${encodeURIComponent(q)}`)).json();
+            if (!results.length) {
+                searchRes.innerHTML = `<p class="p-3 text-xs" style="color:var(--muted)">No results for "${q}"</p>`;
+            } else {
+                searchRes.innerHTML = results.map(r =>
+                    `<button class="btn-anim w-full flex items-center gap-2 px-3 py-2 text-left text-xs"
+                             data-provider="${r.provider}" data-schema-type="${r.schema_type}" data-resource="${r.resource}">
+                        <span class="font-medium flex-shrink-0" style="color:#58a6ff">${r.provider}</span>
+                        <span style="color:var(--muted)">/</span>
+                        <span class="font-mono truncate" style="color:var(--text)">${r.resource}</span>
+                     </button>`
+                ).join('');
+                searchRes.querySelectorAll('button[data-resource]').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const { provider, schemaType, resource } = btn.dataset;
+                        const cb = document.querySelector(
+                            `.rc[data-provider="${provider}"][data-schema-type="${schemaType}"][data-resource="${resource}"]`
+                        );
+                        if (cb && !cb.checked) { cb.checked = true; cb.dispatchEvent(new Event('change',{bubbles:true})); }
+                        searchInput.value = ''; searchRes.classList.add('hidden');
+                    });
+                });
+            }
+            searchRes.classList.remove('hidden');
+        }, 250);
+    });
+
+    document.addEventListener('click', e => {
+        if (!searchInput.contains(e.target) && !searchRes.contains(e.target))
+            searchRes.classList.add('hidden');
+    });
+
+    // ── Init ─────────────────────────────────────────────────────────────
+    get('currentYear').textContent = new Date().getFullYear();
+    restoreCheckboxes();
+    refreshDisplay();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+resource "awscc_ec2_local_gateway_virtual_interface" "example" {
+    local_address = "{{ local_address }}"
+    local_gateway_virtual_interface_group_id = "{{ local_gateway_virtual_interface_group_id }}"
+    outpost_lag_id = "{{ outpost_lag_id }}"
+    peer_address = "{{ peer_address }}"
+    peer_bgp_asn = {{ peer_bgp_asn }}
+    peer_bgp_asn_extended = {{ peer_bgp_asn_extended }}
+    tags = "{{ tags }}"
+    vlan = {{ vlan }}
+}

@@ -1,0 +1,65 @@
+resource "aws_sagemaker_labeling_job" "example" {
+    label_attribute_name = "{{ label_attribute_name }}"
+    label_category_config_s3_uri = "{{ label_category_config_s3_uri }}"
+    labeling_job_name = "{{ labeling_job_name }}"
+    region = "{{ region }}"
+    role_arn = "{{ role_arn }}"
+    stopping_conditions = ["{{ stopping_conditions }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    human_task_config {
+      max_concurrent_task_count = {{ max_concurrent_task_count }}
+      number_of_human_workers_per_data_object = {{ number_of_human_workers_per_data_object }}
+      pre_human_task_lambda_arn = "{{ pre_human_task_lambda_arn }}"
+      task_availability_lifetime_in_seconds = {{ task_availability_lifetime_in_seconds }}
+      task_description = "{{ task_description }}"
+      task_keywords = ["{{ task_keywords }}"]
+      task_time_limit_in_seconds = {{ task_time_limit_in_seconds }}
+      task_title = "{{ task_title }}"
+      workteam_arn = "{{ workteam_arn }}"
+      annotation_consolidation_config {
+        annotation_consolidation_lambda_arn = "{{ annotation_consolidation_lambda_arn }}"
+      }
+      public_workforce_task_price {
+        amount_in_usd {
+          cents = {{ cents }}
+          dollars = {{ dollars }}
+          tenth_fractions_of_a_cent = {{ tenth_fractions_of_a_cent }}
+        }
+      }
+      ui_config {
+        human_task_ui_arn = "{{ human_task_ui_arn }}"
+        ui_template_s3_uri = "{{ ui_template_s3_uri }}"
+      }
+    }
+    input_config {
+      data_attributes {
+        content_classifiers = ["{{ content_classifiers }}"]
+      }
+      data_source {
+        s3_data_source {
+          manifest_s3_uri = "{{ manifest_s3_uri }}"
+        }
+        sns_data_source {
+          sns_topic_arn = "{{ sns_topic_arn }}"
+        }
+      }
+    }
+    labeling_job_algorithms_config {
+      initial_active_learning_model_arn = "{{ initial_active_learning_model_arn }}"
+      labeling_job_algorithm_specification_arn = "{{ labeling_job_algorithm_specification_arn }}"
+      labeling_job_resource_config {
+        volume_kms_key_id = "{{ volume_kms_key_id }}"
+        vpc_config {
+          security_group_ids = ["{{ security_group_ids }}"]
+          subnets = ["{{ subnets }}"]
+        }
+      }
+    }
+    output_config {
+      kms_key_id = "{{ kms_key_id }}"
+      s3_output_path = "{{ s3_output_path }}"
+      sns_topic_arn = "{{ sns_topic_arn }}"
+    }
+}

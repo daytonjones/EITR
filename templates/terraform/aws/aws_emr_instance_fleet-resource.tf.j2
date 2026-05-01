@@ -2,8 +2,36 @@ resource "aws_emr_instance_fleet" "example" {
     cluster_id = "{{ cluster_id }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    provisioned_on_demand_capacity = "{{ provisioned_on_demand_capacity }}"
-    provisioned_spot_capacity = "{{ provisioned_spot_capacity }}"
-    target_on_demand_capacity = "{{ target_on_demand_capacity }}"
-    target_spot_capacity = "{{ target_spot_capacity }}"
+    region = "{{ region }}"
+    target_on_demand_capacity = {{ target_on_demand_capacity }}
+    target_spot_capacity = {{ target_spot_capacity }}
+    instance_type_configs {
+      bid_price = "{{ bid_price }}"
+      bid_price_as_percentage_of_on_demand_price = {{ bid_price_as_percentage_of_on_demand_price }}
+      instance_type = "{{ instance_type }}"
+      weighted_capacity = {{ weighted_capacity }}
+      configurations {
+        classification = "{{ classification }}"
+        properties = {
+        key = "{{ properties_value }}"
+      }
+      }
+      ebs_config {
+        iops = {{ iops }}
+        size = {{ size }}
+        type = "{{ type }}"
+        volumes_per_instance = {{ volumes_per_instance }}
+      }
+    }
+    launch_specifications {
+      on_demand_specification {
+        allocation_strategy = "{{ allocation_strategy }}"
+      }
+      spot_specification {
+        allocation_strategy = "{{ allocation_strategy }}"
+        block_duration_minutes = {{ block_duration_minutes }}
+        timeout_action = "{{ timeout_action }}"
+        timeout_duration_minutes = {{ timeout_duration_minutes }}
+      }
+    }
 }

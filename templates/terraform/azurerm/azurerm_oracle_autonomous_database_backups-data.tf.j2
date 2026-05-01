@@ -1,0 +1,7 @@
+data "azurerm_oracle_autonomous_database_backups" "example" {
+    autonomous_database_id = "{{ autonomous_database_id }}"
+    id = "{{ id }}"
+    timeouts {
+      read = "{{ read }}"
+    }
+}

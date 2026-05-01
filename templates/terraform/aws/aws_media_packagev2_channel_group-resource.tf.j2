@@ -1,0 +1,8 @@
+resource "aws_media_packagev2_channel_group" "example" {
+    description = "{{ description }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

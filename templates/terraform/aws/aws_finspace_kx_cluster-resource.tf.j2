@@ -1,20 +1,78 @@
 resource "aws_finspace_kx_cluster" "example" {
-    arn = "{{ arn }}"
     availability_zone_id = "{{ availability_zone_id }}"
     az_mode = "{{ az_mode }}"
-    command_line_arguments = "{{ command_line_arguments }}"
-    created_timestamp = "{{ created_timestamp }}"
+    command_line_arguments = {
+        key = "{{ command_line_arguments_value }}"
+      }
     description = "{{ description }}"
     environment_id = "{{ environment_id }}"
     execution_role = "{{ execution_role }}"
     id = "{{ id }}"
     initialization_script = "{{ initialization_script }}"
-    last_modified_timestamp = "{{ last_modified_timestamp }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     release_label = "{{ release_label }}"
-    status = "{{ status }}"
-    status_reason = "{{ status_reason }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     type = "{{ type }}"
+    auto_scaling_configuration {
+      auto_scaling_metric = "{{ auto_scaling_metric }}"
+      max_node_count = {{ max_node_count }}
+      metric_target = {{ metric_target }}
+      min_node_count = {{ min_node_count }}
+      scale_in_cooldown_seconds = {{ scale_in_cooldown_seconds }}
+      scale_out_cooldown_seconds = {{ scale_out_cooldown_seconds }}
+    }
+    cache_storage_configurations {
+      size = {{ size }}
+      type = "{{ type }}"
+    }
+    capacity_configuration {
+      node_count = {{ node_count }}
+      node_type = "{{ node_type }}"
+    }
+    code {
+      s3_bucket = "{{ s3_bucket }}"
+      s3_key = "{{ s3_key }}"
+      s3_object_version = "{{ s3_object_version }}"
+    }
+    database {
+      changeset_id = "{{ changeset_id }}"
+      database_name = "{{ database_name }}"
+      dataview_name = "{{ dataview_name }}"
+      cache_configurations {
+        cache_type = "{{ cache_type }}"
+        db_paths = ["{{ db_paths }}"]
+      }
+    }
+    savedown_storage_configuration {
+      size = {{ size }}
+      type = "{{ type }}"
+      volume_name = "{{ volume_name }}"
+    }
+    scaling_group_configuration {
+      cpu = {{ cpu }}
+      memory_limit = {{ memory_limit }}
+      memory_reservation = {{ memory_reservation }}
+      node_count = {{ node_count }}
+      scaling_group_name = "{{ scaling_group_name }}"
+    }
+    tickerplant_log_configuration {
+      tickerplant_log_volumes = ["{{ tickerplant_log_volumes }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    vpc_configuration {
+      ip_address_type = "{{ ip_address_type }}"
+      security_group_ids = ["{{ security_group_ids }}"]
+      subnet_ids = ["{{ subnet_ids }}"]
+      vpc_id = "{{ vpc_id }}"
+    }
 }

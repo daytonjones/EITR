@@ -1,12 +1,21 @@
 resource "aws_appautoscaling_target" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
-    max_capacity = "{{ max_capacity }}"
-    min_capacity = "{{ min_capacity }}"
+    max_capacity = {{ max_capacity }}
+    min_capacity = {{ min_capacity }}
+    region = "{{ region }}"
     resource_id = "{{ resource_id }}"
     role_arn = "{{ role_arn }}"
     scalable_dimension = "{{ scalable_dimension }}"
     service_namespace = "{{ service_namespace }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    suspended_state {
+      dynamic_scaling_in_suspended = {{ dynamic_scaling_in_suspended }}
+      dynamic_scaling_out_suspended = {{ dynamic_scaling_out_suspended }}
+      scheduled_scaling_suspended = {{ scheduled_scaling_suspended }}
+    }
 }

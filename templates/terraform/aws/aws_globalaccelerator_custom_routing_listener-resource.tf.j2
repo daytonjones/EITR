@@ -1,4 +1,13 @@
 resource "aws_globalaccelerator_custom_routing_listener" "example" {
     accelerator_arn = "{{ accelerator_arn }}"
     id = "{{ id }}"
+    port_range {
+      from_port = {{ from_port }}
+      to_port = {{ to_port }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

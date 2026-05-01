@@ -1,22 +1,134 @@
 resource "aws_cognito_user_pool" "example" {
-    alias_attributes = "{{ alias_attributes }}"
-    arn = "{{ arn }}"
-    auto_verified_attributes = "{{ auto_verified_attributes }}"
-    creation_date = "{{ creation_date }}"
-    custom_domain = "{{ custom_domain }}"
+    alias_attributes = ["{{ alias_attributes }}"]
+    auto_verified_attributes = ["{{ auto_verified_attributes }}"]
     deletion_protection = "{{ deletion_protection }}"
-    domain = "{{ domain }}"
     email_verification_message = "{{ email_verification_message }}"
     email_verification_subject = "{{ email_verification_subject }}"
-    endpoint = "{{ endpoint }}"
-    estimated_number_of_users = "{{ estimated_number_of_users }}"
     id = "{{ id }}"
-    last_modified_date = "{{ last_modified_date }}"
     mfa_configuration = "{{ mfa_configuration }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     sms_authentication_message = "{{ sms_authentication_message }}"
     sms_verification_message = "{{ sms_verification_message }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    username_attributes = "{{ username_attributes }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    user_pool_tier = "{{ user_pool_tier }}"
+    username_attributes = ["{{ username_attributes }}"]
+    account_recovery_setting {
+      recovery_mechanism {
+        name = "{{ name }}"
+        priority = {{ priority }}
+      }
+    }
+    admin_create_user_config {
+      allow_admin_create_user_only = {{ allow_admin_create_user_only }}
+      invite_message_template {
+        email_message = "{{ email_message }}"
+        email_subject = "{{ email_subject }}"
+        sms_message = "{{ sms_message }}"
+      }
+    }
+    device_configuration {
+      challenge_required_on_new_device = {{ challenge_required_on_new_device }}
+      device_only_remembered_on_user_prompt = {{ device_only_remembered_on_user_prompt }}
+    }
+    email_configuration {
+      configuration_set = "{{ configuration_set }}"
+      email_sending_account = "{{ email_sending_account }}"
+      from_email_address = "{{ from_email_address }}"
+      reply_to_email_address = "{{ reply_to_email_address }}"
+      source_arn = "{{ source_arn }}"
+    }
+    email_mfa_configuration {
+      message = "{{ message }}"
+      subject = "{{ subject }}"
+    }
+    lambda_config {
+      create_auth_challenge = "{{ create_auth_challenge }}"
+      custom_message = "{{ custom_message }}"
+      define_auth_challenge = "{{ define_auth_challenge }}"
+      kms_key_id = "{{ kms_key_id }}"
+      post_authentication = "{{ post_authentication }}"
+      post_confirmation = "{{ post_confirmation }}"
+      pre_authentication = "{{ pre_authentication }}"
+      pre_sign_up = "{{ pre_sign_up }}"
+      pre_token_generation = "{{ pre_token_generation }}"
+      user_migration = "{{ user_migration }}"
+      verify_auth_challenge_response = "{{ verify_auth_challenge_response }}"
+      custom_email_sender {
+        lambda_arn = "{{ lambda_arn }}"
+        lambda_version = "{{ lambda_version }}"
+      }
+      custom_sms_sender {
+        lambda_arn = "{{ lambda_arn }}"
+        lambda_version = "{{ lambda_version }}"
+      }
+      pre_token_generation_config {
+        lambda_arn = "{{ lambda_arn }}"
+        lambda_version = "{{ lambda_version }}"
+      }
+    }
+    password_policy {
+      minimum_length = {{ minimum_length }}
+      password_history_size = {{ password_history_size }}
+      require_lowercase = {{ require_lowercase }}
+      require_numbers = {{ require_numbers }}
+      require_symbols = {{ require_symbols }}
+      require_uppercase = {{ require_uppercase }}
+      temporary_password_validity_days = {{ temporary_password_validity_days }}
+    }
+    schema {
+      attribute_data_type = "{{ attribute_data_type }}"
+      developer_only_attribute = {{ developer_only_attribute }}
+      mutable = {{ mutable }}
+      name = "{{ name }}"
+      required = {{ required }}
+      number_attribute_constraints {
+        max_value = "{{ max_value }}"
+        min_value = "{{ min_value }}"
+      }
+      string_attribute_constraints {
+        max_length = "{{ max_length }}"
+        min_length = "{{ min_length }}"
+      }
+    }
+    sign_in_policy {
+      allowed_first_auth_factors = ["{{ allowed_first_auth_factors }}"]
+    }
+    sms_configuration {
+      external_id = "{{ external_id }}"
+      sns_caller_arn = "{{ sns_caller_arn }}"
+      sns_region = "{{ sns_region }}"
+    }
+    software_token_mfa_configuration {
+      enabled = {{ enabled }}
+    }
+    user_attribute_update_settings {
+      attributes_require_verification_before_update = ["{{ attributes_require_verification_before_update }}"]
+    }
+    user_pool_add_ons {
+      advanced_security_mode = "{{ advanced_security_mode }}"
+      advanced_security_additional_flows {
+        custom_auth_mode = "{{ custom_auth_mode }}"
+      }
+    }
+    username_configuration {
+      case_sensitive = {{ case_sensitive }}
+    }
+    verification_message_template {
+      default_email_option = "{{ default_email_option }}"
+      email_message = "{{ email_message }}"
+      email_message_by_link = "{{ email_message_by_link }}"
+      email_subject = "{{ email_subject }}"
+      email_subject_by_link = "{{ email_subject_by_link }}"
+      sms_message = "{{ sms_message }}"
+    }
+    web_authn_configuration {
+      relying_party_id = "{{ relying_party_id }}"
+      user_verification = "{{ user_verification }}"
+    }
 }

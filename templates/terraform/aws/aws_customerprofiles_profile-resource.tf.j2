@@ -1,7 +1,9 @@
 resource "aws_customerprofiles_profile" "example" {
     account_number = "{{ account_number }}"
     additional_information = "{{ additional_information }}"
-    attributes = "{{ attributes }}"
+    attributes = {
+        key = "{{ attributes_value }}"
+      }
     birth_date = "{{ birth_date }}"
     business_email_address = "{{ business_email_address }}"
     business_name = "{{ business_name }}"
@@ -18,4 +20,53 @@ resource "aws_customerprofiles_profile" "example" {
     party_type_string = "{{ party_type_string }}"
     personal_email_address = "{{ personal_email_address }}"
     phone_number = "{{ phone_number }}"
+    region = "{{ region }}"
+    address {
+      address_1 = "{{ address_1 }}"
+      address_2 = "{{ address_2 }}"
+      address_3 = "{{ address_3 }}"
+      address_4 = "{{ address_4 }}"
+      city = "{{ city }}"
+      country = "{{ country }}"
+      county = "{{ county }}"
+      postal_code = "{{ postal_code }}"
+      province = "{{ province }}"
+      state = "{{ state }}"
+    }
+    billing_address {
+      address_1 = "{{ address_1 }}"
+      address_2 = "{{ address_2 }}"
+      address_3 = "{{ address_3 }}"
+      address_4 = "{{ address_4 }}"
+      city = "{{ city }}"
+      country = "{{ country }}"
+      county = "{{ county }}"
+      postal_code = "{{ postal_code }}"
+      province = "{{ province }}"
+      state = "{{ state }}"
+    }
+    mailing_address {
+      address_1 = "{{ address_1 }}"
+      address_2 = "{{ address_2 }}"
+      address_3 = "{{ address_3 }}"
+      address_4 = "{{ address_4 }}"
+      city = "{{ city }}"
+      country = "{{ country }}"
+      county = "{{ county }}"
+      postal_code = "{{ postal_code }}"
+      province = "{{ province }}"
+      state = "{{ state }}"
+    }
+    shipping_address {
+      address_1 = "{{ address_1 }}"
+      address_2 = "{{ address_2 }}"
+      address_3 = "{{ address_3 }}"
+      address_4 = "{{ address_4 }}"
+      city = "{{ city }}"
+      country = "{{ country }}"
+      county = "{{ county }}"
+      postal_code = "{{ postal_code }}"
+      province = "{{ province }}"
+      state = "{{ state }}"
+    }
 }

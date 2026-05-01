@@ -1,0 +1,43 @@
+resource "google_storage_batch_operations_job" "example" {
+    delete_protection = {{ delete_protection }}
+    id = "{{ id }}"
+    job_id = "{{ job_id }}"
+    project = "{{ project }}"
+    bucket_list {
+      buckets {
+        bucket = "{{ bucket }}"
+        manifest {
+          manifest_location = "{{ manifest_location }}"
+        }
+        prefix_list {
+          included_object_prefixes = ["{{ included_object_prefixes }}"]
+        }
+      }
+    }
+    delete_object {
+      permanent_object_deletion_enabled = {{ permanent_object_deletion_enabled }}
+    }
+    put_metadata {
+      cache_control = "{{ cache_control }}"
+      content_disposition = "{{ content_disposition }}"
+      content_encoding = "{{ content_encoding }}"
+      content_language = "{{ content_language }}"
+      content_type = "{{ content_type }}"
+      custom_metadata = {
+        key = "{{ custom_metadata_value }}"
+      }
+      custom_time = "{{ custom_time }}"
+    }
+    put_object_hold {
+      event_based_hold = "{{ event_based_hold }}"
+      temporary_hold = "{{ temporary_hold }}"
+    }
+    rewrite_object {
+      kms_key = "{{ kms_key }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

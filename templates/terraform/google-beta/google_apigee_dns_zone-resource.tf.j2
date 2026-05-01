@@ -1,0 +1,15 @@
+resource "google_apigee_dns_zone" "example" {
+    description = "{{ description }}"
+    dns_zone_id = "{{ dns_zone_id }}"
+    domain = "{{ domain }}"
+    id = "{{ id }}"
+    org_id = "{{ org_id }}"
+    peering_config {
+      target_network_id = "{{ target_network_id }}"
+      target_project_id = "{{ target_project_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

@@ -1,0 +1,89 @@
+resource "google_ces_toolset" "example" {
+    app = "{{ app }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    execution_type = "{{ execution_type }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    toolset_id = "{{ toolset_id }}"
+    mcp_toolset {
+      custom_headers = {
+        key = "{{ custom_headers_value }}"
+      }
+      server_address = "{{ server_address }}"
+      api_authentication {
+        api_key_config {
+          api_key_secret_version = "{{ api_key_secret_version }}"
+          key_name = "{{ key_name }}"
+          request_location = "{{ request_location }}"
+        }
+        bearer_token_config {
+          token = "{{ token }}"
+        }
+        oauth_config {
+          client_id = "{{ client_id }}"
+          client_secret_version = "{{ client_secret_version }}"
+          oauth_grant_type = "{{ oauth_grant_type }}"
+          scopes = ["{{ scopes }}"]
+          token_endpoint = "{{ token_endpoint }}"
+        }
+        service_account_auth_config {
+          scopes = ["{{ scopes }}"]
+          service_account = "{{ service_account }}"
+        }
+        service_agent_id_token_auth_config {
+        }
+      }
+      service_directory_config {
+        service = "{{ service }}"
+      }
+      tls_config {
+        ca_certs {
+          cert = "{{ cert }}"
+          display_name = "{{ display_name }}"
+        }
+      }
+    }
+    open_api_toolset {
+      ignore_unknown_fields = {{ ignore_unknown_fields }}
+      open_api_schema = "{{ open_api_schema }}"
+      api_authentication {
+        api_key_config {
+          api_key_secret_version = "{{ api_key_secret_version }}"
+          key_name = "{{ key_name }}"
+          request_location = "{{ request_location }}"
+        }
+        bearer_token_config {
+          token = "{{ token }}"
+        }
+        oauth_config {
+          client_id = "{{ client_id }}"
+          client_secret_version = "{{ client_secret_version }}"
+          oauth_grant_type = "{{ oauth_grant_type }}"
+          scopes = ["{{ scopes }}"]
+          token_endpoint = "{{ token_endpoint }}"
+        }
+        service_account_auth_config {
+          scopes = ["{{ scopes }}"]
+          service_account = "{{ service_account }}"
+        }
+        service_agent_id_token_auth_config {
+        }
+      }
+      service_directory_config {
+        service = "{{ service }}"
+      }
+      tls_config {
+        ca_certs {
+          cert = "{{ cert }}"
+          display_name = "{{ display_name }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

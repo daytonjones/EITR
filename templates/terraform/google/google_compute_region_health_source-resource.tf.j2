@@ -1,0 +1,14 @@
+resource "google_compute_region_health_source" "example" {
+    description = "{{ description }}"
+    health_aggregation_policy = "{{ health_aggregation_policy }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    source_type = "{{ source_type }}"
+    sources = ["{{ sources }}"]
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

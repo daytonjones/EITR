@@ -1,0 +1,34 @@
+resource "aws_dataexchange_revision_assets" "example" {
+    comment = "{{ comment }}"
+    data_set_id = "{{ data_set_id }}"
+    finalized = {{ finalized }}
+    force_destroy = {{ force_destroy }}
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    asset {
+      create_s3_data_access_from_s3_bucket {
+        asset_source {
+          bucket = "{{ bucket }}"
+          key_prefixes = ["{{ key_prefixes }}"]
+          keys = ["{{ keys }}"]
+          kms_keys_to_grant {
+            kms_key_arn = "{{ kms_key_arn }}"
+          }
+        }
+      }
+      import_assets_from_s3 {
+        asset_source {
+          bucket = "{{ bucket }}"
+          key = "{{ key }}"
+        }
+      }
+      import_assets_from_signed_url {
+        filename = "{{ filename }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+    }
+}

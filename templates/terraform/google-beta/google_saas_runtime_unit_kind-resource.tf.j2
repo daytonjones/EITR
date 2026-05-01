@@ -1,0 +1,47 @@
+resource "google_saas_runtime_unit_kind" "example" {
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
+    default_release = "{{ default_release }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    saas = "{{ saas }}"
+    unit_kind_id = "{{ unit_kind_id }}"
+    dependencies {
+      alias = "{{ alias }}"
+      unit_kind = "{{ unit_kind }}"
+    }
+    input_variable_mappings {
+      variable = "{{ variable }}"
+      from {
+        dependency = "{{ dependency }}"
+        output_variable = "{{ output_variable }}"
+      }
+      to {
+        dependency = "{{ dependency }}"
+        ignore_for_lookup = {{ ignore_for_lookup }}
+        input_variable = "{{ input_variable }}"
+      }
+    }
+    output_variable_mappings {
+      variable = "{{ variable }}"
+      from {
+        dependency = "{{ dependency }}"
+        output_variable = "{{ output_variable }}"
+      }
+      to {
+        dependency = "{{ dependency }}"
+        ignore_for_lookup = {{ ignore_for_lookup }}
+        input_variable = "{{ input_variable }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

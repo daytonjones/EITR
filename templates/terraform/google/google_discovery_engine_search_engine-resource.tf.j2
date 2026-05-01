@@ -1,13 +1,40 @@
 resource "google_discovery_engine_search_engine" "example" {
+    app_type = "{{ app_type }}"
     collection_id = "{{ collection_id }}"
-    create_time = "{{ create_time }}"
-    data_store_ids = "{{ data_store_ids }}"
+    data_store_ids = ["{{ data_store_ids }}"]
+    disable_analytics = {{ disable_analytics }}
     display_name = "{{ display_name }}"
     engine_id = "{{ engine_id }}"
+    features = {
+        key = "{{ features_value }}"
+      }
     id = "{{ id }}"
     industry_vertical = "{{ industry_vertical }}"
+    kms_key_name = "{{ kms_key_name }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    update_time = "{{ update_time }}"
+    common_config {
+      company_name = "{{ company_name }}"
+    }
+    knowledge_graph_config {
+      cloud_knowledge_graph_types = ["{{ cloud_knowledge_graph_types }}"]
+      enable_cloud_knowledge_graph = {{ enable_cloud_knowledge_graph }}
+      enable_private_knowledge_graph = {{ enable_private_knowledge_graph }}
+      feature_config {
+        disable_private_kg_auto_complete = {{ disable_private_kg_auto_complete }}
+        disable_private_kg_enrichment = {{ disable_private_kg_enrichment }}
+        disable_private_kg_query_ui_chips = {{ disable_private_kg_query_ui_chips }}
+        disable_private_kg_query_understanding = {{ disable_private_kg_query_understanding }}
+      }
+    }
+    search_engine_config {
+      required_subscription_tier = "{{ required_subscription_tier }}"
+      search_add_ons = ["{{ search_add_ons }}"]
+      search_tier = "{{ search_tier }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

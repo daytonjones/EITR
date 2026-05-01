@@ -1,4 +1,9 @@
 resource "aws_securityhub_standards_subscription" "example" {
     id = "{{ id }}"
+    region = "{{ region }}"
     standards_arn = "{{ standards_arn }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

@@ -12,4 +12,10 @@ resource "azurerm_api_management_identity_provider_aadb2c" "example" {
     signin_policy = "{{ signin_policy }}"
     signin_tenant = "{{ signin_tenant }}"
     signup_policy = "{{ signup_policy }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

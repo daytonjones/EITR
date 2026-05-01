@@ -1,12 +1,17 @@
 resource "google_logging_project_bucket_config" "example" {
     bucket_id = "{{ bucket_id }}"
     description = "{{ description }}"
-    enable_analytics = "{{ enable_analytics }}"
+    enable_analytics = {{ enable_analytics }}
     id = "{{ id }}"
-    lifecycle_state = "{{ lifecycle_state }}"
     location = "{{ location }}"
-    locked = "{{ locked }}"
-    name = "{{ name }}"
+    locked = {{ locked }}
     project = "{{ project }}"
-    retention_days = "{{ retention_days }}"
+    retention_days = {{ retention_days }}
+    cmek_settings {
+      kms_key_name = "{{ kms_key_name }}"
+    }
+    index_configs {
+      field_path = "{{ field_path }}"
+      type = "{{ type }}"
+    }
 }

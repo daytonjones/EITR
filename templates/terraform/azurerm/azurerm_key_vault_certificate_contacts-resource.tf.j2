@@ -1,4 +1,15 @@
 resource "azurerm_key_vault_certificate_contacts" "example" {
     id = "{{ id }}"
     key_vault_id = "{{ key_vault_id }}"
+    contact {
+      email = "{{ email }}"
+      name = "{{ name }}"
+      phone = "{{ phone }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

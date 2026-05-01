@@ -5,4 +5,10 @@ resource "azurerm_redis_firewall_rule" "example" {
     redis_cache_name = "{{ redis_cache_name }}"
     resource_group_name = "{{ resource_group_name }}"
     start_ip = "{{ start_ip }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

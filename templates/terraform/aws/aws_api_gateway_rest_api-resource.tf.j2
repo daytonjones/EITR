@@ -1,20 +1,28 @@
 resource "aws_api_gateway_rest_api" "example" {
     api_key_source = "{{ api_key_source }}"
-    arn = "{{ arn }}"
-    binary_media_types = "{{ binary_media_types }}"
+    binary_media_types = ["{{ binary_media_types }}"]
     body = "{{ body }}"
-    created_date = "{{ created_date }}"
     description = "{{ description }}"
-    disable_execute_api_endpoint = "{{ disable_execute_api_endpoint }}"
-    execution_arn = "{{ execution_arn }}"
-    fail_on_warnings = "{{ fail_on_warnings }}"
+    disable_execute_api_endpoint = {{ disable_execute_api_endpoint }}
+    fail_on_warnings = {{ fail_on_warnings }}
     id = "{{ id }}"
     minimum_compression_size = "{{ minimum_compression_size }}"
     name = "{{ name }}"
-    parameters = "{{ parameters }}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
     policy = "{{ policy }}"
     put_rest_api_mode = "{{ put_rest_api_mode }}"
-    root_resource_id = "{{ root_resource_id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    endpoint_configuration {
+      ip_address_type = "{{ ip_address_type }}"
+      types = ["{{ types }}"]
+      vpc_endpoint_ids = ["{{ vpc_endpoint_ids }}"]
+    }
 }

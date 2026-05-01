@@ -1,14 +1,33 @@
 resource "azurerm_virtual_network" "example" {
-    address_space = "{{ address_space }}"
+    address_space = ["{{ address_space }}"]
     bgp_community = "{{ bgp_community }}"
-    dns_servers = "{{ dns_servers }}"
+    dns_servers = ["{{ dns_servers }}"]
     edge_zone = "{{ edge_zone }}"
-    flow_timeout_in_minutes = "{{ flow_timeout_in_minutes }}"
-    guid = "{{ guid }}"
+    flow_timeout_in_minutes = {{ flow_timeout_in_minutes }}
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
+    private_endpoint_vnet_policies = "{{ private_endpoint_vnet_policies }}"
     resource_group_name = "{{ resource_group_name }}"
-    subnet = "{{ subnet }}"
-    tags = "{{ tags }}"
+    subnet = ["{{ subnet }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    ddos_protection_plan {
+      enable = {{ enable }}
+      id = "{{ id }}"
+    }
+    encryption {
+      enforcement = "{{ enforcement }}"
+    }
+    ip_address_pool {
+      id = "{{ id }}"
+      number_of_ip_addresses = "{{ number_of_ip_addresses }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

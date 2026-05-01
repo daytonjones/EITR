@@ -4,10 +4,8 @@ resource "awscc_ec2_security_group_egress" "example" {
     description = "{{ description }}"
     destination_prefix_list_id = "{{ destination_prefix_list_id }}"
     destination_security_group_id = "{{ destination_security_group_id }}"
-    from_port = "{{ from_port }}"
+    from_port = {{ from_port }}
     group_id = "{{ group_id }}"
-    id = "{{ id }}"
     ip_protocol = "{{ ip_protocol }}"
-    security_group_egress_id = "{{ security_group_egress_id }}"
-    to_port = "{{ to_port }}"
+    to_port = {{ to_port }}
 }

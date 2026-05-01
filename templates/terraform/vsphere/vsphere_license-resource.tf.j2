@@ -1,9 +1,7 @@
 resource "vsphere_license" "example" {
-    edition_key = "{{ edition_key }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     license_key = "{{ license_key }}"
-    name = "{{ name }}"
-    total = "{{ total }}"
-    used = "{{ used }}"
 }

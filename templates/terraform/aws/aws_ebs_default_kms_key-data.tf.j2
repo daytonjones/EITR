@@ -1,4 +1,7 @@
 data "aws_ebs_default_kms_key" "example" {
     id = "{{ id }}"
-    key_arn = "{{ key_arn }}"
+    region = "{{ region }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

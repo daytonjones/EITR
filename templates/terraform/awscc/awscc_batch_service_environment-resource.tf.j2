@@ -1,0 +1,9 @@
+resource "awscc_batch_service_environment" "example" {
+    capacity_limits = "{{ capacity_limits }}"
+    service_environment_name = "{{ service_environment_name }}"
+    service_environment_type = "{{ service_environment_type }}"
+    state = "{{ state }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

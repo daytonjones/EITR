@@ -1,0 +1,35 @@
+resource "azurerm_oracle_autonomous_database_clone_from_database" "example" {
+    admin_password = "{{ admin_password }}"
+    allowed_ip_addresses = ["{{ allowed_ip_addresses }}"]
+    auto_scaling_enabled = {{ auto_scaling_enabled }}
+    auto_scaling_for_storage_enabled = {{ auto_scaling_for_storage_enabled }}
+    backup_retention_period_in_days = {{ backup_retention_period_in_days }}
+    character_set = "{{ character_set }}"
+    clone_type = "{{ clone_type }}"
+    compute_count = {{ compute_count }}
+    compute_model = "{{ compute_model }}"
+    customer_contacts = ["{{ customer_contacts }}"]
+    data_storage_size_in_tb = {{ data_storage_size_in_tb }}
+    database_version = "{{ database_version }}"
+    database_workload = "{{ database_workload }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    license_model = "{{ license_model }}"
+    location = "{{ location }}"
+    mtls_connection_required = {{ mtls_connection_required }}
+    name = "{{ name }}"
+    national_character_set = "{{ national_character_set }}"
+    refreshable_model = "{{ refreshable_model }}"
+    resource_group_name = "{{ resource_group_name }}"
+    source_autonomous_database_id = "{{ source_autonomous_database_id }}"
+    subnet_id = "{{ subnet_id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    virtual_network_id = "{{ virtual_network_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
+}

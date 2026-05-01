@@ -1,0 +1,28 @@
+resource "google_tpu_v2_queued_resource" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    zone = "{{ zone }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+    tpu {
+      node_spec {
+        node_id = "{{ node_id }}"
+        parent = "{{ parent }}"
+        node {
+          accelerator_type = "{{ accelerator_type }}"
+          description = "{{ description }}"
+          runtime_version = "{{ runtime_version }}"
+          network_config {
+            can_ip_forward = {{ can_ip_forward }}
+            enable_external_ips = {{ enable_external_ips }}
+            network = "{{ network }}"
+            queue_count = {{ queue_count }}
+            subnetwork = "{{ subnetwork }}"
+          }
+        }
+      }
+    }
+}

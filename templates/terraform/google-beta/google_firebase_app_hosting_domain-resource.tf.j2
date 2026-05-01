@@ -1,0 +1,18 @@
+resource "google_firebase_app_hosting_domain" "example" {
+    backend = "{{ backend }}"
+    domain_id = "{{ domain_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    serve {
+      redirect {
+        status = "{{ status }}"
+        uri = "{{ uri }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,0 +1,28 @@
+resource "google_firebase_app_hosting_build" "example" {
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
+    backend = "{{ backend }}"
+    build_id = "{{ build_id }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    source {
+      codebase {
+        branch = "{{ branch }}"
+        commit = "{{ commit }}"
+      }
+      container {
+        image = "{{ image }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

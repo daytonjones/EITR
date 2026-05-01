@@ -1,0 +1,21 @@
+resource "vault_scep_auth_backend_role" "example" {
+    alias_metadata = {
+        key = "{{ alias_metadata_value }}"
+      }
+    auth_type = "{{ auth_type }}"
+    backend = "{{ backend }}"
+    challenge = "{{ challenge }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    token_bound_cidrs = ["{{ token_bound_cidrs }}"]
+    token_explicit_max_ttl = {{ token_explicit_max_ttl }}
+    token_max_ttl = {{ token_max_ttl }}
+    token_no_default_policy = {{ token_no_default_policy }}
+    token_num_uses = {{ token_num_uses }}
+    token_period = {{ token_period }}
+    token_policies = ["{{ token_policies }}"]
+    token_ttl = {{ token_ttl }}
+    token_type = "{{ token_type }}"
+}

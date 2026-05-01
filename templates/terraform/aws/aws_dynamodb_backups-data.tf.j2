@@ -1,0 +1,7 @@
+data "aws_dynamodb_backups" "example" {
+    backup_type = "{{ backup_type }}"
+    region = "{{ region }}"
+    table_name = "{{ table_name }}"
+    time_range_lower_bound = "{{ time_range_lower_bound }}"
+    time_range_upper_bound = "{{ time_range_upper_bound }}"
+}

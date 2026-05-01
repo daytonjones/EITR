@@ -5,5 +5,11 @@ resource "azurerm_palo_alto_local_rulestack_certificate" "example" {
     key_vault_certificate_id = "{{ key_vault_certificate_id }}"
     name = "{{ name }}"
     rulestack_id = "{{ rulestack_id }}"
-    self_signed = "{{ self_signed }}"
+    self_signed = {{ self_signed }}
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

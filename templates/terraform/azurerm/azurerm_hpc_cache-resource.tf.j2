@@ -1,15 +1,66 @@
 resource "azurerm_hpc_cache" "example" {
-    automatically_rotate_key_to_latest_enabled = "{{ automatically_rotate_key_to_latest_enabled }}"
-    cache_size_in_gb = "{{ cache_size_in_gb }}"
+    automatically_rotate_key_to_latest_enabled = {{ automatically_rotate_key_to_latest_enabled }}
+    cache_size_in_gb = {{ cache_size_in_gb }}
     id = "{{ id }}"
     key_vault_key_id = "{{ key_vault_key_id }}"
     location = "{{ location }}"
-    mount_addresses = "{{ mount_addresses }}"
-    mtu = "{{ mtu }}"
+    mtu = {{ mtu }}
     name = "{{ name }}"
     ntp_server = "{{ ntp_server }}"
     resource_group_name = "{{ resource_group_name }}"
     sku_name = "{{ sku_name }}"
     subnet_id = "{{ subnet_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    default_access_policy {
+      access_rule {
+        access = "{{ access }}"
+        anonymous_gid = {{ anonymous_gid }}
+        anonymous_uid = {{ anonymous_uid }}
+        filter = "{{ filter }}"
+        root_squash_enabled = {{ root_squash_enabled }}
+        scope = "{{ scope }}"
+        submount_access_enabled = {{ submount_access_enabled }}
+        suid_enabled = {{ suid_enabled }}
+      }
+    }
+    directory_active_directory {
+      cache_netbios_name = "{{ cache_netbios_name }}"
+      dns_primary_ip = "{{ dns_primary_ip }}"
+      dns_secondary_ip = "{{ dns_secondary_ip }}"
+      domain_name = "{{ domain_name }}"
+      domain_netbios_name = "{{ domain_netbios_name }}"
+      password = "{{ password }}"
+      username = "{{ username }}"
+    }
+    directory_flat_file {
+      group_file_uri = "{{ group_file_uri }}"
+      password_file_uri = "{{ password_file_uri }}"
+    }
+    directory_ldap {
+      base_dn = "{{ base_dn }}"
+      certificate_validation_uri = "{{ certificate_validation_uri }}"
+      download_certificate_automatically = {{ download_certificate_automatically }}
+      encrypted = {{ encrypted }}
+      server = "{{ server }}"
+      bind {
+        dn = "{{ dn }}"
+        password = "{{ password }}"
+      }
+    }
+    dns {
+      search_domain = "{{ search_domain }}"
+      servers = ["{{ servers }}"]
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

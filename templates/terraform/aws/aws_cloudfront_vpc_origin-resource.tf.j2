@@ -1,0 +1,21 @@
+resource "aws_cloudfront_vpc_origin" "example" {
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    vpc_origin_endpoint_config {
+      arn = "{{ arn }}"
+      http_port = {{ http_port }}
+      https_port = {{ https_port }}
+      name = "{{ name }}"
+      origin_protocol_policy = "{{ origin_protocol_policy }}"
+      origin_ssl_protocols {
+        items = ["{{ items }}"]
+        quantity = {{ quantity }}
+      }
+    }
+}

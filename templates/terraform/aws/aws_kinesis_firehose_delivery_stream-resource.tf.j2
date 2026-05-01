@@ -4,7 +4,534 @@ resource "aws_kinesis_firehose_delivery_stream" "example" {
     destination_id = "{{ destination_id }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     version_id = "{{ version_id }}"
+    elasticsearch_configuration {
+      buffering_interval = {{ buffering_interval }}
+      buffering_size = {{ buffering_size }}
+      cluster_endpoint = "{{ cluster_endpoint }}"
+      domain_arn = "{{ domain_arn }}"
+      index_name = "{{ index_name }}"
+      index_rotation_period = "{{ index_rotation_period }}"
+      retry_duration = {{ retry_duration }}
+      role_arn = "{{ role_arn }}"
+      s3_backup_mode = "{{ s3_backup_mode }}"
+      type_name = "{{ type_name }}"
+      cloudwatch_logging_options {
+        enabled = {{ enabled }}
+        log_group_name = "{{ log_group_name }}"
+        log_stream_name = "{{ log_stream_name }}"
+      }
+      processing_configuration {
+        enabled = {{ enabled }}
+        processors {
+          type = "{{ type }}"
+          parameters {
+            parameter_name = "{{ parameter_name }}"
+            parameter_value = "{{ parameter_value }}"
+          }
+        }
+      }
+      s3_configuration {
+        bucket_arn = "{{ bucket_arn }}"
+        buffering_interval = {{ buffering_interval }}
+        buffering_size = {{ buffering_size }}
+        compression_format = "{{ compression_format }}"
+        error_output_prefix = "{{ error_output_prefix }}"
+        kms_key_arn = "{{ kms_key_arn }}"
+        prefix = "{{ prefix }}"
+        role_arn = "{{ role_arn }}"
+        cloudwatch_logging_options {
+          enabled = {{ enabled }}
+          log_group_name = "{{ log_group_name }}"
+          log_stream_name = "{{ log_stream_name }}"
+        }
+      }
+      vpc_config {
+        role_arn = "{{ role_arn }}"
+        security_group_ids = ["{{ security_group_ids }}"]
+        subnet_ids = ["{{ subnet_ids }}"]
+      }
+    }
+    extended_s3_configuration {
+      bucket_arn = "{{ bucket_arn }}"
+      buffering_interval = {{ buffering_interval }}
+      buffering_size = {{ buffering_size }}
+      compression_format = "{{ compression_format }}"
+      custom_time_zone = "{{ custom_time_zone }}"
+      error_output_prefix = "{{ error_output_prefix }}"
+      file_extension = "{{ file_extension }}"
+      kms_key_arn = "{{ kms_key_arn }}"
+      prefix = "{{ prefix }}"
+      role_arn = "{{ role_arn }}"
+      s3_backup_mode = "{{ s3_backup_mode }}"
+      cloudwatch_logging_options {
+        enabled = {{ enabled }}
+        log_group_name = "{{ log_group_name }}"
+        log_stream_name = "{{ log_stream_name }}"
+      }
+      data_format_conversion_configuration {
+        enabled = {{ enabled }}
+        input_format_configuration {
+          deserializer {
+            hive_json_ser_de {
+              timestamp_formats = ["{{ timestamp_formats }}"]
+            }
+            open_x_json_ser_de {
+              case_insensitive = {{ case_insensitive }}
+              column_to_json_key_mappings = {
+        key = "{{ column_to_json_key_mappings_value }}"
+      }
+              convert_dots_in_json_keys_to_underscores = {{ convert_dots_in_json_keys_to_underscores }}
+            }
+          }
+        }
+        output_format_configuration {
+          serializer {
+            orc_ser_de {
+              block_size_bytes = {{ block_size_bytes }}
+              bloom_filter_columns = ["{{ bloom_filter_columns }}"]
+              bloom_filter_false_positive_probability = {{ bloom_filter_false_positive_probability }}
+              compression = "{{ compression }}"
+              dictionary_key_threshold = {{ dictionary_key_threshold }}
+              enable_padding = {{ enable_padding }}
+              format_version = "{{ format_version }}"
+              padding_tolerance = {{ padding_tolerance }}
+              row_index_stride = {{ row_index_stride }}
+              stripe_size_bytes = {{ stripe_size_bytes }}
+            }
+            parquet_ser_de {
+              block_size_bytes = {{ block_size_bytes }}
+              compression = "{{ compression }}"
+              enable_dictionary_compression = {{ enable_dictionary_compression }}
+              max_padding_bytes = {{ max_padding_bytes }}
+              page_size_bytes = {{ page_size_bytes }}
+              writer_version = "{{ writer_version }}"
+            }
+          }
+        }
+        schema_configuration {
+          catalog_id = "{{ catalog_id }}"
+          database_name = "{{ database_name }}"
+          region = "{{ region }}"
+          role_arn = "{{ role_arn }}"
+          table_name = "{{ table_name }}"
+          version_id = "{{ version_id }}"
+        }
+      }
+      dynamic_partitioning_configuration {
+        enabled = {{ enabled }}
+        retry_duration = {{ retry_duration }}
+      }
+      processing_configuration {
+        enabled = {{ enabled }}
+        processors {
+          type = "{{ type }}"
+          parameters {
+            parameter_name = "{{ parameter_name }}"
+            parameter_value = "{{ parameter_value }}"
+          }
+        }
+      }
+      s3_backup_configuration {
+        bucket_arn = "{{ bucket_arn }}"
+        buffering_interval = {{ buffering_interval }}
+        buffering_size = {{ buffering_size }}
+        compression_format = "{{ compression_format }}"
+        error_output_prefix = "{{ error_output_prefix }}"
+        kms_key_arn = "{{ kms_key_arn }}"
+        prefix = "{{ prefix }}"
+        role_arn = "{{ role_arn }}"
+        cloudwatch_logging_options {
+          enabled = {{ enabled }}
+          log_group_name = "{{ log_group_name }}"
+          log_stream_name = "{{ log_stream_name }}"
+        }
+      }
+    }
+    http_endpoint_configuration {
+      access_key = "{{ access_key }}"
+      buffering_interval = {{ buffering_interval }}
+      buffering_size = {{ buffering_size }}
+      name = "{{ name }}"
+      retry_duration = {{ retry_duration }}
+      role_arn = "{{ role_arn }}"
+      s3_backup_mode = "{{ s3_backup_mode }}"
+      url = "{{ url }}"
+      cloudwatch_logging_options {
+        enabled = {{ enabled }}
+        log_group_name = "{{ log_group_name }}"
+        log_stream_name = "{{ log_stream_name }}"
+      }
+      processing_configuration {
+        enabled = {{ enabled }}
+        processors {
+          type = "{{ type }}"
+          parameters {
+            parameter_name = "{{ parameter_name }}"
+            parameter_value = "{{ parameter_value }}"
+          }
+        }
+      }
+      request_configuration {
+        content_encoding = "{{ content_encoding }}"
+        common_attributes {
+          name = "{{ name }}"
+          value = "{{ value }}"
+        }
+      }
+      s3_configuration {
+        bucket_arn = "{{ bucket_arn }}"
+        buffering_interval = {{ buffering_interval }}
+        buffering_size = {{ buffering_size }}
+        compression_format = "{{ compression_format }}"
+        error_output_prefix = "{{ error_output_prefix }}"
+        kms_key_arn = "{{ kms_key_arn }}"
+        prefix = "{{ prefix }}"
+        role_arn = "{{ role_arn }}"
+        cloudwatch_logging_options {
+          enabled = {{ enabled }}
+          log_group_name = "{{ log_group_name }}"
+          log_stream_name = "{{ log_stream_name }}"
+        }
+      }
+      secrets_manager_configuration {
+        enabled = {{ enabled }}
+        role_arn = "{{ role_arn }}"
+        secret_arn = "{{ secret_arn }}"
+      }
+    }
+    iceberg_configuration {
+      append_only = {{ append_only }}
+      buffering_interval = {{ buffering_interval }}
+      buffering_size = {{ buffering_size }}
+      catalog_arn = "{{ catalog_arn }}"
+      retry_duration = {{ retry_duration }}
+      role_arn = "{{ role_arn }}"
+      s3_backup_mode = "{{ s3_backup_mode }}"
+      cloudwatch_logging_options {
+        enabled = {{ enabled }}
+        log_group_name = "{{ log_group_name }}"
+        log_stream_name = "{{ log_stream_name }}"
+      }
+      destination_table_configuration {
+        database_name = "{{ database_name }}"
+        s3_error_output_prefix = "{{ s3_error_output_prefix }}"
+        table_name = "{{ table_name }}"
+        unique_keys = ["{{ unique_keys }}"]
+      }
+      processing_configuration {
+        enabled = {{ enabled }}
+        processors {
+          type = "{{ type }}"
+          parameters {
+            parameter_name = "{{ parameter_name }}"
+            parameter_value = "{{ parameter_value }}"
+          }
+        }
+      }
+      s3_configuration {
+        bucket_arn = "{{ bucket_arn }}"
+        buffering_interval = {{ buffering_interval }}
+        buffering_size = {{ buffering_size }}
+        compression_format = "{{ compression_format }}"
+        error_output_prefix = "{{ error_output_prefix }}"
+        kms_key_arn = "{{ kms_key_arn }}"
+        prefix = "{{ prefix }}"
+        role_arn = "{{ role_arn }}"
+        cloudwatch_logging_options {
+          enabled = {{ enabled }}
+          log_group_name = "{{ log_group_name }}"
+          log_stream_name = "{{ log_stream_name }}"
+        }
+      }
+    }
+    kinesis_source_configuration {
+      kinesis_stream_arn = "{{ kinesis_stream_arn }}"
+      role_arn = "{{ role_arn }}"
+    }
+    msk_source_configuration {
+      msk_cluster_arn = "{{ msk_cluster_arn }}"
+      read_from_timestamp = "{{ read_from_timestamp }}"
+      topic_name = "{{ topic_name }}"
+      authentication_configuration {
+        connectivity = "{{ connectivity }}"
+        role_arn = "{{ role_arn }}"
+      }
+    }
+    opensearch_configuration {
+      buffering_interval = {{ buffering_interval }}
+      buffering_size = {{ buffering_size }}
+      cluster_endpoint = "{{ cluster_endpoint }}"
+      domain_arn = "{{ domain_arn }}"
+      index_name = "{{ index_name }}"
+      index_rotation_period = "{{ index_rotation_period }}"
+      retry_duration = {{ retry_duration }}
+      role_arn = "{{ role_arn }}"
+      s3_backup_mode = "{{ s3_backup_mode }}"
+      type_name = "{{ type_name }}"
+      cloudwatch_logging_options {
+        enabled = {{ enabled }}
+        log_group_name = "{{ log_group_name }}"
+        log_stream_name = "{{ log_stream_name }}"
+      }
+      document_id_options {
+        default_document_id_format = "{{ default_document_id_format }}"
+      }
+      processing_configuration {
+        enabled = {{ enabled }}
+        processors {
+          type = "{{ type }}"
+          parameters {
+            parameter_name = "{{ parameter_name }}"
+            parameter_value = "{{ parameter_value }}"
+          }
+        }
+      }
+      s3_configuration {
+        bucket_arn = "{{ bucket_arn }}"
+        buffering_interval = {{ buffering_interval }}
+        buffering_size = {{ buffering_size }}
+        compression_format = "{{ compression_format }}"
+        error_output_prefix = "{{ error_output_prefix }}"
+        kms_key_arn = "{{ kms_key_arn }}"
+        prefix = "{{ prefix }}"
+        role_arn = "{{ role_arn }}"
+        cloudwatch_logging_options {
+          enabled = {{ enabled }}
+          log_group_name = "{{ log_group_name }}"
+          log_stream_name = "{{ log_stream_name }}"
+        }
+      }
+      vpc_config {
+        role_arn = "{{ role_arn }}"
+        security_group_ids = ["{{ security_group_ids }}"]
+        subnet_ids = ["{{ subnet_ids }}"]
+      }
+    }
+    opensearchserverless_configuration {
+      buffering_interval = {{ buffering_interval }}
+      buffering_size = {{ buffering_size }}
+      collection_endpoint = "{{ collection_endpoint }}"
+      index_name = "{{ index_name }}"
+      retry_duration = {{ retry_duration }}
+      role_arn = "{{ role_arn }}"
+      s3_backup_mode = "{{ s3_backup_mode }}"
+      cloudwatch_logging_options {
+        enabled = {{ enabled }}
+        log_group_name = "{{ log_group_name }}"
+        log_stream_name = "{{ log_stream_name }}"
+      }
+      processing_configuration {
+        enabled = {{ enabled }}
+        processors {
+          type = "{{ type }}"
+          parameters {
+            parameter_name = "{{ parameter_name }}"
+            parameter_value = "{{ parameter_value }}"
+          }
+        }
+      }
+      s3_configuration {
+        bucket_arn = "{{ bucket_arn }}"
+        buffering_interval = {{ buffering_interval }}
+        buffering_size = {{ buffering_size }}
+        compression_format = "{{ compression_format }}"
+        error_output_prefix = "{{ error_output_prefix }}"
+        kms_key_arn = "{{ kms_key_arn }}"
+        prefix = "{{ prefix }}"
+        role_arn = "{{ role_arn }}"
+        cloudwatch_logging_options {
+          enabled = {{ enabled }}
+          log_group_name = "{{ log_group_name }}"
+          log_stream_name = "{{ log_stream_name }}"
+        }
+      }
+      vpc_config {
+        role_arn = "{{ role_arn }}"
+        security_group_ids = ["{{ security_group_ids }}"]
+        subnet_ids = ["{{ subnet_ids }}"]
+      }
+    }
+    redshift_configuration {
+      cluster_jdbcurl = "{{ cluster_jdbcurl }}"
+      copy_options = "{{ copy_options }}"
+      data_table_columns = "{{ data_table_columns }}"
+      data_table_name = "{{ data_table_name }}"
+      password = "{{ password }}"
+      retry_duration = {{ retry_duration }}
+      role_arn = "{{ role_arn }}"
+      s3_backup_mode = "{{ s3_backup_mode }}"
+      username = "{{ username }}"
+      cloudwatch_logging_options {
+        enabled = {{ enabled }}
+        log_group_name = "{{ log_group_name }}"
+        log_stream_name = "{{ log_stream_name }}"
+      }
+      processing_configuration {
+        enabled = {{ enabled }}
+        processors {
+          type = "{{ type }}"
+          parameters {
+            parameter_name = "{{ parameter_name }}"
+            parameter_value = "{{ parameter_value }}"
+          }
+        }
+      }
+      s3_backup_configuration {
+        bucket_arn = "{{ bucket_arn }}"
+        buffering_interval = {{ buffering_interval }}
+        buffering_size = {{ buffering_size }}
+        compression_format = "{{ compression_format }}"
+        error_output_prefix = "{{ error_output_prefix }}"
+        kms_key_arn = "{{ kms_key_arn }}"
+        prefix = "{{ prefix }}"
+        role_arn = "{{ role_arn }}"
+        cloudwatch_logging_options {
+          enabled = {{ enabled }}
+          log_group_name = "{{ log_group_name }}"
+          log_stream_name = "{{ log_stream_name }}"
+        }
+      }
+      s3_configuration {
+        bucket_arn = "{{ bucket_arn }}"
+        buffering_interval = {{ buffering_interval }}
+        buffering_size = {{ buffering_size }}
+        compression_format = "{{ compression_format }}"
+        error_output_prefix = "{{ error_output_prefix }}"
+        kms_key_arn = "{{ kms_key_arn }}"
+        prefix = "{{ prefix }}"
+        role_arn = "{{ role_arn }}"
+        cloudwatch_logging_options {
+          enabled = {{ enabled }}
+          log_group_name = "{{ log_group_name }}"
+          log_stream_name = "{{ log_stream_name }}"
+        }
+      }
+      secrets_manager_configuration {
+        enabled = {{ enabled }}
+        role_arn = "{{ role_arn }}"
+        secret_arn = "{{ secret_arn }}"
+      }
+    }
+    server_side_encryption {
+      enabled = {{ enabled }}
+      key_arn = "{{ key_arn }}"
+      key_type = "{{ key_type }}"
+    }
+    snowflake_configuration {
+      account_url = "{{ account_url }}"
+      buffering_interval = {{ buffering_interval }}
+      buffering_size = {{ buffering_size }}
+      content_column_name = "{{ content_column_name }}"
+      data_loading_option = "{{ data_loading_option }}"
+      database = "{{ database }}"
+      key_passphrase = "{{ key_passphrase }}"
+      metadata_column_name = "{{ metadata_column_name }}"
+      private_key = "{{ private_key }}"
+      retry_duration = {{ retry_duration }}
+      role_arn = "{{ role_arn }}"
+      s3_backup_mode = "{{ s3_backup_mode }}"
+      schema = "{{ schema }}"
+      table = "{{ table }}"
+      user = "{{ user }}"
+      cloudwatch_logging_options {
+        enabled = {{ enabled }}
+        log_group_name = "{{ log_group_name }}"
+        log_stream_name = "{{ log_stream_name }}"
+      }
+      processing_configuration {
+        enabled = {{ enabled }}
+        processors {
+          type = "{{ type }}"
+          parameters {
+            parameter_name = "{{ parameter_name }}"
+            parameter_value = "{{ parameter_value }}"
+          }
+        }
+      }
+      s3_configuration {
+        bucket_arn = "{{ bucket_arn }}"
+        buffering_interval = {{ buffering_interval }}
+        buffering_size = {{ buffering_size }}
+        compression_format = "{{ compression_format }}"
+        error_output_prefix = "{{ error_output_prefix }}"
+        kms_key_arn = "{{ kms_key_arn }}"
+        prefix = "{{ prefix }}"
+        role_arn = "{{ role_arn }}"
+        cloudwatch_logging_options {
+          enabled = {{ enabled }}
+          log_group_name = "{{ log_group_name }}"
+          log_stream_name = "{{ log_stream_name }}"
+        }
+      }
+      secrets_manager_configuration {
+        enabled = {{ enabled }}
+        role_arn = "{{ role_arn }}"
+        secret_arn = "{{ secret_arn }}"
+      }
+      snowflake_role_configuration {
+        enabled = {{ enabled }}
+        snowflake_role = "{{ snowflake_role }}"
+      }
+      snowflake_vpc_configuration {
+        private_link_vpce_id = "{{ private_link_vpce_id }}"
+      }
+    }
+    splunk_configuration {
+      buffering_interval = {{ buffering_interval }}
+      buffering_size = {{ buffering_size }}
+      hec_acknowledgment_timeout = {{ hec_acknowledgment_timeout }}
+      hec_endpoint = "{{ hec_endpoint }}"
+      hec_endpoint_type = "{{ hec_endpoint_type }}"
+      hec_token = "{{ hec_token }}"
+      retry_duration = {{ retry_duration }}
+      s3_backup_mode = "{{ s3_backup_mode }}"
+      cloudwatch_logging_options {
+        enabled = {{ enabled }}
+        log_group_name = "{{ log_group_name }}"
+        log_stream_name = "{{ log_stream_name }}"
+      }
+      processing_configuration {
+        enabled = {{ enabled }}
+        processors {
+          type = "{{ type }}"
+          parameters {
+            parameter_name = "{{ parameter_name }}"
+            parameter_value = "{{ parameter_value }}"
+          }
+        }
+      }
+      s3_configuration {
+        bucket_arn = "{{ bucket_arn }}"
+        buffering_interval = {{ buffering_interval }}
+        buffering_size = {{ buffering_size }}
+        compression_format = "{{ compression_format }}"
+        error_output_prefix = "{{ error_output_prefix }}"
+        kms_key_arn = "{{ kms_key_arn }}"
+        prefix = "{{ prefix }}"
+        role_arn = "{{ role_arn }}"
+        cloudwatch_logging_options {
+          enabled = {{ enabled }}
+          log_group_name = "{{ log_group_name }}"
+          log_stream_name = "{{ log_stream_name }}"
+        }
+      }
+      secrets_manager_configuration {
+        enabled = {{ enabled }}
+        role_arn = "{{ role_arn }}"
+        secret_arn = "{{ secret_arn }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,8 +1,11 @@
 resource "aws_codeguruprofiler_profiling_group" "example" {
-    arn = "{{ arn }}"
     compute_platform = "{{ compute_platform }}"
-    id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    agent_orchestration_config {
+      profiling_enabled = {{ profiling_enabled }}
+    }
 }

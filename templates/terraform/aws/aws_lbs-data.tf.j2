@@ -1,5 +1,7 @@
 data "aws_lbs" "example" {
-    arns = "{{ arns }}"
     id = "{{ id }}"
-    tags = "{{ tags }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
 }

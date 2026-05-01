@@ -1,0 +1,34 @@
+resource "google_discovery_engine_assistant" "example" {
+    assistant_id = "{{ assistant_id }}"
+    collection_id = "{{ collection_id }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    engine_id = "{{ engine_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    web_grounding_type = "{{ web_grounding_type }}"
+    customer_policy {
+      banned_phrases {
+        ignore_diacritics = {{ ignore_diacritics }}
+        match_type = "{{ match_type }}"
+        phrase = "{{ phrase }}"
+      }
+      model_armor_config {
+        failure_mode = "{{ failure_mode }}"
+        response_template = "{{ response_template }}"
+        user_prompt_template = "{{ user_prompt_template }}"
+      }
+    }
+    generation_config {
+      default_language = "{{ default_language }}"
+      system_instruction {
+        additional_system_instruction = "{{ additional_system_instruction }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

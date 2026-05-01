@@ -1,4 +1,10 @@
 resource "azurerm_security_center_auto_provisioning" "example" {
     auto_provision = "{{ auto_provision }}"
     id = "{{ id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

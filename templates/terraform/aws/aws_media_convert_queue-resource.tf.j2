@@ -1,10 +1,20 @@
 resource "aws_media_convert_queue" "example" {
-    arn = "{{ arn }}"
+    concurrent_jobs = {{ concurrent_jobs }}
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
     pricing_plan = "{{ pricing_plan }}"
+    region = "{{ region }}"
     status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    reservation_plan_settings {
+      commitment = "{{ commitment }}"
+      renewal_type = "{{ renewal_type }}"
+      reserved_slots = {{ reserved_slots }}
+    }
 }

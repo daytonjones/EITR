@@ -1,5 +1,14 @@
 data "aws_ec2_coip_pools" "example" {
     id = "{{ id }}"
-    pool_ids = "{{ pool_ids }}"
-    tags = "{{ tags }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
+    timeouts {
+      read = "{{ read }}"
+    }
 }

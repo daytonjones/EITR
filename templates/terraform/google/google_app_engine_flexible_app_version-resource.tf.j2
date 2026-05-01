@@ -1,14 +1,17 @@
 resource "google_app_engine_flexible_app_version" "example" {
-    beta_settings = "{{ beta_settings }}"
+    beta_settings = {
+        key = "{{ beta_settings_value }}"
+      }
     default_expiration = "{{ default_expiration }}"
-    delete_service_on_destroy = "{{ delete_service_on_destroy }}"
-    env_variables = "{{ env_variables }}"
+    delete_service_on_destroy = {{ delete_service_on_destroy }}
+    env_variables = {
+        key = "{{ env_variables_value }}"
+      }
     id = "{{ id }}"
-    inbound_services = "{{ inbound_services }}"
+    inbound_services = ["{{ inbound_services }}"]
     instance_class = "{{ instance_class }}"
-    name = "{{ name }}"
     nobuild_files_regex = "{{ nobuild_files_regex }}"
-    noop_on_destroy = "{{ noop_on_destroy }}"
+    noop_on_destroy = {{ noop_on_destroy }}
     project = "{{ project }}"
     runtime = "{{ runtime }}"
     runtime_api_version = "{{ runtime_api_version }}"
@@ -18,4 +21,139 @@ resource "google_app_engine_flexible_app_version" "example" {
     service_account = "{{ service_account }}"
     serving_status = "{{ serving_status }}"
     version_id = "{{ version_id }}"
+    api_config {
+      auth_fail_action = "{{ auth_fail_action }}"
+      login = "{{ login }}"
+      script = "{{ script }}"
+      security_level = "{{ security_level }}"
+      url = "{{ url }}"
+    }
+    automatic_scaling {
+      cool_down_period = "{{ cool_down_period }}"
+      max_concurrent_requests = {{ max_concurrent_requests }}
+      max_idle_instances = {{ max_idle_instances }}
+      max_pending_latency = "{{ max_pending_latency }}"
+      max_total_instances = {{ max_total_instances }}
+      min_idle_instances = {{ min_idle_instances }}
+      min_pending_latency = "{{ min_pending_latency }}"
+      min_total_instances = {{ min_total_instances }}
+      cpu_utilization {
+        aggregation_window_length = "{{ aggregation_window_length }}"
+        target_utilization = {{ target_utilization }}
+      }
+      disk_utilization {
+        target_read_bytes_per_second = {{ target_read_bytes_per_second }}
+        target_read_ops_per_second = {{ target_read_ops_per_second }}
+        target_write_bytes_per_second = {{ target_write_bytes_per_second }}
+        target_write_ops_per_second = {{ target_write_ops_per_second }}
+      }
+      network_utilization {
+        target_received_bytes_per_second = {{ target_received_bytes_per_second }}
+        target_received_packets_per_second = {{ target_received_packets_per_second }}
+        target_sent_bytes_per_second = {{ target_sent_bytes_per_second }}
+        target_sent_packets_per_second = {{ target_sent_packets_per_second }}
+      }
+      request_utilization {
+        target_concurrent_requests = {{ target_concurrent_requests }}
+        target_request_count_per_second = "{{ target_request_count_per_second }}"
+      }
+    }
+    deployment {
+      cloud_build_options {
+        app_yaml_path = "{{ app_yaml_path }}"
+        cloud_build_timeout = "{{ cloud_build_timeout }}"
+      }
+      container {
+        image = "{{ image }}"
+      }
+      files {
+        name = "{{ name }}"
+        sha1_sum = "{{ sha1_sum }}"
+        source_url = "{{ source_url }}"
+      }
+      zip {
+        files_count = {{ files_count }}
+        source_url = "{{ source_url }}"
+      }
+    }
+    endpoints_api_service {
+      config_id = "{{ config_id }}"
+      disable_trace_sampling = {{ disable_trace_sampling }}
+      name = "{{ name }}"
+      rollout_strategy = "{{ rollout_strategy }}"
+    }
+    entrypoint {
+      shell = "{{ shell }}"
+    }
+    flexible_runtime_settings {
+      operating_system = "{{ operating_system }}"
+      runtime_version = "{{ runtime_version }}"
+    }
+    handlers {
+      auth_fail_action = "{{ auth_fail_action }}"
+      login = "{{ login }}"
+      redirect_http_response_code = "{{ redirect_http_response_code }}"
+      security_level = "{{ security_level }}"
+      url_regex = "{{ url_regex }}"
+      script {
+        script_path = "{{ script_path }}"
+      }
+      static_files {
+        application_readable = {{ application_readable }}
+        expiration = "{{ expiration }}"
+        http_headers = {
+        key = "{{ http_headers_value }}"
+      }
+        mime_type = "{{ mime_type }}"
+        path = "{{ path }}"
+        require_matching_file = {{ require_matching_file }}
+        upload_path_regex = "{{ upload_path_regex }}"
+      }
+    }
+    liveness_check {
+      check_interval = "{{ check_interval }}"
+      failure_threshold = {{ failure_threshold }}
+      host = "{{ host }}"
+      initial_delay = "{{ initial_delay }}"
+      path = "{{ path }}"
+      success_threshold = {{ success_threshold }}
+      timeout = "{{ timeout }}"
+    }
+    manual_scaling {
+      instances = {{ instances }}
+    }
+    network {
+      forwarded_ports = ["{{ forwarded_ports }}"]
+      instance_tag = "{{ instance_tag }}"
+      name = "{{ name }}"
+      session_affinity = {{ session_affinity }}
+      subnetwork = "{{ subnetwork }}"
+    }
+    readiness_check {
+      app_start_timeout = "{{ app_start_timeout }}"
+      check_interval = "{{ check_interval }}"
+      failure_threshold = {{ failure_threshold }}
+      host = "{{ host }}"
+      path = "{{ path }}"
+      success_threshold = {{ success_threshold }}
+      timeout = "{{ timeout }}"
+    }
+    resources {
+      cpu = {{ cpu }}
+      disk_gb = {{ disk_gb }}
+      memory_gb = {{ memory_gb }}
+      volumes {
+        name = "{{ name }}"
+        size_gb = {{ size_gb }}
+        volume_type = "{{ volume_type }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    vpc_access_connector {
+      name = "{{ name }}"
+    }
 }

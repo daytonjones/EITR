@@ -5,7 +5,23 @@ resource "azurerm_logic_app_integration_account_agreement" "example" {
     host_partner_name = "{{ host_partner_name }}"
     id = "{{ id }}"
     integration_account_name = "{{ integration_account_name }}"
-    metadata = "{{ metadata }}"
+    metadata = {
+        key = "{{ metadata_value }}"
+      }
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
+    guest_identity {
+      qualifier = "{{ qualifier }}"
+      value = "{{ value }}"
+    }
+    host_identity {
+      qualifier = "{{ qualifier }}"
+      value = "{{ value }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

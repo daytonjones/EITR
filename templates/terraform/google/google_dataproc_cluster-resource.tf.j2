@@ -1,10 +1,249 @@
 resource "google_dataproc_cluster" "example" {
-    effective_labels = "{{ effective_labels }}"
     graceful_decommission_timeout = "{{ graceful_decommission_timeout }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
     project = "{{ project }}"
     region = "{{ region }}"
-    terraform_labels = "{{ terraform_labels }}"
+    cluster_config {
+      cluster_tier = "{{ cluster_tier }}"
+      cluster_type = "{{ cluster_type }}"
+      engine = "{{ engine }}"
+      staging_bucket = "{{ staging_bucket }}"
+      temp_bucket = "{{ temp_bucket }}"
+      autoscaling_config {
+        policy_uri = "{{ policy_uri }}"
+      }
+      auxiliary_node_groups {
+        node_group_id = "{{ node_group_id }}"
+        node_group {
+          roles = ["{{ roles }}"]
+          node_group_config {
+            machine_type = "{{ machine_type }}"
+            min_cpu_platform = "{{ min_cpu_platform }}"
+            num_instances = {{ num_instances }}
+            accelerators {
+              accelerator_count = {{ accelerator_count }}
+              accelerator_type = "{{ accelerator_type }}"
+            }
+            disk_config {
+              boot_disk_provisioned_iops = {{ boot_disk_provisioned_iops }}
+              boot_disk_provisioned_throughput = {{ boot_disk_provisioned_throughput }}
+              boot_disk_size_gb = {{ boot_disk_size_gb }}
+              boot_disk_type = "{{ boot_disk_type }}"
+              local_ssd_interface = "{{ local_ssd_interface }}"
+              num_local_ssds = {{ num_local_ssds }}
+            }
+          }
+        }
+      }
+      dataproc_metric_config {
+        metrics {
+          metric_overrides = ["{{ metric_overrides }}"]
+          metric_source = "{{ metric_source }}"
+        }
+      }
+      encryption_config {
+        kms_key_name = "{{ kms_key_name }}"
+      }
+      endpoint_config {
+        enable_http_port_access = {{ enable_http_port_access }}
+      }
+      gce_cluster_config {
+        internal_ip_only = {{ internal_ip_only }}
+        metadata = {
+        key = "{{ metadata_value }}"
+      }
+        network = "{{ network }}"
+        resource_manager_tags = {
+        key = "{{ resource_manager_tags_value }}"
+      }
+        service_account = "{{ service_account }}"
+        service_account_scopes = ["{{ service_account_scopes }}"]
+        subnetwork = "{{ subnetwork }}"
+        tags = ["{{ tags }}"]
+        zone = "{{ zone }}"
+        confidential_instance_config {
+          enable_confidential_compute = {{ enable_confidential_compute }}
+        }
+        node_group_affinity {
+          node_group_uri = "{{ node_group_uri }}"
+        }
+        reservation_affinity {
+          consume_reservation_type = "{{ consume_reservation_type }}"
+          key = "{{ key }}"
+          values = ["{{ values }}"]
+        }
+        shielded_instance_config {
+          enable_integrity_monitoring = {{ enable_integrity_monitoring }}
+          enable_secure_boot = {{ enable_secure_boot }}
+          enable_vtpm = {{ enable_vtpm }}
+        }
+      }
+      initialization_action {
+        script = "{{ script }}"
+        timeout_sec = {{ timeout_sec }}
+      }
+      lifecycle_config {
+        auto_delete_time = "{{ auto_delete_time }}"
+        auto_stop_time = "{{ auto_stop_time }}"
+        idle_delete_ttl = "{{ idle_delete_ttl }}"
+        idle_stop_ttl = "{{ idle_stop_ttl }}"
+      }
+      master_config {
+        image_uri = "{{ image_uri }}"
+        machine_type = "{{ machine_type }}"
+        min_cpu_platform = "{{ min_cpu_platform }}"
+        num_instances = {{ num_instances }}
+        accelerators {
+          accelerator_count = {{ accelerator_count }}
+          accelerator_type = "{{ accelerator_type }}"
+        }
+        disk_config {
+          boot_disk_provisioned_iops = {{ boot_disk_provisioned_iops }}
+          boot_disk_provisioned_throughput = {{ boot_disk_provisioned_throughput }}
+          boot_disk_size_gb = {{ boot_disk_size_gb }}
+          boot_disk_type = "{{ boot_disk_type }}"
+          local_ssd_interface = "{{ local_ssd_interface }}"
+          num_local_ssds = {{ num_local_ssds }}
+        }
+        instance_flexibility_policy {
+          instance_selection_list {
+            machine_types = ["{{ machine_types }}"]
+            rank = {{ rank }}
+          }
+        }
+      }
+      metastore_config {
+        dataproc_metastore_service = "{{ dataproc_metastore_service }}"
+      }
+      preemptible_worker_config {
+        num_instances = {{ num_instances }}
+        preemptibility = "{{ preemptibility }}"
+        disk_config {
+          boot_disk_provisioned_iops = {{ boot_disk_provisioned_iops }}
+          boot_disk_provisioned_throughput = {{ boot_disk_provisioned_throughput }}
+          boot_disk_size_gb = {{ boot_disk_size_gb }}
+          boot_disk_type = "{{ boot_disk_type }}"
+          local_ssd_interface = "{{ local_ssd_interface }}"
+          num_local_ssds = {{ num_local_ssds }}
+        }
+        instance_flexibility_policy {
+          instance_selection_list {
+            machine_types = ["{{ machine_types }}"]
+            rank = {{ rank }}
+          }
+          provisioning_model_mix {
+            standard_capacity_base = {{ standard_capacity_base }}
+            standard_capacity_percent_above_base = {{ standard_capacity_percent_above_base }}
+          }
+        }
+      }
+      security_config {
+        identity_config {
+          user_service_account_mapping = {
+        key = "{{ user_service_account_mapping_value }}"
+      }
+        }
+        kerberos_config {
+          cross_realm_trust_admin_server = "{{ cross_realm_trust_admin_server }}"
+          cross_realm_trust_kdc = "{{ cross_realm_trust_kdc }}"
+          cross_realm_trust_realm = "{{ cross_realm_trust_realm }}"
+          cross_realm_trust_shared_password_uri = "{{ cross_realm_trust_shared_password_uri }}"
+          enable_kerberos = {{ enable_kerberos }}
+          kdc_db_key_uri = "{{ kdc_db_key_uri }}"
+          key_password_uri = "{{ key_password_uri }}"
+          keystore_password_uri = "{{ keystore_password_uri }}"
+          keystore_uri = "{{ keystore_uri }}"
+          kms_key_uri = "{{ kms_key_uri }}"
+          realm = "{{ realm }}"
+          root_principal_password_uri = "{{ root_principal_password_uri }}"
+          tgt_lifetime_hours = {{ tgt_lifetime_hours }}
+          truststore_password_uri = "{{ truststore_password_uri }}"
+          truststore_uri = "{{ truststore_uri }}"
+        }
+      }
+      software_config {
+        image_version = "{{ image_version }}"
+        optional_components = ["{{ optional_components }}"]
+        override_properties = {
+        key = "{{ override_properties_value }}"
+      }
+      }
+      worker_config {
+        image_uri = "{{ image_uri }}"
+        machine_type = "{{ machine_type }}"
+        min_cpu_platform = "{{ min_cpu_platform }}"
+        min_num_instances = {{ min_num_instances }}
+        num_instances = {{ num_instances }}
+        accelerators {
+          accelerator_count = {{ accelerator_count }}
+          accelerator_type = "{{ accelerator_type }}"
+        }
+        disk_config {
+          boot_disk_provisioned_iops = {{ boot_disk_provisioned_iops }}
+          boot_disk_provisioned_throughput = {{ boot_disk_provisioned_throughput }}
+          boot_disk_size_gb = {{ boot_disk_size_gb }}
+          boot_disk_type = "{{ boot_disk_type }}"
+          local_ssd_interface = "{{ local_ssd_interface }}"
+          num_local_ssds = {{ num_local_ssds }}
+        }
+        instance_flexibility_policy {
+          instance_selection_list {
+            machine_types = ["{{ machine_types }}"]
+            rank = {{ rank }}
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    virtual_cluster_config {
+      staging_bucket = "{{ staging_bucket }}"
+      auxiliary_services_config {
+        metastore_config {
+          dataproc_metastore_service = "{{ dataproc_metastore_service }}"
+        }
+        spark_history_server_config {
+          dataproc_cluster = "{{ dataproc_cluster }}"
+        }
+      }
+      kubernetes_cluster_config {
+        kubernetes_namespace = "{{ kubernetes_namespace }}"
+        gke_cluster_config {
+          gke_cluster_target = "{{ gke_cluster_target }}"
+          node_pool_target {
+            node_pool = "{{ node_pool }}"
+            roles = ["{{ roles }}"]
+            node_pool_config {
+              locations = ["{{ locations }}"]
+              autoscaling {
+                max_node_count = {{ max_node_count }}
+                min_node_count = {{ min_node_count }}
+              }
+              config {
+                local_ssd_count = {{ local_ssd_count }}
+                machine_type = "{{ machine_type }}"
+                min_cpu_platform = "{{ min_cpu_platform }}"
+                preemptible = {{ preemptible }}
+                spot = {{ spot }}
+              }
+            }
+          }
+        }
+        kubernetes_software_config {
+          component_version = {
+        key = "{{ component_version_value }}"
+      }
+          properties = {
+        key = "{{ properties_value }}"
+      }
+        }
+      }
+    }
 }

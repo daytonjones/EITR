@@ -2,6 +2,7 @@ resource "aws_pinpoint_adm_channel" "example" {
     application_id = "{{ application_id }}"
     client_id = "{{ client_id }}"
     client_secret = "{{ client_secret }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
+    region = "{{ region }}"
 }

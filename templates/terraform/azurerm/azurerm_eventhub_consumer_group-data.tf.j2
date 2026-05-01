@@ -4,5 +4,7 @@ data "azurerm_eventhub_consumer_group" "example" {
     name = "{{ name }}"
     namespace_name = "{{ namespace_name }}"
     resource_group_name = "{{ resource_group_name }}"
-    user_metadata = "{{ user_metadata }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

@@ -5,4 +5,23 @@ resource "google_spanner_backup_schedule" "example" {
     name = "{{ name }}"
     project = "{{ project }}"
     retention_duration = "{{ retention_duration }}"
+    encryption_config {
+      encryption_type = "{{ encryption_type }}"
+      kms_key_name = "{{ kms_key_name }}"
+      kms_key_names = ["{{ kms_key_names }}"]
+    }
+    full_backup_spec {
+    }
+    incremental_backup_spec {
+    }
+    spec {
+      cron_spec {
+        text = "{{ text }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

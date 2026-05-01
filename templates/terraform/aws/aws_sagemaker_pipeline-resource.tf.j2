@@ -1,11 +1,23 @@
 resource "aws_sagemaker_pipeline" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     pipeline_definition = "{{ pipeline_definition }}"
     pipeline_description = "{{ pipeline_description }}"
     pipeline_display_name = "{{ pipeline_display_name }}"
     pipeline_name = "{{ pipeline_name }}"
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    parallelism_configuration {
+      max_parallel_execution_steps = {{ max_parallel_execution_steps }}
+    }
+    pipeline_definition_s3_location {
+      bucket = "{{ bucket }}"
+      object_key = "{{ object_key }}"
+      version_id = "{{ version_id }}"
+    }
 }

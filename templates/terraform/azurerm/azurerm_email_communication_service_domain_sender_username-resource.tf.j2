@@ -1,0 +1,12 @@
+resource "azurerm_email_communication_service_domain_sender_username" "example" {
+    display_name = "{{ display_name }}"
+    email_service_domain_id = "{{ email_service_domain_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

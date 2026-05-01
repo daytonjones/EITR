@@ -1,19 +1,42 @@
 resource "azurerm_mongo_cluster" "example" {
     administrator_password = "{{ administrator_password }}"
     administrator_username = "{{ administrator_username }}"
+    authentication_methods = ["{{ authentication_methods }}"]
     compute_tier = "{{ compute_tier }}"
     create_mode = "{{ create_mode }}"
+    data_api_mode_enabled = {{ data_api_mode_enabled }}
     high_availability_mode = "{{ high_availability_mode }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    preview_features = "{{ preview_features }}"
+    preview_features = ["{{ preview_features }}"]
     public_network_access = "{{ public_network_access }}"
     resource_group_name = "{{ resource_group_name }}"
-    shard_count = "{{ shard_count }}"
+    shard_count = {{ shard_count }}
     source_location = "{{ source_location }}"
     source_server_id = "{{ source_server_id }}"
-    storage_size_in_gb = "{{ storage_size_in_gb }}"
-    tags = "{{ tags }}"
+    storage_size_in_gb = {{ storage_size_in_gb }}
+    storage_type = "{{ storage_type }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     version = "{{ version }}"
+    customer_managed_key {
+      key_vault_key_id = "{{ key_vault_key_id }}"
+      user_assigned_identity_id = "{{ user_assigned_identity_id }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    restore {
+      point_in_time_utc = "{{ point_in_time_utc }}"
+      source_id = "{{ source_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

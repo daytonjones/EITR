@@ -1,7 +1,46 @@
 resource "azurerm_backup_policy_file_share" "example" {
+    backup_tier = "{{ backup_tier }}"
     id = "{{ id }}"
     name = "{{ name }}"
     recovery_vault_name = "{{ recovery_vault_name }}"
     resource_group_name = "{{ resource_group_name }}"
+    snapshot_retention_in_days = {{ snapshot_retention_in_days }}
     timezone = "{{ timezone }}"
+    backup {
+      frequency = "{{ frequency }}"
+      time = "{{ time }}"
+      hourly {
+        interval = {{ interval }}
+        start_time = "{{ start_time }}"
+        window_duration = {{ window_duration }}
+      }
+    }
+    retention_daily {
+      count = {{ count }}
+    }
+    retention_monthly {
+      count = {{ count }}
+      days = ["{{ days }}"]
+      include_last_days = {{ include_last_days }}
+      weekdays = ["{{ weekdays }}"]
+      weeks = ["{{ weeks }}"]
+    }
+    retention_weekly {
+      count = {{ count }}
+      weekdays = ["{{ weekdays }}"]
+    }
+    retention_yearly {
+      count = {{ count }}
+      days = ["{{ days }}"]
+      include_last_days = {{ include_last_days }}
+      months = ["{{ months }}"]
+      weekdays = ["{{ weekdays }}"]
+      weeks = ["{{ weeks }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

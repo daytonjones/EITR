@@ -1,9 +1,102 @@
 resource "aws_sagemaker_model" "example" {
-    arn = "{{ arn }}"
-    enable_network_isolation = "{{ enable_network_isolation }}"
+    enable_network_isolation = {{ enable_network_isolation }}
     execution_role_arn = "{{ execution_role_arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    container {
+      container_hostname = "{{ container_hostname }}"
+      environment = {
+        key = "{{ environment_value }}"
+      }
+      image = "{{ image }}"
+      inference_specification_name = "{{ inference_specification_name }}"
+      mode = "{{ mode }}"
+      model_data_url = "{{ model_data_url }}"
+      model_package_name = "{{ model_package_name }}"
+      additional_model_data_source {
+        channel_name = "{{ channel_name }}"
+        s3_data_source {
+          compression_type = "{{ compression_type }}"
+          s3_data_type = "{{ s3_data_type }}"
+          s3_uri = "{{ s3_uri }}"
+          model_access_config {
+            accept_eula = {{ accept_eula }}
+          }
+        }
+      }
+      image_config {
+        repository_access_mode = "{{ repository_access_mode }}"
+        repository_auth_config {
+          repository_credentials_provider_arn = "{{ repository_credentials_provider_arn }}"
+        }
+      }
+      model_data_source {
+        s3_data_source {
+          compression_type = "{{ compression_type }}"
+          s3_data_type = "{{ s3_data_type }}"
+          s3_uri = "{{ s3_uri }}"
+          model_access_config {
+            accept_eula = {{ accept_eula }}
+          }
+        }
+      }
+      multi_model_config {
+        model_cache_setting = "{{ model_cache_setting }}"
+      }
+    }
+    inference_execution_config {
+      mode = "{{ mode }}"
+    }
+    primary_container {
+      container_hostname = "{{ container_hostname }}"
+      environment = {
+        key = "{{ environment_value }}"
+      }
+      image = "{{ image }}"
+      inference_specification_name = "{{ inference_specification_name }}"
+      mode = "{{ mode }}"
+      model_data_url = "{{ model_data_url }}"
+      model_package_name = "{{ model_package_name }}"
+      additional_model_data_source {
+        channel_name = "{{ channel_name }}"
+        s3_data_source {
+          compression_type = "{{ compression_type }}"
+          s3_data_type = "{{ s3_data_type }}"
+          s3_uri = "{{ s3_uri }}"
+          model_access_config {
+            accept_eula = {{ accept_eula }}
+          }
+        }
+      }
+      image_config {
+        repository_access_mode = "{{ repository_access_mode }}"
+        repository_auth_config {
+          repository_credentials_provider_arn = "{{ repository_credentials_provider_arn }}"
+        }
+      }
+      model_data_source {
+        s3_data_source {
+          compression_type = "{{ compression_type }}"
+          s3_data_type = "{{ s3_data_type }}"
+          s3_uri = "{{ s3_uri }}"
+          model_access_config {
+            accept_eula = {{ accept_eula }}
+          }
+        }
+      }
+      multi_model_config {
+        model_cache_setting = "{{ model_cache_setting }}"
+      }
+    }
+    vpc_config {
+      security_group_ids = ["{{ security_group_ids }}"]
+      subnets = ["{{ subnets }}"]
+    }
 }

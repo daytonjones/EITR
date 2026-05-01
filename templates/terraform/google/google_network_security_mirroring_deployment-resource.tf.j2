@@ -1,0 +1,17 @@
+resource "google_network_security_mirroring_deployment" "example" {
+    description = "{{ description }}"
+    forwarding_rule = "{{ forwarding_rule }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    mirroring_deployment_group = "{{ mirroring_deployment_group }}"
+    mirroring_deployment_id = "{{ mirroring_deployment_id }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

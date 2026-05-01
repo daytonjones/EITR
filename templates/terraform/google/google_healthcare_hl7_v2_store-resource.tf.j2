@@ -1,10 +1,27 @@
 resource "google_healthcare_hl7_v2_store" "example" {
     dataset = "{{ dataset }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
-    reject_duplicate_message = "{{ reject_duplicate_message }}"
-    self_link = "{{ self_link }}"
-    terraform_labels = "{{ terraform_labels }}"
+    reject_duplicate_message = {{ reject_duplicate_message }}
+    notification_config {
+      pubsub_topic = "{{ pubsub_topic }}"
+    }
+    notification_configs {
+      filter = "{{ filter }}"
+      pubsub_topic = "{{ pubsub_topic }}"
+    }
+    parser_config {
+      allow_null_header = {{ allow_null_header }}
+      schema = "{{ schema }}"
+      segment_terminator = "{{ segment_terminator }}"
+      version = "{{ version }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

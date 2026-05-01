@@ -1,12 +1,25 @@
 resource "google_netapp_backup_vault" "example" {
-    create_time = "{{ create_time }}"
+    backup_region = "{{ backup_region }}"
+    backup_vault_type = "{{ backup_vault_type }}"
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    kms_config = "{{ kms_config }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    state = "{{ state }}"
-    terraform_labels = "{{ terraform_labels }}"
+    backup_retention_policy {
+      backup_minimum_enforced_retention_days = {{ backup_minimum_enforced_retention_days }}
+      daily_backup_immutable = {{ daily_backup_immutable }}
+      manual_backup_immutable = {{ manual_backup_immutable }}
+      monthly_backup_immutable = {{ monthly_backup_immutable }}
+      weekly_backup_immutable = {{ weekly_backup_immutable }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,10 +1,16 @@
 resource "azurerm_user_assigned_identity" "example" {
-    client_id = "{{ client_id }}"
     id = "{{ id }}"
+    isolation_scope = "{{ isolation_scope }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    principal_id = "{{ principal_id }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
-    tenant_id = "{{ tenant_id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

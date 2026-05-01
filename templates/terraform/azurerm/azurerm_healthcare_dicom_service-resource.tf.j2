@@ -1,11 +1,33 @@
 resource "azurerm_healthcare_dicom_service" "example" {
-    authentication = "{{ authentication }}"
+    data_partitions_enabled = {{ data_partitions_enabled }}
+    encryption_key_url = "{{ encryption_key_url }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    private_endpoint = "{{ private_endpoint }}"
-    public_network_access_enabled = "{{ public_network_access_enabled }}"
-    service_url = "{{ service_url }}"
-    tags = "{{ tags }}"
+    public_network_access_enabled = {{ public_network_access_enabled }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
     workspace_id = "{{ workspace_id }}"
+    cors {
+      allow_credentials = {{ allow_credentials }}
+      allowed_headers = ["{{ allowed_headers }}"]
+      allowed_methods = ["{{ allowed_methods }}"]
+      allowed_origins = ["{{ allowed_origins }}"]
+      max_age_in_seconds = {{ max_age_in_seconds }}
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    storage {
+      file_system_name = "{{ file_system_name }}"
+      storage_account_id = "{{ storage_account_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

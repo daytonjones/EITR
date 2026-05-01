@@ -1,0 +1,15 @@
+resource "aws_ec2_secondary_subnet" "example" {
+    availability_zone = "{{ availability_zone }}"
+    availability_zone_id = "{{ availability_zone_id }}"
+    ipv4_cidr_block = "{{ ipv4_cidr_block }}"
+    region = "{{ region }}"
+    secondary_network_id = "{{ secondary_network_id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

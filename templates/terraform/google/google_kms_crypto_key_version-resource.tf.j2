@@ -1,10 +1,14 @@
 resource "google_kms_crypto_key_version" "example" {
-    algorithm = "{{ algorithm }}"
-    attestation = "{{ attestation }}"
     crypto_key = "{{ crypto_key }}"
-    generate_time = "{{ generate_time }}"
     id = "{{ id }}"
-    name = "{{ name }}"
-    protection_level = "{{ protection_level }}"
     state = "{{ state }}"
+    external_protection_level_options {
+      ekm_connection_key_path = "{{ ekm_connection_key_path }}"
+      external_key_uri = "{{ external_key_uri }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

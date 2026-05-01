@@ -2,7 +2,8 @@ resource "aws_pinpoint_gcm_channel" "example" {
     api_key = "{{ api_key }}"
     application_id = "{{ application_id }}"
     default_authentication_method = "{{ default_authentication_method }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
+    region = "{{ region }}"
     service_json = "{{ service_json }}"
 }

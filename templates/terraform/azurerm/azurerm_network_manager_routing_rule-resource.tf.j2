@@ -1,0 +1,20 @@
+resource "azurerm_network_manager_routing_rule" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    rule_collection_id = "{{ rule_collection_id }}"
+    destination {
+      address = "{{ address }}"
+      type = "{{ type }}"
+    }
+    next_hop {
+      address = "{{ address }}"
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

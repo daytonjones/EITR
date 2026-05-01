@@ -1,0 +1,16 @@
+resource "azurerm_application_load_balancer_security_policy" "example" {
+    application_load_balancer_id = "{{ application_load_balancer_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    web_application_firewall_policy_id = "{{ web_application_firewall_policy_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

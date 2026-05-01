@@ -1,0 +1,13 @@
+resource "google_ces_app_version" "example" {
+    app = "{{ app }}"
+    app_version_id = "{{ app_version_id }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

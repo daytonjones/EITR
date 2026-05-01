@@ -1,0 +1,16 @@
+resource "google_gemini_code_repository_index" "example" {
+    code_repository_index_id = "{{ code_repository_index_id }}"
+    force_destroy = {{ force_destroy }}
+    id = "{{ id }}"
+    kms_key = "{{ kms_key }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

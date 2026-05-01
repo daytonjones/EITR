@@ -1,10 +1,104 @@
 resource "google_privateca_ca_pool" "example" {
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    terraform_labels = "{{ terraform_labels }}"
     tier = "{{ tier }}"
+    encryption_spec {
+      cloud_kms_key = "{{ cloud_kms_key }}"
+    }
+    issuance_policy {
+      backdate_duration = "{{ backdate_duration }}"
+      maximum_lifetime = "{{ maximum_lifetime }}"
+      allowed_issuance_modes {
+        allow_config_based_issuance = {{ allow_config_based_issuance }}
+        allow_csr_based_issuance = {{ allow_csr_based_issuance }}
+      }
+      allowed_key_types {
+        elliptic_curve {
+          signature_algorithm = "{{ signature_algorithm }}"
+        }
+        rsa {
+          max_modulus_size = "{{ max_modulus_size }}"
+          min_modulus_size = "{{ min_modulus_size }}"
+        }
+      }
+      baseline_values {
+        aia_ocsp_servers = ["{{ aia_ocsp_servers }}"]
+        additional_extensions {
+          critical = {{ critical }}
+          value = "{{ value }}"
+          object_id {
+            object_id_path = ["{{ object_id_path }}"]
+          }
+        }
+        ca_options {
+          is_ca = {{ is_ca }}
+          max_issuer_path_length = {{ max_issuer_path_length }}
+          non_ca = {{ non_ca }}
+          zero_max_issuer_path_length = {{ zero_max_issuer_path_length }}
+        }
+        key_usage {
+          base_key_usage {
+            cert_sign = {{ cert_sign }}
+            content_commitment = {{ content_commitment }}
+            crl_sign = {{ crl_sign }}
+            data_encipherment = {{ data_encipherment }}
+            decipher_only = {{ decipher_only }}
+            digital_signature = {{ digital_signature }}
+            encipher_only = {{ encipher_only }}
+            key_agreement = {{ key_agreement }}
+            key_encipherment = {{ key_encipherment }}
+          }
+          extended_key_usage {
+            client_auth = {{ client_auth }}
+            code_signing = {{ code_signing }}
+            email_protection = {{ email_protection }}
+            ocsp_signing = {{ ocsp_signing }}
+            server_auth = {{ server_auth }}
+            time_stamping = {{ time_stamping }}
+          }
+          unknown_extended_key_usages {
+            object_id_path = ["{{ object_id_path }}"]
+          }
+        }
+        name_constraints {
+          critical = {{ critical }}
+          excluded_dns_names = ["{{ excluded_dns_names }}"]
+          excluded_email_addresses = ["{{ excluded_email_addresses }}"]
+          excluded_ip_ranges = ["{{ excluded_ip_ranges }}"]
+          excluded_uris = ["{{ excluded_uris }}"]
+          permitted_dns_names = ["{{ permitted_dns_names }}"]
+          permitted_email_addresses = ["{{ permitted_email_addresses }}"]
+          permitted_ip_ranges = ["{{ permitted_ip_ranges }}"]
+          permitted_uris = ["{{ permitted_uris }}"]
+        }
+        policy_ids {
+          object_id_path = ["{{ object_id_path }}"]
+        }
+      }
+      identity_constraints {
+        allow_subject_alt_names_passthrough = {{ allow_subject_alt_names_passthrough }}
+        allow_subject_passthrough = {{ allow_subject_passthrough }}
+        cel_expression {
+          description = "{{ description }}"
+          expression = "{{ expression }}"
+          location = "{{ location }}"
+          title = "{{ title }}"
+        }
+      }
+    }
+    publishing_options {
+      encoding_format = "{{ encoding_format }}"
+      publish_ca_cert = {{ publish_ca_cert }}
+      publish_crl = {{ publish_crl }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

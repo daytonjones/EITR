@@ -1,0 +1,6 @@
+data "aws_fis_experiment_templates" "example" {
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

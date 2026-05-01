@@ -1,14 +1,23 @@
 resource "aws_signer_signing_profile" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
     name_prefix = "{{ name_prefix }}"
-    platform_display_name = "{{ platform_display_name }}"
     platform_id = "{{ platform_id }}"
-    revocation_record = "{{ revocation_record }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    version = "{{ version }}"
-    version_arn = "{{ version_arn }}"
+    region = "{{ region }}"
+    signing_parameters = {
+        key = "{{ signing_parameters_value }}"
+      }
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    signature_validity_period {
+      type = "{{ type }}"
+      value = {{ value }}
+    }
+    signing_material {
+      certificate_arn = "{{ certificate_arn }}"
+    }
 }

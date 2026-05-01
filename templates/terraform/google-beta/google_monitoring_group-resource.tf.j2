@@ -2,8 +2,12 @@ resource "google_monitoring_group" "example" {
     display_name = "{{ display_name }}"
     filter = "{{ filter }}"
     id = "{{ id }}"
-    is_cluster = "{{ is_cluster }}"
-    name = "{{ name }}"
+    is_cluster = {{ is_cluster }}
     parent_name = "{{ parent_name }}"
     project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

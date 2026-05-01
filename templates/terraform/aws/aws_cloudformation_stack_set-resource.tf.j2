@@ -1,17 +1,41 @@
 resource "aws_cloudformation_stack_set" "example" {
     administration_role_arn = "{{ administration_role_arn }}"
-    arn = "{{ arn }}"
     call_as = "{{ call_as }}"
-    capabilities = "{{ capabilities }}"
+    capabilities = ["{{ capabilities }}"]
     description = "{{ description }}"
     execution_role_name = "{{ execution_role_name }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    parameters = "{{ parameters }}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
     permission_model = "{{ permission_model }}"
-    stack_set_id = "{{ stack_set_id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     template_body = "{{ template_body }}"
     template_url = "{{ template_url }}"
+    auto_deployment {
+      depends_on_stack_sets = ["{{ depends_on_stack_sets }}"]
+      enabled = {{ enabled }}
+      retain_stacks_on_account_removal = {{ retain_stacks_on_account_removal }}
+    }
+    managed_execution {
+      active = {{ active }}
+    }
+    operation_preferences {
+      failure_tolerance_count = {{ failure_tolerance_count }}
+      failure_tolerance_percentage = {{ failure_tolerance_percentage }}
+      max_concurrent_count = {{ max_concurrent_count }}
+      max_concurrent_percentage = {{ max_concurrent_percentage }}
+      region_concurrency_type = "{{ region_concurrency_type }}"
+      region_order = ["{{ region_order }}"]
+    }
+    timeouts {
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,6 @@
+resource "vault_keymgmt_replicate_key" "example" {
+    key_name = "{{ key_name }}"
+    kms_name = "{{ kms_name }}"
+    mount = "{{ mount }}"
+    namespace = "{{ namespace }}"
+}

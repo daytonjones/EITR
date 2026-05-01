@@ -1,12 +1,20 @@
 resource "aws_auditmanager_control" "example" {
     action_plan_instructions = "{{ action_plan_instructions }}"
     action_plan_title = "{{ action_plan_title }}"
-    arn = "{{ arn }}"
     description = "{{ description }}"
-    id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     testing_information = "{{ testing_information }}"
-    type = "{{ type }}"
+    control_mapping_sources {
+      source_description = "{{ source_description }}"
+      source_frequency = "{{ source_frequency }}"
+      source_keyword = ["{{ source_keyword }}"]
+      source_name = "{{ source_name }}"
+      source_set_up_option = "{{ source_set_up_option }}"
+      source_type = "{{ source_type }}"
+      troubleshooting_text = "{{ troubleshooting_text }}"
+    }
 }

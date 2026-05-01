@@ -1,0 +1,12 @@
+resource "awscc_aiops_investigation_group" "example" {
+    chatbot_notification_channels = "{{ chatbot_notification_channels }}"
+    cross_account_configurations = "{{ cross_account_configurations }}"
+    encryption_config = "{{ encryption_config }}"
+    investigation_group_policy = "{{ investigation_group_policy }}"
+    is_cloud_trail_event_history_enabled = {{ is_cloud_trail_event_history_enabled }}
+    name = "{{ name }}"
+    retention_in_days = {{ retention_in_days }}
+    role_arn = "{{ role_arn }}"
+    tag_key_boundaries = ["{{ tag_key_boundaries }}"]
+    tags = "{{ tags }}"
+}

@@ -1,0 +1,58 @@
+resource "google_cloud_security_compliance_framework_deployment" "example" {
+    description = "{{ description }}"
+    framework_deployment_id = "{{ framework_deployment_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    organization = "{{ organization }}"
+    cloud_control_metadata {
+      enforcement_mode = "{{ enforcement_mode }}"
+      cloud_control_details {
+        major_revision_id = "{{ major_revision_id }}"
+        name = "{{ name }}"
+        parameters {
+          name = "{{ name }}"
+          parameter_value {
+            bool_value = {{ bool_value }}
+            number_value = {{ number_value }}
+            string_value = "{{ string_value }}"
+            oneof_value {
+              name = "{{ name }}"
+              parameter_value {
+                bool_value = {{ bool_value }}
+                number_value = {{ number_value }}
+                string_value = "{{ string_value }}"
+                string_list_value {
+                  values = ["{{ values }}"]
+                }
+              }
+            }
+            string_list_value {
+              values = ["{{ values }}"]
+            }
+          }
+        }
+      }
+    }
+    framework {
+      framework = "{{ framework }}"
+      major_revision_id = "{{ major_revision_id }}"
+    }
+    target_resource_config {
+      existing_target_resource = "{{ existing_target_resource }}"
+      target_resource_creation_config {
+        folder_creation_config {
+          folder_display_name = "{{ folder_display_name }}"
+          parent = "{{ parent }}"
+        }
+        project_creation_config {
+          billing_account_id = "{{ billing_account_id }}"
+          parent = "{{ parent }}"
+          project_display_name = "{{ project_display_name }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

@@ -1,4 +1,12 @@
 data "kubernetes_mutating_webhook_configuration_v1" "example" {
     id = "{{ id }}"
-    webhook = "{{ webhook }}"
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      name = "{{ name }}"
+    }
 }

@@ -1,13 +1,22 @@
 resource "aws_cloudwatch_composite_alarm" "example" {
-    actions_enabled = "{{ actions_enabled }}"
-    alarm_actions = "{{ alarm_actions }}"
+    actions_enabled = {{ actions_enabled }}
+    alarm_actions = ["{{ alarm_actions }}"]
     alarm_description = "{{ alarm_description }}"
     alarm_name = "{{ alarm_name }}"
     alarm_rule = "{{ alarm_rule }}"
-    arn = "{{ arn }}"
     id = "{{ id }}"
-    insufficient_data_actions = "{{ insufficient_data_actions }}"
-    ok_actions = "{{ ok_actions }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    insufficient_data_actions = ["{{ insufficient_data_actions }}"]
+    ok_actions = ["{{ ok_actions }}"]
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    actions_suppressor {
+      alarm = "{{ alarm }}"
+      extension_period = {{ extension_period }}
+      wait_period = {{ wait_period }}
+    }
 }

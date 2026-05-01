@@ -2,6 +2,53 @@ resource "google_billing_budget" "example" {
     billing_account = "{{ billing_account }}"
     display_name = "{{ display_name }}"
     id = "{{ id }}"
-    name = "{{ name }}"
     ownership_scope = "{{ ownership_scope }}"
+    all_updates_rule {
+      disable_default_iam_recipients = {{ disable_default_iam_recipients }}
+      enable_project_level_recipients = {{ enable_project_level_recipients }}
+      monitoring_notification_channels = ["{{ monitoring_notification_channels }}"]
+      pubsub_topic = "{{ pubsub_topic }}"
+      schema_version = "{{ schema_version }}"
+    }
+    amount {
+      last_period_amount = {{ last_period_amount }}
+      specified_amount {
+        currency_code = "{{ currency_code }}"
+        nanos = {{ nanos }}
+        units = "{{ units }}"
+      }
+    }
+    budget_filter {
+      calendar_period = "{{ calendar_period }}"
+      credit_types = ["{{ credit_types }}"]
+      credit_types_treatment = "{{ credit_types_treatment }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      projects = ["{{ projects }}"]
+      resource_ancestors = ["{{ resource_ancestors }}"]
+      services = ["{{ services }}"]
+      subaccounts = ["{{ subaccounts }}"]
+      custom_period {
+        end_date {
+          day = {{ day }}
+          month = {{ month }}
+          year = {{ year }}
+        }
+        start_date {
+          day = {{ day }}
+          month = {{ month }}
+          year = {{ year }}
+        }
+      }
+    }
+    threshold_rules {
+      spend_basis = "{{ spend_basis }}"
+      threshold_percent = {{ threshold_percent }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -5,4 +5,9 @@ resource "azurerm_mysql_flexible_database" "example" {
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     server_name = "{{ server_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

@@ -1,18 +1,214 @@
 resource "google_cloudbuild_trigger" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
-    disabled = "{{ disabled }}"
+    disabled = {{ disabled }}
     filename = "{{ filename }}"
     filter = "{{ filter }}"
     id = "{{ id }}"
-    ignored_files = "{{ ignored_files }}"
+    ignored_files = ["{{ ignored_files }}"]
     include_build_logs = "{{ include_build_logs }}"
-    included_files = "{{ included_files }}"
+    included_files = ["{{ included_files }}"]
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
     service_account = "{{ service_account }}"
-    substitutions = "{{ substitutions }}"
-    tags = "{{ tags }}"
-    trigger_id = "{{ trigger_id }}"
+    substitutions = {
+        key = "{{ substitutions_value }}"
+      }
+    tags = ["{{ tags }}"]
+    approval_config {
+      approval_required = {{ approval_required }}
+    }
+    bitbucket_server_trigger_config {
+      bitbucket_server_config_resource = "{{ bitbucket_server_config_resource }}"
+      project_key = "{{ project_key }}"
+      repo_slug = "{{ repo_slug }}"
+      pull_request {
+        branch = "{{ branch }}"
+        comment_control = "{{ comment_control }}"
+        invert_regex = {{ invert_regex }}
+      }
+      push {
+        branch = "{{ branch }}"
+        invert_regex = {{ invert_regex }}
+        tag = "{{ tag }}"
+      }
+    }
+    build {
+      images = ["{{ images }}"]
+      logs_bucket = "{{ logs_bucket }}"
+      queue_ttl = "{{ queue_ttl }}"
+      substitutions = {
+        key = "{{ substitutions_value }}"
+      }
+      tags = ["{{ tags }}"]
+      timeout = "{{ timeout }}"
+      artifacts {
+        images = ["{{ images }}"]
+        maven_artifacts {
+          artifact_id = "{{ artifact_id }}"
+          group_id = "{{ group_id }}"
+          path = "{{ path }}"
+          repository = "{{ repository }}"
+          version = "{{ version }}"
+        }
+        npm_packages {
+          package_path = "{{ package_path }}"
+          repository = "{{ repository }}"
+        }
+        objects {
+          location = "{{ location }}"
+          paths = ["{{ paths }}"]
+        }
+        python_packages {
+          paths = ["{{ paths }}"]
+          repository = "{{ repository }}"
+        }
+      }
+      available_secrets {
+        secret_manager {
+          env = "{{ env }}"
+          version_name = "{{ version_name }}"
+        }
+      }
+      options {
+        disk_size_gb = {{ disk_size_gb }}
+        dynamic_substitutions = {{ dynamic_substitutions }}
+        env = ["{{ env }}"]
+        log_streaming_option = "{{ log_streaming_option }}"
+        logging = "{{ logging }}"
+        machine_type = "{{ machine_type }}"
+        requested_verify_option = "{{ requested_verify_option }}"
+        secret_env = ["{{ secret_env }}"]
+        source_provenance_hash = ["{{ source_provenance_hash }}"]
+        substitution_option = "{{ substitution_option }}"
+        worker_pool = "{{ worker_pool }}"
+        volumes {
+          name = "{{ name }}"
+          path = "{{ path }}"
+        }
+      }
+      secret {
+        kms_key_name = "{{ kms_key_name }}"
+        secret_env = {
+        key = "{{ secret_env_value }}"
+      }
+      }
+      source {
+        repo_source {
+          branch_name = "{{ branch_name }}"
+          commit_sha = "{{ commit_sha }}"
+          dir = "{{ dir }}"
+          invert_regex = {{ invert_regex }}
+          project_id = "{{ project_id }}"
+          repo_name = "{{ repo_name }}"
+          substitutions = {
+        key = "{{ substitutions_value }}"
+      }
+          tag_name = "{{ tag_name }}"
+        }
+        storage_source {
+          bucket = "{{ bucket }}"
+          generation = "{{ generation }}"
+          object = "{{ object }}"
+        }
+      }
+      step {
+        allow_exit_codes = ["{{ allow_exit_codes }}"]
+        allow_failure = {{ allow_failure }}
+        args = ["{{ args }}"]
+        dir = "{{ dir }}"
+        entrypoint = "{{ entrypoint }}"
+        env = ["{{ env }}"]
+        id = "{{ id }}"
+        name = "{{ name }}"
+        script = "{{ script }}"
+        secret_env = ["{{ secret_env }}"]
+        timeout = "{{ timeout }}"
+        timing = "{{ timing }}"
+        wait_for = ["{{ wait_for }}"]
+        volumes {
+          name = "{{ name }}"
+          path = "{{ path }}"
+        }
+      }
+    }
+    developer_connect_event_config {
+      git_repository_link = "{{ git_repository_link }}"
+      pull_request {
+        branch = "{{ branch }}"
+        comment_control = "{{ comment_control }}"
+        invert_regex = {{ invert_regex }}
+      }
+      push {
+        branch = "{{ branch }}"
+        invert_regex = {{ invert_regex }}
+        tag = "{{ tag }}"
+      }
+    }
+    git_file_source {
+      bitbucket_server_config = "{{ bitbucket_server_config }}"
+      github_enterprise_config = "{{ github_enterprise_config }}"
+      path = "{{ path }}"
+      repo_type = "{{ repo_type }}"
+      repository = "{{ repository }}"
+      revision = "{{ revision }}"
+      uri = "{{ uri }}"
+    }
+    github {
+      enterprise_config_resource_name = "{{ enterprise_config_resource_name }}"
+      name = "{{ name }}"
+      owner = "{{ owner }}"
+      pull_request {
+        branch = "{{ branch }}"
+        comment_control = "{{ comment_control }}"
+        invert_regex = {{ invert_regex }}
+      }
+      push {
+        branch = "{{ branch }}"
+        invert_regex = {{ invert_regex }}
+        tag = "{{ tag }}"
+      }
+    }
+    pubsub_config {
+      service_account_email = "{{ service_account_email }}"
+      topic = "{{ topic }}"
+    }
+    repository_event_config {
+      repository = "{{ repository }}"
+      pull_request {
+        branch = "{{ branch }}"
+        comment_control = "{{ comment_control }}"
+        invert_regex = {{ invert_regex }}
+      }
+      push {
+        branch = "{{ branch }}"
+        invert_regex = {{ invert_regex }}
+        tag = "{{ tag }}"
+      }
+    }
+    source_to_build {
+      bitbucket_server_config = "{{ bitbucket_server_config }}"
+      github_enterprise_config = "{{ github_enterprise_config }}"
+      ref = "{{ ref }}"
+      repo_type = "{{ repo_type }}"
+      repository = "{{ repository }}"
+      uri = "{{ uri }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    trigger_template {
+      branch_name = "{{ branch_name }}"
+      commit_sha = "{{ commit_sha }}"
+      dir = "{{ dir }}"
+      invert_regex = {{ invert_regex }}
+      project_id = "{{ project_id }}"
+      repo_name = "{{ repo_name }}"
+      tag_name = "{{ tag_name }}"
+    }
+    webhook_config {
+      secret = "{{ secret }}"
+    }
 }

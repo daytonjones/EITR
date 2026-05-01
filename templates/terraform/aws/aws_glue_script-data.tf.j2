@@ -1,6 +1,20 @@
 data "aws_glue_script" "example" {
     id = "{{ id }}"
     language = "{{ language }}"
-    python_script = "{{ python_script }}"
-    scala_code = "{{ scala_code }}"
+    region = "{{ region }}"
+    dag_edge {
+      source = "{{ source }}"
+      target = "{{ target }}"
+      target_parameter = "{{ target_parameter }}"
+    }
+    dag_node {
+      id = "{{ id }}"
+      line_number = {{ line_number }}
+      node_type = "{{ node_type }}"
+      args {
+        name = "{{ name }}"
+        param = {{ param }}
+        value = "{{ value }}"
+      }
+    }
 }

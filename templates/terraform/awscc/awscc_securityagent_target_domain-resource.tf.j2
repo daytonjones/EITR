@@ -1,0 +1,5 @@
+resource "awscc_securityagent_target_domain" "example" {
+    tags = "{{ tags }}"
+    target_domain_name = "{{ target_domain_name }}"
+    verification_method = "{{ verification_method }}"
+}

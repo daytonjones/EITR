@@ -1,9 +1,24 @@
 resource "azurerm_resource_group_cost_management_export" "example" {
-    active = "{{ active }}"
+    active = {{ active }}
+    file_format = "{{ file_format }}"
     id = "{{ id }}"
     name = "{{ name }}"
     recurrence_period_end_date = "{{ recurrence_period_end_date }}"
     recurrence_period_start_date = "{{ recurrence_period_start_date }}"
     recurrence_type = "{{ recurrence_type }}"
     resource_group_id = "{{ resource_group_id }}"
+    export_data_options {
+      time_frame = "{{ time_frame }}"
+      type = "{{ type }}"
+    }
+    export_data_storage_location {
+      container_id = "{{ container_id }}"
+      root_folder_path = "{{ root_folder_path }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

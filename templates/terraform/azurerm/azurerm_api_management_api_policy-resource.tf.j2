@@ -5,4 +5,10 @@ resource "azurerm_api_management_api_policy" "example" {
     resource_group_name = "{{ resource_group_name }}"
     xml_content = "{{ xml_content }}"
     xml_link = "{{ xml_link }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

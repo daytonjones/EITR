@@ -1,9 +1,13 @@
 resource "aws_redshift_subnet_group" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    subnet_ids = "{{ subnet_ids }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    subnet_ids = ["{{ subnet_ids }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

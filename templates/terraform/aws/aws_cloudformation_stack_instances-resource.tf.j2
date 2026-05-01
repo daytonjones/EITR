@@ -1,11 +1,32 @@
 resource "aws_cloudformation_stack_instances" "example" {
-    accounts = "{{ accounts }}"
+    accounts = ["{{ accounts }}"]
     call_as = "{{ call_as }}"
     id = "{{ id }}"
-    parameter_overrides = "{{ parameter_overrides }}"
-    regions = "{{ regions }}"
-    retain_stacks = "{{ retain_stacks }}"
-    stack_instance_summaries = "{{ stack_instance_summaries }}"
-    stack_set_id = "{{ stack_set_id }}"
+    parameter_overrides = {
+        key = "{{ parameter_overrides_value }}"
+      }
+    region = "{{ region }}"
+    regions = ["{{ regions }}"]
+    retain_stacks = {{ retain_stacks }}
     stack_set_name = "{{ stack_set_name }}"
+    deployment_targets {
+      account_filter_type = "{{ account_filter_type }}"
+      accounts = ["{{ accounts }}"]
+      accounts_url = "{{ accounts_url }}"
+      organizational_unit_ids = ["{{ organizational_unit_ids }}"]
+    }
+    operation_preferences {
+      concurrency_mode = "{{ concurrency_mode }}"
+      failure_tolerance_count = {{ failure_tolerance_count }}
+      failure_tolerance_percentage = {{ failure_tolerance_percentage }}
+      max_concurrent_count = {{ max_concurrent_count }}
+      max_concurrent_percentage = {{ max_concurrent_percentage }}
+      region_concurrency_type = "{{ region_concurrency_type }}"
+      region_order = ["{{ region_order }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

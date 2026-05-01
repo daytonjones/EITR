@@ -1,7 +1,16 @@
 resource "aws_sfn_activity" "example" {
-    creation_date = "{{ creation_date }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    encryption_configuration {
+      kms_data_key_reuse_period_seconds = {{ kms_data_key_reuse_period_seconds }}
+      kms_key_id = "{{ kms_key_id }}"
+      type = "{{ type }}"
+    }
 }

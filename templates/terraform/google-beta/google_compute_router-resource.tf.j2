@@ -1,11 +1,35 @@
 resource "google_compute_router" "example" {
-    creation_timestamp = "{{ creation_timestamp }}"
     description = "{{ description }}"
-    encrypted_interconnect_router = "{{ encrypted_interconnect_router }}"
+    encrypted_interconnect_router = {{ encrypted_interconnect_router }}
     id = "{{ id }}"
     name = "{{ name }}"
+    ncc_gateway = "{{ ncc_gateway }}"
     network = "{{ network }}"
     project = "{{ project }}"
     region = "{{ region }}"
-    self_link = "{{ self_link }}"
+    bgp {
+      advertise_mode = "{{ advertise_mode }}"
+      advertised_groups = ["{{ advertised_groups }}"]
+      asn = {{ asn }}
+      identifier_range = "{{ identifier_range }}"
+      keepalive_interval = {{ keepalive_interval }}
+      advertised_ip_ranges {
+        description = "{{ description }}"
+        range = "{{ range }}"
+      }
+    }
+    md5_authentication_keys {
+      key = "{{ key }}"
+      name = "{{ name }}"
+    }
+    params {
+      resource_manager_tags = {
+        key = "{{ resource_manager_tags_value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

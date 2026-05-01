@@ -1,0 +1,20 @@
+resource "azurerm_fabric_capacity" "example" {
+    administration_members = ["{{ administration_members }}"]
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    sku {
+      name = "{{ name }}"
+      tier = "{{ tier }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,0 +1,10 @@
+resource "google_apigee_environment_addons_config" "example" {
+    analytics_enabled = {{ analytics_enabled }}
+    env_id = "{{ env_id }}"
+    id = "{{ id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,0 +1,9 @@
+resource "aws_cloudwatch_contributor_insight_rule" "example" {
+    region = "{{ region }}"
+    rule_definition = "{{ rule_definition }}"
+    rule_name = "{{ rule_name }}"
+    rule_state = "{{ rule_state }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

@@ -1,17 +1,23 @@
 resource "google_network_connectivity_service_connection_policy" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
-    infrastructure = "{{ infrastructure }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     network = "{{ network }}"
     project = "{{ project }}"
-    psc_connections = "{{ psc_connections }}"
     service_class = "{{ service_class }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
+    psc_config {
+      allowed_google_producers_resource_hierarchy_level = ["{{ allowed_google_producers_resource_hierarchy_level }}"]
+      limit = "{{ limit }}"
+      producer_instance_location = "{{ producer_instance_location }}"
+      subnetworks = ["{{ subnetworks }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

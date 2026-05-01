@@ -1,4 +1,14 @@
 resource "aws_emr_managed_scaling_policy" "example" {
     cluster_id = "{{ cluster_id }}"
     id = "{{ id }}"
+    region = "{{ region }}"
+    scaling_strategy = "{{ scaling_strategy }}"
+    utilization_performance_index = {{ utilization_performance_index }}
+    compute_limits {
+      maximum_capacity_units = {{ maximum_capacity_units }}
+      maximum_core_capacity_units = {{ maximum_core_capacity_units }}
+      maximum_ondemand_capacity_units = {{ maximum_ondemand_capacity_units }}
+      minimum_capacity_units = {{ minimum_capacity_units }}
+      unit_type = "{{ unit_type }}"
+    }
 }

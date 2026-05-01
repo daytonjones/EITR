@@ -1,12 +1,6 @@
 resource "azurerm_app_service_certificate" "example" {
     app_service_plan_id = "{{ app_service_plan_id }}"
-    expiration_date = "{{ expiration_date }}"
-    friendly_name = "{{ friendly_name }}"
-    host_names = "{{ host_names }}"
-    hosting_environment_profile_id = "{{ hosting_environment_profile_id }}"
     id = "{{ id }}"
-    issue_date = "{{ issue_date }}"
-    issuer = "{{ issuer }}"
     key_vault_id = "{{ key_vault_id }}"
     key_vault_secret_id = "{{ key_vault_secret_id }}"
     location = "{{ location }}"
@@ -14,7 +8,13 @@ resource "azurerm_app_service_certificate" "example" {
     password = "{{ password }}"
     pfx_blob = "{{ pfx_blob }}"
     resource_group_name = "{{ resource_group_name }}"
-    subject_name = "{{ subject_name }}"
-    tags = "{{ tags }}"
-    thumbprint = "{{ thumbprint }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

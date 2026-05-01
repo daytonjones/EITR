@@ -1,11 +1,33 @@
 resource "aws_osis_pipeline" "example" {
-    id = "{{ id }}"
-    ingest_endpoint_urls = "{{ ingest_endpoint_urls }}"
-    max_units = "{{ max_units }}"
-    min_units = "{{ min_units }}"
-    pipeline_arn = "{{ pipeline_arn }}"
+    max_units = {{ max_units }}
+    min_units = {{ min_units }}
     pipeline_configuration_body = "{{ pipeline_configuration_body }}"
     pipeline_name = "{{ pipeline_name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    pipeline_role_arn = "{{ pipeline_role_arn }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    buffer_options {
+      persistent_buffer_enabled = {{ persistent_buffer_enabled }}
+    }
+    encryption_at_rest_options {
+      kms_key_arn = "{{ kms_key_arn }}"
+    }
+    log_publishing_options {
+      is_logging_enabled = {{ is_logging_enabled }}
+      cloudwatch_log_destination {
+        log_group = "{{ log_group }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    vpc_options {
+      security_group_ids = ["{{ security_group_ids }}"]
+      subnet_ids = ["{{ subnet_ids }}"]
+      vpc_endpoint_management = "{{ vpc_endpoint_management }}"
+    }
 }

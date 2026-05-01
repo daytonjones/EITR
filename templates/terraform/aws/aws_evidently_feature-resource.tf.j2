@@ -1,17 +1,32 @@
 resource "aws_evidently_feature" "example" {
-    arn = "{{ arn }}"
-    created_time = "{{ created_time }}"
     default_variation = "{{ default_variation }}"
     description = "{{ description }}"
-    entity_overrides = "{{ entity_overrides }}"
-    evaluation_rules = "{{ evaluation_rules }}"
+    entity_overrides = {
+        key = "{{ entity_overrides_value }}"
+      }
     evaluation_strategy = "{{ evaluation_strategy }}"
     id = "{{ id }}"
-    last_updated_time = "{{ last_updated_time }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    value_type = "{{ value_type }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    variations {
+      name = "{{ name }}"
+      value {
+        bool_value = "{{ bool_value }}"
+        double_value = "{{ double_value }}"
+        long_value = "{{ long_value }}"
+        string_value = "{{ string_value }}"
+      }
+    }
 }

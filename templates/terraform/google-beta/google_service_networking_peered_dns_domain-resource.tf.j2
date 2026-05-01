@@ -3,7 +3,11 @@ resource "google_service_networking_peered_dns_domain" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     network = "{{ network }}"
-    parent = "{{ parent }}"
     project = "{{ project }}"
     service = "{{ service }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

@@ -2,4 +2,28 @@ resource "azurerm_route_map" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     virtual_hub_id = "{{ virtual_hub_id }}"
+    rule {
+      name = "{{ name }}"
+      next_step_if_matched = "{{ next_step_if_matched }}"
+      action {
+        type = "{{ type }}"
+        parameter {
+          as_path = ["{{ as_path }}"]
+          community = ["{{ community }}"]
+          route_prefix = ["{{ route_prefix }}"]
+        }
+      }
+      match_criterion {
+        as_path = ["{{ as_path }}"]
+        community = ["{{ community }}"]
+        match_condition = "{{ match_condition }}"
+        route_prefix = ["{{ route_prefix }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

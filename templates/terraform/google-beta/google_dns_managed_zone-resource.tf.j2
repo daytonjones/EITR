@@ -1,16 +1,58 @@
 resource "google_dns_managed_zone" "example" {
-    creation_time = "{{ creation_time }}"
     description = "{{ description }}"
     dns_name = "{{ dns_name }}"
-    effective_labels = "{{ effective_labels }}"
-    force_destroy = "{{ force_destroy }}"
+    force_destroy = {{ force_destroy }}
     id = "{{ id }}"
-    labels = "{{ labels }}"
-    managed_zone_id = "{{ managed_zone_id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
-    name_servers = "{{ name_servers }}"
     project = "{{ project }}"
-    reverse_lookup = "{{ reverse_lookup }}"
-    terraform_labels = "{{ terraform_labels }}"
+    reverse_lookup = {{ reverse_lookup }}
     visibility = "{{ visibility }}"
+    cloud_logging_config {
+      enable_logging = {{ enable_logging }}
+    }
+    dnssec_config {
+      kind = "{{ kind }}"
+      non_existence = "{{ non_existence }}"
+      state = "{{ state }}"
+      default_key_specs {
+        algorithm = "{{ algorithm }}"
+        key_length = {{ key_length }}
+        key_type = "{{ key_type }}"
+        kind = "{{ kind }}"
+      }
+    }
+    forwarding_config {
+      target_name_servers {
+        domain_name = "{{ domain_name }}"
+        forwarding_path = "{{ forwarding_path }}"
+        ipv4_address = "{{ ipv4_address }}"
+        ipv6_address = "{{ ipv6_address }}"
+      }
+    }
+    peering_config {
+      target_network {
+        network_url = "{{ network_url }}"
+      }
+    }
+    private_visibility_config {
+      gke_clusters {
+        gke_cluster_name = "{{ gke_cluster_name }}"
+      }
+      networks {
+        network_url = "{{ network_url }}"
+      }
+    }
+    service_directory_config {
+      namespace {
+        namespace_url = "{{ namespace_url }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

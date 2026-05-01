@@ -1,7 +1,20 @@
 resource "aws_s3control_object_lambda_access_point" "example" {
     account_id = "{{ account_id }}"
-    alias = "{{ alias }}"
-    arn = "{{ arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
+    configuration {
+      allowed_features = ["{{ allowed_features }}"]
+      cloud_watch_metrics_enabled = {{ cloud_watch_metrics_enabled }}
+      supporting_access_point = "{{ supporting_access_point }}"
+      transformation_configuration {
+        actions = ["{{ actions }}"]
+        content_transformation {
+          aws_lambda {
+            function_arn = "{{ function_arn }}"
+            function_payload = "{{ function_payload }}"
+          }
+        }
+      }
+    }
 }

@@ -3,4 +3,16 @@ resource "azurerm_api_management_gateway" "example" {
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    location_data {
+      city = "{{ city }}"
+      district = "{{ district }}"
+      name = "{{ name }}"
+      region = "{{ region }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -7,4 +7,7 @@ resource "consul_acl_binding_rule" "example" {
     namespace = "{{ namespace }}"
     partition = "{{ partition }}"
     selector = "{{ selector }}"
+    bind_vars {
+      name = "{{ name }}"
+    }
 }

@@ -1,0 +1,5 @@
+resource "aws_wafv2_api_key" "example" {
+    region = "{{ region }}"
+    scope = "{{ scope }}"
+    token_domains = ["{{ token_domains }}"]
+}

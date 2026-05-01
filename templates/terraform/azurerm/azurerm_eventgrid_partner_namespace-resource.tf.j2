@@ -1,0 +1,23 @@
+resource "azurerm_eventgrid_partner_namespace" "example" {
+    id = "{{ id }}"
+    local_authentication_enabled = {{ local_authentication_enabled }}
+    location = "{{ location }}"
+    name = "{{ name }}"
+    partner_registration_id = "{{ partner_registration_id }}"
+    partner_topic_routing_mode = "{{ partner_topic_routing_mode }}"
+    public_network_access = "{{ public_network_access }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    inbound_ip_rule {
+      action = "{{ action }}"
+      ip_mask = "{{ ip_mask }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

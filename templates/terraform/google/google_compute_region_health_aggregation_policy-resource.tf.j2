@@ -1,0 +1,14 @@
+resource "google_compute_region_health_aggregation_policy" "example" {
+    description = "{{ description }}"
+    healthy_percent_threshold = {{ healthy_percent_threshold }}
+    min_healthy_threshold = {{ min_healthy_threshold }}
+    name = "{{ name }}"
+    policy_type = "{{ policy_type }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

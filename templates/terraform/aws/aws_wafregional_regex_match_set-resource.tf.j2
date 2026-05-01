@@ -1,4 +1,13 @@
 resource "aws_wafregional_regex_match_set" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
+    regex_match_tuple {
+      regex_pattern_set_id = "{{ regex_pattern_set_id }}"
+      text_transformation = "{{ text_transformation }}"
+      field_to_match {
+        data = "{{ data }}"
+        type = "{{ type }}"
+      }
+    }
 }

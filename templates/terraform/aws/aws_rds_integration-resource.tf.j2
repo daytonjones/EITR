@@ -1,11 +1,19 @@
 resource "aws_rds_integration" "example" {
-    additional_encryption_context = "{{ additional_encryption_context }}"
-    arn = "{{ arn }}"
-    id = "{{ id }}"
+    additional_encryption_context = {
+        key = "{{ additional_encryption_context_value }}"
+      }
+    data_filter = "{{ data_filter }}"
     integration_name = "{{ integration_name }}"
     kms_key_id = "{{ kms_key_id }}"
+    region = "{{ region }}"
     source_arn = "{{ source_arn }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     target_arn = "{{ target_arn }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,7 +1,6 @@
 resource "azurerm_dev_test_windows_virtual_machine" "example" {
-    allow_claim = "{{ allow_claim }}"
-    disallow_public_ip_address = "{{ disallow_public_ip_address }}"
-    fqdn = "{{ fqdn }}"
+    allow_claim = {{ allow_claim }}
+    disallow_public_ip_address = {{ disallow_public_ip_address }}
     id = "{{ id }}"
     lab_name = "{{ lab_name }}"
     lab_subnet_name = "{{ lab_subnet_name }}"
@@ -13,7 +12,24 @@ resource "azurerm_dev_test_windows_virtual_machine" "example" {
     resource_group_name = "{{ resource_group_name }}"
     size = "{{ size }}"
     storage_type = "{{ storage_type }}"
-    tags = "{{ tags }}"
-    unique_identifier = "{{ unique_identifier }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     username = "{{ username }}"
+    gallery_image_reference {
+      offer = "{{ offer }}"
+      publisher = "{{ publisher }}"
+      sku = "{{ sku }}"
+      version = "{{ version }}"
+    }
+    inbound_nat_rule {
+      backend_port = {{ backend_port }}
+      protocol = "{{ protocol }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

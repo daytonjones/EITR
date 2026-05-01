@@ -1,0 +1,82 @@
+resource "google_clouddeploy_deploy_policy" "example" {
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
+    description = "{{ description }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    suspended = {{ suspended }}
+    rules {
+      rollout_restriction {
+        actions = ["{{ actions }}"]
+        id = "{{ id }}"
+        invokers = ["{{ invokers }}"]
+        time_windows {
+          time_zone = "{{ time_zone }}"
+          one_time_windows {
+            end_date {
+              day = {{ day }}
+              month = {{ month }}
+              year = {{ year }}
+            }
+            end_time {
+              hours = {{ hours }}
+              minutes = {{ minutes }}
+              nanos = {{ nanos }}
+              seconds = {{ seconds }}
+            }
+            start_date {
+              day = {{ day }}
+              month = {{ month }}
+              year = {{ year }}
+            }
+            start_time {
+              hours = {{ hours }}
+              minutes = {{ minutes }}
+              nanos = {{ nanos }}
+              seconds = {{ seconds }}
+            }
+          }
+          weekly_windows {
+            days_of_week = ["{{ days_of_week }}"]
+            end_time {
+              hours = {{ hours }}
+              minutes = {{ minutes }}
+              nanos = {{ nanos }}
+              seconds = {{ seconds }}
+            }
+            start_time {
+              hours = {{ hours }}
+              minutes = {{ minutes }}
+              nanos = {{ nanos }}
+              seconds = {{ seconds }}
+            }
+          }
+        }
+      }
+    }
+    selectors {
+      delivery_pipeline {
+        id = "{{ id }}"
+        labels = {
+        key = "{{ labels_value }}"
+      }
+      }
+      target {
+        id = "{{ id }}"
+        labels = {
+        key = "{{ labels_value }}"
+      }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

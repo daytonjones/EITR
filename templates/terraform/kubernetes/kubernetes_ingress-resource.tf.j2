@@ -1,5 +1,38 @@
 resource "kubernetes_ingress" "example" {
     id = "{{ id }}"
-    status = "{{ status }}"
-    wait_for_load_balancer = "{{ wait_for_load_balancer }}"
+    wait_for_load_balancer = {{ wait_for_load_balancer }}
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      generate_name = "{{ generate_name }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      name = "{{ name }}"
+      namespace = "{{ namespace }}"
+    }
+    spec {
+      ingress_class_name = "{{ ingress_class_name }}"
+      backend {
+        service_name = "{{ service_name }}"
+        service_port = "{{ service_port }}"
+      }
+      rule {
+        host = "{{ host }}"
+        http {
+          path {
+            path = "{{ path }}"
+            backend {
+              service_name = "{{ service_name }}"
+              service_port = "{{ service_port }}"
+            }
+          }
+        }
+      }
+      tls {
+        hosts = ["{{ hosts }}"]
+        secret_name = "{{ secret_name }}"
+      }
+    }
 }

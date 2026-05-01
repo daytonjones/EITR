@@ -1,0 +1,37 @@
+resource "google_dataplex_entry" "example" {
+    entry_group_id = "{{ entry_group_id }}"
+    entry_id = "{{ entry_id }}"
+    entry_type = "{{ entry_type }}"
+    fully_qualified_name = "{{ fully_qualified_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    parent_entry = "{{ parent_entry }}"
+    project = "{{ project }}"
+    aspects {
+      aspect_key = "{{ aspect_key }}"
+      aspect {
+        data = "{{ data }}"
+      }
+    }
+    entry_source {
+      create_time = "{{ create_time }}"
+      description = "{{ description }}"
+      display_name = "{{ display_name }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      platform = "{{ platform }}"
+      resource = "{{ resource }}"
+      system = "{{ system }}"
+      update_time = "{{ update_time }}"
+      ancestors {
+        name = "{{ name }}"
+        type = "{{ type }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

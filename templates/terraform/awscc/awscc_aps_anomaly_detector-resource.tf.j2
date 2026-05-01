@@ -1,0 +1,9 @@
+resource "awscc_aps_anomaly_detector" "example" {
+    alias = "{{ alias }}"
+    configuration = "{{ configuration }}"
+    evaluation_interval_in_seconds = {{ evaluation_interval_in_seconds }}
+    labels = "{{ labels }}"
+    missing_data_action = "{{ missing_data_action }}"
+    tags = "{{ tags }}"
+    workspace = "{{ workspace }}"
+}

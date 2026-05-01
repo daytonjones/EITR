@@ -1,21 +1,38 @@
 resource "google_vertex_ai_endpoint" "example" {
-    create_time = "{{ create_time }}"
-    dedicated_endpoint_dns = "{{ dedicated_endpoint_dns }}"
-    dedicated_endpoint_enabled = "{{ dedicated_endpoint_enabled }}"
-    deployed_models = "{{ deployed_models }}"
+    dedicated_endpoint_enabled = {{ dedicated_endpoint_enabled }}
     description = "{{ description }}"
     display_name = "{{ display_name }}"
-    effective_labels = "{{ effective_labels }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
-    model_deployment_monitoring_job = "{{ model_deployment_monitoring_job }}"
     name = "{{ name }}"
     network = "{{ network }}"
     project = "{{ project }}"
     region = "{{ region }}"
-    terraform_labels = "{{ terraform_labels }}"
     traffic_split = "{{ traffic_split }}"
-    update_time = "{{ update_time }}"
+    encryption_spec {
+      kms_key_name = "{{ kms_key_name }}"
+    }
+    predict_request_response_logging_config {
+      enabled = {{ enabled }}
+      sampling_rate = {{ sampling_rate }}
+      bigquery_destination {
+        output_uri = "{{ output_uri }}"
+      }
+    }
+    private_service_connect_config {
+      enable_private_service_connect = {{ enable_private_service_connect }}
+      project_allowlist = ["{{ project_allowlist }}"]
+      psc_automation_configs {
+        network = "{{ network }}"
+        project_id = "{{ project_id }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

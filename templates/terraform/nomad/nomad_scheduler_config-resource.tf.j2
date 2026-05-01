@@ -1,6 +1,8 @@
 resource "nomad_scheduler_config" "example" {
     id = "{{ id }}"
-    memory_oversubscription_enabled = "{{ memory_oversubscription_enabled }}"
-    preemption_config = "{{ preemption_config }}"
+    memory_oversubscription_enabled = {{ memory_oversubscription_enabled }}
+    preemption_config = {
+        key = "{{ preemption_config_value }}"
+      }
     scheduler_algorithm = "{{ scheduler_algorithm }}"
 }

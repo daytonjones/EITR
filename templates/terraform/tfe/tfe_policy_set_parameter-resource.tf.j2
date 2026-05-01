@@ -1,7 +1,8 @@
 resource "tfe_policy_set_parameter" "example" {
-    id = "{{ id }}"
     key = "{{ key }}"
     policy_set_id = "{{ policy_set_id }}"
-    sensitive = "{{ sensitive }}"
+    sensitive = {{ sensitive }}
     value = "{{ value }}"
+    value_wo = "{{ value_wo }}"
+    value_wo_version = {{ value_wo_version }}
 }

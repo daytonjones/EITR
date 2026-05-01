@@ -1,12 +1,92 @@
 resource "azurerm_mssql_virtual_machine" "example" {
     id = "{{ id }}"
-    r_services_enabled = "{{ r_services_enabled }}"
-    sql_connectivity_port = "{{ sql_connectivity_port }}"
+    r_services_enabled = {{ r_services_enabled }}
+    sql_connectivity_port = {{ sql_connectivity_port }}
     sql_connectivity_type = "{{ sql_connectivity_type }}"
     sql_connectivity_update_password = "{{ sql_connectivity_update_password }}"
     sql_connectivity_update_username = "{{ sql_connectivity_update_username }}"
     sql_license_type = "{{ sql_license_type }}"
     sql_virtual_machine_group_id = "{{ sql_virtual_machine_group_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     virtual_machine_id = "{{ virtual_machine_id }}"
+    assessment {
+      enabled = {{ enabled }}
+      run_immediately = {{ run_immediately }}
+      schedule {
+        day_of_week = "{{ day_of_week }}"
+        monthly_occurrence = {{ monthly_occurrence }}
+        start_time = "{{ start_time }}"
+        weekly_interval = {{ weekly_interval }}
+      }
+    }
+    auto_backup {
+      encryption_enabled = {{ encryption_enabled }}
+      encryption_password = "{{ encryption_password }}"
+      retention_period_in_days = {{ retention_period_in_days }}
+      storage_account_access_key = "{{ storage_account_access_key }}"
+      storage_blob_endpoint = "{{ storage_blob_endpoint }}"
+      system_databases_backup_enabled = {{ system_databases_backup_enabled }}
+      manual_schedule {
+        days_of_week = ["{{ days_of_week }}"]
+        full_backup_frequency = "{{ full_backup_frequency }}"
+        full_backup_start_hour = {{ full_backup_start_hour }}
+        full_backup_window_in_hours = {{ full_backup_window_in_hours }}
+        log_backup_frequency_in_minutes = {{ log_backup_frequency_in_minutes }}
+      }
+    }
+    auto_patching {
+      day_of_week = "{{ day_of_week }}"
+      maintenance_window_duration_in_minutes = {{ maintenance_window_duration_in_minutes }}
+      maintenance_window_starting_hour = {{ maintenance_window_starting_hour }}
+    }
+    key_vault_credential {
+      key_vault_url = "{{ key_vault_url }}"
+      name = "{{ name }}"
+      service_principal_name = "{{ service_principal_name }}"
+      service_principal_secret = "{{ service_principal_secret }}"
+    }
+    sql_instance {
+      adhoc_workloads_optimization_enabled = {{ adhoc_workloads_optimization_enabled }}
+      collation = "{{ collation }}"
+      instant_file_initialization_enabled = {{ instant_file_initialization_enabled }}
+      lock_pages_in_memory_enabled = {{ lock_pages_in_memory_enabled }}
+      max_dop = {{ max_dop }}
+      max_server_memory_mb = {{ max_server_memory_mb }}
+      min_server_memory_mb = {{ min_server_memory_mb }}
+    }
+    storage_configuration {
+      disk_type = "{{ disk_type }}"
+      storage_workload_type = "{{ storage_workload_type }}"
+      system_db_on_data_disk_enabled = {{ system_db_on_data_disk_enabled }}
+      data_settings {
+        default_file_path = "{{ default_file_path }}"
+        luns = ["{{ luns }}"]
+      }
+      log_settings {
+        default_file_path = "{{ default_file_path }}"
+        luns = ["{{ luns }}"]
+      }
+      temp_db_settings {
+        data_file_count = {{ data_file_count }}
+        data_file_growth_in_mb = {{ data_file_growth_in_mb }}
+        data_file_size_mb = {{ data_file_size_mb }}
+        default_file_path = "{{ default_file_path }}"
+        log_file_growth_mb = {{ log_file_growth_mb }}
+        log_file_size_mb = {{ log_file_size_mb }}
+        luns = ["{{ luns }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    wsfc_domain_credential {
+      cluster_bootstrap_account_password = "{{ cluster_bootstrap_account_password }}"
+      cluster_operator_account_password = "{{ cluster_operator_account_password }}"
+      sql_service_account_password = "{{ sql_service_account_password }}"
+    }
 }

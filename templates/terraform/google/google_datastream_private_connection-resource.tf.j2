@@ -1,14 +1,24 @@
 resource "google_datastream_private_connection" "example" {
-    create_without_validation = "{{ create_without_validation }}"
+    create_without_validation = {{ create_without_validation }}
+    deletion_policy = "{{ deletion_policy }}"
     display_name = "{{ display_name }}"
-    effective_labels = "{{ effective_labels }}"
-    error = "{{ error }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
-    name = "{{ name }}"
     private_connection_id = "{{ private_connection_id }}"
     project = "{{ project }}"
-    state = "{{ state }}"
-    terraform_labels = "{{ terraform_labels }}"
+    psc_interface_config {
+      network_attachment = "{{ network_attachment }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    vpc_peering_config {
+      subnet = "{{ subnet }}"
+      vpc = "{{ vpc }}"
+    }
 }

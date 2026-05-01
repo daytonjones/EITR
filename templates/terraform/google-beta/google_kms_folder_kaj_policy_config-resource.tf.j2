@@ -1,0 +1,12 @@
+resource "google_kms_folder_kaj_policy_config" "example" {
+    folder = "{{ folder }}"
+    id = "{{ id }}"
+    default_key_access_justification_policy {
+      allowed_access_reasons = ["{{ allowed_access_reasons }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

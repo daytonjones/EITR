@@ -1,0 +1,13 @@
+resource "google_dataplex_glossary_iam_member" "example" {
+    glossary_id = "{{ glossary_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    member = "{{ member }}"
+    project = "{{ project }}"
+    role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

@@ -4,9 +4,10 @@ data "consul_service_health" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     near = "{{ near }}"
-    node_meta = "{{ node_meta }}"
-    passing = "{{ passing }}"
-    results = "{{ results }}"
+    node_meta = {
+        key = "{{ node_meta_value }}"
+      }
+    passing = {{ passing }}
     tag = "{{ tag }}"
     wait_for = "{{ wait_for }}"
 }

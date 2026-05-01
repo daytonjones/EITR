@@ -7,11 +7,17 @@ resource "aws_ssm_parameter" "example" {
     insecure_value = "{{ insecure_value }}"
     key_id = "{{ key_id }}"
     name = "{{ name }}"
-    overwrite = "{{ overwrite }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    overwrite = {{ overwrite }}
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     tier = "{{ tier }}"
     type = "{{ type }}"
     value = "{{ value }}"
-    version = "{{ version }}"
+    value_wo = "{{ value_wo }}"
+    value_wo_version = {{ value_wo_version }}
 }

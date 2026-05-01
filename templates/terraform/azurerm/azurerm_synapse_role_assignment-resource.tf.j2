@@ -5,4 +5,9 @@ resource "azurerm_synapse_role_assignment" "example" {
     role_name = "{{ role_name }}"
     synapse_spark_pool_id = "{{ synapse_spark_pool_id }}"
     synapse_workspace_id = "{{ synapse_workspace_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

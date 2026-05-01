@@ -1,8 +1,13 @@
 resource "aws_ses_configuration_set" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
-    last_fresh_start = "{{ last_fresh_start }}"
     name = "{{ name }}"
-    reputation_metrics_enabled = "{{ reputation_metrics_enabled }}"
-    sending_enabled = "{{ sending_enabled }}"
+    region = "{{ region }}"
+    reputation_metrics_enabled = {{ reputation_metrics_enabled }}
+    sending_enabled = {{ sending_enabled }}
+    delivery_options {
+      tls_policy = "{{ tls_policy }}"
+    }
+    tracking_options {
+      custom_redirect_domain = "{{ custom_redirect_domain }}"
+    }
 }

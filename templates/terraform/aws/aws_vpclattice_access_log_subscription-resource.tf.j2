@@ -1,9 +1,13 @@
 resource "aws_vpclattice_access_log_subscription" "example" {
-    arn = "{{ arn }}"
     destination_arn = "{{ destination_arn }}"
     id = "{{ id }}"
-    resource_arn = "{{ resource_arn }}"
+    region = "{{ region }}"
     resource_identifier = "{{ resource_identifier }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    service_network_log_type = "{{ service_network_log_type }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

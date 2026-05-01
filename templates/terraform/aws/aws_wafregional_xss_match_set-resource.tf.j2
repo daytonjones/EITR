@@ -1,4 +1,12 @@
 resource "aws_wafregional_xss_match_set" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
+    xss_match_tuple {
+      text_transformation = "{{ text_transformation }}"
+      field_to_match {
+        data = "{{ data }}"
+        type = "{{ type }}"
+      }
+    }
 }

@@ -1,31 +1,54 @@
 resource "google_compute_interconnect_attachment" "example" {
-    admin_enabled = "{{ admin_enabled }}"
+    admin_enabled = {{ admin_enabled }}
     bandwidth = "{{ bandwidth }}"
-    candidate_subnets = "{{ candidate_subnets }}"
-    cloud_router_ip_address = "{{ cloud_router_ip_address }}"
-    cloud_router_ipv6_address = "{{ cloud_router_ipv6_address }}"
-    creation_timestamp = "{{ creation_timestamp }}"
-    customer_router_ip_address = "{{ customer_router_ip_address }}"
-    customer_router_ipv6_address = "{{ customer_router_ipv6_address }}"
+    candidate_cloud_router_ip_address = "{{ candidate_cloud_router_ip_address }}"
+    candidate_cloud_router_ipv6_address = "{{ candidate_cloud_router_ipv6_address }}"
+    candidate_customer_router_ip_address = "{{ candidate_customer_router_ip_address }}"
+    candidate_customer_router_ipv6_address = "{{ candidate_customer_router_ipv6_address }}"
+    candidate_subnets = ["{{ candidate_subnets }}"]
     description = "{{ description }}"
     edge_availability_domain = "{{ edge_availability_domain }}"
     encryption = "{{ encryption }}"
-    google_reference_id = "{{ google_reference_id }}"
     id = "{{ id }}"
     interconnect = "{{ interconnect }}"
-    ipsec_internal_addresses = "{{ ipsec_internal_addresses }}"
+    ipsec_internal_addresses = ["{{ ipsec_internal_addresses }}"]
+    labels = {
+        key = "{{ labels_value }}"
+      }
     mtu = "{{ mtu }}"
     name = "{{ name }}"
-    pairing_key = "{{ pairing_key }}"
-    partner_asn = "{{ partner_asn }}"
-    private_interconnect_info = "{{ private_interconnect_info }}"
     project = "{{ project }}"
     region = "{{ region }}"
     router = "{{ router }}"
-    self_link = "{{ self_link }}"
     stack_type = "{{ stack_type }}"
-    state = "{{ state }}"
-    subnet_length = "{{ subnet_length }}"
+    subnet_length = {{ subnet_length }}
     type = "{{ type }}"
-    vlan_tag8021q = "{{ vlan_tag8021q }}"
+    vlan_tag8021q = {{ vlan_tag8021q }}
+    l2_forwarding {
+      default_appliance_ip_address = "{{ default_appliance_ip_address }}"
+      network = "{{ network }}"
+      tunnel_endpoint_ip_address = "{{ tunnel_endpoint_ip_address }}"
+      appliance_mappings {
+        appliance_ip_address = "{{ appliance_ip_address }}"
+        name = "{{ name }}"
+        vlan_id = "{{ vlan_id }}"
+        inner_vlan_to_appliance_mappings {
+          inner_appliance_ip_address = "{{ inner_appliance_ip_address }}"
+          inner_vlan_tags = ["{{ inner_vlan_tags }}"]
+        }
+      }
+      geneve_header {
+        vni = {{ vni }}
+      }
+    }
+    params {
+      resource_manager_tags = {
+        key = "{{ resource_manager_tags_value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

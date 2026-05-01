@@ -3,6 +3,16 @@ data "aws_ec2_local_gateway_route_table" "example" {
     local_gateway_id = "{{ local_gateway_id }}"
     local_gateway_route_table_id = "{{ local_gateway_route_table_id }}"
     outpost_arn = "{{ outpost_arn }}"
+    region = "{{ region }}"
     state = "{{ state }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
+    timeouts {
+      read = "{{ read }}"
+    }
 }

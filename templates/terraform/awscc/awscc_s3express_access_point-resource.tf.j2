@@ -1,0 +1,10 @@
+resource "awscc_s3express_access_point" "example" {
+    bucket = "{{ bucket }}"
+    bucket_account_id = "{{ bucket_account_id }}"
+    name = "{{ name }}"
+    policy = "{{ policy }}"
+    public_access_block_configuration = "{{ public_access_block_configuration }}"
+    scope = "{{ scope }}"
+    tags = "{{ tags }}"
+    vpc_configuration = "{{ vpc_configuration }}"
+}

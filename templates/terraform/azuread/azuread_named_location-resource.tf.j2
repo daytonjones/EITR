@@ -1,4 +1,19 @@
 resource "azuread_named_location" "example" {
     display_name = "{{ display_name }}"
     id = "{{ id }}"
+    country {
+      countries_and_regions = ["{{ countries_and_regions }}"]
+      country_lookup_method = "{{ country_lookup_method }}"
+      include_unknown_countries_and_regions = {{ include_unknown_countries_and_regions }}
+    }
+    ip {
+      ip_ranges = ["{{ ip_ranges }}"]
+      trusted = {{ trusted }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,4 +1,11 @@
 resource "aws_sesv2_account_vdm_attributes" "example" {
     id = "{{ id }}"
+    region = "{{ region }}"
     vdm_enabled = "{{ vdm_enabled }}"
+    dashboard_attributes {
+      engagement_metrics = "{{ engagement_metrics }}"
+    }
+    guardian_attributes {
+      optimized_shared_delivery = "{{ optimized_shared_delivery }}"
+    }
 }

@@ -1,0 +1,10 @@
+resource "google_firebase_ai_logic_prompt_template_lock" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    template_id = "{{ template_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

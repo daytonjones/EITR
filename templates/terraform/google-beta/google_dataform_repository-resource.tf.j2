@@ -1,13 +1,33 @@
 resource "google_dataform_repository" "example" {
+    deletion_policy = "{{ deletion_policy }}"
     display_name = "{{ display_name }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
     kms_key_name = "{{ kms_key_name }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
     npmrc_environment_variables_secret_version = "{{ npmrc_environment_variables_secret_version }}"
     project = "{{ project }}"
     region = "{{ region }}"
     service_account = "{{ service_account }}"
-    terraform_labels = "{{ terraform_labels }}"
+    git_remote_settings {
+      authentication_token_secret_version = "{{ authentication_token_secret_version }}"
+      default_branch = "{{ default_branch }}"
+      url = "{{ url }}"
+      ssh_authentication_config {
+        host_public_key = "{{ host_public_key }}"
+        user_private_key_secret_version = "{{ user_private_key_secret_version }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    workspace_compilation_overrides {
+      default_database = "{{ default_database }}"
+      schema_suffix = "{{ schema_suffix }}"
+      table_prefix = "{{ table_prefix }}"
+    }
 }

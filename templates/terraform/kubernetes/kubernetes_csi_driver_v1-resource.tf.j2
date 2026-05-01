@@ -1,3 +1,18 @@
 resource "kubernetes_csi_driver_v1" "example" {
     id = "{{ id }}"
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      generate_name = "{{ generate_name }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      name = "{{ name }}"
+    }
+    spec {
+      attach_required = {{ attach_required }}
+      pod_info_on_mount = {{ pod_info_on_mount }}
+      volume_lifecycle_modes = ["{{ volume_lifecycle_modes }}"]
+    }
 }

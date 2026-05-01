@@ -1,6 +1,15 @@
 data "aws_nat_gateways" "example" {
     id = "{{ id }}"
-    ids = "{{ ids }}"
-    tags = "{{ tags }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     vpc_id = "{{ vpc_id }}"
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
+    timeouts {
+      read = "{{ read }}"
+    }
 }

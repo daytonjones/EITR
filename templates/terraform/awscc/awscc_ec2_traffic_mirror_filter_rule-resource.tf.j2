@@ -1,0 +1,13 @@
+resource "awscc_ec2_traffic_mirror_filter_rule" "example" {
+    description = "{{ description }}"
+    destination_cidr_block = "{{ destination_cidr_block }}"
+    destination_port_range = "{{ destination_port_range }}"
+    protocol = {{ protocol }}
+    rule_action = "{{ rule_action }}"
+    rule_number = {{ rule_number }}
+    source_cidr_block = "{{ source_cidr_block }}"
+    source_port_range = "{{ source_port_range }}"
+    tags = "{{ tags }}"
+    traffic_direction = "{{ traffic_direction }}"
+    traffic_mirror_filter_id = "{{ traffic_mirror_filter_id }}"
+}

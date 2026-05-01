@@ -1,0 +1,10 @@
+resource "aws_lakeformation_lf_tag_expression" "example" {
+    catalog_id = "{{ catalog_id }}"
+    description = "{{ description }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+    expression {
+      tag_key = "{{ tag_key }}"
+      tag_values = ["{{ tag_values }}"]
+    }
+}

@@ -1,4 +1,8 @@
 data "aws_licensemanager_grants" "example" {
-    arns = "{{ arns }}"
     id = "{{ id }}"
+    region = "{{ region }}"
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
 }

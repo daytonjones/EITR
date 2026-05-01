@@ -1,7 +1,8 @@
 resource "random_pet" "example" {
-    id = "{{ id }}"
-    keepers = "{{ keepers }}"
-    length = "{{ length }}"
+    keepers = {
+        key = "{{ keepers_value }}"
+      }
+    length = {{ length }}
     prefix = "{{ prefix }}"
     separator = "{{ separator }}"
 }

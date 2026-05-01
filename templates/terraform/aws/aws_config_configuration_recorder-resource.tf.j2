@@ -1,5 +1,25 @@
 resource "aws_config_configuration_recorder" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
+    recording_group {
+      all_supported = {{ all_supported }}
+      include_global_resource_types = {{ include_global_resource_types }}
+      resource_types = ["{{ resource_types }}"]
+      exclusion_by_resource_types {
+        resource_types = ["{{ resource_types }}"]
+      }
+      recording_strategy {
+        use_only = "{{ use_only }}"
+      }
+    }
+    recording_mode {
+      recording_frequency = "{{ recording_frequency }}"
+      recording_mode_override {
+        description = "{{ description }}"
+        recording_frequency = "{{ recording_frequency }}"
+        resource_types = ["{{ resource_types }}"]
+      }
+    }
 }

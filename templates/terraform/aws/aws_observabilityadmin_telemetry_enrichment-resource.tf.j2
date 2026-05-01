@@ -1,0 +1,7 @@
+resource "aws_observabilityadmin_telemetry_enrichment" "example" {
+    region = "{{ region }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

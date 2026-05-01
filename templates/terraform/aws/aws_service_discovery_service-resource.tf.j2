@@ -1,11 +1,31 @@
 resource "aws_service_discovery_service" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
-    force_destroy = "{{ force_destroy }}"
+    force_destroy = {{ force_destroy }}
     id = "{{ id }}"
     name = "{{ name }}"
     namespace_id = "{{ namespace_id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     type = "{{ type }}"
+    dns_config {
+      namespace_id = "{{ namespace_id }}"
+      routing_policy = "{{ routing_policy }}"
+      dns_records {
+        ttl = {{ ttl }}
+        type = "{{ type }}"
+      }
+    }
+    health_check_config {
+      failure_threshold = {{ failure_threshold }}
+      resource_path = "{{ resource_path }}"
+      type = "{{ type }}"
+    }
+    health_check_custom_config {
+      failure_threshold = {{ failure_threshold }}
+    }
 }

@@ -1,7 +1,10 @@
 resource "aws_kinesisanalyticsv2_application_snapshot" "example" {
     application_name = "{{ application_name }}"
-    application_version_id = "{{ application_version_id }}"
     id = "{{ id }}"
-    snapshot_creation_timestamp = "{{ snapshot_creation_timestamp }}"
+    region = "{{ region }}"
     snapshot_name = "{{ snapshot_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

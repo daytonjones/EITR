@@ -1,18 +1,17 @@
 resource "awscc_datasync_location_smb" "example" {
-    agent_arns = "{{ agent_arns }}"
+    agent_arns = ["{{ agent_arns }}"]
+    authentication_type = "{{ authentication_type }}"
+    cmk_secret_config = "{{ cmk_secret_config }}"
+    custom_secret_config = "{{ custom_secret_config }}"
+    dns_ip_addresses = ["{{ dns_ip_addresses }}"]
     domain = "{{ domain }}"
-    id = "{{ id }}"
-    location_arn = "{{ location_arn }}"
-    location_uri = "{{ location_uri }}"
-    mount_options = "{
-    version = {{ version }}
-}"
+    kerberos_keytab = "{{ kerberos_keytab }}"
+    kerberos_krb_5_conf = "{{ kerberos_krb_5_conf }}"
+    kerberos_principal = "{{ kerberos_principal }}"
+    mount_options = "{{ mount_options }}"
     password = "{{ password }}"
     server_hostname = "{{ server_hostname }}"
     subdirectory = "{{ subdirectory }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
     user = "{{ user }}"
 }

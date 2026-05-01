@@ -1,6 +1,6 @@
 data "nomad_job_parser" "example" {
-    canonicalize = "{{ canonicalize }}"
+    canonicalize = {{ canonicalize }}
     hcl = "{{ hcl }}"
     id = "{{ id }}"
-    json = "{{ json }}"
+    variables = "{{ variables }}"
 }

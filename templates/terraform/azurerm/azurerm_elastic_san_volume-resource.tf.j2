@@ -1,10 +1,16 @@
 resource "azurerm_elastic_san_volume" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
-    size_in_gib = "{{ size_in_gib }}"
-    target_iqn = "{{ target_iqn }}"
-    target_portal_hostname = "{{ target_portal_hostname }}"
-    target_portal_port = "{{ target_portal_port }}"
+    size_in_gib = {{ size_in_gib }}
     volume_group_id = "{{ volume_group_id }}"
-    volume_id = "{{ volume_id }}"
+    create_source {
+      source_id = "{{ source_id }}"
+      source_type = "{{ source_type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

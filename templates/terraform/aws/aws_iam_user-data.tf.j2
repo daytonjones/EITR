@@ -1,9 +1,7 @@
 data "aws_iam_user" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
-    path = "{{ path }}"
-    permissions_boundary = "{{ permissions_boundary }}"
-    tags = "{{ tags }}"
-    user_id = "{{ user_id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     user_name = "{{ user_name }}"
 }

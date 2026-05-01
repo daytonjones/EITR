@@ -1,12 +1,15 @@
 resource "tfe_notification_configuration" "example" {
     destination_type = "{{ destination_type }}"
-    email_addresses = "{{ email_addresses }}"
-    email_user_ids = "{{ email_user_ids }}"
-    enabled = "{{ enabled }}"
-    id = "{{ id }}"
+    email_addresses = ["{{ email_addresses }}"]
+    email_user_ids = ["{{ email_user_ids }}"]
+    enabled = {{ enabled }}
     name = "{{ name }}"
     token = "{{ token }}"
-    triggers = "{{ triggers }}"
+    token_wo = "{{ token_wo }}"
+    token_wo_version = {{ token_wo_version }}
+    triggers = ["{{ triggers }}"]
     url = "{{ url }}"
+    url_wo = "{{ url_wo }}"
+    url_wo_version = {{ url_wo_version }}
     workspace_id = "{{ workspace_id }}"
 }

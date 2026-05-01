@@ -1,0 +1,15 @@
+resource "aws_api_gateway_rest_api_put" "example" {
+    body = "{{ body }}"
+    fail_on_warnings = {{ fail_on_warnings }}
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
+    region = "{{ region }}"
+    rest_api_id = "{{ rest_api_id }}"
+    triggers = {
+        key = "{{ triggers_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+    }
+}

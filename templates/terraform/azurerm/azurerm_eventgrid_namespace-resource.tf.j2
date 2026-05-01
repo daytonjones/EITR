@@ -1,10 +1,40 @@
 resource "azurerm_eventgrid_namespace" "example" {
-    capacity = "{{ capacity }}"
+    capacity = {{ capacity }}
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     public_network_access = "{{ public_network_access }}"
     resource_group_name = "{{ resource_group_name }}"
     sku = "{{ sku }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    inbound_ip_rule {
+      action = "{{ action }}"
+      ip_mask = "{{ ip_mask }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    topic_spaces_configuration {
+      alternative_authentication_name_source = ["{{ alternative_authentication_name_source }}"]
+      maximum_client_sessions_per_authentication_name = {{ maximum_client_sessions_per_authentication_name }}
+      maximum_session_expiry_in_hours = {{ maximum_session_expiry_in_hours }}
+      route_topic_id = "{{ route_topic_id }}"
+      dynamic_routing_enrichment {
+        key = "{{ key }}"
+        value = "{{ value }}"
+      }
+      static_routing_enrichment {
+        key = "{{ key }}"
+        value = "{{ value }}"
+      }
+    }
 }

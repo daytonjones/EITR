@@ -1,8 +1,12 @@
 resource "google_bigtable_instance_iam_member" "example" {
-    etag = "{{ etag }}"
     id = "{{ id }}"
     instance = "{{ instance }}"
     member = "{{ member }}"
     project = "{{ project }}"
     role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

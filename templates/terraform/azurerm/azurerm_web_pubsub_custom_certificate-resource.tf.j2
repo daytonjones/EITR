@@ -1,7 +1,11 @@
 resource "azurerm_web_pubsub_custom_certificate" "example" {
-    certificate_version = "{{ certificate_version }}"
     custom_certificate_id = "{{ custom_certificate_id }}"
     id = "{{ id }}"
     name = "{{ name }}"
     web_pubsub_id = "{{ web_pubsub_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

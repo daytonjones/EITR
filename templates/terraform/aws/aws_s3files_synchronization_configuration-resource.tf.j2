@@ -1,0 +1,13 @@
+resource "aws_s3files_synchronization_configuration" "example" {
+    file_system_id = "{{ file_system_id }}"
+    latest_version_number = {{ latest_version_number }}
+    region = "{{ region }}"
+    expiration_data_rule {
+      days_after_last_access = {{ days_after_last_access }}
+    }
+    import_data_rule {
+      prefix = "{{ prefix }}"
+      size_less_than = {{ size_less_than }}
+      trigger = "{{ trigger }}"
+    }
+}

@@ -1,10 +1,13 @@
 resource "aws_memorydb_acl" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
-    minimum_engine_version = "{{ minimum_engine_version }}"
     name = "{{ name }}"
     name_prefix = "{{ name_prefix }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    user_names = "{{ user_names }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    user_names = ["{{ user_names }}"]
 }

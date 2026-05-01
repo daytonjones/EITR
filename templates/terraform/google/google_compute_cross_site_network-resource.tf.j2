@@ -1,0 +1,11 @@
+resource "google_compute_cross_site_network" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,10 +1,7 @@
 resource "awscc_connect_predefined_attribute" "example" {
-    id = "{{ id }}"
+    attribute_configuration = "{{ attribute_configuration }}"
     instance_arn = "{{ instance_arn }}"
-    last_modified_region = "{{ last_modified_region }}"
-    last_modified_time = "{{ last_modified_time }}"
     name = "{{ name }}"
-    values = "{
-    string_list = {{ string_list }}
-}"
+    purposes = ["{{ purposes }}"]
+    values = "{{ values }}"
 }

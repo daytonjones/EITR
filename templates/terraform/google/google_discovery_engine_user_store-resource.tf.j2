@@ -1,0 +1,14 @@
+resource "google_discovery_engine_user_store" "example" {
+    default_license_config = "{{ default_license_config }}"
+    enable_expired_license_auto_update = {{ enable_expired_license_auto_update }}
+    enable_license_auto_register = {{ enable_license_auto_register }}
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    user_store_id = "{{ user_store_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

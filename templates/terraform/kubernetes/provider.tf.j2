@@ -6,14 +6,25 @@ provider "kubernetes" {
     config_context_auth_info = "{{ config_context_auth_info }}"
     config_context_cluster = "{{ config_context_cluster }}"
     config_path = "{{ config_path }}"
-    config_paths = "{{ config_paths }}"
+    config_paths = ["{{ config_paths }}"]
     host = "{{ host }}"
-    ignore_annotations = "{{ ignore_annotations }}"
-    ignore_labels = "{{ ignore_labels }}"
-    insecure = "{{ insecure }}"
+    ignore_annotations = ["{{ ignore_annotations }}"]
+    ignore_labels = ["{{ ignore_labels }}"]
+    insecure = {{ insecure }}
     password = "{{ password }}"
     proxy_url = "{{ proxy_url }}"
     tls_server_name = "{{ tls_server_name }}"
     token = "{{ token }}"
     username = "{{ username }}"
+    exec {
+      api_version = "{{ api_version }}"
+      args = ["{{ args }}"]
+      command = "{{ command }}"
+      env = {
+        key = "{{ env_value }}"
+      }
+    }
+    experiments {
+      manifest_resource = {{ manifest_resource }}
+    }
 }

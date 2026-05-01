@@ -2,5 +2,69 @@ resource "azurerm_firewall_policy_rule_collection_group" "example" {
     firewall_policy_id = "{{ firewall_policy_id }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    priority = "{{ priority }}"
+    priority = {{ priority }}
+    application_rule_collection {
+      action = "{{ action }}"
+      name = "{{ name }}"
+      priority = {{ priority }}
+      rule {
+        description = "{{ description }}"
+        destination_addresses = ["{{ destination_addresses }}"]
+        destination_fqdn_tags = ["{{ destination_fqdn_tags }}"]
+        destination_fqdns = ["{{ destination_fqdns }}"]
+        destination_urls = ["{{ destination_urls }}"]
+        name = "{{ name }}"
+        source_addresses = ["{{ source_addresses }}"]
+        source_ip_groups = ["{{ source_ip_groups }}"]
+        terminate_tls = {{ terminate_tls }}
+        web_categories = ["{{ web_categories }}"]
+        http_headers {
+          name = "{{ name }}"
+          value = "{{ value }}"
+        }
+        protocols {
+          port = {{ port }}
+          type = "{{ type }}"
+        }
+      }
+    }
+    nat_rule_collection {
+      action = "{{ action }}"
+      name = "{{ name }}"
+      priority = {{ priority }}
+      rule {
+        description = "{{ description }}"
+        destination_address = "{{ destination_address }}"
+        destination_ports = ["{{ destination_ports }}"]
+        name = "{{ name }}"
+        protocols = ["{{ protocols }}"]
+        source_addresses = ["{{ source_addresses }}"]
+        source_ip_groups = ["{{ source_ip_groups }}"]
+        translated_address = "{{ translated_address }}"
+        translated_fqdn = "{{ translated_fqdn }}"
+        translated_port = {{ translated_port }}
+      }
+    }
+    network_rule_collection {
+      action = "{{ action }}"
+      name = "{{ name }}"
+      priority = {{ priority }}
+      rule {
+        description = "{{ description }}"
+        destination_addresses = ["{{ destination_addresses }}"]
+        destination_fqdns = ["{{ destination_fqdns }}"]
+        destination_ip_groups = ["{{ destination_ip_groups }}"]
+        destination_ports = ["{{ destination_ports }}"]
+        name = "{{ name }}"
+        protocols = ["{{ protocols }}"]
+        source_addresses = ["{{ source_addresses }}"]
+        source_ip_groups = ["{{ source_ip_groups }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

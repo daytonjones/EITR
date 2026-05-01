@@ -1,0 +1,26 @@
+resource "google_iam_projects_policy_binding" "example" {
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    policy = "{{ policy }}"
+    policy_binding_id = "{{ policy_binding_id }}"
+    policy_kind = "{{ policy_kind }}"
+    project = "{{ project }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      location = "{{ location }}"
+      title = "{{ title }}"
+    }
+    target {
+      principal_set = "{{ principal_set }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

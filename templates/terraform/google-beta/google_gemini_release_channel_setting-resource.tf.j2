@@ -1,0 +1,15 @@
+resource "google_gemini_release_channel_setting" "example" {
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    release_channel = "{{ release_channel }}"
+    release_channel_setting_id = "{{ release_channel_setting_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

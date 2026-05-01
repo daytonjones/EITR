@@ -8,8 +8,12 @@ resource "google_sql_source_representation_instance" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     password = "{{ password }}"
-    port = "{{ port }}"
+    port = {{ port }}
     project = "{{ project }}"
     region = "{{ region }}"
     username = "{{ username }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

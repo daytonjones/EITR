@@ -1,0 +1,19 @@
+resource "aws_ec2_transit_gateway_metering_policy_entry" "example" {
+    destination_cidr_block = "{{ destination_cidr_block }}"
+    destination_port_range = "{{ destination_port_range }}"
+    destination_transit_gateway_attachment_id = "{{ destination_transit_gateway_attachment_id }}"
+    destination_transit_gateway_attachment_type = "{{ destination_transit_gateway_attachment_type }}"
+    metered_account = "{{ metered_account }}"
+    policy_rule_number = {{ policy_rule_number }}
+    protocol = "{{ protocol }}"
+    region = "{{ region }}"
+    source_cidr_block = "{{ source_cidr_block }}"
+    source_port_range = "{{ source_port_range }}"
+    source_transit_gateway_attachment_id = "{{ source_transit_gateway_attachment_id }}"
+    source_transit_gateway_attachment_type = "{{ source_transit_gateway_attachment_type }}"
+    transit_gateway_metering_policy_id = "{{ transit_gateway_metering_policy_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

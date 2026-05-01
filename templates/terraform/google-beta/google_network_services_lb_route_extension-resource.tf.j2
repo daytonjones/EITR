@@ -1,12 +1,37 @@
 resource "google_network_services_lb_route_extension" "example" {
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
-    forwarding_rules = "{{ forwarding_rules }}"
+    forwarding_rules = ["{{ forwarding_rules }}"]
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     load_balancing_scheme = "{{ load_balancing_scheme }}"
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    terraform_labels = "{{ terraform_labels }}"
+    extension_chains {
+      name = "{{ name }}"
+      extensions {
+        authority = "{{ authority }}"
+        fail_open = {{ fail_open }}
+        forward_headers = ["{{ forward_headers }}"]
+        metadata = {
+        key = "{{ metadata_value }}"
+      }
+        name = "{{ name }}"
+        observability_mode = {{ observability_mode }}
+        request_body_send_mode = "{{ request_body_send_mode }}"
+        service = "{{ service }}"
+        supported_events = ["{{ supported_events }}"]
+        timeout = "{{ timeout }}"
+      }
+      match_condition {
+        cel_expression = "{{ cel_expression }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

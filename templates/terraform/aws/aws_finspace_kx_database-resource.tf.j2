@@ -1,11 +1,18 @@
 resource "aws_finspace_kx_database" "example" {
-    arn = "{{ arn }}"
-    created_timestamp = "{{ created_timestamp }}"
     description = "{{ description }}"
     environment_id = "{{ environment_id }}"
     id = "{{ id }}"
-    last_modified_timestamp = "{{ last_modified_timestamp }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

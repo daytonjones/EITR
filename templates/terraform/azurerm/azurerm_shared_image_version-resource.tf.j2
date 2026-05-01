@@ -1,8 +1,8 @@
 resource "azurerm_shared_image_version" "example" {
     blob_uri = "{{ blob_uri }}"
-    deletion_of_replicated_locations_enabled = "{{ deletion_of_replicated_locations_enabled }}"
+    deletion_of_replicated_locations_enabled = {{ deletion_of_replicated_locations_enabled }}
     end_of_life_date = "{{ end_of_life_date }}"
-    exclude_from_latest = "{{ exclude_from_latest }}"
+    exclude_from_latest = {{ exclude_from_latest }}
     gallery_name = "{{ gallery_name }}"
     id = "{{ id }}"
     image_name = "{{ image_name }}"
@@ -13,5 +13,20 @@ resource "azurerm_shared_image_version" "example" {
     replication_mode = "{{ replication_mode }}"
     resource_group_name = "{{ resource_group_name }}"
     storage_account_id = "{{ storage_account_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    target_region {
+      disk_encryption_set_id = "{{ disk_encryption_set_id }}"
+      exclude_from_latest_enabled = {{ exclude_from_latest_enabled }}
+      name = "{{ name }}"
+      regional_replica_count = {{ regional_replica_count }}
+      storage_account_type = "{{ storage_account_type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

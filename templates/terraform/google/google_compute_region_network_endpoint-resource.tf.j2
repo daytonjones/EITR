@@ -1,9 +1,15 @@
 resource "google_compute_region_network_endpoint" "example" {
+    client_destination_port = {{ client_destination_port }}
     fqdn = "{{ fqdn }}"
     id = "{{ id }}"
+    instance = "{{ instance }}"
     ip_address = "{{ ip_address }}"
-    port = "{{ port }}"
+    port = {{ port }}
     project = "{{ project }}"
     region = "{{ region }}"
     region_network_endpoint_group = "{{ region_network_endpoint_group }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

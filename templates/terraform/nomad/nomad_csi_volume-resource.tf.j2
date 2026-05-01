@@ -1,26 +1,45 @@
 resource "nomad_csi_volume" "example" {
-    capacity = "{{ capacity }}"
     capacity_max = "{{ capacity_max }}"
-    capacity_max_bytes = "{{ capacity_max_bytes }}"
     capacity_min = "{{ capacity_min }}"
-    capacity_min_bytes = "{{ capacity_min_bytes }}"
     clone_id = "{{ clone_id }}"
-    controller_required = "{{ controller_required }}"
-    controllers_expected = "{{ controllers_expected }}"
-    controllers_healthy = "{{ controllers_healthy }}"
-    external_id = "{{ external_id }}"
     id = "{{ id }}"
     name = "{{ name }}"
     namespace = "{{ namespace }}"
-    nodes_expected = "{{ nodes_expected }}"
-    nodes_healthy = "{{ nodes_healthy }}"
-    parameters = "{{ parameters }}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
     plugin_id = "{{ plugin_id }}"
-    plugin_provider = "{{ plugin_provider }}"
-    plugin_provider_version = "{{ plugin_provider_version }}"
-    schedulable = "{{ schedulable }}"
-    secrets = "{{ secrets }}"
+    secrets = {
+        key = "{{ secrets_value }}"
+      }
     snapshot_id = "{{ snapshot_id }}"
-    topologies = "{{ topologies }}"
     volume_id = "{{ volume_id }}"
+    capability {
+      access_mode = "{{ access_mode }}"
+      attachment_mode = "{{ attachment_mode }}"
+    }
+    mount_options {
+      fs_type = "{{ fs_type }}"
+      mount_flags = ["{{ mount_flags }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+    topology_request {
+      preferred {
+        topology {
+          segments = {
+        key = "{{ segments_value }}"
+      }
+        }
+      }
+      required {
+        topology {
+          segments = {
+        key = "{{ segments_value }}"
+      }
+        }
+      }
+    }
 }

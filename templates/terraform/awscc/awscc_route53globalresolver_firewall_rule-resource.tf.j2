@@ -1,0 +1,16 @@
+resource "awscc_route53globalresolver_firewall_rule" "example" {
+    action = "{{ action }}"
+    block_override_dns_type = "{{ block_override_dns_type }}"
+    block_override_domain = "{{ block_override_domain }}"
+    block_override_ttl = {{ block_override_ttl }}
+    block_response = "{{ block_response }}"
+    client_token = "{{ client_token }}"
+    confidence_threshold = "{{ confidence_threshold }}"
+    description = "{{ description }}"
+    dns_advanced_protection = "{{ dns_advanced_protection }}"
+    dns_view_id = "{{ dns_view_id }}"
+    firewall_domain_list_id = "{{ firewall_domain_list_id }}"
+    name = "{{ name }}"
+    priority = {{ priority }}
+    q_type = "{{ q_type }}"
+}

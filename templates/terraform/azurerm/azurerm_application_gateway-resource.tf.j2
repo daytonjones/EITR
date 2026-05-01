@@ -1,13 +1,273 @@
 resource "azurerm_application_gateway" "example" {
-    enable_http2 = "{{ enable_http2 }}"
-    fips_enabled = "{{ fips_enabled }}"
+    enable_http2 = {{ enable_http2 }}
+    fips_enabled = {{ fips_enabled }}
     firewall_policy_id = "{{ firewall_policy_id }}"
-    force_firewall_policy_association = "{{ force_firewall_policy_association }}"
+    force_firewall_policy_association = {{ force_firewall_policy_association }}
+    http2_enabled = {{ http2_enabled }}
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    private_endpoint_connection = "{{ private_endpoint_connection }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
-    zones = "{{ zones }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    zones = ["{{ zones }}"]
+    authentication_certificate {
+      data = "{{ data }}"
+      name = "{{ name }}"
+    }
+    autoscale_configuration {
+      max_capacity = {{ max_capacity }}
+      min_capacity = {{ min_capacity }}
+    }
+    backend {
+      client_ip_preservation_enabled = {{ client_ip_preservation_enabled }}
+      host_name = "{{ host_name }}"
+      name = "{{ name }}"
+      port = {{ port }}
+      probe_name = "{{ probe_name }}"
+      protocol = "{{ protocol }}"
+      timeout_in_seconds = {{ timeout_in_seconds }}
+      trusted_root_certificate_names = ["{{ trusted_root_certificate_names }}"]
+    }
+    backend_address_pool {
+      fqdns = ["{{ fqdns }}"]
+      ip_addresses = ["{{ ip_addresses }}"]
+      name = "{{ name }}"
+    }
+    backend_http_settings {
+      affinity_cookie_name = "{{ affinity_cookie_name }}"
+      cookie_based_affinity = "{{ cookie_based_affinity }}"
+      dedicated_backend_connection_enabled = {{ dedicated_backend_connection_enabled }}
+      host_name = "{{ host_name }}"
+      name = "{{ name }}"
+      path = "{{ path }}"
+      pick_host_name_from_backend_address = {{ pick_host_name_from_backend_address }}
+      port = {{ port }}
+      probe_name = "{{ probe_name }}"
+      protocol = "{{ protocol }}"
+      request_timeout = {{ request_timeout }}
+      trusted_root_certificate_names = ["{{ trusted_root_certificate_names }}"]
+      authentication_certificate {
+        name = "{{ name }}"
+      }
+      connection_draining {
+        drain_timeout_sec = {{ drain_timeout_sec }}
+        enabled = {{ enabled }}
+      }
+    }
+    custom_error_configuration {
+      custom_error_page_url = "{{ custom_error_page_url }}"
+      status_code = "{{ status_code }}"
+    }
+    frontend_ip_configuration {
+      name = "{{ name }}"
+      private_ip_address = "{{ private_ip_address }}"
+      private_ip_address_allocation = "{{ private_ip_address_allocation }}"
+      private_link_configuration_name = "{{ private_link_configuration_name }}"
+      public_ip_address_id = "{{ public_ip_address_id }}"
+      subnet_id = "{{ subnet_id }}"
+    }
+    frontend_port {
+      name = "{{ name }}"
+      port = {{ port }}
+    }
+    gateway_ip_configuration {
+      name = "{{ name }}"
+      subnet_id = "{{ subnet_id }}"
+    }
+    global {
+      request_buffering_enabled = {{ request_buffering_enabled }}
+      response_buffering_enabled = {{ response_buffering_enabled }}
+    }
+    http_listener {
+      firewall_policy_id = "{{ firewall_policy_id }}"
+      frontend_ip_configuration_name = "{{ frontend_ip_configuration_name }}"
+      frontend_port_name = "{{ frontend_port_name }}"
+      host_name = "{{ host_name }}"
+      host_names = ["{{ host_names }}"]
+      name = "{{ name }}"
+      protocol = "{{ protocol }}"
+      require_sni = {{ require_sni }}
+      ssl_certificate_name = "{{ ssl_certificate_name }}"
+      ssl_profile_name = "{{ ssl_profile_name }}"
+      custom_error_configuration {
+        custom_error_page_url = "{{ custom_error_page_url }}"
+        status_code = "{{ status_code }}"
+      }
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    listener {
+      frontend_ip_configuration_name = "{{ frontend_ip_configuration_name }}"
+      frontend_port_name = "{{ frontend_port_name }}"
+      host_names = ["{{ host_names }}"]
+      name = "{{ name }}"
+      protocol = "{{ protocol }}"
+      ssl_certificate_name = "{{ ssl_certificate_name }}"
+      ssl_profile_name = "{{ ssl_profile_name }}"
+    }
+    private_link_configuration {
+      name = "{{ name }}"
+      ip_configuration {
+        name = "{{ name }}"
+        primary = {{ primary }}
+        private_ip_address = "{{ private_ip_address }}"
+        private_ip_address_allocation = "{{ private_ip_address_allocation }}"
+        subnet_id = "{{ subnet_id }}"
+      }
+    }
+    probe {
+      host = "{{ host }}"
+      interval = {{ interval }}
+      minimum_servers = {{ minimum_servers }}
+      name = "{{ name }}"
+      path = "{{ path }}"
+      pick_host_name_from_backend_http_settings = {{ pick_host_name_from_backend_http_settings }}
+      port = {{ port }}
+      protocol = "{{ protocol }}"
+      proxy_protocol_header_enabled = {{ proxy_protocol_header_enabled }}
+      timeout = {{ timeout }}
+      unhealthy_threshold = {{ unhealthy_threshold }}
+      match {
+        body = "{{ body }}"
+        status_code = ["{{ status_code }}"]
+      }
+    }
+    redirect_configuration {
+      include_path = {{ include_path }}
+      include_query_string = {{ include_query_string }}
+      name = "{{ name }}"
+      redirect_type = "{{ redirect_type }}"
+      target_listener_name = "{{ target_listener_name }}"
+      target_url = "{{ target_url }}"
+    }
+    request_routing_rule {
+      backend_address_pool_name = "{{ backend_address_pool_name }}"
+      backend_http_settings_name = "{{ backend_http_settings_name }}"
+      http_listener_name = "{{ http_listener_name }}"
+      name = "{{ name }}"
+      priority = {{ priority }}
+      redirect_configuration_name = "{{ redirect_configuration_name }}"
+      rewrite_rule_set_name = "{{ rewrite_rule_set_name }}"
+      rule_type = "{{ rule_type }}"
+      url_path_map_name = "{{ url_path_map_name }}"
+    }
+    rewrite_rule_set {
+      name = "{{ name }}"
+      rewrite_rule {
+        name = "{{ name }}"
+        rule_sequence = {{ rule_sequence }}
+        condition {
+          ignore_case = {{ ignore_case }}
+          negate = {{ negate }}
+          pattern = "{{ pattern }}"
+          variable = "{{ variable }}"
+        }
+        request_header_configuration {
+          header_name = "{{ header_name }}"
+          header_value = "{{ header_value }}"
+        }
+        response_header_configuration {
+          header_name = "{{ header_name }}"
+          header_value = "{{ header_value }}"
+        }
+        url {
+          components = "{{ components }}"
+          path = "{{ path }}"
+          query_string = "{{ query_string }}"
+          reroute = {{ reroute }}
+        }
+      }
+    }
+    routing_rule {
+      backend_address_pool_name = "{{ backend_address_pool_name }}"
+      backend_name = "{{ backend_name }}"
+      listener_name = "{{ listener_name }}"
+      name = "{{ name }}"
+      priority = {{ priority }}
+    }
+    sku {
+      capacity = {{ capacity }}
+      name = "{{ name }}"
+      tier = "{{ tier }}"
+    }
+    ssl_certificate {
+      data = "{{ data }}"
+      key_vault_secret_id = "{{ key_vault_secret_id }}"
+      name = "{{ name }}"
+      password = "{{ password }}"
+    }
+    ssl_policy {
+      cipher_suites = ["{{ cipher_suites }}"]
+      disabled_protocols = ["{{ disabled_protocols }}"]
+      min_protocol_version = "{{ min_protocol_version }}"
+      policy_name = "{{ policy_name }}"
+      policy_type = "{{ policy_type }}"
+    }
+    ssl_profile {
+      name = "{{ name }}"
+      trusted_client_certificate_names = ["{{ trusted_client_certificate_names }}"]
+      verify_client_cert_issuer_dn = {{ verify_client_cert_issuer_dn }}
+      verify_client_certificate_issuer_dn = {{ verify_client_certificate_issuer_dn }}
+      verify_client_certificate_revocation = "{{ verify_client_certificate_revocation }}"
+      ssl_policy {
+        cipher_suites = ["{{ cipher_suites }}"]
+        disabled_protocols = ["{{ disabled_protocols }}"]
+        min_protocol_version = "{{ min_protocol_version }}"
+        policy_name = "{{ policy_name }}"
+        policy_type = "{{ policy_type }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    trusted_client_certificate {
+      data = "{{ data }}"
+      name = "{{ name }}"
+    }
+    trusted_root_certificate {
+      data = "{{ data }}"
+      key_vault_secret_id = "{{ key_vault_secret_id }}"
+      name = "{{ name }}"
+    }
+    url_path_map {
+      default_backend_address_pool_name = "{{ default_backend_address_pool_name }}"
+      default_backend_http_settings_name = "{{ default_backend_http_settings_name }}"
+      default_redirect_configuration_name = "{{ default_redirect_configuration_name }}"
+      default_rewrite_rule_set_name = "{{ default_rewrite_rule_set_name }}"
+      name = "{{ name }}"
+      path_rule {
+        backend_address_pool_name = "{{ backend_address_pool_name }}"
+        backend_http_settings_name = "{{ backend_http_settings_name }}"
+        firewall_policy_id = "{{ firewall_policy_id }}"
+        name = "{{ name }}"
+        paths = ["{{ paths }}"]
+        redirect_configuration_name = "{{ redirect_configuration_name }}"
+        rewrite_rule_set_name = "{{ rewrite_rule_set_name }}"
+      }
+    }
+    waf_configuration {
+      enabled = {{ enabled }}
+      file_upload_limit_mb = {{ file_upload_limit_mb }}
+      firewall_mode = "{{ firewall_mode }}"
+      max_request_body_size_kb = {{ max_request_body_size_kb }}
+      request_body_check = {{ request_body_check }}
+      rule_set_type = "{{ rule_set_type }}"
+      rule_set_version = "{{ rule_set_version }}"
+      disabled_rule_group {
+        rule_group_name = "{{ rule_group_name }}"
+        rules = ["{{ rules }}"]
+      }
+      exclusion {
+        match_variable = "{{ match_variable }}"
+        selector = "{{ selector }}"
+        selector_match_operator = "{{ selector_match_operator }}"
+      }
+    }
 }

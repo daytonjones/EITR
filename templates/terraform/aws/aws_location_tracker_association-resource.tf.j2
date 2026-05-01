@@ -1,5 +1,10 @@
 resource "aws_location_tracker_association" "example" {
     consumer_arn = "{{ consumer_arn }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     tracker_name = "{{ tracker_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

@@ -1,13 +1,48 @@
 resource "azurerm_cosmosdb_sql_container" "example" {
     account_name = "{{ account_name }}"
-    analytical_storage_ttl = "{{ analytical_storage_ttl }}"
+    analytical_storage_ttl = {{ analytical_storage_ttl }}
     database_name = "{{ database_name }}"
-    default_ttl = "{{ default_ttl }}"
+    default_ttl = {{ default_ttl }}
     id = "{{ id }}"
     name = "{{ name }}"
     partition_key_kind = "{{ partition_key_kind }}"
-    partition_key_paths = "{{ partition_key_paths }}"
-    partition_key_version = "{{ partition_key_version }}"
+    partition_key_paths = ["{{ partition_key_paths }}"]
+    partition_key_version = {{ partition_key_version }}
     resource_group_name = "{{ resource_group_name }}"
-    throughput = "{{ throughput }}"
+    throughput = {{ throughput }}
+    autoscale_settings {
+      max_throughput = {{ max_throughput }}
+    }
+    conflict_resolution_policy {
+      conflict_resolution_path = "{{ conflict_resolution_path }}"
+      conflict_resolution_procedure = "{{ conflict_resolution_procedure }}"
+      mode = "{{ mode }}"
+    }
+    indexing_policy {
+      indexing_mode = "{{ indexing_mode }}"
+      composite_index {
+        index {
+          order = "{{ order }}"
+          path = "{{ path }}"
+        }
+      }
+      excluded_path {
+        path = "{{ path }}"
+      }
+      included_path {
+        path = "{{ path }}"
+      }
+      spatial_index {
+        path = "{{ path }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    unique_key {
+      paths = ["{{ paths }}"]
+    }
 }

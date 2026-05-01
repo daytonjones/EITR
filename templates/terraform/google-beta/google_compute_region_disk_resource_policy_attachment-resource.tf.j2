@@ -4,4 +4,8 @@ resource "google_compute_region_disk_resource_policy_attachment" "example" {
     name = "{{ name }}"
     project = "{{ project }}"
     region = "{{ region }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

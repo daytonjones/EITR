@@ -1,13 +1,16 @@
 resource "aws_opensearchserverless_collection" "example" {
-    arn = "{{ arn }}"
-    collection_endpoint = "{{ collection_endpoint }}"
-    dashboard_endpoint = "{{ dashboard_endpoint }}"
+    collection_group_name = "{{ collection_group_name }}"
     description = "{{ description }}"
-    id = "{{ id }}"
-    kms_key_arn = "{{ kms_key_arn }}"
+    encryption_config = ["{{ encryption_config }}"]
     name = "{{ name }}"
+    region = "{{ region }}"
     standby_replicas = "{{ standby_replicas }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     type = "{{ type }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

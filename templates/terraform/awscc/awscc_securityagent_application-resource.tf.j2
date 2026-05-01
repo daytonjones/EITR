@@ -1,0 +1,6 @@
+resource "awscc_securityagent_application" "example" {
+    default_kms_key_id = "{{ default_kms_key_id }}"
+    id_c_configuration = "{{ id_c_configuration }}"
+    role_arn = "{{ role_arn }}"
+    tags = "{{ tags }}"
+}

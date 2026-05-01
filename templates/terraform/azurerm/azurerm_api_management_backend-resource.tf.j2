@@ -8,4 +8,58 @@ resource "azurerm_api_management_backend" "example" {
     resource_id = "{{ resource_id }}"
     title = "{{ title }}"
     url = "{{ url }}"
+    circuit_breaker_rule {
+      accept_retry_after_enabled = {{ accept_retry_after_enabled }}
+      name = "{{ name }}"
+      trip_duration = "{{ trip_duration }}"
+      failure_condition {
+        count = {{ count }}
+        error_reasons = ["{{ error_reasons }}"]
+        interval_duration = "{{ interval_duration }}"
+        percentage = {{ percentage }}
+        status_code_range {
+          max = {{ max }}
+          min = {{ min }}
+        }
+      }
+    }
+    credentials {
+      certificate = ["{{ certificate }}"]
+      header = {
+        key = "{{ header_value }}"
+      }
+      query = {
+        key = "{{ query_value }}"
+      }
+      authorization {
+        parameter = "{{ parameter }}"
+        scheme = "{{ scheme }}"
+      }
+    }
+    proxy {
+      password = "{{ password }}"
+      url = "{{ url }}"
+      username = "{{ username }}"
+    }
+    service_fabric_cluster {
+      client_certificate_id = "{{ client_certificate_id }}"
+      client_certificate_thumbprint = "{{ client_certificate_thumbprint }}"
+      management_endpoints = ["{{ management_endpoints }}"]
+      max_partition_resolution_retries = {{ max_partition_resolution_retries }}
+      server_certificate_thumbprints = ["{{ server_certificate_thumbprints }}"]
+      server_x509_name {
+        issuer_certificate_thumbprint = "{{ issuer_certificate_thumbprint }}"
+        name = "{{ name }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    tls {
+      validate_certificate_chain = {{ validate_certificate_chain }}
+      validate_certificate_name = {{ validate_certificate_name }}
+    }
 }

@@ -1,4 +1,18 @@
-ephemeral_resource "kubernetes_token_request_v1" "example" {
+ephemeral "kubernetes_token_request_v1" "example" {
     expiration_timestamp = "{{ expiration_timestamp }}"
     token = "{{ token }}"
+    metadata {
+      name = "{{ name }}"
+      namespace = "{{ namespace }}"
+    }
+    spec {
+      audiences = ["{{ audiences }}"]
+      expiration_seconds = {{ expiration_seconds }}
+      bound_object_ref {
+        api_version = "{{ api_version }}"
+        kind = "{{ kind }}"
+        name = "{{ name }}"
+        uid = "{{ uid }}"
+      }
+    }
 }

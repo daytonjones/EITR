@@ -1,9 +1,78 @@
 resource "azurerm_monitor_autoscale_setting" "example" {
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     target_resource_id = "{{ target_resource_id }}"
+    notification {
+      email {
+        custom_emails = ["{{ custom_emails }}"]
+        send_to_subscription_administrator = {{ send_to_subscription_administrator }}
+        send_to_subscription_co_administrator = {{ send_to_subscription_co_administrator }}
+      }
+      webhook {
+        properties = {
+        key = "{{ properties_value }}"
+      }
+        service_uri = "{{ service_uri }}"
+      }
+    }
+    predictive {
+      look_ahead_time = "{{ look_ahead_time }}"
+      scale_mode = "{{ scale_mode }}"
+    }
+    profile {
+      name = "{{ name }}"
+      capacity {
+        default = {{ default }}
+        maximum = {{ maximum }}
+        minimum = {{ minimum }}
+      }
+      fixed_date {
+        end = "{{ end }}"
+        start = "{{ start }}"
+        timezone = "{{ timezone }}"
+      }
+      recurrence {
+        days = ["{{ days }}"]
+        hours = ["{{ hours }}"]
+        minutes = ["{{ minutes }}"]
+        timezone = "{{ timezone }}"
+      }
+      rule {
+        metric_trigger {
+          divide_by_instance_count = {{ divide_by_instance_count }}
+          metric_name = "{{ metric_name }}"
+          metric_namespace = "{{ metric_namespace }}"
+          metric_resource_id = "{{ metric_resource_id }}"
+          operator = "{{ operator }}"
+          statistic = "{{ statistic }}"
+          threshold = {{ threshold }}
+          time_aggregation = "{{ time_aggregation }}"
+          time_grain = "{{ time_grain }}"
+          time_window = "{{ time_window }}"
+          dimensions {
+            name = "{{ name }}"
+            operator = "{{ operator }}"
+            values = ["{{ values }}"]
+          }
+        }
+        scale_action {
+          cooldown = "{{ cooldown }}"
+          direction = "{{ direction }}"
+          type = "{{ type }}"
+          value = {{ value }}
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

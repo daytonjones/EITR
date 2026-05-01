@@ -1,5 +1,11 @@
 resource "aws_servicecatalog_budget_resource_association" "example" {
     budget_name = "{{ budget_name }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     resource_id = "{{ resource_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

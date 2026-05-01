@@ -1,11 +1,44 @@
 resource "google_logging_metric" "example" {
     bucket_name = "{{ bucket_name }}"
     description = "{{ description }}"
-    disabled = "{{ disabled }}"
+    disabled = {{ disabled }}
     filter = "{{ filter }}"
     id = "{{ id }}"
-    label_extractors = "{{ label_extractors }}"
+    label_extractors = {
+        key = "{{ label_extractors_value }}"
+      }
     name = "{{ name }}"
     project = "{{ project }}"
     value_extractor = "{{ value_extractor }}"
+    bucket_options {
+      explicit_buckets {
+        bounds = ["{{ bounds }}"]
+      }
+      exponential_buckets {
+        growth_factor = {{ growth_factor }}
+        num_finite_buckets = {{ num_finite_buckets }}
+        scale = {{ scale }}
+      }
+      linear_buckets {
+        num_finite_buckets = {{ num_finite_buckets }}
+        offset = {{ offset }}
+        width = {{ width }}
+      }
+    }
+    metric_descriptor {
+      display_name = "{{ display_name }}"
+      metric_kind = "{{ metric_kind }}"
+      unit = "{{ unit }}"
+      value_type = "{{ value_type }}"
+      labels {
+        description = "{{ description }}"
+        key = "{{ key }}"
+        value_type = "{{ value_type }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

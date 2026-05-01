@@ -1,0 +1,9 @@
+data "azurerm_managed_redis_access_policy_assignment" "example" {
+    id = "{{ id }}"
+    managed_redis_name = "{{ managed_redis_name }}"
+    object_id = "{{ object_id }}"
+    resource_group_name = "{{ resource_group_name }}"
+    timeouts {
+      read = "{{ read }}"
+    }
+}

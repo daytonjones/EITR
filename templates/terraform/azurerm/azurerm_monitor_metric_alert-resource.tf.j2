@@ -1,15 +1,63 @@
 resource "azurerm_monitor_metric_alert" "example" {
-    auto_mitigate = "{{ auto_mitigate }}"
+    auto_mitigate = {{ auto_mitigate }}
     description = "{{ description }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     frequency = "{{ frequency }}"
     id = "{{ id }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    scopes = "{{ scopes }}"
-    severity = "{{ severity }}"
-    tags = "{{ tags }}"
+    scopes = ["{{ scopes }}"]
+    severity = {{ severity }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
     target_resource_location = "{{ target_resource_location }}"
     target_resource_type = "{{ target_resource_type }}"
     window_size = "{{ window_size }}"
+    action {
+      action_group_id = "{{ action_group_id }}"
+      webhook_properties = {
+        key = "{{ webhook_properties_value }}"
+      }
+    }
+    application_insights_web_test_location_availability_criteria {
+      component_id = "{{ component_id }}"
+      failed_location_count = {{ failed_location_count }}
+      web_test_id = "{{ web_test_id }}"
+    }
+    criteria {
+      aggregation = "{{ aggregation }}"
+      metric_name = "{{ metric_name }}"
+      metric_namespace = "{{ metric_namespace }}"
+      operator = "{{ operator }}"
+      skip_metric_validation = {{ skip_metric_validation }}
+      threshold = {{ threshold }}
+      dimension {
+        name = "{{ name }}"
+        operator = "{{ operator }}"
+        values = ["{{ values }}"]
+      }
+    }
+    dynamic_criteria {
+      aggregation = "{{ aggregation }}"
+      alert_sensitivity = "{{ alert_sensitivity }}"
+      evaluation_failure_count = {{ evaluation_failure_count }}
+      evaluation_total_count = {{ evaluation_total_count }}
+      ignore_data_before = "{{ ignore_data_before }}"
+      metric_name = "{{ metric_name }}"
+      metric_namespace = "{{ metric_namespace }}"
+      operator = "{{ operator }}"
+      skip_metric_validation = {{ skip_metric_validation }}
+      dimension {
+        name = "{{ name }}"
+        operator = "{{ operator }}"
+        values = ["{{ values }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

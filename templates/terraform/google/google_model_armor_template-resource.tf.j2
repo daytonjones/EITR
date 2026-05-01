@@ -1,0 +1,51 @@
+resource "google_model_armor_template" "example" {
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    template_id = "{{ template_id }}"
+    filter_config {
+      malicious_uri_filter_settings {
+        filter_enforcement = "{{ filter_enforcement }}"
+      }
+      pi_and_jailbreak_filter_settings {
+        confidence_level = "{{ confidence_level }}"
+        filter_enforcement = "{{ filter_enforcement }}"
+      }
+      rai_settings {
+        rai_filters {
+          confidence_level = "{{ confidence_level }}"
+          filter_type = "{{ filter_type }}"
+        }
+      }
+      sdp_settings {
+        advanced_config {
+          deidentify_template = "{{ deidentify_template }}"
+          inspect_template = "{{ inspect_template }}"
+        }
+        basic_config {
+          filter_enforcement = "{{ filter_enforcement }}"
+        }
+      }
+    }
+    template_metadata {
+      custom_llm_response_safety_error_code = {{ custom_llm_response_safety_error_code }}
+      custom_llm_response_safety_error_message = "{{ custom_llm_response_safety_error_message }}"
+      custom_prompt_safety_error_code = {{ custom_prompt_safety_error_code }}
+      custom_prompt_safety_error_message = "{{ custom_prompt_safety_error_message }}"
+      enforcement_type = "{{ enforcement_type }}"
+      ignore_partial_invocation_failures = {{ ignore_partial_invocation_failures }}
+      log_sanitize_operations = {{ log_sanitize_operations }}
+      log_template_operations = {{ log_template_operations }}
+      multi_language_detection {
+        enable_multi_language_detection = {{ enable_multi_language_detection }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

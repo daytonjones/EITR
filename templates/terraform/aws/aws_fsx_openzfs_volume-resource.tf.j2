@@ -1,16 +1,40 @@
 resource "aws_fsx_openzfs_volume" "example" {
-    arn = "{{ arn }}"
-    copy_tags_to_snapshots = "{{ copy_tags_to_snapshots }}"
+    copy_tags_to_snapshots = {{ copy_tags_to_snapshots }}
     data_compression_type = "{{ data_compression_type }}"
-    delete_volume_options = "{{ delete_volume_options }}"
+    delete_volume_options = ["{{ delete_volume_options }}"]
     id = "{{ id }}"
     name = "{{ name }}"
     parent_volume_id = "{{ parent_volume_id }}"
-    read_only = "{{ read_only }}"
-    record_size_kib = "{{ record_size_kib }}"
-    storage_capacity_quota_gib = "{{ storage_capacity_quota_gib }}"
-    storage_capacity_reservation_gib = "{{ storage_capacity_reservation_gib }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    read_only = {{ read_only }}
+    record_size_kib = {{ record_size_kib }}
+    region = "{{ region }}"
+    storage_capacity_quota_gib = {{ storage_capacity_quota_gib }}
+    storage_capacity_reservation_gib = {{ storage_capacity_reservation_gib }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     volume_type = "{{ volume_type }}"
+    nfs_exports {
+      client_configurations {
+        clients = "{{ clients }}"
+        options = ["{{ options }}"]
+      }
+    }
+    origin_snapshot {
+      copy_strategy = "{{ copy_strategy }}"
+      snapshot_arn = "{{ snapshot_arn }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    user_and_group_quotas {
+      id = {{ id }}
+      storage_capacity_quota_gib = {{ storage_capacity_quota_gib }}
+      type = "{{ type }}"
+    }
 }

@@ -2,11 +2,76 @@ resource "google_monitoring_uptime_check_config" "example" {
     checker_type = "{{ checker_type }}"
     display_name = "{{ display_name }}"
     id = "{{ id }}"
-    name = "{{ name }}"
+    log_check_failures = {{ log_check_failures }}
     period = "{{ period }}"
     project = "{{ project }}"
-    selected_regions = "{{ selected_regions }}"
+    selected_regions = ["{{ selected_regions }}"]
     timeout = "{{ timeout }}"
-    uptime_check_id = "{{ uptime_check_id }}"
-    user_labels = "{{ user_labels }}"
+    user_labels = {
+        key = "{{ user_labels_value }}"
+      }
+    content_matchers {
+      content = "{{ content }}"
+      matcher = "{{ matcher }}"
+      json_path_matcher {
+        json_matcher = "{{ json_matcher }}"
+        json_path = "{{ json_path }}"
+      }
+    }
+    http_check {
+      body = "{{ body }}"
+      content_type = "{{ content_type }}"
+      custom_content_type = "{{ custom_content_type }}"
+      headers = {
+        key = "{{ headers_value }}"
+      }
+      mask_headers = {{ mask_headers }}
+      path = "{{ path }}"
+      port = {{ port }}
+      request_method = "{{ request_method }}"
+      use_ssl = {{ use_ssl }}
+      validate_ssl = {{ validate_ssl }}
+      accepted_response_status_codes {
+        status_class = "{{ status_class }}"
+        status_value = {{ status_value }}
+      }
+      auth_info {
+        password = "{{ password }}"
+        password_wo = "{{ password_wo }}"
+        password_wo_version = "{{ password_wo_version }}"
+        username = "{{ username }}"
+      }
+      ping_config {
+        pings_count = {{ pings_count }}
+      }
+      service_agent_authentication {
+        type = "{{ type }}"
+      }
+    }
+    monitored_resource {
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      type = "{{ type }}"
+    }
+    resource_group {
+      group_id = "{{ group_id }}"
+      resource_type = "{{ resource_type }}"
+    }
+    synthetic_monitor {
+      cloud_function_v2 {
+        name = "{{ name }}"
+      }
+    }
+    tcp_check {
+      port = {{ port }}
+      ping_config {
+        pings_count = {{ pings_count }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

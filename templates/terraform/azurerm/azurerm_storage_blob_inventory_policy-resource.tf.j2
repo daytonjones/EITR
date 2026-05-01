@@ -1,4 +1,26 @@
 resource "azurerm_storage_blob_inventory_policy" "example" {
     id = "{{ id }}"
     storage_account_id = "{{ storage_account_id }}"
+    rules {
+      format = "{{ format }}"
+      name = "{{ name }}"
+      schedule = "{{ schedule }}"
+      schema_fields = ["{{ schema_fields }}"]
+      scope = "{{ scope }}"
+      storage_container_name = "{{ storage_container_name }}"
+      filter {
+        blob_types = ["{{ blob_types }}"]
+        exclude_prefixes = ["{{ exclude_prefixes }}"]
+        include_blob_versions = {{ include_blob_versions }}
+        include_deleted = {{ include_deleted }}
+        include_snapshots = {{ include_snapshots }}
+        prefix_match = ["{{ prefix_match }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

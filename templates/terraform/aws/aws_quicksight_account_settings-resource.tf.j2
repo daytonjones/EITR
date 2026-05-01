@@ -1,0 +1,10 @@
+resource "aws_quicksight_account_settings" "example" {
+    aws_account_id = "{{ aws_account_id }}"
+    default_namespace = "{{ default_namespace }}"
+    region = "{{ region }}"
+    termination_protection_enabled = {{ termination_protection_enabled }}
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,12 +1,34 @@
 resource "google_bigtable_instance" "example" {
-    deletion_protection = "{{ deletion_protection }}"
+    deletion_protection = {{ deletion_protection }}
     display_name = "{{ display_name }}"
-    effective_labels = "{{ effective_labels }}"
-    force_destroy = "{{ force_destroy }}"
+    force_destroy = {{ force_destroy }}
     id = "{{ id }}"
     instance_type = "{{ instance_type }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
     project = "{{ project }}"
-    terraform_labels = "{{ terraform_labels }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    cluster {
+      cluster_id = "{{ cluster_id }}"
+      kms_key_name = "{{ kms_key_name }}"
+      node_scaling_factor = "{{ node_scaling_factor }}"
+      num_nodes = {{ num_nodes }}
+      storage_type = "{{ storage_type }}"
+      zone = "{{ zone }}"
+      autoscaling_config {
+        cpu_target = {{ cpu_target }}
+        max_nodes = {{ max_nodes }}
+        min_nodes = {{ min_nodes }}
+        storage_target = {{ storage_target }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

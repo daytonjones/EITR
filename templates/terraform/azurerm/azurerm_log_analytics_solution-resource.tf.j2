@@ -3,7 +3,20 @@ resource "azurerm_log_analytics_solution" "example" {
     location = "{{ location }}"
     resource_group_name = "{{ resource_group_name }}"
     solution_name = "{{ solution_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     workspace_name = "{{ workspace_name }}"
     workspace_resource_id = "{{ workspace_resource_id }}"
+    plan {
+      product = "{{ product }}"
+      promotion_code = "{{ promotion_code }}"
+      publisher = "{{ publisher }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

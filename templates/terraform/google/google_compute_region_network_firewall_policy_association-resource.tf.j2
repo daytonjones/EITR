@@ -5,5 +5,8 @@ resource "google_compute_region_network_firewall_policy_association" "example" {
     name = "{{ name }}"
     project = "{{ project }}"
     region = "{{ region }}"
-    short_name = "{{ short_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

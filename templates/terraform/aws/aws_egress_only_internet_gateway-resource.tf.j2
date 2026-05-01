@@ -1,6 +1,11 @@
 resource "aws_egress_only_internet_gateway" "example" {
     id = "{{ id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     vpc_id = "{{ vpc_id }}"
 }

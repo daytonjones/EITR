@@ -1,0 +1,12 @@
+resource "google_storage_anywhere_cache" "example" {
+    admission_policy = "{{ admission_policy }}"
+    bucket = "{{ bucket }}"
+    id = "{{ id }}"
+    ttl = "{{ ttl }}"
+    zone = "{{ zone }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

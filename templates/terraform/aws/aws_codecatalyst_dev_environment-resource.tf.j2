@@ -1,8 +1,25 @@
 resource "aws_codecatalyst_dev_environment" "example" {
     alias = "{{ alias }}"
     id = "{{ id }}"
-    inactivity_timeout_minutes = "{{ inactivity_timeout_minutes }}"
+    inactivity_timeout_minutes = {{ inactivity_timeout_minutes }}
     instance_type = "{{ instance_type }}"
     project_name = "{{ project_name }}"
+    region = "{{ region }}"
     space_name = "{{ space_name }}"
+    ides {
+      name = "{{ name }}"
+      runtime = "{{ runtime }}"
+    }
+    persistent_storage {
+      size = {{ size }}
+    }
+    repositories {
+      branch_name = "{{ branch_name }}"
+      repository_name = "{{ repository_name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

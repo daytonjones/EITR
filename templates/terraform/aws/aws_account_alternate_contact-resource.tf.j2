@@ -6,4 +6,9 @@ resource "aws_account_alternate_contact" "example" {
     name = "{{ name }}"
     phone_number = "{{ phone_number }}"
     title = "{{ title }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

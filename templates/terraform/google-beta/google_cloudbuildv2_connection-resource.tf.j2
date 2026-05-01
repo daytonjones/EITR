@@ -1,14 +1,71 @@
 resource "google_cloudbuildv2_connection" "example" {
-    annotations = "{{ annotations }}"
-    create_time = "{{ create_time }}"
-    disabled = "{{ disabled }}"
-    effective_annotations = "{{ effective_annotations }}"
-    etag = "{{ etag }}"
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
+    disabled = {{ disabled }}
     id = "{{ id }}"
-    installation_state = "{{ installation_state }}"
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    reconciling = "{{ reconciling }}"
-    update_time = "{{ update_time }}"
+    bitbucket_cloud_config {
+      webhook_secret_secret_version = "{{ webhook_secret_secret_version }}"
+      workspace = "{{ workspace }}"
+      authorizer_credential {
+        user_token_secret_version = "{{ user_token_secret_version }}"
+      }
+      read_authorizer_credential {
+        user_token_secret_version = "{{ user_token_secret_version }}"
+      }
+    }
+    bitbucket_data_center_config {
+      host_uri = "{{ host_uri }}"
+      ssl_ca = "{{ ssl_ca }}"
+      webhook_secret_secret_version = "{{ webhook_secret_secret_version }}"
+      authorizer_credential {
+        user_token_secret_version = "{{ user_token_secret_version }}"
+      }
+      read_authorizer_credential {
+        user_token_secret_version = "{{ user_token_secret_version }}"
+      }
+      service_directory_config {
+        service = "{{ service }}"
+      }
+    }
+    github_config {
+      app_installation_id = {{ app_installation_id }}
+      authorizer_credential {
+        oauth_token_secret_version = "{{ oauth_token_secret_version }}"
+      }
+    }
+    github_enterprise_config {
+      app_id = {{ app_id }}
+      app_installation_id = {{ app_installation_id }}
+      app_slug = "{{ app_slug }}"
+      host_uri = "{{ host_uri }}"
+      private_key_secret_version = "{{ private_key_secret_version }}"
+      ssl_ca = "{{ ssl_ca }}"
+      webhook_secret_secret_version = "{{ webhook_secret_secret_version }}"
+      service_directory_config {
+        service = "{{ service }}"
+      }
+    }
+    gitlab_config {
+      host_uri = "{{ host_uri }}"
+      ssl_ca = "{{ ssl_ca }}"
+      webhook_secret_secret_version = "{{ webhook_secret_secret_version }}"
+      authorizer_credential {
+        user_token_secret_version = "{{ user_token_secret_version }}"
+      }
+      read_authorizer_credential {
+        user_token_secret_version = "{{ user_token_secret_version }}"
+      }
+      service_directory_config {
+        service = "{{ service }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

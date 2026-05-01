@@ -1,5 +1,9 @@
 data "aws_autoscaling_groups" "example" {
-    arns = "{{ arns }}"
     id = "{{ id }}"
-    names = "{{ names }}"
+    names = ["{{ names }}"]
+    region = "{{ region }}"
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
 }

@@ -8,4 +8,10 @@ resource "azurerm_automation_connection_service_principal" "example" {
     resource_group_name = "{{ resource_group_name }}"
     subscription_id = "{{ subscription_id }}"
     tenant_id = "{{ tenant_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

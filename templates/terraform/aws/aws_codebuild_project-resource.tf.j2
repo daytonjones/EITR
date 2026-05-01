@@ -1,19 +1,153 @@
 resource "aws_codebuild_project" "example" {
-    arn = "{{ arn }}"
-    badge_enabled = "{{ badge_enabled }}"
-    badge_url = "{{ badge_url }}"
-    build_timeout = "{{ build_timeout }}"
-    concurrent_build_limit = "{{ concurrent_build_limit }}"
+    auto_retry_limit = {{ auto_retry_limit }}
+    badge_enabled = {{ badge_enabled }}
+    build_timeout = {{ build_timeout }}
+    concurrent_build_limit = {{ concurrent_build_limit }}
     description = "{{ description }}"
     encryption_key = "{{ encryption_key }}"
     id = "{{ id }}"
     name = "{{ name }}"
     project_visibility = "{{ project_visibility }}"
-    public_project_alias = "{{ public_project_alias }}"
-    queued_timeout = "{{ queued_timeout }}"
+    queued_timeout = {{ queued_timeout }}
+    region = "{{ region }}"
     resource_access_role = "{{ resource_access_role }}"
     service_role = "{{ service_role }}"
     source_version = "{{ source_version }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    artifacts {
+      artifact_identifier = "{{ artifact_identifier }}"
+      bucket_owner_access = "{{ bucket_owner_access }}"
+      encryption_disabled = {{ encryption_disabled }}
+      location = "{{ location }}"
+      name = "{{ name }}"
+      namespace_type = "{{ namespace_type }}"
+      override_artifact_name = {{ override_artifact_name }}
+      packaging = "{{ packaging }}"
+      path = "{{ path }}"
+      type = "{{ type }}"
+    }
+    build_batch_config {
+      combine_artifacts = {{ combine_artifacts }}
+      service_role = "{{ service_role }}"
+      timeout_in_mins = {{ timeout_in_mins }}
+      restrictions {
+        compute_types_allowed = ["{{ compute_types_allowed }}"]
+        maximum_builds_allowed = {{ maximum_builds_allowed }}
+      }
+    }
+    cache {
+      cache_namespace = "{{ cache_namespace }}"
+      location = "{{ location }}"
+      modes = ["{{ modes }}"]
+      type = "{{ type }}"
+    }
+    environment {
+      certificate = "{{ certificate }}"
+      compute_type = "{{ compute_type }}"
+      image = "{{ image }}"
+      image_pull_credentials_type = "{{ image_pull_credentials_type }}"
+      privileged_mode = {{ privileged_mode }}
+      type = "{{ type }}"
+      docker_server {
+        compute_type = "{{ compute_type }}"
+        security_group_ids = ["{{ security_group_ids }}"]
+      }
+      environment_variable {
+        name = "{{ name }}"
+        type = "{{ type }}"
+        value = "{{ value }}"
+      }
+      fleet {
+        fleet_arn = "{{ fleet_arn }}"
+      }
+      registry_credential {
+        credential = "{{ credential }}"
+        credential_provider = "{{ credential_provider }}"
+      }
+    }
+    file_system_locations {
+      identifier = "{{ identifier }}"
+      location = "{{ location }}"
+      mount_options = "{{ mount_options }}"
+      mount_point = "{{ mount_point }}"
+      type = "{{ type }}"
+    }
+    logs_config {
+      cloudwatch_logs {
+        group_name = "{{ group_name }}"
+        status = "{{ status }}"
+        stream_name = "{{ stream_name }}"
+      }
+      s3_logs {
+        bucket_owner_access = "{{ bucket_owner_access }}"
+        encryption_disabled = {{ encryption_disabled }}
+        location = "{{ location }}"
+        status = "{{ status }}"
+      }
+    }
+    secondary_artifacts {
+      artifact_identifier = "{{ artifact_identifier }}"
+      bucket_owner_access = "{{ bucket_owner_access }}"
+      encryption_disabled = {{ encryption_disabled }}
+      location = "{{ location }}"
+      name = "{{ name }}"
+      namespace_type = "{{ namespace_type }}"
+      override_artifact_name = {{ override_artifact_name }}
+      packaging = "{{ packaging }}"
+      path = "{{ path }}"
+      type = "{{ type }}"
+    }
+    secondary_source_version {
+      source_identifier = "{{ source_identifier }}"
+      source_version = "{{ source_version }}"
+    }
+    secondary_sources {
+      buildspec = "{{ buildspec }}"
+      git_clone_depth = {{ git_clone_depth }}
+      insecure_ssl = {{ insecure_ssl }}
+      location = "{{ location }}"
+      report_build_status = {{ report_build_status }}
+      source_identifier = "{{ source_identifier }}"
+      type = "{{ type }}"
+      auth {
+        resource = "{{ resource }}"
+        type = "{{ type }}"
+      }
+      build_status_config {
+        context = "{{ context }}"
+        target_url = "{{ target_url }}"
+      }
+      git_submodules_config {
+        fetch_submodules = {{ fetch_submodules }}
+      }
+    }
+    source {
+      buildspec = "{{ buildspec }}"
+      git_clone_depth = {{ git_clone_depth }}
+      insecure_ssl = {{ insecure_ssl }}
+      location = "{{ location }}"
+      report_build_status = {{ report_build_status }}
+      type = "{{ type }}"
+      auth {
+        resource = "{{ resource }}"
+        type = "{{ type }}"
+      }
+      build_status_config {
+        context = "{{ context }}"
+        target_url = "{{ target_url }}"
+      }
+      git_submodules_config {
+        fetch_submodules = {{ fetch_submodules }}
+      }
+    }
+    vpc_config {
+      security_group_ids = ["{{ security_group_ids }}"]
+      subnets = ["{{ subnets }}"]
+      vpc_id = "{{ vpc_id }}"
+    }
 }

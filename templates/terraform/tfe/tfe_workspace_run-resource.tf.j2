@@ -1,4 +1,22 @@
 resource "tfe_workspace_run" "example" {
     id = "{{ id }}"
     workspace_id = "{{ workspace_id }}"
+    apply {
+      manual_confirm = {{ manual_confirm }}
+      message = "{{ message }}"
+      retry = {{ retry }}
+      retry_attempts = {{ retry_attempts }}
+      retry_backoff_max = {{ retry_backoff_max }}
+      retry_backoff_min = {{ retry_backoff_min }}
+      wait_for_run = {{ wait_for_run }}
+    }
+    destroy {
+      manual_confirm = {{ manual_confirm }}
+      message = "{{ message }}"
+      retry = {{ retry }}
+      retry_attempts = {{ retry_attempts }}
+      retry_backoff_max = {{ retry_backoff_max }}
+      retry_backoff_min = {{ retry_backoff_min }}
+      wait_for_run = {{ wait_for_run }}
+    }
 }

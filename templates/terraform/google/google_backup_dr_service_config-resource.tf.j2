@@ -1,0 +1,10 @@
+resource "google_backup_dr_service_config" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    resource_type = "{{ resource_type }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

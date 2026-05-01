@@ -2,7 +2,36 @@ resource "azurerm_logic_app_integration_account_batch_configuration" "example" {
     batch_group_name = "{{ batch_group_name }}"
     id = "{{ id }}"
     integration_account_name = "{{ integration_account_name }}"
-    metadata = "{{ metadata }}"
+    metadata = {
+        key = "{{ metadata_value }}"
+      }
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
+    release_criteria {
+      batch_size = {{ batch_size }}
+      message_count = {{ message_count }}
+      recurrence {
+        end_time = "{{ end_time }}"
+        frequency = "{{ frequency }}"
+        interval = {{ interval }}
+        start_time = "{{ start_time }}"
+        time_zone = "{{ time_zone }}"
+        schedule {
+          hours = ["{{ hours }}"]
+          minutes = ["{{ minutes }}"]
+          month_days = ["{{ month_days }}"]
+          week_days = ["{{ week_days }}"]
+          monthly {
+            week = {{ week }}
+            weekday = "{{ weekday }}"
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

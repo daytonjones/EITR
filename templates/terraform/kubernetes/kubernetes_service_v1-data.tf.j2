@@ -1,5 +1,13 @@
 data "kubernetes_service_v1" "example" {
     id = "{{ id }}"
-    spec = "{{ spec }}"
-    status = "{{ status }}"
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      name = "{{ name }}"
+      namespace = "{{ namespace }}"
+    }
 }

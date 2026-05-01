@@ -1,0 +1,11 @@
+resource "awscc_batch_quota_share" "example" {
+    capacity_limits = "{{ capacity_limits }}"
+    job_queue = "{{ job_queue }}"
+    preemption_configuration = "{{ preemption_configuration }}"
+    quota_share_name = "{{ quota_share_name }}"
+    resource_sharing_configuration = "{{ resource_sharing_configuration }}"
+    state = "{{ state }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

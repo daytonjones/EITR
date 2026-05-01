@@ -5,4 +5,9 @@ resource "azurerm_storage_sync_cloud_endpoint" "example" {
     storage_account_id = "{{ storage_account_id }}"
     storage_account_tenant_id = "{{ storage_account_tenant_id }}"
     storage_sync_group_id = "{{ storage_sync_group_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

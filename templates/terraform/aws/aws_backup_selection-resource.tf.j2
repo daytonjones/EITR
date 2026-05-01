@@ -2,7 +2,31 @@ resource "aws_backup_selection" "example" {
     iam_role_arn = "{{ iam_role_arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    not_resources = "{{ not_resources }}"
+    not_resources = ["{{ not_resources }}"]
     plan_id = "{{ plan_id }}"
-    resources = "{{ resources }}"
+    region = "{{ region }}"
+    resources = ["{{ resources }}"]
+    condition {
+      string_equals {
+        key = "{{ key }}"
+        value = "{{ value }}"
+      }
+      string_like {
+        key = "{{ key }}"
+        value = "{{ value }}"
+      }
+      string_not_equals {
+        key = "{{ key }}"
+        value = "{{ value }}"
+      }
+      string_not_like {
+        key = "{{ key }}"
+        value = "{{ value }}"
+      }
+    }
+    selection_tag {
+      key = "{{ key }}"
+      type = "{{ type }}"
+      value = "{{ value }}"
+    }
 }

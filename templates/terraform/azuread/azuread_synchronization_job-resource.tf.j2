@@ -1,7 +1,12 @@
 resource "azuread_synchronization_job" "example" {
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
-    schedule = "{{ schedule }}"
     service_principal_id = "{{ service_principal_id }}"
     template_id = "{{ template_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

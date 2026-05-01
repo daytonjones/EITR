@@ -1,15 +1,277 @@
 resource "aws_budgets_budget" "example" {
     account_id = "{{ account_id }}"
-    arn = "{{ arn }}"
+    billing_view_arn = "{{ billing_view_arn }}"
     budget_type = "{{ budget_type }}"
     id = "{{ id }}"
     limit_amount = "{{ limit_amount }}"
     limit_unit = "{{ limit_unit }}"
+    metrics = ["{{ metrics }}"]
     name = "{{ name }}"
     name_prefix = "{{ name_prefix }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     time_period_end = "{{ time_period_end }}"
     time_period_start = "{{ time_period_start }}"
     time_unit = "{{ time_unit }}"
+    auto_adjust_data {
+      auto_adjust_type = "{{ auto_adjust_type }}"
+      historical_options {
+        budget_adjustment_period = {{ budget_adjustment_period }}
+      }
+    }
+    cost_filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
+    cost_types {
+      include_credit = {{ include_credit }}
+      include_discount = {{ include_discount }}
+      include_other_subscription = {{ include_other_subscription }}
+      include_recurring = {{ include_recurring }}
+      include_refund = {{ include_refund }}
+      include_subscription = {{ include_subscription }}
+      include_support = {{ include_support }}
+      include_tax = {{ include_tax }}
+      include_upfront = {{ include_upfront }}
+      use_amortized = {{ use_amortized }}
+      use_blended = {{ use_blended }}
+    }
+    filter_expression {
+      and {
+        and {
+          cost_categories {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          dimensions {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          tags {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+        }
+        cost_categories {
+          key = "{{ key }}"
+          match_options = ["{{ match_options }}"]
+          values = ["{{ values }}"]
+        }
+        dimensions {
+          key = "{{ key }}"
+          match_options = ["{{ match_options }}"]
+          values = ["{{ values }}"]
+        }
+        not {
+          cost_categories {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          dimensions {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          tags {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+        }
+        or {
+          cost_categories {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          dimensions {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          tags {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+        }
+        tags {
+          key = "{{ key }}"
+          match_options = ["{{ match_options }}"]
+          values = ["{{ values }}"]
+        }
+      }
+      cost_categories {
+        key = "{{ key }}"
+        match_options = ["{{ match_options }}"]
+        values = ["{{ values }}"]
+      }
+      dimensions {
+        key = "{{ key }}"
+        match_options = ["{{ match_options }}"]
+        values = ["{{ values }}"]
+      }
+      not {
+        and {
+          cost_categories {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          dimensions {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          tags {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+        }
+        cost_categories {
+          key = "{{ key }}"
+          match_options = ["{{ match_options }}"]
+          values = ["{{ values }}"]
+        }
+        dimensions {
+          key = "{{ key }}"
+          match_options = ["{{ match_options }}"]
+          values = ["{{ values }}"]
+        }
+        not {
+          cost_categories {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          dimensions {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          tags {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+        }
+        or {
+          cost_categories {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          dimensions {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          tags {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+        }
+        tags {
+          key = "{{ key }}"
+          match_options = ["{{ match_options }}"]
+          values = ["{{ values }}"]
+        }
+      }
+      or {
+        and {
+          cost_categories {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          dimensions {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          tags {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+        }
+        cost_categories {
+          key = "{{ key }}"
+          match_options = ["{{ match_options }}"]
+          values = ["{{ values }}"]
+        }
+        dimensions {
+          key = "{{ key }}"
+          match_options = ["{{ match_options }}"]
+          values = ["{{ values }}"]
+        }
+        not {
+          cost_categories {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          dimensions {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          tags {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+        }
+        or {
+          cost_categories {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          dimensions {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          tags {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+        }
+        tags {
+          key = "{{ key }}"
+          match_options = ["{{ match_options }}"]
+          values = ["{{ values }}"]
+        }
+      }
+      tags {
+        key = "{{ key }}"
+        match_options = ["{{ match_options }}"]
+        values = ["{{ values }}"]
+      }
+    }
+    notification {
+      comparison_operator = "{{ comparison_operator }}"
+      notification_type = "{{ notification_type }}"
+      subscriber_email_addresses = ["{{ subscriber_email_addresses }}"]
+      subscriber_sns_topic_arns = ["{{ subscriber_sns_topic_arns }}"]
+      threshold = {{ threshold }}
+      threshold_type = "{{ threshold_type }}"
+    }
+    planned_limit {
+      amount = "{{ amount }}"
+      start_time = "{{ start_time }}"
+      unit = "{{ unit }}"
+    }
 }

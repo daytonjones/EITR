@@ -5,4 +5,10 @@ resource "azurerm_mysql_flexible_server_firewall_rule" "example" {
     resource_group_name = "{{ resource_group_name }}"
     server_name = "{{ server_name }}"
     start_ip_address = "{{ start_ip_address }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

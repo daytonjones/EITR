@@ -3,5 +3,12 @@ resource "aws_directory_service_shared_directory" "example" {
     id = "{{ id }}"
     method = "{{ method }}"
     notes = "{{ notes }}"
-    shared_directory_id = "{{ shared_directory_id }}"
+    region = "{{ region }}"
+    target {
+      id = "{{ id }}"
+      type = "{{ type }}"
+    }
+    timeouts {
+      delete = "{{ delete }}"
+    }
 }

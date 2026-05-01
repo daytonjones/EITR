@@ -1,9 +1,24 @@
 resource "aws_medialive_multiplex" "example" {
-    arn = "{{ arn }}"
-    availability_zones = "{{ availability_zones }}"
+    availability_zones = ["{{ availability_zones }}"]
     id = "{{ id }}"
     name = "{{ name }}"
-    start_multiplex = "{{ start_multiplex }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    start_multiplex = {{ start_multiplex }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    multiplex_settings {
+      maximum_video_buffer_delay_milliseconds = {{ maximum_video_buffer_delay_milliseconds }}
+      transport_stream_bitrate = {{ transport_stream_bitrate }}
+      transport_stream_id = {{ transport_stream_id }}
+      transport_stream_reserved_bitrate = {{ transport_stream_reserved_bitrate }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

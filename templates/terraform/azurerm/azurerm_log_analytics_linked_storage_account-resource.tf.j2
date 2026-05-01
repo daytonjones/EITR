@@ -2,6 +2,13 @@ resource "azurerm_log_analytics_linked_storage_account" "example" {
     data_source_type = "{{ data_source_type }}"
     id = "{{ id }}"
     resource_group_name = "{{ resource_group_name }}"
-    storage_account_ids = "{{ storage_account_ids }}"
+    storage_account_ids = ["{{ storage_account_ids }}"]
+    workspace_id = "{{ workspace_id }}"
     workspace_resource_id = "{{ workspace_resource_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

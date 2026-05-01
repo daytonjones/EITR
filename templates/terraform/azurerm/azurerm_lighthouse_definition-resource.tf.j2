@@ -5,4 +5,35 @@ resource "azurerm_lighthouse_definition" "example" {
     managing_tenant_id = "{{ managing_tenant_id }}"
     name = "{{ name }}"
     scope = "{{ scope }}"
+    authorization {
+      delegated_role_definition_ids = ["{{ delegated_role_definition_ids }}"]
+      principal_display_name = "{{ principal_display_name }}"
+      principal_id = "{{ principal_id }}"
+      role_definition_id = "{{ role_definition_id }}"
+    }
+    eligible_authorization {
+      principal_display_name = "{{ principal_display_name }}"
+      principal_id = "{{ principal_id }}"
+      role_definition_id = "{{ role_definition_id }}"
+      just_in_time_access_policy {
+        maximum_activation_duration = "{{ maximum_activation_duration }}"
+        multi_factor_auth_provider = "{{ multi_factor_auth_provider }}"
+        approver {
+          principal_display_name = "{{ principal_display_name }}"
+          principal_id = "{{ principal_id }}"
+        }
+      }
+    }
+    plan {
+      name = "{{ name }}"
+      product = "{{ product }}"
+      publisher = "{{ publisher }}"
+      version = "{{ version }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,25 @@
+resource "aws_bedrockagentcore_memory_strategy" "example" {
+    description = "{{ description }}"
+    memory_execution_role_arn = "{{ memory_execution_role_arn }}"
+    memory_id = "{{ memory_id }}"
+    name = "{{ name }}"
+    namespaces = ["{{ namespaces }}"]
+    region = "{{ region }}"
+    type = "{{ type }}"
+    configuration {
+      type = "{{ type }}"
+      consolidation {
+        append_to_prompt = "{{ append_to_prompt }}"
+        model_id = "{{ model_id }}"
+      }
+      extraction {
+        append_to_prompt = "{{ append_to_prompt }}"
+        model_id = "{{ model_id }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

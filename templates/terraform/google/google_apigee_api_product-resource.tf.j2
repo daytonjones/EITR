@@ -1,0 +1,80 @@
+resource "google_apigee_api_product" "example" {
+    api_resources = ["{{ api_resources }}"]
+    approval_type = "{{ approval_type }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    environments = ["{{ environments }}"]
+    id = "{{ id }}"
+    name = "{{ name }}"
+    org_id = "{{ org_id }}"
+    proxies = ["{{ proxies }}"]
+    quota = "{{ quota }}"
+    quota_counter_scope = "{{ quota_counter_scope }}"
+    quota_interval = "{{ quota_interval }}"
+    quota_time_unit = "{{ quota_time_unit }}"
+    scopes = ["{{ scopes }}"]
+    space = "{{ space }}"
+    attributes {
+      name = "{{ name }}"
+      value = "{{ value }}"
+    }
+    graphql_operation_group {
+      operation_config_type = "{{ operation_config_type }}"
+      operation_configs {
+        api_source = "{{ api_source }}"
+        attributes {
+          name = "{{ name }}"
+          value = "{{ value }}"
+        }
+        operations {
+          operation = "{{ operation }}"
+          operation_types = ["{{ operation_types }}"]
+        }
+        quota {
+          interval = "{{ interval }}"
+          limit = "{{ limit }}"
+          time_unit = "{{ time_unit }}"
+        }
+      }
+    }
+    grpc_operation_group {
+      operation_configs {
+        api_source = "{{ api_source }}"
+        methods = ["{{ methods }}"]
+        service = "{{ service }}"
+        attributes {
+          name = "{{ name }}"
+          value = "{{ value }}"
+        }
+        quota {
+          interval = "{{ interval }}"
+          limit = "{{ limit }}"
+          time_unit = "{{ time_unit }}"
+        }
+      }
+    }
+    operation_group {
+      operation_config_type = "{{ operation_config_type }}"
+      operation_configs {
+        api_source = "{{ api_source }}"
+        attributes {
+          name = "{{ name }}"
+          value = "{{ value }}"
+        }
+        operations {
+          methods = ["{{ methods }}"]
+          resource = "{{ resource }}"
+        }
+        quota {
+          interval = "{{ interval }}"
+          limit = "{{ limit }}"
+          time_unit = "{{ time_unit }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

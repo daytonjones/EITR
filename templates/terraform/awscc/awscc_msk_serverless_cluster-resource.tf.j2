@@ -1,17 +1,8 @@
 resource "awscc_msk_serverless_cluster" "example" {
-    arn = "{{ arn }}"
-    client_authentication = "{
-    sasl = {
-    iam = {
-    enabled = {{ enabled }}
-}
-}
-}"
+    client_authentication = "{{ client_authentication }}"
     cluster_name = "{{ cluster_name }}"
-    id = "{{ id }}"
-    tags = "{{ tags }}"
-    vpc_configs = "{
-    security_groups = {{ security_groups }}
-    subnet_ids = {{ subnet_ids }}
-}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    vpc_configs = "{{ vpc_configs }}"
 }

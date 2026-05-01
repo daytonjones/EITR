@@ -1,0 +1,16 @@
+resource "awscc_iot_command" "example" {
+    command_id = "{{ command_id }}"
+    created_at = "{{ created_at }}"
+    deprecated = {{ deprecated }}
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    last_updated_at = "{{ last_updated_at }}"
+    mandatory_parameters = "{{ mandatory_parameters }}"
+    namespace = "{{ namespace }}"
+    payload = "{{ payload }}"
+    payload_template = "{{ payload_template }}"
+    pending_deletion = {{ pending_deletion }}
+    preprocessor = "{{ preprocessor }}"
+    role_arn = "{{ role_arn }}"
+    tags = "{{ tags }}"
+}

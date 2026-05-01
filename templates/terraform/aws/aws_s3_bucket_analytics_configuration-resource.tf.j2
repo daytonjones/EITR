@@ -2,4 +2,24 @@ resource "aws_s3_bucket_analytics_configuration" "example" {
     bucket = "{{ bucket }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
+    filter {
+      prefix = "{{ prefix }}"
+      tags = {
+        key = "{{ tags_value }}"
+      }
+    }
+    storage_class_analysis {
+      data_export {
+        output_schema_version = "{{ output_schema_version }}"
+        destination {
+          s3_bucket_destination {
+            bucket_account_id = "{{ bucket_account_id }}"
+            bucket_arn = "{{ bucket_arn }}"
+            format = "{{ format }}"
+            prefix = "{{ prefix }}"
+          }
+        }
+      }
+    }
 }

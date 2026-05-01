@@ -1,0 +1,9 @@
+resource "awscc_guardduty_threat_entity_set" "example" {
+    activate = {{ activate }}
+    detector_id = "{{ detector_id }}"
+    expected_bucket_owner = "{{ expected_bucket_owner }}"
+    format = "{{ format }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    tags = "{{ tags }}"
+}

@@ -1,0 +1,21 @@
+resource "aws_qbusiness_application" "example" {
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    iam_service_role_arn = "{{ iam_service_role_arn }}"
+    identity_center_instance_arn = "{{ identity_center_instance_arn }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    attachments_configuration {
+      attachments_control_mode = "{{ attachments_control_mode }}"
+    }
+    encryption_configuration {
+      kms_key_id = "{{ kms_key_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

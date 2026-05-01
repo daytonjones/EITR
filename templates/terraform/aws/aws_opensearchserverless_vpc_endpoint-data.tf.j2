@@ -1,9 +1,5 @@
 data "aws_opensearchserverless_vpc_endpoint" "example" {
-    created_date = "{{ created_date }}"
     id = "{{ id }}"
-    name = "{{ name }}"
-    security_group_ids = "{{ security_group_ids }}"
-    subnet_ids = "{{ subnet_ids }}"
+    region = "{{ region }}"
     vpc_endpoint_id = "{{ vpc_endpoint_id }}"
-    vpc_id = "{{ vpc_id }}"
 }

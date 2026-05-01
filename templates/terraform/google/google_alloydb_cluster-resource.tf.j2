@@ -1,26 +1,105 @@
 resource "google_alloydb_cluster" "example" {
-    annotations = "{{ annotations }}"
-    backup_source = "{{ backup_source }}"
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
     cluster_id = "{{ cluster_id }}"
     cluster_type = "{{ cluster_type }}"
-    continuous_backup_info = "{{ continuous_backup_info }}"
     database_version = "{{ database_version }}"
     deletion_policy = "{{ deletion_policy }}"
+    deletion_protection = {{ deletion_protection }}
     display_name = "{{ display_name }}"
-    effective_annotations = "{{ effective_annotations }}"
-    effective_labels = "{{ effective_labels }}"
-    encryption_info = "{{ encryption_info }}"
     etag = "{{ etag }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
-    migration_source = "{{ migration_source }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    reconciling = "{{ reconciling }}"
-    state = "{{ state }}"
+    skip_await_major_version_upgrade = {{ skip_await_major_version_upgrade }}
     subscription_type = "{{ subscription_type }}"
-    terraform_labels = "{{ terraform_labels }}"
-    trial_metadata = "{{ trial_metadata }}"
-    uid = "{{ uid }}"
+    automated_backup_policy {
+      backup_window = "{{ backup_window }}"
+      enabled = {{ enabled }}
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      location = "{{ location }}"
+      encryption_config {
+        kms_key_name = "{{ kms_key_name }}"
+      }
+      quantity_based_retention {
+        count = {{ count }}
+      }
+      time_based_retention {
+        retention_period = "{{ retention_period }}"
+      }
+      weekly_schedule {
+        days_of_week = ["{{ days_of_week }}"]
+        start_times {
+          hours = {{ hours }}
+          minutes = {{ minutes }}
+          nanos = {{ nanos }}
+          seconds = {{ seconds }}
+        }
+      }
+    }
+    continuous_backup_config {
+      enabled = {{ enabled }}
+      recovery_window_days = {{ recovery_window_days }}
+      encryption_config {
+        kms_key_name = "{{ kms_key_name }}"
+      }
+    }
+    dataplex_config {
+      enabled = {{ enabled }}
+    }
+    encryption_config {
+      kms_key_name = "{{ kms_key_name }}"
+    }
+    initial_user {
+      password = "{{ password }}"
+      password_wo = "{{ password_wo }}"
+      password_wo_version = "{{ password_wo_version }}"
+      user = "{{ user }}"
+    }
+    maintenance_update_policy {
+      maintenance_windows {
+        day = "{{ day }}"
+        start_time {
+          hours = {{ hours }}
+          minutes = {{ minutes }}
+          nanos = {{ nanos }}
+          seconds = {{ seconds }}
+        }
+      }
+    }
+    network_config {
+      allocated_ip_range = "{{ allocated_ip_range }}"
+      network = "{{ network }}"
+    }
+    psc_config {
+      psc_enabled = {{ psc_enabled }}
+    }
+    restore_backup_source {
+      backup_name = "{{ backup_name }}"
+    }
+    restore_backupdr_backup_source {
+      backup = "{{ backup }}"
+    }
+    restore_backupdr_pitr_source {
+      data_source = "{{ data_source }}"
+      point_in_time = "{{ point_in_time }}"
+    }
+    restore_continuous_backup_source {
+      cluster = "{{ cluster }}"
+      point_in_time = "{{ point_in_time }}"
+    }
+    secondary_config {
+      primary_cluster_name = "{{ primary_cluster_name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

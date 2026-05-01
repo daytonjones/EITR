@@ -1,21 +1,28 @@
 resource "google_workflows_workflow" "example" {
     call_log_level = "{{ call_log_level }}"
-    create_time = "{{ create_time }}"
     crypto_key_name = "{{ crypto_key_name }}"
-    deletion_protection = "{{ deletion_protection }}"
+    deletion_protection = {{ deletion_protection }}
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
+    execution_history_level = "{{ execution_history_level }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
     name_prefix = "{{ name_prefix }}"
     project = "{{ project }}"
     region = "{{ region }}"
-    revision_id = "{{ revision_id }}"
     service_account = "{{ service_account }}"
     source_contents = "{{ source_contents }}"
-    state = "{{ state }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
-    user_env_vars = "{{ user_env_vars }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    user_env_vars = {
+        key = "{{ user_env_vars_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

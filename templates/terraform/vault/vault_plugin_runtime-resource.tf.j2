@@ -1,0 +1,10 @@
+resource "vault_plugin_runtime" "example" {
+    cgroup_parent = "{{ cgroup_parent }}"
+    cpu_nanos = {{ cpu_nanos }}
+    memory_bytes = {{ memory_bytes }}
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    oci_runtime = "{{ oci_runtime }}"
+    rootless = {{ rootless }}
+    type = "{{ type }}"
+}

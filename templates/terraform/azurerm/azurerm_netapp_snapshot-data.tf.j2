@@ -1,9 +1,11 @@
 data "azurerm_netapp_snapshot" "example" {
     account_name = "{{ account_name }}"
     id = "{{ id }}"
-    location = "{{ location }}"
     name = "{{ name }}"
     pool_name = "{{ pool_name }}"
     resource_group_name = "{{ resource_group_name }}"
     volume_name = "{{ volume_name }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

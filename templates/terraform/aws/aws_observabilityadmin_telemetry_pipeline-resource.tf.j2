@@ -1,0 +1,15 @@
+resource "aws_observabilityadmin_telemetry_pipeline" "example" {
+    name = "{{ name }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    configuration {
+      body = "{{ body }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

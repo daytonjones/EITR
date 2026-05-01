@@ -1,0 +1,17 @@
+resource "google_gemini_code_tools_setting_binding" "example" {
+    code_tools_setting_id = "{{ code_tools_setting_id }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    product = "{{ product }}"
+    project = "{{ project }}"
+    setting_binding_id = "{{ setting_binding_id }}"
+    target = "{{ target }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

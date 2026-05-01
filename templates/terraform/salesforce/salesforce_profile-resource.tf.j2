@@ -1,7 +1,8 @@
 resource "salesforce_profile" "example" {
     description = "{{ description }}"
-    id = "{{ id }}"
     name = "{{ name }}"
-    permissions = "{{ permissions }}"
+    permissions = {
+        key = "{{ permissions_value }}"
+      }
     user_license_id = "{{ user_license_id }}"
 }

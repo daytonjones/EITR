@@ -1,7 +1,5 @@
 resource "awscc_iam_instance_profile" "example" {
-    arn = "{{ arn }}"
-    id = "{{ id }}"
     instance_profile_name = "{{ instance_profile_name }}"
     path = "{{ path }}"
-    roles = "{{ roles }}"
+    roles = ["{{ roles }}"]
 }

@@ -1,9 +1,13 @@
 resource "google_network_security_address_group_iam_binding" "example" {
-    etag = "{{ etag }}"
     id = "{{ id }}"
     location = "{{ location }}"
-    members = "{{ members }}"
+    members = ["{{ members }}"]
     name = "{{ name }}"
     project = "{{ project }}"
     role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

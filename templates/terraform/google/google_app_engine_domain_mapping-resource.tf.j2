@@ -1,8 +1,15 @@
 resource "google_app_engine_domain_mapping" "example" {
     domain_name = "{{ domain_name }}"
     id = "{{ id }}"
-    name = "{{ name }}"
     override_strategy = "{{ override_strategy }}"
     project = "{{ project }}"
-    resource_records = "{{ resource_records }}"
+    ssl_settings {
+      certificate_id = "{{ certificate_id }}"
+      ssl_management_type = "{{ ssl_management_type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

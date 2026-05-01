@@ -1,23 +1,8 @@
 resource "awscc_macie_findings_filter" "example" {
     action = "{{ action }}"
-    arn = "{{ arn }}"
     description = "{{ description }}"
-    finding_criteria = "{
-    criterion = {
-    eq = {{ eq }}
-    gt = {{ gt }}
-    gte = {{ gte }}
-    lt = {{ lt }}
-    lte = {{ lte }}
-    neq = {{ neq }}
-}
-}"
-    findings_filter_id = "{{ findings_filter_id }}"
-    id = "{{ id }}"
+    finding_criteria = "{{ finding_criteria }}"
     name = "{{ name }}"
-    position = "{{ position }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    position = {{ position }}
+    tags = "{{ tags }}"
 }

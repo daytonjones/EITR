@@ -1,28 +1,47 @@
 resource "google_compute_vpn_tunnel" "example" {
-    creation_timestamp = "{{ creation_timestamp }}"
     description = "{{ description }}"
-    detailed_status = "{{ detailed_status }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    ike_version = "{{ ike_version }}"
-    label_fingerprint = "{{ label_fingerprint }}"
-    labels = "{{ labels }}"
-    local_traffic_selector = "{{ local_traffic_selector }}"
+    ike_version = {{ ike_version }}
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    local_traffic_selector = ["{{ local_traffic_selector }}"]
     name = "{{ name }}"
     peer_external_gateway = "{{ peer_external_gateway }}"
-    peer_external_gateway_interface = "{{ peer_external_gateway_interface }}"
+    peer_external_gateway_interface = {{ peer_external_gateway_interface }}
     peer_gcp_gateway = "{{ peer_gcp_gateway }}"
     peer_ip = "{{ peer_ip }}"
     project = "{{ project }}"
     region = "{{ region }}"
-    remote_traffic_selector = "{{ remote_traffic_selector }}"
+    remote_traffic_selector = ["{{ remote_traffic_selector }}"]
     router = "{{ router }}"
-    self_link = "{{ self_link }}"
     shared_secret = "{{ shared_secret }}"
-    shared_secret_hash = "{{ shared_secret_hash }}"
+    shared_secret_wo = "{{ shared_secret_wo }}"
+    shared_secret_wo_version = "{{ shared_secret_wo_version }}"
     target_vpn_gateway = "{{ target_vpn_gateway }}"
-    terraform_labels = "{{ terraform_labels }}"
-    tunnel_id = "{{ tunnel_id }}"
     vpn_gateway = "{{ vpn_gateway }}"
-    vpn_gateway_interface = "{{ vpn_gateway_interface }}"
+    vpn_gateway_interface = {{ vpn_gateway_interface }}
+    cipher_suite {
+      phase1 {
+        dh = ["{{ dh }}"]
+        encryption = ["{{ encryption }}"]
+        integrity = ["{{ integrity }}"]
+        prf = ["{{ prf }}"]
+      }
+      phase2 {
+        encryption = ["{{ encryption }}"]
+        integrity = ["{{ integrity }}"]
+        pfs = ["{{ pfs }}"]
+      }
+    }
+    params {
+      resource_manager_tags = {
+        key = "{{ resource_manager_tags_value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

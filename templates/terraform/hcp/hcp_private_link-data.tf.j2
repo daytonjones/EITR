@@ -1,0 +1,9 @@
+data "hcp_private_link" "example" {
+    hvn_id = "{{ hvn_id }}"
+    id = "{{ id }}"
+    private_link_id = "{{ private_link_id }}"
+    project_id = "{{ project_id }}"
+    timeouts {
+      default = "{{ default }}"
+    }
+}

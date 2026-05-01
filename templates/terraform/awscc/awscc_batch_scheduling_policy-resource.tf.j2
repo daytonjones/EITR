@@ -1,14 +1,8 @@
 resource "awscc_batch_scheduling_policy" "example" {
-    arn = "{{ arn }}"
-    fairshare_policy = "{
-    compute_reservation = {{ compute_reservation }}
-    share_decay_seconds = {{ share_decay_seconds }}
-    share_distribution = {
-    share_identifier = {{ share_identifier }}
-    weight_factor = {{ weight_factor }}
-}
-}"
-    id = "{{ id }}"
+    fairshare_policy = "{{ fairshare_policy }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
+    quota_share_policy = "{{ quota_share_policy }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
 }

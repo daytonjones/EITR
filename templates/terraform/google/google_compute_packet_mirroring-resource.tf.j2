@@ -1,8 +1,34 @@
 resource "google_compute_packet_mirroring" "example" {
     description = "{{ description }}"
+    enable = "{{ enable }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    priority = "{{ priority }}"
+    priority = {{ priority }}
     project = "{{ project }}"
     region = "{{ region }}"
+    collector_ilb {
+      url = "{{ url }}"
+    }
+    filter {
+      cidr_ranges = ["{{ cidr_ranges }}"]
+      direction = "{{ direction }}"
+      ip_protocols = ["{{ ip_protocols }}"]
+    }
+    mirrored_resources {
+      tags = ["{{ tags }}"]
+      instances {
+        url = "{{ url }}"
+      }
+      subnetworks {
+        url = "{{ url }}"
+      }
+    }
+    network {
+      url = "{{ url }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

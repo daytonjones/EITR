@@ -1,8 +1,12 @@
 resource "aws_sesv2_dedicated_ip_pool" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     pool_name = "{{ pool_name }}"
+    region = "{{ region }}"
     scaling_mode = "{{ scaling_mode }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

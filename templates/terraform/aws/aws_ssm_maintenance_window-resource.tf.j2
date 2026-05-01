@@ -1,16 +1,21 @@
 resource "aws_ssm_maintenance_window" "example" {
-    allow_unassociated_targets = "{{ allow_unassociated_targets }}"
-    cutoff = "{{ cutoff }}"
+    allow_unassociated_targets = {{ allow_unassociated_targets }}
+    cutoff = {{ cutoff }}
     description = "{{ description }}"
-    duration = "{{ duration }}"
-    enabled = "{{ enabled }}"
+    duration = {{ duration }}
+    enabled = {{ enabled }}
     end_date = "{{ end_date }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     schedule = "{{ schedule }}"
-    schedule_offset = "{{ schedule_offset }}"
+    schedule_offset = {{ schedule_offset }}
     schedule_timezone = "{{ schedule_timezone }}"
     start_date = "{{ start_date }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

@@ -1,0 +1,12 @@
+resource "google_iam_workforce_pool_iam_member" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    member = "{{ member }}"
+    role = "{{ role }}"
+    workforce_pool_id = "{{ workforce_pool_id }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

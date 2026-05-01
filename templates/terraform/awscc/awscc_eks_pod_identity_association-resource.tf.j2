@@ -1,13 +1,10 @@
 resource "awscc_eks_pod_identity_association" "example" {
-    association_arn = "{{ association_arn }}"
-    association_id = "{{ association_id }}"
     cluster_name = "{{ cluster_name }}"
-    id = "{{ id }}"
+    disable_session_tags = {{ disable_session_tags }}
     namespace = "{{ namespace }}"
+    policy = "{{ policy }}"
     role_arn = "{{ role_arn }}"
     service_account = "{{ service_account }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
+    target_role_arn = "{{ target_role_arn }}"
 }

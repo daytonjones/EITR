@@ -1,5 +1,6 @@
 resource "aws_prometheus_alert_manager_definition" "example" {
     definition = "{{ definition }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     workspace_id = "{{ workspace_id }}"
 }

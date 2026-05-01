@@ -2,7 +2,29 @@ resource "aws_s3_bucket_website_configuration" "example" {
     bucket = "{{ bucket }}"
     expected_bucket_owner = "{{ expected_bucket_owner }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     routing_rules = "{{ routing_rules }}"
-    website_domain = "{{ website_domain }}"
-    website_endpoint = "{{ website_endpoint }}"
+    error_document {
+      key = "{{ key }}"
+    }
+    index_document {
+      suffix = "{{ suffix }}"
+    }
+    redirect_all_requests_to {
+      host_name = "{{ host_name }}"
+      protocol = "{{ protocol }}"
+    }
+    routing_rule {
+      condition {
+        http_error_code_returned_equals = "{{ http_error_code_returned_equals }}"
+        key_prefix_equals = "{{ key_prefix_equals }}"
+      }
+      redirect {
+        host_name = "{{ host_name }}"
+        http_redirect_code = "{{ http_redirect_code }}"
+        protocol = "{{ protocol }}"
+        replace_key_prefix_with = "{{ replace_key_prefix_with }}"
+        replace_key_with = "{{ replace_key_with }}"
+      }
+    }
 }

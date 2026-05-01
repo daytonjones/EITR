@@ -1,23 +1,39 @@
 resource "aws_vpc_endpoint" "example" {
-    arn = "{{ arn }}"
-    auto_accept = "{{ auto_accept }}"
-    cidr_blocks = "{{ cidr_blocks }}"
-    dns_entry = "{{ dns_entry }}"
+    auto_accept = {{ auto_accept }}
     id = "{{ id }}"
     ip_address_type = "{{ ip_address_type }}"
-    network_interface_ids = "{{ network_interface_ids }}"
-    owner_id = "{{ owner_id }}"
     policy = "{{ policy }}"
-    prefix_list_id = "{{ prefix_list_id }}"
-    private_dns_enabled = "{{ private_dns_enabled }}"
-    requester_managed = "{{ requester_managed }}"
-    route_table_ids = "{{ route_table_ids }}"
-    security_group_ids = "{{ security_group_ids }}"
+    private_dns_enabled = {{ private_dns_enabled }}
+    region = "{{ region }}"
+    resource_configuration_arn = "{{ resource_configuration_arn }}"
+    route_table_ids = ["{{ route_table_ids }}"]
+    security_group_ids = ["{{ security_group_ids }}"]
     service_name = "{{ service_name }}"
-    state = "{{ state }}"
-    subnet_ids = "{{ subnet_ids }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    service_network_arn = "{{ service_network_arn }}"
+    service_region = "{{ service_region }}"
+    subnet_ids = ["{{ subnet_ids }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     vpc_endpoint_type = "{{ vpc_endpoint_type }}"
     vpc_id = "{{ vpc_id }}"
+    dns_options {
+      dns_record_ip_type = "{{ dns_record_ip_type }}"
+      private_dns_only_for_inbound_resolver_endpoint = {{ private_dns_only_for_inbound_resolver_endpoint }}
+      private_dns_preference = "{{ private_dns_preference }}"
+      private_dns_specified_domains = ["{{ private_dns_specified_domains }}"]
+    }
+    subnet_configuration {
+      ipv4 = "{{ ipv4 }}"
+      ipv6 = "{{ ipv6 }}"
+      subnet_id = "{{ subnet_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

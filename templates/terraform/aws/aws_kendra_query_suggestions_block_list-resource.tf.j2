@@ -1,12 +1,23 @@
 resource "aws_kendra_query_suggestions_block_list" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     id = "{{ id }}"
     index_id = "{{ index_id }}"
     name = "{{ name }}"
-    query_suggestions_block_list_id = "{{ query_suggestions_block_list_id }}"
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    source_s3_path {
+      bucket = "{{ bucket }}"
+      key = "{{ key }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

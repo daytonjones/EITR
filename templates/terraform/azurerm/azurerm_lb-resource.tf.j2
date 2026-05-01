@@ -3,10 +3,29 @@ resource "azurerm_lb" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    private_ip_address = "{{ private_ip_address }}"
-    private_ip_addresses = "{{ private_ip_addresses }}"
+    public_ip_address_id = "{{ public_ip_address_id }}"
     resource_group_name = "{{ resource_group_name }}"
     sku = "{{ sku }}"
     sku_tier = "{{ sku_tier }}"
-    tags = "{{ tags }}"
+    subnet_id = "{{ subnet_id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    frontend_ip_configuration {
+      gateway_load_balancer_frontend_ip_configuration_id = "{{ gateway_load_balancer_frontend_ip_configuration_id }}"
+      name = "{{ name }}"
+      private_ip_address = "{{ private_ip_address }}"
+      private_ip_address_allocation = "{{ private_ip_address_allocation }}"
+      private_ip_address_version = "{{ private_ip_address_version }}"
+      public_ip_address_id = "{{ public_ip_address_id }}"
+      public_ip_prefix_id = "{{ public_ip_prefix_id }}"
+      subnet_id = "{{ subnet_id }}"
+      zones = ["{{ zones }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

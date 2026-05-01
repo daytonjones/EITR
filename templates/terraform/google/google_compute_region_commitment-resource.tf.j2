@@ -1,19 +1,26 @@
 resource "google_compute_region_commitment" "example" {
-    auto_renew = "{{ auto_renew }}"
+    auto_renew = {{ auto_renew }}
     category = "{{ category }}"
-    commitment_id = "{{ commitment_id }}"
-    creation_timestamp = "{{ creation_timestamp }}"
     description = "{{ description }}"
-    end_timestamp = "{{ end_timestamp }}"
     existing_reservations = "{{ existing_reservations }}"
     id = "{{ id }}"
     name = "{{ name }}"
     plan = "{{ plan }}"
     project = "{{ project }}"
     region = "{{ region }}"
-    self_link = "{{ self_link }}"
-    start_timestamp = "{{ start_timestamp }}"
-    status = "{{ status }}"
-    status_message = "{{ status_message }}"
     type = "{{ type }}"
+    license_resource {
+      amount = "{{ amount }}"
+      cores_per_license = "{{ cores_per_license }}"
+      license = "{{ license }}"
+    }
+    resources {
+      accelerator_type = "{{ accelerator_type }}"
+      amount = "{{ amount }}"
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

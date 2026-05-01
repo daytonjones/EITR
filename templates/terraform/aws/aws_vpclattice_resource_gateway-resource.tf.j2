@@ -1,0 +1,17 @@
+resource "aws_vpclattice_resource_gateway" "example" {
+    ip_address_type = "{{ ip_address_type }}"
+    ipv4_addresses_per_eni = {{ ipv4_addresses_per_eni }}
+    name = "{{ name }}"
+    region = "{{ region }}"
+    security_group_ids = ["{{ security_group_ids }}"]
+    subnet_ids = ["{{ subnet_ids }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    vpc_id = "{{ vpc_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

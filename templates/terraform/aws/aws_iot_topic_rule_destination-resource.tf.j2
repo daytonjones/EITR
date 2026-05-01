@@ -1,5 +1,16 @@
 resource "aws_iot_topic_rule_destination" "example" {
-    arn = "{{ arn }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
+    region = "{{ region }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    vpc_configuration {
+      role_arn = "{{ role_arn }}"
+      security_groups = ["{{ security_groups }}"]
+      subnet_ids = ["{{ subnet_ids }}"]
+      vpc_id = "{{ vpc_id }}"
+    }
 }

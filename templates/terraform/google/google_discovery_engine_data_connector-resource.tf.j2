@@ -1,0 +1,51 @@
+resource "google_discovery_engine_data_connector" "example" {
+    auto_run_disabled = {{ auto_run_disabled }}
+    collection_display_name = "{{ collection_display_name }}"
+    collection_id = "{{ collection_id }}"
+    connector_modes = ["{{ connector_modes }}"]
+    data_source = "{{ data_source }}"
+    data_source_version = {{ data_source_version }}
+    id = "{{ id }}"
+    incremental_refresh_interval = "{{ incremental_refresh_interval }}"
+    incremental_sync_disabled = {{ incremental_sync_disabled }}
+    json_params = "{{ json_params }}"
+    kms_key_name = "{{ kms_key_name }}"
+    location = "{{ location }}"
+    params = {
+        key = "{{ params_value }}"
+      }
+    project = "{{ project }}"
+    refresh_interval = "{{ refresh_interval }}"
+    static_ip_enabled = {{ static_ip_enabled }}
+    sync_mode = "{{ sync_mode }}"
+    action_config {
+      action_params = {
+        key = "{{ action_params_value }}"
+      }
+      create_bap_connection = {{ create_bap_connection }}
+    }
+    bap_config {
+      enabled_actions = ["{{ enabled_actions }}"]
+      supported_connector_modes = ["{{ supported_connector_modes }}"]
+    }
+    destination_configs {
+      key = "{{ key }}"
+      params = "{{ params }}"
+      destinations {
+        host = "{{ host }}"
+        port = {{ port }}
+      }
+    }
+    entities {
+      entity_name = "{{ entity_name }}"
+      key_property_mappings = {
+        key = "{{ key_property_mappings_value }}"
+      }
+      params = "{{ params }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

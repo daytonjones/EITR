@@ -1,11 +1,6 @@
 resource "awscc_kinesisvideo_signaling_channel" "example" {
-    arn = "{{ arn }}"
-    id = "{{ id }}"
-    message_ttl_seconds = "{{ message_ttl_seconds }}"
+    message_ttl_seconds = {{ message_ttl_seconds }}
     name = "{{ name }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
     type = "{{ type }}"
 }

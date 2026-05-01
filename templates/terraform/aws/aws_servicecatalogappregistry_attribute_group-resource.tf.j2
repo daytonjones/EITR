@@ -1,0 +1,9 @@
+resource "aws_servicecatalogappregistry_attribute_group" "example" {
+    attributes = "{{ attributes }}"
+    description = "{{ description }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

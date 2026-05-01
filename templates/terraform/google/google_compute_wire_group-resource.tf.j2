@@ -1,0 +1,26 @@
+resource "google_compute_wire_group" "example" {
+    admin_enabled = {{ admin_enabled }}
+    cross_site_network = "{{ cross_site_network }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    endpoints {
+      endpoint = "{{ endpoint }}"
+      interconnects {
+        interconnect = "{{ interconnect }}"
+        interconnect_name = "{{ interconnect_name }}"
+        vlan_tags = ["{{ vlan_tags }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    wire_properties {
+      bandwidth_allocation = "{{ bandwidth_allocation }}"
+      bandwidth_unmetered = {{ bandwidth_unmetered }}
+      fault_response = "{{ fault_response }}"
+    }
+}

@@ -1,4 +1,28 @@
 resource "google_access_context_manager_service_perimeter_dry_run_ingress_policy" "example" {
     id = "{{ id }}"
     perimeter = "{{ perimeter }}"
+    title = "{{ title }}"
+    ingress_from {
+      identities = ["{{ identities }}"]
+      identity_type = "{{ identity_type }}"
+      sources {
+        access_level = "{{ access_level }}"
+        resource = "{{ resource }}"
+      }
+    }
+    ingress_to {
+      resources = ["{{ resources }}"]
+      roles = ["{{ roles }}"]
+      operations {
+        service_name = "{{ service_name }}"
+        method_selectors {
+          method = "{{ method }}"
+          permission = "{{ permission }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

@@ -1,0 +1,15 @@
+resource "google_iam_workforce_pool_provider_key" "example" {
+    id = "{{ id }}"
+    key_id = "{{ key_id }}"
+    location = "{{ location }}"
+    provider_id = "{{ provider_id }}"
+    use = "{{ use }}"
+    workforce_pool_id = "{{ workforce_pool_id }}"
+    key_data {
+      key_spec = "{{ key_spec }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

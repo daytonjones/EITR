@@ -1,6 +1,9 @@
 data "aws_imagebuilder_components" "example" {
-    arns = "{{ arns }}"
     id = "{{ id }}"
-    names = "{{ names }}"
     owner = "{{ owner }}"
+    region = "{{ region }}"
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
 }

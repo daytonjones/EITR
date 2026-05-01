@@ -1,18 +1,85 @@
 resource "google_dataplex_task" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
     display_name = "{{ display_name }}"
-    effective_labels = "{{ effective_labels }}"
-    execution_status = "{{ execution_status }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     lake = "{{ lake }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    state = "{{ state }}"
     task_id = "{{ task_id }}"
-    terraform_labels = "{{ terraform_labels }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
+    execution_spec {
+      args = {
+        key = "{{ args_value }}"
+      }
+      kms_key = "{{ kms_key }}"
+      max_job_execution_lifetime = "{{ max_job_execution_lifetime }}"
+      project = "{{ project }}"
+      service_account = "{{ service_account }}"
+    }
+    notebook {
+      archive_uris = ["{{ archive_uris }}"]
+      file_uris = ["{{ file_uris }}"]
+      notebook = "{{ notebook }}"
+      infrastructure_spec {
+        batch {
+          executors_count = {{ executors_count }}
+          max_executors_count = {{ max_executors_count }}
+        }
+        container_image {
+          image = "{{ image }}"
+          java_jars = ["{{ java_jars }}"]
+          properties = {
+        key = "{{ properties_value }}"
+      }
+          python_packages = ["{{ python_packages }}"]
+        }
+        vpc_network {
+          network = "{{ network }}"
+          network_tags = ["{{ network_tags }}"]
+          sub_network = "{{ sub_network }}"
+        }
+      }
+    }
+    spark {
+      archive_uris = ["{{ archive_uris }}"]
+      file_uris = ["{{ file_uris }}"]
+      main_class = "{{ main_class }}"
+      main_jar_file_uri = "{{ main_jar_file_uri }}"
+      python_script_file = "{{ python_script_file }}"
+      sql_script = "{{ sql_script }}"
+      sql_script_file = "{{ sql_script_file }}"
+      infrastructure_spec {
+        batch {
+          executors_count = {{ executors_count }}
+          max_executors_count = {{ max_executors_count }}
+        }
+        container_image {
+          image = "{{ image }}"
+          java_jars = ["{{ java_jars }}"]
+          properties = {
+        key = "{{ properties_value }}"
+      }
+          python_packages = ["{{ python_packages }}"]
+        }
+        vpc_network {
+          network = "{{ network }}"
+          network_tags = ["{{ network_tags }}"]
+          sub_network = "{{ sub_network }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    trigger_spec {
+      disabled = {{ disabled }}
+      max_retries = {{ max_retries }}
+      schedule = "{{ schedule }}"
+      start_time = "{{ start_time }}"
+      type = "{{ type }}"
+    }
 }

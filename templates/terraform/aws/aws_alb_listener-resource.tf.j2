@@ -1,13 +1,110 @@
 resource "aws_alb_listener" "example" {
     alpn_policy = "{{ alpn_policy }}"
-    arn = "{{ arn }}"
     certificate_arn = "{{ certificate_arn }}"
     id = "{{ id }}"
     load_balancer_arn = "{{ load_balancer_arn }}"
-    port = "{{ port }}"
+    port = {{ port }}
     protocol = "{{ protocol }}"
+    region = "{{ region }}"
+    routing_http_request_x_amzn_mtls_clientcert_header_name = "{{ routing_http_request_x_amzn_mtls_clientcert_header_name }}"
+    routing_http_request_x_amzn_mtls_clientcert_issuer_header_name = "{{ routing_http_request_x_amzn_mtls_clientcert_issuer_header_name }}"
+    routing_http_request_x_amzn_mtls_clientcert_leaf_header_name = "{{ routing_http_request_x_amzn_mtls_clientcert_leaf_header_name }}"
+    routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name = "{{ routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name }}"
+    routing_http_request_x_amzn_mtls_clientcert_subject_header_name = "{{ routing_http_request_x_amzn_mtls_clientcert_subject_header_name }}"
+    routing_http_request_x_amzn_mtls_clientcert_validity_header_name = "{{ routing_http_request_x_amzn_mtls_clientcert_validity_header_name }}"
+    routing_http_request_x_amzn_tls_cipher_suite_header_name = "{{ routing_http_request_x_amzn_tls_cipher_suite_header_name }}"
+    routing_http_request_x_amzn_tls_version_header_name = "{{ routing_http_request_x_amzn_tls_version_header_name }}"
+    routing_http_response_access_control_allow_credentials_header_value = "{{ routing_http_response_access_control_allow_credentials_header_value }}"
+    routing_http_response_access_control_allow_headers_header_value = "{{ routing_http_response_access_control_allow_headers_header_value }}"
+    routing_http_response_access_control_allow_methods_header_value = "{{ routing_http_response_access_control_allow_methods_header_value }}"
+    routing_http_response_access_control_allow_origin_header_value = "{{ routing_http_response_access_control_allow_origin_header_value }}"
+    routing_http_response_access_control_expose_headers_header_value = "{{ routing_http_response_access_control_expose_headers_header_value }}"
+    routing_http_response_access_control_max_age_header_value = "{{ routing_http_response_access_control_max_age_header_value }}"
+    routing_http_response_content_security_policy_header_value = "{{ routing_http_response_content_security_policy_header_value }}"
+    routing_http_response_server_enabled = {{ routing_http_response_server_enabled }}
+    routing_http_response_strict_transport_security_header_value = "{{ routing_http_response_strict_transport_security_header_value }}"
+    routing_http_response_x_content_type_options_header_value = "{{ routing_http_response_x_content_type_options_header_value }}"
+    routing_http_response_x_frame_options_header_value = "{{ routing_http_response_x_frame_options_header_value }}"
     ssl_policy = "{{ ssl_policy }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    tcp_idle_timeout_seconds = "{{ tcp_idle_timeout_seconds }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    tcp_idle_timeout_seconds = {{ tcp_idle_timeout_seconds }}
+    default_action {
+      order = {{ order }}
+      target_group_arn = "{{ target_group_arn }}"
+      type = "{{ type }}"
+      authenticate_cognito {
+        authentication_request_extra_params = {
+        key = "{{ authentication_request_extra_params_value }}"
+      }
+        on_unauthenticated_request = "{{ on_unauthenticated_request }}"
+        scope = "{{ scope }}"
+        session_cookie_name = "{{ session_cookie_name }}"
+        session_timeout = {{ session_timeout }}
+        user_pool_arn = "{{ user_pool_arn }}"
+        user_pool_client_id = "{{ user_pool_client_id }}"
+        user_pool_domain = "{{ user_pool_domain }}"
+      }
+      authenticate_oidc {
+        authentication_request_extra_params = {
+        key = "{{ authentication_request_extra_params_value }}"
+      }
+        authorization_endpoint = "{{ authorization_endpoint }}"
+        client_id = "{{ client_id }}"
+        client_secret = "{{ client_secret }}"
+        issuer = "{{ issuer }}"
+        on_unauthenticated_request = "{{ on_unauthenticated_request }}"
+        scope = "{{ scope }}"
+        session_cookie_name = "{{ session_cookie_name }}"
+        session_timeout = {{ session_timeout }}
+        token_endpoint = "{{ token_endpoint }}"
+        user_info_endpoint = "{{ user_info_endpoint }}"
+      }
+      fixed_response {
+        content_type = "{{ content_type }}"
+        message_body = "{{ message_body }}"
+        status_code = "{{ status_code }}"
+      }
+      forward {
+        stickiness {
+          duration = {{ duration }}
+          enabled = {{ enabled }}
+        }
+        target_group {
+          arn = "{{ arn }}"
+          weight = {{ weight }}
+        }
+      }
+      jwt_validation {
+        issuer = "{{ issuer }}"
+        jwks_endpoint = "{{ jwks_endpoint }}"
+        additional_claim {
+          format = "{{ format }}"
+          name = "{{ name }}"
+          values = ["{{ values }}"]
+        }
+      }
+      redirect {
+        host = "{{ host }}"
+        path = "{{ path }}"
+        port = "{{ port }}"
+        protocol = "{{ protocol }}"
+        query = "{{ query }}"
+        status_code = "{{ status_code }}"
+      }
+    }
+    mutual_authentication {
+      advertise_trust_store_ca_names = "{{ advertise_trust_store_ca_names }}"
+      ignore_client_certificate_expiry = {{ ignore_client_certificate_expiry }}
+      mode = "{{ mode }}"
+      trust_store_arn = "{{ trust_store_arn }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
 }

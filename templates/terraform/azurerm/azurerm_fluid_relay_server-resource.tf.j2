@@ -1,14 +1,24 @@
 resource "azurerm_fluid_relay_server" "example" {
-    frs_tenant_id = "{{ frs_tenant_id }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    orderer_endpoints = "{{ orderer_endpoints }}"
-    primary_key = "{{ primary_key }}"
     resource_group_name = "{{ resource_group_name }}"
-    secondary_key = "{{ secondary_key }}"
-    service_endpoints = "{{ service_endpoints }}"
-    storage_endpoints = "{{ storage_endpoints }}"
     storage_sku = "{{ storage_sku }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    customer_managed_key {
+      key_vault_key_id = "{{ key_vault_key_id }}"
+      user_assigned_identity_id = "{{ user_assigned_identity_id }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

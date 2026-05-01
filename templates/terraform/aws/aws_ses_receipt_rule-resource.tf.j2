@@ -1,11 +1,53 @@
 resource "aws_ses_receipt_rule" "example" {
     after = "{{ after }}"
-    arn = "{{ arn }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     name = "{{ name }}"
-    recipients = "{{ recipients }}"
+    recipients = ["{{ recipients }}"]
+    region = "{{ region }}"
     rule_set_name = "{{ rule_set_name }}"
-    scan_enabled = "{{ scan_enabled }}"
+    scan_enabled = {{ scan_enabled }}
     tls_policy = "{{ tls_policy }}"
+    add_header_action {
+      header_name = "{{ header_name }}"
+      header_value = "{{ header_value }}"
+      position = {{ position }}
+    }
+    bounce_action {
+      message = "{{ message }}"
+      position = {{ position }}
+      sender = "{{ sender }}"
+      smtp_reply_code = "{{ smtp_reply_code }}"
+      status_code = "{{ status_code }}"
+      topic_arn = "{{ topic_arn }}"
+    }
+    lambda_action {
+      function_arn = "{{ function_arn }}"
+      invocation_type = "{{ invocation_type }}"
+      position = {{ position }}
+      topic_arn = "{{ topic_arn }}"
+    }
+    s3_action {
+      bucket_name = "{{ bucket_name }}"
+      iam_role_arn = "{{ iam_role_arn }}"
+      kms_key_arn = "{{ kms_key_arn }}"
+      object_key_prefix = "{{ object_key_prefix }}"
+      position = {{ position }}
+      topic_arn = "{{ topic_arn }}"
+    }
+    sns_action {
+      encoding = "{{ encoding }}"
+      position = {{ position }}
+      topic_arn = "{{ topic_arn }}"
+    }
+    stop_action {
+      position = {{ position }}
+      scope = "{{ scope }}"
+      topic_arn = "{{ topic_arn }}"
+    }
+    workmail_action {
+      organization_arn = "{{ organization_arn }}"
+      position = {{ position }}
+      topic_arn = "{{ topic_arn }}"
+    }
 }

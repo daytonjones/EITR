@@ -1,14 +1,52 @@
 resource "aws_batch_compute_environment" "example" {
-    arn = "{{ arn }}"
-    compute_environment_name = "{{ compute_environment_name }}"
-    compute_environment_name_prefix = "{{ compute_environment_name_prefix }}"
-    ecs_cluster_arn = "{{ ecs_cluster_arn }}"
     id = "{{ id }}"
+    name = "{{ name }}"
+    name_prefix = "{{ name_prefix }}"
+    region = "{{ region }}"
     service_role = "{{ service_role }}"
     state = "{{ state }}"
-    status = "{{ status }}"
-    status_reason = "{{ status_reason }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     type = "{{ type }}"
+    compute_resources {
+      allocation_strategy = "{{ allocation_strategy }}"
+      bid_percentage = {{ bid_percentage }}
+      desired_vcpus = {{ desired_vcpus }}
+      ec2_key_pair = "{{ ec2_key_pair }}"
+      image_id = "{{ image_id }}"
+      instance_role = "{{ instance_role }}"
+      instance_type = ["{{ instance_type }}"]
+      max_vcpus = {{ max_vcpus }}
+      min_vcpus = {{ min_vcpus }}
+      placement_group = "{{ placement_group }}"
+      security_group_ids = ["{{ security_group_ids }}"]
+      spot_iam_fleet_role = "{{ spot_iam_fleet_role }}"
+      subnets = ["{{ subnets }}"]
+      tags = {
+        key = "{{ tags_value }}"
+      }
+      type = "{{ type }}"
+      ec2_configuration {
+        image_id_override = "{{ image_id_override }}"
+        image_kubernetes_version = "{{ image_kubernetes_version }}"
+        image_type = "{{ image_type }}"
+      }
+      launch_template {
+        launch_template_id = "{{ launch_template_id }}"
+        launch_template_name = "{{ launch_template_name }}"
+        version = "{{ version }}"
+      }
+    }
+    eks_configuration {
+      eks_cluster_arn = "{{ eks_cluster_arn }}"
+      kubernetes_namespace = "{{ kubernetes_namespace }}"
+    }
+    update_policy {
+      job_execution_timeout_minutes = {{ job_execution_timeout_minutes }}
+      terminate_jobs_on_update = {{ terminate_jobs_on_update }}
+    }
 }

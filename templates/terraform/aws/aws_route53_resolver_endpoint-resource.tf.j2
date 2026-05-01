@@ -1,12 +1,27 @@
 resource "aws_route53_resolver_endpoint" "example" {
-    arn = "{{ arn }}"
     direction = "{{ direction }}"
-    host_vpc_id = "{{ host_vpc_id }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    protocols = "{{ protocols }}"
+    protocols = ["{{ protocols }}"]
+    region = "{{ region }}"
     resolver_endpoint_type = "{{ resolver_endpoint_type }}"
-    security_group_ids = "{{ security_group_ids }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    rni_enhanced_metrics_enabled = {{ rni_enhanced_metrics_enabled }}
+    security_group_ids = ["{{ security_group_ids }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    target_name_server_metrics_enabled = {{ target_name_server_metrics_enabled }}
+    ip_address {
+      ip = "{{ ip }}"
+      ipv6 = "{{ ipv6 }}"
+      subnet_id = "{{ subnet_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

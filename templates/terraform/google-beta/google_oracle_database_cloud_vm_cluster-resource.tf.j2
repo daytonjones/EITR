@@ -1,17 +1,49 @@
 resource "google_oracle_database_cloud_vm_cluster" "example" {
+    backup_odb_subnet = "{{ backup_odb_subnet }}"
     backup_subnet_cidr = "{{ backup_subnet_cidr }}"
     cidr = "{{ cidr }}"
     cloud_vm_cluster_id = "{{ cloud_vm_cluster_id }}"
-    create_time = "{{ create_time }}"
+    deletion_protection = {{ deletion_protection }}
     display_name = "{{ display_name }}"
-    effective_labels = "{{ effective_labels }}"
     exadata_infrastructure = "{{ exadata_infrastructure }}"
-    gcp_oracle_zone = "{{ gcp_oracle_zone }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
-    name = "{{ name }}"
     network = "{{ network }}"
+    odb_network = "{{ odb_network }}"
+    odb_subnet = "{{ odb_subnet }}"
     project = "{{ project }}"
-    terraform_labels = "{{ terraform_labels }}"
+    properties {
+      cluster_name = "{{ cluster_name }}"
+      cpu_core_count = {{ cpu_core_count }}
+      data_storage_size_tb = {{ data_storage_size_tb }}
+      db_node_storage_size_gb = {{ db_node_storage_size_gb }}
+      db_server_ocids = ["{{ db_server_ocids }}"]
+      disk_redundancy = "{{ disk_redundancy }}"
+      gi_version = "{{ gi_version }}"
+      hostname_prefix = "{{ hostname_prefix }}"
+      license_type = "{{ license_type }}"
+      local_backup_enabled = {{ local_backup_enabled }}
+      memory_size_gb = {{ memory_size_gb }}
+      node_count = {{ node_count }}
+      ocpu_count = {{ ocpu_count }}
+      sparse_diskgroup_enabled = {{ sparse_diskgroup_enabled }}
+      ssh_public_keys = ["{{ ssh_public_keys }}"]
+      diagnostics_data_collection_options {
+        diagnostics_events_enabled = {{ diagnostics_events_enabled }}
+        health_monitoring_enabled = {{ health_monitoring_enabled }}
+        incident_logs_enabled = {{ incident_logs_enabled }}
+      }
+      time_zone {
+        id = "{{ id }}"
+        version = "{{ version }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

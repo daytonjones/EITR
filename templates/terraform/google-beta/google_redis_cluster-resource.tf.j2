@@ -1,22 +1,78 @@
 resource "google_redis_cluster" "example" {
     authorization_mode = "{{ authorization_mode }}"
-    create_time = "{{ create_time }}"
-    deletion_protection_enabled = "{{ deletion_protection_enabled }}"
-    discovery_endpoints = "{{ discovery_endpoints }}"
+    deletion_protection_enabled = {{ deletion_protection_enabled }}
     id = "{{ id }}"
-    maintenance_schedule = "{{ maintenance_schedule }}"
+    kms_key = "{{ kms_key }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    maintenance_version = "{{ maintenance_version }}"
     name = "{{ name }}"
     node_type = "{{ node_type }}"
-    precise_size_gb = "{{ precise_size_gb }}"
     project = "{{ project }}"
-    psc_connections = "{{ psc_connections }}"
-    redis_configs = "{{ redis_configs }}"
+    redis_configs = {
+        key = "{{ redis_configs_value }}"
+      }
     region = "{{ region }}"
-    replica_count = "{{ replica_count }}"
-    shard_count = "{{ shard_count }}"
-    size_gb = "{{ size_gb }}"
-    state = "{{ state }}"
-    state_info = "{{ state_info }}"
+    replica_count = {{ replica_count }}
+    server_ca_mode = "{{ server_ca_mode }}"
+    server_ca_pool = "{{ server_ca_pool }}"
+    shard_count = {{ shard_count }}
     transit_encryption_mode = "{{ transit_encryption_mode }}"
-    uid = "{{ uid }}"
+    automated_backup_config {
+      retention = "{{ retention }}"
+      fixed_frequency_schedule {
+        start_time {
+          hours = {{ hours }}
+        }
+      }
+    }
+    cross_cluster_replication_config {
+      cluster_role = "{{ cluster_role }}"
+      primary_cluster {
+        cluster = "{{ cluster }}"
+      }
+      secondary_clusters {
+        cluster = "{{ cluster }}"
+      }
+    }
+    gcs_source {
+      uris = ["{{ uris }}"]
+    }
+    maintenance_policy {
+      weekly_maintenance_window {
+        day = "{{ day }}"
+        start_time {
+          hours = {{ hours }}
+          minutes = {{ minutes }}
+          nanos = {{ nanos }}
+          seconds = {{ seconds }}
+        }
+      }
+    }
+    managed_backup_source {
+      backup = "{{ backup }}"
+    }
+    persistence_config {
+      mode = "{{ mode }}"
+      aof_config {
+        append_fsync = "{{ append_fsync }}"
+      }
+      rdb_config {
+        rdb_snapshot_period = "{{ rdb_snapshot_period }}"
+        rdb_snapshot_start_time = "{{ rdb_snapshot_start_time }}"
+      }
+    }
+    psc_configs {
+      network = "{{ network }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    zone_distribution_config {
+      mode = "{{ mode }}"
+      zone = "{{ zone }}"
+    }
 }

@@ -1,0 +1,5 @@
+resource "aws_cloudwatch_log_index_policy" "example" {
+    log_group_name = "{{ log_group_name }}"
+    policy_document = "{{ policy_document }}"
+    region = "{{ region }}"
+}

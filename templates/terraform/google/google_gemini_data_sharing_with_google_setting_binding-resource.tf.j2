@@ -1,0 +1,17 @@
+resource "google_gemini_data_sharing_with_google_setting_binding" "example" {
+    data_sharing_with_google_setting_id = "{{ data_sharing_with_google_setting_id }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    product = "{{ product }}"
+    project = "{{ project }}"
+    setting_binding_id = "{{ setting_binding_id }}"
+    target = "{{ target }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

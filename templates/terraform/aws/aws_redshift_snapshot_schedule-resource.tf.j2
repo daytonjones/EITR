@@ -1,11 +1,15 @@
 resource "aws_redshift_snapshot_schedule" "example" {
-    arn = "{{ arn }}"
-    definitions = "{{ definitions }}"
+    definitions = ["{{ definitions }}"]
     description = "{{ description }}"
-    force_destroy = "{{ force_destroy }}"
+    force_destroy = {{ force_destroy }}
     id = "{{ id }}"
     identifier = "{{ identifier }}"
     identifier_prefix = "{{ identifier_prefix }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

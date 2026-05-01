@@ -1,32 +1,53 @@
 resource "google_compute_interconnect" "example" {
-    admin_enabled = "{{ admin_enabled }}"
-    available_features = "{{ available_features }}"
-    circuit_infos = "{{ circuit_infos }}"
-    creation_timestamp = "{{ creation_timestamp }}"
+    aai_enabled = {{ aai_enabled }}
+    admin_enabled = {{ admin_enabled }}
     customer_name = "{{ customer_name }}"
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
-    expected_outages = "{{ expected_outages }}"
-    google_ip_address = "{{ google_ip_address }}"
-    google_reference_id = "{{ google_reference_id }}"
     id = "{{ id }}"
-    interconnect_attachments = "{{ interconnect_attachments }}"
     interconnect_type = "{{ interconnect_type }}"
-    label_fingerprint = "{{ label_fingerprint }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     link_type = "{{ link_type }}"
     location = "{{ location }}"
-    macsec_enabled = "{{ macsec_enabled }}"
+    macsec_enabled = {{ macsec_enabled }}
     name = "{{ name }}"
     noc_contact_email = "{{ noc_contact_email }}"
-    operational_status = "{{ operational_status }}"
-    peer_ip_address = "{{ peer_ip_address }}"
     project = "{{ project }}"
-    provisioned_link_count = "{{ provisioned_link_count }}"
     remote_location = "{{ remote_location }}"
-    requested_features = "{{ requested_features }}"
-    requested_link_count = "{{ requested_link_count }}"
-    satisfies_pzs = "{{ satisfies_pzs }}"
-    state = "{{ state }}"
-    terraform_labels = "{{ terraform_labels }}"
+    requested_features = ["{{ requested_features }}"]
+    requested_link_count = {{ requested_link_count }}
+    application_aware_interconnect {
+      profile_description = "{{ profile_description }}"
+      bandwidth_percentage_policy {
+        bandwidth_percentage {
+          percentage = {{ percentage }}
+          traffic_class = "{{ traffic_class }}"
+        }
+      }
+      shape_average_percentage {
+        percentage = {{ percentage }}
+        traffic_class = "{{ traffic_class }}"
+      }
+      strict_priority_policy {
+      }
+    }
+    macsec {
+      fail_open = {{ fail_open }}
+      pre_shared_keys {
+        fail_open = {{ fail_open }}
+        name = "{{ name }}"
+        start_time = "{{ start_time }}"
+      }
+    }
+    params {
+      resource_manager_tags = {
+        key = "{{ resource_manager_tags_value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

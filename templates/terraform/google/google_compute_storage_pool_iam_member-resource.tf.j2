@@ -1,0 +1,13 @@
+resource "google_compute_storage_pool_iam_member" "example" {
+    id = "{{ id }}"
+    member = "{{ member }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    role = "{{ role }}"
+    zone = "{{ zone }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

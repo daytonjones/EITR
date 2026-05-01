@@ -3,4 +3,21 @@ resource "google_binary_authorization_attestor" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     project = "{{ project }}"
+    attestation_authority_note {
+      note_reference = "{{ note_reference }}"
+      public_keys {
+        ascii_armored_pgp_public_key = "{{ ascii_armored_pgp_public_key }}"
+        comment = "{{ comment }}"
+        id = "{{ id }}"
+        pkix_public_key {
+          public_key_pem = "{{ public_key_pem }}"
+          signature_algorithm = "{{ signature_algorithm }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -9,4 +9,24 @@ resource "azurerm_new_relic_monitor" "example" {
     organization_id = "{{ organization_id }}"
     resource_group_name = "{{ resource_group_name }}"
     user_id = "{{ user_id }}"
+    identity {
+      type = "{{ type }}"
+    }
+    plan {
+      billing_cycle = "{{ billing_cycle }}"
+      effective_date = "{{ effective_date }}"
+      plan_id = "{{ plan_id }}"
+      usage_type = "{{ usage_type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
+    user {
+      email = "{{ email }}"
+      first_name = "{{ first_name }}"
+      last_name = "{{ last_name }}"
+      phone_number = "{{ phone_number }}"
+    }
 }

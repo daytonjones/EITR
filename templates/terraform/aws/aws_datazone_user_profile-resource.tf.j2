@@ -1,9 +1,11 @@
 resource "aws_datazone_user_profile" "example" {
-    details = "{{ details }}"
     domain_identifier = "{{ domain_identifier }}"
-    id = "{{ id }}"
+    region = "{{ region }}"
     status = "{{ status }}"
-    type = "{{ type }}"
     user_identifier = "{{ user_identifier }}"
     user_type = "{{ user_type }}"
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
 }

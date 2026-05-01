@@ -2,4 +2,8 @@ resource "google_access_context_manager_ingress_policy" "example" {
     id = "{{ id }}"
     ingress_policy_name = "{{ ingress_policy_name }}"
     resource = "{{ resource }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

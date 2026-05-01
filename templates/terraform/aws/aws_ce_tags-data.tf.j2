@@ -2,5 +2,80 @@ data "aws_ce_tags" "example" {
     id = "{{ id }}"
     search_string = "{{ search_string }}"
     tag_key = "{{ tag_key }}"
-    tags = "{{ tags }}"
+    filter {
+      and {
+        cost_category {
+          key = "{{ key }}"
+          match_options = ["{{ match_options }}"]
+          values = ["{{ values }}"]
+        }
+        dimension {
+          key = "{{ key }}"
+          match_options = ["{{ match_options }}"]
+          values = ["{{ values }}"]
+        }
+        tags {
+          key = "{{ key }}"
+          match_options = ["{{ match_options }}"]
+          values = ["{{ values }}"]
+        }
+      }
+      cost_category {
+        key = "{{ key }}"
+        match_options = ["{{ match_options }}"]
+        values = ["{{ values }}"]
+      }
+      dimension {
+        key = "{{ key }}"
+        match_options = ["{{ match_options }}"]
+        values = ["{{ values }}"]
+      }
+      not {
+        cost_category {
+          key = "{{ key }}"
+          match_options = ["{{ match_options }}"]
+          values = ["{{ values }}"]
+        }
+        dimension {
+          key = "{{ key }}"
+          match_options = ["{{ match_options }}"]
+          values = ["{{ values }}"]
+        }
+        tags {
+          key = "{{ key }}"
+          match_options = ["{{ match_options }}"]
+          values = ["{{ values }}"]
+        }
+      }
+      or {
+        cost_category {
+          key = "{{ key }}"
+          match_options = ["{{ match_options }}"]
+          values = ["{{ values }}"]
+        }
+        dimension {
+          key = "{{ key }}"
+          match_options = ["{{ match_options }}"]
+          values = ["{{ values }}"]
+        }
+        tags {
+          key = "{{ key }}"
+          match_options = ["{{ match_options }}"]
+          values = ["{{ values }}"]
+        }
+      }
+      tags {
+        key = "{{ key }}"
+        match_options = ["{{ match_options }}"]
+        values = ["{{ values }}"]
+      }
+    }
+    sort_by {
+      key = "{{ key }}"
+      sort_order = "{{ sort_order }}"
+    }
+    time_period {
+      end = "{{ end }}"
+      start = "{{ start }}"
+    }
 }

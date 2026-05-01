@@ -1,0 +1,156 @@
+resource "google_cloud_security_compliance_cloud_control" "example" {
+    categories = ["{{ categories }}"]
+    cloud_control_id = "{{ cloud_control_id }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    finding_category = "{{ finding_category }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    organization = "{{ organization }}"
+    remediation_steps = "{{ remediation_steps }}"
+    severity = "{{ severity }}"
+    supported_cloud_providers = ["{{ supported_cloud_providers }}"]
+    parameter_spec {
+      description = "{{ description }}"
+      display_name = "{{ display_name }}"
+      is_required = {{ is_required }}
+      name = "{{ name }}"
+      value_type = "{{ value_type }}"
+      default_value {
+        bool_value = {{ bool_value }}
+        number_value = {{ number_value }}
+        string_value = "{{ string_value }}"
+        oneof_value {
+          name = "{{ name }}"
+          parameter_value {
+            bool_value = {{ bool_value }}
+            number_value = {{ number_value }}
+            string_value = "{{ string_value }}"
+            string_list_value {
+              values = ["{{ values }}"]
+            }
+          }
+        }
+        string_list_value {
+          values = ["{{ values }}"]
+        }
+      }
+      sub_parameters {
+        description = "{{ description }}"
+        display_name = "{{ display_name }}"
+        is_required = {{ is_required }}
+        name = "{{ name }}"
+        value_type = "{{ value_type }}"
+        default_value {
+          bool_value = {{ bool_value }}
+          number_value = {{ number_value }}
+          string_value = "{{ string_value }}"
+          oneof_value {
+            name = "{{ name }}"
+            parameter_value {
+              bool_value = {{ bool_value }}
+              number_value = {{ number_value }}
+              string_value = "{{ string_value }}"
+              string_list_value {
+                values = ["{{ values }}"]
+              }
+            }
+          }
+          string_list_value {
+            values = ["{{ values }}"]
+          }
+        }
+        substitution_rules {
+          attribute_substitution_rule {
+            attribute = "{{ attribute }}"
+          }
+          placeholder_substitution_rule {
+            attribute = "{{ attribute }}"
+          }
+        }
+        validation {
+          allowed_values {
+            values {
+              bool_value = {{ bool_value }}
+              number_value = {{ number_value }}
+              string_value = "{{ string_value }}"
+              oneof_value {
+                name = "{{ name }}"
+                parameter_value {
+                  bool_value = {{ bool_value }}
+                  number_value = {{ number_value }}
+                  string_value = "{{ string_value }}"
+                  string_list_value {
+                    values = ["{{ values }}"]
+                  }
+                }
+              }
+              string_list_value {
+                values = ["{{ values }}"]
+              }
+            }
+          }
+          int_range {
+            max = "{{ max }}"
+            min = "{{ min }}"
+          }
+          regexp_pattern {
+            pattern = "{{ pattern }}"
+          }
+        }
+      }
+      substitution_rules {
+        attribute_substitution_rule {
+          attribute = "{{ attribute }}"
+        }
+        placeholder_substitution_rule {
+          attribute = "{{ attribute }}"
+        }
+      }
+      validation {
+        allowed_values {
+          values {
+            bool_value = {{ bool_value }}
+            number_value = {{ number_value }}
+            string_value = "{{ string_value }}"
+            oneof_value {
+              name = "{{ name }}"
+              parameter_value {
+                bool_value = {{ bool_value }}
+                number_value = {{ number_value }}
+                string_value = "{{ string_value }}"
+                string_list_value {
+                  values = ["{{ values }}"]
+                }
+              }
+            }
+            string_list_value {
+              values = ["{{ values }}"]
+            }
+          }
+        }
+        int_range {
+          max = "{{ max }}"
+          min = "{{ min }}"
+        }
+        regexp_pattern {
+          pattern = "{{ pattern }}"
+        }
+      }
+    }
+    rules {
+      description = "{{ description }}"
+      rule_action_types = ["{{ rule_action_types }}"]
+      cel_expression {
+        expression = "{{ expression }}"
+        resource_types_values {
+          values = ["{{ values }}"]
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

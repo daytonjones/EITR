@@ -1,10 +1,34 @@
 resource "aws_sagemaker_workteam" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    subdomain = "{{ subdomain }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     workforce_name = "{{ workforce_name }}"
     workteam_name = "{{ workteam_name }}"
+    member_definition {
+      cognito_member_definition {
+        client_id = "{{ client_id }}"
+        user_group = "{{ user_group }}"
+        user_pool = "{{ user_pool }}"
+      }
+      oidc_member_definition {
+        groups = ["{{ groups }}"]
+      }
+    }
+    notification_configuration {
+      notification_topic_arn = "{{ notification_topic_arn }}"
+    }
+    worker_access_configuration {
+      s3_presign {
+        iam_policy_constraints {
+          source_ip = "{{ source_ip }}"
+          vpc_source_ip = "{{ vpc_source_ip }}"
+        }
+      }
+    }
 }

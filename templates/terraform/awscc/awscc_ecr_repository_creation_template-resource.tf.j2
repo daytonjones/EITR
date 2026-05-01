@@ -1,20 +1,12 @@
 resource "awscc_ecr_repository_creation_template" "example" {
-    applied_for = "{{ applied_for }}"
-    created_at = "{{ created_at }}"
+    applied_for = ["{{ applied_for }}"]
     custom_role_arn = "{{ custom_role_arn }}"
     description = "{{ description }}"
-    encryption_configuration = "{
-    encryption_type = {{ encryption_type }}
-    kms_key = {{ kms_key }}
-}"
-    id = "{{ id }}"
+    encryption_configuration = "{{ encryption_configuration }}"
     image_tag_mutability = "{{ image_tag_mutability }}"
+    image_tag_mutability_exclusion_filters = "{{ image_tag_mutability_exclusion_filters }}"
     lifecycle_policy = "{{ lifecycle_policy }}"
     prefix = "{{ prefix }}"
     repository_policy = "{{ repository_policy }}"
-    resource_tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
-    updated_at = "{{ updated_at }}"
+    resource_tags = "{{ resource_tags }}"
 }

@@ -1,0 +1,15 @@
+resource "aws_bedrockagentcore_agent_runtime_endpoint" "example" {
+    agent_runtime_id = "{{ agent_runtime_id }}"
+    agent_runtime_version = "{{ agent_runtime_version }}"
+    description = "{{ description }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

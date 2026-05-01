@@ -1,11 +1,20 @@
 resource "aws_codeartifact_repository" "example" {
-    administrator_account = "{{ administrator_account }}"
-    arn = "{{ arn }}"
     description = "{{ description }}"
     domain = "{{ domain }}"
     domain_owner = "{{ domain_owner }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     repository = "{{ repository }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    external_connections {
+      external_connection_name = "{{ external_connection_name }}"
+    }
+    upstream {
+      repository_name = "{{ repository_name }}"
+    }
 }

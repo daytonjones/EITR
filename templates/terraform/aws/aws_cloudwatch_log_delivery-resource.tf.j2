@@ -1,0 +1,11 @@
+resource "aws_cloudwatch_log_delivery" "example" {
+    delivery_destination_arn = "{{ delivery_destination_arn }}"
+    delivery_source_name = "{{ delivery_source_name }}"
+    field_delimiter = "{{ field_delimiter }}"
+    record_fields = ["{{ record_fields }}"]
+    region = "{{ region }}"
+    s3_delivery_configuration = ["{{ s3_delivery_configuration }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

@@ -1,11 +1,20 @@
 resource "google_spanner_instance_config" "example" {
     base_config = "{{ base_config }}"
-    config_type = "{{ config_type }}"
     display_name = "{{ display_name }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
     project = "{{ project }}"
-    terraform_labels = "{{ terraform_labels }}"
+    replicas {
+      default_leader_location = {{ default_leader_location }}
+      location = "{{ location }}"
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,12 @@
+resource "aws_workspacesweb_identity_provider" "example" {
+    identity_provider_details = {
+        key = "{{ identity_provider_details_value }}"
+      }
+    identity_provider_name = "{{ identity_provider_name }}"
+    identity_provider_type = "{{ identity_provider_type }}"
+    portal_arn = "{{ portal_arn }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

@@ -1,12 +1,30 @@
 resource "aws_db_option_group" "example" {
-    arn = "{{ arn }}"
     engine_name = "{{ engine_name }}"
     id = "{{ id }}"
     major_engine_version = "{{ major_engine_version }}"
     name = "{{ name }}"
     name_prefix = "{{ name_prefix }}"
     option_group_description = "{{ option_group_description }}"
-    skip_destroy = "{{ skip_destroy }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    skip_destroy = {{ skip_destroy }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    option {
+      db_security_group_memberships = ["{{ db_security_group_memberships }}"]
+      option_name = "{{ option_name }}"
+      port = {{ port }}
+      version = "{{ version }}"
+      vpc_security_group_memberships = ["{{ vpc_security_group_memberships }}"]
+      option_settings {
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+    }
+    timeouts {
+      delete = "{{ delete }}"
+    }
 }

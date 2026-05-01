@@ -1,33 +1,66 @@
 resource "aws_lb" "example" {
-    arn = "{{ arn }}"
-    arn_suffix = "{{ arn_suffix }}"
-    client_keep_alive = "{{ client_keep_alive }}"
+    client_keep_alive = {{ client_keep_alive }}
     customer_owned_ipv4_pool = "{{ customer_owned_ipv4_pool }}"
     desync_mitigation_mode = "{{ desync_mitigation_mode }}"
-    dns_name = "{{ dns_name }}"
     dns_record_client_routing_policy = "{{ dns_record_client_routing_policy }}"
-    drop_invalid_header_fields = "{{ drop_invalid_header_fields }}"
-    enable_cross_zone_load_balancing = "{{ enable_cross_zone_load_balancing }}"
-    enable_deletion_protection = "{{ enable_deletion_protection }}"
-    enable_http2 = "{{ enable_http2 }}"
-    enable_tls_version_and_cipher_suite_headers = "{{ enable_tls_version_and_cipher_suite_headers }}"
-    enable_waf_fail_open = "{{ enable_waf_fail_open }}"
-    enable_xff_client_port = "{{ enable_xff_client_port }}"
-    enable_zonal_shift = "{{ enable_zonal_shift }}"
+    drop_invalid_header_fields = {{ drop_invalid_header_fields }}
+    enable_cross_zone_load_balancing = {{ enable_cross_zone_load_balancing }}
+    enable_deletion_protection = {{ enable_deletion_protection }}
+    enable_http2 = {{ enable_http2 }}
+    enable_tls_version_and_cipher_suite_headers = {{ enable_tls_version_and_cipher_suite_headers }}
+    enable_waf_fail_open = {{ enable_waf_fail_open }}
+    enable_xff_client_port = {{ enable_xff_client_port }}
+    enable_zonal_shift = {{ enable_zonal_shift }}
     enforce_security_group_inbound_rules_on_private_link_traffic = "{{ enforce_security_group_inbound_rules_on_private_link_traffic }}"
     id = "{{ id }}"
-    idle_timeout = "{{ idle_timeout }}"
-    internal = "{{ internal }}"
+    idle_timeout = {{ idle_timeout }}
+    internal = {{ internal }}
     ip_address_type = "{{ ip_address_type }}"
     load_balancer_type = "{{ load_balancer_type }}"
     name = "{{ name }}"
     name_prefix = "{{ name_prefix }}"
-    preserve_host_header = "{{ preserve_host_header }}"
-    security_groups = "{{ security_groups }}"
-    subnets = "{{ subnets }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    vpc_id = "{{ vpc_id }}"
+    preserve_host_header = {{ preserve_host_header }}
+    region = "{{ region }}"
+    secondary_ips_auto_assigned_per_subnet = {{ secondary_ips_auto_assigned_per_subnet }}
+    security_groups = ["{{ security_groups }}"]
+    subnets = ["{{ subnets }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     xff_header_processing_mode = "{{ xff_header_processing_mode }}"
-    zone_id = "{{ zone_id }}"
+    access_logs {
+      bucket = "{{ bucket }}"
+      enabled = {{ enabled }}
+      prefix = "{{ prefix }}"
+    }
+    connection_logs {
+      bucket = "{{ bucket }}"
+      enabled = {{ enabled }}
+      prefix = "{{ prefix }}"
+    }
+    health_check_logs {
+      bucket = "{{ bucket }}"
+      enabled = {{ enabled }}
+      prefix = "{{ prefix }}"
+    }
+    ipam_pools {
+      ipv4_ipam_pool_id = "{{ ipv4_ipam_pool_id }}"
+    }
+    minimum_load_balancer_capacity {
+      capacity_units = {{ capacity_units }}
+    }
+    subnet_mapping {
+      allocation_id = "{{ allocation_id }}"
+      ipv6_address = "{{ ipv6_address }}"
+      private_ipv4_address = "{{ private_ipv4_address }}"
+      subnet_id = "{{ subnet_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

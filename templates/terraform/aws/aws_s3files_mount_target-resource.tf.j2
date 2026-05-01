@@ -1,0 +1,14 @@
+resource "aws_s3files_mount_target" "example" {
+    file_system_id = "{{ file_system_id }}"
+    ip_address_type = "{{ ip_address_type }}"
+    ipv4_address = "{{ ipv4_address }}"
+    ipv6_address = "{{ ipv6_address }}"
+    region = "{{ region }}"
+    security_groups = ["{{ security_groups }}"]
+    subnet_id = "{{ subnet_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

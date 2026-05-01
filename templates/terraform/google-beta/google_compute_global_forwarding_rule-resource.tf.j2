@@ -1,25 +1,39 @@
 resource "google_compute_global_forwarding_rule" "example" {
-    allow_psc_global_access = "{{ allow_psc_global_access }}"
-    base_forwarding_rule = "{{ base_forwarding_rule }}"
+    allow_psc_global_access = {{ allow_psc_global_access }}
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
+    external_managed_backend_bucket_migration_state = "{{ external_managed_backend_bucket_migration_state }}"
+    external_managed_backend_bucket_migration_testing_percentage = {{ external_managed_backend_bucket_migration_testing_percentage }}
     id = "{{ id }}"
     ip_address = "{{ ip_address }}"
     ip_protocol = "{{ ip_protocol }}"
     ip_version = "{{ ip_version }}"
-    label_fingerprint = "{{ label_fingerprint }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     load_balancing_scheme = "{{ load_balancing_scheme }}"
     name = "{{ name }}"
     network = "{{ network }}"
-    no_automate_dns_zone = "{{ no_automate_dns_zone }}"
+    network_tier = "{{ network_tier }}"
+    no_automate_dns_zone = {{ no_automate_dns_zone }}
     port_range = "{{ port_range }}"
     project = "{{ project }}"
-    psc_connection_id = "{{ psc_connection_id }}"
-    psc_connection_status = "{{ psc_connection_status }}"
-    self_link = "{{ self_link }}"
-    source_ip_ranges = "{{ source_ip_ranges }}"
+    source_ip_ranges = ["{{ source_ip_ranges }}"]
     subnetwork = "{{ subnetwork }}"
     target = "{{ target }}"
-    terraform_labels = "{{ terraform_labels }}"
+    metadata_filters {
+      filter_match_criteria = "{{ filter_match_criteria }}"
+      filter_labels {
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+    }
+    service_directory_registrations {
+      namespace = "{{ namespace }}"
+      service_directory_region = "{{ service_directory_region }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

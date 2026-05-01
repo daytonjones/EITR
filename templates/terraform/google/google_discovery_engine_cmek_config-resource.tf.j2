@@ -1,0 +1,16 @@
+resource "google_discovery_engine_cmek_config" "example" {
+    cmek_config_id = "{{ cmek_config_id }}"
+    id = "{{ id }}"
+    kms_key = "{{ kms_key }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    set_default = {{ set_default }}
+    single_region_keys {
+      kms_key = "{{ kms_key }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

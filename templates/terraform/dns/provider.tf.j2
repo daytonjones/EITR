@@ -1,2 +1,19 @@
 provider "dns" {
+    update {
+      key_algorithm = "{{ key_algorithm }}"
+      key_name = "{{ key_name }}"
+      key_secret = "{{ key_secret }}"
+      port = {{ port }}
+      recursive = {{ recursive }}
+      retries = {{ retries }}
+      server = "{{ server }}"
+      timeout = "{{ timeout }}"
+      transport = "{{ transport }}"
+      gssapi {
+        keytab = "{{ keytab }}"
+        password = "{{ password }}"
+        realm = "{{ realm }}"
+        username = "{{ username }}"
+      }
+    }
 }

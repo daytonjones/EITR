@@ -3,4 +3,9 @@ resource "google_compute_project_metadata_item" "example" {
     key = "{{ key }}"
     project = "{{ project }}"
     value = "{{ value }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

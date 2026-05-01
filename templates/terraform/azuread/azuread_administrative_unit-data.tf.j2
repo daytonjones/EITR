@@ -1,8 +1,11 @@
 data "azuread_administrative_unit" "example" {
-    description = "{{ description }}"
     display_name = "{{ display_name }}"
     id = "{{ id }}"
-    members = "{{ members }}"
     object_id = "{{ object_id }}"
-    visibility = "{{ visibility }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -2,6 +2,20 @@ resource "azurerm_network_function_collector_policy" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     traffic_collector_id = "{{ traffic_collector_id }}"
+    ipfx_emission {
+      destination_types = ["{{ destination_types }}"]
+    }
+    ipfx_ingestion {
+      source_resource_ids = ["{{ source_resource_ids }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

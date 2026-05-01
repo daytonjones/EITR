@@ -1,0 +1,18 @@
+resource "google_iam_oauth_client" "example" {
+    allowed_grant_types = ["{{ allowed_grant_types }}"]
+    allowed_redirect_uris = ["{{ allowed_redirect_uris }}"]
+    allowed_scopes = ["{{ allowed_scopes }}"]
+    client_type = "{{ client_type }}"
+    description = "{{ description }}"
+    disabled = {{ disabled }}
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    oauth_client_id = "{{ oauth_client_id }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

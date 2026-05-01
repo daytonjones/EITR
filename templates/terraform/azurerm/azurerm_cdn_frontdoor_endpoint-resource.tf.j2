@@ -1,8 +1,15 @@
 resource "azurerm_cdn_frontdoor_endpoint" "example" {
     cdn_frontdoor_profile_id = "{{ cdn_frontdoor_profile_id }}"
-    enabled = "{{ enabled }}"
-    host_name = "{{ host_name }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

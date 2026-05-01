@@ -3,4 +3,9 @@ resource "azurerm_maintenance_assignment_virtual_machine" "example" {
     location = "{{ location }}"
     maintenance_configuration_id = "{{ maintenance_configuration_id }}"
     virtual_machine_id = "{{ virtual_machine_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

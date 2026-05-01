@@ -1,6 +1,10 @@
 resource "nomad_variable" "example" {
     id = "{{ id }}"
-    items = "{{ items }}"
+    items = {
+        key = "{{ items_value }}"
+      }
+    items_wo = "{{ items_wo }}"
+    items_wo_version = {{ items_wo_version }}
     namespace = "{{ namespace }}"
     path = "{{ path }}"
 }

@@ -3,4 +3,10 @@ resource "azurerm_storage_mover_project" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     storage_mover_id = "{{ storage_mover_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

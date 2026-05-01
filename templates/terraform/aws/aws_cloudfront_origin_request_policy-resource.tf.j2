@@ -1,6 +1,23 @@
 resource "aws_cloudfront_origin_request_policy" "example" {
     comment = "{{ comment }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    cookies_config {
+      cookie_behavior = "{{ cookie_behavior }}"
+      cookies {
+        items = ["{{ items }}"]
+      }
+    }
+    headers_config {
+      header_behavior = "{{ header_behavior }}"
+      headers {
+        items = ["{{ items }}"]
+      }
+    }
+    query_strings_config {
+      query_string_behavior = "{{ query_string_behavior }}"
+      query_strings {
+        items = ["{{ items }}"]
+      }
+    }
 }

@@ -1,0 +1,12 @@
+resource "awscc_s3tables_table" "example" {
+    compaction = "{{ compaction }}"
+    iceberg_metadata = "{{ iceberg_metadata }}"
+    namespace = "{{ namespace }}"
+    open_table_format = "{{ open_table_format }}"
+    snapshot_management = "{{ snapshot_management }}"
+    storage_class_configuration = "{{ storage_class_configuration }}"
+    table_bucket_arn = "{{ table_bucket_arn }}"
+    table_name = "{{ table_name }}"
+    tags = "{{ tags }}"
+    without_metadata = "{{ without_metadata }}"
+}

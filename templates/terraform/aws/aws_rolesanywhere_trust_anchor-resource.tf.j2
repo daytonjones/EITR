@@ -1,8 +1,24 @@
 resource "aws_rolesanywhere_trust_anchor" "example" {
-    arn = "{{ arn }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    notification_settings {
+      channel = "{{ channel }}"
+      enabled = {{ enabled }}
+      event = "{{ event }}"
+      threshold = {{ threshold }}
+    }
+    source {
+      source_type = "{{ source_type }}"
+      source_data {
+        acm_pca_arn = "{{ acm_pca_arn }}"
+        x509_certificate_data = "{{ x509_certificate_data }}"
+      }
+    }
 }

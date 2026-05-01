@@ -1,0 +1,13 @@
+resource "google_biglake_iceberg_namespace_iam_member" "example" {
+    catalog = "{{ catalog }}"
+    id = "{{ id }}"
+    member = "{{ member }}"
+    namespace_id = "{{ namespace_id }}"
+    project = "{{ project }}"
+    role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

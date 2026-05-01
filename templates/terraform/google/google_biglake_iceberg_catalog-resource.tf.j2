@@ -1,0 +1,13 @@
+resource "google_biglake_iceberg_catalog" "example" {
+    catalog_type = "{{ catalog_type }}"
+    credential_mode = "{{ credential_mode }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    primary_location = "{{ primary_location }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,7 +1,14 @@
 resource "aws_sagemaker_human_task_ui" "example" {
-    arn = "{{ arn }}"
     human_task_ui_name = "{{ human_task_ui_name }}"
     id = "{{ id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    ui_template {
+      content = "{{ content }}"
+    }
 }

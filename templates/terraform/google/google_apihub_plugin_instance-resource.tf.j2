@@ -1,0 +1,50 @@
+resource "google_apihub_plugin_instance" "example" {
+    disable = {{ disable }}
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    plugin = "{{ plugin }}"
+    plugin_instance_id = "{{ plugin_instance_id }}"
+    project = "{{ project }}"
+    actions {
+      action_id = "{{ action_id }}"
+      schedule_cron_expression = "{{ schedule_cron_expression }}"
+      schedule_time_zone = "{{ schedule_time_zone }}"
+      curation_config {
+        curation_type = "{{ curation_type }}"
+        custom_curation {
+          curation = "{{ curation }}"
+        }
+      }
+    }
+    auth_config {
+      auth_type = "{{ auth_type }}"
+      api_key_config {
+        http_element_location = "{{ http_element_location }}"
+        name = "{{ name }}"
+        api_key {
+          secret_version = "{{ secret_version }}"
+        }
+      }
+      google_service_account_config {
+        service_account = "{{ service_account }}"
+      }
+      oauth2_client_credentials_config {
+        client_id = "{{ client_id }}"
+        client_secret {
+          secret_version = "{{ secret_version }}"
+        }
+      }
+      user_password_config {
+        username = "{{ username }}"
+        password {
+          secret_version = "{{ secret_version }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -2,6 +2,25 @@ resource "azurerm_mssql_managed_database" "example" {
     id = "{{ id }}"
     managed_instance_id = "{{ managed_instance_id }}"
     name = "{{ name }}"
-    short_term_retention_days = "{{ short_term_retention_days }}"
-    tags = "{{ tags }}"
+    short_term_retention_days = {{ short_term_retention_days }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    long_term_retention_policy {
+      immutable_backups_enabled = {{ immutable_backups_enabled }}
+      monthly_retention = "{{ monthly_retention }}"
+      week_of_year = {{ week_of_year }}
+      weekly_retention = "{{ weekly_retention }}"
+      yearly_retention = "{{ yearly_retention }}"
+    }
+    point_in_time_restore {
+      restore_point_in_time = "{{ restore_point_in_time }}"
+      source_database_id = "{{ source_database_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

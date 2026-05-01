@@ -1,5 +1,27 @@
 resource "aws_s3_bucket_notification" "example" {
     bucket = "{{ bucket }}"
-    eventbridge = "{{ eventbridge }}"
+    eventbridge = {{ eventbridge }}
     id = "{{ id }}"
+    region = "{{ region }}"
+    lambda_function {
+      events = ["{{ events }}"]
+      filter_prefix = "{{ filter_prefix }}"
+      filter_suffix = "{{ filter_suffix }}"
+      id = "{{ id }}"
+      lambda_function_arn = "{{ lambda_function_arn }}"
+    }
+    queue {
+      events = ["{{ events }}"]
+      filter_prefix = "{{ filter_prefix }}"
+      filter_suffix = "{{ filter_suffix }}"
+      id = "{{ id }}"
+      queue_arn = "{{ queue_arn }}"
+    }
+    topic {
+      events = ["{{ events }}"]
+      filter_prefix = "{{ filter_prefix }}"
+      filter_suffix = "{{ filter_suffix }}"
+      id = "{{ id }}"
+      topic_arn = "{{ topic_arn }}"
+    }
 }

@@ -1,16 +1,19 @@
 resource "aws_datasync_location_object_storage" "example" {
     access_key = "{{ access_key }}"
-    agent_arns = "{{ agent_arns }}"
-    arn = "{{ arn }}"
+    agent_arns = ["{{ agent_arns }}"]
     bucket_name = "{{ bucket_name }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     secret_key = "{{ secret_key }}"
     server_certificate = "{{ server_certificate }}"
     server_hostname = "{{ server_hostname }}"
-    server_port = "{{ server_port }}"
+    server_port = {{ server_port }}
     server_protocol = "{{ server_protocol }}"
     subdirectory = "{{ subdirectory }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    uri = "{{ uri }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

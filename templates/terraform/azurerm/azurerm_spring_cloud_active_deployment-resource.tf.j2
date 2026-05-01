@@ -2,4 +2,10 @@ resource "azurerm_spring_cloud_active_deployment" "example" {
     deployment_name = "{{ deployment_name }}"
     id = "{{ id }}"
     spring_cloud_app_id = "{{ spring_cloud_app_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

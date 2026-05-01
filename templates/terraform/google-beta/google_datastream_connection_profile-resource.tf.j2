@@ -1,12 +1,121 @@
 resource "google_datastream_connection_profile" "example" {
     connection_profile_id = "{{ connection_profile_id }}"
-    create_without_validation = "{{ create_without_validation }}"
+    create_without_validation = {{ create_without_validation }}
     display_name = "{{ display_name }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    terraform_labels = "{{ terraform_labels }}"
+    bigquery_profile {
+    }
+    forward_ssh_connectivity {
+      hostname = "{{ hostname }}"
+      password = "{{ password }}"
+      port = {{ port }}
+      private_key = "{{ private_key }}"
+      username = "{{ username }}"
+    }
+    gcs_profile {
+      bucket = "{{ bucket }}"
+      root_path = "{{ root_path }}"
+    }
+    mongodb_profile {
+      password = "{{ password }}"
+      replica_set = "{{ replica_set }}"
+      secret_manager_stored_password = "{{ secret_manager_stored_password }}"
+      username = "{{ username }}"
+      host_addresses {
+        hostname = "{{ hostname }}"
+        port = {{ port }}
+      }
+      srv_connection_format {
+      }
+      ssl_config {
+        ca_certificate = "{{ ca_certificate }}"
+        client_certificate = "{{ client_certificate }}"
+        client_key = "{{ client_key }}"
+        secret_manager_stored_client_key = "{{ secret_manager_stored_client_key }}"
+      }
+      standard_connection_format {
+        direct_connection = {{ direct_connection }}
+      }
+    }
+    mysql_profile {
+      hostname = "{{ hostname }}"
+      password = "{{ password }}"
+      port = {{ port }}
+      secret_manager_stored_password = "{{ secret_manager_stored_password }}"
+      username = "{{ username }}"
+      ssl_config {
+        ca_certificate = "{{ ca_certificate }}"
+        client_certificate = "{{ client_certificate }}"
+        client_key = "{{ client_key }}"
+      }
+    }
+    oracle_profile {
+      connection_attributes = {
+        key = "{{ connection_attributes_value }}"
+      }
+      database_service = "{{ database_service }}"
+      hostname = "{{ hostname }}"
+      password = "{{ password }}"
+      port = {{ port }}
+      secret_manager_stored_password = "{{ secret_manager_stored_password }}"
+      username = "{{ username }}"
+    }
+    postgresql_profile {
+      database = "{{ database }}"
+      hostname = "{{ hostname }}"
+      password = "{{ password }}"
+      port = {{ port }}
+      secret_manager_stored_password = "{{ secret_manager_stored_password }}"
+      username = "{{ username }}"
+      ssl_config {
+        server_and_client_verification {
+          ca_certificate = "{{ ca_certificate }}"
+          client_certificate = "{{ client_certificate }}"
+          client_key = "{{ client_key }}"
+        }
+        server_verification {
+          ca_certificate = "{{ ca_certificate }}"
+        }
+      }
+    }
+    private_connectivity {
+      private_connection = "{{ private_connection }}"
+    }
+    salesforce_profile {
+      domain = "{{ domain }}"
+      oauth2_client_credentials {
+        client_id = "{{ client_id }}"
+        client_secret = "{{ client_secret }}"
+        secret_manager_stored_client_secret = "{{ secret_manager_stored_client_secret }}"
+      }
+      user_credentials {
+        password = "{{ password }}"
+        secret_manager_stored_password = "{{ secret_manager_stored_password }}"
+        secret_manager_stored_security_token = "{{ secret_manager_stored_security_token }}"
+        security_token = "{{ security_token }}"
+        username = "{{ username }}"
+      }
+    }
+    spanner_profile {
+      database = "{{ database }}"
+      host = "{{ host }}"
+    }
+    sql_server_profile {
+      database = "{{ database }}"
+      hostname = "{{ hostname }}"
+      password = "{{ password }}"
+      port = {{ port }}
+      secret_manager_stored_password = "{{ secret_manager_stored_password }}"
+      username = "{{ username }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

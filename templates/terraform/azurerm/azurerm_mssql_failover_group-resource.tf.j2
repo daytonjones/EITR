@@ -1,8 +1,23 @@
 resource "azurerm_mssql_failover_group" "example" {
-    databases = "{{ databases }}"
+    databases = ["{{ databases }}"]
     id = "{{ id }}"
     name = "{{ name }}"
-    readonly_endpoint_failover_policy_enabled = "{{ readonly_endpoint_failover_policy_enabled }}"
+    readonly_endpoint_failover_policy_enabled = {{ readonly_endpoint_failover_policy_enabled }}
     server_id = "{{ server_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    partner_server {
+      id = "{{ id }}"
+    }
+    read_write_endpoint_failover_policy {
+      grace_minutes = {{ grace_minutes }}
+      mode = "{{ mode }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

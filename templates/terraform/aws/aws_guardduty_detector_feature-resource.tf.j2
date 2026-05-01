@@ -2,5 +2,10 @@ resource "aws_guardduty_detector_feature" "example" {
     detector_id = "{{ detector_id }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     status = "{{ status }}"
+    additional_configuration {
+      name = "{{ name }}"
+      status = "{{ status }}"
+    }
 }

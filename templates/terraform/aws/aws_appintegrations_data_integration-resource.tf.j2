@@ -1,10 +1,19 @@
 resource "aws_appintegrations_data_integration" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     id = "{{ id }}"
     kms_key = "{{ kms_key }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     source_uri = "{{ source_uri }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    schedule_config {
+      first_execution_from = "{{ first_execution_from }}"
+      object = "{{ object }}"
+      schedule_expression = "{{ schedule_expression }}"
+    }
 }

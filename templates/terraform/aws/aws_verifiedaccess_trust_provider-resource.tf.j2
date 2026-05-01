@@ -3,8 +3,44 @@ resource "aws_verifiedaccess_trust_provider" "example" {
     device_trust_provider_type = "{{ device_trust_provider_type }}"
     id = "{{ id }}"
     policy_reference_name = "{{ policy_reference_name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     trust_provider_type = "{{ trust_provider_type }}"
     user_trust_provider_type = "{{ user_trust_provider_type }}"
+    device_options {
+      tenant_id = "{{ tenant_id }}"
+    }
+    native_application_oidc_options {
+      authorization_endpoint = "{{ authorization_endpoint }}"
+      client_id = "{{ client_id }}"
+      client_secret = "{{ client_secret }}"
+      issuer = "{{ issuer }}"
+      public_signing_key_endpoint = "{{ public_signing_key_endpoint }}"
+      scope = "{{ scope }}"
+      token_endpoint = "{{ token_endpoint }}"
+      user_info_endpoint = "{{ user_info_endpoint }}"
+    }
+    oidc_options {
+      authorization_endpoint = "{{ authorization_endpoint }}"
+      client_id = "{{ client_id }}"
+      client_secret = "{{ client_secret }}"
+      issuer = "{{ issuer }}"
+      scope = "{{ scope }}"
+      token_endpoint = "{{ token_endpoint }}"
+      user_info_endpoint = "{{ user_info_endpoint }}"
+    }
+    sse_specification {
+      customer_managed_key_enabled = {{ customer_managed_key_enabled }}
+      kms_key_arn = "{{ kms_key_arn }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

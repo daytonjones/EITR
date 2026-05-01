@@ -2,9 +2,10 @@ resource "azurerm_mssql_managed_instance" "example" {
     administrator_login = "{{ administrator_login }}"
     administrator_login_password = "{{ administrator_login_password }}"
     collation = "{{ collation }}"
-    dns_zone = "{{ dns_zone }}"
+    database_format = "{{ database_format }}"
     dns_zone_partner_id = "{{ dns_zone_partner_id }}"
-    fqdn = "{{ fqdn }}"
+    general_purpose_v2_enabled = {{ general_purpose_v2_enabled }}
+    hybrid_secondary_usage = "{{ hybrid_secondary_usage }}"
     id = "{{ id }}"
     license_type = "{{ license_type }}"
     location = "{{ location }}"
@@ -12,15 +13,34 @@ resource "azurerm_mssql_managed_instance" "example" {
     minimum_tls_version = "{{ minimum_tls_version }}"
     name = "{{ name }}"
     proxy_override = "{{ proxy_override }}"
-    public_data_endpoint_enabled = "{{ public_data_endpoint_enabled }}"
+    public_data_endpoint_enabled = {{ public_data_endpoint_enabled }}
     resource_group_name = "{{ resource_group_name }}"
     service_principal_type = "{{ service_principal_type }}"
     sku_name = "{{ sku_name }}"
     storage_account_type = "{{ storage_account_type }}"
-    storage_size_in_gb = "{{ storage_size_in_gb }}"
+    storage_size_in_gb = {{ storage_size_in_gb }}
     subnet_id = "{{ subnet_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     timezone_id = "{{ timezone_id }}"
-    vcores = "{{ vcores }}"
-    zone_redundant_enabled = "{{ zone_redundant_enabled }}"
+    vcores = {{ vcores }}
+    zone_redundant_enabled = {{ zone_redundant_enabled }}
+    azure_active_directory_administrator {
+      azuread_authentication_only_enabled = {{ azuread_authentication_only_enabled }}
+      login_username = "{{ login_username }}"
+      object_id = "{{ object_id }}"
+      principal_type = "{{ principal_type }}"
+      tenant_id = "{{ tenant_id }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

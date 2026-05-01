@@ -1,0 +1,32 @@
+resource "aws_vpclattice_resource_configuration" "example" {
+    allow_association_to_shareable_service_network = {{ allow_association_to_shareable_service_network }}
+    custom_domain_name = "{{ custom_domain_name }}"
+    domain_verification_id = "{{ domain_verification_id }}"
+    name = "{{ name }}"
+    port_ranges = ["{{ port_ranges }}"]
+    protocol = "{{ protocol }}"
+    region = "{{ region }}"
+    resource_configuration_group_id = "{{ resource_configuration_group_id }}"
+    resource_gateway_identifier = "{{ resource_gateway_identifier }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    type = "{{ type }}"
+    resource_configuration_definition {
+      arn_resource {
+        arn = "{{ arn }}"
+      }
+      dns_resource {
+        domain_name = "{{ domain_name }}"
+        ip_address_type = "{{ ip_address_type }}"
+      }
+      ip_resource {
+        ip_address = "{{ ip_address }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

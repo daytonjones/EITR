@@ -1,7 +1,9 @@
 resource "aws_ecr_pull_through_cache_rule" "example" {
     credential_arn = "{{ credential_arn }}"
+    custom_role_arn = "{{ custom_role_arn }}"
     ecr_repository_prefix = "{{ ecr_repository_prefix }}"
     id = "{{ id }}"
-    registry_id = "{{ registry_id }}"
+    region = "{{ region }}"
     upstream_registry_url = "{{ upstream_registry_url }}"
+    upstream_repository_prefix = "{{ upstream_repository_prefix }}"
 }

@@ -1,6 +1,7 @@
 resource "aws_vpc_endpoint_security_group_association" "example" {
     id = "{{ id }}"
-    replace_default_association = "{{ replace_default_association }}"
+    region = "{{ region }}"
+    replace_default_association = {{ replace_default_association }}
     security_group_id = "{{ security_group_id }}"
     vpc_endpoint_id = "{{ vpc_endpoint_id }}"
 }

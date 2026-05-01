@@ -2,8 +2,23 @@ resource "aws_codebuild_webhook" "example" {
     branch_filter = "{{ branch_filter }}"
     build_type = "{{ build_type }}"
     id = "{{ id }}"
-    payload_url = "{{ payload_url }}"
+    manual_creation = {{ manual_creation }}
     project_name = "{{ project_name }}"
-    secret = "{{ secret }}"
-    url = "{{ url }}"
+    region = "{{ region }}"
+    filter_group {
+      filter {
+        exclude_matched_pattern = {{ exclude_matched_pattern }}
+        pattern = "{{ pattern }}"
+        type = "{{ type }}"
+      }
+    }
+    pull_request_build_policy {
+      approver_roles = ["{{ approver_roles }}"]
+      requires_comment_approval = "{{ requires_comment_approval }}"
+    }
+    scope_configuration {
+      domain = "{{ domain }}"
+      name = "{{ name }}"
+      scope = "{{ scope }}"
+    }
 }

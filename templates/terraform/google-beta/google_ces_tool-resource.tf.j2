@@ -1,0 +1,126 @@
+resource "google_ces_tool" "example" {
+    app = "{{ app }}"
+    execution_type = "{{ execution_type }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    tool_id = "{{ tool_id }}"
+    client_function {
+      description = "{{ description }}"
+      name = "{{ name }}"
+      parameters {
+        additional_properties = "{{ additional_properties }}"
+        any_of = "{{ any_of }}"
+        default = "{{ default }}"
+        defs = "{{ defs }}"
+        description = "{{ description }}"
+        enum = ["{{ enum }}"]
+        items = "{{ items }}"
+        max_items = {{ max_items }}
+        maximum = {{ maximum }}
+        min_items = {{ min_items }}
+        minimum = {{ minimum }}
+        nullable = {{ nullable }}
+        prefix_items = "{{ prefix_items }}"
+        properties = "{{ properties }}"
+        ref = "{{ ref }}"
+        required = ["{{ required }}"]
+        title = "{{ title }}"
+        type = "{{ type }}"
+        unique_items = {{ unique_items }}
+      }
+      response {
+        additional_properties = "{{ additional_properties }}"
+        any_of = "{{ any_of }}"
+        default = "{{ default }}"
+        defs = "{{ defs }}"
+        description = "{{ description }}"
+        enum = ["{{ enum }}"]
+        items = "{{ items }}"
+        max_items = {{ max_items }}
+        maximum = {{ maximum }}
+        min_items = {{ min_items }}
+        minimum = {{ minimum }}
+        nullable = {{ nullable }}
+        prefix_items = "{{ prefix_items }}"
+        properties = "{{ properties }}"
+        ref = "{{ ref }}"
+        required = ["{{ required }}"]
+        title = "{{ title }}"
+        type = "{{ type }}"
+        unique_items = {{ unique_items }}
+      }
+    }
+    data_store_tool {
+      description = "{{ description }}"
+      max_results = {{ max_results }}
+      name = "{{ name }}"
+      boost_specs {
+        data_stores = ["{{ data_stores }}"]
+        spec {
+          condition_boost_specs {
+            boost = {{ boost }}
+            condition = "{{ condition }}"
+            boost_control_spec {
+              attribute_type = "{{ attribute_type }}"
+              field_name = "{{ field_name }}"
+              interpolation_type = "{{ interpolation_type }}"
+              control_points {
+                attribute_value = "{{ attribute_value }}"
+                boost_amount = {{ boost_amount }}
+              }
+            }
+          }
+        }
+      }
+      engine_source {
+        engine = "{{ engine }}"
+        filter = "{{ filter }}"
+        data_store_sources {
+          filter = "{{ filter }}"
+          data_store {
+            name = "{{ name }}"
+          }
+        }
+      }
+      modality_configs {
+        modality_type = "{{ modality_type }}"
+        grounding_config {
+          disabled = {{ disabled }}
+          grounding_level = {{ grounding_level }}
+        }
+        rewriter_config {
+          disabled = {{ disabled }}
+          prompt = "{{ prompt }}"
+          model_settings {
+            model = "{{ model }}"
+            temperature = {{ temperature }}
+          }
+        }
+        summarization_config {
+          disabled = {{ disabled }}
+          prompt = "{{ prompt }}"
+          model_settings {
+            model = "{{ model }}"
+            temperature = {{ temperature }}
+          }
+        }
+      }
+    }
+    google_search_tool {
+      context_urls = ["{{ context_urls }}"]
+      description = "{{ description }}"
+      exclude_domains = ["{{ exclude_domains }}"]
+      name = "{{ name }}"
+      preferred_domains = ["{{ preferred_domains }}"]
+    }
+    python_function {
+      name = "{{ name }}"
+      python_code = "{{ python_code }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

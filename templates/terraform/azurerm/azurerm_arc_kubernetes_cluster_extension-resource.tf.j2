@@ -1,8 +1,11 @@
 resource "azurerm_arc_kubernetes_cluster_extension" "example" {
     cluster_id = "{{ cluster_id }}"
-    configuration_protected_settings = "{{ configuration_protected_settings }}"
-    configuration_settings = "{{ configuration_settings }}"
-    current_version = "{{ current_version }}"
+    configuration_protected_settings = {
+        key = "{{ configuration_protected_settings_value }}"
+      }
+    configuration_settings = {
+        key = "{{ configuration_settings_value }}"
+      }
     extension_type = "{{ extension_type }}"
     id = "{{ id }}"
     name = "{{ name }}"
@@ -10,4 +13,13 @@ resource "azurerm_arc_kubernetes_cluster_extension" "example" {
     release_train = "{{ release_train }}"
     target_namespace = "{{ target_namespace }}"
     version = "{{ version }}"
+    identity {
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

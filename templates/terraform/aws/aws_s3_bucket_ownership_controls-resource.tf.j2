@@ -1,4 +1,8 @@
 resource "aws_s3_bucket_ownership_controls" "example" {
     bucket = "{{ bucket }}"
     id = "{{ id }}"
+    region = "{{ region }}"
+    rule {
+      object_ownership = "{{ object_ownership }}"
+    }
 }

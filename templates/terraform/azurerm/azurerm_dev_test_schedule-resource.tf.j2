@@ -5,7 +5,30 @@ resource "azurerm_dev_test_schedule" "example" {
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     status = "{{ status }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     task_type = "{{ task_type }}"
     time_zone_id = "{{ time_zone_id }}"
+    daily_recurrence {
+      time = "{{ time }}"
+    }
+    hourly_recurrence {
+      minute = {{ minute }}
+    }
+    notification_settings {
+      status = "{{ status }}"
+      time_in_minutes = {{ time_in_minutes }}
+      webhook_url = "{{ webhook_url }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    weekly_recurrence {
+      time = "{{ time }}"
+      week_days = ["{{ week_days }}"]
+    }
 }

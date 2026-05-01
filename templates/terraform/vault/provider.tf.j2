@@ -3,16 +3,138 @@ provider "vault" {
     address = "{{ address }}"
     ca_cert_dir = "{{ ca_cert_dir }}"
     ca_cert_file = "{{ ca_cert_file }}"
-    max_lease_ttl_seconds = "{{ max_lease_ttl_seconds }}"
-    max_retries = "{{ max_retries }}"
-    max_retries_ccc = "{{ max_retries_ccc }}"
+    max_lease_ttl_seconds = {{ max_lease_ttl_seconds }}
+    max_retries = {{ max_retries }}
+    max_retries_ccc = {{ max_retries_ccc }}
     namespace = "{{ namespace }}"
-    set_namespace_from_token = "{{ set_namespace_from_token }}"
-    skip_child_token = "{{ skip_child_token }}"
-    skip_get_vault_version = "{{ skip_get_vault_version }}"
-    skip_tls_verify = "{{ skip_tls_verify }}"
+    set_namespace_from_token = {{ set_namespace_from_token }}
+    skip_child_token = {{ skip_child_token }}
+    skip_get_vault_version = {{ skip_get_vault_version }}
+    skip_tls_verify = {{ skip_tls_verify }}
     tls_server_name = "{{ tls_server_name }}"
     token = "{{ token }}"
     token_name = "{{ token_name }}"
     vault_version_override = "{{ vault_version_override }}"
+    auth_login {
+      method = "{{ method }}"
+      namespace = "{{ namespace }}"
+      parameters = {
+        key = "{{ parameters_value }}"
+      }
+      path = "{{ path }}"
+      use_root_namespace = {{ use_root_namespace }}
+    }
+    auth_login_aws {
+      aws_access_key_id = "{{ aws_access_key_id }}"
+      aws_iam_endpoint = "{{ aws_iam_endpoint }}"
+      aws_profile = "{{ aws_profile }}"
+      aws_region = "{{ aws_region }}"
+      aws_role_arn = "{{ aws_role_arn }}"
+      aws_role_session_name = "{{ aws_role_session_name }}"
+      aws_secret_access_key = "{{ aws_secret_access_key }}"
+      aws_session_token = "{{ aws_session_token }}"
+      aws_shared_credentials_file = "{{ aws_shared_credentials_file }}"
+      aws_sts_endpoint = "{{ aws_sts_endpoint }}"
+      aws_web_identity_token_file = "{{ aws_web_identity_token_file }}"
+      header_value = "{{ header_value }}"
+      mount = "{{ mount }}"
+      namespace = "{{ namespace }}"
+      role = "{{ role }}"
+      use_root_namespace = {{ use_root_namespace }}
+    }
+    auth_login_azure {
+      client_id = "{{ client_id }}"
+      jwt = "{{ jwt }}"
+      mount = "{{ mount }}"
+      namespace = "{{ namespace }}"
+      resource_group_name = "{{ resource_group_name }}"
+      role = "{{ role }}"
+      scope = "{{ scope }}"
+      subscription_id = "{{ subscription_id }}"
+      tenant_id = "{{ tenant_id }}"
+      use_root_namespace = {{ use_root_namespace }}
+      vm_name = "{{ vm_name }}"
+      vmss_name = "{{ vmss_name }}"
+    }
+    auth_login_cert {
+      cert_file = "{{ cert_file }}"
+      key_file = "{{ key_file }}"
+      mount = "{{ mount }}"
+      name = "{{ name }}"
+      namespace = "{{ namespace }}"
+      use_root_namespace = {{ use_root_namespace }}
+    }
+    auth_login_gcp {
+      credentials = "{{ credentials }}"
+      jwt = "{{ jwt }}"
+      mount = "{{ mount }}"
+      namespace = "{{ namespace }}"
+      role = "{{ role }}"
+      service_account = "{{ service_account }}"
+      use_root_namespace = {{ use_root_namespace }}
+    }
+    auth_login_jwt {
+      distributed_claim_access_token = "{{ distributed_claim_access_token }}"
+      jwt = "{{ jwt }}"
+      mount = "{{ mount }}"
+      namespace = "{{ namespace }}"
+      role = "{{ role }}"
+      use_root_namespace = {{ use_root_namespace }}
+    }
+    auth_login_kerberos {
+      disable_fast_negotiation = {{ disable_fast_negotiation }}
+      keytab_path = "{{ keytab_path }}"
+      krb5conf_path = "{{ krb5conf_path }}"
+      mount = "{{ mount }}"
+      namespace = "{{ namespace }}"
+      realm = "{{ realm }}"
+      remove_instance_name = {{ remove_instance_name }}
+      service = "{{ service }}"
+      token = "{{ token }}"
+      use_root_namespace = {{ use_root_namespace }}
+      username = "{{ username }}"
+    }
+    auth_login_oci {
+      auth_type = "{{ auth_type }}"
+      mount = "{{ mount }}"
+      namespace = "{{ namespace }}"
+      role = "{{ role }}"
+      use_root_namespace = {{ use_root_namespace }}
+    }
+    auth_login_oidc {
+      callback_address = "{{ callback_address }}"
+      callback_listener_address = "{{ callback_listener_address }}"
+      mount = "{{ mount }}"
+      namespace = "{{ namespace }}"
+      role = "{{ role }}"
+      use_root_namespace = {{ use_root_namespace }}
+    }
+    auth_login_radius {
+      mount = "{{ mount }}"
+      namespace = "{{ namespace }}"
+      password = "{{ password }}"
+      use_root_namespace = {{ use_root_namespace }}
+      username = "{{ username }}"
+    }
+    auth_login_token_file {
+      filename = "{{ filename }}"
+      namespace = "{{ namespace }}"
+      use_root_namespace = {{ use_root_namespace }}
+    }
+    auth_login_userpass {
+      mount = "{{ mount }}"
+      namespace = "{{ namespace }}"
+      password = "{{ password }}"
+      password_file = "{{ password_file }}"
+      use_root_namespace = {{ use_root_namespace }}
+      username = "{{ username }}"
+    }
+    client_auth {
+      cert_file = "{{ cert_file }}"
+      key_file = "{{ key_file }}"
+    }
+    headers {
+      name = "{{ name }}"
+      value = "{{ value }}"
+    }
 }

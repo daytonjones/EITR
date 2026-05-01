@@ -5,4 +5,10 @@ resource "azurerm_digital_twins_endpoint_servicebus" "example" {
     name = "{{ name }}"
     servicebus_primary_connection_string = "{{ servicebus_primary_connection_string }}"
     servicebus_secondary_connection_string = "{{ servicebus_secondary_connection_string }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

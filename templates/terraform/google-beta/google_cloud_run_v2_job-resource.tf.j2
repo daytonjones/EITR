@@ -1,32 +1,140 @@
 resource "google_cloud_run_v2_job" "example" {
-    annotations = "{{ annotations }}"
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
     client = "{{ client }}"
     client_version = "{{ client_version }}"
-    conditions = "{{ conditions }}"
-    create_time = "{{ create_time }}"
-    creator = "{{ creator }}"
-    delete_time = "{{ delete_time }}"
-    deletion_protection = "{{ deletion_protection }}"
-    effective_annotations = "{{ effective_annotations }}"
-    effective_labels = "{{ effective_labels }}"
-    etag = "{{ etag }}"
-    execution_count = "{{ execution_count }}"
-    expire_time = "{{ expire_time }}"
-    generation = "{{ generation }}"
+    deletion_protection = {{ deletion_protection }}
     id = "{{ id }}"
-    labels = "{{ labels }}"
-    last_modifier = "{{ last_modifier }}"
-    latest_created_execution = "{{ latest_created_execution }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     launch_stage = "{{ launch_stage }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    observed_generation = "{{ observed_generation }}"
     project = "{{ project }}"
-    reconciling = "{{ reconciling }}"
     run_execution_token = "{{ run_execution_token }}"
     start_execution_token = "{{ start_execution_token }}"
-    terminal_condition = "{{ terminal_condition }}"
-    terraform_labels = "{{ terraform_labels }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
+    binary_authorization {
+      breakglass_justification = "{{ breakglass_justification }}"
+      policy = "{{ policy }}"
+      use_default = {{ use_default }}
+    }
+    template {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      parallelism = {{ parallelism }}
+      task_count = {{ task_count }}
+      template {
+        encryption_key = "{{ encryption_key }}"
+        execution_environment = "{{ execution_environment }}"
+        gpu_zonal_redundancy_disabled = {{ gpu_zonal_redundancy_disabled }}
+        max_retries = {{ max_retries }}
+        service_account = "{{ service_account }}"
+        timeout = "{{ timeout }}"
+        containers {
+          args = ["{{ args }}"]
+          command = ["{{ command }}"]
+          depends_on = ["{{ depends_on }}"]
+          image = "{{ image }}"
+          name = "{{ name }}"
+          working_dir = "{{ working_dir }}"
+          env {
+            name = "{{ name }}"
+            value = "{{ value }}"
+            value_source {
+              secret_key_ref {
+                secret = "{{ secret }}"
+                version = "{{ version }}"
+              }
+            }
+          }
+          ports {
+            container_port = {{ container_port }}
+            name = "{{ name }}"
+          }
+          resources {
+            limits = {
+        key = "{{ limits_value }}"
+      }
+          }
+          startup_probe {
+            failure_threshold = {{ failure_threshold }}
+            initial_delay_seconds = {{ initial_delay_seconds }}
+            period_seconds = {{ period_seconds }}
+            timeout_seconds = {{ timeout_seconds }}
+            grpc {
+              port = {{ port }}
+              service = "{{ service }}"
+            }
+            http_get {
+              path = "{{ path }}"
+              port = {{ port }}
+              http_headers {
+                name = "{{ name }}"
+                value = "{{ value }}"
+              }
+            }
+            tcp_socket {
+              port = {{ port }}
+            }
+          }
+          volume_mounts {
+            mount_path = "{{ mount_path }}"
+            name = "{{ name }}"
+            sub_path = "{{ sub_path }}"
+          }
+        }
+        node_selector {
+          accelerator = "{{ accelerator }}"
+        }
+        volumes {
+          name = "{{ name }}"
+          cloud_sql_instance {
+            instances = ["{{ instances }}"]
+          }
+          empty_dir {
+            medium = "{{ medium }}"
+            size_limit = "{{ size_limit }}"
+          }
+          gcs {
+            bucket = "{{ bucket }}"
+            mount_options = ["{{ mount_options }}"]
+            read_only = {{ read_only }}
+          }
+          nfs {
+            path = "{{ path }}"
+            read_only = {{ read_only }}
+            server = "{{ server }}"
+          }
+          secret {
+            default_mode = {{ default_mode }}
+            secret = "{{ secret }}"
+            items {
+              mode = {{ mode }}
+              path = "{{ path }}"
+              version = "{{ version }}"
+            }
+          }
+        }
+        vpc_access {
+          connector = "{{ connector }}"
+          egress = "{{ egress }}"
+          network_interfaces {
+            network = "{{ network }}"
+            subnetwork = "{{ subnetwork }}"
+            tags = ["{{ tags }}"]
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

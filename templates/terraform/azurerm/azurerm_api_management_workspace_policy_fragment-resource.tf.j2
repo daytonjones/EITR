@@ -1,0 +1,14 @@
+resource "azurerm_api_management_workspace_policy_fragment" "example" {
+    api_management_workspace_id = "{{ api_management_workspace_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    xml_content = "{{ xml_content }}"
+    xml_format = "{{ xml_format }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

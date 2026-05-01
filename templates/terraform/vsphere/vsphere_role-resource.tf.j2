@@ -1,6 +1,5 @@
 resource "vsphere_role" "example" {
     id = "{{ id }}"
-    label = "{{ label }}"
     name = "{{ name }}"
-    role_privileges = "{{ role_privileges }}"
+    role_privileges = ["{{ role_privileges }}"]
 }

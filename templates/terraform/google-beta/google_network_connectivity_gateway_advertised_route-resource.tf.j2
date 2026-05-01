@@ -1,0 +1,19 @@
+resource "google_network_connectivity_gateway_advertised_route" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    ip_range = "{{ ip_range }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    name = "{{ name }}"
+    priority = {{ priority }}
+    project = "{{ project }}"
+    recipient = "{{ recipient }}"
+    spoke = "{{ spoke }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

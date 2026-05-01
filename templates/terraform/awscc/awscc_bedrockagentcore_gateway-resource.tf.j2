@@ -1,0 +1,16 @@
+resource "awscc_bedrockagentcore_gateway" "example" {
+    authorizer_configuration = "{{ authorizer_configuration }}"
+    authorizer_type = "{{ authorizer_type }}"
+    description = "{{ description }}"
+    exception_level = "{{ exception_level }}"
+    interceptor_configurations = "{{ interceptor_configurations }}"
+    kms_key_arn = "{{ kms_key_arn }}"
+    name = "{{ name }}"
+    policy_engine_configuration = "{{ policy_engine_configuration }}"
+    protocol_configuration = "{{ protocol_configuration }}"
+    protocol_type = "{{ protocol_type }}"
+    role_arn = "{{ role_arn }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

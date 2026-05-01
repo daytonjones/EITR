@@ -1,8 +1,15 @@
 resource "aws_chimesdkvoice_sip_media_application" "example" {
-    arn = "{{ arn }}"
     aws_region = "{{ aws_region }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    endpoints {
+      lambda_arn = "{{ lambda_arn }}"
+    }
 }

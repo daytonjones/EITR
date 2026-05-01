@@ -6,6 +6,6 @@ resource "vault_mfa_okta" "example" {
     name = "{{ name }}"
     namespace = "{{ namespace }}"
     org_name = "{{ org_name }}"
-    primary_email = "{{ primary_email }}"
+    primary_email = {{ primary_email }}
     username_format = "{{ username_format }}"
 }

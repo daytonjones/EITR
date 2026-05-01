@@ -1,0 +1,23 @@
+resource "google_redis_cluster_user_created_connections" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    cluster_endpoints {
+      connections {
+        psc_connection {
+          address = "{{ address }}"
+          forwarding_rule = "{{ forwarding_rule }}"
+          network = "{{ network }}"
+          project_id = "{{ project_id }}"
+          psc_connection_id = "{{ psc_connection_id }}"
+          service_attachment = "{{ service_attachment }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

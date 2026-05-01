@@ -1,12 +1,6 @@
 resource "awscc_networkfirewall_logging_configuration" "example" {
+    enable_monitoring_dashboard = {{ enable_monitoring_dashboard }}
     firewall_arn = "{{ firewall_arn }}"
     firewall_name = "{{ firewall_name }}"
-    id = "{{ id }}"
-    logging_configuration = "{
-    log_destination_configs = {
-    log_destination = {{ log_destination }}
-    log_destination_type = {{ log_destination_type }}
-    log_type = {{ log_type }}
-}
-}"
+    logging_configuration = "{{ logging_configuration }}"
 }

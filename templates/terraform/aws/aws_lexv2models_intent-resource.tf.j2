@@ -1,12 +1,3156 @@
 resource "aws_lexv2models_intent" "example" {
     bot_id = "{{ bot_id }}"
     bot_version = "{{ bot_version }}"
-    creation_date_time = "{{ creation_date_time }}"
     description = "{{ description }}"
-    id = "{{ id }}"
-    intent_id = "{{ intent_id }}"
-    last_updated_date_time = "{{ last_updated_date_time }}"
     locale_id = "{{ locale_id }}"
     name = "{{ name }}"
     parent_intent_signature = "{{ parent_intent_signature }}"
+    region = "{{ region }}"
+    closing_setting {
+      active = {{ active }}
+      closing_response {
+        allow_interrupt = {{ allow_interrupt }}
+        message_group {
+          message {
+            custom_payload {
+              value = "{{ value }}"
+            }
+            image_response_card {
+              image_url = "{{ image_url }}"
+              subtitle = "{{ subtitle }}"
+              title = "{{ title }}"
+              button {
+                text = "{{ text }}"
+                value = "{{ value }}"
+              }
+            }
+            plain_text_message {
+              value = "{{ value }}"
+            }
+            ssml_message {
+              value = "{{ value }}"
+            }
+          }
+          variation {
+            custom_payload {
+              value = "{{ value }}"
+            }
+            image_response_card {
+              image_url = "{{ image_url }}"
+              subtitle = "{{ subtitle }}"
+              title = "{{ title }}"
+              button {
+                text = "{{ text }}"
+                value = "{{ value }}"
+              }
+            }
+            plain_text_message {
+              value = "{{ value }}"
+            }
+            ssml_message {
+              value = "{{ value }}"
+            }
+          }
+        }
+      }
+      conditional {
+        active = {{ active }}
+        conditional_branch {
+          name = "{{ name }}"
+          condition {
+            expression_string = "{{ expression_string }}"
+          }
+          next_step {
+            session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+            dialog_action {
+              slot_to_elicit = "{{ slot_to_elicit }}"
+              suppress_next_message = {{ suppress_next_message }}
+              type = "{{ type }}"
+            }
+            intent {
+              name = "{{ name }}"
+              slot {
+                map_block_key = "{{ map_block_key }}"
+                shape = "{{ shape }}"
+                value {
+                  interpreted_value = "{{ interpreted_value }}"
+                }
+              }
+            }
+          }
+          response {
+            allow_interrupt = {{ allow_interrupt }}
+            message_group {
+              message {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+              variation {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+            }
+          }
+        }
+        default_branch {
+          next_step {
+            session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+            dialog_action {
+              slot_to_elicit = "{{ slot_to_elicit }}"
+              suppress_next_message = {{ suppress_next_message }}
+              type = "{{ type }}"
+            }
+            intent {
+              name = "{{ name }}"
+              slot {
+                map_block_key = "{{ map_block_key }}"
+                shape = "{{ shape }}"
+                value {
+                  interpreted_value = "{{ interpreted_value }}"
+                }
+              }
+            }
+          }
+          response {
+            allow_interrupt = {{ allow_interrupt }}
+            message_group {
+              message {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+              variation {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+            }
+          }
+        }
+      }
+      next_step {
+        session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+        dialog_action {
+          slot_to_elicit = "{{ slot_to_elicit }}"
+          suppress_next_message = {{ suppress_next_message }}
+          type = "{{ type }}"
+        }
+        intent {
+          name = "{{ name }}"
+          slot {
+            map_block_key = "{{ map_block_key }}"
+            shape = "{{ shape }}"
+            value {
+              interpreted_value = "{{ interpreted_value }}"
+            }
+          }
+        }
+      }
+    }
+    confirmation_setting {
+      active = {{ active }}
+      code_hook {
+        active = {{ active }}
+        enable_code_hook_invocation = {{ enable_code_hook_invocation }}
+        invocation_label = "{{ invocation_label }}"
+        post_code_hook_specification {
+          failure_conditional {
+            active = {{ active }}
+            conditional_branch {
+              name = "{{ name }}"
+              condition {
+                expression_string = "{{ expression_string }}"
+              }
+              next_step {
+                session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+                dialog_action {
+                  slot_to_elicit = "{{ slot_to_elicit }}"
+                  suppress_next_message = {{ suppress_next_message }}
+                  type = "{{ type }}"
+                }
+                intent {
+                  name = "{{ name }}"
+                  slot {
+                    map_block_key = "{{ map_block_key }}"
+                    shape = "{{ shape }}"
+                    value {
+                      interpreted_value = "{{ interpreted_value }}"
+                    }
+                  }
+                }
+              }
+              response {
+                allow_interrupt = {{ allow_interrupt }}
+                message_group {
+                  message {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                  variation {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                }
+              }
+            }
+            default_branch {
+              next_step {
+                session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+                dialog_action {
+                  slot_to_elicit = "{{ slot_to_elicit }}"
+                  suppress_next_message = {{ suppress_next_message }}
+                  type = "{{ type }}"
+                }
+                intent {
+                  name = "{{ name }}"
+                  slot {
+                    map_block_key = "{{ map_block_key }}"
+                    shape = "{{ shape }}"
+                    value {
+                      interpreted_value = "{{ interpreted_value }}"
+                    }
+                  }
+                }
+              }
+              response {
+                allow_interrupt = {{ allow_interrupt }}
+                message_group {
+                  message {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                  variation {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                }
+              }
+            }
+          }
+          failure_next_step {
+            session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+            dialog_action {
+              slot_to_elicit = "{{ slot_to_elicit }}"
+              suppress_next_message = {{ suppress_next_message }}
+              type = "{{ type }}"
+            }
+            intent {
+              name = "{{ name }}"
+              slot {
+                map_block_key = "{{ map_block_key }}"
+                shape = "{{ shape }}"
+                value {
+                  interpreted_value = "{{ interpreted_value }}"
+                }
+              }
+            }
+          }
+          failure_response {
+            allow_interrupt = {{ allow_interrupt }}
+            message_group {
+              message {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+              variation {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+            }
+          }
+          success_conditional {
+            active = {{ active }}
+            conditional_branch {
+              name = "{{ name }}"
+              condition {
+                expression_string = "{{ expression_string }}"
+              }
+              next_step {
+                session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+                dialog_action {
+                  slot_to_elicit = "{{ slot_to_elicit }}"
+                  suppress_next_message = {{ suppress_next_message }}
+                  type = "{{ type }}"
+                }
+                intent {
+                  name = "{{ name }}"
+                  slot {
+                    map_block_key = "{{ map_block_key }}"
+                    shape = "{{ shape }}"
+                    value {
+                      interpreted_value = "{{ interpreted_value }}"
+                    }
+                  }
+                }
+              }
+              response {
+                allow_interrupt = {{ allow_interrupt }}
+                message_group {
+                  message {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                  variation {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                }
+              }
+            }
+            default_branch {
+              next_step {
+                session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+                dialog_action {
+                  slot_to_elicit = "{{ slot_to_elicit }}"
+                  suppress_next_message = {{ suppress_next_message }}
+                  type = "{{ type }}"
+                }
+                intent {
+                  name = "{{ name }}"
+                  slot {
+                    map_block_key = "{{ map_block_key }}"
+                    shape = "{{ shape }}"
+                    value {
+                      interpreted_value = "{{ interpreted_value }}"
+                    }
+                  }
+                }
+              }
+              response {
+                allow_interrupt = {{ allow_interrupt }}
+                message_group {
+                  message {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                  variation {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                }
+              }
+            }
+          }
+          success_next_step {
+            session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+            dialog_action {
+              slot_to_elicit = "{{ slot_to_elicit }}"
+              suppress_next_message = {{ suppress_next_message }}
+              type = "{{ type }}"
+            }
+            intent {
+              name = "{{ name }}"
+              slot {
+                map_block_key = "{{ map_block_key }}"
+                shape = "{{ shape }}"
+                value {
+                  interpreted_value = "{{ interpreted_value }}"
+                }
+              }
+            }
+          }
+          success_response {
+            allow_interrupt = {{ allow_interrupt }}
+            message_group {
+              message {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+              variation {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+            }
+          }
+          timeout_conditional {
+            active = {{ active }}
+            conditional_branch {
+              name = "{{ name }}"
+              condition {
+                expression_string = "{{ expression_string }}"
+              }
+              next_step {
+                session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+                dialog_action {
+                  slot_to_elicit = "{{ slot_to_elicit }}"
+                  suppress_next_message = {{ suppress_next_message }}
+                  type = "{{ type }}"
+                }
+                intent {
+                  name = "{{ name }}"
+                  slot {
+                    map_block_key = "{{ map_block_key }}"
+                    shape = "{{ shape }}"
+                    value {
+                      interpreted_value = "{{ interpreted_value }}"
+                    }
+                  }
+                }
+              }
+              response {
+                allow_interrupt = {{ allow_interrupt }}
+                message_group {
+                  message {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                  variation {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                }
+              }
+            }
+            default_branch {
+              next_step {
+                session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+                dialog_action {
+                  slot_to_elicit = "{{ slot_to_elicit }}"
+                  suppress_next_message = {{ suppress_next_message }}
+                  type = "{{ type }}"
+                }
+                intent {
+                  name = "{{ name }}"
+                  slot {
+                    map_block_key = "{{ map_block_key }}"
+                    shape = "{{ shape }}"
+                    value {
+                      interpreted_value = "{{ interpreted_value }}"
+                    }
+                  }
+                }
+              }
+              response {
+                allow_interrupt = {{ allow_interrupt }}
+                message_group {
+                  message {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                  variation {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                }
+              }
+            }
+          }
+          timeout_next_step {
+            session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+            dialog_action {
+              slot_to_elicit = "{{ slot_to_elicit }}"
+              suppress_next_message = {{ suppress_next_message }}
+              type = "{{ type }}"
+            }
+            intent {
+              name = "{{ name }}"
+              slot {
+                map_block_key = "{{ map_block_key }}"
+                shape = "{{ shape }}"
+                value {
+                  interpreted_value = "{{ interpreted_value }}"
+                }
+              }
+            }
+          }
+          timeout_response {
+            allow_interrupt = {{ allow_interrupt }}
+            message_group {
+              message {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+              variation {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+            }
+          }
+        }
+      }
+      confirmation_conditional {
+        active = {{ active }}
+        conditional_branch {
+          name = "{{ name }}"
+          condition {
+            expression_string = "{{ expression_string }}"
+          }
+          next_step {
+            session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+            dialog_action {
+              slot_to_elicit = "{{ slot_to_elicit }}"
+              suppress_next_message = {{ suppress_next_message }}
+              type = "{{ type }}"
+            }
+            intent {
+              name = "{{ name }}"
+              slot {
+                map_block_key = "{{ map_block_key }}"
+                shape = "{{ shape }}"
+                value {
+                  interpreted_value = "{{ interpreted_value }}"
+                }
+              }
+            }
+          }
+          response {
+            allow_interrupt = {{ allow_interrupt }}
+            message_group {
+              message {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+              variation {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+            }
+          }
+        }
+        default_branch {
+          next_step {
+            session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+            dialog_action {
+              slot_to_elicit = "{{ slot_to_elicit }}"
+              suppress_next_message = {{ suppress_next_message }}
+              type = "{{ type }}"
+            }
+            intent {
+              name = "{{ name }}"
+              slot {
+                map_block_key = "{{ map_block_key }}"
+                shape = "{{ shape }}"
+                value {
+                  interpreted_value = "{{ interpreted_value }}"
+                }
+              }
+            }
+          }
+          response {
+            allow_interrupt = {{ allow_interrupt }}
+            message_group {
+              message {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+              variation {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+            }
+          }
+        }
+      }
+      confirmation_next_step {
+        session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+        dialog_action {
+          slot_to_elicit = "{{ slot_to_elicit }}"
+          suppress_next_message = {{ suppress_next_message }}
+          type = "{{ type }}"
+        }
+        intent {
+          name = "{{ name }}"
+          slot {
+            map_block_key = "{{ map_block_key }}"
+            shape = "{{ shape }}"
+            value {
+              interpreted_value = "{{ interpreted_value }}"
+            }
+          }
+        }
+      }
+      confirmation_response {
+        allow_interrupt = {{ allow_interrupt }}
+        message_group {
+          message {
+            custom_payload {
+              value = "{{ value }}"
+            }
+            image_response_card {
+              image_url = "{{ image_url }}"
+              subtitle = "{{ subtitle }}"
+              title = "{{ title }}"
+              button {
+                text = "{{ text }}"
+                value = "{{ value }}"
+              }
+            }
+            plain_text_message {
+              value = "{{ value }}"
+            }
+            ssml_message {
+              value = "{{ value }}"
+            }
+          }
+          variation {
+            custom_payload {
+              value = "{{ value }}"
+            }
+            image_response_card {
+              image_url = "{{ image_url }}"
+              subtitle = "{{ subtitle }}"
+              title = "{{ title }}"
+              button {
+                text = "{{ text }}"
+                value = "{{ value }}"
+              }
+            }
+            plain_text_message {
+              value = "{{ value }}"
+            }
+            ssml_message {
+              value = "{{ value }}"
+            }
+          }
+        }
+      }
+      declination_conditional {
+        active = {{ active }}
+        conditional_branch {
+          name = "{{ name }}"
+          condition {
+            expression_string = "{{ expression_string }}"
+          }
+          next_step {
+            session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+            dialog_action {
+              slot_to_elicit = "{{ slot_to_elicit }}"
+              suppress_next_message = {{ suppress_next_message }}
+              type = "{{ type }}"
+            }
+            intent {
+              name = "{{ name }}"
+              slot {
+                map_block_key = "{{ map_block_key }}"
+                shape = "{{ shape }}"
+                value {
+                  interpreted_value = "{{ interpreted_value }}"
+                }
+              }
+            }
+          }
+          response {
+            allow_interrupt = {{ allow_interrupt }}
+            message_group {
+              message {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+              variation {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+            }
+          }
+        }
+        default_branch {
+          next_step {
+            session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+            dialog_action {
+              slot_to_elicit = "{{ slot_to_elicit }}"
+              suppress_next_message = {{ suppress_next_message }}
+              type = "{{ type }}"
+            }
+            intent {
+              name = "{{ name }}"
+              slot {
+                map_block_key = "{{ map_block_key }}"
+                shape = "{{ shape }}"
+                value {
+                  interpreted_value = "{{ interpreted_value }}"
+                }
+              }
+            }
+          }
+          response {
+            allow_interrupt = {{ allow_interrupt }}
+            message_group {
+              message {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+              variation {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+            }
+          }
+        }
+      }
+      declination_next_step {
+        session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+        dialog_action {
+          slot_to_elicit = "{{ slot_to_elicit }}"
+          suppress_next_message = {{ suppress_next_message }}
+          type = "{{ type }}"
+        }
+        intent {
+          name = "{{ name }}"
+          slot {
+            map_block_key = "{{ map_block_key }}"
+            shape = "{{ shape }}"
+            value {
+              interpreted_value = "{{ interpreted_value }}"
+            }
+          }
+        }
+      }
+      declination_response {
+        allow_interrupt = {{ allow_interrupt }}
+        message_group {
+          message {
+            custom_payload {
+              value = "{{ value }}"
+            }
+            image_response_card {
+              image_url = "{{ image_url }}"
+              subtitle = "{{ subtitle }}"
+              title = "{{ title }}"
+              button {
+                text = "{{ text }}"
+                value = "{{ value }}"
+              }
+            }
+            plain_text_message {
+              value = "{{ value }}"
+            }
+            ssml_message {
+              value = "{{ value }}"
+            }
+          }
+          variation {
+            custom_payload {
+              value = "{{ value }}"
+            }
+            image_response_card {
+              image_url = "{{ image_url }}"
+              subtitle = "{{ subtitle }}"
+              title = "{{ title }}"
+              button {
+                text = "{{ text }}"
+                value = "{{ value }}"
+              }
+            }
+            plain_text_message {
+              value = "{{ value }}"
+            }
+            ssml_message {
+              value = "{{ value }}"
+            }
+          }
+        }
+      }
+      elicitation_code_hook {
+        enable_code_hook_invocation = {{ enable_code_hook_invocation }}
+        invocation_label = "{{ invocation_label }}"
+      }
+      failure_conditional {
+        active = {{ active }}
+        conditional_branch {
+          name = "{{ name }}"
+          condition {
+            expression_string = "{{ expression_string }}"
+          }
+          next_step {
+            session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+            dialog_action {
+              slot_to_elicit = "{{ slot_to_elicit }}"
+              suppress_next_message = {{ suppress_next_message }}
+              type = "{{ type }}"
+            }
+            intent {
+              name = "{{ name }}"
+              slot {
+                map_block_key = "{{ map_block_key }}"
+                shape = "{{ shape }}"
+                value {
+                  interpreted_value = "{{ interpreted_value }}"
+                }
+              }
+            }
+          }
+          response {
+            allow_interrupt = {{ allow_interrupt }}
+            message_group {
+              message {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+              variation {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+            }
+          }
+        }
+        default_branch {
+          next_step {
+            session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+            dialog_action {
+              slot_to_elicit = "{{ slot_to_elicit }}"
+              suppress_next_message = {{ suppress_next_message }}
+              type = "{{ type }}"
+            }
+            intent {
+              name = "{{ name }}"
+              slot {
+                map_block_key = "{{ map_block_key }}"
+                shape = "{{ shape }}"
+                value {
+                  interpreted_value = "{{ interpreted_value }}"
+                }
+              }
+            }
+          }
+          response {
+            allow_interrupt = {{ allow_interrupt }}
+            message_group {
+              message {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+              variation {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+            }
+          }
+        }
+      }
+      failure_next_step {
+        session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+        dialog_action {
+          slot_to_elicit = "{{ slot_to_elicit }}"
+          suppress_next_message = {{ suppress_next_message }}
+          type = "{{ type }}"
+        }
+        intent {
+          name = "{{ name }}"
+          slot {
+            map_block_key = "{{ map_block_key }}"
+            shape = "{{ shape }}"
+            value {
+              interpreted_value = "{{ interpreted_value }}"
+            }
+          }
+        }
+      }
+      failure_response {
+        allow_interrupt = {{ allow_interrupt }}
+        message_group {
+          message {
+            custom_payload {
+              value = "{{ value }}"
+            }
+            image_response_card {
+              image_url = "{{ image_url }}"
+              subtitle = "{{ subtitle }}"
+              title = "{{ title }}"
+              button {
+                text = "{{ text }}"
+                value = "{{ value }}"
+              }
+            }
+            plain_text_message {
+              value = "{{ value }}"
+            }
+            ssml_message {
+              value = "{{ value }}"
+            }
+          }
+          variation {
+            custom_payload {
+              value = "{{ value }}"
+            }
+            image_response_card {
+              image_url = "{{ image_url }}"
+              subtitle = "{{ subtitle }}"
+              title = "{{ title }}"
+              button {
+                text = "{{ text }}"
+                value = "{{ value }}"
+              }
+            }
+            plain_text_message {
+              value = "{{ value }}"
+            }
+            ssml_message {
+              value = "{{ value }}"
+            }
+          }
+        }
+      }
+      prompt_specification {
+        allow_interrupt = {{ allow_interrupt }}
+        max_retries = {{ max_retries }}
+        message_selection_strategy = "{{ message_selection_strategy }}"
+        message_group {
+          message {
+            custom_payload {
+              value = "{{ value }}"
+            }
+            image_response_card {
+              image_url = "{{ image_url }}"
+              subtitle = "{{ subtitle }}"
+              title = "{{ title }}"
+              button {
+                text = "{{ text }}"
+                value = "{{ value }}"
+              }
+            }
+            plain_text_message {
+              value = "{{ value }}"
+            }
+            ssml_message {
+              value = "{{ value }}"
+            }
+          }
+          variation {
+            custom_payload {
+              value = "{{ value }}"
+            }
+            image_response_card {
+              image_url = "{{ image_url }}"
+              subtitle = "{{ subtitle }}"
+              title = "{{ title }}"
+              button {
+                text = "{{ text }}"
+                value = "{{ value }}"
+              }
+            }
+            plain_text_message {
+              value = "{{ value }}"
+            }
+            ssml_message {
+              value = "{{ value }}"
+            }
+          }
+        }
+        prompt_attempts_specification {
+          allow_interrupt = {{ allow_interrupt }}
+          map_block_key = "{{ map_block_key }}"
+          allowed_input_types {
+            allow_audio_input = {{ allow_audio_input }}
+            allow_dtmf_input = {{ allow_dtmf_input }}
+          }
+          audio_and_dtmf_input_specification {
+            start_timeout_ms = {{ start_timeout_ms }}
+            audio_specification {
+              end_timeout_ms = {{ end_timeout_ms }}
+              max_length_ms = {{ max_length_ms }}
+            }
+            dtmf_specification {
+              deletion_character = "{{ deletion_character }}"
+              end_character = "{{ end_character }}"
+              end_timeout_ms = {{ end_timeout_ms }}
+              max_length = {{ max_length }}
+            }
+          }
+          text_input_specification {
+            start_timeout_ms = {{ start_timeout_ms }}
+          }
+        }
+      }
+    }
+    dialog_code_hook {
+      enabled = {{ enabled }}
+    }
+    fulfillment_code_hook {
+      active = {{ active }}
+      enabled = {{ enabled }}
+      fulfillment_updates_specification {
+        active = {{ active }}
+        timeout_in_seconds = {{ timeout_in_seconds }}
+        start_response {
+          allow_interrupt = {{ allow_interrupt }}
+          delay_in_seconds = {{ delay_in_seconds }}
+          message_group {
+            message {
+              custom_payload {
+                value = "{{ value }}"
+              }
+              image_response_card {
+                image_url = "{{ image_url }}"
+                subtitle = "{{ subtitle }}"
+                title = "{{ title }}"
+                button {
+                  text = "{{ text }}"
+                  value = "{{ value }}"
+                }
+              }
+              plain_text_message {
+                value = "{{ value }}"
+              }
+              ssml_message {
+                value = "{{ value }}"
+              }
+            }
+            variation {
+              custom_payload {
+                value = "{{ value }}"
+              }
+              image_response_card {
+                image_url = "{{ image_url }}"
+                subtitle = "{{ subtitle }}"
+                title = "{{ title }}"
+                button {
+                  text = "{{ text }}"
+                  value = "{{ value }}"
+                }
+              }
+              plain_text_message {
+                value = "{{ value }}"
+              }
+              ssml_message {
+                value = "{{ value }}"
+              }
+            }
+          }
+        }
+        update_response {
+          allow_interrupt = {{ allow_interrupt }}
+          frequency_in_seconds = {{ frequency_in_seconds }}
+          message_group {
+            message {
+              custom_payload {
+                value = "{{ value }}"
+              }
+              image_response_card {
+                image_url = "{{ image_url }}"
+                subtitle = "{{ subtitle }}"
+                title = "{{ title }}"
+                button {
+                  text = "{{ text }}"
+                  value = "{{ value }}"
+                }
+              }
+              plain_text_message {
+                value = "{{ value }}"
+              }
+              ssml_message {
+                value = "{{ value }}"
+              }
+            }
+            variation {
+              custom_payload {
+                value = "{{ value }}"
+              }
+              image_response_card {
+                image_url = "{{ image_url }}"
+                subtitle = "{{ subtitle }}"
+                title = "{{ title }}"
+                button {
+                  text = "{{ text }}"
+                  value = "{{ value }}"
+                }
+              }
+              plain_text_message {
+                value = "{{ value }}"
+              }
+              ssml_message {
+                value = "{{ value }}"
+              }
+            }
+          }
+        }
+      }
+      post_fulfillment_status_specification {
+        failure_conditional {
+          active = {{ active }}
+          conditional_branch {
+            name = "{{ name }}"
+            condition {
+              expression_string = "{{ expression_string }}"
+            }
+            next_step {
+              session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+              dialog_action {
+                slot_to_elicit = "{{ slot_to_elicit }}"
+                suppress_next_message = {{ suppress_next_message }}
+                type = "{{ type }}"
+              }
+              intent {
+                name = "{{ name }}"
+                slot {
+                  map_block_key = "{{ map_block_key }}"
+                  shape = "{{ shape }}"
+                  value {
+                    interpreted_value = "{{ interpreted_value }}"
+                  }
+                }
+              }
+            }
+            response {
+              allow_interrupt = {{ allow_interrupt }}
+              message_group {
+                message {
+                  custom_payload {
+                    value = "{{ value }}"
+                  }
+                  image_response_card {
+                    image_url = "{{ image_url }}"
+                    subtitle = "{{ subtitle }}"
+                    title = "{{ title }}"
+                    button {
+                      text = "{{ text }}"
+                      value = "{{ value }}"
+                    }
+                  }
+                  plain_text_message {
+                    value = "{{ value }}"
+                  }
+                  ssml_message {
+                    value = "{{ value }}"
+                  }
+                }
+                variation {
+                  custom_payload {
+                    value = "{{ value }}"
+                  }
+                  image_response_card {
+                    image_url = "{{ image_url }}"
+                    subtitle = "{{ subtitle }}"
+                    title = "{{ title }}"
+                    button {
+                      text = "{{ text }}"
+                      value = "{{ value }}"
+                    }
+                  }
+                  plain_text_message {
+                    value = "{{ value }}"
+                  }
+                  ssml_message {
+                    value = "{{ value }}"
+                  }
+                }
+              }
+            }
+          }
+          default_branch {
+            next_step {
+              session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+              dialog_action {
+                slot_to_elicit = "{{ slot_to_elicit }}"
+                suppress_next_message = {{ suppress_next_message }}
+                type = "{{ type }}"
+              }
+              intent {
+                name = "{{ name }}"
+                slot {
+                  map_block_key = "{{ map_block_key }}"
+                  shape = "{{ shape }}"
+                  value {
+                    interpreted_value = "{{ interpreted_value }}"
+                  }
+                }
+              }
+            }
+            response {
+              allow_interrupt = {{ allow_interrupt }}
+              message_group {
+                message {
+                  custom_payload {
+                    value = "{{ value }}"
+                  }
+                  image_response_card {
+                    image_url = "{{ image_url }}"
+                    subtitle = "{{ subtitle }}"
+                    title = "{{ title }}"
+                    button {
+                      text = "{{ text }}"
+                      value = "{{ value }}"
+                    }
+                  }
+                  plain_text_message {
+                    value = "{{ value }}"
+                  }
+                  ssml_message {
+                    value = "{{ value }}"
+                  }
+                }
+                variation {
+                  custom_payload {
+                    value = "{{ value }}"
+                  }
+                  image_response_card {
+                    image_url = "{{ image_url }}"
+                    subtitle = "{{ subtitle }}"
+                    title = "{{ title }}"
+                    button {
+                      text = "{{ text }}"
+                      value = "{{ value }}"
+                    }
+                  }
+                  plain_text_message {
+                    value = "{{ value }}"
+                  }
+                  ssml_message {
+                    value = "{{ value }}"
+                  }
+                }
+              }
+            }
+          }
+        }
+        failure_next_step {
+          session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+          dialog_action {
+            slot_to_elicit = "{{ slot_to_elicit }}"
+            suppress_next_message = {{ suppress_next_message }}
+            type = "{{ type }}"
+          }
+          intent {
+            name = "{{ name }}"
+            slot {
+              map_block_key = "{{ map_block_key }}"
+              shape = "{{ shape }}"
+              value {
+                interpreted_value = "{{ interpreted_value }}"
+              }
+            }
+          }
+        }
+        failure_response {
+          allow_interrupt = {{ allow_interrupt }}
+          message_group {
+            message {
+              custom_payload {
+                value = "{{ value }}"
+              }
+              image_response_card {
+                image_url = "{{ image_url }}"
+                subtitle = "{{ subtitle }}"
+                title = "{{ title }}"
+                button {
+                  text = "{{ text }}"
+                  value = "{{ value }}"
+                }
+              }
+              plain_text_message {
+                value = "{{ value }}"
+              }
+              ssml_message {
+                value = "{{ value }}"
+              }
+            }
+            variation {
+              custom_payload {
+                value = "{{ value }}"
+              }
+              image_response_card {
+                image_url = "{{ image_url }}"
+                subtitle = "{{ subtitle }}"
+                title = "{{ title }}"
+                button {
+                  text = "{{ text }}"
+                  value = "{{ value }}"
+                }
+              }
+              plain_text_message {
+                value = "{{ value }}"
+              }
+              ssml_message {
+                value = "{{ value }}"
+              }
+            }
+          }
+        }
+        success_conditional {
+          active = {{ active }}
+          conditional_branch {
+            name = "{{ name }}"
+            condition {
+              expression_string = "{{ expression_string }}"
+            }
+            next_step {
+              session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+              dialog_action {
+                slot_to_elicit = "{{ slot_to_elicit }}"
+                suppress_next_message = {{ suppress_next_message }}
+                type = "{{ type }}"
+              }
+              intent {
+                name = "{{ name }}"
+                slot {
+                  map_block_key = "{{ map_block_key }}"
+                  shape = "{{ shape }}"
+                  value {
+                    interpreted_value = "{{ interpreted_value }}"
+                  }
+                }
+              }
+            }
+            response {
+              allow_interrupt = {{ allow_interrupt }}
+              message_group {
+                message {
+                  custom_payload {
+                    value = "{{ value }}"
+                  }
+                  image_response_card {
+                    image_url = "{{ image_url }}"
+                    subtitle = "{{ subtitle }}"
+                    title = "{{ title }}"
+                    button {
+                      text = "{{ text }}"
+                      value = "{{ value }}"
+                    }
+                  }
+                  plain_text_message {
+                    value = "{{ value }}"
+                  }
+                  ssml_message {
+                    value = "{{ value }}"
+                  }
+                }
+                variation {
+                  custom_payload {
+                    value = "{{ value }}"
+                  }
+                  image_response_card {
+                    image_url = "{{ image_url }}"
+                    subtitle = "{{ subtitle }}"
+                    title = "{{ title }}"
+                    button {
+                      text = "{{ text }}"
+                      value = "{{ value }}"
+                    }
+                  }
+                  plain_text_message {
+                    value = "{{ value }}"
+                  }
+                  ssml_message {
+                    value = "{{ value }}"
+                  }
+                }
+              }
+            }
+          }
+          default_branch {
+            next_step {
+              session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+              dialog_action {
+                slot_to_elicit = "{{ slot_to_elicit }}"
+                suppress_next_message = {{ suppress_next_message }}
+                type = "{{ type }}"
+              }
+              intent {
+                name = "{{ name }}"
+                slot {
+                  map_block_key = "{{ map_block_key }}"
+                  shape = "{{ shape }}"
+                  value {
+                    interpreted_value = "{{ interpreted_value }}"
+                  }
+                }
+              }
+            }
+            response {
+              allow_interrupt = {{ allow_interrupt }}
+              message_group {
+                message {
+                  custom_payload {
+                    value = "{{ value }}"
+                  }
+                  image_response_card {
+                    image_url = "{{ image_url }}"
+                    subtitle = "{{ subtitle }}"
+                    title = "{{ title }}"
+                    button {
+                      text = "{{ text }}"
+                      value = "{{ value }}"
+                    }
+                  }
+                  plain_text_message {
+                    value = "{{ value }}"
+                  }
+                  ssml_message {
+                    value = "{{ value }}"
+                  }
+                }
+                variation {
+                  custom_payload {
+                    value = "{{ value }}"
+                  }
+                  image_response_card {
+                    image_url = "{{ image_url }}"
+                    subtitle = "{{ subtitle }}"
+                    title = "{{ title }}"
+                    button {
+                      text = "{{ text }}"
+                      value = "{{ value }}"
+                    }
+                  }
+                  plain_text_message {
+                    value = "{{ value }}"
+                  }
+                  ssml_message {
+                    value = "{{ value }}"
+                  }
+                }
+              }
+            }
+          }
+        }
+        success_next_step {
+          session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+          dialog_action {
+            slot_to_elicit = "{{ slot_to_elicit }}"
+            suppress_next_message = {{ suppress_next_message }}
+            type = "{{ type }}"
+          }
+          intent {
+            name = "{{ name }}"
+            slot {
+              map_block_key = "{{ map_block_key }}"
+              shape = "{{ shape }}"
+              value {
+                interpreted_value = "{{ interpreted_value }}"
+              }
+            }
+          }
+        }
+        success_response {
+          allow_interrupt = {{ allow_interrupt }}
+          message_group {
+            message {
+              custom_payload {
+                value = "{{ value }}"
+              }
+              image_response_card {
+                image_url = "{{ image_url }}"
+                subtitle = "{{ subtitle }}"
+                title = "{{ title }}"
+                button {
+                  text = "{{ text }}"
+                  value = "{{ value }}"
+                }
+              }
+              plain_text_message {
+                value = "{{ value }}"
+              }
+              ssml_message {
+                value = "{{ value }}"
+              }
+            }
+            variation {
+              custom_payload {
+                value = "{{ value }}"
+              }
+              image_response_card {
+                image_url = "{{ image_url }}"
+                subtitle = "{{ subtitle }}"
+                title = "{{ title }}"
+                button {
+                  text = "{{ text }}"
+                  value = "{{ value }}"
+                }
+              }
+              plain_text_message {
+                value = "{{ value }}"
+              }
+              ssml_message {
+                value = "{{ value }}"
+              }
+            }
+          }
+        }
+        timeout_conditional {
+          active = {{ active }}
+          conditional_branch {
+            name = "{{ name }}"
+            condition {
+              expression_string = "{{ expression_string }}"
+            }
+            next_step {
+              session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+              dialog_action {
+                slot_to_elicit = "{{ slot_to_elicit }}"
+                suppress_next_message = {{ suppress_next_message }}
+                type = "{{ type }}"
+              }
+              intent {
+                name = "{{ name }}"
+                slot {
+                  map_block_key = "{{ map_block_key }}"
+                  shape = "{{ shape }}"
+                  value {
+                    interpreted_value = "{{ interpreted_value }}"
+                  }
+                }
+              }
+            }
+            response {
+              allow_interrupt = {{ allow_interrupt }}
+              message_group {
+                message {
+                  custom_payload {
+                    value = "{{ value }}"
+                  }
+                  image_response_card {
+                    image_url = "{{ image_url }}"
+                    subtitle = "{{ subtitle }}"
+                    title = "{{ title }}"
+                    button {
+                      text = "{{ text }}"
+                      value = "{{ value }}"
+                    }
+                  }
+                  plain_text_message {
+                    value = "{{ value }}"
+                  }
+                  ssml_message {
+                    value = "{{ value }}"
+                  }
+                }
+                variation {
+                  custom_payload {
+                    value = "{{ value }}"
+                  }
+                  image_response_card {
+                    image_url = "{{ image_url }}"
+                    subtitle = "{{ subtitle }}"
+                    title = "{{ title }}"
+                    button {
+                      text = "{{ text }}"
+                      value = "{{ value }}"
+                    }
+                  }
+                  plain_text_message {
+                    value = "{{ value }}"
+                  }
+                  ssml_message {
+                    value = "{{ value }}"
+                  }
+                }
+              }
+            }
+          }
+          default_branch {
+            next_step {
+              session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+              dialog_action {
+                slot_to_elicit = "{{ slot_to_elicit }}"
+                suppress_next_message = {{ suppress_next_message }}
+                type = "{{ type }}"
+              }
+              intent {
+                name = "{{ name }}"
+                slot {
+                  map_block_key = "{{ map_block_key }}"
+                  shape = "{{ shape }}"
+                  value {
+                    interpreted_value = "{{ interpreted_value }}"
+                  }
+                }
+              }
+            }
+            response {
+              allow_interrupt = {{ allow_interrupt }}
+              message_group {
+                message {
+                  custom_payload {
+                    value = "{{ value }}"
+                  }
+                  image_response_card {
+                    image_url = "{{ image_url }}"
+                    subtitle = "{{ subtitle }}"
+                    title = "{{ title }}"
+                    button {
+                      text = "{{ text }}"
+                      value = "{{ value }}"
+                    }
+                  }
+                  plain_text_message {
+                    value = "{{ value }}"
+                  }
+                  ssml_message {
+                    value = "{{ value }}"
+                  }
+                }
+                variation {
+                  custom_payload {
+                    value = "{{ value }}"
+                  }
+                  image_response_card {
+                    image_url = "{{ image_url }}"
+                    subtitle = "{{ subtitle }}"
+                    title = "{{ title }}"
+                    button {
+                      text = "{{ text }}"
+                      value = "{{ value }}"
+                    }
+                  }
+                  plain_text_message {
+                    value = "{{ value }}"
+                  }
+                  ssml_message {
+                    value = "{{ value }}"
+                  }
+                }
+              }
+            }
+          }
+        }
+        timeout_next_step {
+          session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+          dialog_action {
+            slot_to_elicit = "{{ slot_to_elicit }}"
+            suppress_next_message = {{ suppress_next_message }}
+            type = "{{ type }}"
+          }
+          intent {
+            name = "{{ name }}"
+            slot {
+              map_block_key = "{{ map_block_key }}"
+              shape = "{{ shape }}"
+              value {
+                interpreted_value = "{{ interpreted_value }}"
+              }
+            }
+          }
+        }
+        timeout_response {
+          allow_interrupt = {{ allow_interrupt }}
+          message_group {
+            message {
+              custom_payload {
+                value = "{{ value }}"
+              }
+              image_response_card {
+                image_url = "{{ image_url }}"
+                subtitle = "{{ subtitle }}"
+                title = "{{ title }}"
+                button {
+                  text = "{{ text }}"
+                  value = "{{ value }}"
+                }
+              }
+              plain_text_message {
+                value = "{{ value }}"
+              }
+              ssml_message {
+                value = "{{ value }}"
+              }
+            }
+            variation {
+              custom_payload {
+                value = "{{ value }}"
+              }
+              image_response_card {
+                image_url = "{{ image_url }}"
+                subtitle = "{{ subtitle }}"
+                title = "{{ title }}"
+                button {
+                  text = "{{ text }}"
+                  value = "{{ value }}"
+                }
+              }
+              plain_text_message {
+                value = "{{ value }}"
+              }
+              ssml_message {
+                value = "{{ value }}"
+              }
+            }
+          }
+        }
+      }
+    }
+    initial_response_setting {
+      code_hook {
+        active = {{ active }}
+        enable_code_hook_invocation = {{ enable_code_hook_invocation }}
+        invocation_label = "{{ invocation_label }}"
+        post_code_hook_specification {
+          failure_conditional {
+            active = {{ active }}
+            conditional_branch {
+              name = "{{ name }}"
+              condition {
+                expression_string = "{{ expression_string }}"
+              }
+              next_step {
+                session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+                dialog_action {
+                  slot_to_elicit = "{{ slot_to_elicit }}"
+                  suppress_next_message = {{ suppress_next_message }}
+                  type = "{{ type }}"
+                }
+                intent {
+                  name = "{{ name }}"
+                  slot {
+                    map_block_key = "{{ map_block_key }}"
+                    shape = "{{ shape }}"
+                    value {
+                      interpreted_value = "{{ interpreted_value }}"
+                    }
+                  }
+                }
+              }
+              response {
+                allow_interrupt = {{ allow_interrupt }}
+                message_group {
+                  message {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                  variation {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                }
+              }
+            }
+            default_branch {
+              next_step {
+                session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+                dialog_action {
+                  slot_to_elicit = "{{ slot_to_elicit }}"
+                  suppress_next_message = {{ suppress_next_message }}
+                  type = "{{ type }}"
+                }
+                intent {
+                  name = "{{ name }}"
+                  slot {
+                    map_block_key = "{{ map_block_key }}"
+                    shape = "{{ shape }}"
+                    value {
+                      interpreted_value = "{{ interpreted_value }}"
+                    }
+                  }
+                }
+              }
+              response {
+                allow_interrupt = {{ allow_interrupt }}
+                message_group {
+                  message {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                  variation {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                }
+              }
+            }
+          }
+          failure_next_step {
+            session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+            dialog_action {
+              slot_to_elicit = "{{ slot_to_elicit }}"
+              suppress_next_message = {{ suppress_next_message }}
+              type = "{{ type }}"
+            }
+            intent {
+              name = "{{ name }}"
+              slot {
+                map_block_key = "{{ map_block_key }}"
+                shape = "{{ shape }}"
+                value {
+                  interpreted_value = "{{ interpreted_value }}"
+                }
+              }
+            }
+          }
+          failure_response {
+            allow_interrupt = {{ allow_interrupt }}
+            message_group {
+              message {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+              variation {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+            }
+          }
+          success_conditional {
+            active = {{ active }}
+            conditional_branch {
+              name = "{{ name }}"
+              condition {
+                expression_string = "{{ expression_string }}"
+              }
+              next_step {
+                session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+                dialog_action {
+                  slot_to_elicit = "{{ slot_to_elicit }}"
+                  suppress_next_message = {{ suppress_next_message }}
+                  type = "{{ type }}"
+                }
+                intent {
+                  name = "{{ name }}"
+                  slot {
+                    map_block_key = "{{ map_block_key }}"
+                    shape = "{{ shape }}"
+                    value {
+                      interpreted_value = "{{ interpreted_value }}"
+                    }
+                  }
+                }
+              }
+              response {
+                allow_interrupt = {{ allow_interrupt }}
+                message_group {
+                  message {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                  variation {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                }
+              }
+            }
+            default_branch {
+              next_step {
+                session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+                dialog_action {
+                  slot_to_elicit = "{{ slot_to_elicit }}"
+                  suppress_next_message = {{ suppress_next_message }}
+                  type = "{{ type }}"
+                }
+                intent {
+                  name = "{{ name }}"
+                  slot {
+                    map_block_key = "{{ map_block_key }}"
+                    shape = "{{ shape }}"
+                    value {
+                      interpreted_value = "{{ interpreted_value }}"
+                    }
+                  }
+                }
+              }
+              response {
+                allow_interrupt = {{ allow_interrupt }}
+                message_group {
+                  message {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                  variation {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                }
+              }
+            }
+          }
+          success_next_step {
+            session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+            dialog_action {
+              slot_to_elicit = "{{ slot_to_elicit }}"
+              suppress_next_message = {{ suppress_next_message }}
+              type = "{{ type }}"
+            }
+            intent {
+              name = "{{ name }}"
+              slot {
+                map_block_key = "{{ map_block_key }}"
+                shape = "{{ shape }}"
+                value {
+                  interpreted_value = "{{ interpreted_value }}"
+                }
+              }
+            }
+          }
+          success_response {
+            allow_interrupt = {{ allow_interrupt }}
+            message_group {
+              message {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+              variation {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+            }
+          }
+          timeout_conditional {
+            active = {{ active }}
+            conditional_branch {
+              name = "{{ name }}"
+              condition {
+                expression_string = "{{ expression_string }}"
+              }
+              next_step {
+                session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+                dialog_action {
+                  slot_to_elicit = "{{ slot_to_elicit }}"
+                  suppress_next_message = {{ suppress_next_message }}
+                  type = "{{ type }}"
+                }
+                intent {
+                  name = "{{ name }}"
+                  slot {
+                    map_block_key = "{{ map_block_key }}"
+                    shape = "{{ shape }}"
+                    value {
+                      interpreted_value = "{{ interpreted_value }}"
+                    }
+                  }
+                }
+              }
+              response {
+                allow_interrupt = {{ allow_interrupt }}
+                message_group {
+                  message {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                  variation {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                }
+              }
+            }
+            default_branch {
+              next_step {
+                session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+                dialog_action {
+                  slot_to_elicit = "{{ slot_to_elicit }}"
+                  suppress_next_message = {{ suppress_next_message }}
+                  type = "{{ type }}"
+                }
+                intent {
+                  name = "{{ name }}"
+                  slot {
+                    map_block_key = "{{ map_block_key }}"
+                    shape = "{{ shape }}"
+                    value {
+                      interpreted_value = "{{ interpreted_value }}"
+                    }
+                  }
+                }
+              }
+              response {
+                allow_interrupt = {{ allow_interrupt }}
+                message_group {
+                  message {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                  variation {
+                    custom_payload {
+                      value = "{{ value }}"
+                    }
+                    image_response_card {
+                      image_url = "{{ image_url }}"
+                      subtitle = "{{ subtitle }}"
+                      title = "{{ title }}"
+                      button {
+                        text = "{{ text }}"
+                        value = "{{ value }}"
+                      }
+                    }
+                    plain_text_message {
+                      value = "{{ value }}"
+                    }
+                    ssml_message {
+                      value = "{{ value }}"
+                    }
+                  }
+                }
+              }
+            }
+          }
+          timeout_next_step {
+            session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+            dialog_action {
+              slot_to_elicit = "{{ slot_to_elicit }}"
+              suppress_next_message = {{ suppress_next_message }}
+              type = "{{ type }}"
+            }
+            intent {
+              name = "{{ name }}"
+              slot {
+                map_block_key = "{{ map_block_key }}"
+                shape = "{{ shape }}"
+                value {
+                  interpreted_value = "{{ interpreted_value }}"
+                }
+              }
+            }
+          }
+          timeout_response {
+            allow_interrupt = {{ allow_interrupt }}
+            message_group {
+              message {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+              variation {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+            }
+          }
+        }
+      }
+      conditional {
+        active = {{ active }}
+        conditional_branch {
+          name = "{{ name }}"
+          condition {
+            expression_string = "{{ expression_string }}"
+          }
+          next_step {
+            session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+            dialog_action {
+              slot_to_elicit = "{{ slot_to_elicit }}"
+              suppress_next_message = {{ suppress_next_message }}
+              type = "{{ type }}"
+            }
+            intent {
+              name = "{{ name }}"
+              slot {
+                map_block_key = "{{ map_block_key }}"
+                shape = "{{ shape }}"
+                value {
+                  interpreted_value = "{{ interpreted_value }}"
+                }
+              }
+            }
+          }
+          response {
+            allow_interrupt = {{ allow_interrupt }}
+            message_group {
+              message {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+              variation {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+            }
+          }
+        }
+        default_branch {
+          next_step {
+            session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+            dialog_action {
+              slot_to_elicit = "{{ slot_to_elicit }}"
+              suppress_next_message = {{ suppress_next_message }}
+              type = "{{ type }}"
+            }
+            intent {
+              name = "{{ name }}"
+              slot {
+                map_block_key = "{{ map_block_key }}"
+                shape = "{{ shape }}"
+                value {
+                  interpreted_value = "{{ interpreted_value }}"
+                }
+              }
+            }
+          }
+          response {
+            allow_interrupt = {{ allow_interrupt }}
+            message_group {
+              message {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+              variation {
+                custom_payload {
+                  value = "{{ value }}"
+                }
+                image_response_card {
+                  image_url = "{{ image_url }}"
+                  subtitle = "{{ subtitle }}"
+                  title = "{{ title }}"
+                  button {
+                    text = "{{ text }}"
+                    value = "{{ value }}"
+                  }
+                }
+                plain_text_message {
+                  value = "{{ value }}"
+                }
+                ssml_message {
+                  value = "{{ value }}"
+                }
+              }
+            }
+          }
+        }
+      }
+      initial_response {
+        allow_interrupt = {{ allow_interrupt }}
+        message_group {
+          message {
+            custom_payload {
+              value = "{{ value }}"
+            }
+            image_response_card {
+              image_url = "{{ image_url }}"
+              subtitle = "{{ subtitle }}"
+              title = "{{ title }}"
+              button {
+                text = "{{ text }}"
+                value = "{{ value }}"
+              }
+            }
+            plain_text_message {
+              value = "{{ value }}"
+            }
+            ssml_message {
+              value = "{{ value }}"
+            }
+          }
+          variation {
+            custom_payload {
+              value = "{{ value }}"
+            }
+            image_response_card {
+              image_url = "{{ image_url }}"
+              subtitle = "{{ subtitle }}"
+              title = "{{ title }}"
+              button {
+                text = "{{ text }}"
+                value = "{{ value }}"
+              }
+            }
+            plain_text_message {
+              value = "{{ value }}"
+            }
+            ssml_message {
+              value = "{{ value }}"
+            }
+          }
+        }
+      }
+      next_step {
+        session_attributes = {
+        key = "{{ session_attributes_value }}"
+      }
+        dialog_action {
+          slot_to_elicit = "{{ slot_to_elicit }}"
+          suppress_next_message = {{ suppress_next_message }}
+          type = "{{ type }}"
+        }
+        intent {
+          name = "{{ name }}"
+          slot {
+            map_block_key = "{{ map_block_key }}"
+            shape = "{{ shape }}"
+            value {
+              interpreted_value = "{{ interpreted_value }}"
+            }
+          }
+        }
+      }
+    }
+    input_context {
+      name = "{{ name }}"
+    }
+    kendra_configuration {
+      kendra_index = "{{ kendra_index }}"
+      query_filter_string = "{{ query_filter_string }}"
+      query_filter_string_enabled = {{ query_filter_string_enabled }}
+    }
+    output_context {
+      name = "{{ name }}"
+      time_to_live_in_seconds = {{ time_to_live_in_seconds }}
+      turns_to_live = {{ turns_to_live }}
+    }
+    qna_intent_configuration {
+      bedrock_model_configuration {
+        custom_prompt = "{{ custom_prompt }}"
+        model_arn = "{{ model_arn }}"
+        trace_status = "{{ trace_status }}"
+        guardrail {
+          identifier = "{{ identifier }}"
+          version = "{{ version }}"
+        }
+      }
+      data_source_configuration {
+        bedrock_knowledge_store_configuration {
+          bedrock_knowledge_base_arn = "{{ bedrock_knowledge_base_arn }}"
+          exact_response = {{ exact_response }}
+          exact_response_fields {
+            answer_field = "{{ answer_field }}"
+          }
+        }
+        kendra_configuration {
+          exact_response = {{ exact_response }}
+          kendra_index = "{{ kendra_index }}"
+          query_filter_string = "{{ query_filter_string }}"
+          query_filter_string_enabled = {{ query_filter_string_enabled }}
+        }
+        opensearch_configuration {
+          domain_endpoint = "{{ domain_endpoint }}"
+          exact_response = {{ exact_response }}
+          include_fields = ["{{ include_fields }}"]
+          index_name = "{{ index_name }}"
+          exact_response_fields {
+            answer_field = "{{ answer_field }}"
+            question_field = "{{ question_field }}"
+          }
+        }
+      }
+    }
+    sample_utterance {
+      utterance = "{{ utterance }}"
+    }
+    slot_priority {
+      priority = {{ priority }}
+      slot_id = "{{ slot_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

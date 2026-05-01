@@ -1,13 +1,25 @@
 resource "azurerm_cdn_frontdoor_origin" "example" {
     cdn_frontdoor_origin_group_id = "{{ cdn_frontdoor_origin_group_id }}"
-    certificate_name_check_enabled = "{{ certificate_name_check_enabled }}"
-    enabled = "{{ enabled }}"
+    certificate_name_check_enabled = {{ certificate_name_check_enabled }}
+    enabled = {{ enabled }}
     host_name = "{{ host_name }}"
-    http_port = "{{ http_port }}"
-    https_port = "{{ https_port }}"
+    http_port = {{ http_port }}
+    https_port = {{ https_port }}
     id = "{{ id }}"
     name = "{{ name }}"
     origin_host_header = "{{ origin_host_header }}"
-    priority = "{{ priority }}"
-    weight = "{{ weight }}"
+    priority = {{ priority }}
+    weight = {{ weight }}
+    private_link {
+      location = "{{ location }}"
+      private_link_target_id = "{{ private_link_target_id }}"
+      request_message = "{{ request_message }}"
+      target_type = "{{ target_type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

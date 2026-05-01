@@ -1,0 +1,62 @@
+resource "google_discovery_engine_control" "example" {
+    collection_id = "{{ collection_id }}"
+    control_id = "{{ control_id }}"
+    display_name = "{{ display_name }}"
+    engine_id = "{{ engine_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    solution_type = "{{ solution_type }}"
+    use_cases = ["{{ use_cases }}"]
+    boost_action {
+      data_store = "{{ data_store }}"
+      filter = "{{ filter }}"
+      fixed_boost = {{ fixed_boost }}
+      interpolation_boost_spec {
+        attribute_type = "{{ attribute_type }}"
+        field_name = "{{ field_name }}"
+        interpolation_type = "{{ interpolation_type }}"
+        control_point {
+          attribute_value = "{{ attribute_value }}"
+          boost_amount = {{ boost_amount }}
+        }
+      }
+    }
+    conditions {
+      query_regex = "{{ query_regex }}"
+      active_time_range {
+        end_time = "{{ end_time }}"
+        start_time = "{{ start_time }}"
+      }
+      query_terms {
+        full_match = {{ full_match }}
+        value = "{{ value }}"
+      }
+    }
+    filter_action {
+      data_store = "{{ data_store }}"
+      filter = "{{ filter }}"
+    }
+    promote_action {
+      data_store = "{{ data_store }}"
+      search_link_promotion {
+        description = "{{ description }}"
+        document = "{{ document }}"
+        enabled = {{ enabled }}
+        image_uri = "{{ image_uri }}"
+        title = "{{ title }}"
+        uri = "{{ uri }}"
+      }
+    }
+    redirect_action {
+      redirect_uri = "{{ redirect_uri }}"
+    }
+    synonyms_action {
+      synonyms = ["{{ synonyms }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

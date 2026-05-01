@@ -1,14 +1,36 @@
 resource "azurerm_machine_learning_compute_cluster" "example" {
     description = "{{ description }}"
     id = "{{ id }}"
-    local_auth_enabled = "{{ local_auth_enabled }}"
+    local_auth_enabled = {{ local_auth_enabled }}
     location = "{{ location }}"
     machine_learning_workspace_id = "{{ machine_learning_workspace_id }}"
     name = "{{ name }}"
-    node_public_ip_enabled = "{{ node_public_ip_enabled }}"
-    ssh_public_access_enabled = "{{ ssh_public_access_enabled }}"
+    node_public_ip_enabled = {{ node_public_ip_enabled }}
+    ssh_public_access_enabled = {{ ssh_public_access_enabled }}
     subnet_resource_id = "{{ subnet_resource_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     vm_priority = "{{ vm_priority }}"
     vm_size = "{{ vm_size }}"
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    scale_settings {
+      max_node_count = {{ max_node_count }}
+      min_node_count = {{ min_node_count }}
+      scale_down_nodes_after_idle_duration = "{{ scale_down_nodes_after_idle_duration }}"
+    }
+    ssh {
+      admin_password = "{{ admin_password }}"
+      admin_username = "{{ admin_username }}"
+      key_value = "{{ key_value }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,13 +1,24 @@
 resource "aws_cognito_identity_pool" "example" {
-    allow_classic_flow = "{{ allow_classic_flow }}"
-    allow_unauthenticated_identities = "{{ allow_unauthenticated_identities }}"
-    arn = "{{ arn }}"
+    allow_classic_flow = {{ allow_classic_flow }}
+    allow_unauthenticated_identities = {{ allow_unauthenticated_identities }}
     developer_provider_name = "{{ developer_provider_name }}"
     id = "{{ id }}"
     identity_pool_name = "{{ identity_pool_name }}"
-    openid_connect_provider_arns = "{{ openid_connect_provider_arns }}"
-    saml_provider_arns = "{{ saml_provider_arns }}"
-    supported_login_providers = "{{ supported_login_providers }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    openid_connect_provider_arns = ["{{ openid_connect_provider_arns }}"]
+    region = "{{ region }}"
+    saml_provider_arns = ["{{ saml_provider_arns }}"]
+    supported_login_providers = {
+        key = "{{ supported_login_providers_value }}"
+      }
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    cognito_identity_providers {
+      client_id = "{{ client_id }}"
+      provider_name = "{{ provider_name }}"
+      server_side_token_check = {{ server_side_token_check }}
+    }
 }

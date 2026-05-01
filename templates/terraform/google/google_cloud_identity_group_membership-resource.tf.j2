@@ -1,8 +1,20 @@
 resource "google_cloud_identity_group_membership" "example" {
-    create_time = "{{ create_time }}"
+    create_ignore_already_exists = {{ create_ignore_already_exists }}
     group = "{{ group }}"
     id = "{{ id }}"
-    name = "{{ name }}"
-    type = "{{ type }}"
-    update_time = "{{ update_time }}"
+    preferred_member_key {
+      id = "{{ id }}"
+      namespace = "{{ namespace }}"
+    }
+    roles {
+      name = "{{ name }}"
+      expiry_detail {
+        expire_time = "{{ expire_time }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

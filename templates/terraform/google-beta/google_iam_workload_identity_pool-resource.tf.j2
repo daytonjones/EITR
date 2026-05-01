@@ -1,10 +1,35 @@
 resource "google_iam_workload_identity_pool" "example" {
     description = "{{ description }}"
-    disabled = "{{ disabled }}"
+    disabled = {{ disabled }}
     display_name = "{{ display_name }}"
     id = "{{ id }}"
-    name = "{{ name }}"
+    mode = "{{ mode }}"
     project = "{{ project }}"
-    state = "{{ state }}"
     workload_identity_pool_id = "{{ workload_identity_pool_id }}"
+    attestation_rules {
+      google_cloud_resource = "{{ google_cloud_resource }}"
+    }
+    inline_certificate_issuance_config {
+      ca_pools = {
+        key = "{{ ca_pools_value }}"
+      }
+      key_algorithm = "{{ key_algorithm }}"
+      lifetime = "{{ lifetime }}"
+      rotation_window_percentage = {{ rotation_window_percentage }}
+      use_default_shared_ca = {{ use_default_shared_ca }}
+    }
+    inline_trust_config {
+      additional_trust_bundles {
+        trust_default_shared_ca = {{ trust_default_shared_ca }}
+        trust_domain = "{{ trust_domain }}"
+        trust_anchors {
+          pem_certificate = "{{ pem_certificate }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

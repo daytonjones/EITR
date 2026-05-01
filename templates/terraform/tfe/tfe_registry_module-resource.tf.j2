@@ -4,8 +4,22 @@ resource "tfe_registry_module" "example" {
     module_provider = "{{ module_provider }}"
     name = "{{ name }}"
     namespace = "{{ namespace }}"
-    no_code = "{{ no_code }}"
+    no_code = {{ no_code }}
     organization = "{{ organization }}"
-    publishing_mechanism = "{{ publishing_mechanism }}"
     registry_name = "{{ registry_name }}"
+    test_config {
+      agent_execution_mode = "{{ agent_execution_mode }}"
+      agent_pool_id = "{{ agent_pool_id }}"
+      tests_enabled = {{ tests_enabled }}
+    }
+    vcs_repo {
+      branch = "{{ branch }}"
+      display_identifier = "{{ display_identifier }}"
+      github_app_installation_id = "{{ github_app_installation_id }}"
+      identifier = "{{ identifier }}"
+      oauth_token_id = "{{ oauth_token_id }}"
+      source_directory = "{{ source_directory }}"
+      tag_prefix = "{{ tag_prefix }}"
+      tags = {{ tags }}
+    }
 }

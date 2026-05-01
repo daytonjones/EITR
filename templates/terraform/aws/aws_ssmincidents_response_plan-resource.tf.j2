@@ -1,10 +1,48 @@
 resource "aws_ssmincidents_response_plan" "example" {
-    arn = "{{ arn }}"
-    chat_channel = "{{ chat_channel }}"
+    chat_channel = ["{{ chat_channel }}"]
     display_name = "{{ display_name }}"
-    engagements = "{{ engagements }}"
+    engagements = ["{{ engagements }}"]
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    action {
+      ssm_automation {
+        document_name = "{{ document_name }}"
+        document_version = "{{ document_version }}"
+        dynamic_parameters = {
+        key = "{{ dynamic_parameters_value }}"
+      }
+        role_arn = "{{ role_arn }}"
+        target_account = "{{ target_account }}"
+        parameter {
+          name = "{{ name }}"
+          values = ["{{ values }}"]
+        }
+      }
+    }
+    incident_template {
+      dedupe_string = "{{ dedupe_string }}"
+      impact = {{ impact }}
+      incident_tags = {
+        key = "{{ incident_tags_value }}"
+      }
+      summary = "{{ summary }}"
+      title = "{{ title }}"
+      notification_target {
+        sns_topic_arn = "{{ sns_topic_arn }}"
+      }
+    }
+    integration {
+      pagerduty {
+        name = "{{ name }}"
+        secret_id = "{{ secret_id }}"
+        service_id = "{{ service_id }}"
+      }
+    }
 }

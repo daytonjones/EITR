@@ -2,9 +2,193 @@ resource "google_dialogflow_cx_flow" "example" {
     description = "{{ description }}"
     display_name = "{{ display_name }}"
     id = "{{ id }}"
-    is_default_start_flow = "{{ is_default_start_flow }}"
+    is_default_start_flow = {{ is_default_start_flow }}
     language_code = "{{ language_code }}"
-    name = "{{ name }}"
     parent = "{{ parent }}"
-    transition_route_groups = "{{ transition_route_groups }}"
+    transition_route_groups = ["{{ transition_route_groups }}"]
+    advanced_settings {
+      audio_export_gcs_destination {
+        uri = "{{ uri }}"
+      }
+      dtmf_settings {
+        enabled = {{ enabled }}
+        finish_digit = "{{ finish_digit }}"
+        max_digits = {{ max_digits }}
+      }
+      logging_settings {
+        enable_consent_based_redaction = {{ enable_consent_based_redaction }}
+        enable_interaction_logging = {{ enable_interaction_logging }}
+        enable_stackdriver_logging = {{ enable_stackdriver_logging }}
+      }
+      speech_settings {
+        endpointer_sensitivity = {{ endpointer_sensitivity }}
+        models = {
+        key = "{{ models_value }}"
+      }
+        no_speech_timeout = "{{ no_speech_timeout }}"
+        use_timeout_based_endpointing = {{ use_timeout_based_endpointing }}
+      }
+    }
+    event_handlers {
+      event = "{{ event }}"
+      target_flow = "{{ target_flow }}"
+      target_page = "{{ target_page }}"
+      trigger_fulfillment {
+        enable_generative_fallback = {{ enable_generative_fallback }}
+        return_partial_responses = {{ return_partial_responses }}
+        tag = "{{ tag }}"
+        webhook = "{{ webhook }}"
+        conditional_cases {
+          cases = "{{ cases }}"
+        }
+        messages {
+          channel = "{{ channel }}"
+          payload = "{{ payload }}"
+          conversation_success {
+            metadata = "{{ metadata }}"
+          }
+          live_agent_handoff {
+            metadata = "{{ metadata }}"
+          }
+          output_audio_text {
+            ssml = "{{ ssml }}"
+            text = "{{ text }}"
+          }
+          play_audio {
+            audio_uri = "{{ audio_uri }}"
+          }
+          telephony_transfer_call {
+            phone_number = "{{ phone_number }}"
+          }
+          text {
+            text = ["{{ text }}"]
+          }
+        }
+        set_parameter_actions {
+          parameter = "{{ parameter }}"
+          value = "{{ value }}"
+        }
+      }
+    }
+    knowledge_connector_settings {
+      enabled = {{ enabled }}
+      target_flow = "{{ target_flow }}"
+      target_page = "{{ target_page }}"
+      data_store_connections {
+        data_store = "{{ data_store }}"
+        data_store_type = "{{ data_store_type }}"
+        document_processing_mode = "{{ document_processing_mode }}"
+      }
+      trigger_fulfillment {
+        enable_generative_fallback = {{ enable_generative_fallback }}
+        return_partial_responses = {{ return_partial_responses }}
+        tag = "{{ tag }}"
+        webhook = "{{ webhook }}"
+        advanced_settings {
+          dtmf_settings {
+            enabled = {{ enabled }}
+            endpointing_timeout_duration = "{{ endpointing_timeout_duration }}"
+            finish_digit = "{{ finish_digit }}"
+            interdigit_timeout_duration = "{{ interdigit_timeout_duration }}"
+            max_digits = {{ max_digits }}
+          }
+          logging_settings {
+            enable_consent_based_redaction = {{ enable_consent_based_redaction }}
+            enable_interaction_logging = {{ enable_interaction_logging }}
+            enable_stackdriver_logging = {{ enable_stackdriver_logging }}
+          }
+          speech_settings {
+            endpointer_sensitivity = {{ endpointer_sensitivity }}
+            models = {
+        key = "{{ models_value }}"
+      }
+            no_speech_timeout = "{{ no_speech_timeout }}"
+            use_timeout_based_endpointing = {{ use_timeout_based_endpointing }}
+          }
+        }
+        conditional_cases {
+          cases = "{{ cases }}"
+        }
+        messages {
+          channel = "{{ channel }}"
+          payload = "{{ payload }}"
+          conversation_success {
+            metadata = "{{ metadata }}"
+          }
+          knowledge_info_card {
+          }
+          live_agent_handoff {
+            metadata = "{{ metadata }}"
+          }
+          output_audio_text {
+            ssml = "{{ ssml }}"
+            text = "{{ text }}"
+          }
+          play_audio {
+            audio_uri = "{{ audio_uri }}"
+          }
+          telephony_transfer_call {
+            phone_number = "{{ phone_number }}"
+          }
+          text {
+            text = ["{{ text }}"]
+          }
+        }
+        set_parameter_actions {
+          parameter = "{{ parameter }}"
+          value = "{{ value }}"
+        }
+      }
+    }
+    nlu_settings {
+      classification_threshold = {{ classification_threshold }}
+      model_training_mode = "{{ model_training_mode }}"
+      model_type = "{{ model_type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    transition_routes {
+      condition = "{{ condition }}"
+      intent = "{{ intent }}"
+      target_flow = "{{ target_flow }}"
+      target_page = "{{ target_page }}"
+      trigger_fulfillment {
+        return_partial_responses = {{ return_partial_responses }}
+        tag = "{{ tag }}"
+        webhook = "{{ webhook }}"
+        conditional_cases {
+          cases = "{{ cases }}"
+        }
+        messages {
+          channel = "{{ channel }}"
+          payload = "{{ payload }}"
+          conversation_success {
+            metadata = "{{ metadata }}"
+          }
+          live_agent_handoff {
+            metadata = "{{ metadata }}"
+          }
+          output_audio_text {
+            ssml = "{{ ssml }}"
+            text = "{{ text }}"
+          }
+          play_audio {
+            audio_uri = "{{ audio_uri }}"
+          }
+          telephony_transfer_call {
+            phone_number = "{{ phone_number }}"
+          }
+          text {
+            text = ["{{ text }}"]
+          }
+        }
+        set_parameter_actions {
+          parameter = "{{ parameter }}"
+          value = "{{ value }}"
+        }
+      }
+    }
 }

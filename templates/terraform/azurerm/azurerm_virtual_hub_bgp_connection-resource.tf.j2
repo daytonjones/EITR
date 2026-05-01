@@ -1,8 +1,13 @@
 resource "azurerm_virtual_hub_bgp_connection" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
-    peer_asn = "{{ peer_asn }}"
+    peer_asn = {{ peer_asn }}
     peer_ip = "{{ peer_ip }}"
     virtual_hub_id = "{{ virtual_hub_id }}"
     virtual_network_connection_id = "{{ virtual_network_connection_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

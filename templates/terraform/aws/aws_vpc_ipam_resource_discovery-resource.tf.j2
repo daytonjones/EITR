@@ -1,10 +1,22 @@
 resource "aws_vpc_ipam_resource_discovery" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    ipam_resource_discovery_region = "{{ ipam_resource_discovery_region }}"
-    is_default = "{{ is_default }}"
-    owner_id = "{{ owner_id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    operating_regions {
+      region_name = "{{ region_name }}"
+    }
+    organizational_unit_exclusion {
+      organizations_entity_path = "{{ organizations_entity_path }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,9 +1,14 @@
 resource "aws_cognito_identity_provider" "example" {
-    attribute_mapping = "{{ attribute_mapping }}"
+    attribute_mapping = {
+        key = "{{ attribute_mapping_value }}"
+      }
     id = "{{ id }}"
-    idp_identifiers = "{{ idp_identifiers }}"
-    provider_details = "{{ provider_details }}"
+    idp_identifiers = ["{{ idp_identifiers }}"]
+    provider_details = {
+        key = "{{ provider_details_value }}"
+      }
     provider_name = "{{ provider_name }}"
     provider_type = "{{ provider_type }}"
+    region = "{{ region }}"
     user_pool_id = "{{ user_pool_id }}"
 }

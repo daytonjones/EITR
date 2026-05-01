@@ -1,12 +1,40 @@
 resource "aws_bedrockagent_agent_action_group" "example" {
-    action_group_id = "{{ action_group_id }}"
     action_group_name = "{{ action_group_name }}"
     action_group_state = "{{ action_group_state }}"
     agent_id = "{{ agent_id }}"
     agent_version = "{{ agent_version }}"
     description = "{{ description }}"
-    id = "{{ id }}"
     parent_action_group_signature = "{{ parent_action_group_signature }}"
-    prepare_agent = "{{ prepare_agent }}"
-    skip_resource_in_use_check = "{{ skip_resource_in_use_check }}"
+    prepare_agent = {{ prepare_agent }}
+    region = "{{ region }}"
+    skip_resource_in_use_check = {{ skip_resource_in_use_check }}
+    action_group_executor {
+      custom_control = "{{ custom_control }}"
+      lambda = "{{ lambda }}"
+    }
+    api_schema {
+      payload = "{{ payload }}"
+      s3 {
+        s3_bucket_name = "{{ s3_bucket_name }}"
+        s3_object_key = "{{ s3_object_key }}"
+      }
+    }
+    function_schema {
+      member_functions {
+        functions {
+          description = "{{ description }}"
+          name = "{{ name }}"
+          parameters {
+            description = "{{ description }}"
+            map_block_key = "{{ map_block_key }}"
+            required = {{ required }}
+            type = "{{ type }}"
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
 }

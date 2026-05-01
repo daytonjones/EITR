@@ -1,0 +1,12 @@
+resource "awscc_bedrockagentcore_memory" "example" {
+    description = "{{ description }}"
+    encryption_key_arn = "{{ encryption_key_arn }}"
+    event_expiry_duration = {{ event_expiry_duration }}
+    memory_execution_role_arn = "{{ memory_execution_role_arn }}"
+    memory_strategies = "{{ memory_strategies }}"
+    name = "{{ name }}"
+    stream_delivery_resources = "{{ stream_delivery_resources }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

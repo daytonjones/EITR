@@ -1,9 +1,84 @@
 resource "azurerm_monitor_alert_processing_rule_suppression" "example" {
     description = "{{ description }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    scopes = "{{ scopes }}"
-    tags = "{{ tags }}"
+    scopes = ["{{ scopes }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    condition {
+      alert_context {
+        operator = "{{ operator }}"
+        values = ["{{ values }}"]
+      }
+      alert_rule_id {
+        operator = "{{ operator }}"
+        values = ["{{ values }}"]
+      }
+      alert_rule_name {
+        operator = "{{ operator }}"
+        values = ["{{ values }}"]
+      }
+      description {
+        operator = "{{ operator }}"
+        values = ["{{ values }}"]
+      }
+      monitor_condition {
+        operator = "{{ operator }}"
+        values = ["{{ values }}"]
+      }
+      monitor_service {
+        operator = "{{ operator }}"
+        values = ["{{ values }}"]
+      }
+      severity {
+        operator = "{{ operator }}"
+        values = ["{{ values }}"]
+      }
+      signal_type {
+        operator = "{{ operator }}"
+        values = ["{{ values }}"]
+      }
+      target_resource {
+        operator = "{{ operator }}"
+        values = ["{{ values }}"]
+      }
+      target_resource_group {
+        operator = "{{ operator }}"
+        values = ["{{ values }}"]
+      }
+      target_resource_type {
+        operator = "{{ operator }}"
+        values = ["{{ values }}"]
+      }
+    }
+    schedule {
+      effective_from = "{{ effective_from }}"
+      effective_until = "{{ effective_until }}"
+      time_zone = "{{ time_zone }}"
+      recurrence {
+        daily {
+          end_time = "{{ end_time }}"
+          start_time = "{{ start_time }}"
+        }
+        monthly {
+          days_of_month = ["{{ days_of_month }}"]
+          end_time = "{{ end_time }}"
+          start_time = "{{ start_time }}"
+        }
+        weekly {
+          days_of_week = ["{{ days_of_week }}"]
+          end_time = "{{ end_time }}"
+          start_time = "{{ start_time }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

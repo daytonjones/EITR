@@ -5,5 +5,18 @@ resource "google_bigtable_table" "example" {
     instance_name = "{{ instance_name }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    split_keys = "{{ split_keys }}"
+    row_key_schema = "{{ row_key_schema }}"
+    split_keys = ["{{ split_keys }}"]
+    automated_backup_policy {
+      frequency = "{{ frequency }}"
+      retention_period = "{{ retention_period }}"
+    }
+    column_family {
+      family = "{{ family }}"
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
 }

@@ -3,10 +3,15 @@ resource "aws_directory_service_radius_settings" "example" {
     directory_id = "{{ directory_id }}"
     display_label = "{{ display_label }}"
     id = "{{ id }}"
-    radius_port = "{{ radius_port }}"
-    radius_retries = "{{ radius_retries }}"
-    radius_servers = "{{ radius_servers }}"
-    radius_timeout = "{{ radius_timeout }}"
+    radius_port = {{ radius_port }}
+    radius_retries = {{ radius_retries }}
+    radius_servers = ["{{ radius_servers }}"]
+    radius_timeout = {{ radius_timeout }}
+    region = "{{ region }}"
     shared_secret = "{{ shared_secret }}"
-    use_same_username = "{{ use_same_username }}"
+    use_same_username = {{ use_same_username }}
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
 }

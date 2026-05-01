@@ -1,9 +1,29 @@
 resource "aws_guardduty_detector" "example" {
-    account_id = "{{ account_id }}"
-    arn = "{{ arn }}"
-    enable = "{{ enable }}"
+    enable = {{ enable }}
     finding_publishing_frequency = "{{ finding_publishing_frequency }}"
     id = "{{ id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    datasources {
+      kubernetes {
+        audit_logs {
+          enable = {{ enable }}
+        }
+      }
+      malware_protection {
+        scan_ec2_instance_with_findings {
+          ebs_volumes {
+            enable = {{ enable }}
+          }
+        }
+      }
+      s3_logs {
+        enable = {{ enable }}
+      }
+    }
 }

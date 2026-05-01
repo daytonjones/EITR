@@ -3,4 +3,8 @@ resource "google_apigee_environment_keyvaluemaps_entries" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     value = "{{ value }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

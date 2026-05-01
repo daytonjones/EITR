@@ -1,7 +1,11 @@
 resource "aws_kms_ciphertext" "example" {
-    ciphertext_blob = "{{ ciphertext_blob }}"
-    context = "{{ context }}"
+    context = {
+        key = "{{ context_value }}"
+      }
     id = "{{ id }}"
     key_id = "{{ key_id }}"
     plaintext = "{{ plaintext }}"
+    plaintext_wo = "{{ plaintext_wo }}"
+    plaintext_wo_version = "{{ plaintext_wo_version }}"
+    region = "{{ region }}"
 }

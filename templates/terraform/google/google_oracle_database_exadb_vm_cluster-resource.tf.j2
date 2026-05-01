@@ -1,0 +1,44 @@
+resource "google_oracle_database_exadb_vm_cluster" "example" {
+    backup_odb_subnet = "{{ backup_odb_subnet }}"
+    deletion_protection = {{ deletion_protection }}
+    display_name = "{{ display_name }}"
+    exadb_vm_cluster_id = "{{ exadb_vm_cluster_id }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    odb_network = "{{ odb_network }}"
+    odb_subnet = "{{ odb_subnet }}"
+    project = "{{ project }}"
+    properties {
+      additional_ecpu_count_per_node = {{ additional_ecpu_count_per_node }}
+      cluster_name = "{{ cluster_name }}"
+      enabled_ecpu_count_per_node = {{ enabled_ecpu_count_per_node }}
+      exascale_db_storage_vault = "{{ exascale_db_storage_vault }}"
+      grid_image_id = "{{ grid_image_id }}"
+      hostname_prefix = "{{ hostname_prefix }}"
+      license_model = "{{ license_model }}"
+      node_count = {{ node_count }}
+      scan_listener_port_tcp = {{ scan_listener_port_tcp }}
+      shape_attribute = "{{ shape_attribute }}"
+      ssh_public_keys = ["{{ ssh_public_keys }}"]
+      data_collection_options {
+        is_diagnostics_events_enabled = {{ is_diagnostics_events_enabled }}
+        is_health_monitoring_enabled = {{ is_health_monitoring_enabled }}
+        is_incident_logs_enabled = {{ is_incident_logs_enabled }}
+      }
+      time_zone {
+        id = "{{ id }}"
+        version = "{{ version }}"
+      }
+      vm_file_system_storage {
+        size_in_gbs_per_node = {{ size_in_gbs_per_node }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

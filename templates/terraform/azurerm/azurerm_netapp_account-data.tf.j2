@@ -1,7 +1,12 @@
 data "azurerm_netapp_account" "example" {
     id = "{{ id }}"
-    location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    timeouts {
+      read = "{{ read }}"
+    }
 }

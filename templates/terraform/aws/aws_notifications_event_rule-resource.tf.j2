@@ -1,0 +1,7 @@
+resource "aws_notifications_event_rule" "example" {
+    event_pattern = "{{ event_pattern }}"
+    event_type = "{{ event_type }}"
+    notification_configuration_arn = "{{ notification_configuration_arn }}"
+    regions = ["{{ regions }}"]
+    source = "{{ source }}"
+}

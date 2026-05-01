@@ -1,7 +1,6 @@
 resource "google_bigtable_table_iam_policy" "example" {
-    etag = "{{ etag }}"
     id = "{{ id }}"
-    instance = "{{ instance }}"
+    instance_name = "{{ instance_name }}"
     policy_data = "{{ policy_data }}"
     project = "{{ project }}"
     table = "{{ table }}"

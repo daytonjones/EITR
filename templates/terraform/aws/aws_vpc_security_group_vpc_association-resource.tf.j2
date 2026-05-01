@@ -1,5 +1,9 @@
 resource "aws_vpc_security_group_vpc_association" "example" {
+    region = "{{ region }}"
     security_group_id = "{{ security_group_id }}"
-    state = "{{ state }}"
     vpc_id = "{{ vpc_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

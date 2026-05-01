@@ -1,7 +1,24 @@
 resource "google_identity_platform_inbound_saml_config" "example" {
     display_name = "{{ display_name }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     name = "{{ name }}"
     project = "{{ project }}"
+    idp_config {
+      idp_entity_id = "{{ idp_entity_id }}"
+      sign_request = {{ sign_request }}
+      sso_url = "{{ sso_url }}"
+      idp_certificates {
+        x509_certificate = "{{ x509_certificate }}"
+      }
+    }
+    sp_config {
+      callback_uri = "{{ callback_uri }}"
+      sp_entity_id = "{{ sp_entity_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

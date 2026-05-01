@@ -1,0 +1,5 @@
+resource "aws_sesv2_tenant_resource_association" "example" {
+    region = "{{ region }}"
+    resource_arn = "{{ resource_arn }}"
+    tenant_name = "{{ tenant_name }}"
+}

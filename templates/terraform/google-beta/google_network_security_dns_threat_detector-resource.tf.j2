@@ -1,0 +1,16 @@
+resource "google_network_security_dns_threat_detector" "example" {
+    excluded_networks = ["{{ excluded_networks }}"]
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    threat_detector_provider = "{{ threat_detector_provider }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

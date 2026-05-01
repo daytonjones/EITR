@@ -1,13 +1,11 @@
 data "aws_appmesh_gateway_route" "example" {
-    arn = "{{ arn }}"
-    created_date = "{{ created_date }}"
     id = "{{ id }}"
-    last_updated_date = "{{ last_updated_date }}"
     mesh_name = "{{ mesh_name }}"
     mesh_owner = "{{ mesh_owner }}"
     name = "{{ name }}"
-    resource_owner = "{{ resource_owner }}"
-    spec = "{{ spec }}"
-    tags = "{{ tags }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     virtual_gateway_name = "{{ virtual_gateway_name }}"
 }

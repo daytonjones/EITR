@@ -5,6 +5,11 @@ resource "azurerm_kusto_database" "example" {
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    size = "{{ size }}"
     soft_delete_period = "{{ soft_delete_period }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

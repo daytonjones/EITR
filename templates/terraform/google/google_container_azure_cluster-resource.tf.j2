@@ -1,20 +1,66 @@
 resource "google_container_azure_cluster" "example" {
-    annotations = "{{ annotations }}"
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
     azure_region = "{{ azure_region }}"
     client = "{{ client }}"
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
-    effective_annotations = "{{ effective_annotations }}"
-    endpoint = "{{ endpoint }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    reconciling = "{{ reconciling }}"
     resource_group_id = "{{ resource_group_id }}"
-    state = "{{ state }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
-    workload_identity_config = "{{ workload_identity_config }}"
+    authorization {
+      admin_groups {
+        group = "{{ group }}"
+      }
+      admin_users {
+        username = "{{ username }}"
+      }
+    }
+    azure_services_authentication {
+      application_id = "{{ application_id }}"
+      tenant_id = "{{ tenant_id }}"
+    }
+    control_plane {
+      subnet_id = "{{ subnet_id }}"
+      tags = {
+        key = "{{ tags_value }}"
+      }
+      version = "{{ version }}"
+      vm_size = "{{ vm_size }}"
+      database_encryption {
+        key_id = "{{ key_id }}"
+      }
+      main_volume {
+        size_gib = {{ size_gib }}
+      }
+      proxy_config {
+        resource_group_id = "{{ resource_group_id }}"
+        secret_id = "{{ secret_id }}"
+      }
+      replica_placements {
+        azure_availability_zone = "{{ azure_availability_zone }}"
+        subnet_id = "{{ subnet_id }}"
+      }
+      root_volume {
+        size_gib = {{ size_gib }}
+      }
+      ssh_config {
+        authorized_key = "{{ authorized_key }}"
+      }
+    }
+    fleet {
+      project = "{{ project }}"
+    }
+    networking {
+      pod_address_cidr_blocks = ["{{ pod_address_cidr_blocks }}"]
+      service_address_cidr_blocks = ["{{ service_address_cidr_blocks }}"]
+      virtual_network_id = "{{ virtual_network_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

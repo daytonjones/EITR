@@ -5,7 +5,15 @@ resource "azurerm_logic_app_integration_account_assembly" "example" {
     content_link_uri = "{{ content_link_uri }}"
     id = "{{ id }}"
     integration_account_name = "{{ integration_account_name }}"
-    metadata = "{{ metadata }}"
+    metadata = {
+        key = "{{ metadata_value }}"
+      }
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

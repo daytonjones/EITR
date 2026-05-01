@@ -1,13 +1,29 @@
 resource "aws_fsx_data_repository_association" "example" {
-    arn = "{{ arn }}"
-    association_id = "{{ association_id }}"
-    batch_import_meta_data_on_create = "{{ batch_import_meta_data_on_create }}"
+    batch_import_meta_data_on_create = {{ batch_import_meta_data_on_create }}
     data_repository_path = "{{ data_repository_path }}"
-    delete_data_in_filesystem = "{{ delete_data_in_filesystem }}"
+    delete_data_in_filesystem = {{ delete_data_in_filesystem }}
     file_system_id = "{{ file_system_id }}"
     file_system_path = "{{ file_system_path }}"
     id = "{{ id }}"
-    imported_file_chunk_size = "{{ imported_file_chunk_size }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    imported_file_chunk_size = {{ imported_file_chunk_size }}
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    s3 {
+      auto_export_policy {
+        events = ["{{ events }}"]
+      }
+      auto_import_policy {
+        events = ["{{ events }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,9 +1,9 @@
 data "aws_api_gateway_sdk" "example" {
-    body = "{{ body }}"
-    content_disposition = "{{ content_disposition }}"
-    content_type = "{{ content_type }}"
     id = "{{ id }}"
-    parameters = "{{ parameters }}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
+    region = "{{ region }}"
     rest_api_id = "{{ rest_api_id }}"
     sdk_type = "{{ sdk_type }}"
     stage_name = "{{ stage_name }}"

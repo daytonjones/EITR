@@ -1,10 +1,25 @@
 resource "google_cloud_asset_project_feed" "example" {
-    asset_names = "{{ asset_names }}"
-    asset_types = "{{ asset_types }}"
+    asset_names = ["{{ asset_names }}"]
+    asset_types = ["{{ asset_types }}"]
     billing_project = "{{ billing_project }}"
     content_type = "{{ content_type }}"
     feed_id = "{{ feed_id }}"
     id = "{{ id }}"
-    name = "{{ name }}"
     project = "{{ project }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      location = "{{ location }}"
+      title = "{{ title }}"
+    }
+    feed_output_config {
+      pubsub_destination {
+        topic = "{{ topic }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,16 +1,31 @@
 provider "azurestack" {
     arm_endpoint = "{{ arm_endpoint }}"
-    auxiliary_tenant_ids = "{{ auxiliary_tenant_ids }}"
+    auxiliary_tenant_ids = ["{{ auxiliary_tenant_ids }}"]
     client_certificate_password = "{{ client_certificate_password }}"
     client_certificate_path = "{{ client_certificate_path }}"
     client_id = "{{ client_id }}"
     client_secret = "{{ client_secret }}"
-    disable_correlation_request_id = "{{ disable_correlation_request_id }}"
+    disable_correlation_request_id = {{ disable_correlation_request_id }}
     environment = "{{ environment }}"
     metadata_host = "{{ metadata_host }}"
     msi_endpoint = "{{ msi_endpoint }}"
-    skip_provider_registration = "{{ skip_provider_registration }}"
+    skip_provider_registration = {{ skip_provider_registration }}
     subscription_id = "{{ subscription_id }}"
     tenant_id = "{{ tenant_id }}"
-    use_msi = "{{ use_msi }}"
+    use_msi = {{ use_msi }}
+    features {
+      resource_group {
+        prevent_deletion_if_contains_resources = {{ prevent_deletion_if_contains_resources }}
+      }
+      virtual_machine {
+        delete_os_disk_on_deletion = {{ delete_os_disk_on_deletion }}
+        graceful_shutdown = {{ graceful_shutdown }}
+        skip_shutdown_and_force_delete = {{ skip_shutdown_and_force_delete }}
+      }
+      virtual_machine_scale_set {
+        force_delete = {{ force_delete }}
+        roll_instances_when_required = {{ roll_instances_when_required }}
+        scale_to_zero_before_deletion = {{ scale_to_zero_before_deletion }}
+      }
+    }
 }

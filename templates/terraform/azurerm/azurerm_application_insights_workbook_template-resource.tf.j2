@@ -4,8 +4,23 @@ resource "azurerm_application_insights_workbook_template" "example" {
     localized = "{{ localized }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    priority = "{{ priority }}"
+    priority = {{ priority }}
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     template_data = "{{ template_data }}"
+    galleries {
+      category = "{{ category }}"
+      name = "{{ name }}"
+      order = {{ order }}
+      resource_type = "{{ resource_type }}"
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

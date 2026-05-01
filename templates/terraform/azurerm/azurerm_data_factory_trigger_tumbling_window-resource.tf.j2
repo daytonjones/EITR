@@ -1,15 +1,38 @@
 resource "azurerm_data_factory_trigger_tumbling_window" "example" {
-    activated = "{{ activated }}"
-    additional_properties = "{{ additional_properties }}"
-    annotations = "{{ annotations }}"
+    activated = {{ activated }}
+    additional_properties = {
+        key = "{{ additional_properties_value }}"
+      }
+    annotations = ["{{ annotations }}"]
     data_factory_id = "{{ data_factory_id }}"
     delay = "{{ delay }}"
     description = "{{ description }}"
     end_time = "{{ end_time }}"
     frequency = "{{ frequency }}"
     id = "{{ id }}"
-    interval = "{{ interval }}"
-    max_concurrency = "{{ max_concurrency }}"
+    interval = {{ interval }}
+    max_concurrency = {{ max_concurrency }}
     name = "{{ name }}"
     start_time = "{{ start_time }}"
+    pipeline {
+      name = "{{ name }}"
+      parameters = {
+        key = "{{ parameters_value }}"
+      }
+    }
+    retry {
+      count = {{ count }}
+      interval = {{ interval }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    trigger_dependency {
+      offset = "{{ offset }}"
+      size = "{{ size }}"
+      trigger_name = "{{ trigger_name }}"
+    }
 }

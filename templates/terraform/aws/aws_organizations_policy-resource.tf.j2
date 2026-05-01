@@ -1,11 +1,14 @@
 resource "aws_organizations_policy" "example" {
-    arn = "{{ arn }}"
     content = "{{ content }}"
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    skip_destroy = "{{ skip_destroy }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    skip_destroy = {{ skip_destroy }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     type = "{{ type }}"
 }

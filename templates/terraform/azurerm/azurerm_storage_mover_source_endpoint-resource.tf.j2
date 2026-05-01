@@ -6,4 +6,10 @@ resource "azurerm_storage_mover_source_endpoint" "example" {
     name = "{{ name }}"
     nfs_version = "{{ nfs_version }}"
     storage_mover_id = "{{ storage_mover_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

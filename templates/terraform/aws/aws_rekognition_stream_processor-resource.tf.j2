@@ -1,8 +1,56 @@
 resource "aws_rekognition_stream_processor" "example" {
     kms_key_id = "{{ kms_key_id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
-    stream_processor_arn = "{{ stream_processor_arn }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    data_sharing_preference {
+      opt_in = {{ opt_in }}
+    }
+    input {
+      kinesis_video_stream {
+        arn = "{{ arn }}"
+      }
+    }
+    notification_channel {
+      sns_topic_arn = "{{ sns_topic_arn }}"
+    }
+    output {
+      kinesis_data_stream {
+        arn = "{{ arn }}"
+      }
+      s3_destination {
+        bucket = "{{ bucket }}"
+        key_prefix = "{{ key_prefix }}"
+      }
+    }
+    regions_of_interest {
+      bounding_box {
+        height = {{ height }}
+        left = {{ left }}
+        top = {{ top }}
+        width = {{ width }}
+      }
+      polygon {
+        x = {{ x }}
+        y = {{ y }}
+      }
+    }
+    settings {
+      connected_home {
+        labels = ["{{ labels }}"]
+        min_confidence = {{ min_confidence }}
+      }
+      face_search {
+        collection_id = "{{ collection_id }}"
+        face_match_threshold = {{ face_match_threshold }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

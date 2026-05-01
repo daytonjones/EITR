@@ -1,11 +1,15 @@
 resource "google_folder" "example" {
-    create_time = "{{ create_time }}"
-    deletion_protection = "{{ deletion_protection }}"
+    deletion_protection = {{ deletion_protection }}
     display_name = "{{ display_name }}"
-    folder_id = "{{ folder_id }}"
     id = "{{ id }}"
-    lifecycle_state = "{{ lifecycle_state }}"
-    name = "{{ name }}"
     parent = "{{ parent }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

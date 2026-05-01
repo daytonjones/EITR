@@ -1,7 +1,9 @@
 resource "aws_inspector2_member_association" "example" {
     account_id = "{{ account_id }}"
-    delegated_admin_account_id = "{{ delegated_admin_account_id }}"
     id = "{{ id }}"
-    relationship_status = "{{ relationship_status }}"
-    updated_at = "{{ updated_at }}"
+    region = "{{ region }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

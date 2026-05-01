@@ -1,7 +1,7 @@
 resource "vault_plugin" "example" {
-    args = "{{ args }}"
+    args = ["{{ args }}"]
     command = "{{ command }}"
-    env = "{{ env }}"
+    env = ["{{ env }}"]
     id = "{{ id }}"
     name = "{{ name }}"
     oci_image = "{{ oci_image }}"

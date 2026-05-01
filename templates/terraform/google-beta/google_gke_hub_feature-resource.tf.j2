@@ -1,14 +1,128 @@
 resource "google_gke_hub_feature" "example" {
-    create_time = "{{ create_time }}"
-    delete_time = "{{ delete_time }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    resource_state = "{{ resource_state }}"
-    state = "{{ state }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
+    fleet_default_member_config {
+      configmanagement {
+        management = "{{ management }}"
+        version = "{{ version }}"
+        config_sync {
+          enabled = {{ enabled }}
+          metrics_gcp_service_account_email = "{{ metrics_gcp_service_account_email }}"
+          prevent_drift = {{ prevent_drift }}
+          source_format = "{{ source_format }}"
+          git {
+            gcp_service_account_email = "{{ gcp_service_account_email }}"
+            https_proxy = "{{ https_proxy }}"
+            policy_dir = "{{ policy_dir }}"
+            secret_type = "{{ secret_type }}"
+            sync_branch = "{{ sync_branch }}"
+            sync_repo = "{{ sync_repo }}"
+            sync_rev = "{{ sync_rev }}"
+            sync_wait_secs = "{{ sync_wait_secs }}"
+          }
+          oci {
+            gcp_service_account_email = "{{ gcp_service_account_email }}"
+            policy_dir = "{{ policy_dir }}"
+            secret_type = "{{ secret_type }}"
+            sync_repo = "{{ sync_repo }}"
+            sync_wait_secs = "{{ sync_wait_secs }}"
+            version = "{{ version }}"
+          }
+        }
+      }
+      mesh {
+        management = "{{ management }}"
+      }
+      policycontroller {
+        version = "{{ version }}"
+        policy_controller_hub_config {
+          audit_interval_seconds = {{ audit_interval_seconds }}
+          constraint_violation_limit = {{ constraint_violation_limit }}
+          exemptable_namespaces = ["{{ exemptable_namespaces }}"]
+          install_spec = "{{ install_spec }}"
+          log_denies_enabled = {{ log_denies_enabled }}
+          mutation_enabled = {{ mutation_enabled }}
+          referential_rules_enabled = {{ referential_rules_enabled }}
+          deployment_configs {
+            component = "{{ component }}"
+            pod_affinity = "{{ pod_affinity }}"
+            replica_count = {{ replica_count }}
+            container_resources {
+              limits {
+                cpu = "{{ cpu }}"
+                memory = "{{ memory }}"
+              }
+              requests {
+                cpu = "{{ cpu }}"
+                memory = "{{ memory }}"
+              }
+            }
+            pod_toleration {
+              effect = "{{ effect }}"
+              key = "{{ key }}"
+              operator = "{{ operator }}"
+              value = "{{ value }}"
+            }
+          }
+          monitoring {
+            backends = ["{{ backends }}"]
+          }
+          policy_content {
+            bundles {
+              bundle = "{{ bundle }}"
+              exempted_namespaces = ["{{ exempted_namespaces }}"]
+            }
+            template_library {
+              installation = "{{ installation }}"
+            }
+          }
+        }
+      }
+    }
+    spec {
+      clusterupgrade {
+        upstream_fleets = ["{{ upstream_fleets }}"]
+        gke_upgrade_overrides {
+          post_conditions {
+            soaking = "{{ soaking }}"
+          }
+          upgrade {
+            name = "{{ name }}"
+            version = "{{ version }}"
+          }
+        }
+        post_conditions {
+          soaking = "{{ soaking }}"
+        }
+      }
+      fleetobservability {
+        logging_config {
+          default_config {
+            mode = "{{ mode }}"
+          }
+          fleet_scope_logs_config {
+            mode = "{{ mode }}"
+          }
+        }
+      }
+      multiclusteringress {
+        config_membership = "{{ config_membership }}"
+      }
+      rbacrolebindingactuation {
+        allowed_custom_roles = ["{{ allowed_custom_roles }}"]
+      }
+      workloadidentity {
+        scope_tenancy_pool = "{{ scope_tenancy_pool }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

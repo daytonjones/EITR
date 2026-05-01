@@ -1,10 +1,24 @@
 resource "azurerm_logic_app_action_http" "example" {
     body = "{{ body }}"
-    headers = "{{ headers }}"
+    headers = {
+        key = "{{ headers_value }}"
+      }
     id = "{{ id }}"
     logic_app_id = "{{ logic_app_id }}"
     method = "{{ method }}"
     name = "{{ name }}"
-    queries = "{{ queries }}"
+    queries = {
+        key = "{{ queries_value }}"
+      }
     uri = "{{ uri }}"
+    run_after {
+      action_name = "{{ action_name }}"
+      action_result = "{{ action_result }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

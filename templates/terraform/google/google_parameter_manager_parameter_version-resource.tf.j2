@@ -1,0 +1,12 @@
+resource "google_parameter_manager_parameter_version" "example" {
+    disabled = {{ disabled }}
+    id = "{{ id }}"
+    parameter = "{{ parameter }}"
+    parameter_data = "{{ parameter_data }}"
+    parameter_version_id = "{{ parameter_version_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

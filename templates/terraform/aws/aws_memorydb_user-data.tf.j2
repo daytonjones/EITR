@@ -1,9 +1,8 @@
 data "aws_memorydb_user" "example" {
-    access_string = "{{ access_string }}"
-    arn = "{{ arn }}"
-    authentication_mode = "{{ authentication_mode }}"
     id = "{{ id }}"
-    minimum_engine_version = "{{ minimum_engine_version }}"
-    tags = "{{ tags }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     user_name = "{{ user_name }}"
 }

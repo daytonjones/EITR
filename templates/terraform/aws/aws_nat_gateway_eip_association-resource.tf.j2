@@ -1,0 +1,9 @@
+resource "aws_nat_gateway_eip_association" "example" {
+    allocation_id = "{{ allocation_id }}"
+    nat_gateway_id = "{{ nat_gateway_id }}"
+    region = "{{ region }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

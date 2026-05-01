@@ -2,10 +2,25 @@ resource "google_bigtable_app_profile" "example" {
     app_profile_id = "{{ app_profile_id }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    ignore_warnings = "{{ ignore_warnings }}"
+    ignore_warnings = {{ ignore_warnings }}
     instance = "{{ instance }}"
-    multi_cluster_routing_cluster_ids = "{{ multi_cluster_routing_cluster_ids }}"
-    multi_cluster_routing_use_any = "{{ multi_cluster_routing_use_any }}"
-    name = "{{ name }}"
+    multi_cluster_routing_cluster_ids = ["{{ multi_cluster_routing_cluster_ids }}"]
+    multi_cluster_routing_use_any = {{ multi_cluster_routing_use_any }}
     project = "{{ project }}"
+    row_affinity = {{ row_affinity }}
+    data_boost_isolation_read_only {
+      compute_billing_owner = "{{ compute_billing_owner }}"
+    }
+    single_cluster_routing {
+      allow_transactional_writes = {{ allow_transactional_writes }}
+      cluster_id = "{{ cluster_id }}"
+    }
+    standard_isolation {
+      priority = "{{ priority }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

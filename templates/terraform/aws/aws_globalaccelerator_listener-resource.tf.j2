@@ -3,4 +3,13 @@ resource "aws_globalaccelerator_listener" "example" {
     client_affinity = "{{ client_affinity }}"
     id = "{{ id }}"
     protocol = "{{ protocol }}"
+    port_range {
+      from_port = {{ from_port }}
+      to_port = {{ to_port }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -3,8 +3,12 @@ resource "google_compute_public_advertised_prefix" "example" {
     dns_verification_ip = "{{ dns_verification_ip }}"
     id = "{{ id }}"
     ip_cidr_range = "{{ ip_cidr_range }}"
+    ipv6_access_type = "{{ ipv6_access_type }}"
     name = "{{ name }}"
+    pdp_scope = "{{ pdp_scope }}"
     project = "{{ project }}"
-    self_link = "{{ self_link }}"
-    shared_secret = "{{ shared_secret }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

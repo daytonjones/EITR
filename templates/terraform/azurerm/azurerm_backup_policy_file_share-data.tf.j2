@@ -3,4 +3,7 @@ data "azurerm_backup_policy_file_share" "example" {
     name = "{{ name }}"
     recovery_vault_name = "{{ recovery_vault_name }}"
     resource_group_name = "{{ resource_group_name }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

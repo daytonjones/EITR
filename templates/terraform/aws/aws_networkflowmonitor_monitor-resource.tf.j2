@@ -1,0 +1,21 @@
+resource "aws_networkflowmonitor_monitor" "example" {
+    monitor_name = "{{ monitor_name }}"
+    region = "{{ region }}"
+    scope_arn = "{{ scope_arn }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    local_resource {
+      identifier = "{{ identifier }}"
+      type = "{{ type }}"
+    }
+    remote_resource {
+      identifier = "{{ identifier }}"
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

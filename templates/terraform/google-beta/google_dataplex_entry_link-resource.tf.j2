@@ -1,0 +1,24 @@
+resource "google_dataplex_entry_link" "example" {
+    entry_group_id = "{{ entry_group_id }}"
+    entry_link_id = "{{ entry_link_id }}"
+    entry_link_type = "{{ entry_link_type }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    aspects {
+      aspect_key = "{{ aspect_key }}"
+      aspect {
+        data = "{{ data }}"
+      }
+    }
+    entry_references {
+      name = "{{ name }}"
+      path = "{{ path }}"
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

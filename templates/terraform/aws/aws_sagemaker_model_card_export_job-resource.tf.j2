@@ -1,0 +1,12 @@
+resource "aws_sagemaker_model_card_export_job" "example" {
+    model_card_export_job_name = "{{ model_card_export_job_name }}"
+    model_card_name = "{{ model_card_name }}"
+    model_card_version = {{ model_card_version }}
+    region = "{{ region }}"
+    output_config {
+      s3_output_path = "{{ s3_output_path }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+    }
+}

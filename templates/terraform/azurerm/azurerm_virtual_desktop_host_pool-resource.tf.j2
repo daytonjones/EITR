@@ -5,15 +5,32 @@ resource "azurerm_virtual_desktop_host_pool" "example" {
     id = "{{ id }}"
     load_balancer_type = "{{ load_balancer_type }}"
     location = "{{ location }}"
-    maximum_sessions_allowed = "{{ maximum_sessions_allowed }}"
+    maximum_sessions_allowed = {{ maximum_sessions_allowed }}
     name = "{{ name }}"
     personal_desktop_assignment_type = "{{ personal_desktop_assignment_type }}"
     preferred_app_group_type = "{{ preferred_app_group_type }}"
     public_network_access = "{{ public_network_access }}"
     resource_group_name = "{{ resource_group_name }}"
-    start_vm_on_connect = "{{ start_vm_on_connect }}"
-    tags = "{{ tags }}"
+    start_vm_on_connect = {{ start_vm_on_connect }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
     type = "{{ type }}"
-    validate_environment = "{{ validate_environment }}"
+    validate_environment = {{ validate_environment }}
     vm_template = "{{ vm_template }}"
+    scheduled_agent_updates {
+      enabled = {{ enabled }}
+      timezone = "{{ timezone }}"
+      use_session_host_timezone = {{ use_session_host_timezone }}
+      schedule {
+        day_of_week = "{{ day_of_week }}"
+        hour_of_day = {{ hour_of_day }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

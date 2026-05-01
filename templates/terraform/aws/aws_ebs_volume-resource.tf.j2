@@ -1,17 +1,27 @@
 resource "aws_ebs_volume" "example" {
-    arn = "{{ arn }}"
     availability_zone = "{{ availability_zone }}"
-    encrypted = "{{ encrypted }}"
-    final_snapshot = "{{ final_snapshot }}"
+    encrypted = {{ encrypted }}
+    final_snapshot = {{ final_snapshot }}
     id = "{{ id }}"
-    iops = "{{ iops }}"
+    iops = {{ iops }}
     kms_key_id = "{{ kms_key_id }}"
-    multi_attach_enabled = "{{ multi_attach_enabled }}"
+    multi_attach_enabled = {{ multi_attach_enabled }}
     outpost_arn = "{{ outpost_arn }}"
-    size = "{{ size }}"
+    region = "{{ region }}"
+    size = {{ size }}
     snapshot_id = "{{ snapshot_id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    throughput = "{{ throughput }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    throughput = {{ throughput }}
     type = "{{ type }}"
+    volume_initialization_rate = {{ volume_initialization_rate }}
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

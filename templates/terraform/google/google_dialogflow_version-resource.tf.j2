@@ -1,0 +1,10 @@
+resource "google_dialogflow_version" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    parent = "{{ parent }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

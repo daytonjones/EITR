@@ -7,4 +7,8 @@ resource "google_compute_attached_disk" "example" {
     mode = "{{ mode }}"
     project = "{{ project }}"
     zone = "{{ zone }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

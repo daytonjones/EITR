@@ -2,9 +2,62 @@ resource "consul_config_entry_service_resolver" "example" {
     connect_timeout = "{{ connect_timeout }}"
     default_subset = "{{ default_subset }}"
     id = "{{ id }}"
-    meta = "{{ meta }}"
+    meta = {
+        key = "{{ meta_value }}"
+      }
     name = "{{ name }}"
     namespace = "{{ namespace }}"
     partition = "{{ partition }}"
     request_timeout = "{{ request_timeout }}"
+    failover {
+      datacenters = ["{{ datacenters }}"]
+      namespace = "{{ namespace }}"
+      sameness_group = "{{ sameness_group }}"
+      service = "{{ service }}"
+      service_subset = "{{ service_subset }}"
+      subset_name = "{{ subset_name }}"
+      targets {
+        datacenter = "{{ datacenter }}"
+        namespace = "{{ namespace }}"
+        partition = "{{ partition }}"
+        peer = "{{ peer }}"
+        service = "{{ service }}"
+        service_subset = "{{ service_subset }}"
+      }
+    }
+    load_balancer {
+      policy = "{{ policy }}"
+      hash_policies {
+        field = "{{ field }}"
+        field_value = "{{ field_value }}"
+        source_ip = {{ source_ip }}
+        terminal = {{ terminal }}
+        cookie_config {
+          path = "{{ path }}"
+          session = {{ session }}
+          ttl = "{{ ttl }}"
+        }
+      }
+      least_request_config {
+        choice_count = {{ choice_count }}
+      }
+      ring_hash_config {
+        maximum_ring_size = {{ maximum_ring_size }}
+        minimum_ring_size = {{ minimum_ring_size }}
+      }
+    }
+    redirect {
+      datacenter = "{{ datacenter }}"
+      namespace = "{{ namespace }}"
+      partition = "{{ partition }}"
+      peer = "{{ peer }}"
+      sameness_group = "{{ sameness_group }}"
+      service = "{{ service }}"
+      service_subset = "{{ service_subset }}"
+    }
+    subsets {
+      filter = "{{ filter }}"
+      name = "{{ name }}"
+      only_passing = {{ only_passing }}
+    }
 }

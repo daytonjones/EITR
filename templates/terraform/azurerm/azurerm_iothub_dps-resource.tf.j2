@@ -1,13 +1,34 @@
 resource "azurerm_iothub_dps" "example" {
     allocation_policy = "{{ allocation_policy }}"
-    data_residency_enabled = "{{ data_residency_enabled }}"
-    device_provisioning_host_name = "{{ device_provisioning_host_name }}"
+    data_residency_enabled = {{ data_residency_enabled }}
     id = "{{ id }}"
-    id_scope = "{{ id_scope }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    public_network_access_enabled = {{ public_network_access_enabled }}
     resource_group_name = "{{ resource_group_name }}"
-    service_operations_host_name = "{{ service_operations_host_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    ip_filter_rule {
+      action = "{{ action }}"
+      ip_mask = "{{ ip_mask }}"
+      name = "{{ name }}"
+      target = "{{ target }}"
+    }
+    linked_hub {
+      allocation_weight = {{ allocation_weight }}
+      apply_allocation_policy = {{ apply_allocation_policy }}
+      connection_string = "{{ connection_string }}"
+      location = "{{ location }}"
+    }
+    sku {
+      capacity = {{ capacity }}
+      name = "{{ name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -3,4 +3,17 @@ resource "azurerm_automation_module" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
+    module_link {
+      uri = "{{ uri }}"
+      hash {
+        algorithm = "{{ algorithm }}"
+        value = "{{ value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,11 +1,28 @@
 resource "google_dataform_repository_release_config" "example" {
     cron_schedule = "{{ cron_schedule }}"
+    disabled = {{ disabled }}
     git_commitish = "{{ git_commitish }}"
     id = "{{ id }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    recent_scheduled_release_records = "{{ recent_scheduled_release_records }}"
     region = "{{ region }}"
     repository = "{{ repository }}"
     time_zone = "{{ time_zone }}"
+    code_compilation_config {
+      assertion_schema = "{{ assertion_schema }}"
+      database_suffix = "{{ database_suffix }}"
+      default_database = "{{ default_database }}"
+      default_location = "{{ default_location }}"
+      default_schema = "{{ default_schema }}"
+      schema_suffix = "{{ schema_suffix }}"
+      table_prefix = "{{ table_prefix }}"
+      vars = {
+        key = "{{ vars_value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

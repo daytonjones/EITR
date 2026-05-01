@@ -1,9 +1,20 @@
 resource "google_monitoring_service" "example" {
     display_name = "{{ display_name }}"
     id = "{{ id }}"
-    name = "{{ name }}"
     project = "{{ project }}"
     service_id = "{{ service_id }}"
-    telemetry = "{{ telemetry }}"
-    user_labels = "{{ user_labels }}"
+    user_labels = {
+        key = "{{ user_labels_value }}"
+      }
+    basic_service {
+      service_labels = {
+        key = "{{ service_labels_value }}"
+      }
+      service_type = "{{ service_type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -2,5 +2,14 @@ resource "aws_dx_gateway" "example" {
     amazon_side_asn = "{{ amazon_side_asn }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    owner_account_id = "{{ owner_account_id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

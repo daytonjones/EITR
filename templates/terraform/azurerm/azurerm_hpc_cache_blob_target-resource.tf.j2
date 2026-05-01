@@ -6,4 +6,10 @@ resource "azurerm_hpc_cache_blob_target" "example" {
     namespace_path = "{{ namespace_path }}"
     resource_group_name = "{{ resource_group_name }}"
     storage_container_id = "{{ storage_container_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

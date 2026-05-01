@@ -1,25 +1,101 @@
 resource "aws_msk_cluster" "example" {
-    arn = "{{ arn }}"
-    bootstrap_brokers = "{{ bootstrap_brokers }}"
-    bootstrap_brokers_public_sasl_iam = "{{ bootstrap_brokers_public_sasl_iam }}"
-    bootstrap_brokers_public_sasl_scram = "{{ bootstrap_brokers_public_sasl_scram }}"
-    bootstrap_brokers_public_tls = "{{ bootstrap_brokers_public_tls }}"
-    bootstrap_brokers_sasl_iam = "{{ bootstrap_brokers_sasl_iam }}"
-    bootstrap_brokers_sasl_scram = "{{ bootstrap_brokers_sasl_scram }}"
-    bootstrap_brokers_tls = "{{ bootstrap_brokers_tls }}"
-    bootstrap_brokers_vpc_connectivity_sasl_iam = "{{ bootstrap_brokers_vpc_connectivity_sasl_iam }}"
-    bootstrap_brokers_vpc_connectivity_sasl_scram = "{{ bootstrap_brokers_vpc_connectivity_sasl_scram }}"
-    bootstrap_brokers_vpc_connectivity_tls = "{{ bootstrap_brokers_vpc_connectivity_tls }}"
     cluster_name = "{{ cluster_name }}"
-    cluster_uuid = "{{ cluster_uuid }}"
-    current_version = "{{ current_version }}"
     enhanced_monitoring = "{{ enhanced_monitoring }}"
     id = "{{ id }}"
     kafka_version = "{{ kafka_version }}"
-    number_of_broker_nodes = "{{ number_of_broker_nodes }}"
+    number_of_broker_nodes = {{ number_of_broker_nodes }}
+    region = "{{ region }}"
     storage_mode = "{{ storage_mode }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    zookeeper_connect_string = "{{ zookeeper_connect_string }}"
-    zookeeper_connect_string_tls = "{{ zookeeper_connect_string_tls }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    broker_node_group_info {
+      az_distribution = "{{ az_distribution }}"
+      client_subnets = ["{{ client_subnets }}"]
+      instance_type = "{{ instance_type }}"
+      security_groups = ["{{ security_groups }}"]
+      connectivity_info {
+        network_type = "{{ network_type }}"
+        public_access {
+          type = "{{ type }}"
+        }
+        vpc_connectivity {
+          client_authentication {
+            tls = {{ tls }}
+            sasl {
+              iam = {{ iam }}
+              scram = {{ scram }}
+            }
+          }
+        }
+      }
+      storage_info {
+        ebs_storage_info {
+          volume_size = {{ volume_size }}
+          provisioned_throughput {
+            enabled = {{ enabled }}
+            volume_throughput = {{ volume_throughput }}
+          }
+        }
+      }
+    }
+    client_authentication {
+      unauthenticated = {{ unauthenticated }}
+      sasl {
+        iam = {{ iam }}
+        scram = {{ scram }}
+      }
+      tls {
+        certificate_authority_arns = ["{{ certificate_authority_arns }}"]
+      }
+    }
+    configuration_info {
+      arn = "{{ arn }}"
+      revision = {{ revision }}
+    }
+    encryption_info {
+      encryption_at_rest_kms_key_arn = "{{ encryption_at_rest_kms_key_arn }}"
+      encryption_in_transit {
+        client_broker = "{{ client_broker }}"
+        in_cluster = {{ in_cluster }}
+      }
+    }
+    logging_info {
+      broker_logs {
+        cloudwatch_logs {
+          enabled = {{ enabled }}
+          log_group = "{{ log_group }}"
+        }
+        firehose {
+          delivery_stream = "{{ delivery_stream }}"
+          enabled = {{ enabled }}
+        }
+        s3 {
+          bucket = "{{ bucket }}"
+          enabled = {{ enabled }}
+          prefix = "{{ prefix }}"
+        }
+      }
+    }
+    open_monitoring {
+      prometheus {
+        jmx_exporter {
+          enabled_in_broker = {{ enabled_in_broker }}
+        }
+        node_exporter {
+          enabled_in_broker = {{ enabled_in_broker }}
+        }
+      }
+    }
+    rebalancing {
+      status = "{{ status }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

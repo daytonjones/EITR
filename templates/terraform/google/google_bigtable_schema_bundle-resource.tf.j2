@@ -1,0 +1,16 @@
+resource "google_bigtable_schema_bundle" "example" {
+    id = "{{ id }}"
+    ignore_warnings = {{ ignore_warnings }}
+    instance = "{{ instance }}"
+    project = "{{ project }}"
+    schema_bundle_id = "{{ schema_bundle_id }}"
+    table = "{{ table }}"
+    proto_schema {
+      proto_descriptors = "{{ proto_descriptors }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

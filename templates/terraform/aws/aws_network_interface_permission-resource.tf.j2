@@ -1,0 +1,10 @@
+resource "aws_network_interface_permission" "example" {
+    aws_account_id = "{{ aws_account_id }}"
+    network_interface_id = "{{ network_interface_id }}"
+    permission = "{{ permission }}"
+    region = "{{ region }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

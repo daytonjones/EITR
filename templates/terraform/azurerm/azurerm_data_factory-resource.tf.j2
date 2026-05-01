@@ -3,10 +3,44 @@ resource "azurerm_data_factory" "example" {
     customer_managed_key_identity_id = "{{ customer_managed_key_identity_id }}"
     id = "{{ id }}"
     location = "{{ location }}"
-    managed_virtual_network_enabled = "{{ managed_virtual_network_enabled }}"
+    managed_virtual_network_enabled = {{ managed_virtual_network_enabled }}
     name = "{{ name }}"
-    public_network_enabled = "{{ public_network_enabled }}"
+    public_network_enabled = {{ public_network_enabled }}
     purview_id = "{{ purview_id }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    github_configuration {
+      account_name = "{{ account_name }}"
+      branch_name = "{{ branch_name }}"
+      git_url = "{{ git_url }}"
+      publishing_enabled = {{ publishing_enabled }}
+      repository_name = "{{ repository_name }}"
+      root_folder = "{{ root_folder }}"
+    }
+    global_parameter {
+      name = "{{ name }}"
+      type = "{{ type }}"
+      value = "{{ value }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    vsts_configuration {
+      account_name = "{{ account_name }}"
+      branch_name = "{{ branch_name }}"
+      project_name = "{{ project_name }}"
+      publishing_enabled = {{ publishing_enabled }}
+      repository_name = "{{ repository_name }}"
+      root_folder = "{{ root_folder }}"
+      tenant_id = "{{ tenant_id }}"
+    }
 }

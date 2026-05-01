@@ -1,11 +1,14 @@
 resource "aws_shield_protection_group" "example" {
     aggregation = "{{ aggregation }}"
     id = "{{ id }}"
-    members = "{{ members }}"
+    members = ["{{ members }}"]
     pattern = "{{ pattern }}"
-    protection_group_arn = "{{ protection_group_arn }}"
     protection_group_id = "{{ protection_group_id }}"
     resource_type = "{{ resource_type }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

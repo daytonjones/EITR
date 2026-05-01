@@ -1,28 +1,175 @@
 resource "google_compute_instance_template" "example" {
-    can_ip_forward = "{{ can_ip_forward }}"
-    creation_timestamp = "{{ creation_timestamp }}"
+    can_ip_forward = {{ can_ip_forward }}
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
-    enable_display = "{{ enable_display }}"
+    enable_display = {{ enable_display }}
     id = "{{ id }}"
     instance_description = "{{ instance_description }}"
     key_revocation_action_type = "{{ key_revocation_action_type }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     machine_type = "{{ machine_type }}"
-    metadata = "{{ metadata }}"
-    metadata_fingerprint = "{{ metadata_fingerprint }}"
+    metadata = {
+        key = "{{ metadata_value }}"
+      }
     metadata_startup_script = "{{ metadata_startup_script }}"
     min_cpu_platform = "{{ min_cpu_platform }}"
     name = "{{ name }}"
     name_prefix = "{{ name_prefix }}"
-    partner_metadata = "{{ partner_metadata }}"
+    partner_metadata = {
+        key = "{{ partner_metadata_value }}"
+      }
     project = "{{ project }}"
     region = "{{ region }}"
-    resource_manager_tags = "{{ resource_manager_tags }}"
-    resource_policies = "{{ resource_policies }}"
-    self_link = "{{ self_link }}"
-    self_link_unique = "{{ self_link_unique }}"
-    tags = "{{ tags }}"
-    tags_fingerprint = "{{ tags_fingerprint }}"
-    terraform_labels = "{{ terraform_labels }}"
+    resource_manager_tags = {
+        key = "{{ resource_manager_tags_value }}"
+      }
+    resource_policies = ["{{ resource_policies }}"]
+    tags = ["{{ tags }}"]
+    advanced_machine_features {
+      enable_nested_virtualization = {{ enable_nested_virtualization }}
+      enable_uefi_networking = {{ enable_uefi_networking }}
+      performance_monitoring_unit = "{{ performance_monitoring_unit }}"
+      threads_per_core = {{ threads_per_core }}
+      turbo_mode = "{{ turbo_mode }}"
+      visible_core_count = {{ visible_core_count }}
+    }
+    confidential_instance_config {
+      confidential_instance_type = "{{ confidential_instance_type }}"
+      enable_confidential_compute = {{ enable_confidential_compute }}
+    }
+    disk {
+      architecture = "{{ architecture }}"
+      auto_delete = {{ auto_delete }}
+      boot = {{ boot }}
+      device_name = "{{ device_name }}"
+      disk_name = "{{ disk_name }}"
+      disk_size_gb = {{ disk_size_gb }}
+      disk_type = "{{ disk_type }}"
+      guest_os_features = ["{{ guest_os_features }}"]
+      interface = "{{ interface }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      mode = "{{ mode }}"
+      provisioned_iops = {{ provisioned_iops }}
+      provisioned_throughput = {{ provisioned_throughput }}
+      resource_manager_tags = {
+        key = "{{ resource_manager_tags_value }}"
+      }
+      resource_policies = ["{{ resource_policies }}"]
+      source = "{{ source }}"
+      source_image = "{{ source_image }}"
+      source_snapshot = "{{ source_snapshot }}"
+      storage_pool = "{{ storage_pool }}"
+      type = "{{ type }}"
+      disk_encryption_key {
+        kms_key_self_link = "{{ kms_key_self_link }}"
+        kms_key_service_account = "{{ kms_key_service_account }}"
+      }
+      source_image_encryption_key {
+        kms_key_self_link = "{{ kms_key_self_link }}"
+        kms_key_service_account = "{{ kms_key_service_account }}"
+        raw_key = "{{ raw_key }}"
+        rsa_encrypted_key = "{{ rsa_encrypted_key }}"
+      }
+      source_snapshot_encryption_key {
+        kms_key_self_link = "{{ kms_key_self_link }}"
+        kms_key_service_account = "{{ kms_key_service_account }}"
+        raw_key = "{{ raw_key }}"
+        rsa_encrypted_key = "{{ rsa_encrypted_key }}"
+      }
+    }
+    guest_accelerator {
+      count = {{ count }}
+      type = "{{ type }}"
+    }
+    network_interface {
+      igmp_query = "{{ igmp_query }}"
+      internal_ipv6_prefix_length = {{ internal_ipv6_prefix_length }}
+      ipv6_address = "{{ ipv6_address }}"
+      network = "{{ network }}"
+      network_attachment = "{{ network_attachment }}"
+      network_ip = "{{ network_ip }}"
+      nic_type = "{{ nic_type }}"
+      queue_count = {{ queue_count }}
+      stack_type = "{{ stack_type }}"
+      subnetwork = "{{ subnetwork }}"
+      subnetwork_project = "{{ subnetwork_project }}"
+      vlan = {{ vlan }}
+      access_config {
+        nat_ip = "{{ nat_ip }}"
+        network_tier = "{{ network_tier }}"
+      }
+      alias_ip_range {
+        ip_cidr_range = "{{ ip_cidr_range }}"
+        subnetwork_range_name = "{{ subnetwork_range_name }}"
+      }
+      ipv6_access_config {
+        network_tier = "{{ network_tier }}"
+      }
+    }
+    network_performance_config {
+      total_egress_bandwidth_tier = "{{ total_egress_bandwidth_tier }}"
+    }
+    reservation_affinity {
+      type = "{{ type }}"
+      specific_reservation {
+        key = "{{ key }}"
+        values = ["{{ values }}"]
+      }
+    }
+    scheduling {
+      automatic_restart = {{ automatic_restart }}
+      availability_domain = {{ availability_domain }}
+      host_error_timeout_seconds = {{ host_error_timeout_seconds }}
+      instance_termination_action = "{{ instance_termination_action }}"
+      maintenance_interval = "{{ maintenance_interval }}"
+      min_node_cpus = {{ min_node_cpus }}
+      on_host_maintenance = "{{ on_host_maintenance }}"
+      preemptible = {{ preemptible }}
+      provisioning_model = "{{ provisioning_model }}"
+      skip_guest_os_shutdown = {{ skip_guest_os_shutdown }}
+      termination_time = "{{ termination_time }}"
+      graceful_shutdown {
+        enabled = {{ enabled }}
+        max_duration {
+          nanos = {{ nanos }}
+          seconds = {{ seconds }}
+        }
+      }
+      local_ssd_recovery_timeout {
+        nanos = {{ nanos }}
+        seconds = {{ seconds }}
+      }
+      max_run_duration {
+        nanos = {{ nanos }}
+        seconds = {{ seconds }}
+      }
+      node_affinities {
+        key = "{{ key }}"
+        operator = "{{ operator }}"
+        values = ["{{ values }}"]
+      }
+      on_instance_stop_action {
+        discard_local_ssd = {{ discard_local_ssd }}
+      }
+      preemption_notice_duration {
+        nanos = {{ nanos }}
+        seconds = {{ seconds }}
+      }
+    }
+    service_account {
+      email = "{{ email }}"
+      scopes = ["{{ scopes }}"]
+    }
+    shielded_instance_config {
+      enable_integrity_monitoring = {{ enable_integrity_monitoring }}
+      enable_secure_boot = {{ enable_secure_boot }}
+      enable_vtpm = {{ enable_vtpm }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

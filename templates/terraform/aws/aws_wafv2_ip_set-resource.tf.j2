@@ -1,12 +1,16 @@
 resource "aws_wafv2_ip_set" "example" {
-    addresses = "{{ addresses }}"
-    arn = "{{ arn }}"
+    addresses = ["{{ addresses }}"]
     description = "{{ description }}"
     id = "{{ id }}"
     ip_address_version = "{{ ip_address_version }}"
-    lock_token = "{{ lock_token }}"
     name = "{{ name }}"
+    name_prefix = "{{ name_prefix }}"
+    region = "{{ region }}"
     scope = "{{ scope }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

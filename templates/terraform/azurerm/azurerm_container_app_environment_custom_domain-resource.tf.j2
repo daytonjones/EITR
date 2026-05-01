@@ -4,4 +4,10 @@ resource "azurerm_container_app_environment_custom_domain" "example" {
     container_app_environment_id = "{{ container_app_environment_id }}"
     dns_suffix = "{{ dns_suffix }}"
     id = "{{ id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

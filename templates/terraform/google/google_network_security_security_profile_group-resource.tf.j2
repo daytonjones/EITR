@@ -1,14 +1,19 @@
 resource "google_network_security_security_profile_group" "example" {
-    create_time = "{{ create_time }}"
+    custom_intercept_profile = "{{ custom_intercept_profile }}"
+    custom_mirroring_profile = "{{ custom_mirroring_profile }}"
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     parent = "{{ parent }}"
-    terraform_labels = "{{ terraform_labels }}"
     threat_prevention_profile = "{{ threat_prevention_profile }}"
-    update_time = "{{ update_time }}"
+    url_filtering_profile = "{{ url_filtering_profile }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

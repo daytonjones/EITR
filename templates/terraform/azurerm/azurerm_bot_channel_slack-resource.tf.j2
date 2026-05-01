@@ -8,4 +8,10 @@ resource "azurerm_bot_channel_slack" "example" {
     resource_group_name = "{{ resource_group_name }}"
     signing_secret = "{{ signing_secret }}"
     verification_token = "{{ verification_token }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

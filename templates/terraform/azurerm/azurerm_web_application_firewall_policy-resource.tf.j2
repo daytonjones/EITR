@@ -1,9 +1,82 @@
 resource "azurerm_web_application_firewall_policy" "example" {
-    http_listener_ids = "{{ http_listener_ids }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    path_based_rule_ids = "{{ path_based_rule_ids }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    custom_rules {
+      action = "{{ action }}"
+      enabled = {{ enabled }}
+      group_rate_limit_by = "{{ group_rate_limit_by }}"
+      name = "{{ name }}"
+      priority = {{ priority }}
+      rate_limit_duration = "{{ rate_limit_duration }}"
+      rate_limit_threshold = {{ rate_limit_threshold }}
+      rule_type = "{{ rule_type }}"
+      match_conditions {
+        match_values = ["{{ match_values }}"]
+        negation_condition = {{ negation_condition }}
+        operator = "{{ operator }}"
+        transforms = ["{{ transforms }}"]
+        match_variables {
+          selector = "{{ selector }}"
+          variable_name = "{{ variable_name }}"
+        }
+      }
+    }
+    managed_rules {
+      exclusion {
+        match_variable = "{{ match_variable }}"
+        selector = "{{ selector }}"
+        selector_match_operator = "{{ selector_match_operator }}"
+        excluded_rule_set {
+          type = "{{ type }}"
+          version = "{{ version }}"
+          rule_group {
+            excluded_rules = ["{{ excluded_rules }}"]
+            rule_group_name = "{{ rule_group_name }}"
+          }
+        }
+      }
+      managed_rule_set {
+        type = "{{ type }}"
+        version = "{{ version }}"
+        rule_group_override {
+          rule_group_name = "{{ rule_group_name }}"
+          rule {
+            action = "{{ action }}"
+            enabled = {{ enabled }}
+            id = "{{ id }}"
+          }
+        }
+      }
+    }
+    policy_settings {
+      enabled = {{ enabled }}
+      file_upload_enforcement = {{ file_upload_enforcement }}
+      file_upload_limit_in_mb = {{ file_upload_limit_in_mb }}
+      js_challenge_cookie_expiration_in_minutes = {{ js_challenge_cookie_expiration_in_minutes }}
+      max_request_body_size_in_kb = {{ max_request_body_size_in_kb }}
+      mode = "{{ mode }}"
+      request_body_check = {{ request_body_check }}
+      request_body_enforcement = {{ request_body_enforcement }}
+      request_body_inspect_limit_in_kb = {{ request_body_inspect_limit_in_kb }}
+      log_scrubbing {
+        enabled = {{ enabled }}
+        rule {
+          enabled = {{ enabled }}
+          match_variable = "{{ match_variable }}"
+          selector = "{{ selector }}"
+          selector_match_operator = "{{ selector_match_operator }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -3,4 +3,26 @@ resource "azurerm_kubernetes_fleet_update_run" "example" {
     id = "{{ id }}"
     kubernetes_fleet_manager_id = "{{ kubernetes_fleet_manager_id }}"
     name = "{{ name }}"
+    managed_cluster_update {
+      node_image_selection {
+        type = "{{ type }}"
+      }
+      upgrade {
+        kubernetes_version = "{{ kubernetes_version }}"
+        type = "{{ type }}"
+      }
+    }
+    stage {
+      after_stage_wait_in_seconds = {{ after_stage_wait_in_seconds }}
+      name = "{{ name }}"
+      group {
+        name = "{{ name }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

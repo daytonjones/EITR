@@ -1,0 +1,12 @@
+resource "google_dataform_folder" "example" {
+    containing_folder = "{{ containing_folder }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,0 +1,144 @@
+resource "aws_cloudfront_multitenant_distribution" "example" {
+    comment = "{{ comment }}"
+    default_root_object = "{{ default_root_object }}"
+    enabled = {{ enabled }}
+    http_version = "{{ http_version }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    web_acl_id = "{{ web_acl_id }}"
+    active_trusted_key_groups {
+      items {
+      }
+    }
+    cache_behavior {
+      cache_policy_id = "{{ cache_policy_id }}"
+      compress = {{ compress }}
+      field_level_encryption_id = "{{ field_level_encryption_id }}"
+      origin_request_policy_id = "{{ origin_request_policy_id }}"
+      path_pattern = "{{ path_pattern }}"
+      realtime_log_config_arn = "{{ realtime_log_config_arn }}"
+      response_headers_policy_id = "{{ response_headers_policy_id }}"
+      target_origin_id = "{{ target_origin_id }}"
+      viewer_protocol_policy = "{{ viewer_protocol_policy }}"
+      allowed_methods {
+        cached_methods = ["{{ cached_methods }}"]
+        items = ["{{ items }}"]
+      }
+      function_association {
+        event_type = "{{ event_type }}"
+        function_arn = "{{ function_arn }}"
+      }
+      lambda_function_association {
+        event_type = "{{ event_type }}"
+        include_body = {{ include_body }}
+        lambda_function_arn = "{{ lambda_function_arn }}"
+      }
+      trusted_key_groups {
+        enabled = {{ enabled }}
+        items = ["{{ items }}"]
+      }
+    }
+    custom_error_response {
+      error_caching_min_ttl = {{ error_caching_min_ttl }}
+      error_code = {{ error_code }}
+      response_code = "{{ response_code }}"
+      response_page_path = "{{ response_page_path }}"
+    }
+    default_cache_behavior {
+      cache_policy_id = "{{ cache_policy_id }}"
+      compress = {{ compress }}
+      field_level_encryption_id = "{{ field_level_encryption_id }}"
+      origin_request_policy_id = "{{ origin_request_policy_id }}"
+      realtime_log_config_arn = "{{ realtime_log_config_arn }}"
+      response_headers_policy_id = "{{ response_headers_policy_id }}"
+      target_origin_id = "{{ target_origin_id }}"
+      viewer_protocol_policy = "{{ viewer_protocol_policy }}"
+      allowed_methods {
+        cached_methods = ["{{ cached_methods }}"]
+        items = ["{{ items }}"]
+      }
+      function_association {
+        event_type = "{{ event_type }}"
+        function_arn = "{{ function_arn }}"
+      }
+      lambda_function_association {
+        event_type = "{{ event_type }}"
+        include_body = {{ include_body }}
+        lambda_function_arn = "{{ lambda_function_arn }}"
+      }
+      trusted_key_groups {
+        enabled = {{ enabled }}
+        items = ["{{ items }}"]
+      }
+    }
+    origin {
+      connection_attempts = {{ connection_attempts }}
+      connection_timeout = {{ connection_timeout }}
+      domain_name = "{{ domain_name }}"
+      id = "{{ id }}"
+      origin_access_control_id = "{{ origin_access_control_id }}"
+      origin_path = "{{ origin_path }}"
+      response_completion_timeout = {{ response_completion_timeout }}
+      custom_header {
+        header_name = "{{ header_name }}"
+        header_value = "{{ header_value }}"
+      }
+      custom_origin_config {
+        http_port = {{ http_port }}
+        https_port = {{ https_port }}
+        ip_address_type = "{{ ip_address_type }}"
+        origin_keepalive_timeout = {{ origin_keepalive_timeout }}
+        origin_protocol_policy = "{{ origin_protocol_policy }}"
+        origin_read_timeout = {{ origin_read_timeout }}
+        origin_ssl_protocols = ["{{ origin_ssl_protocols }}"]
+      }
+      origin_shield {
+        enabled = {{ enabled }}
+        origin_shield_region = "{{ origin_shield_region }}"
+      }
+      vpc_origin_config {
+        origin_keepalive_timeout = {{ origin_keepalive_timeout }}
+        origin_read_timeout = {{ origin_read_timeout }}
+        vpc_origin_id = "{{ vpc_origin_id }}"
+      }
+    }
+    origin_group {
+      id = "{{ id }}"
+      failover_criteria {
+        status_codes = ["{{ status_codes }}"]
+      }
+      member {
+        origin_id = "{{ origin_id }}"
+      }
+    }
+    restrictions {
+      geo_restriction {
+        items = ["{{ items }}"]
+        restriction_type = "{{ restriction_type }}"
+      }
+    }
+    tenant_config {
+      parameter_definition {
+        name = "{{ name }}"
+        definition {
+          string_schema {
+            comment = "{{ comment }}"
+            default_value = "{{ default_value }}"
+            required = {{ required }}
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    viewer_certificate {
+      acm_certificate_arn = "{{ acm_certificate_arn }}"
+      cloudfront_default_certificate = {{ cloudfront_default_certificate }}
+      minimum_protocol_version = "{{ minimum_protocol_version }}"
+      ssl_support_method = "{{ ssl_support_method }}"
+    }
+}

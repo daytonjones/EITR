@@ -1,0 +1,10 @@
+resource "awscc_s3files_file_system" "example" {
+    accept_bucket_warning = {{ accept_bucket_warning }}
+    bucket = "{{ bucket }}"
+    client_token = "{{ client_token }}"
+    kms_key_id = "{{ kms_key_id }}"
+    prefix = "{{ prefix }}"
+    role_arn = "{{ role_arn }}"
+    synchronization_configuration = "{{ synchronization_configuration }}"
+    tags = "{{ tags }}"
+}

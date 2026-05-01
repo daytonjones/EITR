@@ -1,13 +1,46 @@
 resource "azurestack_virtual_network_gateway" "example" {
-    active_active = "{{ active_active }}"
+    active_active = {{ active_active }}
     default_local_network_gateway_id = "{{ default_local_network_gateway_id }}"
-    enable_bgp = "{{ enable_bgp }}"
+    enable_bgp = {{ enable_bgp }}
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     sku = "{{ sku }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     type = "{{ type }}"
     vpn_type = "{{ vpn_type }}"
+    bgp_settings {
+      asn = {{ asn }}
+      peer_weight = {{ peer_weight }}
+      peering_address = "{{ peering_address }}"
+    }
+    ip_configuration {
+      name = "{{ name }}"
+      private_ip_address_allocation = "{{ private_ip_address_allocation }}"
+      public_ip_address_id = "{{ public_ip_address_id }}"
+      subnet_id = "{{ subnet_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    vpn_client_configuration {
+      address_space = ["{{ address_space }}"]
+      radius_server_address = "{{ radius_server_address }}"
+      radius_server_secret = "{{ radius_server_secret }}"
+      vpn_client_protocols = ["{{ vpn_client_protocols }}"]
+      revoked_certificate {
+        name = "{{ name }}"
+        thumbprint = "{{ thumbprint }}"
+      }
+      root_certificate {
+        name = "{{ name }}"
+        public_cert_data = "{{ public_cert_data }}"
+      }
+    }
 }

@@ -1,0 +1,23 @@
+resource "google_eventarc_google_api_source" "example" {
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
+    crypto_key_name = "{{ crypto_key_name }}"
+    destination = "{{ destination }}"
+    display_name = "{{ display_name }}"
+    google_api_source_id = "{{ google_api_source_id }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    logging_config {
+      log_severity = "{{ log_severity }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

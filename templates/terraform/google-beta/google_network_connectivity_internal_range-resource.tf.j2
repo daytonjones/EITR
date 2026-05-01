@@ -1,17 +1,31 @@
 resource "google_network_connectivity_internal_range" "example" {
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
+    exclude_cidr_ranges = ["{{ exclude_cidr_ranges }}"]
     id = "{{ id }}"
+    immutable = {{ immutable }}
     ip_cidr_range = "{{ ip_cidr_range }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
     network = "{{ network }}"
-    overlaps = "{{ overlaps }}"
+    overlaps = ["{{ overlaps }}"]
     peering = "{{ peering }}"
-    prefix_length = "{{ prefix_length }}"
+    prefix_length = {{ prefix_length }}
     project = "{{ project }}"
-    target_cidr_range = "{{ target_cidr_range }}"
-    terraform_labels = "{{ terraform_labels }}"
+    target_cidr_range = ["{{ target_cidr_range }}"]
     usage = "{{ usage }}"
-    users = "{{ users }}"
+    allocation_options {
+      allocation_strategy = "{{ allocation_strategy }}"
+      first_available_ranges_lookup_size = {{ first_available_ranges_lookup_size }}
+    }
+    migration {
+      source = "{{ source }}"
+      target = "{{ target }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

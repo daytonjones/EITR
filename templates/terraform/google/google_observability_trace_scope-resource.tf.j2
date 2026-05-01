@@ -1,0 +1,13 @@
+resource "google_observability_trace_scope" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    resource_names = ["{{ resource_names }}"]
+    trace_scope_id = "{{ trace_scope_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

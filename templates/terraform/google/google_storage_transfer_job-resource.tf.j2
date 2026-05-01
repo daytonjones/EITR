@@ -1,10 +1,166 @@
 resource "google_storage_transfer_job" "example" {
-    creation_time = "{{ creation_time }}"
-    deletion_time = "{{ deletion_time }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    last_modification_time = "{{ last_modification_time }}"
     name = "{{ name }}"
     project = "{{ project }}"
+    service_account = "{{ service_account }}"
     status = "{{ status }}"
+    event_stream {
+      event_stream_expiration_time = "{{ event_stream_expiration_time }}"
+      event_stream_start_time = "{{ event_stream_start_time }}"
+      name = "{{ name }}"
+    }
+    logging_config {
+      enable_on_prem_gcs_transfer_logs = {{ enable_on_prem_gcs_transfer_logs }}
+      log_action_states = ["{{ log_action_states }}"]
+      log_actions = ["{{ log_actions }}"]
+    }
+    notification_config {
+      event_types = ["{{ event_types }}"]
+      payload_format = "{{ payload_format }}"
+      pubsub_topic = "{{ pubsub_topic }}"
+    }
+    replication_spec {
+      gcs_data_sink {
+        bucket_name = "{{ bucket_name }}"
+        path = "{{ path }}"
+      }
+      gcs_data_source {
+        bucket_name = "{{ bucket_name }}"
+        path = "{{ path }}"
+      }
+      object_conditions {
+        exclude_prefixes = ["{{ exclude_prefixes }}"]
+        include_prefixes = ["{{ include_prefixes }}"]
+        last_modified_before = "{{ last_modified_before }}"
+        last_modified_since = "{{ last_modified_since }}"
+        max_time_elapsed_since_last_modification = "{{ max_time_elapsed_since_last_modification }}"
+        min_time_elapsed_since_last_modification = "{{ min_time_elapsed_since_last_modification }}"
+      }
+      transfer_options {
+        delete_objects_from_source_after_transfer = {{ delete_objects_from_source_after_transfer }}
+        delete_objects_unique_in_sink = {{ delete_objects_unique_in_sink }}
+        overwrite_objects_already_existing_in_sink = {{ overwrite_objects_already_existing_in_sink }}
+        overwrite_when = "{{ overwrite_when }}"
+        metadata_options {
+          acl = "{{ acl }}"
+          gid = "{{ gid }}"
+          kms_key = "{{ kms_key }}"
+          mode = "{{ mode }}"
+          storage_class = "{{ storage_class }}"
+          symlink = "{{ symlink }}"
+          temporary_hold = "{{ temporary_hold }}"
+          time_created = "{{ time_created }}"
+          uid = "{{ uid }}"
+        }
+      }
+    }
+    schedule {
+      repeat_interval = "{{ repeat_interval }}"
+      schedule_end_date {
+        day = {{ day }}
+        month = {{ month }}
+        year = {{ year }}
+      }
+      schedule_start_date {
+        day = {{ day }}
+        month = {{ month }}
+        year = {{ year }}
+      }
+      start_time_of_day {
+        hours = {{ hours }}
+        minutes = {{ minutes }}
+        nanos = {{ nanos }}
+        seconds = {{ seconds }}
+      }
+    }
+    transfer_spec {
+      sink_agent_pool_name = "{{ sink_agent_pool_name }}"
+      source_agent_pool_name = "{{ source_agent_pool_name }}"
+      aws_s3_compatible_data_source {
+        bucket_name = "{{ bucket_name }}"
+        endpoint = "{{ endpoint }}"
+        path = "{{ path }}"
+        region = "{{ region }}"
+        s3_metadata {
+          auth_method = "{{ auth_method }}"
+          list_api = "{{ list_api }}"
+          protocol = "{{ protocol }}"
+          request_model = "{{ request_model }}"
+        }
+      }
+      aws_s3_data_source {
+        bucket_name = "{{ bucket_name }}"
+        cloudfront_domain = "{{ cloudfront_domain }}"
+        credentials_secret = "{{ credentials_secret }}"
+        managed_private_network = {{ managed_private_network }}
+        path = "{{ path }}"
+        role_arn = "{{ role_arn }}"
+        aws_access_key {
+          access_key_id = "{{ access_key_id }}"
+          secret_access_key = "{{ secret_access_key }}"
+        }
+      }
+      azure_blob_storage_data_source {
+        container = "{{ container }}"
+        credentials_secret = "{{ credentials_secret }}"
+        path = "{{ path }}"
+        storage_account = "{{ storage_account }}"
+        azure_credentials {
+          sas_token = "{{ sas_token }}"
+        }
+        federated_identity_config {
+          client_id = "{{ client_id }}"
+          tenant_id = "{{ tenant_id }}"
+        }
+      }
+      gcs_data_sink {
+        bucket_name = "{{ bucket_name }}"
+        path = "{{ path }}"
+      }
+      gcs_data_source {
+        bucket_name = "{{ bucket_name }}"
+        path = "{{ path }}"
+      }
+      hdfs_data_source {
+        path = "{{ path }}"
+      }
+      http_data_source {
+        list_url = "{{ list_url }}"
+      }
+      object_conditions {
+        exclude_prefixes = ["{{ exclude_prefixes }}"]
+        include_prefixes = ["{{ include_prefixes }}"]
+        last_modified_before = "{{ last_modified_before }}"
+        last_modified_since = "{{ last_modified_since }}"
+        max_time_elapsed_since_last_modification = "{{ max_time_elapsed_since_last_modification }}"
+        min_time_elapsed_since_last_modification = "{{ min_time_elapsed_since_last_modification }}"
+      }
+      posix_data_sink {
+        root_directory = "{{ root_directory }}"
+      }
+      posix_data_source {
+        root_directory = "{{ root_directory }}"
+      }
+      transfer_manifest {
+        location = "{{ location }}"
+      }
+      transfer_options {
+        delete_objects_from_source_after_transfer = {{ delete_objects_from_source_after_transfer }}
+        delete_objects_unique_in_sink = {{ delete_objects_unique_in_sink }}
+        overwrite_objects_already_existing_in_sink = {{ overwrite_objects_already_existing_in_sink }}
+        overwrite_when = "{{ overwrite_when }}"
+        metadata_options {
+          acl = "{{ acl }}"
+          gid = "{{ gid }}"
+          kms_key = "{{ kms_key }}"
+          mode = "{{ mode }}"
+          storage_class = "{{ storage_class }}"
+          symlink = "{{ symlink }}"
+          temporary_hold = "{{ temporary_hold }}"
+          time_created = "{{ time_created }}"
+          uid = "{{ uid }}"
+        }
+      }
+    }
 }

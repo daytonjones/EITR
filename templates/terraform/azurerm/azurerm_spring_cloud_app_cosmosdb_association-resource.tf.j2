@@ -10,4 +10,10 @@ resource "azurerm_spring_cloud_app_cosmosdb_association" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     spring_cloud_app_id = "{{ spring_cloud_app_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

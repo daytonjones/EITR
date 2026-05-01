@@ -1,0 +1,15 @@
+resource "aws_bedrockagentcore_memory" "example" {
+    description = "{{ description }}"
+    encryption_key_arn = "{{ encryption_key_arn }}"
+    event_expiry_duration = {{ event_expiry_duration }}
+    memory_execution_role_arn = "{{ memory_execution_role_arn }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

@@ -4,7 +4,12 @@ resource "azurerm_sentinel_watchlist" "example" {
     display_name = "{{ display_name }}"
     id = "{{ id }}"
     item_search_key = "{{ item_search_key }}"
-    labels = "{{ labels }}"
+    labels = ["{{ labels }}"]
     log_analytics_workspace_id = "{{ log_analytics_workspace_id }}"
     name = "{{ name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

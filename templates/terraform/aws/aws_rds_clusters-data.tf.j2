@@ -1,5 +1,8 @@
 data "aws_rds_clusters" "example" {
-    cluster_arns = "{{ cluster_arns }}"
-    cluster_identifiers = "{{ cluster_identifiers }}"
     id = "{{ id }}"
+    region = "{{ region }}"
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
 }

@@ -2,4 +2,19 @@ resource "azurerm_web_pubsub_network_acl" "example" {
     default_action = "{{ default_action }}"
     id = "{{ id }}"
     web_pubsub_id = "{{ web_pubsub_id }}"
+    private_endpoint {
+      allowed_request_types = ["{{ allowed_request_types }}"]
+      denied_request_types = ["{{ denied_request_types }}"]
+      id = "{{ id }}"
+    }
+    public_network {
+      allowed_request_types = ["{{ allowed_request_types }}"]
+      denied_request_types = ["{{ denied_request_types }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,5 +1,35 @@
 resource "aws_bcmdataexports_export" "example" {
-    id = "{{ id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    export {
+      description = "{{ description }}"
+      name = "{{ name }}"
+      data_query {
+        query_statement = "{{ query_statement }}"
+        table_configurations = {
+        key = "{{ table_configurations_value }}"
+      }
+      }
+      destination_configurations {
+        s3_destination {
+          s3_bucket = "{{ s3_bucket }}"
+          s3_prefix = "{{ s3_prefix }}"
+          s3_region = "{{ s3_region }}"
+          s3_output_configurations {
+            compression = "{{ compression }}"
+            format = "{{ format }}"
+            output_type = "{{ output_type }}"
+            overwrite = "{{ overwrite }}"
+          }
+        }
+      }
+      refresh_cadence {
+        frequency = "{{ frequency }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
 }

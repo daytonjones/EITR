@@ -4,5 +4,13 @@ resource "azurerm_monitor_private_link_scope" "example" {
     name = "{{ name }}"
     query_access_mode = "{{ query_access_mode }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

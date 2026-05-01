@@ -1,8 +1,60 @@
 data "aws_route53_traffic_policy_document" "example" {
     id = "{{ id }}"
-    json = "{{ json }}"
     record_type = "{{ record_type }}"
     start_endpoint = "{{ start_endpoint }}"
     start_rule = "{{ start_rule }}"
     version = "{{ version }}"
+    endpoint {
+      id = "{{ id }}"
+      region = "{{ region }}"
+      type = "{{ type }}"
+      value = "{{ value }}"
+    }
+    rule {
+      id = "{{ id }}"
+      type = "{{ type }}"
+      geo_proximity_location {
+        bias = "{{ bias }}"
+        endpoint_reference = "{{ endpoint_reference }}"
+        evaluate_target_health = {{ evaluate_target_health }}
+        health_check = "{{ health_check }}"
+        latitude = "{{ latitude }}"
+        longitude = "{{ longitude }}"
+        region = "{{ region }}"
+        rule_reference = "{{ rule_reference }}"
+      }
+      items {
+        endpoint_reference = "{{ endpoint_reference }}"
+        health_check = "{{ health_check }}"
+      }
+      location {
+        continent = "{{ continent }}"
+        country = "{{ country }}"
+        endpoint_reference = "{{ endpoint_reference }}"
+        evaluate_target_health = {{ evaluate_target_health }}
+        health_check = "{{ health_check }}"
+        is_default = {{ is_default }}
+        rule_reference = "{{ rule_reference }}"
+        subdivision = "{{ subdivision }}"
+      }
+      primary {
+        endpoint_reference = "{{ endpoint_reference }}"
+        evaluate_target_health = {{ evaluate_target_health }}
+        health_check = "{{ health_check }}"
+        rule_reference = "{{ rule_reference }}"
+      }
+      region {
+        endpoint_reference = "{{ endpoint_reference }}"
+        evaluate_target_health = {{ evaluate_target_health }}
+        health_check = "{{ health_check }}"
+        region = "{{ region }}"
+        rule_reference = "{{ rule_reference }}"
+      }
+      secondary {
+        endpoint_reference = "{{ endpoint_reference }}"
+        evaluate_target_health = {{ evaluate_target_health }}
+        health_check = "{{ health_check }}"
+        rule_reference = "{{ rule_reference }}"
+      }
+    }
 }

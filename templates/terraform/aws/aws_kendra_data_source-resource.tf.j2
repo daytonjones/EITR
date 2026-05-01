@@ -1,18 +1,122 @@
 resource "aws_kendra_data_source" "example" {
-    arn = "{{ arn }}"
-    created_at = "{{ created_at }}"
-    data_source_id = "{{ data_source_id }}"
     description = "{{ description }}"
-    error_message = "{{ error_message }}"
     id = "{{ id }}"
     index_id = "{{ index_id }}"
     language_code = "{{ language_code }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
     schedule = "{{ schedule }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     type = "{{ type }}"
-    updated_at = "{{ updated_at }}"
+    configuration {
+      s3_configuration {
+        bucket_name = "{{ bucket_name }}"
+        exclusion_patterns = ["{{ exclusion_patterns }}"]
+        inclusion_patterns = ["{{ inclusion_patterns }}"]
+        inclusion_prefixes = ["{{ inclusion_prefixes }}"]
+        access_control_list_configuration {
+          key_path = "{{ key_path }}"
+        }
+        documents_metadata_configuration {
+          s3_prefix = "{{ s3_prefix }}"
+        }
+      }
+      template_configuration {
+        template = "{{ template }}"
+      }
+      web_crawler_configuration {
+        crawl_depth = {{ crawl_depth }}
+        max_content_size_per_page_in_mega_bytes = {{ max_content_size_per_page_in_mega_bytes }}
+        max_links_per_page = {{ max_links_per_page }}
+        max_urls_per_minute_crawl_rate = {{ max_urls_per_minute_crawl_rate }}
+        url_exclusion_patterns = ["{{ url_exclusion_patterns }}"]
+        url_inclusion_patterns = ["{{ url_inclusion_patterns }}"]
+        authentication_configuration {
+          basic_authentication {
+            credentials = "{{ credentials }}"
+            host = "{{ host }}"
+            port = {{ port }}
+          }
+        }
+        proxy_configuration {
+          credentials = "{{ credentials }}"
+          host = "{{ host }}"
+          port = {{ port }}
+        }
+        urls {
+          seed_url_configuration {
+            seed_urls = ["{{ seed_urls }}"]
+            web_crawler_mode = "{{ web_crawler_mode }}"
+          }
+          site_maps_configuration {
+            site_maps = ["{{ site_maps }}"]
+          }
+        }
+      }
+    }
+    custom_document_enrichment_configuration {
+      role_arn = "{{ role_arn }}"
+      inline_configurations {
+        document_content_deletion = {{ document_content_deletion }}
+        condition {
+          condition_document_attribute_key = "{{ condition_document_attribute_key }}"
+          operator = "{{ operator }}"
+          condition_on_value {
+            date_value = "{{ date_value }}"
+            long_value = {{ long_value }}
+            string_list_value = ["{{ string_list_value }}"]
+            string_value = "{{ string_value }}"
+          }
+        }
+        target {
+          target_document_attribute_key = "{{ target_document_attribute_key }}"
+          target_document_attribute_value_deletion = {{ target_document_attribute_value_deletion }}
+          target_document_attribute_value {
+            date_value = "{{ date_value }}"
+            long_value = {{ long_value }}
+            string_list_value = ["{{ string_list_value }}"]
+            string_value = "{{ string_value }}"
+          }
+        }
+      }
+      post_extraction_hook_configuration {
+        lambda_arn = "{{ lambda_arn }}"
+        s3_bucket = "{{ s3_bucket }}"
+        invocation_condition {
+          condition_document_attribute_key = "{{ condition_document_attribute_key }}"
+          operator = "{{ operator }}"
+          condition_on_value {
+            date_value = "{{ date_value }}"
+            long_value = {{ long_value }}
+            string_list_value = ["{{ string_list_value }}"]
+            string_value = "{{ string_value }}"
+          }
+        }
+      }
+      pre_extraction_hook_configuration {
+        lambda_arn = "{{ lambda_arn }}"
+        s3_bucket = "{{ s3_bucket }}"
+        invocation_condition {
+          condition_document_attribute_key = "{{ condition_document_attribute_key }}"
+          operator = "{{ operator }}"
+          condition_on_value {
+            date_value = "{{ date_value }}"
+            long_value = {{ long_value }}
+            string_list_value = ["{{ string_list_value }}"]
+            string_value = "{{ string_value }}"
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

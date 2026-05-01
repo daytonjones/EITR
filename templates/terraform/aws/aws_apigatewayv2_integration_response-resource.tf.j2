@@ -4,6 +4,9 @@ resource "aws_apigatewayv2_integration_response" "example" {
     id = "{{ id }}"
     integration_id = "{{ integration_id }}"
     integration_response_key = "{{ integration_response_key }}"
-    response_templates = "{{ response_templates }}"
+    region = "{{ region }}"
+    response_templates = {
+        key = "{{ response_templates_value }}"
+      }
     template_selection_expression = "{{ template_selection_expression }}"
 }

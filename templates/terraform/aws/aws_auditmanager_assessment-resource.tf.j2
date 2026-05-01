@@ -1,12 +1,25 @@
 resource "aws_auditmanager_assessment" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     framework_id = "{{ framework_id }}"
-    id = "{{ id }}"
     name = "{{ name }}"
-    roles = "{{ roles }}"
-    roles_all = "{{ roles_all }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    assessment_reports_destination {
+      destination = "{{ destination }}"
+      destination_type = "{{ destination_type }}"
+    }
+    roles {
+      role_arn = "{{ role_arn }}"
+      role_type = "{{ role_type }}"
+    }
+    scope {
+      aws_accounts {
+        id = "{{ id }}"
+      }
+      aws_services {
+        service_name = "{{ service_name }}"
+      }
+    }
 }

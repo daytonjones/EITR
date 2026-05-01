@@ -1,0 +1,19 @@
+resource "google_managed_kafka_connector" "example" {
+    configs = {
+        key = "{{ configs_value }}"
+      }
+    connect_cluster = "{{ connect_cluster }}"
+    connector_id = "{{ connector_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    task_restart_policy {
+      maximum_backoff = "{{ maximum_backoff }}"
+      minimum_backoff = "{{ minimum_backoff }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

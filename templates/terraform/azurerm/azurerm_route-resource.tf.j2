@@ -6,4 +6,10 @@ resource "azurerm_route" "example" {
     next_hop_type = "{{ next_hop_type }}"
     resource_group_name = "{{ resource_group_name }}"
     route_table_name = "{{ route_table_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,30 @@
+resource "google_network_services_lb_edge_extension" "example" {
+    description = "{{ description }}"
+    forwarding_rules = ["{{ forwarding_rules }}"]
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    load_balancing_scheme = "{{ load_balancing_scheme }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    extension_chains {
+      name = "{{ name }}"
+      extensions {
+        fail_open = {{ fail_open }}
+        forward_headers = ["{{ forward_headers }}"]
+        name = "{{ name }}"
+        service = "{{ service }}"
+        supported_events = ["{{ supported_events }}"]
+      }
+      match_condition {
+        cel_expression = "{{ cel_expression }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

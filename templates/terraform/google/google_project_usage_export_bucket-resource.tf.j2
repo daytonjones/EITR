@@ -3,4 +3,8 @@ resource "google_project_usage_export_bucket" "example" {
     id = "{{ id }}"
     prefix = "{{ prefix }}"
     project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

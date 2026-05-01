@@ -1,13 +1,39 @@
 resource "google_iam_workload_identity_pool_provider" "example" {
     attribute_condition = "{{ attribute_condition }}"
-    attribute_mapping = "{{ attribute_mapping }}"
+    attribute_mapping = {
+        key = "{{ attribute_mapping_value }}"
+      }
     description = "{{ description }}"
-    disabled = "{{ disabled }}"
+    disabled = {{ disabled }}
     display_name = "{{ display_name }}"
     id = "{{ id }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    state = "{{ state }}"
     workload_identity_pool_id = "{{ workload_identity_pool_id }}"
     workload_identity_pool_provider_id = "{{ workload_identity_pool_provider_id }}"
+    aws {
+      account_id = "{{ account_id }}"
+    }
+    oidc {
+      allowed_audiences = ["{{ allowed_audiences }}"]
+      issuer_uri = "{{ issuer_uri }}"
+      jwks_json = "{{ jwks_json }}"
+    }
+    saml {
+      idp_metadata_xml = "{{ idp_metadata_xml }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    x509 {
+      trust_store {
+        intermediate_cas {
+          pem_certificate = "{{ pem_certificate }}"
+        }
+        trust_anchors {
+          pem_certificate = "{{ pem_certificate }}"
+        }
+      }
+    }
 }

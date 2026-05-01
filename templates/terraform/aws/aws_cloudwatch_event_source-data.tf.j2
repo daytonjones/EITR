@@ -1,8 +1,5 @@
 data "aws_cloudwatch_event_source" "example" {
-    arn = "{{ arn }}"
-    created_by = "{{ created_by }}"
     id = "{{ id }}"
-    name = "{{ name }}"
     name_prefix = "{{ name_prefix }}"
-    state = "{{ state }}"
+    region = "{{ region }}"
 }

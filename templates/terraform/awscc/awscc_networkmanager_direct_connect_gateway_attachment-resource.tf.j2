@@ -1,0 +1,9 @@
+resource "awscc_networkmanager_direct_connect_gateway_attachment" "example" {
+    core_network_id = "{{ core_network_id }}"
+    direct_connect_gateway_arn = "{{ direct_connect_gateway_arn }}"
+    edge_locations = ["{{ edge_locations }}"]
+    proposed_network_function_group_change = "{{ proposed_network_function_group_change }}"
+    proposed_segment_change = "{{ proposed_segment_change }}"
+    routing_policy_label = "{{ routing_policy_label }}"
+    tags = "{{ tags }}"
+}

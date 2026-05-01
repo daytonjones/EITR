@@ -1,20 +1,103 @@
 resource "google_storage_bucket" "example" {
-    default_event_based_hold = "{{ default_event_based_hold }}"
-    effective_labels = "{{ effective_labels }}"
-    enable_object_retention = "{{ enable_object_retention }}"
-    force_destroy = "{{ force_destroy }}"
+    default_event_based_hold = {{ default_event_based_hold }}
+    enable_object_retention = {{ enable_object_retention }}
+    force_destroy = {{ force_destroy }}
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    project_number = "{{ project_number }}"
     public_access_prevention = "{{ public_access_prevention }}"
-    requester_pays = "{{ requester_pays }}"
+    requester_pays = {{ requester_pays }}
     rpo = "{{ rpo }}"
-    self_link = "{{ self_link }}"
     storage_class = "{{ storage_class }}"
-    terraform_labels = "{{ terraform_labels }}"
-    uniform_bucket_level_access = "{{ uniform_bucket_level_access }}"
-    url = "{{ url }}"
+    uniform_bucket_level_access = {{ uniform_bucket_level_access }}
+    autoclass {
+      enabled = {{ enabled }}
+      terminal_storage_class = "{{ terminal_storage_class }}"
+    }
+    cors {
+      max_age_seconds = {{ max_age_seconds }}
+      method = ["{{ method }}"]
+      origin = ["{{ origin }}"]
+      response_header = ["{{ response_header }}"]
+    }
+    custom_placement_config {
+      data_locations = ["{{ data_locations }}"]
+    }
+    encryption {
+      default_kms_key_name = "{{ default_kms_key_name }}"
+      customer_managed_encryption_enforcement_config {
+        restriction_mode = "{{ restriction_mode }}"
+      }
+      customer_supplied_encryption_enforcement_config {
+        restriction_mode = "{{ restriction_mode }}"
+      }
+      google_managed_encryption_enforcement_config {
+        restriction_mode = "{{ restriction_mode }}"
+      }
+    }
+    hierarchical_namespace {
+      enabled = {{ enabled }}
+    }
+    ip_filter {
+      allow_all_service_agent_access = {{ allow_all_service_agent_access }}
+      allow_cross_org_vpcs = {{ allow_cross_org_vpcs }}
+      mode = "{{ mode }}"
+      public_network_source {
+        allowed_ip_cidr_ranges = ["{{ allowed_ip_cidr_ranges }}"]
+      }
+      vpc_network_sources {
+        allowed_ip_cidr_ranges = ["{{ allowed_ip_cidr_ranges }}"]
+        network = "{{ network }}"
+      }
+    }
+    lifecycle_rule {
+      action {
+        storage_class = "{{ storage_class }}"
+        type = "{{ type }}"
+      }
+      condition {
+        age = {{ age }}
+        created_before = "{{ created_before }}"
+        custom_time_before = "{{ custom_time_before }}"
+        days_since_custom_time = {{ days_since_custom_time }}
+        days_since_noncurrent_time = {{ days_since_noncurrent_time }}
+        matches_prefix = ["{{ matches_prefix }}"]
+        matches_storage_class = ["{{ matches_storage_class }}"]
+        matches_suffix = ["{{ matches_suffix }}"]
+        noncurrent_time_before = "{{ noncurrent_time_before }}"
+        num_newer_versions = {{ num_newer_versions }}
+        send_age_if_zero = {{ send_age_if_zero }}
+        send_days_since_custom_time_if_zero = {{ send_days_since_custom_time_if_zero }}
+        send_days_since_noncurrent_time_if_zero = {{ send_days_since_noncurrent_time_if_zero }}
+        send_num_newer_versions_if_zero = {{ send_num_newer_versions_if_zero }}
+        with_state = "{{ with_state }}"
+      }
+    }
+    logging {
+      log_bucket = "{{ log_bucket }}"
+      log_object_prefix = "{{ log_object_prefix }}"
+    }
+    retention_policy {
+      is_locked = {{ is_locked }}
+      retention_period = "{{ retention_period }}"
+    }
+    soft_delete_policy {
+      retention_duration_seconds = {{ retention_duration_seconds }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    versioning {
+      enabled = {{ enabled }}
+    }
+    website {
+      main_page_suffix = "{{ main_page_suffix }}"
+      not_found_page = "{{ not_found_page }}"
+    }
 }

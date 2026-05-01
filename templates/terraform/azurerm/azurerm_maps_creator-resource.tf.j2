@@ -3,6 +3,14 @@ resource "azurerm_maps_creator" "example" {
     location = "{{ location }}"
     maps_account_id = "{{ maps_account_id }}"
     name = "{{ name }}"
-    storage_units = "{{ storage_units }}"
-    tags = "{{ tags }}"
+    storage_units = {{ storage_units }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

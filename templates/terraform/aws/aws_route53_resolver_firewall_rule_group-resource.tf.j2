@@ -1,9 +1,11 @@
 resource "aws_route53_resolver_firewall_rule_group" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    owner_id = "{{ owner_id }}"
-    share_status = "{{ share_status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

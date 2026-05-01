@@ -5,5 +5,9 @@ resource "azurerm_app_service_public_certificate" "example" {
     certificate_name = "{{ certificate_name }}"
     id = "{{ id }}"
     resource_group_name = "{{ resource_group_name }}"
-    thumbprint = "{{ thumbprint }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

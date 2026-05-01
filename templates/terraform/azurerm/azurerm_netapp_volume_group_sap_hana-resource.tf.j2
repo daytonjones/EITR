@@ -6,4 +6,49 @@ resource "azurerm_netapp_volume_group_sap_hana" "example" {
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    volume {
+      capacity_pool_id = "{{ capacity_pool_id }}"
+      encryption_key_source = "{{ encryption_key_source }}"
+      key_vault_private_endpoint_id = "{{ key_vault_private_endpoint_id }}"
+      name = "{{ name }}"
+      network_features = "{{ network_features }}"
+      protocols = ["{{ protocols }}"]
+      proximity_placement_group_id = "{{ proximity_placement_group_id }}"
+      security_style = "{{ security_style }}"
+      service_level = "{{ service_level }}"
+      snapshot_directory_visible = {{ snapshot_directory_visible }}
+      storage_quota_in_gb = {{ storage_quota_in_gb }}
+      subnet_id = "{{ subnet_id }}"
+      tags = {
+        key = "{{ tags_value }}"
+      }
+      throughput_in_mibps = {{ throughput_in_mibps }}
+      volume_path = "{{ volume_path }}"
+      volume_spec_name = "{{ volume_spec_name }}"
+      zone = "{{ zone }}"
+      data_protection_replication {
+        endpoint_type = "{{ endpoint_type }}"
+        remote_volume_location = "{{ remote_volume_location }}"
+        remote_volume_resource_id = "{{ remote_volume_resource_id }}"
+        replication_frequency = "{{ replication_frequency }}"
+      }
+      data_protection_snapshot_policy {
+        snapshot_policy_id = "{{ snapshot_policy_id }}"
+      }
+      export_policy_rule {
+        allowed_clients = "{{ allowed_clients }}"
+        nfsv3_enabled = {{ nfsv3_enabled }}
+        nfsv41_enabled = {{ nfsv41_enabled }}
+        root_access_enabled = {{ root_access_enabled }}
+        rule_index = {{ rule_index }}
+        unix_read_only = {{ unix_read_only }}
+        unix_read_write = {{ unix_read_write }}
+      }
+    }
 }

@@ -3,5 +3,6 @@ resource "aws_dynamodb_table_item" "example" {
     id = "{{ id }}"
     item = "{{ item }}"
     range_key = "{{ range_key }}"
+    region = "{{ region }}"
     table_name = "{{ table_name }}"
 }

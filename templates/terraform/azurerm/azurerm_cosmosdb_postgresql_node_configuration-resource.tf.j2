@@ -3,4 +3,10 @@ resource "azurerm_cosmosdb_postgresql_node_configuration" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     value = "{{ value }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

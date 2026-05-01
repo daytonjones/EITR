@@ -1,11 +1,25 @@
 resource "aws_batch_job_queue" "example" {
-    arn = "{{ arn }}"
-    compute_environments = "{{ compute_environments }}"
-    id = "{{ id }}"
     name = "{{ name }}"
-    priority = "{{ priority }}"
+    priority = {{ priority }}
+    region = "{{ region }}"
     scheduling_policy_arn = "{{ scheduling_policy_arn }}"
     state = "{{ state }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    compute_environment_order {
+      compute_environment = "{{ compute_environment }}"
+      order = {{ order }}
+    }
+    job_state_time_limit_action {
+      action = "{{ action }}"
+      max_time_seconds = {{ max_time_seconds }}
+      reason = "{{ reason }}"
+      state = "{{ state }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,12 +1,168 @@
 resource "aws_bedrockagent_knowledge_base" "example" {
-    arn = "{{ arn }}"
-    created_at = "{{ created_at }}"
     description = "{{ description }}"
-    failure_reasons = "{{ failure_reasons }}"
-    id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    updated_at = "{{ updated_at }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    knowledge_base_configuration {
+      type = "{{ type }}"
+      kendra_knowledge_base_configuration {
+        kendra_index_arn = "{{ kendra_index_arn }}"
+      }
+      sql_knowledge_base_configuration {
+        type = "{{ type }}"
+        redshift_configuration {
+          query_engine_configuration {
+            type = "{{ type }}"
+            provisioned_configuration {
+              cluster_identifier = "{{ cluster_identifier }}"
+              auth_configuration {
+                database_user = "{{ database_user }}"
+                type = "{{ type }}"
+                username_password_secret_arn = "{{ username_password_secret_arn }}"
+              }
+            }
+            serverless_configuration {
+              workgroup_arn = "{{ workgroup_arn }}"
+              auth_configuration {
+                type = "{{ type }}"
+                username_password_secret_arn = "{{ username_password_secret_arn }}"
+              }
+            }
+          }
+          query_generation_configuration {
+            execution_timeout_seconds = {{ execution_timeout_seconds }}
+            generation_context {
+              curated_query {
+                natural_language = "{{ natural_language }}"
+                sql = "{{ sql }}"
+              }
+              table {
+                description = "{{ description }}"
+                inclusion = "{{ inclusion }}"
+                name = "{{ name }}"
+                column {
+                  description = "{{ description }}"
+                  inclusion = "{{ inclusion }}"
+                  name = "{{ name }}"
+                }
+              }
+            }
+          }
+          storage_configuration {
+            type = "{{ type }}"
+            aws_data_catalog_configuration {
+              table_names = ["{{ table_names }}"]
+            }
+            redshift_configuration {
+              database_name = "{{ database_name }}"
+            }
+          }
+        }
+      }
+      vector_knowledge_base_configuration {
+        embedding_model_arn = "{{ embedding_model_arn }}"
+        embedding_model_configuration {
+          bedrock_embedding_model_configuration {
+            dimensions = {{ dimensions }}
+            embedding_data_type = "{{ embedding_data_type }}"
+          }
+        }
+        supplemental_data_storage_configuration {
+          storage_location {
+            type = "{{ type }}"
+            s3_location {
+              uri = "{{ uri }}"
+            }
+          }
+        }
+      }
+    }
+    storage_configuration {
+      type = "{{ type }}"
+      mongo_db_atlas_configuration {
+        collection_name = "{{ collection_name }}"
+        credentials_secret_arn = "{{ credentials_secret_arn }}"
+        database_name = "{{ database_name }}"
+        endpoint = "{{ endpoint }}"
+        endpoint_service_name = "{{ endpoint_service_name }}"
+        text_index_name = "{{ text_index_name }}"
+        vector_index_name = "{{ vector_index_name }}"
+        field_mapping {
+          metadata_field = "{{ metadata_field }}"
+          text_field = "{{ text_field }}"
+          vector_field = "{{ vector_field }}"
+        }
+      }
+      neptune_analytics_configuration {
+        graph_arn = "{{ graph_arn }}"
+        field_mapping {
+          metadata_field = "{{ metadata_field }}"
+          text_field = "{{ text_field }}"
+        }
+      }
+      opensearch_managed_cluster_configuration {
+        domain_arn = "{{ domain_arn }}"
+        domain_endpoint = "{{ domain_endpoint }}"
+        vector_index_name = "{{ vector_index_name }}"
+        field_mapping {
+          metadata_field = "{{ metadata_field }}"
+          text_field = "{{ text_field }}"
+          vector_field = "{{ vector_field }}"
+        }
+      }
+      opensearch_serverless_configuration {
+        collection_arn = "{{ collection_arn }}"
+        vector_index_name = "{{ vector_index_name }}"
+        field_mapping {
+          metadata_field = "{{ metadata_field }}"
+          text_field = "{{ text_field }}"
+          vector_field = "{{ vector_field }}"
+        }
+      }
+      pinecone_configuration {
+        connection_string = "{{ connection_string }}"
+        credentials_secret_arn = "{{ credentials_secret_arn }}"
+        namespace = "{{ namespace }}"
+        field_mapping {
+          metadata_field = "{{ metadata_field }}"
+          text_field = "{{ text_field }}"
+        }
+      }
+      rds_configuration {
+        credentials_secret_arn = "{{ credentials_secret_arn }}"
+        database_name = "{{ database_name }}"
+        resource_arn = "{{ resource_arn }}"
+        table_name = "{{ table_name }}"
+        field_mapping {
+          custom_metadata_field = "{{ custom_metadata_field }}"
+          metadata_field = "{{ metadata_field }}"
+          primary_key_field = "{{ primary_key_field }}"
+          text_field = "{{ text_field }}"
+          vector_field = "{{ vector_field }}"
+        }
+      }
+      redis_enterprise_cloud_configuration {
+        credentials_secret_arn = "{{ credentials_secret_arn }}"
+        endpoint = "{{ endpoint }}"
+        vector_index_name = "{{ vector_index_name }}"
+        field_mapping {
+          metadata_field = "{{ metadata_field }}"
+          text_field = "{{ text_field }}"
+          vector_field = "{{ vector_field }}"
+        }
+      }
+      s3_vectors_configuration {
+        index_arn = "{{ index_arn }}"
+        index_name = "{{ index_name }}"
+        vector_bucket_arn = "{{ vector_bucket_arn }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

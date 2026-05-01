@@ -1,9 +1,9 @@
 resource "aws_redshiftserverless_usage_limit" "example" {
-    amount = "{{ amount }}"
-    arn = "{{ arn }}"
+    amount = {{ amount }}
     breach_action = "{{ breach_action }}"
     id = "{{ id }}"
     period = "{{ period }}"
+    region = "{{ region }}"
     resource_arn = "{{ resource_arn }}"
     usage_type = "{{ usage_type }}"
 }

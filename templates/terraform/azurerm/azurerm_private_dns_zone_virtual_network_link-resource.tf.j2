@@ -2,8 +2,17 @@ resource "azurerm_private_dns_zone_virtual_network_link" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     private_dns_zone_name = "{{ private_dns_zone_name }}"
-    registration_enabled = "{{ registration_enabled }}"
+    registration_enabled = {{ registration_enabled }}
+    resolution_policy = "{{ resolution_policy }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     virtual_network_id = "{{ virtual_network_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

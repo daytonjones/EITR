@@ -3,4 +3,10 @@ resource "azurestack_network_interface_backend_address_pool_association" "exampl
     id = "{{ id }}"
     ip_configuration_name = "{{ ip_configuration_name }}"
     network_interface_id = "{{ network_interface_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

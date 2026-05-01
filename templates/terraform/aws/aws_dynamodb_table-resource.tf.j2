@@ -1,22 +1,107 @@
 resource "aws_dynamodb_table" "example" {
-    arn = "{{ arn }}"
     billing_mode = "{{ billing_mode }}"
-    deletion_protection_enabled = "{{ deletion_protection_enabled }}"
+    deletion_protection_enabled = {{ deletion_protection_enabled }}
     hash_key = "{{ hash_key }}"
     id = "{{ id }}"
     name = "{{ name }}"
     range_key = "{{ range_key }}"
-    read_capacity = "{{ read_capacity }}"
+    read_capacity = {{ read_capacity }}
+    region = "{{ region }}"
+    restore_backup_arn = "{{ restore_backup_arn }}"
     restore_date_time = "{{ restore_date_time }}"
     restore_source_name = "{{ restore_source_name }}"
     restore_source_table_arn = "{{ restore_source_table_arn }}"
-    restore_to_latest_time = "{{ restore_to_latest_time }}"
-    stream_arn = "{{ stream_arn }}"
-    stream_enabled = "{{ stream_enabled }}"
-    stream_label = "{{ stream_label }}"
+    restore_to_latest_time = {{ restore_to_latest_time }}
+    stream_enabled = {{ stream_enabled }}
     stream_view_type = "{{ stream_view_type }}"
     table_class = "{{ table_class }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    write_capacity = "{{ write_capacity }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    write_capacity = {{ write_capacity }}
+    attribute {
+      name = "{{ name }}"
+      type = "{{ type }}"
+    }
+    global_secondary_index {
+      hash_key = "{{ hash_key }}"
+      name = "{{ name }}"
+      non_key_attributes = ["{{ non_key_attributes }}"]
+      projection_type = "{{ projection_type }}"
+      range_key = "{{ range_key }}"
+      read_capacity = {{ read_capacity }}
+      write_capacity = {{ write_capacity }}
+      key_schema {
+        attribute_name = "{{ attribute_name }}"
+        key_type = "{{ key_type }}"
+      }
+      on_demand_throughput {
+        max_read_request_units = {{ max_read_request_units }}
+        max_write_request_units = {{ max_write_request_units }}
+      }
+      warm_throughput {
+        read_units_per_second = {{ read_units_per_second }}
+        write_units_per_second = {{ write_units_per_second }}
+      }
+    }
+    global_table_witness {
+      region_name = "{{ region_name }}"
+    }
+    import_table {
+      input_compression_type = "{{ input_compression_type }}"
+      input_format = "{{ input_format }}"
+      input_format_options {
+        csv {
+          delimiter = "{{ delimiter }}"
+          header_list = ["{{ header_list }}"]
+        }
+      }
+      s3_bucket_source {
+        bucket = "{{ bucket }}"
+        bucket_owner = "{{ bucket_owner }}"
+        key_prefix = "{{ key_prefix }}"
+      }
+    }
+    local_secondary_index {
+      name = "{{ name }}"
+      non_key_attributes = ["{{ non_key_attributes }}"]
+      projection_type = "{{ projection_type }}"
+      range_key = "{{ range_key }}"
+    }
+    on_demand_throughput {
+      max_read_request_units = {{ max_read_request_units }}
+      max_write_request_units = {{ max_write_request_units }}
+    }
+    point_in_time_recovery {
+      enabled = {{ enabled }}
+      recovery_period_in_days = {{ recovery_period_in_days }}
+    }
+    replica {
+      consistency_mode = "{{ consistency_mode }}"
+      deletion_protection_enabled = {{ deletion_protection_enabled }}
+      kms_key_arn = "{{ kms_key_arn }}"
+      point_in_time_recovery = {{ point_in_time_recovery }}
+      propagate_tags = {{ propagate_tags }}
+      region_name = "{{ region_name }}"
+    }
+    server_side_encryption {
+      enabled = {{ enabled }}
+      kms_key_arn = "{{ kms_key_arn }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    ttl {
+      attribute_name = "{{ attribute_name }}"
+      enabled = {{ enabled }}
+    }
+    warm_throughput {
+      read_units_per_second = {{ read_units_per_second }}
+      write_units_per_second = {{ write_units_per_second }}
+    }
 }

@@ -1,0 +1,7 @@
+resource "aws_workmail_group" "example" {
+    email = "{{ email }}"
+    hidden_from_global_address_list = {{ hidden_from_global_address_list }}
+    name = "{{ name }}"
+    organization_id = "{{ organization_id }}"
+    region = "{{ region }}"
+}

@@ -1,6 +1,17 @@
 resource "google_app_engine_service_split_traffic" "example" {
     id = "{{ id }}"
-    migrate_traffic = "{{ migrate_traffic }}"
+    migrate_traffic = {{ migrate_traffic }}
     project = "{{ project }}"
     service = "{{ service }}"
+    split {
+      allocations = {
+        key = "{{ allocations_value }}"
+      }
+      shard_by = "{{ shard_by }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

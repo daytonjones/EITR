@@ -1,0 +1,16 @@
+resource "aws_ebs_volume_copy" "example" {
+    iops = {{ iops }}
+    region = "{{ region }}"
+    size = {{ size }}
+    source_volume_id = "{{ source_volume_id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    throughput = {{ throughput }}
+    volume_type = "{{ volume_type }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

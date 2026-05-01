@@ -1,11 +1,133 @@
 resource "google_os_config_patch_deployment" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
     duration = "{{ duration }}"
     id = "{{ id }}"
-    last_execute_time = "{{ last_execute_time }}"
-    name = "{{ name }}"
     patch_deployment_id = "{{ patch_deployment_id }}"
     project = "{{ project }}"
-    update_time = "{{ update_time }}"
+    instance_filter {
+      all = {{ all }}
+      instance_name_prefixes = ["{{ instance_name_prefixes }}"]
+      instances = ["{{ instances }}"]
+      zones = ["{{ zones }}"]
+      group_labels {
+        labels = {
+        key = "{{ labels_value }}"
+      }
+      }
+    }
+    one_time_schedule {
+      execute_time = "{{ execute_time }}"
+    }
+    patch_config {
+      mig_instances_allowed = {{ mig_instances_allowed }}
+      reboot_config = "{{ reboot_config }}"
+      skip_unpatchable_vms = {{ skip_unpatchable_vms }}
+      apt {
+        excludes = ["{{ excludes }}"]
+        exclusive_packages = ["{{ exclusive_packages }}"]
+        type = "{{ type }}"
+      }
+      goo {
+        enabled = {{ enabled }}
+      }
+      post_step {
+        linux_exec_step_config {
+          allowed_success_codes = ["{{ allowed_success_codes }}"]
+          interpreter = "{{ interpreter }}"
+          local_path = "{{ local_path }}"
+          gcs_object {
+            bucket = "{{ bucket }}"
+            generation_number = "{{ generation_number }}"
+            object = "{{ object }}"
+          }
+        }
+        windows_exec_step_config {
+          allowed_success_codes = ["{{ allowed_success_codes }}"]
+          interpreter = "{{ interpreter }}"
+          local_path = "{{ local_path }}"
+          gcs_object {
+            bucket = "{{ bucket }}"
+            generation_number = "{{ generation_number }}"
+            object = "{{ object }}"
+          }
+        }
+      }
+      pre_step {
+        linux_exec_step_config {
+          allowed_success_codes = ["{{ allowed_success_codes }}"]
+          interpreter = "{{ interpreter }}"
+          local_path = "{{ local_path }}"
+          gcs_object {
+            bucket = "{{ bucket }}"
+            generation_number = "{{ generation_number }}"
+            object = "{{ object }}"
+          }
+        }
+        windows_exec_step_config {
+          allowed_success_codes = ["{{ allowed_success_codes }}"]
+          interpreter = "{{ interpreter }}"
+          local_path = "{{ local_path }}"
+          gcs_object {
+            bucket = "{{ bucket }}"
+            generation_number = "{{ generation_number }}"
+            object = "{{ object }}"
+          }
+        }
+      }
+      windows_update {
+        classifications = ["{{ classifications }}"]
+        excludes = ["{{ excludes }}"]
+        exclusive_patches = ["{{ exclusive_patches }}"]
+      }
+      yum {
+        excludes = ["{{ excludes }}"]
+        exclusive_packages = ["{{ exclusive_packages }}"]
+        minimal = {{ minimal }}
+        security = {{ security }}
+      }
+      zypper {
+        categories = ["{{ categories }}"]
+        excludes = ["{{ excludes }}"]
+        exclusive_patches = ["{{ exclusive_patches }}"]
+        severities = ["{{ severities }}"]
+        with_optional = {{ with_optional }}
+        with_update = {{ with_update }}
+      }
+    }
+    recurring_schedule {
+      end_time = "{{ end_time }}"
+      start_time = "{{ start_time }}"
+      monthly {
+        month_day = {{ month_day }}
+        week_day_of_month {
+          day_of_week = "{{ day_of_week }}"
+          day_offset = {{ day_offset }}
+          week_ordinal = {{ week_ordinal }}
+        }
+      }
+      time_of_day {
+        hours = {{ hours }}
+        minutes = {{ minutes }}
+        nanos = {{ nanos }}
+        seconds = {{ seconds }}
+      }
+      time_zone {
+        id = "{{ id }}"
+        version = "{{ version }}"
+      }
+      weekly {
+        day_of_week = "{{ day_of_week }}"
+      }
+    }
+    rollout {
+      mode = "{{ mode }}"
+      disruption_budget {
+        fixed = {{ fixed }}
+        percentage = {{ percentage }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

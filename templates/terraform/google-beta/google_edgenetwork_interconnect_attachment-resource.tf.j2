@@ -1,0 +1,20 @@
+resource "google_edgenetwork_interconnect_attachment" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    interconnect = "{{ interconnect }}"
+    interconnect_attachment_id = "{{ interconnect_attachment_id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    mtu = {{ mtu }}
+    network = "{{ network }}"
+    project = "{{ project }}"
+    vlan_id = {{ vlan_id }}
+    zone = "{{ zone }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

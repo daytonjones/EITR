@@ -1,0 +1,13 @@
+resource "google_iap_web_cloud_run_service_iam_binding" "example" {
+    cloud_run_service_name = "{{ cloud_run_service_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    members = ["{{ members }}"]
+    project = "{{ project }}"
+    role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

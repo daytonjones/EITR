@@ -1,9 +1,13 @@
 resource "google_cloud_run_service_iam_binding" "example" {
-    etag = "{{ etag }}"
     id = "{{ id }}"
     location = "{{ location }}"
-    members = "{{ members }}"
+    members = ["{{ members }}"]
     project = "{{ project }}"
     role = "{{ role }}"
     service = "{{ service }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

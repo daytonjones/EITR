@@ -1,16 +1,64 @@
 resource "aws_kendra_index" "example" {
-    arn = "{{ arn }}"
-    created_at = "{{ created_at }}"
     description = "{{ description }}"
     edition = "{{ edition }}"
-    error_message = "{{ error_message }}"
     id = "{{ id }}"
-    index_statistics = "{{ index_statistics }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    updated_at = "{{ updated_at }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     user_context_policy = "{{ user_context_policy }}"
+    capacity_units {
+      query_capacity_units = {{ query_capacity_units }}
+      storage_capacity_units = {{ storage_capacity_units }}
+    }
+    document_metadata_configuration_updates {
+      name = "{{ name }}"
+      type = "{{ type }}"
+      relevance {
+        duration = "{{ duration }}"
+        freshness = {{ freshness }}
+        importance = {{ importance }}
+        rank_order = "{{ rank_order }}"
+        values_importance_map = {
+        key = "{{ values_importance_map_value }}"
+      }
+      }
+      search {
+        displayable = {{ displayable }}
+        facetable = {{ facetable }}
+        searchable = {{ searchable }}
+        sortable = {{ sortable }}
+      }
+    }
+    server_side_encryption_configuration {
+      kms_key_id = "{{ kms_key_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    user_group_resolution_configuration {
+      user_group_resolution_mode = "{{ user_group_resolution_mode }}"
+    }
+    user_token_configurations {
+      json_token_type_configuration {
+        group_attribute_field = "{{ group_attribute_field }}"
+        user_name_attribute_field = "{{ user_name_attribute_field }}"
+      }
+      jwt_token_type_configuration {
+        claim_regex = "{{ claim_regex }}"
+        group_attribute_field = "{{ group_attribute_field }}"
+        issuer = "{{ issuer }}"
+        key_location = "{{ key_location }}"
+        secrets_manager_arn = "{{ secrets_manager_arn }}"
+        url = "{{ url }}"
+        user_name_attribute_field = "{{ user_name_attribute_field }}"
+      }
+    }
 }

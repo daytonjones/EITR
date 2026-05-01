@@ -1,11 +1,14 @@
 resource "google_scc_mute_config" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
+    expiry_time = "{{ expiry_time }}"
     filter = "{{ filter }}"
     id = "{{ id }}"
-    most_recent_editor = "{{ most_recent_editor }}"
     mute_config_id = "{{ mute_config_id }}"
-    name = "{{ name }}"
     parent = "{{ parent }}"
-    update_time = "{{ update_time }}"
+    type = "{{ type }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

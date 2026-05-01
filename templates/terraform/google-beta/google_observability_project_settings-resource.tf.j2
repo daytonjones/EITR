@@ -1,0 +1,12 @@
+resource "google_observability_project_settings" "example" {
+    default_storage_location = "{{ default_storage_location }}"
+    id = "{{ id }}"
+    kms_key_name = "{{ kms_key_name }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

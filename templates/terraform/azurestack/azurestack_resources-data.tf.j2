@@ -1,8 +1,12 @@
 data "azurestack_resources" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
-    required_tags = "{{ required_tags }}"
+    required_tags = {
+        key = "{{ required_tags_value }}"
+      }
     resource_group_name = "{{ resource_group_name }}"
-    resources = "{{ resources }}"
     type = "{{ type }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

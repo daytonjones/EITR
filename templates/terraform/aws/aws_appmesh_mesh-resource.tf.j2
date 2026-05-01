@@ -1,11 +1,19 @@
 resource "aws_appmesh_mesh" "example" {
-    arn = "{{ arn }}"
-    created_date = "{{ created_date }}"
     id = "{{ id }}"
-    last_updated_date = "{{ last_updated_date }}"
-    mesh_owner = "{{ mesh_owner }}"
     name = "{{ name }}"
-    resource_owner = "{{ resource_owner }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    spec {
+      egress_filter {
+        type = "{{ type }}"
+      }
+      service_discovery {
+        ip_preference = "{{ ip_preference }}"
+      }
+    }
 }

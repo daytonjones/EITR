@@ -1,11 +1,16 @@
 resource "aws_location_place_index" "example" {
-    create_time = "{{ create_time }}"
     data_source = "{{ data_source }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    index_arn = "{{ index_arn }}"
     index_name = "{{ index_name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    update_time = "{{ update_time }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    data_source_configuration {
+      intended_use = "{{ intended_use }}"
+    }
 }

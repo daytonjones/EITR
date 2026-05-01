@@ -1,4 +1,23 @@
 resource "aws_s3control_bucket_lifecycle_configuration" "example" {
     bucket = "{{ bucket }}"
     id = "{{ id }}"
+    region = "{{ region }}"
+    rule {
+      id = "{{ id }}"
+      status = "{{ status }}"
+      abort_incomplete_multipart_upload {
+        days_after_initiation = {{ days_after_initiation }}
+      }
+      expiration {
+        date = "{{ date }}"
+        days = {{ days }}
+        expired_object_delete_marker = {{ expired_object_delete_marker }}
+      }
+      filter {
+        prefix = "{{ prefix }}"
+        tags = {
+        key = "{{ tags_value }}"
+      }
+      }
+    }
 }

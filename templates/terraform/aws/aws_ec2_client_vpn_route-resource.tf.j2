@@ -3,7 +3,10 @@ resource "aws_ec2_client_vpn_route" "example" {
     description = "{{ description }}"
     destination_cidr_block = "{{ destination_cidr_block }}"
     id = "{{ id }}"
-    origin = "{{ origin }}"
+    region = "{{ region }}"
     target_vpc_subnet_id = "{{ target_vpc_subnet_id }}"
-    type = "{{ type }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

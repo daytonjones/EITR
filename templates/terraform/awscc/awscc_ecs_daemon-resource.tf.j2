@@ -1,0 +1,11 @@
+resource "awscc_ecs_daemon" "example" {
+    capacity_provider_arns = ["{{ capacity_provider_arns }}"]
+    cluster_arn = "{{ cluster_arn }}"
+    daemon_name = "{{ daemon_name }}"
+    daemon_task_definition_arn = "{{ daemon_task_definition_arn }}"
+    deployment_configuration = "{{ deployment_configuration }}"
+    enable_ecs_managed_tags = {{ enable_ecs_managed_tags }}
+    enable_execute_command = {{ enable_execute_command }}
+    propagate_tags = "{{ propagate_tags }}"
+    tags = "{{ tags }}"
+}

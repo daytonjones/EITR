@@ -1,5 +1,11 @@
 resource "azuread_claims_mapping_policy" "example" {
-    definition = "{{ definition }}"
+    definition = ["{{ definition }}"]
     display_name = "{{ display_name }}"
     id = "{{ id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

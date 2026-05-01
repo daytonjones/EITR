@@ -1,26 +1,58 @@
 resource "aws_cloudwatch_metric_alarm" "example" {
-    actions_enabled = "{{ actions_enabled }}"
-    alarm_actions = "{{ alarm_actions }}"
+    actions_enabled = {{ actions_enabled }}
+    alarm_actions = ["{{ alarm_actions }}"]
     alarm_description = "{{ alarm_description }}"
     alarm_name = "{{ alarm_name }}"
-    arn = "{{ arn }}"
     comparison_operator = "{{ comparison_operator }}"
-    datapoints_to_alarm = "{{ datapoints_to_alarm }}"
-    dimensions = "{{ dimensions }}"
+    datapoints_to_alarm = {{ datapoints_to_alarm }}
+    dimensions = {
+        key = "{{ dimensions_value }}"
+      }
     evaluate_low_sample_count_percentiles = "{{ evaluate_low_sample_count_percentiles }}"
-    evaluation_periods = "{{ evaluation_periods }}"
+    evaluation_interval = {{ evaluation_interval }}
+    evaluation_periods = {{ evaluation_periods }}
     extended_statistic = "{{ extended_statistic }}"
     id = "{{ id }}"
-    insufficient_data_actions = "{{ insufficient_data_actions }}"
+    insufficient_data_actions = ["{{ insufficient_data_actions }}"]
     metric_name = "{{ metric_name }}"
     namespace = "{{ namespace }}"
-    ok_actions = "{{ ok_actions }}"
-    period = "{{ period }}"
+    ok_actions = ["{{ ok_actions }}"]
+    period = {{ period }}
+    region = "{{ region }}"
     statistic = "{{ statistic }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    threshold = "{{ threshold }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    threshold = {{ threshold }}
     threshold_metric_id = "{{ threshold_metric_id }}"
     treat_missing_data = "{{ treat_missing_data }}"
     unit = "{{ unit }}"
+    evaluation_criteria {
+      promql_criteria {
+        pending_period = {{ pending_period }}
+        query = "{{ query }}"
+        recovery_period = {{ recovery_period }}
+      }
+    }
+    metric_query {
+      account_id = "{{ account_id }}"
+      expression = "{{ expression }}"
+      id = "{{ id }}"
+      label = "{{ label }}"
+      period = {{ period }}
+      return_data = {{ return_data }}
+      metric {
+        dimensions = {
+        key = "{{ dimensions_value }}"
+      }
+        metric_name = "{{ metric_name }}"
+        namespace = "{{ namespace }}"
+        period = {{ period }}
+        stat = "{{ stat }}"
+        unit = "{{ unit }}"
+      }
+    }
 }

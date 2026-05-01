@@ -3,4 +3,10 @@ resource "azurerm_redis_cache_access_policy" "example" {
     name = "{{ name }}"
     permissions = "{{ permissions }}"
     redis_cache_id = "{{ redis_cache_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

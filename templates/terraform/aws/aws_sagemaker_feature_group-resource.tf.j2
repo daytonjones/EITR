@@ -1,11 +1,55 @@
 resource "aws_sagemaker_feature_group" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     event_time_feature_name = "{{ event_time_feature_name }}"
     feature_group_name = "{{ feature_group_name }}"
     id = "{{ id }}"
     record_identifier_feature_name = "{{ record_identifier_feature_name }}"
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    feature_definition {
+      collection_type = "{{ collection_type }}"
+      feature_name = "{{ feature_name }}"
+      feature_type = "{{ feature_type }}"
+      collection_config {
+        vector_config {
+          dimension = {{ dimension }}
+        }
+      }
+    }
+    offline_store_config {
+      disable_glue_table_creation = {{ disable_glue_table_creation }}
+      table_format = "{{ table_format }}"
+      data_catalog_config {
+        catalog = "{{ catalog }}"
+        database = "{{ database }}"
+        table_name = "{{ table_name }}"
+      }
+      s3_storage_config {
+        kms_key_id = "{{ kms_key_id }}"
+        resolved_output_s3_uri = "{{ resolved_output_s3_uri }}"
+        s3_uri = "{{ s3_uri }}"
+      }
+    }
+    online_store_config {
+      enable_online_store = {{ enable_online_store }}
+      storage_type = "{{ storage_type }}"
+      security_config {
+        kms_key_id = "{{ kms_key_id }}"
+      }
+      ttl_duration {
+        unit = "{{ unit }}"
+        value = {{ value }}
+      }
+    }
+    throughput_config {
+      provisioned_read_capacity_units = {{ provisioned_read_capacity_units }}
+      provisioned_write_capacity_units = {{ provisioned_write_capacity_units }}
+      throughput_mode = "{{ throughput_mode }}"
+    }
 }

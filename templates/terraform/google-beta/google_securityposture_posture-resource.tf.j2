@@ -1,14 +1,104 @@
 resource "google_securityposture_posture" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     parent = "{{ parent }}"
     posture_id = "{{ posture_id }}"
-    reconciling = "{{ reconciling }}"
-    revision_id = "{{ revision_id }}"
     state = "{{ state }}"
-    update_time = "{{ update_time }}"
+    policy_sets {
+      description = "{{ description }}"
+      policy_set_id = "{{ policy_set_id }}"
+      policies {
+        description = "{{ description }}"
+        policy_id = "{{ policy_id }}"
+        compliance_standards {
+          control = "{{ control }}"
+          standard = "{{ standard }}"
+        }
+        constraint {
+          org_policy_constraint {
+            canned_constraint_id = "{{ canned_constraint_id }}"
+            policy_rules {
+              allow_all = {{ allow_all }}
+              deny_all = {{ deny_all }}
+              enforce = {{ enforce }}
+              condition {
+                description = "{{ description }}"
+                expression = "{{ expression }}"
+                location = "{{ location }}"
+                title = "{{ title }}"
+              }
+              values {
+                allowed_values = ["{{ allowed_values }}"]
+                denied_values = ["{{ denied_values }}"]
+              }
+            }
+          }
+          org_policy_constraint_custom {
+            custom_constraint {
+              action_type = "{{ action_type }}"
+              condition = "{{ condition }}"
+              description = "{{ description }}"
+              display_name = "{{ display_name }}"
+              method_types = ["{{ method_types }}"]
+              name = "{{ name }}"
+              resource_types = ["{{ resource_types }}"]
+            }
+            policy_rules {
+              allow_all = {{ allow_all }}
+              deny_all = {{ deny_all }}
+              enforce = {{ enforce }}
+              condition {
+                description = "{{ description }}"
+                expression = "{{ expression }}"
+                location = "{{ location }}"
+                title = "{{ title }}"
+              }
+              values {
+                allowed_values = ["{{ allowed_values }}"]
+                denied_values = ["{{ denied_values }}"]
+              }
+            }
+          }
+          security_health_analytics_custom_module {
+            display_name = "{{ display_name }}"
+            module_enablement_state = "{{ module_enablement_state }}"
+            config {
+              description = "{{ description }}"
+              recommendation = "{{ recommendation }}"
+              severity = "{{ severity }}"
+              custom_output {
+                properties {
+                  name = "{{ name }}"
+                  value_expression {
+                    description = "{{ description }}"
+                    expression = "{{ expression }}"
+                    location = "{{ location }}"
+                    title = "{{ title }}"
+                  }
+                }
+              }
+              predicate {
+                description = "{{ description }}"
+                expression = "{{ expression }}"
+                location = "{{ location }}"
+                title = "{{ title }}"
+              }
+              resource_selector {
+                resource_types = ["{{ resource_types }}"]
+              }
+            }
+          }
+          security_health_analytics_module {
+            module_enablement_state = "{{ module_enablement_state }}"
+            module_name = "{{ module_name }}"
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

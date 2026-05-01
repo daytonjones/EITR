@@ -1,11 +1,98 @@
 resource "aws_cloudwatch_event_target" "example" {
     arn = "{{ arn }}"
     event_bus_name = "{{ event_bus_name }}"
-    force_destroy = "{{ force_destroy }}"
+    force_destroy = {{ force_destroy }}
     id = "{{ id }}"
     input = "{{ input }}"
     input_path = "{{ input_path }}"
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
     rule = "{{ rule }}"
     target_id = "{{ target_id }}"
+    appsync_target {
+      graphql_operation = "{{ graphql_operation }}"
+    }
+    batch_target {
+      array_size = {{ array_size }}
+      job_attempts = {{ job_attempts }}
+      job_definition = "{{ job_definition }}"
+      job_name = "{{ job_name }}"
+    }
+    dead_letter_config {
+      arn = "{{ arn }}"
+    }
+    ecs_target {
+      enable_ecs_managed_tags = {{ enable_ecs_managed_tags }}
+      enable_execute_command = {{ enable_execute_command }}
+      group = "{{ group }}"
+      launch_type = "{{ launch_type }}"
+      platform_version = "{{ platform_version }}"
+      propagate_tags = "{{ propagate_tags }}"
+      tags = {
+        key = "{{ tags_value }}"
+      }
+      task_count = {{ task_count }}
+      task_definition_arn = "{{ task_definition_arn }}"
+      capacity_provider_strategy {
+        base = {{ base }}
+        capacity_provider = "{{ capacity_provider }}"
+        weight = {{ weight }}
+      }
+      network_configuration {
+        assign_public_ip = {{ assign_public_ip }}
+        security_groups = ["{{ security_groups }}"]
+        subnets = ["{{ subnets }}"]
+      }
+      ordered_placement_strategy {
+        field = "{{ field }}"
+        type = "{{ type }}"
+      }
+      placement_constraint {
+        expression = "{{ expression }}"
+        type = "{{ type }}"
+      }
+    }
+    http_target {
+      header_parameters = {
+        key = "{{ header_parameters_value }}"
+      }
+      path_parameter_values = ["{{ path_parameter_values }}"]
+      query_string_parameters = {
+        key = "{{ query_string_parameters_value }}"
+      }
+    }
+    input_transformer {
+      input_paths = {
+        key = "{{ input_paths_value }}"
+      }
+      input_template = "{{ input_template }}"
+    }
+    kinesis_target {
+      partition_key_path = "{{ partition_key_path }}"
+    }
+    redshift_target {
+      database = "{{ database }}"
+      db_user = "{{ db_user }}"
+      secrets_manager_arn = "{{ secrets_manager_arn }}"
+      sql = "{{ sql }}"
+      statement_name = "{{ statement_name }}"
+      with_event = {{ with_event }}
+    }
+    retry_policy {
+      maximum_event_age_in_seconds = {{ maximum_event_age_in_seconds }}
+      maximum_retry_attempts = {{ maximum_retry_attempts }}
+    }
+    run_command_targets {
+      key = "{{ key }}"
+      values = ["{{ values }}"]
+    }
+    sagemaker_pipeline_target {
+      pipeline_parameter_list {
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+    }
+    sqs_target {
+      message_group_id = "{{ message_group_id }}"
+    }
 }

@@ -2,11 +2,20 @@ resource "vault_azure_auth_backend_config" "example" {
     backend = "{{ backend }}"
     client_id = "{{ client_id }}"
     client_secret = "{{ client_secret }}"
+    client_secret_wo = "{{ client_secret_wo }}"
+    client_secret_wo_version = {{ client_secret_wo_version }}
+    disable_automated_rotation = {{ disable_automated_rotation }}
     environment = "{{ environment }}"
     id = "{{ id }}"
     identity_token_audience = "{{ identity_token_audience }}"
-    identity_token_ttl = "{{ identity_token_ttl }}"
+    identity_token_ttl = {{ identity_token_ttl }}
+    max_retries = {{ max_retries }}
+    max_retry_delay = {{ max_retry_delay }}
     namespace = "{{ namespace }}"
     resource = "{{ resource }}"
+    retry_delay = {{ retry_delay }}
+    rotation_period = {{ rotation_period }}
+    rotation_schedule = "{{ rotation_schedule }}"
+    rotation_window = {{ rotation_window }}
     tenant_id = "{{ tenant_id }}"
 }

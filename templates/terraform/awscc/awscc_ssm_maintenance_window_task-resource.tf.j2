@@ -1,0 +1,16 @@
+resource "awscc_ssm_maintenance_window_task" "example" {
+    cutoff_behavior = "{{ cutoff_behavior }}"
+    description = "{{ description }}"
+    logging_info = "{{ logging_info }}"
+    max_concurrency = "{{ max_concurrency }}"
+    max_errors = "{{ max_errors }}"
+    name = "{{ name }}"
+    priority = {{ priority }}
+    service_role_arn = "{{ service_role_arn }}"
+    targets = "{{ targets }}"
+    task_arn = "{{ task_arn }}"
+    task_invocation_parameters = "{{ task_invocation_parameters }}"
+    task_parameters = "{{ task_parameters }}"
+    task_type = "{{ task_type }}"
+    window_id = "{{ window_id }}"
+}

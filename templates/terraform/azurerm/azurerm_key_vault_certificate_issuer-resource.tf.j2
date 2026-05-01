@@ -6,4 +6,16 @@ resource "azurerm_key_vault_certificate_issuer" "example" {
     org_id = "{{ org_id }}"
     password = "{{ password }}"
     provider_name = "{{ provider_name }}"
+    admin {
+      email_address = "{{ email_address }}"
+      first_name = "{{ first_name }}"
+      last_name = "{{ last_name }}"
+      phone = "{{ phone }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,16 @@
+data "aws_savingsplans_offerings" "example" {
+    currencies = ["{{ currencies }}"]
+    descriptions = ["{{ descriptions }}"]
+    durations = ["{{ durations }}"]
+    offering_ids = ["{{ offering_ids }}"]
+    operations = ["{{ operations }}"]
+    payment_options = ["{{ payment_options }}"]
+    plan_types = ["{{ plan_types }}"]
+    product_type = "{{ product_type }}"
+    service_codes = ["{{ service_codes }}"]
+    usage_types = ["{{ usage_types }}"]
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
+}

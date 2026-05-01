@@ -1,10 +1,235 @@
 resource "aws_appflow_connector_profile" "example" {
-    arn = "{{ arn }}"
     connection_mode = "{{ connection_mode }}"
     connector_label = "{{ connector_label }}"
     connector_type = "{{ connector_type }}"
-    credentials_arn = "{{ credentials_arn }}"
     id = "{{ id }}"
     kms_arn = "{{ kms_arn }}"
     name = "{{ name }}"
+    region = "{{ region }}"
+    connector_profile_config {
+      connector_profile_credentials {
+        amplitude {
+          api_key = "{{ api_key }}"
+          secret_key = "{{ secret_key }}"
+        }
+        custom_connector {
+          authentication_type = "{{ authentication_type }}"
+          api_key {
+            api_key = "{{ api_key }}"
+            api_secret_key = "{{ api_secret_key }}"
+          }
+          basic {
+            password = "{{ password }}"
+            username = "{{ username }}"
+          }
+          custom {
+            credentials_map = {
+        key = "{{ credentials_map_value }}"
+      }
+            custom_authentication_type = "{{ custom_authentication_type }}"
+          }
+          oauth2 {
+            access_token = "{{ access_token }}"
+            client_id = "{{ client_id }}"
+            client_secret = "{{ client_secret }}"
+            refresh_token = "{{ refresh_token }}"
+            oauth_request {
+              auth_code = "{{ auth_code }}"
+              redirect_uri = "{{ redirect_uri }}"
+            }
+          }
+        }
+        datadog {
+          api_key = "{{ api_key }}"
+          application_key = "{{ application_key }}"
+        }
+        dynatrace {
+          api_token = "{{ api_token }}"
+        }
+        google_analytics {
+          access_token = "{{ access_token }}"
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+          refresh_token = "{{ refresh_token }}"
+          oauth_request {
+            auth_code = "{{ auth_code }}"
+            redirect_uri = "{{ redirect_uri }}"
+          }
+        }
+        honeycode {
+          access_token = "{{ access_token }}"
+          refresh_token = "{{ refresh_token }}"
+          oauth_request {
+            auth_code = "{{ auth_code }}"
+            redirect_uri = "{{ redirect_uri }}"
+          }
+        }
+        infor_nexus {
+          access_key_id = "{{ access_key_id }}"
+          datakey = "{{ datakey }}"
+          secret_access_key = "{{ secret_access_key }}"
+          user_id = "{{ user_id }}"
+        }
+        marketo {
+          access_token = "{{ access_token }}"
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+          oauth_request {
+            auth_code = "{{ auth_code }}"
+            redirect_uri = "{{ redirect_uri }}"
+          }
+        }
+        redshift {
+          password = "{{ password }}"
+          username = "{{ username }}"
+        }
+        salesforce {
+          access_token = "{{ access_token }}"
+          client_credentials_arn = "{{ client_credentials_arn }}"
+          jwt_token = "{{ jwt_token }}"
+          oauth2_grant_type = "{{ oauth2_grant_type }}"
+          refresh_token = "{{ refresh_token }}"
+          oauth_request {
+            auth_code = "{{ auth_code }}"
+            redirect_uri = "{{ redirect_uri }}"
+          }
+        }
+        sapo_data {
+          basic_auth_credentials {
+            password = "{{ password }}"
+            username = "{{ username }}"
+          }
+          oauth_credentials {
+            access_token = "{{ access_token }}"
+            client_id = "{{ client_id }}"
+            client_secret = "{{ client_secret }}"
+            refresh_token = "{{ refresh_token }}"
+            oauth_request {
+              auth_code = "{{ auth_code }}"
+              redirect_uri = "{{ redirect_uri }}"
+            }
+          }
+        }
+        service_now {
+          password = "{{ password }}"
+          username = "{{ username }}"
+        }
+        singular {
+          api_key = "{{ api_key }}"
+        }
+        slack {
+          access_token = "{{ access_token }}"
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+          oauth_request {
+            auth_code = "{{ auth_code }}"
+            redirect_uri = "{{ redirect_uri }}"
+          }
+        }
+        snowflake {
+          password = "{{ password }}"
+          username = "{{ username }}"
+        }
+        trendmicro {
+          api_secret_key = "{{ api_secret_key }}"
+        }
+        veeva {
+          password = "{{ password }}"
+          username = "{{ username }}"
+        }
+        zendesk {
+          access_token = "{{ access_token }}"
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+          oauth_request {
+            auth_code = "{{ auth_code }}"
+            redirect_uri = "{{ redirect_uri }}"
+          }
+        }
+      }
+      connector_profile_properties {
+        amplitude {
+        }
+        custom_connector {
+          profile_properties = {
+        key = "{{ profile_properties_value }}"
+      }
+          oauth2_properties {
+            oauth2_grant_type = "{{ oauth2_grant_type }}"
+            token_url = "{{ token_url }}"
+            token_url_custom_properties = {
+        key = "{{ token_url_custom_properties_value }}"
+      }
+          }
+        }
+        datadog {
+          instance_url = "{{ instance_url }}"
+        }
+        dynatrace {
+          instance_url = "{{ instance_url }}"
+        }
+        google_analytics {
+        }
+        honeycode {
+        }
+        infor_nexus {
+          instance_url = "{{ instance_url }}"
+        }
+        marketo {
+          instance_url = "{{ instance_url }}"
+        }
+        redshift {
+          bucket_name = "{{ bucket_name }}"
+          bucket_prefix = "{{ bucket_prefix }}"
+          cluster_identifier = "{{ cluster_identifier }}"
+          data_api_role_arn = "{{ data_api_role_arn }}"
+          database_name = "{{ database_name }}"
+          database_url = "{{ database_url }}"
+          role_arn = "{{ role_arn }}"
+        }
+        salesforce {
+          instance_url = "{{ instance_url }}"
+          is_sandbox_environment = {{ is_sandbox_environment }}
+          use_privatelink_for_metadata_and_authorization = {{ use_privatelink_for_metadata_and_authorization }}
+        }
+        sapo_data {
+          application_host_url = "{{ application_host_url }}"
+          application_service_path = "{{ application_service_path }}"
+          client_number = "{{ client_number }}"
+          logon_language = "{{ logon_language }}"
+          port_number = {{ port_number }}
+          private_link_service_name = "{{ private_link_service_name }}"
+          oauth_properties {
+            auth_code_url = "{{ auth_code_url }}"
+            oauth_scopes = ["{{ oauth_scopes }}"]
+            token_url = "{{ token_url }}"
+          }
+        }
+        service_now {
+          instance_url = "{{ instance_url }}"
+        }
+        singular {
+        }
+        slack {
+          instance_url = "{{ instance_url }}"
+        }
+        snowflake {
+          account_name = "{{ account_name }}"
+          bucket_name = "{{ bucket_name }}"
+          bucket_prefix = "{{ bucket_prefix }}"
+          private_link_service_name = "{{ private_link_service_name }}"
+          region = "{{ region }}"
+          stage = "{{ stage }}"
+          warehouse = "{{ warehouse }}"
+        }
+        trendmicro {
+        }
+        veeva {
+          instance_url = "{{ instance_url }}"
+        }
+        zendesk {
+          instance_url = "{{ instance_url }}"
+        }
+      }
+    }
 }

@@ -1,16 +1,53 @@
 resource "azurerm_key_vault_certificate" "example" {
-    certificate_attribute = "{{ certificate_attribute }}"
-    certificate_data = "{{ certificate_data }}"
-    certificate_data_base64 = "{{ certificate_data_base64 }}"
     id = "{{ id }}"
     key_vault_id = "{{ key_vault_id }}"
     name = "{{ name }}"
-    resource_manager_id = "{{ resource_manager_id }}"
-    resource_manager_versionless_id = "{{ resource_manager_versionless_id }}"
-    secret_id = "{{ secret_id }}"
-    tags = "{{ tags }}"
-    thumbprint = "{{ thumbprint }}"
-    version = "{{ version }}"
-    versionless_id = "{{ versionless_id }}"
-    versionless_secret_id = "{{ versionless_secret_id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    certificate {
+      contents = "{{ contents }}"
+      password = "{{ password }}"
+    }
+    certificate_policy {
+      issuer_parameters {
+        name = "{{ name }}"
+      }
+      key_properties {
+        curve = "{{ curve }}"
+        exportable = {{ exportable }}
+        key_size = {{ key_size }}
+        key_type = "{{ key_type }}"
+        reuse_key = {{ reuse_key }}
+      }
+      lifetime_action {
+        action {
+          action_type = "{{ action_type }}"
+        }
+        trigger {
+          days_before_expiry = {{ days_before_expiry }}
+          lifetime_percentage = {{ lifetime_percentage }}
+        }
+      }
+      secret_properties {
+        content_type = "{{ content_type }}"
+      }
+      x509_certificate_properties {
+        extended_key_usage = ["{{ extended_key_usage }}"]
+        key_usage = ["{{ key_usage }}"]
+        subject = "{{ subject }}"
+        validity_in_months = {{ validity_in_months }}
+        subject_alternative_names {
+          dns_names = ["{{ dns_names }}"]
+          emails = ["{{ emails }}"]
+          upns = ["{{ upns }}"]
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

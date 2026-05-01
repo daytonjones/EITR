@@ -1,7 +1,13 @@
 resource "azurerm_sentinel_alert_rule_machine_learning_behavior_analytics" "example" {
     alert_rule_template_guid = "{{ alert_rule_template_guid }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     log_analytics_workspace_id = "{{ log_analytics_workspace_id }}"
     name = "{{ name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

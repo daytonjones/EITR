@@ -1,5 +1,58 @@
 resource "aws_autoscalingplans_scaling_plan" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
-    scaling_plan_version = "{{ scaling_plan_version }}"
+    region = "{{ region }}"
+    application_source {
+      cloudformation_stack_arn = "{{ cloudformation_stack_arn }}"
+      tag_filter {
+        key = "{{ key }}"
+        values = ["{{ values }}"]
+      }
+    }
+    scaling_instruction {
+      disable_dynamic_scaling = {{ disable_dynamic_scaling }}
+      max_capacity = {{ max_capacity }}
+      min_capacity = {{ min_capacity }}
+      predictive_scaling_max_capacity_behavior = "{{ predictive_scaling_max_capacity_behavior }}"
+      predictive_scaling_max_capacity_buffer = {{ predictive_scaling_max_capacity_buffer }}
+      predictive_scaling_mode = "{{ predictive_scaling_mode }}"
+      resource_id = "{{ resource_id }}"
+      scalable_dimension = "{{ scalable_dimension }}"
+      scaling_policy_update_behavior = "{{ scaling_policy_update_behavior }}"
+      scheduled_action_buffer_time = {{ scheduled_action_buffer_time }}
+      service_namespace = "{{ service_namespace }}"
+      customized_load_metric_specification {
+        dimensions = {
+        key = "{{ dimensions_value }}"
+      }
+        metric_name = "{{ metric_name }}"
+        namespace = "{{ namespace }}"
+        statistic = "{{ statistic }}"
+        unit = "{{ unit }}"
+      }
+      predefined_load_metric_specification {
+        predefined_load_metric_type = "{{ predefined_load_metric_type }}"
+        resource_label = "{{ resource_label }}"
+      }
+      target_tracking_configuration {
+        disable_scale_in = {{ disable_scale_in }}
+        estimated_instance_warmup = {{ estimated_instance_warmup }}
+        scale_in_cooldown = {{ scale_in_cooldown }}
+        scale_out_cooldown = {{ scale_out_cooldown }}
+        target_value = {{ target_value }}
+        customized_scaling_metric_specification {
+          dimensions = {
+        key = "{{ dimensions_value }}"
+      }
+          metric_name = "{{ metric_name }}"
+          namespace = "{{ namespace }}"
+          statistic = "{{ statistic }}"
+          unit = "{{ unit }}"
+        }
+        predefined_scaling_metric_specification {
+          predefined_scaling_metric_type = "{{ predefined_scaling_metric_type }}"
+          resource_label = "{{ resource_label }}"
+        }
+      }
+    }
 }

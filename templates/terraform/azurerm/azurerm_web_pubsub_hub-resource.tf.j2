@@ -1,6 +1,26 @@
 resource "azurerm_web_pubsub_hub" "example" {
-    anonymous_connections_enabled = "{{ anonymous_connections_enabled }}"
+    anonymous_connections_enabled = {{ anonymous_connections_enabled }}
     id = "{{ id }}"
     name = "{{ name }}"
     web_pubsub_id = "{{ web_pubsub_id }}"
+    event_handler {
+      system_events = ["{{ system_events }}"]
+      url_template = "{{ url_template }}"
+      user_event_pattern = "{{ user_event_pattern }}"
+      auth {
+        managed_identity_id = "{{ managed_identity_id }}"
+      }
+    }
+    event_listener {
+      eventhub_name = "{{ eventhub_name }}"
+      eventhub_namespace_name = "{{ eventhub_namespace_name }}"
+      system_event_name_filter = ["{{ system_event_name_filter }}"]
+      user_event_name_filter = ["{{ user_event_name_filter }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,7 +1,5 @@
 data "google_access_context_manager_access_policy" "example" {
     id = "{{ id }}"
-    name = "{{ name }}"
     parent = "{{ parent }}"
-    scopes = "{{ scopes }}"
-    title = "{{ title }}"
+    scopes = ["{{ scopes }}"]
 }

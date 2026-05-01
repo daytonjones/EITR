@@ -1,11 +1,20 @@
 resource "aws_route53recoverycontrolconfig_safety_rule" "example" {
-    arn = "{{ arn }}"
-    asserted_controls = "{{ asserted_controls }}"
+    asserted_controls = ["{{ asserted_controls }}"]
     control_panel_arn = "{{ control_panel_arn }}"
-    gating_controls = "{{ gating_controls }}"
+    gating_controls = ["{{ gating_controls }}"]
     id = "{{ id }}"
     name = "{{ name }}"
-    status = "{{ status }}"
-    target_controls = "{{ target_controls }}"
-    wait_period_ms = "{{ wait_period_ms }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    target_controls = ["{{ target_controls }}"]
+    wait_period_ms = {{ wait_period_ms }}
+    rule_config {
+      inverted = {{ inverted }}
+      threshold = {{ threshold }}
+      type = "{{ type }}"
+    }
 }

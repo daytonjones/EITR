@@ -1,0 +1,23 @@
+resource "google_network_services_multicast_group_range" "example" {
+    consumer_accept_list = ["{{ consumer_accept_list }}"]
+    description = "{{ description }}"
+    distribution_scope = "{{ distribution_scope }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    multicast_domain = "{{ multicast_domain }}"
+    multicast_group_range_id = "{{ multicast_group_range_id }}"
+    project = "{{ project }}"
+    require_explicit_accept = {{ require_explicit_accept }}
+    reserved_internal_range = "{{ reserved_internal_range }}"
+    log_config {
+      enabled = {{ enabled }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

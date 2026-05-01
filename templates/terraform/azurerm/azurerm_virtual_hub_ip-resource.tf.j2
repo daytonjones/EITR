@@ -6,4 +6,10 @@ resource "azurerm_virtual_hub_ip" "example" {
     public_ip_address_id = "{{ public_ip_address_id }}"
     subnet_id = "{{ subnet_id }}"
     virtual_hub_id = "{{ virtual_hub_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

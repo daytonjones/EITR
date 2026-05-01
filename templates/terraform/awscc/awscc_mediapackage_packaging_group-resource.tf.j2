@@ -1,17 +1,6 @@
 resource "awscc_mediapackage_packaging_group" "example" {
-    arn = "{{ arn }}"
-    authorization = "{
-    cdn_identifier_secret = {{ cdn_identifier_secret }}
-    secrets_role_arn = {{ secrets_role_arn }}
-}"
-    domain_name = "{{ domain_name }}"
-    egress_access_logs = "{
-    log_group_name = {{ log_group_name }}
-}"
-    id = "{{ id }}"
+    authorization = "{{ authorization }}"
+    egress_access_logs = "{{ egress_access_logs }}"
     packaging_group_id = "{{ packaging_group_id }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
 }

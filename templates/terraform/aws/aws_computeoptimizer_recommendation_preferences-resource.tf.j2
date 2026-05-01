@@ -1,8 +1,27 @@
 resource "aws_computeoptimizer_recommendation_preferences" "example" {
     enhanced_infrastructure_metrics = "{{ enhanced_infrastructure_metrics }}"
-    id = "{{ id }}"
     inferred_workload_types = "{{ inferred_workload_types }}"
     look_back_period = "{{ look_back_period }}"
+    region = "{{ region }}"
     resource_type = "{{ resource_type }}"
     savings_estimation_mode = "{{ savings_estimation_mode }}"
+    external_metrics_preference {
+      source = "{{ source }}"
+    }
+    preferred_resource {
+      exclude_list = ["{{ exclude_list }}"]
+      include_list = ["{{ include_list }}"]
+      name = "{{ name }}"
+    }
+    scope {
+      name = "{{ name }}"
+      value = "{{ value }}"
+    }
+    utilization_preference {
+      metric_name = "{{ metric_name }}"
+      metric_parameters {
+        headroom = "{{ headroom }}"
+        threshold = "{{ threshold }}"
+      }
+    }
 }

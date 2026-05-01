@@ -1,17 +1,58 @@
 data "aws_ecs_task_execution" "example" {
     client_token = "{{ client_token }}"
     cluster = "{{ cluster }}"
-    desired_count = "{{ desired_count }}"
-    enable_ecs_managed_tags = "{{ enable_ecs_managed_tags }}"
-    enable_execute_command = "{{ enable_execute_command }}"
+    desired_count = {{ desired_count }}
+    enable_ecs_managed_tags = {{ enable_ecs_managed_tags }}
+    enable_execute_command = {{ enable_execute_command }}
     group = "{{ group }}"
     id = "{{ id }}"
     launch_type = "{{ launch_type }}"
     platform_version = "{{ platform_version }}"
     propagate_tags = "{{ propagate_tags }}"
     reference_id = "{{ reference_id }}"
+    region = "{{ region }}"
     started_by = "{{ started_by }}"
-    tags = "{{ tags }}"
-    task_arns = "{{ task_arns }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     task_definition = "{{ task_definition }}"
+    capacity_provider_strategy {
+      base = {{ base }}
+      capacity_provider = "{{ capacity_provider }}"
+      weight = {{ weight }}
+    }
+    network_configuration {
+      assign_public_ip = {{ assign_public_ip }}
+      security_groups = ["{{ security_groups }}"]
+      subnets = ["{{ subnets }}"]
+    }
+    overrides {
+      cpu = "{{ cpu }}"
+      execution_role_arn = "{{ execution_role_arn }}"
+      memory = "{{ memory }}"
+      task_role_arn = "{{ task_role_arn }}"
+      container_overrides {
+        command = ["{{ command }}"]
+        cpu = {{ cpu }}
+        memory = {{ memory }}
+        memory_reservation = {{ memory_reservation }}
+        name = "{{ name }}"
+        environment {
+          key = "{{ key }}"
+          value = "{{ value }}"
+        }
+        resource_requirements {
+          type = "{{ type }}"
+          value = "{{ value }}"
+        }
+      }
+    }
+    placement_constraints {
+      expression = "{{ expression }}"
+      type = "{{ type }}"
+    }
+    placement_strategy {
+      field = "{{ field }}"
+      type = "{{ type }}"
+    }
 }

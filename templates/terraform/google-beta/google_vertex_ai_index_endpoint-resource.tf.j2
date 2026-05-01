@@ -1,17 +1,28 @@
 resource "google_vertex_ai_index_endpoint" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
     display_name = "{{ display_name }}"
-    effective_labels = "{{ effective_labels }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
-    name = "{{ name }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     network = "{{ network }}"
     project = "{{ project }}"
-    public_endpoint_domain_name = "{{ public_endpoint_domain_name }}"
-    public_endpoint_enabled = "{{ public_endpoint_enabled }}"
+    public_endpoint_enabled = {{ public_endpoint_enabled }}
     region = "{{ region }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
+    encryption_spec {
+      kms_key_name = "{{ kms_key_name }}"
+    }
+    private_service_connect_config {
+      enable_private_service_connect = {{ enable_private_service_connect }}
+      project_allowlist = ["{{ project_allowlist }}"]
+      psc_automation_configs {
+        network = "{{ network }}"
+        project_id = "{{ project_id }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

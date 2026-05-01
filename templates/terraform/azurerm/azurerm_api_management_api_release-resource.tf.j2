@@ -3,4 +3,10 @@ resource "azurerm_api_management_api_release" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     notes = "{{ notes }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

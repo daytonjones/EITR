@@ -6,6 +6,18 @@ resource "azurerm_healthcare_medtech_service" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     workspace_id = "{{ workspace_id }}"
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -3,4 +3,18 @@ resource "aws_servicecatalog_service_action" "example" {
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
+    definition {
+      assume_role = "{{ assume_role }}"
+      name = "{{ name }}"
+      parameters = "{{ parameters }}"
+      type = "{{ type }}"
+      version = "{{ version }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

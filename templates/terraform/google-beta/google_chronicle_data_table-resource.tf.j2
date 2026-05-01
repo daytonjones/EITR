@@ -1,0 +1,26 @@
+resource "google_chronicle_data_table" "example" {
+    data_table_id = "{{ data_table_id }}"
+    deletion_policy = "{{ deletion_policy }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    row_time_to_live = "{{ row_time_to_live }}"
+    column_info {
+      column_index = {{ column_index }}
+      column_type = "{{ column_type }}"
+      key_column = {{ key_column }}
+      mapped_column_path = "{{ mapped_column_path }}"
+      original_column = "{{ original_column }}"
+      repeated_values = {{ repeated_values }}
+    }
+    scope_info {
+      data_access_scopes = ["{{ data_access_scopes }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

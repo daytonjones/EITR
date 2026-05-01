@@ -1,0 +1,7 @@
+resource "awscc_rtbfabric_requester_gateway" "example" {
+    description = "{{ description }}"
+    security_group_ids = ["{{ security_group_ids }}"]
+    subnet_ids = ["{{ subnet_ids }}"]
+    tags = "{{ tags }}"
+    vpc_id = "{{ vpc_id }}"
+}

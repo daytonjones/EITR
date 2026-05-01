@@ -1,0 +1,736 @@
+resource "google_chronicle_feed" "example" {
+    display_name = "{{ display_name }}"
+    enabled = {{ enabled }}
+    feed = "{{ feed }}"
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    details {
+      asset_namespace = "{{ asset_namespace }}"
+      feed_source_type = "{{ feed_source_type }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      log_type = "{{ log_type }}"
+      amazon_kinesis_firehose_settings {
+      }
+      amazon_s3_settings {
+        s3_uri = "{{ s3_uri }}"
+        source_deletion_option = "{{ source_deletion_option }}"
+        source_type = "{{ source_type }}"
+        authentication {
+          access_key_id = "{{ access_key_id }}"
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+          refresh_uri = "{{ refresh_uri }}"
+          region = "{{ region }}"
+          secret_access_key = "{{ secret_access_key }}"
+        }
+      }
+      amazon_s3_v2_settings {
+        max_lookback_days = {{ max_lookback_days }}
+        s3_uri = "{{ s3_uri }}"
+        source_deletion_option = "{{ source_deletion_option }}"
+        authentication {
+          access_key_secret_auth {
+            access_key_id = "{{ access_key_id }}"
+            secret_access_key = "{{ secret_access_key }}"
+          }
+          aws_iam_role_auth {
+            aws_iam_role_arn = "{{ aws_iam_role_arn }}"
+            subject_id = "{{ subject_id }}"
+          }
+        }
+      }
+      amazon_sqs_settings {
+        account_number = "{{ account_number }}"
+        queue = "{{ queue }}"
+        region = "{{ region }}"
+        source_deletion_option = "{{ source_deletion_option }}"
+        authentication {
+          additional_s3_access_key_secret_auth {
+            access_key_id = "{{ access_key_id }}"
+            secret_access_key = "{{ secret_access_key }}"
+          }
+          sqs_access_key_secret_auth {
+            access_key_id = "{{ access_key_id }}"
+            secret_access_key = "{{ secret_access_key }}"
+          }
+        }
+      }
+      amazon_sqs_v2_settings {
+        max_lookback_days = {{ max_lookback_days }}
+        queue = "{{ queue }}"
+        s3_uri = "{{ s3_uri }}"
+        source_deletion_option = "{{ source_deletion_option }}"
+        authentication {
+          aws_iam_role_auth {
+            aws_iam_role_arn = "{{ aws_iam_role_arn }}"
+            subject_id = "{{ subject_id }}"
+          }
+          sqs_v2_access_key_secret_auth {
+            access_key_id = "{{ access_key_id }}"
+            secret_access_key = "{{ secret_access_key }}"
+          }
+        }
+      }
+      anomali_settings {
+        authentication {
+          secret = "{{ secret }}"
+          user = "{{ user }}"
+        }
+      }
+      aws_ec2_hosts_settings {
+        authentication {
+          secret = "{{ secret }}"
+          user = "{{ user }}"
+        }
+      }
+      aws_ec2_instances_settings {
+        authentication {
+          secret = "{{ secret }}"
+          user = "{{ user }}"
+        }
+      }
+      aws_ec2_vpcs_settings {
+        authentication {
+          secret = "{{ secret }}"
+          user = "{{ user }}"
+        }
+      }
+      aws_iam_settings {
+        api_type = "{{ api_type }}"
+        authentication {
+          secret = "{{ secret }}"
+          user = "{{ user }}"
+        }
+      }
+      azure_ad_audit_settings {
+        auth_endpoint = "{{ auth_endpoint }}"
+        hostname = "{{ hostname }}"
+        tenant_id = "{{ tenant_id }}"
+        authentication {
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+        }
+      }
+      azure_ad_context_settings {
+        auth_endpoint = "{{ auth_endpoint }}"
+        hostname = "{{ hostname }}"
+        retrieve_devices = {{ retrieve_devices }}
+        retrieve_groups = {{ retrieve_groups }}
+        tenant_id = "{{ tenant_id }}"
+        authentication {
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+        }
+      }
+      azure_ad_settings {
+        auth_endpoint = "{{ auth_endpoint }}"
+        hostname = "{{ hostname }}"
+        tenant_id = "{{ tenant_id }}"
+        authentication {
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+        }
+      }
+      azure_blob_store_settings {
+        azure_uri = "{{ azure_uri }}"
+        source_deletion_option = "{{ source_deletion_option }}"
+        source_type = "{{ source_type }}"
+        authentication {
+          sas_token = "{{ sas_token }}"
+          shared_key = "{{ shared_key }}"
+        }
+      }
+      azure_blob_store_v2_settings {
+        azure_uri = "{{ azure_uri }}"
+        max_lookback_days = {{ max_lookback_days }}
+        source_deletion_option = "{{ source_deletion_option }}"
+        authentication {
+          access_key = "{{ access_key }}"
+          sas_token = "{{ sas_token }}"
+          azure_v2_workload_identity_federation {
+            client_id = "{{ client_id }}"
+            subject_id = "{{ subject_id }}"
+            tenant_id = "{{ tenant_id }}"
+          }
+        }
+      }
+      azure_event_hub_settings {
+        azure_sas_token = "{{ azure_sas_token }}"
+        azure_storage_connection_string = "{{ azure_storage_connection_string }}"
+        azure_storage_container = "{{ azure_storage_container }}"
+        consumer_group = "{{ consumer_group }}"
+        event_hub_connection_string = "{{ event_hub_connection_string }}"
+        name = "{{ name }}"
+      }
+      azure_mdm_intune_settings {
+        auth_endpoint = "{{ auth_endpoint }}"
+        hostname = "{{ hostname }}"
+        tenant_id = "{{ tenant_id }}"
+        authentication {
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+        }
+      }
+      cloud_passage_settings {
+        event_types = ["{{ event_types }}"]
+        authentication {
+          secret = "{{ secret }}"
+          user = "{{ user }}"
+        }
+      }
+      cortex_xdr_settings {
+        endpoint = "{{ endpoint }}"
+        hostname = "{{ hostname }}"
+        authentication {
+          header_key_values {
+            key = "{{ key }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+      crowdstrike_alerts_settings {
+        hostname = "{{ hostname }}"
+        ingestion_type = "{{ ingestion_type }}"
+        authentication {
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+          token_endpoint = "{{ token_endpoint }}"
+        }
+      }
+      crowdstrike_detects_settings {
+        hostname = "{{ hostname }}"
+        ingestion_type = "{{ ingestion_type }}"
+        authentication {
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+          token_endpoint = "{{ token_endpoint }}"
+        }
+      }
+      dummy_log_type_settings {
+        api_endpoint = "{{ api_endpoint }}"
+        authentication {
+          header_key_values {
+            key = "{{ key }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+      duo_auth_settings {
+        hostname = "{{ hostname }}"
+        authentication {
+          secret = "{{ secret }}"
+          user = "{{ user }}"
+        }
+      }
+      duo_user_context_settings {
+        hostname = "{{ hostname }}"
+        authentication {
+          secret = "{{ secret }}"
+          user = "{{ user }}"
+        }
+      }
+      fox_it_stix_settings {
+        collection = "{{ collection }}"
+        poll_service_uri = "{{ poll_service_uri }}"
+        authentication {
+          secret = "{{ secret }}"
+          user = "{{ user }}"
+        }
+        ssl {
+          encoded_private_key = "{{ encoded_private_key }}"
+          ssl_certificate = "{{ ssl_certificate }}"
+        }
+      }
+      gcs_settings {
+        bucket_uri = "{{ bucket_uri }}"
+        source_deletion_option = "{{ source_deletion_option }}"
+        source_type = "{{ source_type }}"
+      }
+      gcs_v2_settings {
+        bucket_uri = "{{ bucket_uri }}"
+        max_lookback_days = {{ max_lookback_days }}
+        source_deletion_option = "{{ source_deletion_option }}"
+      }
+      google_cloud_identity_device_users_settings {
+        authentication {
+          token_endpoint = "{{ token_endpoint }}"
+          claims {
+            audience = "{{ audience }}"
+            issuer = "{{ issuer }}"
+            subject = "{{ subject }}"
+          }
+          rs_credentials {
+            private_key = "{{ private_key }}"
+          }
+        }
+      }
+      google_cloud_identity_devices_settings {
+        api_version = "{{ api_version }}"
+        authentication {
+          token_endpoint = "{{ token_endpoint }}"
+          claims {
+            audience = "{{ audience }}"
+            issuer = "{{ issuer }}"
+            subject = "{{ subject }}"
+          }
+          rs_credentials {
+            private_key = "{{ private_key }}"
+          }
+        }
+      }
+      google_cloud_storage_event_driven_settings {
+        bucket_uri = "{{ bucket_uri }}"
+        max_lookback_days = {{ max_lookback_days }}
+        pubsub_subscription = "{{ pubsub_subscription }}"
+        source_deletion_option = "{{ source_deletion_option }}"
+      }
+      http_settings {
+        source_deletion_option = "{{ source_deletion_option }}"
+        source_type = "{{ source_type }}"
+        uri = "{{ uri }}"
+      }
+      https_push_amazon_kinesis_firehose_settings {
+        split_delimiter = "{{ split_delimiter }}"
+      }
+      https_push_google_cloud_pubsub_settings {
+        split_delimiter = "{{ split_delimiter }}"
+      }
+      https_push_webhook_settings {
+        split_delimiter = "{{ split_delimiter }}"
+      }
+      imperva_waf_settings {
+        authentication {
+          header_key_values {
+            key = "{{ key }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+      mandiant_ioc_settings {
+        start_time = "{{ start_time }}"
+        authentication {
+          header_key_values {
+            key = "{{ key }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+      microsoft_graph_alert_settings {
+        auth_endpoint = "{{ auth_endpoint }}"
+        hostname = "{{ hostname }}"
+        tenant_id = "{{ tenant_id }}"
+        authentication {
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+        }
+      }
+      microsoft_security_center_alert_settings {
+        auth_endpoint = "{{ auth_endpoint }}"
+        hostname = "{{ hostname }}"
+        subscription_id = "{{ subscription_id }}"
+        tenant_id = "{{ tenant_id }}"
+        authentication {
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+        }
+      }
+      mimecast_mail_settings {
+        hostname = "{{ hostname }}"
+        authentication {
+          header_key_values {
+            key = "{{ key }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+      mimecast_mail_v2_settings {
+        auth_credentials {
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+        }
+      }
+      netskope_alert_settings {
+        content_type = "{{ content_type }}"
+        feedname = "{{ feedname }}"
+        hostname = "{{ hostname }}"
+        authentication {
+          header_key_values {
+            key = "{{ key }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+      netskope_alert_v2_settings {
+        content_category = "{{ content_category }}"
+        content_types = ["{{ content_types }}"]
+        hostname = "{{ hostname }}"
+        authentication {
+          header_key_values {
+            key = "{{ key }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+      office365_settings {
+        auth_endpoint = "{{ auth_endpoint }}"
+        content_type = "{{ content_type }}"
+        hostname = "{{ hostname }}"
+        tenant_id = "{{ tenant_id }}"
+        authentication {
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+        }
+      }
+      okta_settings {
+        hostname = "{{ hostname }}"
+        authentication {
+          header_key_values {
+            key = "{{ key }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+      okta_user_context_settings {
+        hostname = "{{ hostname }}"
+        manager_id_reference_field = "{{ manager_id_reference_field }}"
+        authentication {
+          header_key_values {
+            key = "{{ key }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+      pan_ioc_settings {
+        feed = "{{ feed }}"
+        feed_id = "{{ feed_id }}"
+        authentication {
+          header_key_values {
+            key = "{{ key }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+      pan_prisma_cloud_settings {
+        hostname = "{{ hostname }}"
+        authentication {
+          password = "{{ password }}"
+          user = "{{ user }}"
+        }
+      }
+      proofpoint_mail_settings {
+        authentication {
+          secret = "{{ secret }}"
+          user = "{{ user }}"
+        }
+      }
+      proofpoint_on_demand_settings {
+        cluster_id = "{{ cluster_id }}"
+        authentication {
+          header_key_values {
+            key = "{{ key }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+      pubsub_settings {
+        google_service_account_email = "{{ google_service_account_email }}"
+      }
+      qualys_scan_settings {
+        api_type = "{{ api_type }}"
+        hostname = "{{ hostname }}"
+        authentication {
+          secret = "{{ secret }}"
+          user = "{{ user }}"
+        }
+      }
+      qualys_vm_settings {
+        hostname = "{{ hostname }}"
+        authentication {
+          secret = "{{ secret }}"
+          user = "{{ user }}"
+        }
+      }
+      rapid7_insight_settings {
+        endpoint = "{{ endpoint }}"
+        hostname = "{{ hostname }}"
+        authentication {
+          header_key_values {
+            key = "{{ key }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+      recorded_future_ioc_settings {
+        authentication {
+          header_key_values {
+            key = "{{ key }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+      rh_isac_ioc_settings {
+        authentication {
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+          token_endpoint = "{{ token_endpoint }}"
+        }
+      }
+      salesforce_settings {
+        hostname = "{{ hostname }}"
+        oauth_jwt_credentials {
+          token_endpoint = "{{ token_endpoint }}"
+          claims {
+            audience = "{{ audience }}"
+            issuer = "{{ issuer }}"
+            subject = "{{ subject }}"
+          }
+          rs_credentials {
+            private_key = "{{ private_key }}"
+          }
+        }
+        oauth_password_grant_auth {
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+          password = "{{ password }}"
+          token_endpoint = "{{ token_endpoint }}"
+          user = "{{ user }}"
+        }
+      }
+      sentinelone_alert_settings {
+        hostname = "{{ hostname }}"
+        initial_start_time = "{{ initial_start_time }}"
+        is_alert_api_subscribed = {{ is_alert_api_subscribed }}
+        authentication {
+          header_key_values {
+            key = "{{ key }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+      service_now_cmdb_settings {
+        feedname = "{{ feedname }}"
+        hostname = "{{ hostname }}"
+        authentication {
+          secret = "{{ secret }}"
+          user = "{{ user }}"
+        }
+      }
+      sftp_settings {
+        source_deletion_option = "{{ source_deletion_option }}"
+        source_type = "{{ source_type }}"
+        uri = "{{ uri }}"
+        authentication {
+          password = "{{ password }}"
+          private_key = "{{ private_key }}"
+          private_key_passphrase = "{{ private_key_passphrase }}"
+          username = "{{ username }}"
+        }
+      }
+      symantec_event_export_settings {
+        authentication {
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+          refresh_token = "{{ refresh_token }}"
+          token_endpoint = "{{ token_endpoint }}"
+        }
+      }
+      thinkst_canary_settings {
+        hostname = "{{ hostname }}"
+        authentication {
+          header_key_values {
+            key = "{{ key }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+      threat_connect_ioc_settings {
+        hostname = "{{ hostname }}"
+        owners = ["{{ owners }}"]
+        authentication {
+          secret = "{{ secret }}"
+          user = "{{ user }}"
+        }
+      }
+      threat_connect_ioc_v3_settings {
+        fields = ["{{ fields }}"]
+        hostname = "{{ hostname }}"
+        owners = ["{{ owners }}"]
+        schedule = {{ schedule }}
+        tql_query = "{{ tql_query }}"
+        authentication {
+          secret = "{{ secret }}"
+          user = "{{ user }}"
+        }
+      }
+      trellix_hx_alerts_settings {
+        endpoint = "{{ endpoint }}"
+        authentication {
+          msso {
+            api_endpoint = "{{ api_endpoint }}"
+            password = "{{ password }}"
+            username = "{{ username }}"
+          }
+          trellix_iam {
+            client_id = "{{ client_id }}"
+            client_secret = "{{ client_secret }}"
+            scope = "{{ scope }}"
+          }
+        }
+      }
+      trellix_hx_bulk_acqs_settings {
+        endpoint = "{{ endpoint }}"
+        authentication {
+          msso {
+            api_endpoint = "{{ api_endpoint }}"
+            password = "{{ password }}"
+            username = "{{ username }}"
+          }
+          trellix_iam {
+            client_id = "{{ client_id }}"
+            client_secret = "{{ client_secret }}"
+            scope = "{{ scope }}"
+          }
+        }
+      }
+      trellix_hx_hosts_settings {
+        endpoint = "{{ endpoint }}"
+        authentication {
+          msso {
+            api_endpoint = "{{ api_endpoint }}"
+            password = "{{ password }}"
+            username = "{{ username }}"
+          }
+          trellix_iam {
+            client_id = "{{ client_id }}"
+            client_secret = "{{ client_secret }}"
+            scope = "{{ scope }}"
+          }
+        }
+      }
+      webhook_settings {
+      }
+      workday_settings {
+        hostname = "{{ hostname }}"
+        tenant_id = "{{ tenant_id }}"
+        authentication {
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+          refresh_token = "{{ refresh_token }}"
+          secret = "{{ secret }}"
+          token_endpoint = "{{ token_endpoint }}"
+          user = "{{ user }}"
+        }
+      }
+      workspace_activity_settings {
+        applications = ["{{ applications }}"]
+        workspace_customer_id = "{{ workspace_customer_id }}"
+        authentication {
+          token_endpoint = "{{ token_endpoint }}"
+          claims {
+            audience = "{{ audience }}"
+            issuer = "{{ issuer }}"
+            subject = "{{ subject }}"
+          }
+          rs_credentials {
+            private_key = "{{ private_key }}"
+          }
+        }
+      }
+      workspace_alerts_settings {
+        workspace_customer_id = "{{ workspace_customer_id }}"
+        authentication {
+          token_endpoint = "{{ token_endpoint }}"
+          claims {
+            audience = "{{ audience }}"
+            issuer = "{{ issuer }}"
+            subject = "{{ subject }}"
+          }
+          rs_credentials {
+            private_key = "{{ private_key }}"
+          }
+        }
+      }
+      workspace_chrome_os_settings {
+        workspace_customer_id = "{{ workspace_customer_id }}"
+        authentication {
+          token_endpoint = "{{ token_endpoint }}"
+          claims {
+            audience = "{{ audience }}"
+            issuer = "{{ issuer }}"
+            subject = "{{ subject }}"
+          }
+          rs_credentials {
+            private_key = "{{ private_key }}"
+          }
+        }
+      }
+      workspace_groups_settings {
+        workspace_customer_id = "{{ workspace_customer_id }}"
+        authentication {
+          token_endpoint = "{{ token_endpoint }}"
+          claims {
+            audience = "{{ audience }}"
+            issuer = "{{ issuer }}"
+            subject = "{{ subject }}"
+          }
+          rs_credentials {
+            private_key = "{{ private_key }}"
+          }
+        }
+      }
+      workspace_mobile_settings {
+        workspace_customer_id = "{{ workspace_customer_id }}"
+        authentication {
+          token_endpoint = "{{ token_endpoint }}"
+          claims {
+            audience = "{{ audience }}"
+            issuer = "{{ issuer }}"
+            subject = "{{ subject }}"
+          }
+          rs_credentials {
+            private_key = "{{ private_key }}"
+          }
+        }
+      }
+      workspace_privileges_settings {
+        workspace_customer_id = "{{ workspace_customer_id }}"
+        authentication {
+          token_endpoint = "{{ token_endpoint }}"
+          claims {
+            audience = "{{ audience }}"
+            issuer = "{{ issuer }}"
+            subject = "{{ subject }}"
+          }
+          rs_credentials {
+            private_key = "{{ private_key }}"
+          }
+        }
+      }
+      workspace_users_settings {
+        projection_type = "{{ projection_type }}"
+        workspace_customer_id = "{{ workspace_customer_id }}"
+        authentication {
+          token_endpoint = "{{ token_endpoint }}"
+          claims {
+            audience = "{{ audience }}"
+            issuer = "{{ issuer }}"
+            subject = "{{ subject }}"
+          }
+          rs_credentials {
+            private_key = "{{ private_key }}"
+          }
+        }
+      }
+    }
+    failure_details {
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

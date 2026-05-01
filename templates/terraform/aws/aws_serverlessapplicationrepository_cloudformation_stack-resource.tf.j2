@@ -1,11 +1,22 @@
 resource "aws_serverlessapplicationrepository_cloudformation_stack" "example" {
     application_id = "{{ application_id }}"
-    capabilities = "{{ capabilities }}"
+    capabilities = ["{{ capabilities }}"]
     id = "{{ id }}"
     name = "{{ name }}"
-    outputs = "{{ outputs }}"
-    parameters = "{{ parameters }}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
+    region = "{{ region }}"
     semantic_version = "{{ semantic_version }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

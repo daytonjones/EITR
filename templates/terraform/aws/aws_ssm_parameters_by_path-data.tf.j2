@@ -1,10 +1,7 @@
 data "aws_ssm_parameters_by_path" "example" {
-    arns = "{{ arns }}"
     id = "{{ id }}"
-    names = "{{ names }}"
     path = "{{ path }}"
-    recursive = "{{ recursive }}"
-    types = "{{ types }}"
-    values = "{{ values }}"
-    with_decryption = "{{ with_decryption }}"
+    recursive = {{ recursive }}
+    region = "{{ region }}"
+    with_decryption = {{ with_decryption }}
 }

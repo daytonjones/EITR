@@ -1,17 +1,12 @@
 resource "awscc_ivs_channel" "example" {
-    arn = "{{ arn }}"
-    authorized = "{{ authorized }}"
-    id = "{{ id }}"
-    ingest_endpoint = "{{ ingest_endpoint }}"
-    insecure_ingest = "{{ insecure_ingest }}"
+    authorized = {{ authorized }}
+    container_format = "{{ container_format }}"
+    insecure_ingest = {{ insecure_ingest }}
     latency_mode = "{{ latency_mode }}"
+    multitrack_input_configuration = "{{ multitrack_input_configuration }}"
     name = "{{ name }}"
-    playback_url = "{{ playback_url }}"
     preset = "{{ preset }}"
     recording_configuration_arn = "{{ recording_configuration_arn }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
     type = "{{ type }}"
 }

@@ -1,8 +1,14 @@
 resource "azurerm_storage_container_immutability_policy" "example" {
     id = "{{ id }}"
-    immutability_period_in_days = "{{ immutability_period_in_days }}"
-    locked = "{{ locked }}"
-    protected_append_writes_all_enabled = "{{ protected_append_writes_all_enabled }}"
-    protected_append_writes_enabled = "{{ protected_append_writes_enabled }}"
+    immutability_period_in_days = {{ immutability_period_in_days }}
+    locked = {{ locked }}
+    protected_append_writes_all_enabled = {{ protected_append_writes_all_enabled }}
+    protected_append_writes_enabled = {{ protected_append_writes_enabled }}
     storage_container_resource_manager_id = "{{ storage_container_resource_manager_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

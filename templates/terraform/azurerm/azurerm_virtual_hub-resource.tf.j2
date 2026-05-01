@@ -1,15 +1,25 @@
 resource "azurerm_virtual_hub" "example" {
     address_prefix = "{{ address_prefix }}"
-    default_route_table_id = "{{ default_route_table_id }}"
+    branch_to_branch_traffic_enabled = {{ branch_to_branch_traffic_enabled }}
     hub_routing_preference = "{{ hub_routing_preference }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     sku = "{{ sku }}"
-    tags = "{{ tags }}"
-    virtual_router_asn = "{{ virtual_router_asn }}"
-    virtual_router_auto_scale_min_capacity = "{{ virtual_router_auto_scale_min_capacity }}"
-    virtual_router_ips = "{{ virtual_router_ips }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    virtual_router_auto_scale_min_capacity = {{ virtual_router_auto_scale_min_capacity }}
     virtual_wan_id = "{{ virtual_wan_id }}"
+    route {
+      address_prefixes = ["{{ address_prefixes }}"]
+      next_hop_ip_address = "{{ next_hop_ip_address }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

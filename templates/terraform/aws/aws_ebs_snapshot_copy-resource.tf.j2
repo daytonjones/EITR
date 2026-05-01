@@ -1,20 +1,23 @@
 resource "aws_ebs_snapshot_copy" "example" {
-    arn = "{{ arn }}"
-    data_encryption_key_id = "{{ data_encryption_key_id }}"
+    completion_duration_minutes = {{ completion_duration_minutes }}
     description = "{{ description }}"
-    encrypted = "{{ encrypted }}"
+    encrypted = {{ encrypted }}
     id = "{{ id }}"
     kms_key_id = "{{ kms_key_id }}"
-    outpost_arn = "{{ outpost_arn }}"
-    owner_alias = "{{ owner_alias }}"
-    owner_id = "{{ owner_id }}"
-    permanent_restore = "{{ permanent_restore }}"
+    permanent_restore = {{ permanent_restore }}
+    region = "{{ region }}"
     source_region = "{{ source_region }}"
     source_snapshot_id = "{{ source_snapshot_id }}"
     storage_tier = "{{ storage_tier }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    temporary_restore_days = "{{ temporary_restore_days }}"
-    volume_id = "{{ volume_id }}"
-    volume_size = "{{ volume_size }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    temporary_restore_days = {{ temporary_restore_days }}
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

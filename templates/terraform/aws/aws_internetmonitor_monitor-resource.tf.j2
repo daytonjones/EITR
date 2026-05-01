@@ -1,11 +1,26 @@
 resource "aws_internetmonitor_monitor" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
-    max_city_networks_to_monitor = "{{ max_city_networks_to_monitor }}"
+    max_city_networks_to_monitor = {{ max_city_networks_to_monitor }}
     monitor_name = "{{ monitor_name }}"
-    resources = "{{ resources }}"
+    region = "{{ region }}"
+    resources = ["{{ resources }}"]
     status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    traffic_percentage_to_monitor = "{{ traffic_percentage_to_monitor }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    traffic_percentage_to_monitor = {{ traffic_percentage_to_monitor }}
+    health_events_config {
+      availability_score_threshold = {{ availability_score_threshold }}
+      performance_score_threshold = {{ performance_score_threshold }}
+    }
+    internet_measurements_log_delivery {
+      s3_config {
+        bucket_name = "{{ bucket_name }}"
+        bucket_prefix = "{{ bucket_prefix }}"
+        log_delivery_status = "{{ log_delivery_status }}"
+      }
+    }
 }

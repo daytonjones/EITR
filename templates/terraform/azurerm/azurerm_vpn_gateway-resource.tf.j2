@@ -1,11 +1,29 @@
 resource "azurerm_vpn_gateway" "example" {
-    bgp_route_translation_for_nat_enabled = "{{ bgp_route_translation_for_nat_enabled }}"
+    bgp_route_translation_for_nat_enabled = {{ bgp_route_translation_for_nat_enabled }}
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     routing_preference = "{{ routing_preference }}"
-    scale_unit = "{{ scale_unit }}"
-    tags = "{{ tags }}"
+    scale_unit = {{ scale_unit }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
     virtual_hub_id = "{{ virtual_hub_id }}"
+    bgp_settings {
+      asn = {{ asn }}
+      peer_weight = {{ peer_weight }}
+      instance_0_bgp_peering_address {
+        custom_ips = ["{{ custom_ips }}"]
+      }
+      instance_1_bgp_peering_address {
+        custom_ips = ["{{ custom_ips }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

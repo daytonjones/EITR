@@ -1,3 +1,24 @@
 resource "kubernetes_cluster_role_binding" "example" {
     id = "{{ id }}"
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      generate_name = "{{ generate_name }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      name = "{{ name }}"
+    }
+    role_ref {
+      api_group = "{{ api_group }}"
+      kind = "{{ kind }}"
+      name = "{{ name }}"
+    }
+    subject {
+      api_group = "{{ api_group }}"
+      kind = "{{ kind }}"
+      name = "{{ name }}"
+      namespace = "{{ namespace }}"
+    }
 }

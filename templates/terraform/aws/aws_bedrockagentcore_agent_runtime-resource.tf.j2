@@ -1,0 +1,66 @@
+resource "aws_bedrockagentcore_agent_runtime" "example" {
+    agent_runtime_name = "{{ agent_runtime_name }}"
+    description = "{{ description }}"
+    environment_variables = {
+        key = "{{ environment_variables_value }}"
+      }
+    lifecycle_configuration = ["{{ lifecycle_configuration }}"]
+    region = "{{ region }}"
+    role_arn = "{{ role_arn }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    agent_runtime_artifact {
+      code_configuration {
+        entry_point = ["{{ entry_point }}"]
+        runtime = "{{ runtime }}"
+        code {
+          s3 {
+            bucket = "{{ bucket }}"
+            prefix = "{{ prefix }}"
+            version_id = "{{ version_id }}"
+          }
+        }
+      }
+      container_configuration {
+        container_uri = "{{ container_uri }}"
+      }
+    }
+    authorizer_configuration {
+      custom_jwt_authorizer {
+        allowed_audience = ["{{ allowed_audience }}"]
+        allowed_clients = ["{{ allowed_clients }}"]
+        allowed_scopes = ["{{ allowed_scopes }}"]
+        discovery_url = "{{ discovery_url }}"
+        custom_claim {
+          inbound_token_claim_name = "{{ inbound_token_claim_name }}"
+          inbound_token_claim_value_type = "{{ inbound_token_claim_value_type }}"
+          authorizing_claim_match_value {
+            claim_match_operator = "{{ claim_match_operator }}"
+            claim_match_value {
+              match_value_string = "{{ match_value_string }}"
+              match_value_string_list = ["{{ match_value_string_list }}"]
+            }
+          }
+        }
+      }
+    }
+    network_configuration {
+      network_mode = "{{ network_mode }}"
+      network_mode_config {
+        security_groups = ["{{ security_groups }}"]
+        subnets = ["{{ subnets }}"]
+      }
+    }
+    protocol_configuration {
+      server_protocol = "{{ server_protocol }}"
+    }
+    request_header_configuration {
+      request_header_allowlist = ["{{ request_header_allowlist }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

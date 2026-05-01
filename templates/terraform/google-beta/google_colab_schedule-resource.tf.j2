@@ -1,0 +1,36 @@
+resource "google_colab_schedule" "example" {
+    allow_queueing = {{ allow_queueing }}
+    cron = "{{ cron }}"
+    desired_state = "{{ desired_state }}"
+    display_name = "{{ display_name }}"
+    end_time = "{{ end_time }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    max_concurrent_run_count = "{{ max_concurrent_run_count }}"
+    max_run_count = "{{ max_run_count }}"
+    project = "{{ project }}"
+    start_time = "{{ start_time }}"
+    create_notebook_execution_job_request {
+      notebook_execution_job {
+        display_name = "{{ display_name }}"
+        execution_timeout = "{{ execution_timeout }}"
+        execution_user = "{{ execution_user }}"
+        gcs_output_uri = "{{ gcs_output_uri }}"
+        notebook_runtime_template_resource_name = "{{ notebook_runtime_template_resource_name }}"
+        service_account = "{{ service_account }}"
+        dataform_repository_source {
+          commit_sha = "{{ commit_sha }}"
+          dataform_repository_resource_name = "{{ dataform_repository_resource_name }}"
+        }
+        gcs_notebook_source {
+          generation = "{{ generation }}"
+          uri = "{{ uri }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,0 +1,11 @@
+resource "awscc_ec2_traffic_mirror_session" "example" {
+    description = "{{ description }}"
+    network_interface_id = "{{ network_interface_id }}"
+    owner_id = "{{ owner_id }}"
+    packet_length = {{ packet_length }}
+    session_number = {{ session_number }}
+    tags = "{{ tags }}"
+    traffic_mirror_filter_id = "{{ traffic_mirror_filter_id }}"
+    traffic_mirror_target_id = "{{ traffic_mirror_target_id }}"
+    virtual_network_id = {{ virtual_network_id }}
+}

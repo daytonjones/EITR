@@ -3,4 +3,7 @@ data "azurerm_billing_mca_account_scope" "example" {
     billing_profile_name = "{{ billing_profile_name }}"
     id = "{{ id }}"
     invoice_section_name = "{{ invoice_section_name }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

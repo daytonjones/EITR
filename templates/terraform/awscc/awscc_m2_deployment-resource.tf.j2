@@ -1,8 +1,5 @@
 resource "awscc_m2_deployment" "example" {
     application_id = "{{ application_id }}"
-    application_version = "{{ application_version }}"
-    deployment_id = "{{ deployment_id }}"
+    application_version = {{ application_version }}
     environment_id = "{{ environment_id }}"
-    id = "{{ id }}"
-    status = "{{ status }}"
 }

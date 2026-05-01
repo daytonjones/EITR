@@ -1,0 +1,25 @@
+resource "google_saas_runtime_rollout_kind" "example" {
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    rollout_kind_id = "{{ rollout_kind_id }}"
+    rollout_orchestration_strategy = "{{ rollout_orchestration_strategy }}"
+    unit_filter = "{{ unit_filter }}"
+    unit_kind = "{{ unit_kind }}"
+    update_unit_kind_strategy = "{{ update_unit_kind_strategy }}"
+    error_budget {
+      allowed_count = {{ allowed_count }}
+      allowed_percentage = {{ allowed_percentage }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

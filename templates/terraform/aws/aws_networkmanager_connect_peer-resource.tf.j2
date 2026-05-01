@@ -1,17 +1,21 @@
 resource "aws_networkmanager_connect_peer" "example" {
-    arn = "{{ arn }}"
-    configuration = "{{ configuration }}"
     connect_attachment_id = "{{ connect_attachment_id }}"
-    connect_peer_id = "{{ connect_peer_id }}"
     core_network_address = "{{ core_network_address }}"
-    core_network_id = "{{ core_network_id }}"
-    created_at = "{{ created_at }}"
-    edge_location = "{{ edge_location }}"
     id = "{{ id }}"
-    inside_cidr_blocks = "{{ inside_cidr_blocks }}"
+    inside_cidr_blocks = ["{{ inside_cidr_blocks }}"]
     peer_address = "{{ peer_address }}"
-    state = "{{ state }}"
     subnet_arn = "{{ subnet_arn }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    bgp_options {
+      peer_asn = "{{ peer_asn }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

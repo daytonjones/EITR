@@ -1,0 +1,10 @@
+resource "awscc_cognito_terms" "example" {
+    client_id = "{{ client_id }}"
+    enforcement = "{{ enforcement }}"
+    links = {
+        key = "{{ links_value }}"
+      }
+    terms_name = "{{ terms_name }}"
+    terms_source = "{{ terms_source }}"
+    user_pool_id = "{{ user_pool_id }}"
+}

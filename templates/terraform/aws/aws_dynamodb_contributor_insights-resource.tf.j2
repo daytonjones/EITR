@@ -1,5 +1,11 @@
 resource "aws_dynamodb_contributor_insights" "example" {
     id = "{{ id }}"
     index_name = "{{ index_name }}"
+    mode = "{{ mode }}"
+    region = "{{ region }}"
     table_name = "{{ table_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

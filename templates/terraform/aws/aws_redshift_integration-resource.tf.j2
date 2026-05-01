@@ -1,0 +1,19 @@
+resource "aws_redshift_integration" "example" {
+    additional_encryption_context = {
+        key = "{{ additional_encryption_context_value }}"
+      }
+    description = "{{ description }}"
+    integration_name = "{{ integration_name }}"
+    kms_key_id = "{{ kms_key_id }}"
+    region = "{{ region }}"
+    source_arn = "{{ source_arn }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    target_arn = "{{ target_arn }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

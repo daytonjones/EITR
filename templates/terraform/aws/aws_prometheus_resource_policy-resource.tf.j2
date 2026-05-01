@@ -1,0 +1,11 @@
+resource "aws_prometheus_resource_policy" "example" {
+    policy_document = "{{ policy_document }}"
+    region = "{{ region }}"
+    revision_id = "{{ revision_id }}"
+    workspace_id = "{{ workspace_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

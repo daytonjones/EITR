@@ -1,0 +1,13 @@
+resource "google_bigquery_datapolicyv2_data_policy_iam_member" "example" {
+    data_policy_id = "{{ data_policy_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    member = "{{ member }}"
+    project = "{{ project }}"
+    role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

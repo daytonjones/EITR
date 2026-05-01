@@ -1,0 +1,10 @@
+resource "awscc_securityagent_agent_space" "example" {
+    aws_resources = "{{ aws_resources }}"
+    code_review_settings = "{{ code_review_settings }}"
+    description = "{{ description }}"
+    integrated_resources = "{{ integrated_resources }}"
+    kms_key_id = "{{ kms_key_id }}"
+    name = "{{ name }}"
+    tags = "{{ tags }}"
+    target_domain_ids = ["{{ target_domain_ids }}"]
+}

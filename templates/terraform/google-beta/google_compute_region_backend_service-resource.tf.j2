@@ -1,12 +1,9 @@
 resource "google_compute_region_backend_service" "example" {
-    affinity_cookie_ttl_sec = "{{ affinity_cookie_ttl_sec }}"
-    connection_draining_timeout_sec = "{{ connection_draining_timeout_sec }}"
-    creation_timestamp = "{{ creation_timestamp }}"
+    affinity_cookie_ttl_sec = {{ affinity_cookie_ttl_sec }}
+    connection_draining_timeout_sec = {{ connection_draining_timeout_sec }}
     description = "{{ description }}"
-    enable_cdn = "{{ enable_cdn }}"
-    fingerprint = "{{ fingerprint }}"
-    generated_id = "{{ generated_id }}"
-    health_checks = "{{ health_checks }}"
+    enable_cdn = {{ enable_cdn }}
+    health_checks = ["{{ health_checks }}"]
     id = "{{ id }}"
     ip_address_selection_policy = "{{ ip_address_selection_policy }}"
     load_balancing_scheme = "{{ load_balancing_scheme }}"
@@ -18,7 +15,172 @@ resource "google_compute_region_backend_service" "example" {
     protocol = "{{ protocol }}"
     region = "{{ region }}"
     security_policy = "{{ security_policy }}"
-    self_link = "{{ self_link }}"
     session_affinity = "{{ session_affinity }}"
-    timeout_sec = "{{ timeout_sec }}"
+    timeout_sec = {{ timeout_sec }}
+    backend {
+      balancing_mode = "{{ balancing_mode }}"
+      capacity_scaler = {{ capacity_scaler }}
+      description = "{{ description }}"
+      failover = {{ failover }}
+      group = "{{ group }}"
+      max_connections = {{ max_connections }}
+      max_connections_per_endpoint = {{ max_connections_per_endpoint }}
+      max_connections_per_instance = {{ max_connections_per_instance }}
+      max_in_flight_requests = {{ max_in_flight_requests }}
+      max_in_flight_requests_per_endpoint = {{ max_in_flight_requests_per_endpoint }}
+      max_in_flight_requests_per_instance = {{ max_in_flight_requests_per_instance }}
+      max_rate = {{ max_rate }}
+      max_rate_per_endpoint = {{ max_rate_per_endpoint }}
+      max_rate_per_instance = {{ max_rate_per_instance }}
+      max_utilization = {{ max_utilization }}
+      traffic_duration = "{{ traffic_duration }}"
+      custom_metrics {
+        dry_run = {{ dry_run }}
+        max_utilization = {{ max_utilization }}
+        name = "{{ name }}"
+      }
+    }
+    cdn_policy {
+      cache_mode = "{{ cache_mode }}"
+      client_ttl = {{ client_ttl }}
+      default_ttl = {{ default_ttl }}
+      max_ttl = {{ max_ttl }}
+      negative_caching = {{ negative_caching }}
+      serve_while_stale = {{ serve_while_stale }}
+      signed_url_cache_max_age_sec = {{ signed_url_cache_max_age_sec }}
+      cache_key_policy {
+        include_host = {{ include_host }}
+        include_named_cookies = ["{{ include_named_cookies }}"]
+        include_protocol = {{ include_protocol }}
+        include_query_string = {{ include_query_string }}
+        query_string_blacklist = ["{{ query_string_blacklist }}"]
+        query_string_whitelist = ["{{ query_string_whitelist }}"]
+      }
+      negative_caching_policy {
+        code = {{ code }}
+        ttl = {{ ttl }}
+      }
+    }
+    circuit_breakers {
+      max_connections = {{ max_connections }}
+      max_pending_requests = {{ max_pending_requests }}
+      max_requests = {{ max_requests }}
+      max_requests_per_connection = {{ max_requests_per_connection }}
+      max_retries = {{ max_retries }}
+      connect_timeout {
+        nanos = {{ nanos }}
+        seconds = {{ seconds }}
+      }
+    }
+    connection_tracking_policy {
+      connection_persistence_on_unhealthy_backends = "{{ connection_persistence_on_unhealthy_backends }}"
+      enable_strong_affinity = {{ enable_strong_affinity }}
+      idle_timeout_sec = {{ idle_timeout_sec }}
+      tracking_mode = "{{ tracking_mode }}"
+    }
+    consistent_hash {
+      http_header_name = "{{ http_header_name }}"
+      minimum_ring_size = {{ minimum_ring_size }}
+      http_cookie {
+        name = "{{ name }}"
+        path = "{{ path }}"
+        ttl {
+          nanos = {{ nanos }}
+          seconds = {{ seconds }}
+        }
+      }
+    }
+    custom_metrics {
+      dry_run = {{ dry_run }}
+      name = "{{ name }}"
+    }
+    dynamic_forwarding {
+      forward_proxy {
+        enabled = {{ enabled }}
+        proxy_mode = "{{ proxy_mode }}"
+      }
+      ip_port_selection {
+        enabled = {{ enabled }}
+      }
+    }
+    failover_policy {
+      disable_connection_drain_on_failover = {{ disable_connection_drain_on_failover }}
+      drop_traffic_if_unhealthy = {{ drop_traffic_if_unhealthy }}
+      failover_ratio = {{ failover_ratio }}
+    }
+    ha_policy {
+      fast_ip_move = "{{ fast_ip_move }}"
+      leader {
+        backend_group = "{{ backend_group }}"
+        network_endpoint {
+          instance = "{{ instance }}"
+        }
+      }
+    }
+    iap {
+      enabled = {{ enabled }}
+      oauth2_client_id = "{{ oauth2_client_id }}"
+      oauth2_client_secret = "{{ oauth2_client_secret }}"
+    }
+    log_config {
+      enable = {{ enable }}
+      optional_fields = ["{{ optional_fields }}"]
+      optional_mode = "{{ optional_mode }}"
+      sample_rate = {{ sample_rate }}
+    }
+    network_pass_through_lb_traffic_policy {
+      zonal_affinity {
+        spillover = "{{ spillover }}"
+        spillover_ratio = {{ spillover_ratio }}
+      }
+    }
+    outlier_detection {
+      consecutive_errors = {{ consecutive_errors }}
+      consecutive_gateway_failure = {{ consecutive_gateway_failure }}
+      enforcing_consecutive_errors = {{ enforcing_consecutive_errors }}
+      enforcing_consecutive_gateway_failure = {{ enforcing_consecutive_gateway_failure }}
+      enforcing_success_rate = {{ enforcing_success_rate }}
+      max_ejection_percent = {{ max_ejection_percent }}
+      success_rate_minimum_hosts = {{ success_rate_minimum_hosts }}
+      success_rate_request_volume = {{ success_rate_request_volume }}
+      success_rate_stdev_factor = {{ success_rate_stdev_factor }}
+      base_ejection_time {
+        nanos = {{ nanos }}
+        seconds = {{ seconds }}
+      }
+      interval {
+        nanos = {{ nanos }}
+        seconds = {{ seconds }}
+      }
+    }
+    params {
+      resource_manager_tags = {
+        key = "{{ resource_manager_tags_value }}"
+      }
+    }
+    strong_session_affinity_cookie {
+      name = "{{ name }}"
+      path = "{{ path }}"
+      ttl {
+        nanos = {{ nanos }}
+        seconds = {{ seconds }}
+      }
+    }
+    subsetting {
+      policy = "{{ policy }}"
+      subset_size = {{ subset_size }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    tls_settings {
+      authentication_config = "{{ authentication_config }}"
+      sni = "{{ sni }}"
+      subject_alt_names {
+        dns_name = "{{ dns_name }}"
+        uniform_resource_identifier = "{{ uniform_resource_identifier }}"
+      }
+    }
 }

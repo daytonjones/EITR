@@ -1,7 +1,16 @@
 resource "aws_lambda_function_event_invoke_config" "example" {
     function_name = "{{ function_name }}"
     id = "{{ id }}"
-    maximum_event_age_in_seconds = "{{ maximum_event_age_in_seconds }}"
-    maximum_retry_attempts = "{{ maximum_retry_attempts }}"
+    maximum_event_age_in_seconds = {{ maximum_event_age_in_seconds }}
+    maximum_retry_attempts = {{ maximum_retry_attempts }}
     qualifier = "{{ qualifier }}"
+    region = "{{ region }}"
+    destination_config {
+      on_failure {
+        destination = "{{ destination }}"
+      }
+      on_success {
+        destination = "{{ destination }}"
+      }
+    }
 }

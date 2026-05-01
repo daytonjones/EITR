@@ -1,10 +1,33 @@
 resource "aws_resiliencehub_resiliency_policy" "example" {
-    arn = "{{ arn }}"
     data_location_constraint = "{{ data_location_constraint }}"
     description = "{{ description }}"
-    estimated_cost_tier = "{{ estimated_cost_tier }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     tier = "{{ tier }}"
+    policy {
+      az {
+        rpo = "{{ rpo }}"
+        rto = "{{ rto }}"
+      }
+      hardware {
+        rpo = "{{ rpo }}"
+        rto = "{{ rto }}"
+      }
+      region {
+        rpo = "{{ rpo }}"
+        rto = "{{ rto }}"
+      }
+      software {
+        rpo = "{{ rpo }}"
+        rto = "{{ rto }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

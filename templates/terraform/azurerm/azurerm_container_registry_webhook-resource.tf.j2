@@ -1,6 +1,8 @@
 resource "azurerm_container_registry_webhook" "example" {
-    actions = "{{ actions }}"
-    custom_headers = "{{ custom_headers }}"
+    actions = ["{{ actions }}"]
+    custom_headers = {
+        key = "{{ custom_headers_value }}"
+      }
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
@@ -9,5 +11,13 @@ resource "azurerm_container_registry_webhook" "example" {
     scope = "{{ scope }}"
     service_uri = "{{ service_uri }}"
     status = "{{ status }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

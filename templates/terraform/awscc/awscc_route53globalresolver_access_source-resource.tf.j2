@@ -1,0 +1,9 @@
+resource "awscc_route53globalresolver_access_source" "example" {
+    cidr = "{{ cidr }}"
+    client_token = "{{ client_token }}"
+    dns_view_id = "{{ dns_view_id }}"
+    ip_address_type = "{{ ip_address_type }}"
+    name = "{{ name }}"
+    protocol = "{{ protocol }}"
+    tags = "{{ tags }}"
+}

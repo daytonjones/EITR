@@ -1,17 +1,15 @@
 data "aws_ec2_host" "example" {
-    arn = "{{ arn }}"
-    asset_id = "{{ asset_id }}"
-    auto_placement = "{{ auto_placement }}"
-    availability_zone = "{{ availability_zone }}"
-    cores = "{{ cores }}"
     host_id = "{{ host_id }}"
-    host_recovery = "{{ host_recovery }}"
     id = "{{ id }}"
-    instance_family = "{{ instance_family }}"
-    instance_type = "{{ instance_type }}"
-    outpost_arn = "{{ outpost_arn }}"
-    owner_id = "{{ owner_id }}"
-    sockets = "{{ sockets }}"
-    tags = "{{ tags }}"
-    total_vcpus = "{{ total_vcpus }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
+    timeouts {
+      read = "{{ read }}"
+    }
 }

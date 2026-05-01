@@ -1,0 +1,11 @@
+resource "awscc_s3vectors_index" "example" {
+    data_type = "{{ data_type }}"
+    dimension = {{ dimension }}
+    distance_metric = "{{ distance_metric }}"
+    encryption_configuration = "{{ encryption_configuration }}"
+    index_name = "{{ index_name }}"
+    metadata_configuration = "{{ metadata_configuration }}"
+    tags = "{{ tags }}"
+    vector_bucket_arn = "{{ vector_bucket_arn }}"
+    vector_bucket_name = "{{ vector_bucket_name }}"
+}

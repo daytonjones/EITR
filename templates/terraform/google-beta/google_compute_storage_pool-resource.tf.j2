@@ -1,0 +1,26 @@
+resource "google_compute_storage_pool" "example" {
+    capacity_provisioning_type = "{{ capacity_provisioning_type }}"
+    deletion_protection = {{ deletion_protection }}
+    description = "{{ description }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    name = "{{ name }}"
+    performance_provisioning_type = "{{ performance_provisioning_type }}"
+    pool_provisioned_capacity_gb = "{{ pool_provisioned_capacity_gb }}"
+    pool_provisioned_iops = "{{ pool_provisioned_iops }}"
+    pool_provisioned_throughput = "{{ pool_provisioned_throughput }}"
+    project = "{{ project }}"
+    storage_pool_type = "{{ storage_pool_type }}"
+    zone = "{{ zone }}"
+    params {
+      resource_manager_tags = {
+        key = "{{ resource_manager_tags_value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

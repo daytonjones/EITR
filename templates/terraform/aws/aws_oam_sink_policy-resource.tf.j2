@@ -1,7 +1,11 @@
 resource "aws_oam_sink_policy" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     policy = "{{ policy }}"
-    sink_id = "{{ sink_id }}"
+    region = "{{ region }}"
     sink_identifier = "{{ sink_identifier }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

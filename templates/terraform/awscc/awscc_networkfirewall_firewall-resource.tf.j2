@@ -1,21 +1,15 @@
 resource "awscc_networkfirewall_firewall" "example" {
-    delete_protection = "{{ delete_protection }}"
+    availability_zone_change_protection = {{ availability_zone_change_protection }}
+    availability_zone_mappings = "{{ availability_zone_mappings }}"
+    delete_protection = {{ delete_protection }}
     description = "{{ description }}"
-    endpoint_ids = "{{ endpoint_ids }}"
-    firewall_arn = "{{ firewall_arn }}"
-    firewall_id = "{{ firewall_id }}"
+    enabled_analysis_types = ["{{ enabled_analysis_types }}"]
     firewall_name = "{{ firewall_name }}"
     firewall_policy_arn = "{{ firewall_policy_arn }}"
-    firewall_policy_change_protection = "{{ firewall_policy_change_protection }}"
-    id = "{{ id }}"
-    subnet_change_protection = "{{ subnet_change_protection }}"
-    subnet_mappings = "{
-    ip_address_type = {{ ip_address_type }}
-    subnet_id = {{ subnet_id }}
-}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    firewall_policy_change_protection = {{ firewall_policy_change_protection }}
+    subnet_change_protection = {{ subnet_change_protection }}
+    subnet_mappings = "{{ subnet_mappings }}"
+    tags = "{{ tags }}"
+    transit_gateway_id = "{{ transit_gateway_id }}"
     vpc_id = "{{ vpc_id }}"
 }

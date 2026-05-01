@@ -1,0 +1,14 @@
+resource "aws_quicksight_ip_restriction" "example" {
+    aws_account_id = "{{ aws_account_id }}"
+    enabled = {{ enabled }}
+    ip_restriction_rule_map = {
+        key = "{{ ip_restriction_rule_map_value }}"
+      }
+    region = "{{ region }}"
+    vpc_endpoint_id_restriction_rule_map = {
+        key = "{{ vpc_endpoint_id_restriction_rule_map_value }}"
+      }
+    vpc_id_restriction_rule_map = {
+        key = "{{ vpc_id_restriction_rule_map_value }}"
+      }
+}

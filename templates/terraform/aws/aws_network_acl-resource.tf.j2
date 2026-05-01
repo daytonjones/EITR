@@ -1,11 +1,14 @@
 resource "aws_network_acl" "example" {
-    arn = "{{ arn }}"
-    egress = "{{ egress }}"
+    egress = ["{{ egress }}"]
     id = "{{ id }}"
-    ingress = "{{ ingress }}"
-    owner_id = "{{ owner_id }}"
-    subnet_ids = "{{ subnet_ids }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    ingress = ["{{ ingress }}"]
+    region = "{{ region }}"
+    subnet_ids = ["{{ subnet_ids }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     vpc_id = "{{ vpc_id }}"
 }

@@ -1,0 +1,7 @@
+resource "awscc_opensearchserverless_collection_group" "example" {
+    capacity_limits = "{{ capacity_limits }}"
+    description = "{{ description }}"
+    name = "{{ name }}"
+    standby_replicas = "{{ standby_replicas }}"
+    tags = "{{ tags }}"
+}

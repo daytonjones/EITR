@@ -1,12 +1,20 @@
 resource "google_logging_organization_sink" "example" {
     description = "{{ description }}"
     destination = "{{ destination }}"
-    disabled = "{{ disabled }}"
+    disabled = {{ disabled }}
     filter = "{{ filter }}"
     id = "{{ id }}"
-    include_children = "{{ include_children }}"
-    intercept_children = "{{ intercept_children }}"
+    include_children = {{ include_children }}
+    intercept_children = {{ intercept_children }}
     name = "{{ name }}"
     org_id = "{{ org_id }}"
-    writer_identity = "{{ writer_identity }}"
+    bigquery_options {
+      use_partitioned_tables = {{ use_partitioned_tables }}
+    }
+    exclusions {
+      description = "{{ description }}"
+      disabled = {{ disabled }}
+      filter = "{{ filter }}"
+      name = "{{ name }}"
+    }
 }

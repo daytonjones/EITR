@@ -1,0 +1,16 @@
+resource "aws_vpc_route_server_peer" "example" {
+    peer_address = "{{ peer_address }}"
+    region = "{{ region }}"
+    route_server_endpoint_id = "{{ route_server_endpoint_id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    bgp_options {
+      peer_asn = {{ peer_asn }}
+      peer_liveness_detection = "{{ peer_liveness_detection }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

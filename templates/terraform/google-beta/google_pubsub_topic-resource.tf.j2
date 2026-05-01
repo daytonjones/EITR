@@ -1,10 +1,87 @@
 resource "google_pubsub_topic" "example" {
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
     kms_key_name = "{{ kms_key_name }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     message_retention_duration = "{{ message_retention_duration }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    terraform_labels = "{{ terraform_labels }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    ingestion_data_source_settings {
+      aws_kinesis {
+        aws_role_arn = "{{ aws_role_arn }}"
+        consumer_arn = "{{ consumer_arn }}"
+        gcp_service_account = "{{ gcp_service_account }}"
+        stream_arn = "{{ stream_arn }}"
+      }
+      aws_msk {
+        aws_role_arn = "{{ aws_role_arn }}"
+        cluster_arn = "{{ cluster_arn }}"
+        gcp_service_account = "{{ gcp_service_account }}"
+        topic = "{{ topic }}"
+      }
+      azure_event_hubs {
+        client_id = "{{ client_id }}"
+        event_hub = "{{ event_hub }}"
+        gcp_service_account = "{{ gcp_service_account }}"
+        namespace = "{{ namespace }}"
+        resource_group = "{{ resource_group }}"
+        subscription_id = "{{ subscription_id }}"
+        tenant_id = "{{ tenant_id }}"
+      }
+      cloud_storage {
+        bucket = "{{ bucket }}"
+        match_glob = "{{ match_glob }}"
+        minimum_object_create_time = "{{ minimum_object_create_time }}"
+        avro_format {
+        }
+        pubsub_avro_format {
+        }
+        text_format {
+          delimiter = "{{ delimiter }}"
+        }
+      }
+      confluent_cloud {
+        bootstrap_server = "{{ bootstrap_server }}"
+        cluster_id = "{{ cluster_id }}"
+        gcp_service_account = "{{ gcp_service_account }}"
+        identity_pool_id = "{{ identity_pool_id }}"
+        topic = "{{ topic }}"
+      }
+      platform_logs_settings {
+        severity = "{{ severity }}"
+      }
+    }
+    message_storage_policy {
+      allowed_persistence_regions = ["{{ allowed_persistence_regions }}"]
+      enforce_in_transit = {{ enforce_in_transit }}
+    }
+    message_transforms {
+      disabled = {{ disabled }}
+      ai_inference {
+        endpoint = "{{ endpoint }}"
+        service_account_email = "{{ service_account_email }}"
+        unstructured_inference {
+          parameters = {
+        key = "{{ parameters_value }}"
+      }
+        }
+      }
+      javascript_udf {
+        code = "{{ code }}"
+        function_name = "{{ function_name }}"
+      }
+    }
+    schema_settings {
+      encoding = "{{ encoding }}"
+      schema = "{{ schema }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

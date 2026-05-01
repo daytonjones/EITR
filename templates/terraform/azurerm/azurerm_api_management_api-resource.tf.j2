@@ -4,19 +4,52 @@ resource "azurerm_api_management_api" "example" {
     description = "{{ description }}"
     display_name = "{{ display_name }}"
     id = "{{ id }}"
-    is_current = "{{ is_current }}"
-    is_online = "{{ is_online }}"
     name = "{{ name }}"
     path = "{{ path }}"
-    protocols = "{{ protocols }}"
+    protocols = ["{{ protocols }}"]
     resource_group_name = "{{ resource_group_name }}"
     revision = "{{ revision }}"
     revision_description = "{{ revision_description }}"
     service_url = "{{ service_url }}"
     source_api_id = "{{ source_api_id }}"
-    subscription_required = "{{ subscription_required }}"
+    subscription_required = {{ subscription_required }}
     terms_of_service_url = "{{ terms_of_service_url }}"
     version = "{{ version }}"
     version_description = "{{ version_description }}"
     version_set_id = "{{ version_set_id }}"
+    contact {
+      email = "{{ email }}"
+      name = "{{ name }}"
+      url = "{{ url }}"
+    }
+    import {
+      content_format = "{{ content_format }}"
+      content_value = "{{ content_value }}"
+      wsdl_selector {
+        endpoint_name = "{{ endpoint_name }}"
+        service_name = "{{ service_name }}"
+      }
+    }
+    license {
+      name = "{{ name }}"
+      url = "{{ url }}"
+    }
+    oauth2_authorization {
+      authorization_server_name = "{{ authorization_server_name }}"
+      scope = "{{ scope }}"
+    }
+    openid_authentication {
+      bearer_token_sending_methods = ["{{ bearer_token_sending_methods }}"]
+      openid_provider_name = "{{ openid_provider_name }}"
+    }
+    subscription_key_parameter_names {
+      header = "{{ header }}"
+      query = "{{ query }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

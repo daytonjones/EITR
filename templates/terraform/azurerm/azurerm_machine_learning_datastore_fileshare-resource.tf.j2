@@ -2,11 +2,18 @@ resource "azurerm_machine_learning_datastore_fileshare" "example" {
     account_key = "{{ account_key }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    is_default = "{{ is_default }}"
     name = "{{ name }}"
     service_data_identity = "{{ service_data_identity }}"
     shared_access_signature = "{{ shared_access_signature }}"
     storage_fileshare_id = "{{ storage_fileshare_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     workspace_id = "{{ workspace_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

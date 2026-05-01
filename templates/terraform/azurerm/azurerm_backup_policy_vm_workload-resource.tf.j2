@@ -4,4 +4,48 @@ resource "azurerm_backup_policy_vm_workload" "example" {
     recovery_vault_name = "{{ recovery_vault_name }}"
     resource_group_name = "{{ resource_group_name }}"
     workload_type = "{{ workload_type }}"
+    protection_policy {
+      policy_type = "{{ policy_type }}"
+      backup {
+        frequency = "{{ frequency }}"
+        frequency_in_minutes = {{ frequency_in_minutes }}
+        time = "{{ time }}"
+        weekdays = ["{{ weekdays }}"]
+      }
+      retention_daily {
+        count = {{ count }}
+      }
+      retention_monthly {
+        count = {{ count }}
+        format_type = "{{ format_type }}"
+        monthdays = ["{{ monthdays }}"]
+        weekdays = ["{{ weekdays }}"]
+        weeks = ["{{ weeks }}"]
+      }
+      retention_weekly {
+        count = {{ count }}
+        weekdays = ["{{ weekdays }}"]
+      }
+      retention_yearly {
+        count = {{ count }}
+        format_type = "{{ format_type }}"
+        monthdays = ["{{ monthdays }}"]
+        months = ["{{ months }}"]
+        weekdays = ["{{ weekdays }}"]
+        weeks = ["{{ weeks }}"]
+      }
+      simple_retention {
+        count = {{ count }}
+      }
+    }
+    settings {
+      compression_enabled = {{ compression_enabled }}
+      time_zone = "{{ time_zone }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

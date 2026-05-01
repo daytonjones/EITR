@@ -1,5 +1,5 @@
 resource "azurerm_spring_cloud_customized_accelerator" "example" {
-    accelerator_tags = "{{ accelerator_tags }}"
+    accelerator_tags = ["{{ accelerator_tags }}"]
     accelerator_type = "{{ accelerator_type }}"
     description = "{{ description }}"
     display_name = "{{ display_name }}"
@@ -7,4 +7,28 @@ resource "azurerm_spring_cloud_customized_accelerator" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     spring_cloud_accelerator_id = "{{ spring_cloud_accelerator_id }}"
+    git_repository {
+      branch = "{{ branch }}"
+      ca_certificate_id = "{{ ca_certificate_id }}"
+      commit = "{{ commit }}"
+      git_tag = "{{ git_tag }}"
+      interval_in_seconds = {{ interval_in_seconds }}
+      path = "{{ path }}"
+      url = "{{ url }}"
+      basic_auth {
+        password = "{{ password }}"
+        username = "{{ username }}"
+      }
+      ssh_auth {
+        host_key = "{{ host_key }}"
+        host_key_algorithm = "{{ host_key_algorithm }}"
+        private_key = "{{ private_key }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

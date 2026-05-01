@@ -2,4 +2,8 @@ resource "google_site_verification_owner" "example" {
     email = "{{ email }}"
     id = "{{ id }}"
     web_resource_id = "{{ web_resource_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

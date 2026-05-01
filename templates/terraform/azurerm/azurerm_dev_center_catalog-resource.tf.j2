@@ -3,4 +3,22 @@ resource "azurerm_dev_center_catalog" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
+    catalog_adogit {
+      branch = "{{ branch }}"
+      key_vault_key_url = "{{ key_vault_key_url }}"
+      path = "{{ path }}"
+      uri = "{{ uri }}"
+    }
+    catalog_github {
+      branch = "{{ branch }}"
+      key_vault_key_url = "{{ key_vault_key_url }}"
+      path = "{{ path }}"
+      uri = "{{ uri }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

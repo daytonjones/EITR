@@ -1,10 +1,30 @@
 resource "azurerm_spring_cloud_gateway_route_config" "example" {
-    filters = "{{ filters }}"
+    filters = ["{{ filters }}"]
     id = "{{ id }}"
     name = "{{ name }}"
-    predicates = "{{ predicates }}"
+    predicates = ["{{ predicates }}"]
     protocol = "{{ protocol }}"
     spring_cloud_app_id = "{{ spring_cloud_app_id }}"
     spring_cloud_gateway_id = "{{ spring_cloud_gateway_id }}"
-    sso_validation_enabled = "{{ sso_validation_enabled }}"
+    sso_validation_enabled = {{ sso_validation_enabled }}
+    open_api {
+      uri = "{{ uri }}"
+    }
+    route {
+      classification_tags = ["{{ classification_tags }}"]
+      description = "{{ description }}"
+      filters = ["{{ filters }}"]
+      order = {{ order }}
+      predicates = ["{{ predicates }}"]
+      sso_validation_enabled = {{ sso_validation_enabled }}
+      title = "{{ title }}"
+      token_relay = {{ token_relay }}
+      uri = "{{ uri }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

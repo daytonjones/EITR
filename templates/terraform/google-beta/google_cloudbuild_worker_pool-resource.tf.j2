@@ -1,14 +1,29 @@
 resource "google_cloudbuild_worker_pool" "example" {
-    annotations = "{{ annotations }}"
-    create_time = "{{ create_time }}"
-    delete_time = "{{ delete_time }}"
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
     display_name = "{{ display_name }}"
-    effective_annotations = "{{ effective_annotations }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    state = "{{ state }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
+    network_config {
+      peered_network = "{{ peered_network }}"
+      peered_network_ip_range = "{{ peered_network_ip_range }}"
+    }
+    private_service_connect {
+      network_attachment = "{{ network_attachment }}"
+      route_all_traffic = {{ route_all_traffic }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    worker_config {
+      disk_size_gb = {{ disk_size_gb }}
+      enable_nested_virtualization = {{ enable_nested_virtualization }}
+      machine_type = "{{ machine_type }}"
+      no_external_ip = {{ no_external_ip }}
+    }
 }

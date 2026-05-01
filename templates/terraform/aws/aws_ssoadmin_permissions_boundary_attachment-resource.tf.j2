@@ -2,4 +2,16 @@ resource "aws_ssoadmin_permissions_boundary_attachment" "example" {
     id = "{{ id }}"
     instance_arn = "{{ instance_arn }}"
     permission_set_arn = "{{ permission_set_arn }}"
+    region = "{{ region }}"
+    permissions_boundary {
+      managed_policy_arn = "{{ managed_policy_arn }}"
+      customer_managed_policy_reference {
+        name = "{{ name }}"
+        path = "{{ path }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

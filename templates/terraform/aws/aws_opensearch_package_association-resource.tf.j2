@@ -2,5 +2,9 @@ resource "aws_opensearch_package_association" "example" {
     domain_name = "{{ domain_name }}"
     id = "{{ id }}"
     package_id = "{{ package_id }}"
-    reference_path = "{{ reference_path }}"
+    region = "{{ region }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

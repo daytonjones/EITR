@@ -2,9 +2,28 @@ resource "azurerm_storage_account_local_user" "example" {
     home_directory = "{{ home_directory }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    password = "{{ password }}"
-    sid = "{{ sid }}"
-    ssh_key_enabled = "{{ ssh_key_enabled }}"
-    ssh_password_enabled = "{{ ssh_password_enabled }}"
+    ssh_key_enabled = {{ ssh_key_enabled }}
+    ssh_password_enabled = {{ ssh_password_enabled }}
     storage_account_id = "{{ storage_account_id }}"
+    permission_scope {
+      resource_name = "{{ resource_name }}"
+      service = "{{ service }}"
+      permissions {
+        create = {{ create }}
+        delete = {{ delete }}
+        list = {{ list }}
+        read = {{ read }}
+        write = {{ write }}
+      }
+    }
+    ssh_authorized_key {
+      description = "{{ description }}"
+      key = "{{ key }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

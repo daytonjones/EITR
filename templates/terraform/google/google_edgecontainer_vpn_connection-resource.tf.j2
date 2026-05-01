@@ -1,17 +1,22 @@
 resource "google_edgecontainer_vpn_connection" "example" {
     cluster = "{{ cluster }}"
-    create_time = "{{ create_time }}"
-    details = "{{ details }}"
-    effective_labels = "{{ effective_labels }}"
-    enable_high_availability = "{{ enable_high_availability }}"
+    enable_high_availability = {{ enable_high_availability }}
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     nat_gateway_ip = "{{ nat_gateway_ip }}"
     project = "{{ project }}"
     router = "{{ router }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
     vpc = "{{ vpc }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    vpc_project {
+      project_id = "{{ project_id }}"
+    }
 }

@@ -1,0 +1,10 @@
+resource "azurerm_postgresql_flexible_server_backup" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    server_id = "{{ server_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
+}

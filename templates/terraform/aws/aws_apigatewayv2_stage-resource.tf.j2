@@ -1,15 +1,38 @@
 resource "aws_apigatewayv2_stage" "example" {
     api_id = "{{ api_id }}"
-    arn = "{{ arn }}"
-    auto_deploy = "{{ auto_deploy }}"
+    auto_deploy = {{ auto_deploy }}
     client_certificate_id = "{{ client_certificate_id }}"
     deployment_id = "{{ deployment_id }}"
     description = "{{ description }}"
-    execution_arn = "{{ execution_arn }}"
     id = "{{ id }}"
-    invoke_url = "{{ invoke_url }}"
     name = "{{ name }}"
-    stage_variables = "{{ stage_variables }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    stage_variables = {
+        key = "{{ stage_variables_value }}"
+      }
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    access_log_settings {
+      destination_arn = "{{ destination_arn }}"
+      format = "{{ format }}"
+    }
+    default_route_settings {
+      data_trace_enabled = {{ data_trace_enabled }}
+      detailed_metrics_enabled = {{ detailed_metrics_enabled }}
+      logging_level = "{{ logging_level }}"
+      throttling_burst_limit = {{ throttling_burst_limit }}
+      throttling_rate_limit = {{ throttling_rate_limit }}
+    }
+    route_settings {
+      data_trace_enabled = {{ data_trace_enabled }}
+      detailed_metrics_enabled = {{ detailed_metrics_enabled }}
+      logging_level = "{{ logging_level }}"
+      route_key = "{{ route_key }}"
+      throttling_burst_limit = {{ throttling_burst_limit }}
+      throttling_rate_limit = {{ throttling_rate_limit }}
+    }
 }

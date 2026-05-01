@@ -1,9 +1,13 @@
 resource "google_dataproc_autoscaling_policy_iam_binding" "example" {
-    etag = "{{ etag }}"
     id = "{{ id }}"
     location = "{{ location }}"
-    members = "{{ members }}"
+    members = ["{{ members }}"]
     policy_id = "{{ policy_id }}"
     project = "{{ project }}"
     role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

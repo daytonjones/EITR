@@ -1,7 +1,47 @@
 resource "consul_config_entry_service_intentions" "example" {
     id = "{{ id }}"
-    meta = "{{ meta }}"
+    meta = {
+        key = "{{ meta_value }}"
+      }
     name = "{{ name }}"
     namespace = "{{ namespace }}"
     partition = "{{ partition }}"
+    jwt {
+      providers {
+        name = "{{ name }}"
+        verify_claims {
+          path = ["{{ path }}"]
+          value = "{{ value }}"
+        }
+      }
+    }
+    sources {
+      action = "{{ action }}"
+      description = "{{ description }}"
+      name = "{{ name }}"
+      namespace = "{{ namespace }}"
+      partition = "{{ partition }}"
+      peer = "{{ peer }}"
+      precedence = {{ precedence }}
+      sameness_group = "{{ sameness_group }}"
+      type = "{{ type }}"
+      permissions {
+        action = "{{ action }}"
+        http {
+          methods = ["{{ methods }}"]
+          path_exact = "{{ path_exact }}"
+          path_prefix = "{{ path_prefix }}"
+          path_regex = "{{ path_regex }}"
+          headers {
+            exact = "{{ exact }}"
+            invert = {{ invert }}
+            name = "{{ name }}"
+            prefix = "{{ prefix }}"
+            present = {{ present }}
+            regex = "{{ regex }}"
+            suffix = "{{ suffix }}"
+          }
+        }
+      }
+    }
 }

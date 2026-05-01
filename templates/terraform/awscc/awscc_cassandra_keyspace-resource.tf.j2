@@ -1,12 +1,6 @@
 resource "awscc_cassandra_keyspace" "example" {
-    id = "{{ id }}"
+    client_side_timestamps_enabled = {{ client_side_timestamps_enabled }}
     keyspace_name = "{{ keyspace_name }}"
-    replication_specification = "{
-    region_list = {{ region_list }}
-    replication_strategy = {{ replication_strategy }}
-}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    replication_specification = "{{ replication_specification }}"
+    tags = "{{ tags }}"
 }

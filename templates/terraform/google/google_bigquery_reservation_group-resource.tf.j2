@@ -1,0 +1,10 @@
+resource "google_bigquery_reservation_group" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

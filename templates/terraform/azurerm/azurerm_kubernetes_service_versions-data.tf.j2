@@ -1,9 +1,9 @@
 data "azurerm_kubernetes_service_versions" "example" {
-    default_version = "{{ default_version }}"
     id = "{{ id }}"
-    include_preview = "{{ include_preview }}"
-    latest_version = "{{ latest_version }}"
+    include_preview = {{ include_preview }}
     location = "{{ location }}"
     version_prefix = "{{ version_prefix }}"
-    versions = "{{ versions }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

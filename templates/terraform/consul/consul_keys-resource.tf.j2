@@ -4,5 +4,12 @@ resource "consul_keys" "example" {
     namespace = "{{ namespace }}"
     partition = "{{ partition }}"
     token = "{{ token }}"
-    var = "{{ var }}"
+    key {
+      default = "{{ default }}"
+      delete = {{ delete }}
+      flags = {{ flags }}
+      name = "{{ name }}"
+      path = "{{ path }}"
+      value = "{{ value }}"
+    }
 }

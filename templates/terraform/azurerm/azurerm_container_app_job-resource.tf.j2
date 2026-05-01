@@ -1,13 +1,152 @@
 resource "azurerm_container_app_job" "example" {
     container_app_environment_id = "{{ container_app_environment_id }}"
-    event_stream_endpoint = "{{ event_stream_endpoint }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    outbound_ip_addresses = "{{ outbound_ip_addresses }}"
-    replica_retry_limit = "{{ replica_retry_limit }}"
-    replica_timeout_in_seconds = "{{ replica_timeout_in_seconds }}"
+    replica_retry_limit = {{ replica_retry_limit }}
+    replica_timeout_in_seconds = {{ replica_timeout_in_seconds }}
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     workload_profile_name = "{{ workload_profile_name }}"
+    event_trigger_config {
+      parallelism = {{ parallelism }}
+      replica_completion_count = {{ replica_completion_count }}
+      scale {
+        max_executions = {{ max_executions }}
+        min_executions = {{ min_executions }}
+        polling_interval_in_seconds = {{ polling_interval_in_seconds }}
+        rules {
+          custom_rule_type = "{{ custom_rule_type }}"
+          identity_id = "{{ identity_id }}"
+          metadata = {
+        key = "{{ metadata_value }}"
+      }
+          name = "{{ name }}"
+          authentication {
+            secret_name = "{{ secret_name }}"
+            trigger_parameter = "{{ trigger_parameter }}"
+          }
+        }
+      }
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    manual_trigger_config {
+      parallelism = {{ parallelism }}
+      replica_completion_count = {{ replica_completion_count }}
+    }
+    registry {
+      identity = "{{ identity }}"
+      password_secret_name = "{{ password_secret_name }}"
+      server = "{{ server }}"
+      username = "{{ username }}"
+    }
+    schedule_trigger_config {
+      cron_expression = "{{ cron_expression }}"
+      parallelism = {{ parallelism }}
+      replica_completion_count = {{ replica_completion_count }}
+    }
+    secret {
+      identity = "{{ identity }}"
+      key_vault_secret_id = "{{ key_vault_secret_id }}"
+      name = "{{ name }}"
+      value = "{{ value }}"
+    }
+    template {
+      container {
+        args = ["{{ args }}"]
+        command = ["{{ command }}"]
+        cpu = {{ cpu }}
+        image = "{{ image }}"
+        memory = "{{ memory }}"
+        name = "{{ name }}"
+        env {
+          name = "{{ name }}"
+          secret_name = "{{ secret_name }}"
+          value = "{{ value }}"
+        }
+        liveness_probe {
+          failure_count_threshold = {{ failure_count_threshold }}
+          host = "{{ host }}"
+          initial_delay = {{ initial_delay }}
+          interval_seconds = {{ interval_seconds }}
+          path = "{{ path }}"
+          port = {{ port }}
+          timeout = {{ timeout }}
+          transport = "{{ transport }}"
+          header {
+            name = "{{ name }}"
+            value = "{{ value }}"
+          }
+        }
+        readiness_probe {
+          failure_count_threshold = {{ failure_count_threshold }}
+          host = "{{ host }}"
+          initial_delay = {{ initial_delay }}
+          interval_seconds = {{ interval_seconds }}
+          path = "{{ path }}"
+          port = {{ port }}
+          success_count_threshold = {{ success_count_threshold }}
+          timeout = {{ timeout }}
+          transport = "{{ transport }}"
+          header {
+            name = "{{ name }}"
+            value = "{{ value }}"
+          }
+        }
+        startup_probe {
+          failure_count_threshold = {{ failure_count_threshold }}
+          host = "{{ host }}"
+          initial_delay = {{ initial_delay }}
+          interval_seconds = {{ interval_seconds }}
+          path = "{{ path }}"
+          port = {{ port }}
+          timeout = {{ timeout }}
+          transport = "{{ transport }}"
+          header {
+            name = "{{ name }}"
+            value = "{{ value }}"
+          }
+        }
+        volume_mounts {
+          name = "{{ name }}"
+          path = "{{ path }}"
+          sub_path = "{{ sub_path }}"
+        }
+      }
+      init_container {
+        args = ["{{ args }}"]
+        command = ["{{ command }}"]
+        cpu = {{ cpu }}
+        image = "{{ image }}"
+        memory = "{{ memory }}"
+        name = "{{ name }}"
+        env {
+          name = "{{ name }}"
+          secret_name = "{{ secret_name }}"
+          value = "{{ value }}"
+        }
+        volume_mounts {
+          name = "{{ name }}"
+          path = "{{ path }}"
+          sub_path = "{{ sub_path }}"
+        }
+      }
+      volume {
+        mount_options = "{{ mount_options }}"
+        name = "{{ name }}"
+        storage_name = "{{ storage_name }}"
+        storage_type = "{{ storage_type }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

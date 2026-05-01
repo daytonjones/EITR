@@ -1,0 +1,12 @@
+resource "google_iap_web_forwarding_rule_service_iam_binding" "example" {
+    forwarding_rule_service_name = "{{ forwarding_rule_service_name }}"
+    id = "{{ id }}"
+    members = ["{{ members }}"]
+    project = "{{ project }}"
+    role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

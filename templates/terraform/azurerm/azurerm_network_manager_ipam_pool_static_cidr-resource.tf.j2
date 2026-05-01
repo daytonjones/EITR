@@ -1,0 +1,13 @@
+resource "azurerm_network_manager_ipam_pool_static_cidr" "example" {
+    address_prefixes = ["{{ address_prefixes }}"]
+    id = "{{ id }}"
+    ipam_pool_id = "{{ ipam_pool_id }}"
+    name = "{{ name }}"
+    number_of_ip_addresses_to_allocate = "{{ number_of_ip_addresses_to_allocate }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

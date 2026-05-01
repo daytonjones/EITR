@@ -1,0 +1,5 @@
+resource "awscc_smsvoice_protect_configuration" "example" {
+    country_rule_set = "{{ country_rule_set }}"
+    deletion_protection_enabled = {{ deletion_protection_enabled }}
+    tags = "{{ tags }}"
+}

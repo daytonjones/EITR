@@ -1,4 +1,79 @@
 resource "ad_gpo_security" "example" {
     gpo_container = "{{ gpo_container }}"
     id = "{{ id }}"
+    account_lockout {
+      force_logoff_when_hour_expire = "{{ force_logoff_when_hour_expire }}"
+      lockout_bad_count = "{{ lockout_bad_count }}"
+      lockout_duration = "{{ lockout_duration }}"
+      reset_lockout_count = "{{ reset_lockout_count }}"
+    }
+    application_log {
+      audit_log_retention_period = "{{ audit_log_retention_period }}"
+      maximum_log_size = "{{ maximum_log_size }}"
+      restrict_guest_access = "{{ restrict_guest_access }}"
+      retention_days = "{{ retention_days }}"
+    }
+    audit_log {
+      audit_log_retention_period = "{{ audit_log_retention_period }}"
+      maximum_log_size = "{{ maximum_log_size }}"
+      restrict_guest_access = "{{ restrict_guest_access }}"
+      retention_days = "{{ retention_days }}"
+    }
+    event_audit {
+      audit_account_logon = "{{ audit_account_logon }}"
+      audit_account_manage = "{{ audit_account_manage }}"
+      audit_ds_access = "{{ audit_ds_access }}"
+      audit_logon_events = "{{ audit_logon_events }}"
+      audit_object_access = "{{ audit_object_access }}"
+      audit_policy_change = "{{ audit_policy_change }}"
+      audit_privilege_use = "{{ audit_privilege_use }}"
+      audit_process_tracking = "{{ audit_process_tracking }}"
+      audit_system_events = "{{ audit_system_events }}"
+    }
+    filesystem {
+      acl = "{{ acl }}"
+      path = "{{ path }}"
+      propagation_mode = "{{ propagation_mode }}"
+    }
+    kerberos_policy {
+      max_clock_skew = "{{ max_clock_skew }}"
+      max_renew_age = "{{ max_renew_age }}"
+      max_service_age = "{{ max_service_age }}"
+      max_ticket_age = "{{ max_ticket_age }}"
+      ticket_validate_client = "{{ ticket_validate_client }}"
+    }
+    password_policies {
+      clear_text_password = "{{ clear_text_password }}"
+      maximum_password_age = "{{ maximum_password_age }}"
+      minimum_password_age = "{{ minimum_password_age }}"
+      minimum_password_length = "{{ minimum_password_length }}"
+      password_complexity = "{{ password_complexity }}"
+      password_history_size = "{{ password_history_size }}"
+    }
+    registry_keys {
+      acl = "{{ acl }}"
+      key_name = "{{ key_name }}"
+      propagation_mode = "{{ propagation_mode }}"
+    }
+    registry_values {
+      key_name = "{{ key_name }}"
+      value = "{{ value }}"
+      value_type = "{{ value_type }}"
+    }
+    restricted_groups {
+      group_memberof = "{{ group_memberof }}"
+      group_members = "{{ group_members }}"
+      group_name = "{{ group_name }}"
+    }
+    system_log {
+      audit_log_retention_period = "{{ audit_log_retention_period }}"
+      maximum_log_size = "{{ maximum_log_size }}"
+      restrict_guest_access = "{{ restrict_guest_access }}"
+      retention_days = "{{ retention_days }}"
+    }
+    system_services {
+      acl = "{{ acl }}"
+      service_name = "{{ service_name }}"
+      startup_mode = "{{ startup_mode }}"
+    }
 }

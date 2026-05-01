@@ -1,6 +1,6 @@
 resource "azurestack_managed_disk" "example" {
     create_option = "{{ create_option }}"
-    disk_size_gb = "{{ disk_size_gb }}"
+    disk_size_gb = {{ disk_size_gb }}
     hyper_v_generation = "{{ hyper_v_generation }}"
     id = "{{ id }}"
     image_reference_id = "{{ image_reference_id }}"
@@ -12,5 +12,24 @@ resource "azurestack_managed_disk" "example" {
     source_uri = "{{ source_uri }}"
     storage_account_id = "{{ storage_account_id }}"
     storage_account_type = "{{ storage_account_type }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    encryption {
+      enabled = {{ enabled }}
+      disk_encryption_key {
+        secret_url = "{{ secret_url }}"
+        source_vault_id = "{{ source_vault_id }}"
+      }
+      key_encryption_key {
+        key_url = "{{ key_url }}"
+        source_vault_id = "{{ source_vault_id }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

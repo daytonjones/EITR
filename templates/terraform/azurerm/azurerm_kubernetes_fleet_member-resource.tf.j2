@@ -4,4 +4,10 @@ resource "azurerm_kubernetes_fleet_member" "example" {
     kubernetes_cluster_id = "{{ kubernetes_cluster_id }}"
     kubernetes_fleet_id = "{{ kubernetes_fleet_id }}"
     name = "{{ name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

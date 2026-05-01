@@ -1,14 +1,15 @@
 resource "aws_schemas_schema" "example" {
-    arn = "{{ arn }}"
     content = "{{ content }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    last_modified = "{{ last_modified }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     registry_name = "{{ registry_name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     type = "{{ type }}"
-    version = "{{ version }}"
-    version_created_date = "{{ version_created_date }}"
 }

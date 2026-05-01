@@ -1,8 +1,37 @@
 resource "azurerm_consumption_budget_management_group" "example" {
-    amount = "{{ amount }}"
+    amount = {{ amount }}
     etag = "{{ etag }}"
     id = "{{ id }}"
     management_group_id = "{{ management_group_id }}"
     name = "{{ name }}"
     time_grain = "{{ time_grain }}"
+    filter {
+      dimension {
+        name = "{{ name }}"
+        operator = "{{ operator }}"
+        values = ["{{ values }}"]
+      }
+      tag {
+        name = "{{ name }}"
+        operator = "{{ operator }}"
+        values = ["{{ values }}"]
+      }
+    }
+    notification {
+      contact_emails = ["{{ contact_emails }}"]
+      enabled = {{ enabled }}
+      operator = "{{ operator }}"
+      threshold = {{ threshold }}
+      threshold_type = "{{ threshold_type }}"
+    }
+    time_period {
+      end_date = "{{ end_date }}"
+      start_date = "{{ start_date }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -2,7 +2,13 @@ resource "azurerm_relay_hybrid_connection" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     relay_namespace_name = "{{ relay_namespace_name }}"
-    requires_client_authorization = "{{ requires_client_authorization }}"
+    requires_client_authorization = {{ requires_client_authorization }}
     resource_group_name = "{{ resource_group_name }}"
     user_metadata = "{{ user_metadata }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,24 @@
+resource "aws_s3files_access_point" "example" {
+    file_system_id = "{{ file_system_id }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    posix_user {
+      gid = {{ gid }}
+      secondary_gids = ["{{ secondary_gids }}"]
+      uid = {{ uid }}
+    }
+    root_directory {
+      path = "{{ path }}"
+      creation_permissions {
+        owner_gid = {{ owner_gid }}
+        owner_uid = {{ owner_uid }}
+        permissions = "{{ permissions }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

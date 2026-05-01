@@ -1,5 +1,17 @@
 resource "azurerm_frontdoor_custom_https_configuration" "example" {
-    custom_https_provisioning_enabled = "{{ custom_https_provisioning_enabled }}"
+    custom_https_provisioning_enabled = {{ custom_https_provisioning_enabled }}
     frontend_endpoint_id = "{{ frontend_endpoint_id }}"
     id = "{{ id }}"
+    custom_https_configuration {
+      azure_key_vault_certificate_secret_name = "{{ azure_key_vault_certificate_secret_name }}"
+      azure_key_vault_certificate_secret_version = "{{ azure_key_vault_certificate_secret_version }}"
+      azure_key_vault_certificate_vault_id = "{{ azure_key_vault_certificate_vault_id }}"
+      certificate_source = "{{ certificate_source }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

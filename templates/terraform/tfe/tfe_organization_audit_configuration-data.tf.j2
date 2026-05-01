@@ -1,0 +1,6 @@
+data "tfe_organization_audit_configuration" "example" {
+    audit_trails_enabled = {{ audit_trails_enabled }}
+    hcp_log_streaming_enabled = {{ hcp_log_streaming_enabled }}
+    hcp_organization = "{{ hcp_organization }}"
+    organization = "{{ organization }}"
+}

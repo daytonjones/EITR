@@ -1,9 +1,16 @@
 resource "aws_memorydb_user" "example" {
     access_string = "{{ access_string }}"
-    arn = "{{ arn }}"
     id = "{{ id }}"
-    minimum_engine_version = "{{ minimum_engine_version }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     user_name = "{{ user_name }}"
+    authentication_mode {
+      passwords = ["{{ passwords }}"]
+      type = "{{ type }}"
+    }
 }

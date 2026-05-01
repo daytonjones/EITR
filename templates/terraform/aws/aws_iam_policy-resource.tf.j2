@@ -1,13 +1,15 @@
 resource "aws_iam_policy" "example" {
-    arn = "{{ arn }}"
-    attachment_count = "{{ attachment_count }}"
+    delay_after_policy_creation_in_ms = {{ delay_after_policy_creation_in_ms }}
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
     name_prefix = "{{ name_prefix }}"
     path = "{{ path }}"
     policy = "{{ policy }}"
-    policy_id = "{{ policy_id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

@@ -1,5 +1,8 @@
 data "aws_pricing_product" "example" {
     id = "{{ id }}"
-    result = "{{ result }}"
     service_code = "{{ service_code }}"
+    filters {
+      field = "{{ field }}"
+      value = "{{ value }}"
+    }
 }

@@ -4,7 +4,22 @@ resource "azurerm_orbital_spacecraft" "example" {
     name = "{{ name }}"
     norad_id = "{{ norad_id }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     title_line = "{{ title_line }}"
-    two_line_elements = "{{ two_line_elements }}"
+    two_line_elements = ["{{ two_line_elements }}"]
+    links {
+      bandwidth_mhz = {{ bandwidth_mhz }}
+      center_frequency_mhz = {{ center_frequency_mhz }}
+      direction = "{{ direction }}"
+      name = "{{ name }}"
+      polarization = "{{ polarization }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

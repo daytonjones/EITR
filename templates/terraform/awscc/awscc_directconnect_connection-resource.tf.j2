@@ -1,0 +1,9 @@
+resource "awscc_directconnect_connection" "example" {
+    bandwidth = "{{ bandwidth }}"
+    connection_name = "{{ connection_name }}"
+    lag_id = "{{ lag_id }}"
+    location = "{{ location }}"
+    provider_name = "{{ provider_name }}"
+    request_mac_sec = {{ request_mac_sec }}
+    tags = "{{ tags }}"
+}

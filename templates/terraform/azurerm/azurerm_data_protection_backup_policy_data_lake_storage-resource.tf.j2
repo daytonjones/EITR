@@ -1,0 +1,22 @@
+resource "azurerm_data_protection_backup_policy_data_lake_storage" "example" {
+    backup_schedule = ["{{ backup_schedule }}"]
+    data_protection_backup_vault_id = "{{ data_protection_backup_vault_id }}"
+    default_retention_duration = "{{ default_retention_duration }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    time_zone = "{{ time_zone }}"
+    retention_rule {
+      absolute_criteria = "{{ absolute_criteria }}"
+      days_of_week = ["{{ days_of_week }}"]
+      duration = "{{ duration }}"
+      months_of_year = ["{{ months_of_year }}"]
+      name = "{{ name }}"
+      scheduled_backup_times = ["{{ scheduled_backup_times }}"]
+      weeks_of_month = ["{{ weeks_of_month }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
+}

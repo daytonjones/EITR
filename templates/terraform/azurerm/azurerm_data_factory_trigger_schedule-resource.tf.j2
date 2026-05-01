@@ -1,15 +1,39 @@
 resource "azurerm_data_factory_trigger_schedule" "example" {
-    activated = "{{ activated }}"
-    annotations = "{{ annotations }}"
+    activated = {{ activated }}
+    annotations = ["{{ annotations }}"]
     data_factory_id = "{{ data_factory_id }}"
     description = "{{ description }}"
     end_time = "{{ end_time }}"
     frequency = "{{ frequency }}"
     id = "{{ id }}"
-    interval = "{{ interval }}"
+    interval = {{ interval }}
     name = "{{ name }}"
     pipeline_name = "{{ pipeline_name }}"
-    pipeline_parameters = "{{ pipeline_parameters }}"
+    pipeline_parameters = {
+        key = "{{ pipeline_parameters_value }}"
+      }
     start_time = "{{ start_time }}"
     time_zone = "{{ time_zone }}"
+    pipeline {
+      name = "{{ name }}"
+      parameters = {
+        key = "{{ parameters_value }}"
+      }
+    }
+    schedule {
+      days_of_month = ["{{ days_of_month }}"]
+      days_of_week = ["{{ days_of_week }}"]
+      hours = ["{{ hours }}"]
+      minutes = ["{{ minutes }}"]
+      monthly {
+        week = {{ week }}
+        weekday = "{{ weekday }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

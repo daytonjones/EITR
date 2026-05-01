@@ -3,5 +3,13 @@ resource "azurerm_application_load_balancer_subnet_association" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     subnet_id = "{{ subnet_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

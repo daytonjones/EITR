@@ -1,10 +1,45 @@
 resource "aws_ssmcontacts_rotation" "example" {
-    arn = "{{ arn }}"
-    contact_ids = "{{ contact_ids }}"
-    id = "{{ id }}"
+    contact_ids = ["{{ contact_ids }}"]
     name = "{{ name }}"
+    region = "{{ region }}"
     start_time = "{{ start_time }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     time_zone_id = "{{ time_zone_id }}"
+    recurrence {
+      number_of_on_calls = {{ number_of_on_calls }}
+      recurrence_multiplier = {{ recurrence_multiplier }}
+      daily_settings {
+        hour_of_day = {{ hour_of_day }}
+        minute_of_hour = {{ minute_of_hour }}
+      }
+      monthly_settings {
+        day_of_month = {{ day_of_month }}
+        hand_off_time {
+          hour_of_day = {{ hour_of_day }}
+          minute_of_hour = {{ minute_of_hour }}
+        }
+      }
+      shift_coverages {
+        map_block_key = "{{ map_block_key }}"
+        coverage_times {
+          end {
+            hour_of_day = {{ hour_of_day }}
+            minute_of_hour = {{ minute_of_hour }}
+          }
+          start {
+            hour_of_day = {{ hour_of_day }}
+            minute_of_hour = {{ minute_of_hour }}
+          }
+        }
+      }
+      weekly_settings {
+        day_of_week = "{{ day_of_week }}"
+        hand_off_time {
+          hour_of_day = {{ hour_of_day }}
+          minute_of_hour = {{ minute_of_hour }}
+        }
+      }
+    }
 }

@@ -1,9 +1,17 @@
 resource "aws_lambda_code_signing_config" "example" {
-    arn = "{{ arn }}"
-    config_id = "{{ config_id }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    last_modified = "{{ last_modified }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    allowed_publishers {
+      signing_profile_version_arns = ["{{ signing_profile_version_arns }}"]
+    }
+    policies {
+      untrusted_artifact_on_deployment = "{{ untrusted_artifact_on_deployment }}"
+    }
 }

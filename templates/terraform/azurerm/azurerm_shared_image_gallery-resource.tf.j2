@@ -4,6 +4,22 @@ resource "azurerm_shared_image_gallery" "example" {
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
-    unique_name = "{{ unique_name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    sharing {
+      permission = "{{ permission }}"
+      community_gallery {
+        eula = "{{ eula }}"
+        prefix = "{{ prefix }}"
+        publisher_email = "{{ publisher_email }}"
+        publisher_uri = "{{ publisher_uri }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

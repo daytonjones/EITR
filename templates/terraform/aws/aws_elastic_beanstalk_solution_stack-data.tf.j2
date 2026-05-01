@@ -1,6 +1,6 @@
 data "aws_elastic_beanstalk_solution_stack" "example" {
     id = "{{ id }}"
-    most_recent = "{{ most_recent }}"
-    name = "{{ name }}"
+    most_recent = {{ most_recent }}
     name_regex = "{{ name_regex }}"
+    region = "{{ region }}"
 }

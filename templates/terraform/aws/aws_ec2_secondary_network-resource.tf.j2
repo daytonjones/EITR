@@ -1,0 +1,13 @@
+resource "aws_ec2_secondary_network" "example" {
+    ipv4_cidr_block = "{{ ipv4_cidr_block }}"
+    network_type = "{{ network_type }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

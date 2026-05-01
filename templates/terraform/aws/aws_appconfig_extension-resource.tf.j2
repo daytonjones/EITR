@@ -1,9 +1,26 @@
 resource "aws_appconfig_extension" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    version = "{{ version }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    action_point {
+      point = "{{ point }}"
+      action {
+        description = "{{ description }}"
+        name = "{{ name }}"
+        role_arn = "{{ role_arn }}"
+        uri = "{{ uri }}"
+      }
+    }
+    parameter {
+      description = "{{ description }}"
+      name = "{{ name }}"
+      required = {{ required }}
+    }
 }

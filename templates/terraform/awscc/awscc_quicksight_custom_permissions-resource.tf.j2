@@ -1,0 +1,6 @@
+resource "awscc_quicksight_custom_permissions" "example" {
+    aws_account_id = "{{ aws_account_id }}"
+    capabilities = "{{ capabilities }}"
+    custom_permissions_name = "{{ custom_permissions_name }}"
+    tags = "{{ tags }}"
+}

@@ -7,6 +7,19 @@ resource "azurerm_stack_hci_marketplace_gallery_image" "example" {
     os_type = "{{ os_type }}"
     resource_group_name = "{{ resource_group_name }}"
     storage_path_id = "{{ storage_path_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     version = "{{ version }}"
+    identifier {
+      offer = "{{ offer }}"
+      publisher = "{{ publisher }}"
+      sku = "{{ sku }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

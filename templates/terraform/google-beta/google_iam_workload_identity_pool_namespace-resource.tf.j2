@@ -1,0 +1,13 @@
+resource "google_iam_workload_identity_pool_namespace" "example" {
+    description = "{{ description }}"
+    disabled = {{ disabled }}
+    id = "{{ id }}"
+    project = "{{ project }}"
+    workload_identity_pool_id = "{{ workload_identity_pool_id }}"
+    workload_identity_pool_namespace_id = "{{ workload_identity_pool_namespace_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

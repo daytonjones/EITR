@@ -1,5 +1,10 @@
 resource "aws_snapshot_create_volume_permission" "example" {
     account_id = "{{ account_id }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     snapshot_id = "{{ snapshot_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

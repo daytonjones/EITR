@@ -1,11 +1,27 @@
 resource "aws_connect_routing_profile" "example" {
-    arn = "{{ arn }}"
     default_outbound_queue_id = "{{ default_outbound_queue_id }}"
     description = "{{ description }}"
     id = "{{ id }}"
     instance_id = "{{ instance_id }}"
     name = "{{ name }}"
-    routing_profile_id = "{{ routing_profile_id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    media_concurrencies {
+      channel = "{{ channel }}"
+      concurrency = {{ concurrency }}
+      cross_channel_behavior {
+        behavior_type = "{{ behavior_type }}"
+      }
+    }
+    queue_configs {
+      channel = "{{ channel }}"
+      delay = {{ delay }}
+      priority = {{ priority }}
+      queue_id = "{{ queue_id }}"
+    }
 }

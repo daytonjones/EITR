@@ -1,17 +1,26 @@
 resource "vsphere_host" "example" {
     cluster = "{{ cluster }}"
-    cluster_managed = "{{ cluster_managed }}"
-    connected = "{{ connected }}"
-    custom_attributes = "{{ custom_attributes }}"
+    cluster_managed = {{ cluster_managed }}
+    connected = {{ connected }}
+    custom_attributes = {
+        key = "{{ custom_attributes_value }}"
+      }
     datacenter = "{{ datacenter }}"
-    force = "{{ force }}"
+    force = {{ force }}
     hostname = "{{ hostname }}"
     id = "{{ id }}"
     license = "{{ license }}"
     lockdown = "{{ lockdown }}"
-    maintenance = "{{ maintenance }}"
+    maintenance = {{ maintenance }}
     password = "{{ password }}"
-    tags = "{{ tags }}"
+    tags = ["{{ tags }}"]
     thumbprint = "{{ thumbprint }}"
     username = "{{ username }}"
+    services {
+      ntpd {
+        enabled = {{ enabled }}
+        ntp_servers = ["{{ ntp_servers }}"]
+        policy = "{{ policy }}"
+      }
+    }
 }

@@ -3,99 +3,160 @@ resource "azurerm_storage_account" "example" {
     account_kind = "{{ account_kind }}"
     account_replication_type = "{{ account_replication_type }}"
     account_tier = "{{ account_tier }}"
-    allow_nested_items_to_be_public = "{{ allow_nested_items_to_be_public }}"
+    allow_nested_items_to_be_public = {{ allow_nested_items_to_be_public }}
     allowed_copy_scope = "{{ allowed_copy_scope }}"
-    cross_tenant_replication_enabled = "{{ cross_tenant_replication_enabled }}"
-    default_to_oauth_authentication = "{{ default_to_oauth_authentication }}"
+    cross_tenant_replication_enabled = {{ cross_tenant_replication_enabled }}
+    default_to_oauth_authentication = {{ default_to_oauth_authentication }}
     dns_endpoint_type = "{{ dns_endpoint_type }}"
     edge_zone = "{{ edge_zone }}"
-    https_traffic_only_enabled = "{{ https_traffic_only_enabled }}"
+    https_traffic_only_enabled = {{ https_traffic_only_enabled }}
     id = "{{ id }}"
-    infrastructure_encryption_enabled = "{{ infrastructure_encryption_enabled }}"
-    is_hns_enabled = "{{ is_hns_enabled }}"
-    large_file_share_enabled = "{{ large_file_share_enabled }}"
-    local_user_enabled = "{{ local_user_enabled }}"
+    infrastructure_encryption_enabled = {{ infrastructure_encryption_enabled }}
+    is_hns_enabled = {{ is_hns_enabled }}
+    large_file_share_enabled = {{ large_file_share_enabled }}
+    local_user_enabled = {{ local_user_enabled }}
     location = "{{ location }}"
     min_tls_version = "{{ min_tls_version }}"
     name = "{{ name }}"
-    nfsv3_enabled = "{{ nfsv3_enabled }}"
-    primary_access_key = "{{ primary_access_key }}"
-    primary_blob_connection_string = "{{ primary_blob_connection_string }}"
-    primary_blob_endpoint = "{{ primary_blob_endpoint }}"
-    primary_blob_host = "{{ primary_blob_host }}"
-    primary_blob_internet_endpoint = "{{ primary_blob_internet_endpoint }}"
-    primary_blob_internet_host = "{{ primary_blob_internet_host }}"
-    primary_blob_microsoft_endpoint = "{{ primary_blob_microsoft_endpoint }}"
-    primary_blob_microsoft_host = "{{ primary_blob_microsoft_host }}"
-    primary_connection_string = "{{ primary_connection_string }}"
-    primary_dfs_endpoint = "{{ primary_dfs_endpoint }}"
-    primary_dfs_host = "{{ primary_dfs_host }}"
-    primary_dfs_internet_endpoint = "{{ primary_dfs_internet_endpoint }}"
-    primary_dfs_internet_host = "{{ primary_dfs_internet_host }}"
-    primary_dfs_microsoft_endpoint = "{{ primary_dfs_microsoft_endpoint }}"
-    primary_dfs_microsoft_host = "{{ primary_dfs_microsoft_host }}"
-    primary_file_endpoint = "{{ primary_file_endpoint }}"
-    primary_file_host = "{{ primary_file_host }}"
-    primary_file_internet_endpoint = "{{ primary_file_internet_endpoint }}"
-    primary_file_internet_host = "{{ primary_file_internet_host }}"
-    primary_file_microsoft_endpoint = "{{ primary_file_microsoft_endpoint }}"
-    primary_file_microsoft_host = "{{ primary_file_microsoft_host }}"
-    primary_location = "{{ primary_location }}"
-    primary_queue_endpoint = "{{ primary_queue_endpoint }}"
-    primary_queue_host = "{{ primary_queue_host }}"
-    primary_queue_microsoft_endpoint = "{{ primary_queue_microsoft_endpoint }}"
-    primary_queue_microsoft_host = "{{ primary_queue_microsoft_host }}"
-    primary_table_endpoint = "{{ primary_table_endpoint }}"
-    primary_table_host = "{{ primary_table_host }}"
-    primary_table_microsoft_endpoint = "{{ primary_table_microsoft_endpoint }}"
-    primary_table_microsoft_host = "{{ primary_table_microsoft_host }}"
-    primary_web_endpoint = "{{ primary_web_endpoint }}"
-    primary_web_host = "{{ primary_web_host }}"
-    primary_web_internet_endpoint = "{{ primary_web_internet_endpoint }}"
-    primary_web_internet_host = "{{ primary_web_internet_host }}"
-    primary_web_microsoft_endpoint = "{{ primary_web_microsoft_endpoint }}"
-    primary_web_microsoft_host = "{{ primary_web_microsoft_host }}"
-    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    nfsv3_enabled = {{ nfsv3_enabled }}
+    provisioned_billing_model_version = "{{ provisioned_billing_model_version }}"
+    public_network_access_enabled = {{ public_network_access_enabled }}
     queue_encryption_key_type = "{{ queue_encryption_key_type }}"
     resource_group_name = "{{ resource_group_name }}"
-    secondary_access_key = "{{ secondary_access_key }}"
-    secondary_blob_connection_string = "{{ secondary_blob_connection_string }}"
-    secondary_blob_endpoint = "{{ secondary_blob_endpoint }}"
-    secondary_blob_host = "{{ secondary_blob_host }}"
-    secondary_blob_internet_endpoint = "{{ secondary_blob_internet_endpoint }}"
-    secondary_blob_internet_host = "{{ secondary_blob_internet_host }}"
-    secondary_blob_microsoft_endpoint = "{{ secondary_blob_microsoft_endpoint }}"
-    secondary_blob_microsoft_host = "{{ secondary_blob_microsoft_host }}"
-    secondary_connection_string = "{{ secondary_connection_string }}"
-    secondary_dfs_endpoint = "{{ secondary_dfs_endpoint }}"
-    secondary_dfs_host = "{{ secondary_dfs_host }}"
-    secondary_dfs_internet_endpoint = "{{ secondary_dfs_internet_endpoint }}"
-    secondary_dfs_internet_host = "{{ secondary_dfs_internet_host }}"
-    secondary_dfs_microsoft_endpoint = "{{ secondary_dfs_microsoft_endpoint }}"
-    secondary_dfs_microsoft_host = "{{ secondary_dfs_microsoft_host }}"
-    secondary_file_endpoint = "{{ secondary_file_endpoint }}"
-    secondary_file_host = "{{ secondary_file_host }}"
-    secondary_file_internet_endpoint = "{{ secondary_file_internet_endpoint }}"
-    secondary_file_internet_host = "{{ secondary_file_internet_host }}"
-    secondary_file_microsoft_endpoint = "{{ secondary_file_microsoft_endpoint }}"
-    secondary_file_microsoft_host = "{{ secondary_file_microsoft_host }}"
-    secondary_location = "{{ secondary_location }}"
-    secondary_queue_endpoint = "{{ secondary_queue_endpoint }}"
-    secondary_queue_host = "{{ secondary_queue_host }}"
-    secondary_queue_microsoft_endpoint = "{{ secondary_queue_microsoft_endpoint }}"
-    secondary_queue_microsoft_host = "{{ secondary_queue_microsoft_host }}"
-    secondary_table_endpoint = "{{ secondary_table_endpoint }}"
-    secondary_table_host = "{{ secondary_table_host }}"
-    secondary_table_microsoft_endpoint = "{{ secondary_table_microsoft_endpoint }}"
-    secondary_table_microsoft_host = "{{ secondary_table_microsoft_host }}"
-    secondary_web_endpoint = "{{ secondary_web_endpoint }}"
-    secondary_web_host = "{{ secondary_web_host }}"
-    secondary_web_internet_endpoint = "{{ secondary_web_internet_endpoint }}"
-    secondary_web_internet_host = "{{ secondary_web_internet_host }}"
-    secondary_web_microsoft_endpoint = "{{ secondary_web_microsoft_endpoint }}"
-    secondary_web_microsoft_host = "{{ secondary_web_microsoft_host }}"
-    sftp_enabled = "{{ sftp_enabled }}"
-    shared_access_key_enabled = "{{ shared_access_key_enabled }}"
+    sftp_enabled = {{ sftp_enabled }}
+    shared_access_key_enabled = {{ shared_access_key_enabled }}
     table_encryption_key_type = "{{ table_encryption_key_type }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    azure_files_authentication {
+      default_share_level_permission = "{{ default_share_level_permission }}"
+      directory_type = "{{ directory_type }}"
+      active_directory {
+        domain_guid = "{{ domain_guid }}"
+        domain_name = "{{ domain_name }}"
+        domain_sid = "{{ domain_sid }}"
+        forest_name = "{{ forest_name }}"
+        netbios_domain_name = "{{ netbios_domain_name }}"
+        storage_sid = "{{ storage_sid }}"
+      }
+    }
+    blob_properties {
+      change_feed_enabled = {{ change_feed_enabled }}
+      change_feed_retention_in_days = {{ change_feed_retention_in_days }}
+      default_service_version = "{{ default_service_version }}"
+      last_access_time_enabled = {{ last_access_time_enabled }}
+      versioning_enabled = {{ versioning_enabled }}
+      container_delete_retention_policy {
+        days = {{ days }}
+      }
+      cors_rule {
+        allowed_headers = ["{{ allowed_headers }}"]
+        allowed_methods = ["{{ allowed_methods }}"]
+        allowed_origins = ["{{ allowed_origins }}"]
+        exposed_headers = ["{{ exposed_headers }}"]
+        max_age_in_seconds = {{ max_age_in_seconds }}
+      }
+      delete_retention_policy {
+        days = {{ days }}
+        permanent_delete_enabled = {{ permanent_delete_enabled }}
+      }
+      restore_policy {
+        days = {{ days }}
+      }
+    }
+    custom_domain {
+      name = "{{ name }}"
+      use_subdomain = {{ use_subdomain }}
+    }
+    customer_managed_key {
+      key_vault_key_id = "{{ key_vault_key_id }}"
+      managed_hsm_key_id = "{{ managed_hsm_key_id }}"
+      user_assigned_identity_id = "{{ user_assigned_identity_id }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    immutability_policy {
+      allow_protected_append_writes = {{ allow_protected_append_writes }}
+      period_since_creation_in_days = {{ period_since_creation_in_days }}
+      state = "{{ state }}"
+    }
+    network_rules {
+      bypass = ["{{ bypass }}"]
+      default_action = "{{ default_action }}"
+      ip_rules = ["{{ ip_rules }}"]
+      virtual_network_subnet_ids = ["{{ virtual_network_subnet_ids }}"]
+      private_link_access {
+        endpoint_resource_id = "{{ endpoint_resource_id }}"
+        endpoint_tenant_id = "{{ endpoint_tenant_id }}"
+      }
+    }
+    queue_properties {
+      cors_rule {
+        allowed_headers = ["{{ allowed_headers }}"]
+        allowed_methods = ["{{ allowed_methods }}"]
+        allowed_origins = ["{{ allowed_origins }}"]
+        exposed_headers = ["{{ exposed_headers }}"]
+        max_age_in_seconds = {{ max_age_in_seconds }}
+      }
+      hour_metrics {
+        enabled = {{ enabled }}
+        include_apis = {{ include_apis }}
+        retention_policy_days = {{ retention_policy_days }}
+        version = "{{ version }}"
+      }
+      logging {
+        delete = {{ delete }}
+        read = {{ read }}
+        retention_policy_days = {{ retention_policy_days }}
+        version = "{{ version }}"
+        write = {{ write }}
+      }
+      minute_metrics {
+        enabled = {{ enabled }}
+        include_apis = {{ include_apis }}
+        retention_policy_days = {{ retention_policy_days }}
+        version = "{{ version }}"
+      }
+    }
+    routing {
+      choice = "{{ choice }}"
+      publish_internet_endpoints = {{ publish_internet_endpoints }}
+      publish_microsoft_endpoints = {{ publish_microsoft_endpoints }}
+    }
+    sas_policy {
+      expiration_action = "{{ expiration_action }}"
+      expiration_period = "{{ expiration_period }}"
+    }
+    share_properties {
+      cors_rule {
+        allowed_headers = ["{{ allowed_headers }}"]
+        allowed_methods = ["{{ allowed_methods }}"]
+        allowed_origins = ["{{ allowed_origins }}"]
+        exposed_headers = ["{{ exposed_headers }}"]
+        max_age_in_seconds = {{ max_age_in_seconds }}
+      }
+      retention_policy {
+        days = {{ days }}
+      }
+      smb {
+        authentication_types = ["{{ authentication_types }}"]
+        channel_encryption_type = ["{{ channel_encryption_type }}"]
+        kerberos_ticket_encryption_type = ["{{ kerberos_ticket_encryption_type }}"]
+        multichannel_enabled = {{ multichannel_enabled }}
+        versions = ["{{ versions }}"]
+      }
+    }
+    static_website {
+      error_404_document = "{{ error_404_document }}"
+      index_document = "{{ index_document }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,26 @@
+resource "aws_fsx_s3_access_point_attachment" "example" {
+    name = "{{ name }}"
+    region = "{{ region }}"
+    type = "{{ type }}"
+    openzfs_configuration {
+      volume_id = "{{ volume_id }}"
+      file_system_identity {
+        type = "{{ type }}"
+        posix_user {
+          gid = {{ gid }}
+          secondary_gids = ["{{ secondary_gids }}"]
+          uid = {{ uid }}
+        }
+      }
+    }
+    s3_access_point {
+      policy = "{{ policy }}"
+      vpc_configuration {
+        vpc_id = "{{ vpc_id }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

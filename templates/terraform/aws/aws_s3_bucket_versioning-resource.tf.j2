@@ -3,4 +3,9 @@ resource "aws_s3_bucket_versioning" "example" {
     expected_bucket_owner = "{{ expected_bucket_owner }}"
     id = "{{ id }}"
     mfa = "{{ mfa }}"
+    region = "{{ region }}"
+    versioning_configuration {
+      mfa_delete = "{{ mfa_delete }}"
+      status = "{{ status }}"
+    }
 }

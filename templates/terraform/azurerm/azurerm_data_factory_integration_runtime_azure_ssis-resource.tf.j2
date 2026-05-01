@@ -6,8 +6,84 @@ resource "azurerm_data_factory_integration_runtime_azure_ssis" "example" {
     id = "{{ id }}"
     license_type = "{{ license_type }}"
     location = "{{ location }}"
-    max_parallel_executions_per_node = "{{ max_parallel_executions_per_node }}"
+    max_parallel_executions_per_node = {{ max_parallel_executions_per_node }}
     name = "{{ name }}"
     node_size = "{{ node_size }}"
-    number_of_nodes = "{{ number_of_nodes }}"
+    number_of_nodes = {{ number_of_nodes }}
+    catalog_info {
+      administrator_login = "{{ administrator_login }}"
+      administrator_password = "{{ administrator_password }}"
+      dual_standby_pair_name = "{{ dual_standby_pair_name }}"
+      elastic_pool_name = "{{ elastic_pool_name }}"
+      pricing_tier = "{{ pricing_tier }}"
+      server_endpoint = "{{ server_endpoint }}"
+    }
+    copy_compute_scale {
+      data_integration_unit = {{ data_integration_unit }}
+      time_to_live = {{ time_to_live }}
+    }
+    custom_setup_script {
+      blob_container_uri = "{{ blob_container_uri }}"
+      sas_token = "{{ sas_token }}"
+    }
+    express_custom_setup {
+      environment = {
+        key = "{{ environment_value }}"
+      }
+      powershell_version = "{{ powershell_version }}"
+      command_key {
+        password = "{{ password }}"
+        target_name = "{{ target_name }}"
+        user_name = "{{ user_name }}"
+        key_vault_password {
+          linked_service_name = "{{ linked_service_name }}"
+          parameters = {
+        key = "{{ parameters_value }}"
+      }
+          secret_name = "{{ secret_name }}"
+          secret_version = "{{ secret_version }}"
+        }
+      }
+      component {
+        license = "{{ license }}"
+        name = "{{ name }}"
+        key_vault_license {
+          linked_service_name = "{{ linked_service_name }}"
+          parameters = {
+        key = "{{ parameters_value }}"
+      }
+          secret_name = "{{ secret_name }}"
+          secret_version = "{{ secret_version }}"
+        }
+      }
+    }
+    express_vnet_integration {
+      subnet_id = "{{ subnet_id }}"
+    }
+    package_store {
+      linked_service_name = "{{ linked_service_name }}"
+      name = "{{ name }}"
+    }
+    pipeline_external_compute_scale {
+      number_of_external_nodes = {{ number_of_external_nodes }}
+      number_of_pipeline_nodes = {{ number_of_pipeline_nodes }}
+      time_to_live = {{ time_to_live }}
+    }
+    proxy {
+      path = "{{ path }}"
+      self_hosted_integration_runtime_name = "{{ self_hosted_integration_runtime_name }}"
+      staging_storage_linked_service_name = "{{ staging_storage_linked_service_name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    vnet_integration {
+      public_ips = ["{{ public_ips }}"]
+      subnet_id = "{{ subnet_id }}"
+      subnet_name = "{{ subnet_name }}"
+      vnet_id = "{{ vnet_id }}"
+    }
 }

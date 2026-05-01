@@ -1,7 +1,11 @@
 resource "google_healthcare_dicom_store_iam_binding" "example" {
     dicom_store_id = "{{ dicom_store_id }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
-    members = "{{ members }}"
+    members = ["{{ members }}"]
     role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

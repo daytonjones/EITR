@@ -1,8 +1,27 @@
 resource "aws_ivschat_logging_configuration" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    state = "{{ state }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    destination_configuration {
+      cloudwatch_logs {
+        log_group_name = "{{ log_group_name }}"
+      }
+      firehose {
+        delivery_stream_name = "{{ delivery_stream_name }}"
+      }
+      s3 {
+        bucket_name = "{{ bucket_name }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

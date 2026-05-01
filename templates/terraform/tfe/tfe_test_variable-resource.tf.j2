@@ -1,13 +1,13 @@
 resource "tfe_test_variable" "example" {
     category = "{{ category }}"
     description = "{{ description }}"
-    hcl = "{{ hcl }}"
-    id = "{{ id }}"
+    hcl = {{ hcl }}
     key = "{{ key }}"
     module_name = "{{ module_name }}"
     module_provider = "{{ module_provider }}"
     organization = "{{ organization }}"
-    readable_value = "{{ readable_value }}"
-    sensitive = "{{ sensitive }}"
+    sensitive = {{ sensitive }}
     value = "{{ value }}"
+    value_wo = "{{ value_wo }}"
+    value_wo_version = {{ value_wo_version }}
 }

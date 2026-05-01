@@ -1,0 +1,10 @@
+resource "google_apigee_api_deployment" "example" {
+    environment = "{{ environment }}"
+    org_id = "{{ org_id }}"
+    proxy_id = "{{ proxy_id }}"
+    revision = "{{ revision }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

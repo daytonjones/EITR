@@ -1,0 +1,16 @@
+resource "azurerm_container_app_environment_managed_certificate" "example" {
+    container_app_environment_id = "{{ container_app_environment_id }}"
+    domain_control_validation = "{{ domain_control_validation }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    subject_name = "{{ subject_name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

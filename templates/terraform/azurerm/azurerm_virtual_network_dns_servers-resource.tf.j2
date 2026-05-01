@@ -1,5 +1,11 @@
 resource "azurerm_virtual_network_dns_servers" "example" {
-    dns_servers = "{{ dns_servers }}"
+    dns_servers = ["{{ dns_servers }}"]
     id = "{{ id }}"
     virtual_network_id = "{{ virtual_network_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

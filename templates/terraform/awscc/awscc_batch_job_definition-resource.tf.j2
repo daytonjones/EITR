@@ -1,0 +1,21 @@
+resource "awscc_batch_job_definition" "example" {
+    consumable_resource_properties = "{{ consumable_resource_properties }}"
+    container_properties = "{{ container_properties }}"
+    ecs_properties = "{{ ecs_properties }}"
+    eks_properties = "{{ eks_properties }}"
+    job_definition_name = "{{ job_definition_name }}"
+    node_properties = "{{ node_properties }}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
+    platform_capabilities = ["{{ platform_capabilities }}"]
+    propagate_tags = {{ propagate_tags }}
+    resource_retention_policy = "{{ resource_retention_policy }}"
+    retry_strategy = "{{ retry_strategy }}"
+    scheduling_priority = {{ scheduling_priority }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeout = "{{ timeout }}"
+    type = "{{ type }}"
+}

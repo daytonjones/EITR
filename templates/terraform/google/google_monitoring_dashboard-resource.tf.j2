@@ -2,4 +2,9 @@ resource "google_monitoring_dashboard" "example" {
     dashboard_json = "{{ dashboard_json }}"
     id = "{{ id }}"
     project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

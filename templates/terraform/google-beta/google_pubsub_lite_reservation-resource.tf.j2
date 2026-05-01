@@ -3,5 +3,10 @@ resource "google_pubsub_lite_reservation" "example" {
     name = "{{ name }}"
     project = "{{ project }}"
     region = "{{ region }}"
-    throughput_capacity = "{{ throughput_capacity }}"
+    throughput_capacity = {{ throughput_capacity }}
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

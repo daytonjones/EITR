@@ -1,15 +1,44 @@
 resource "google_network_security_security_profile" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     parent = "{{ parent }}"
-    self_link = "{{ self_link }}"
-    terraform_labels = "{{ terraform_labels }}"
     type = "{{ type }}"
-    update_time = "{{ update_time }}"
+    custom_intercept_profile {
+      intercept_endpoint_group = "{{ intercept_endpoint_group }}"
+    }
+    custom_mirroring_profile {
+      mirroring_deployment_groups = ["{{ mirroring_deployment_groups }}"]
+      mirroring_endpoint_group = "{{ mirroring_endpoint_group }}"
+    }
+    threat_prevention_profile {
+      antivirus_overrides {
+        action = "{{ action }}"
+        protocol = "{{ protocol }}"
+      }
+      severity_overrides {
+        action = "{{ action }}"
+        severity = "{{ severity }}"
+      }
+      threat_overrides {
+        action = "{{ action }}"
+        threat_id = "{{ threat_id }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    url_filtering_profile {
+      url_filters {
+        filtering_action = "{{ filtering_action }}"
+        priority = {{ priority }}
+        urls = ["{{ urls }}"]
+      }
+    }
 }

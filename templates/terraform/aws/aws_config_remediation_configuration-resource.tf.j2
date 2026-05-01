@@ -1,12 +1,24 @@
 resource "aws_config_remediation_configuration" "example" {
-    arn = "{{ arn }}"
-    automatic = "{{ automatic }}"
+    automatic = {{ automatic }}
     config_rule_name = "{{ config_rule_name }}"
     id = "{{ id }}"
-    maximum_automatic_attempts = "{{ maximum_automatic_attempts }}"
+    maximum_automatic_attempts = {{ maximum_automatic_attempts }}
+    region = "{{ region }}"
     resource_type = "{{ resource_type }}"
-    retry_attempt_seconds = "{{ retry_attempt_seconds }}"
+    retry_attempt_seconds = {{ retry_attempt_seconds }}
     target_id = "{{ target_id }}"
     target_type = "{{ target_type }}"
     target_version = "{{ target_version }}"
+    execution_controls {
+      ssm_controls {
+        concurrent_execution_rate_percentage = {{ concurrent_execution_rate_percentage }}
+        error_percentage = {{ error_percentage }}
+      }
+    }
+    parameter {
+      name = "{{ name }}"
+      resource_value = "{{ resource_value }}"
+      static_value = "{{ static_value }}"
+      static_values = ["{{ static_values }}"]
+    }
 }

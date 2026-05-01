@@ -4,5 +4,28 @@ resource "azurerm_notification_hub" "example" {
     name = "{{ name }}"
     namespace_name = "{{ namespace_name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    apns_credential {
+      application_mode = "{{ application_mode }}"
+      bundle_id = "{{ bundle_id }}"
+      key_id = "{{ key_id }}"
+      team_id = "{{ team_id }}"
+      token = "{{ token }}"
+    }
+    browser_credential {
+      subject = "{{ subject }}"
+      vapid_private_key = "{{ vapid_private_key }}"
+      vapid_public_key = "{{ vapid_public_key }}"
+    }
+    gcm_credential {
+      api_key = "{{ api_key }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

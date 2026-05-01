@@ -4,5 +4,20 @@ resource "consul_acl_role" "example" {
     name = "{{ name }}"
     namespace = "{{ namespace }}"
     partition = "{{ partition }}"
-    policies = "{{ policies }}"
+    policies = ["{{ policies }}"]
+    node_identities {
+      datacenter = "{{ datacenter }}"
+      node_name = "{{ node_name }}"
+    }
+    service_identities {
+      datacenters = ["{{ datacenters }}"]
+      service_name = "{{ service_name }}"
+    }
+    templated_policies {
+      datacenters = ["{{ datacenters }}"]
+      template_name = "{{ template_name }}"
+      template_variables {
+        name = "{{ name }}"
+      }
+    }
 }

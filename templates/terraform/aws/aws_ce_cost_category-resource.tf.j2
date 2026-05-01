@@ -1,11 +1,251 @@
 resource "aws_ce_cost_category" "example" {
-    arn = "{{ arn }}"
     default_value = "{{ default_value }}"
-    effective_end = "{{ effective_end }}"
     effective_start = "{{ effective_start }}"
     id = "{{ id }}"
     name = "{{ name }}"
     rule_version = "{{ rule_version }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    rule {
+      type = "{{ type }}"
+      value = "{{ value }}"
+      inherited_value {
+        dimension_key = "{{ dimension_key }}"
+        dimension_name = "{{ dimension_name }}"
+      }
+      rule {
+        and {
+          and {
+            cost_category {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+            dimension {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+            tags {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+          }
+          cost_category {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          dimension {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          not {
+            cost_category {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+            dimension {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+            tags {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+          }
+          or {
+            cost_category {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+            dimension {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+            tags {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+          }
+          tags {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+        }
+        cost_category {
+          key = "{{ key }}"
+          match_options = ["{{ match_options }}"]
+          values = ["{{ values }}"]
+        }
+        dimension {
+          key = "{{ key }}"
+          match_options = ["{{ match_options }}"]
+          values = ["{{ values }}"]
+        }
+        not {
+          and {
+            cost_category {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+            dimension {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+            tags {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+          }
+          cost_category {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          dimension {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          not {
+            cost_category {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+            dimension {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+            tags {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+          }
+          or {
+            cost_category {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+            dimension {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+            tags {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+          }
+          tags {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+        }
+        or {
+          and {
+            cost_category {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+            dimension {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+            tags {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+          }
+          cost_category {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          dimension {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+          not {
+            cost_category {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+            dimension {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+            tags {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+          }
+          or {
+            cost_category {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+            dimension {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+            tags {
+              key = "{{ key }}"
+              match_options = ["{{ match_options }}"]
+              values = ["{{ values }}"]
+            }
+          }
+          tags {
+            key = "{{ key }}"
+            match_options = ["{{ match_options }}"]
+            values = ["{{ values }}"]
+          }
+        }
+        tags {
+          key = "{{ key }}"
+          match_options = ["{{ match_options }}"]
+          values = ["{{ values }}"]
+        }
+      }
+    }
+    split_charge_rule {
+      method = "{{ method }}"
+      source = "{{ source }}"
+      targets = ["{{ targets }}"]
+      parameter {
+        type = "{{ type }}"
+        values = ["{{ values }}"]
+      }
+    }
 }

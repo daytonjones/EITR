@@ -1,0 +1,38 @@
+resource "google_privileged_access_manager_settings" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    parent = "{{ parent }}"
+    email_notification_settings {
+      custom_notification_behavior {
+        admin_notifications {
+          grant_activated = "{{ grant_activated }}"
+          grant_activation_failed = "{{ grant_activation_failed }}"
+          grant_ended = "{{ grant_ended }}"
+          grant_externally_modified = "{{ grant_externally_modified }}"
+        }
+        approver_notifications {
+          pending_approval = "{{ pending_approval }}"
+        }
+        requester_notifications {
+          entitlement_assigned = "{{ entitlement_assigned }}"
+          grant_activated = "{{ grant_activated }}"
+          grant_activation_failed = "{{ grant_activation_failed }}"
+          grant_denied = "{{ grant_denied }}"
+          grant_ended = "{{ grant_ended }}"
+          grant_expired = "{{ grant_expired }}"
+          grant_externally_modified = "{{ grant_externally_modified }}"
+          grant_revoked = "{{ grant_revoked }}"
+        }
+      }
+      disable_all_notifications {
+      }
+    }
+    service_account_approver_settings {
+      enabled = {{ enabled }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

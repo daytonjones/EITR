@@ -1,13 +1,35 @@
 resource "aws_cloudtrail_event_data_store" "example" {
-    arn = "{{ arn }}"
     billing_mode = "{{ billing_mode }}"
     id = "{{ id }}"
     kms_key_id = "{{ kms_key_id }}"
-    multi_region_enabled = "{{ multi_region_enabled }}"
+    multi_region_enabled = {{ multi_region_enabled }}
     name = "{{ name }}"
-    organization_enabled = "{{ organization_enabled }}"
-    retention_period = "{{ retention_period }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    termination_protection_enabled = "{{ termination_protection_enabled }}"
+    organization_enabled = {{ organization_enabled }}
+    region = "{{ region }}"
+    retention_period = {{ retention_period }}
+    suspend = "{{ suspend }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    termination_protection_enabled = {{ termination_protection_enabled }}
+    advanced_event_selector {
+      name = "{{ name }}"
+      field_selector {
+        ends_with = ["{{ ends_with }}"]
+        equals = ["{{ equals }}"]
+        field = "{{ field }}"
+        not_ends_with = ["{{ not_ends_with }}"]
+        not_equals = ["{{ not_equals }}"]
+        not_starts_with = ["{{ not_starts_with }}"]
+        starts_with = ["{{ starts_with }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

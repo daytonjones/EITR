@@ -1,10 +1,9 @@
 resource "azurerm_cdn_endpoint" "example" {
-    content_types_to_compress = "{{ content_types_to_compress }}"
-    fqdn = "{{ fqdn }}"
+    content_types_to_compress = ["{{ content_types_to_compress }}"]
     id = "{{ id }}"
-    is_compression_enabled = "{{ is_compression_enabled }}"
-    is_http_allowed = "{{ is_http_allowed }}"
-    is_https_allowed = "{{ is_https_allowed }}"
+    is_compression_enabled = {{ is_compression_enabled }}
+    is_http_allowed = {{ is_http_allowed }}
+    is_https_allowed = {{ is_https_allowed }}
     location = "{{ location }}"
     name = "{{ name }}"
     optimization_type = "{{ optimization_type }}"
@@ -14,5 +13,174 @@ resource "azurerm_cdn_endpoint" "example" {
     profile_name = "{{ profile_name }}"
     querystring_caching_behaviour = "{{ querystring_caching_behaviour }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    delivery_rule {
+      name = "{{ name }}"
+      order = {{ order }}
+      cache_expiration_action {
+        behavior = "{{ behavior }}"
+        duration = "{{ duration }}"
+      }
+      cache_key_query_string_action {
+        behavior = "{{ behavior }}"
+        parameters = "{{ parameters }}"
+      }
+      cookies_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+        selector = "{{ selector }}"
+        transforms = ["{{ transforms }}"]
+      }
+      device_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+      }
+      http_version_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+      }
+      modify_request_header_action {
+        action = "{{ action }}"
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+      modify_response_header_action {
+        action = "{{ action }}"
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+      post_arg_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+        selector = "{{ selector }}"
+        transforms = ["{{ transforms }}"]
+      }
+      query_string_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+        transforms = ["{{ transforms }}"]
+      }
+      remote_address_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+      }
+      request_body_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+        transforms = ["{{ transforms }}"]
+      }
+      request_header_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+        selector = "{{ selector }}"
+        transforms = ["{{ transforms }}"]
+      }
+      request_method_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+      }
+      request_scheme_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+      }
+      request_uri_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+        transforms = ["{{ transforms }}"]
+      }
+      url_file_extension_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+        transforms = ["{{ transforms }}"]
+      }
+      url_file_name_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+        transforms = ["{{ transforms }}"]
+      }
+      url_path_condition {
+        match_values = ["{{ match_values }}"]
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+        transforms = ["{{ transforms }}"]
+      }
+      url_redirect_action {
+        fragment = "{{ fragment }}"
+        hostname = "{{ hostname }}"
+        path = "{{ path }}"
+        protocol = "{{ protocol }}"
+        query_string = "{{ query_string }}"
+        redirect_type = "{{ redirect_type }}"
+      }
+      url_rewrite_action {
+        destination = "{{ destination }}"
+        preserve_unmatched_path = {{ preserve_unmatched_path }}
+        source_pattern = "{{ source_pattern }}"
+      }
+    }
+    geo_filter {
+      action = "{{ action }}"
+      country_codes = ["{{ country_codes }}"]
+      relative_path = "{{ relative_path }}"
+    }
+    global_delivery_rule {
+      cache_expiration_action {
+        behavior = "{{ behavior }}"
+        duration = "{{ duration }}"
+      }
+      cache_key_query_string_action {
+        behavior = "{{ behavior }}"
+        parameters = "{{ parameters }}"
+      }
+      modify_request_header_action {
+        action = "{{ action }}"
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+      modify_response_header_action {
+        action = "{{ action }}"
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+      url_redirect_action {
+        fragment = "{{ fragment }}"
+        hostname = "{{ hostname }}"
+        path = "{{ path }}"
+        protocol = "{{ protocol }}"
+        query_string = "{{ query_string }}"
+        redirect_type = "{{ redirect_type }}"
+      }
+      url_rewrite_action {
+        destination = "{{ destination }}"
+        preserve_unmatched_path = {{ preserve_unmatched_path }}
+        source_pattern = "{{ source_pattern }}"
+      }
+    }
+    origin {
+      host_name = "{{ host_name }}"
+      http_port = {{ http_port }}
+      https_port = {{ https_port }}
+      name = "{{ name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

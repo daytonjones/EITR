@@ -1,11 +1,14 @@
 resource "aws_appsync_source_api_association" "example" {
-    arn = "{{ arn }}"
-    association_id = "{{ association_id }}"
     description = "{{ description }}"
-    id = "{{ id }}"
     merged_api_arn = "{{ merged_api_arn }}"
     merged_api_id = "{{ merged_api_id }}"
+    region = "{{ region }}"
     source_api_arn = "{{ source_api_arn }}"
-    source_api_association_config = "{{ source_api_association_config }}"
+    source_api_association_config = ["{{ source_api_association_config }}"]
     source_api_id = "{{ source_api_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

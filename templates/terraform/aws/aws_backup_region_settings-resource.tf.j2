@@ -1,5 +1,10 @@
 resource "aws_backup_region_settings" "example" {
     id = "{{ id }}"
-    resource_type_management_preference = "{{ resource_type_management_preference }}"
-    resource_type_opt_in_preference = "{{ resource_type_opt_in_preference }}"
+    region = "{{ region }}"
+    resource_type_management_preference = {
+        key = "{{ resource_type_management_preference_value }}"
+      }
+    resource_type_opt_in_preference = {
+        key = "{{ resource_type_opt_in_preference_value }}"
+      }
 }

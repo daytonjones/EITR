@@ -6,9 +6,8 @@ resource "tfe_oauth_client" "example" {
     key = "{{ key }}"
     name = "{{ name }}"
     oauth_token = "{{ oauth_token }}"
-    oauth_token_id = "{{ oauth_token_id }}"
     organization = "{{ organization }}"
-    organization_scoped = "{{ organization_scoped }}"
+    organization_scoped = {{ organization_scoped }}
     private_key = "{{ private_key }}"
     rsa_public_key = "{{ rsa_public_key }}"
     secret = "{{ secret }}"

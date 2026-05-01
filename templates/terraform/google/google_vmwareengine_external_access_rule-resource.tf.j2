@@ -1,15 +1,24 @@
 resource "google_vmwareengine_external_access_rule" "example" {
     action = "{{ action }}"
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
-    destination_ports = "{{ destination_ports }}"
+    destination_ports = ["{{ destination_ports }}"]
     id = "{{ id }}"
     ip_protocol = "{{ ip_protocol }}"
     name = "{{ name }}"
     parent = "{{ parent }}"
-    priority = "{{ priority }}"
-    source_ports = "{{ source_ports }}"
-    state = "{{ state }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
+    priority = {{ priority }}
+    source_ports = ["{{ source_ports }}"]
+    destination_ip_ranges {
+      external_address = "{{ external_address }}"
+      ip_address_range = "{{ ip_address_range }}"
+    }
+    source_ip_ranges {
+      ip_address = "{{ ip_address }}"
+      ip_address_range = "{{ ip_address_range }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

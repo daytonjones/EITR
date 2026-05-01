@@ -4,9 +4,22 @@ resource "azurerm_workloads_sap_discovery_virtual_instance" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
     managed_resource_group_name = "{{ managed_resource_group_name }}"
+    managed_resources_network_access_type = "{{ managed_resources_network_access_type }}"
     managed_storage_account_name = "{{ managed_storage_account_name }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     sap_product = "{{ sap_product }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

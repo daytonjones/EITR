@@ -1,0 +1,13 @@
+resource "google_colab_runtime_template_iam_member" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    member = "{{ member }}"
+    project = "{{ project }}"
+    role = "{{ role }}"
+    runtime_template = "{{ runtime_template }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

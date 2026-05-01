@@ -1,4 +1,28 @@
 resource "aws_glue_classifier" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
+    csv_classifier {
+      allow_single_column = {{ allow_single_column }}
+      contains_header = "{{ contains_header }}"
+      custom_datatype_configured = {{ custom_datatype_configured }}
+      custom_datatypes = ["{{ custom_datatypes }}"]
+      delimiter = "{{ delimiter }}"
+      disable_value_trimming = {{ disable_value_trimming }}
+      header = ["{{ header }}"]
+      quote_symbol = "{{ quote_symbol }}"
+      serde = "{{ serde }}"
+    }
+    grok_classifier {
+      classification = "{{ classification }}"
+      custom_patterns = "{{ custom_patterns }}"
+      grok_pattern = "{{ grok_pattern }}"
+    }
+    json_classifier {
+      json_path = "{{ json_path }}"
+    }
+    xml_classifier {
+      classification = "{{ classification }}"
+      row_tag = "{{ row_tag }}"
+    }
 }

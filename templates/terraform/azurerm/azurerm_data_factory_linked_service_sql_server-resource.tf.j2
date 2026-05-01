@@ -1,12 +1,30 @@
 resource "azurerm_data_factory_linked_service_sql_server" "example" {
-    additional_properties = "{{ additional_properties }}"
-    annotations = "{{ annotations }}"
+    additional_properties = {
+        key = "{{ additional_properties_value }}"
+      }
+    annotations = ["{{ annotations }}"]
     connection_string = "{{ connection_string }}"
     data_factory_id = "{{ data_factory_id }}"
     description = "{{ description }}"
     id = "{{ id }}"
     integration_runtime_name = "{{ integration_runtime_name }}"
     name = "{{ name }}"
-    parameters = "{{ parameters }}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
     user_name = "{{ user_name }}"
+    key_vault_connection_string {
+      linked_service_name = "{{ linked_service_name }}"
+      secret_name = "{{ secret_name }}"
+    }
+    key_vault_password {
+      linked_service_name = "{{ linked_service_name }}"
+      secret_name = "{{ secret_name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

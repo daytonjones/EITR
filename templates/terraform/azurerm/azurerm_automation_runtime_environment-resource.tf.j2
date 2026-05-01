@@ -1,0 +1,21 @@
+resource "azurerm_automation_runtime_environment" "example" {
+    automation_account_id = "{{ automation_account_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    runtime_default_packages = {
+        key = "{{ runtime_default_packages_value }}"
+      }
+    runtime_language = "{{ runtime_language }}"
+    runtime_version = "{{ runtime_version }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

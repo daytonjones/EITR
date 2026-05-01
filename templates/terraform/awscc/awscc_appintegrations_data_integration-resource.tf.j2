@@ -1,0 +1,12 @@
+resource "awscc_appintegrations_data_integration" "example" {
+    description = "{{ description }}"
+    file_configuration = "{{ file_configuration }}"
+    kms_key = "{{ kms_key }}"
+    name = "{{ name }}"
+    object_configuration = {
+        key = "{{ object_configuration_value }}"
+      }
+    schedule_config = "{{ schedule_config }}"
+    source_uri = "{{ source_uri }}"
+    tags = "{{ tags }}"
+}

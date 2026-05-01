@@ -1,0 +1,10 @@
+resource "aws_transfer_host_key" "example" {
+    description = "{{ description }}"
+    host_key_body = "{{ host_key_body }}"
+    host_key_body_wo = "{{ host_key_body_wo }}"
+    region = "{{ region }}"
+    server_id = "{{ server_id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

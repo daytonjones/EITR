@@ -1,0 +1,5 @@
+resource "tfe_agent_pool_excluded_workspaces" "example" {
+    agent_pool_id = "{{ agent_pool_id }}"
+    excluded_workspace_ids = ["{{ excluded_workspace_ids }}"]
+    id = "{{ id }}"
+}

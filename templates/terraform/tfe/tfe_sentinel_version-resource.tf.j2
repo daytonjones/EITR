@@ -1,10 +1,10 @@
 resource "tfe_sentinel_version" "example" {
-    beta = "{{ beta }}"
-    deprecated = "{{ deprecated }}"
+    archs = "{{ archs }}"
+    beta = {{ beta }}
+    deprecated = {{ deprecated }}
     deprecated_reason = "{{ deprecated_reason }}"
-    enabled = "{{ enabled }}"
-    id = "{{ id }}"
-    official = "{{ official }}"
+    enabled = {{ enabled }}
+    official = {{ official }}
     sha = "{{ sha }}"
     url = "{{ url }}"
     version = "{{ version }}"

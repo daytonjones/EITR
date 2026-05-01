@@ -1,0 +1,77 @@
+resource "aws_route53domains_domain" "example" {
+    admin_privacy = {{ admin_privacy }}
+    auto_renew = {{ auto_renew }}
+    billing_contact = ["{{ billing_contact }}"]
+    billing_privacy = {{ billing_privacy }}
+    domain_name = "{{ domain_name }}"
+    duration_in_years = {{ duration_in_years }}
+    name_server = ["{{ name_server }}"]
+    registrant_privacy = {{ registrant_privacy }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tech_privacy = {{ tech_privacy }}
+    transfer_lock = {{ transfer_lock }}
+    admin_contact {
+      address_line_1 = "{{ address_line_1 }}"
+      address_line_2 = "{{ address_line_2 }}"
+      city = "{{ city }}"
+      contact_type = "{{ contact_type }}"
+      country_code = "{{ country_code }}"
+      email = "{{ email }}"
+      fax = "{{ fax }}"
+      first_name = "{{ first_name }}"
+      last_name = "{{ last_name }}"
+      organization_name = "{{ organization_name }}"
+      phone_number = "{{ phone_number }}"
+      state = "{{ state }}"
+      zip_code = "{{ zip_code }}"
+      extra_param {
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+    }
+    registrant_contact {
+      address_line_1 = "{{ address_line_1 }}"
+      address_line_2 = "{{ address_line_2 }}"
+      city = "{{ city }}"
+      contact_type = "{{ contact_type }}"
+      country_code = "{{ country_code }}"
+      email = "{{ email }}"
+      fax = "{{ fax }}"
+      first_name = "{{ first_name }}"
+      last_name = "{{ last_name }}"
+      organization_name = "{{ organization_name }}"
+      phone_number = "{{ phone_number }}"
+      state = "{{ state }}"
+      zip_code = "{{ zip_code }}"
+      extra_param {
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+    }
+    tech_contact {
+      address_line_1 = "{{ address_line_1 }}"
+      address_line_2 = "{{ address_line_2 }}"
+      city = "{{ city }}"
+      contact_type = "{{ contact_type }}"
+      country_code = "{{ country_code }}"
+      email = "{{ email }}"
+      fax = "{{ fax }}"
+      first_name = "{{ first_name }}"
+      last_name = "{{ last_name }}"
+      organization_name = "{{ organization_name }}"
+      phone_number = "{{ phone_number }}"
+      state = "{{ state }}"
+      zip_code = "{{ zip_code }}"
+      extra_param {
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

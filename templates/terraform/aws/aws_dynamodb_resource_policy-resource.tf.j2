@@ -1,7 +1,6 @@
 resource "aws_dynamodb_resource_policy" "example" {
-    confirm_remove_self_resource_access = "{{ confirm_remove_self_resource_access }}"
-    id = "{{ id }}"
+    confirm_remove_self_resource_access = {{ confirm_remove_self_resource_access }}
     policy = "{{ policy }}"
+    region = "{{ region }}"
     resource_arn = "{{ resource_arn }}"
-    revision_id = "{{ revision_id }}"
 }

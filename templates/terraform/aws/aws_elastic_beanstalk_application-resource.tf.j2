@@ -1,8 +1,18 @@
 resource "aws_elastic_beanstalk_application" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    appversion_lifecycle {
+      delete_source_from_s3 = {{ delete_source_from_s3 }}
+      max_age_in_days = {{ max_age_in_days }}
+      max_count = {{ max_count }}
+      service_role = "{{ service_role }}"
+    }
 }

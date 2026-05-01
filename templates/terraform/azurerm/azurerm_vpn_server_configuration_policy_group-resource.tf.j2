@@ -1,7 +1,18 @@
 resource "azurerm_vpn_server_configuration_policy_group" "example" {
     id = "{{ id }}"
-    is_default = "{{ is_default }}"
+    is_default = {{ is_default }}
     name = "{{ name }}"
-    priority = "{{ priority }}"
+    priority = {{ priority }}
     vpn_server_configuration_id = "{{ vpn_server_configuration_id }}"
+    policy {
+      name = "{{ name }}"
+      type = "{{ type }}"
+      value = "{{ value }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

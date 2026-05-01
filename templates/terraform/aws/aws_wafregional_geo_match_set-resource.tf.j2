@@ -1,4 +1,9 @@
 resource "aws_wafregional_geo_match_set" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
+    geo_match_constraint {
+      type = "{{ type }}"
+      value = "{{ value }}"
+    }
 }

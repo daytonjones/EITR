@@ -1,5 +1,5 @@
 resource "azurerm_resource_group_cost_management_view" "example" {
-    accumulated = "{{ accumulated }}"
+    accumulated = {{ accumulated }}
     chart_type = "{{ chart_type }}"
     display_name = "{{ display_name }}"
     id = "{{ id }}"
@@ -7,4 +7,32 @@ resource "azurerm_resource_group_cost_management_view" "example" {
     report_type = "{{ report_type }}"
     resource_group_id = "{{ resource_group_id }}"
     timeframe = "{{ timeframe }}"
+    dataset {
+      granularity = "{{ granularity }}"
+      aggregation {
+        column_name = "{{ column_name }}"
+        name = "{{ name }}"
+      }
+      grouping {
+        name = "{{ name }}"
+        type = "{{ type }}"
+      }
+      sorting {
+        direction = "{{ direction }}"
+        name = "{{ name }}"
+      }
+    }
+    kpi {
+      type = "{{ type }}"
+    }
+    pivot {
+      name = "{{ name }}"
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

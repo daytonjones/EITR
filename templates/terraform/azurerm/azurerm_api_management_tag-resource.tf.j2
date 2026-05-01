@@ -3,4 +3,10 @@ resource "azurerm_api_management_tag" "example" {
     display_name = "{{ display_name }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

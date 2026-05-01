@@ -1,11 +1,23 @@
 resource "aws_vpclattice_service_network_vpc_association" "example" {
-    arn = "{{ arn }}"
-    created_by = "{{ created_by }}"
     id = "{{ id }}"
-    security_group_ids = "{{ security_group_ids }}"
+    private_dns_enabled = {{ private_dns_enabled }}
+    region = "{{ region }}"
+    security_group_ids = ["{{ security_group_ids }}"]
     service_network_identifier = "{{ service_network_identifier }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     vpc_identifier = "{{ vpc_identifier }}"
+    dns_options {
+      private_dns_preference = "{{ private_dns_preference }}"
+      private_dns_specified_domains = ["{{ private_dns_specified_domains }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

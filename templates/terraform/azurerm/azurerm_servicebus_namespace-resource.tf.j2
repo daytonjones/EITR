@@ -1,18 +1,40 @@
 resource "azurerm_servicebus_namespace" "example" {
-    capacity = "{{ capacity }}"
-    default_primary_connection_string = "{{ default_primary_connection_string }}"
-    default_primary_key = "{{ default_primary_key }}"
-    default_secondary_connection_string = "{{ default_secondary_connection_string }}"
-    default_secondary_key = "{{ default_secondary_key }}"
-    endpoint = "{{ endpoint }}"
+    capacity = {{ capacity }}
     id = "{{ id }}"
-    local_auth_enabled = "{{ local_auth_enabled }}"
+    local_auth_enabled = {{ local_auth_enabled }}
     location = "{{ location }}"
     minimum_tls_version = "{{ minimum_tls_version }}"
     name = "{{ name }}"
-    premium_messaging_partitions = "{{ premium_messaging_partitions }}"
-    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    premium_messaging_partitions = {{ premium_messaging_partitions }}
+    public_network_access_enabled = {{ public_network_access_enabled }}
     resource_group_name = "{{ resource_group_name }}"
     sku = "{{ sku }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    customer_managed_key {
+      identity_id = "{{ identity_id }}"
+      infrastructure_encryption_enabled = {{ infrastructure_encryption_enabled }}
+      key_vault_key_id = "{{ key_vault_key_id }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    network_rule_set {
+      default_action = "{{ default_action }}"
+      ip_rules = ["{{ ip_rules }}"]
+      public_network_access_enabled = {{ public_network_access_enabled }}
+      trusted_services_allowed = {{ trusted_services_allowed }}
+      network_rules {
+        ignore_missing_vnet_service_endpoint = {{ ignore_missing_vnet_service_endpoint }}
+        subnet_id = "{{ subnet_id }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

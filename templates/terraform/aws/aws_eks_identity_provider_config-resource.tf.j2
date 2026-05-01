@@ -1,8 +1,27 @@
 resource "aws_eks_identity_provider_config" "example" {
-    arn = "{{ arn }}"
     cluster_name = "{{ cluster_name }}"
     id = "{{ id }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    oidc {
+      client_id = "{{ client_id }}"
+      groups_claim = "{{ groups_claim }}"
+      groups_prefix = "{{ groups_prefix }}"
+      identity_provider_config_name = "{{ identity_provider_config_name }}"
+      issuer_url = "{{ issuer_url }}"
+      required_claims = {
+        key = "{{ required_claims_value }}"
+      }
+      username_claim = "{{ username_claim }}"
+      username_prefix = "{{ username_prefix }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

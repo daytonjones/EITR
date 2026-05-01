@@ -1,0 +1,20 @@
+resource "awscc_timestream_influx_db_cluster" "example" {
+    allocated_storage = {{ allocated_storage }}
+    bucket = "{{ bucket }}"
+    db_instance_type = "{{ db_instance_type }}"
+    db_parameter_group_identifier = "{{ db_parameter_group_identifier }}"
+    db_storage_type = "{{ db_storage_type }}"
+    deployment_type = "{{ deployment_type }}"
+    failover_mode = "{{ failover_mode }}"
+    log_delivery_configuration = "{{ log_delivery_configuration }}"
+    name = "{{ name }}"
+    network_type = "{{ network_type }}"
+    organization = "{{ organization }}"
+    password = "{{ password }}"
+    port = {{ port }}
+    publicly_accessible = {{ publicly_accessible }}
+    tags = "{{ tags }}"
+    username = "{{ username }}"
+    vpc_security_group_ids = ["{{ vpc_security_group_ids }}"]
+    vpc_subnet_ids = ["{{ vpc_subnet_ids }}"]
+}

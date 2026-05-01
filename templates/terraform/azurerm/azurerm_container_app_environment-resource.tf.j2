@@ -1,20 +1,34 @@
 resource "azurerm_container_app_environment" "example" {
-    custom_domain_verification_id = "{{ custom_domain_verification_id }}"
     dapr_application_insights_connection_string = "{{ dapr_application_insights_connection_string }}"
-    default_domain = "{{ default_domain }}"
-    docker_bridge_cidr = "{{ docker_bridge_cidr }}"
     id = "{{ id }}"
     infrastructure_resource_group_name = "{{ infrastructure_resource_group_name }}"
     infrastructure_subnet_id = "{{ infrastructure_subnet_id }}"
-    internal_load_balancer_enabled = "{{ internal_load_balancer_enabled }}"
+    internal_load_balancer_enabled = {{ internal_load_balancer_enabled }}
     location = "{{ location }}"
     log_analytics_workspace_id = "{{ log_analytics_workspace_id }}"
-    mutual_tls_enabled = "{{ mutual_tls_enabled }}"
+    logs_destination = "{{ logs_destination }}"
+    mutual_tls_enabled = {{ mutual_tls_enabled }}
     name = "{{ name }}"
-    platform_reserved_cidr = "{{ platform_reserved_cidr }}"
-    platform_reserved_dns_ip_address = "{{ platform_reserved_dns_ip_address }}"
+    public_network_access = "{{ public_network_access }}"
     resource_group_name = "{{ resource_group_name }}"
-    static_ip_address = "{{ static_ip_address }}"
-    tags = "{{ tags }}"
-    zone_redundancy_enabled = "{{ zone_redundancy_enabled }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    zone_redundancy_enabled = {{ zone_redundancy_enabled }}
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    workload_profile {
+      maximum_count = {{ maximum_count }}
+      minimum_count = {{ minimum_count }}
+      name = "{{ name }}"
+      workload_profile_type = "{{ workload_profile_type }}"
+    }
 }

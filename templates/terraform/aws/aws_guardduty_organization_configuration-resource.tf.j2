@@ -1,6 +1,23 @@
 resource "aws_guardduty_organization_configuration" "example" {
-    auto_enable = "{{ auto_enable }}"
     auto_enable_organization_members = "{{ auto_enable_organization_members }}"
     detector_id = "{{ detector_id }}"
     id = "{{ id }}"
+    region = "{{ region }}"
+    datasources {
+      kubernetes {
+        audit_logs {
+          enable = {{ enable }}
+        }
+      }
+      malware_protection {
+        scan_ec2_instance_with_findings {
+          ebs_volumes {
+            auto_enable = {{ auto_enable }}
+          }
+        }
+      }
+      s3_logs {
+        auto_enable = {{ auto_enable }}
+      }
+    }
 }

@@ -1,0 +1,243 @@
+resource "azurerm_function_app_flex_consumption" "example" {
+    app_settings = {
+        key = "{{ app_settings_value }}"
+      }
+    client_certificate_enabled = {{ client_certificate_enabled }}
+    client_certificate_exclusion_paths = "{{ client_certificate_exclusion_paths }}"
+    client_certificate_mode = "{{ client_certificate_mode }}"
+    enabled = {{ enabled }}
+    http_concurrency = {{ http_concurrency }}
+    https_only = {{ https_only }}
+    id = "{{ id }}"
+    instance_memory_in_mb = {{ instance_memory_in_mb }}
+    location = "{{ location }}"
+    maximum_instance_count = {{ maximum_instance_count }}
+    name = "{{ name }}"
+    public_network_access_enabled = {{ public_network_access_enabled }}
+    resource_group_name = "{{ resource_group_name }}"
+    runtime_name = "{{ runtime_name }}"
+    runtime_version = "{{ runtime_version }}"
+    service_plan_id = "{{ service_plan_id }}"
+    storage_access_key = "{{ storage_access_key }}"
+    storage_authentication_type = "{{ storage_authentication_type }}"
+    storage_container_endpoint = "{{ storage_container_endpoint }}"
+    storage_container_type = "{{ storage_container_type }}"
+    storage_user_assigned_identity_id = "{{ storage_user_assigned_identity_id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    virtual_network_subnet_id = "{{ virtual_network_subnet_id }}"
+    webdeploy_publish_basic_authentication_enabled = {{ webdeploy_publish_basic_authentication_enabled }}
+    zip_deploy_file = "{{ zip_deploy_file }}"
+    always_ready {
+      instance_count = {{ instance_count }}
+      name = "{{ name }}"
+    }
+    auth_settings {
+      additional_login_parameters = {
+        key = "{{ additional_login_parameters_value }}"
+      }
+      allowed_external_redirect_urls = ["{{ allowed_external_redirect_urls }}"]
+      default_provider = "{{ default_provider }}"
+      enabled = {{ enabled }}
+      issuer = "{{ issuer }}"
+      runtime_version = "{{ runtime_version }}"
+      token_refresh_extension_hours = {{ token_refresh_extension_hours }}
+      token_store_enabled = {{ token_store_enabled }}
+      unauthenticated_client_action = "{{ unauthenticated_client_action }}"
+      active_directory {
+        allowed_audiences = ["{{ allowed_audiences }}"]
+        client_id = "{{ client_id }}"
+        client_secret = "{{ client_secret }}"
+        client_secret_setting_name = "{{ client_secret_setting_name }}"
+      }
+      facebook {
+        app_id = "{{ app_id }}"
+        app_secret = "{{ app_secret }}"
+        app_secret_setting_name = "{{ app_secret_setting_name }}"
+        oauth_scopes = ["{{ oauth_scopes }}"]
+      }
+      github {
+        client_id = "{{ client_id }}"
+        client_secret = "{{ client_secret }}"
+        client_secret_setting_name = "{{ client_secret_setting_name }}"
+        oauth_scopes = ["{{ oauth_scopes }}"]
+      }
+      google {
+        client_id = "{{ client_id }}"
+        client_secret = "{{ client_secret }}"
+        client_secret_setting_name = "{{ client_secret_setting_name }}"
+        oauth_scopes = ["{{ oauth_scopes }}"]
+      }
+      microsoft {
+        client_id = "{{ client_id }}"
+        client_secret = "{{ client_secret }}"
+        client_secret_setting_name = "{{ client_secret_setting_name }}"
+        oauth_scopes = ["{{ oauth_scopes }}"]
+      }
+      twitter {
+        consumer_key = "{{ consumer_key }}"
+        consumer_secret = "{{ consumer_secret }}"
+        consumer_secret_setting_name = "{{ consumer_secret_setting_name }}"
+      }
+    }
+    auth_settings_v2 {
+      auth_enabled = {{ auth_enabled }}
+      config_file_path = "{{ config_file_path }}"
+      default_provider = "{{ default_provider }}"
+      excluded_paths = ["{{ excluded_paths }}"]
+      forward_proxy_convention = "{{ forward_proxy_convention }}"
+      forward_proxy_custom_host_header_name = "{{ forward_proxy_custom_host_header_name }}"
+      forward_proxy_custom_scheme_header_name = "{{ forward_proxy_custom_scheme_header_name }}"
+      http_route_api_prefix = "{{ http_route_api_prefix }}"
+      require_authentication = {{ require_authentication }}
+      require_https = {{ require_https }}
+      runtime_version = "{{ runtime_version }}"
+      unauthenticated_action = "{{ unauthenticated_action }}"
+      active_directory_v2 {
+        allowed_applications = ["{{ allowed_applications }}"]
+        allowed_audiences = ["{{ allowed_audiences }}"]
+        allowed_groups = ["{{ allowed_groups }}"]
+        allowed_identities = ["{{ allowed_identities }}"]
+        client_id = "{{ client_id }}"
+        client_secret_certificate_thumbprint = "{{ client_secret_certificate_thumbprint }}"
+        client_secret_setting_name = "{{ client_secret_setting_name }}"
+        jwt_allowed_client_applications = ["{{ jwt_allowed_client_applications }}"]
+        jwt_allowed_groups = ["{{ jwt_allowed_groups }}"]
+        login_parameters = {
+        key = "{{ login_parameters_value }}"
+      }
+        tenant_auth_endpoint = "{{ tenant_auth_endpoint }}"
+        www_authentication_disabled = {{ www_authentication_disabled }}
+      }
+      apple_v2 {
+        client_id = "{{ client_id }}"
+        client_secret_setting_name = "{{ client_secret_setting_name }}"
+      }
+      azure_static_web_app_v2 {
+        client_id = "{{ client_id }}"
+      }
+      custom_oidc_v2 {
+        client_id = "{{ client_id }}"
+        name = "{{ name }}"
+        name_claim_type = "{{ name_claim_type }}"
+        openid_configuration_endpoint = "{{ openid_configuration_endpoint }}"
+        scopes = ["{{ scopes }}"]
+      }
+      facebook_v2 {
+        app_id = "{{ app_id }}"
+        app_secret_setting_name = "{{ app_secret_setting_name }}"
+        graph_api_version = "{{ graph_api_version }}"
+        login_scopes = ["{{ login_scopes }}"]
+      }
+      github_v2 {
+        client_id = "{{ client_id }}"
+        client_secret_setting_name = "{{ client_secret_setting_name }}"
+        login_scopes = ["{{ login_scopes }}"]
+      }
+      google_v2 {
+        allowed_audiences = ["{{ allowed_audiences }}"]
+        client_id = "{{ client_id }}"
+        client_secret_setting_name = "{{ client_secret_setting_name }}"
+        login_scopes = ["{{ login_scopes }}"]
+      }
+      login {
+        allowed_external_redirect_urls = ["{{ allowed_external_redirect_urls }}"]
+        cookie_expiration_convention = "{{ cookie_expiration_convention }}"
+        cookie_expiration_time = "{{ cookie_expiration_time }}"
+        logout_endpoint = "{{ logout_endpoint }}"
+        nonce_expiration_time = "{{ nonce_expiration_time }}"
+        preserve_url_fragments_for_logins = {{ preserve_url_fragments_for_logins }}
+        token_refresh_extension_time = {{ token_refresh_extension_time }}
+        token_store_enabled = {{ token_store_enabled }}
+        token_store_path = "{{ token_store_path }}"
+        token_store_sas_setting_name = "{{ token_store_sas_setting_name }}"
+        validate_nonce = {{ validate_nonce }}
+      }
+      microsoft_v2 {
+        allowed_audiences = ["{{ allowed_audiences }}"]
+        client_id = "{{ client_id }}"
+        client_secret_setting_name = "{{ client_secret_setting_name }}"
+        login_scopes = ["{{ login_scopes }}"]
+      }
+      twitter_v2 {
+        consumer_key = "{{ consumer_key }}"
+        consumer_secret_setting_name = "{{ consumer_secret_setting_name }}"
+      }
+    }
+    connection_string {
+      name = "{{ name }}"
+      type = "{{ type }}"
+      value = "{{ value }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    site_config {
+      api_definition_url = "{{ api_definition_url }}"
+      api_management_api_id = "{{ api_management_api_id }}"
+      app_command_line = "{{ app_command_line }}"
+      application_insights_connection_string = "{{ application_insights_connection_string }}"
+      application_insights_key = "{{ application_insights_key }}"
+      container_registry_managed_identity_client_id = "{{ container_registry_managed_identity_client_id }}"
+      container_registry_use_managed_identity = {{ container_registry_use_managed_identity }}
+      default_documents = ["{{ default_documents }}"]
+      elastic_instance_minimum = {{ elastic_instance_minimum }}
+      health_check_eviction_time_in_min = {{ health_check_eviction_time_in_min }}
+      health_check_path = "{{ health_check_path }}"
+      http2_enabled = {{ http2_enabled }}
+      ip_restriction_default_action = "{{ ip_restriction_default_action }}"
+      load_balancing_mode = "{{ load_balancing_mode }}"
+      managed_pipeline_mode = "{{ managed_pipeline_mode }}"
+      minimum_tls_version = "{{ minimum_tls_version }}"
+      remote_debugging_enabled = {{ remote_debugging_enabled }}
+      remote_debugging_version = "{{ remote_debugging_version }}"
+      runtime_scale_monitoring_enabled = {{ runtime_scale_monitoring_enabled }}
+      scm_ip_restriction_default_action = "{{ scm_ip_restriction_default_action }}"
+      scm_minimum_tls_version = "{{ scm_minimum_tls_version }}"
+      scm_use_main_ip_restriction = {{ scm_use_main_ip_restriction }}
+      use_32_bit_worker = {{ use_32_bit_worker }}
+      vnet_route_all_enabled = {{ vnet_route_all_enabled }}
+      websockets_enabled = {{ websockets_enabled }}
+      worker_count = {{ worker_count }}
+      app_service_logs {
+        disk_quota_mb = {{ disk_quota_mb }}
+        retention_period_days = {{ retention_period_days }}
+      }
+      cors {
+        allowed_origins = ["{{ allowed_origins }}"]
+        support_credentials = {{ support_credentials }}
+      }
+      ip_restriction {
+        action = "{{ action }}"
+        description = "{{ description }}"
+        headers = ["{{ headers }}"]
+        ip_address = "{{ ip_address }}"
+        name = "{{ name }}"
+        priority = {{ priority }}
+        service_tag = "{{ service_tag }}"
+        virtual_network_subnet_id = "{{ virtual_network_subnet_id }}"
+      }
+      scm_ip_restriction {
+        action = "{{ action }}"
+        description = "{{ description }}"
+        headers = ["{{ headers }}"]
+        ip_address = "{{ ip_address }}"
+        name = "{{ name }}"
+        priority = {{ priority }}
+        service_tag = "{{ service_tag }}"
+        virtual_network_subnet_id = "{{ virtual_network_subnet_id }}"
+      }
+    }
+    sticky_settings {
+      app_setting_names = ["{{ app_setting_names }}"]
+      connection_string_names = ["{{ connection_string_names }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

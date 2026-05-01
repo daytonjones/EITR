@@ -1,15 +1,87 @@
 resource "google_pubsub_subscription" "example" {
-    ack_deadline_seconds = "{{ ack_deadline_seconds }}"
-    effective_labels = "{{ effective_labels }}"
-    enable_exactly_once_delivery = "{{ enable_exactly_once_delivery }}"
-    enable_message_ordering = "{{ enable_message_ordering }}"
+    ack_deadline_seconds = {{ ack_deadline_seconds }}
+    enable_exactly_once_delivery = {{ enable_exactly_once_delivery }}
+    enable_message_ordering = {{ enable_message_ordering }}
     filter = "{{ filter }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     message_retention_duration = "{{ message_retention_duration }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    retain_acked_messages = "{{ retain_acked_messages }}"
-    terraform_labels = "{{ terraform_labels }}"
+    retain_acked_messages = {{ retain_acked_messages }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
     topic = "{{ topic }}"
+    bigquery_config {
+      drop_unknown_fields = {{ drop_unknown_fields }}
+      service_account_email = "{{ service_account_email }}"
+      table = "{{ table }}"
+      use_table_schema = {{ use_table_schema }}
+      use_topic_schema = {{ use_topic_schema }}
+      write_metadata = {{ write_metadata }}
+    }
+    cloud_storage_config {
+      bucket = "{{ bucket }}"
+      filename_datetime_format = "{{ filename_datetime_format }}"
+      filename_prefix = "{{ filename_prefix }}"
+      filename_suffix = "{{ filename_suffix }}"
+      max_bytes = {{ max_bytes }}
+      max_duration = "{{ max_duration }}"
+      max_messages = {{ max_messages }}
+      service_account_email = "{{ service_account_email }}"
+      avro_config {
+        use_topic_schema = {{ use_topic_schema }}
+        write_metadata = {{ write_metadata }}
+      }
+      text_config {
+      }
+    }
+    dead_letter_policy {
+      dead_letter_topic = "{{ dead_letter_topic }}"
+      max_delivery_attempts = {{ max_delivery_attempts }}
+    }
+    expiration_policy {
+      ttl = "{{ ttl }}"
+    }
+    message_transforms {
+      disabled = {{ disabled }}
+      ai_inference {
+        endpoint = "{{ endpoint }}"
+        service_account_email = "{{ service_account_email }}"
+        unstructured_inference {
+          parameters = {
+        key = "{{ parameters_value }}"
+      }
+        }
+      }
+      javascript_udf {
+        code = "{{ code }}"
+        function_name = "{{ function_name }}"
+      }
+    }
+    push_config {
+      attributes = {
+        key = "{{ attributes_value }}"
+      }
+      push_endpoint = "{{ push_endpoint }}"
+      no_wrapper {
+        write_metadata = {{ write_metadata }}
+      }
+      oidc_token {
+        audience = "{{ audience }}"
+        service_account_email = "{{ service_account_email }}"
+      }
+    }
+    retry_policy {
+      maximum_backoff = "{{ maximum_backoff }}"
+      minimum_backoff = "{{ minimum_backoff }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

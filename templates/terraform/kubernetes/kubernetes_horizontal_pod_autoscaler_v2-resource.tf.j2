@@ -1,3 +1,134 @@
 resource "kubernetes_horizontal_pod_autoscaler_v2" "example" {
     id = "{{ id }}"
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      generate_name = "{{ generate_name }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      name = "{{ name }}"
+      namespace = "{{ namespace }}"
+    }
+    spec {
+      max_replicas = {{ max_replicas }}
+      min_replicas = {{ min_replicas }}
+      target_cpu_utilization_percentage = {{ target_cpu_utilization_percentage }}
+      behavior {
+        scale_down {
+          select_policy = "{{ select_policy }}"
+          stabilization_window_seconds = {{ stabilization_window_seconds }}
+          policy {
+            period_seconds = {{ period_seconds }}
+            type = "{{ type }}"
+            value = {{ value }}
+          }
+        }
+        scale_up {
+          select_policy = "{{ select_policy }}"
+          stabilization_window_seconds = {{ stabilization_window_seconds }}
+          policy {
+            period_seconds = {{ period_seconds }}
+            type = "{{ type }}"
+            value = {{ value }}
+          }
+        }
+      }
+      metric {
+        type = "{{ type }}"
+        container_resource {
+          container = "{{ container }}"
+          name = "{{ name }}"
+          target {
+            average_utilization = {{ average_utilization }}
+            average_value = "{{ average_value }}"
+            type = "{{ type }}"
+            value = "{{ value }}"
+          }
+        }
+        external {
+          metric {
+            name = "{{ name }}"
+            selector {
+              match_labels = {
+        key = "{{ match_labels_value }}"
+      }
+              match_expressions {
+                key = "{{ key }}"
+                operator = "{{ operator }}"
+                values = ["{{ values }}"]
+              }
+            }
+          }
+          target {
+            average_utilization = {{ average_utilization }}
+            average_value = "{{ average_value }}"
+            type = "{{ type }}"
+            value = "{{ value }}"
+          }
+        }
+        object {
+          described_object {
+            api_version = "{{ api_version }}"
+            kind = "{{ kind }}"
+            name = "{{ name }}"
+          }
+          metric {
+            name = "{{ name }}"
+            selector {
+              match_labels = {
+        key = "{{ match_labels_value }}"
+      }
+              match_expressions {
+                key = "{{ key }}"
+                operator = "{{ operator }}"
+                values = ["{{ values }}"]
+              }
+            }
+          }
+          target {
+            average_utilization = {{ average_utilization }}
+            average_value = "{{ average_value }}"
+            type = "{{ type }}"
+            value = "{{ value }}"
+          }
+        }
+        pods {
+          metric {
+            name = "{{ name }}"
+            selector {
+              match_labels = {
+        key = "{{ match_labels_value }}"
+      }
+              match_expressions {
+                key = "{{ key }}"
+                operator = "{{ operator }}"
+                values = ["{{ values }}"]
+              }
+            }
+          }
+          target {
+            average_utilization = {{ average_utilization }}
+            average_value = "{{ average_value }}"
+            type = "{{ type }}"
+            value = "{{ value }}"
+          }
+        }
+        resource {
+          name = "{{ name }}"
+          target {
+            average_utilization = {{ average_utilization }}
+            average_value = "{{ average_value }}"
+            type = "{{ type }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+      scale_target_ref {
+        api_version = "{{ api_version }}"
+        kind = "{{ kind }}"
+        name = "{{ name }}"
+      }
+    }
 }

@@ -1,5 +1,32 @@
 resource "aws_wafv2_web_acl_logging_configuration" "example" {
     id = "{{ id }}"
-    log_destination_configs = "{{ log_destination_configs }}"
+    log_destination_configs = ["{{ log_destination_configs }}"]
+    region = "{{ region }}"
     resource_arn = "{{ resource_arn }}"
+    logging_filter {
+      default_behavior = "{{ default_behavior }}"
+      filter {
+        behavior = "{{ behavior }}"
+        requirement = "{{ requirement }}"
+        condition {
+          action_condition {
+            action = "{{ action }}"
+          }
+          label_name_condition {
+            label_name = "{{ label_name }}"
+          }
+        }
+      }
+    }
+    redacted_fields {
+      method {
+      }
+      query_string {
+      }
+      single_header {
+        name = "{{ name }}"
+      }
+      uri_path {
+      }
+    }
 }

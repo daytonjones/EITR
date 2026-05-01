@@ -1,4 +1,11 @@
 resource "google_compute_disk_async_replication" "example" {
     id = "{{ id }}"
     primary_disk = "{{ primary_disk }}"
+    secondary_disk {
+      disk = "{{ disk }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

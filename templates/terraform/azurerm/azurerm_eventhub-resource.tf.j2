@@ -1,11 +1,36 @@
 resource "azurerm_eventhub" "example" {
     id = "{{ id }}"
-    message_retention = "{{ message_retention }}"
+    message_retention = {{ message_retention }}
     name = "{{ name }}"
     namespace_id = "{{ namespace_id }}"
     namespace_name = "{{ namespace_name }}"
-    partition_count = "{{ partition_count }}"
-    partition_ids = "{{ partition_ids }}"
+    partition_count = {{ partition_count }}
     resource_group_name = "{{ resource_group_name }}"
     status = "{{ status }}"
+    capture_description {
+      enabled = {{ enabled }}
+      encoding = "{{ encoding }}"
+      interval_in_seconds = {{ interval_in_seconds }}
+      size_limit_in_bytes = {{ size_limit_in_bytes }}
+      skip_empty_archives = {{ skip_empty_archives }}
+      destination {
+        archive_name_format = "{{ archive_name_format }}"
+        blob_container_name = "{{ blob_container_name }}"
+        name = "{{ name }}"
+        storage_account_id = "{{ storage_account_id }}"
+        storage_authentication_id = "{{ storage_authentication_id }}"
+        storage_authentication_type = "{{ storage_authentication_type }}"
+      }
+    }
+    retention_description {
+      cleanup_policy = "{{ cleanup_policy }}"
+      retention_time_in_hours = {{ retention_time_in_hours }}
+      tombstone_retention_time_in_hours = {{ tombstone_retention_time_in_hours }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

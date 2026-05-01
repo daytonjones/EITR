@@ -1,0 +1,10 @@
+resource "google_organization_service_identity" "example" {
+    id = "{{ id }}"
+    organization = "{{ organization }}"
+    service = "{{ service }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
+}

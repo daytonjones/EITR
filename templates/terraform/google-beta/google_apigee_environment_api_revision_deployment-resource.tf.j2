@@ -1,0 +1,14 @@
+resource "google_apigee_environment_api_revision_deployment" "example" {
+    api = "{{ api }}"
+    environment = "{{ environment }}"
+    id = "{{ id }}"
+    org_id = "{{ org_id }}"
+    override = {{ override }}
+    revision = {{ revision }}
+    sequenced_rollout = {{ sequenced_rollout }}
+    service_account = "{{ service_account }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

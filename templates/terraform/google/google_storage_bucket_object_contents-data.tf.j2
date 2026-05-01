@@ -1,0 +1,6 @@
+data "google_storage_bucket_object_contents" "example" {
+    bucket = "{{ bucket }}"
+    id = "{{ id }}"
+    match_glob = "{{ match_glob }}"
+    prefix = "{{ prefix }}"
+}

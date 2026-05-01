@@ -1,6 +1,16 @@
 data "aws_ec2_transit_gateway_dx_gateway_attachment" "example" {
     dx_gateway_id = "{{ dx_gateway_id }}"
     id = "{{ id }}"
-    tags = "{{ tags }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     transit_gateway_id = "{{ transit_gateway_id }}"
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
+    timeouts {
+      read = "{{ read }}"
+    }
 }

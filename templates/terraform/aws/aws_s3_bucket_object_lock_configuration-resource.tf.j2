@@ -3,5 +3,13 @@ resource "aws_s3_bucket_object_lock_configuration" "example" {
     expected_bucket_owner = "{{ expected_bucket_owner }}"
     id = "{{ id }}"
     object_lock_enabled = "{{ object_lock_enabled }}"
+    region = "{{ region }}"
     token = "{{ token }}"
+    rule {
+      default_retention {
+        days = {{ days }}
+        mode = "{{ mode }}"
+        years = {{ years }}
+      }
+    }
 }

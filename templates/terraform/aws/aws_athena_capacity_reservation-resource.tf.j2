@@ -1,0 +1,13 @@
+resource "aws_athena_capacity_reservation" "example" {
+    name = "{{ name }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    target_dpus = {{ target_dpus }}
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

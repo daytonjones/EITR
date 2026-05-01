@@ -1,0 +1,7 @@
+resource "aws_workspacesweb_user_access_logging_settings" "example" {
+    kinesis_stream_arn = "{{ kinesis_stream_arn }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

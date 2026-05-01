@@ -1,0 +1,22 @@
+resource "aws_transfer_web_app" "example" {
+    access_endpoint = "{{ access_endpoint }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    web_app_endpoint_policy = "{{ web_app_endpoint_policy }}"
+    web_app_units = ["{{ web_app_units }}"]
+    endpoint_details {
+      vpc {
+        security_group_ids = ["{{ security_group_ids }}"]
+        subnet_ids = ["{{ subnet_ids }}"]
+        vpc_id = "{{ vpc_id }}"
+      }
+    }
+    identity_provider_details {
+      identity_center_config {
+        instance_arn = "{{ instance_arn }}"
+        role = "{{ role }}"
+      }
+    }
+}

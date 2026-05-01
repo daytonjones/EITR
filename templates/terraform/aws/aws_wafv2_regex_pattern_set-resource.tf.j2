@@ -1,10 +1,17 @@
 resource "aws_wafv2_regex_pattern_set" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    lock_token = "{{ lock_token }}"
     name = "{{ name }}"
+    name_prefix = "{{ name_prefix }}"
+    region = "{{ region }}"
     scope = "{{ scope }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    regular_expression {
+      regex_string = "{{ regex_string }}"
+    }
 }

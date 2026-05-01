@@ -1,0 +1,8 @@
+resource "google_gemini_repository_group_iam_policy" "example" {
+    code_repository_index = "{{ code_repository_index }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    policy_data = "{{ policy_data }}"
+    project = "{{ project }}"
+    repository_group_id = "{{ repository_group_id }}"
+}

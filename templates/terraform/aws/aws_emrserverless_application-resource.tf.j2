@@ -1,10 +1,84 @@
 resource "aws_emrserverless_application" "example" {
     architecture = "{{ architecture }}"
-    arn = "{{ arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     release_label = "{{ release_label }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     type = "{{ type }}"
+    auto_start_configuration {
+      enabled = {{ enabled }}
+    }
+    auto_stop_configuration {
+      enabled = {{ enabled }}
+      idle_timeout_minutes = {{ idle_timeout_minutes }}
+    }
+    image_configuration {
+      image_uri = "{{ image_uri }}"
+    }
+    initial_capacity {
+      initial_capacity_type = "{{ initial_capacity_type }}"
+      initial_capacity_config {
+        worker_count = {{ worker_count }}
+        worker_configuration {
+          cpu = "{{ cpu }}"
+          disk = "{{ disk }}"
+          memory = "{{ memory }}"
+        }
+      }
+    }
+    interactive_configuration {
+      livy_endpoint_enabled = {{ livy_endpoint_enabled }}
+      studio_enabled = {{ studio_enabled }}
+    }
+    job_level_cost_allocation_configuration {
+      enabled = {{ enabled }}
+    }
+    maximum_capacity {
+      cpu = "{{ cpu }}"
+      disk = "{{ disk }}"
+      memory = "{{ memory }}"
+    }
+    monitoring_configuration {
+      cloudwatch_logging_configuration {
+        enabled = {{ enabled }}
+        encryption_key_arn = "{{ encryption_key_arn }}"
+        log_group_name = "{{ log_group_name }}"
+        log_stream_name_prefix = "{{ log_stream_name_prefix }}"
+        log_types {
+          name = "{{ name }}"
+          values = ["{{ values }}"]
+        }
+      }
+      managed_persistence_monitoring_configuration {
+        enabled = {{ enabled }}
+        encryption_key_arn = "{{ encryption_key_arn }}"
+      }
+      prometheus_monitoring_configuration {
+        remote_write_url = "{{ remote_write_url }}"
+      }
+      s3_monitoring_configuration {
+        encryption_key_arn = "{{ encryption_key_arn }}"
+        log_uri = "{{ log_uri }}"
+      }
+    }
+    network_configuration {
+      security_group_ids = ["{{ security_group_ids }}"]
+      subnet_ids = ["{{ subnet_ids }}"]
+    }
+    runtime_configuration {
+      classification = "{{ classification }}"
+      properties = {
+        key = "{{ properties_value }}"
+      }
+    }
+    scheduler_configuration {
+      max_concurrent_runs = {{ max_concurrent_runs }}
+      queue_timeout_minutes = {{ queue_timeout_minutes }}
+    }
 }

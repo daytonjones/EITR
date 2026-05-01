@@ -1,12 +1,19 @@
 resource "aws_kms_grant" "example" {
-    grant_creation_tokens = "{{ grant_creation_tokens }}"
-    grant_id = "{{ grant_id }}"
-    grant_token = "{{ grant_token }}"
+    grant_creation_tokens = ["{{ grant_creation_tokens }}"]
     grantee_principal = "{{ grantee_principal }}"
     id = "{{ id }}"
     key_id = "{{ key_id }}"
     name = "{{ name }}"
-    operations = "{{ operations }}"
-    retire_on_delete = "{{ retire_on_delete }}"
+    operations = ["{{ operations }}"]
+    region = "{{ region }}"
+    retire_on_delete = {{ retire_on_delete }}
     retiring_principal = "{{ retiring_principal }}"
+    constraints {
+      encryption_context_equals = {
+        key = "{{ encryption_context_equals_value }}"
+      }
+      encryption_context_subset = {
+        key = "{{ encryption_context_subset_value }}"
+      }
+    }
 }

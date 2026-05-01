@@ -1,5 +1,9 @@
 data "aws_ec2_transit_gateway_route_table_routes" "example" {
     id = "{{ id }}"
-    routes = "{{ routes }}"
+    region = "{{ region }}"
     transit_gateway_route_table_id = "{{ transit_gateway_route_table_id }}"
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
 }

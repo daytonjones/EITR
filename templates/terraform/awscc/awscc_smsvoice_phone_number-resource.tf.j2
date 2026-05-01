@@ -1,0 +1,12 @@
+resource "awscc_smsvoice_phone_number" "example" {
+    deletion_protection_enabled = {{ deletion_protection_enabled }}
+    iso_country_code = "{{ iso_country_code }}"
+    mandatory_keywords = "{{ mandatory_keywords }}"
+    number_capabilities = ["{{ number_capabilities }}"]
+    number_type = "{{ number_type }}"
+    opt_out_list_name = "{{ opt_out_list_name }}"
+    optional_keywords = "{{ optional_keywords }}"
+    self_managed_opt_outs_enabled = {{ self_managed_opt_outs_enabled }}
+    tags = "{{ tags }}"
+    two_way = "{{ two_way }}"
+}
