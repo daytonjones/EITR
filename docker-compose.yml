@@ -4,7 +4,4 @@ services:
     container_name: eitr
     ports:
       - "8085:8000"
-    volumes:
-      # Persist user-edited templates across container restarts
-      - ./templates/custom:/app/templates/custom
     restart: unless-stopped

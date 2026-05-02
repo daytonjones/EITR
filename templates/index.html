@@ -59,14 +59,21 @@
 
         /* ── Base ──────────────────────────────────────────────────────── */
         html, body { height: 100%; overflow: hidden; }
-        body { color: var(--text); }
-
-        /* ── Background layers ──────────────────────────────────────────── */
-        #bg-img     { position: fixed; inset: 0; z-index: -2; overflow: hidden; }
-        #bg-img img { width: 100%; height: 100%; object-fit: cover; }
-        #bg-overlay { position: fixed; inset: 0; z-index: -1; }
-        [data-theme="dark"]  #bg-overlay { background: rgba(13, 17, 23, 0.83); }
-        [data-theme="light"] #bg-overlay { background: rgba(246, 248, 250, 0.88); }
+        body {
+            color: var(--text);
+            background-size: cover;
+            background-position: center;
+        }
+        [data-theme="dark"] body {
+            background-image:
+                linear-gradient(rgba(13,17,23,0.80), rgba(13,17,23,0.80)),
+                url('/static/eitr_background.jpeg');
+        }
+        [data-theme="light"] body {
+            background-image:
+                linear-gradient(rgba(246,248,250,0.86), rgba(246,248,250,0.86)),
+                url('/static/eitr_background.jpeg');
+        }
 
         /* ── Scrollbars ────────────────────────────────────────────────── */
         .scroll::-webkit-scrollbar { width: 4px; height: 4px; }
@@ -158,10 +165,6 @@
 </head>
 
 <body class="flex flex-col">
-
-<!-- ── Background ───────────────────────────────────────────────────────── -->
-<div id="bg-img"><img src="/static/eitr_background.jpeg" alt=""></div>
-<div id="bg-overlay"></div>
 
 <!-- ── Top bar ──────────────────────────────────────────────────────────── -->
 <header id="topbar" class="flex-shrink-0 flex items-center px-4 h-13 gap-3" style="height:52px;">
@@ -487,7 +490,10 @@ require(['vs/editor/editor.main'], () => {
 
 // ── App ───────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-    const CONFIG_KEY = 'eitr_config';
+    const CONFIG_KEY    = 'eitr_config';
+    const TEMPLATES_KEY = 'eitr_templates';
+    const getTemplates  = () => JSON.parse(localStorage.getItem(TEMPLATES_KEY) || '{}');
+    const setTemplates  = t  => localStorage.setItem(TEMPLATES_KEY, JSON.stringify(t));
 
     const SCHEMA_LABELS = {
         provider:                   'Provider Config',
@@ -549,29 +555,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // ── Template API ─────────────────────────────────────────────────────
     const fetchTemplate = async (provider, schemaType, resource) => {
         const key = `${provider}|${schemaType}|${resource}`;
+        // Custom edits live in localStorage — fully isolated per browser, no sharing
+        const custom = getTemplates()[key];
+        if (custom !== undefined) return { content: custom, isCustom: true };
+        // Page-lifetime cache for server-fetched generated templates
         if (cache[key]) return cache[key];
         try {
             const r = await fetch(`/load_template/${provider}/${schemaType}/${resource}`);
             if (!r.ok) return { content: '# Template not found', isCustom: false };
             const d = await r.json();
-            const result = { content: d.content, isCustom: d.is_custom };
+            const result = { content: d.content, isCustom: false };
             cache[key] = result;
             return result;
         } catch { return { content: '# Error loading template', isCustom: false }; }
     };
 
-    const saveToServer = async (provider, schemaType, resource, content) => {
-        cache[`${provider}|${schemaType}|${resource}`] = { content, isCustom: true };
-        await fetch('/save_template', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ provider, schema_type: schemaType, resource, content }),
-        });
+    const saveToStorage = (provider, schemaType, resource, content) => {
+        const key    = `${provider}|${schemaType}|${resource}`;
+        const stored = getTemplates();
+        stored[key]  = content;
+        setTemplates(stored);
+        cache[key] = { content, isCustom: true };
     };
 
-    const resetOnServer = async (provider, schemaType, resource) => {
-        delete cache[`${provider}|${schemaType}|${resource}`];
-        await fetch(`/reset_template/${provider}/${schemaType}/${resource}`, { method: 'DELETE' });
+    const resetFromStorage = async (provider, schemaType, resource) => {
+        const key    = `${provider}|${schemaType}|${resource}`;
+        const stored = getTemplates();
+        delete stored[key];
+        setTemplates(stored);
+        delete cache[key];
         return fetchTemplate(provider, schemaType, resource);
     };
 
@@ -719,27 +731,23 @@ document.addEventListener('DOMContentLoaded', () => {
         editBtn.addEventListener('click', enterEdit);
         cancelBtn.addEventListener('click', () => exitEdit(undefined));
 
-        saveBtn.addEventListener('click', async () => {
+        saveBtn.addEventListener('click', () => {
             const updated = editorInst
                 ? editorInst.getValue()
                 : monacoHost.querySelector('pre')?.textContent || pre.textContent;
             exitEdit(updated);
-            await saveToServer(provider, schemaType, resource, updated);
+            saveToStorage(provider, schemaType, resource, updated);
             isCustom = true;
             customBadge.classList.remove('hidden');
             resetBtn.style.display = '';
         });
 
         resetBtn.addEventListener('click', async () => {
-            resetBtn.textContent = 'Resetting…';
-            resetBtn.disabled = true;
-            const { content: def } = await resetOnServer(provider, schemaType, resource);
+            const { content: def } = await resetFromStorage(provider, schemaType, resource);
             pre.textContent = def;
             isCustom = false;
             customBadge.classList.add('hidden');
-            resetBtn.style.display  = 'none';
-            resetBtn.textContent    = 'Reset to default';
-            resetBtn.disabled       = false;
+            resetBtn.style.display = 'none';
         });
 
         foot.append(editBtn, saveBtn, cancelBtn, resetBtn);
@@ -832,7 +840,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ── Reset ─────────────────────────────────────────────────────────────
     get('resetBtn').addEventListener('click', () => {
-        if (!confirm('Clear all selections? Custom template edits are preserved on the server.')) return;
+        if (!confirm('Clear all selections? Custom template edits saved in this browser are preserved.')) return;
         editors.forEach(ed => ed.dispose());
         editors.clear();
         localStorage.removeItem(CONFIG_KEY);

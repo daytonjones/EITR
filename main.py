@@ -15,8 +15,6 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 TEMPLATES_DIR = Path("templates/terraform")
-CUSTOM_DIR = Path("templates/custom")
-CUSTOM_DIR.mkdir(parents=True, exist_ok=True)
 
 with open("config/providers.json") as f:
     PROVIDERS = json.load(f)
@@ -31,33 +29,19 @@ SCHEMA_KEYS = [
     "functions",
 ]
 
-# Maps full schema key -> file suffix used in template filenames
 SCHEMA_SUFFIX = {
-    "provider": "provider",
-    "resource_schemas": "resource",
-    "data_source_schemas": "data",
+    "provider":                   "provider",
+    "resource_schemas":           "resource",
+    "data_source_schemas":        "data",
     "ephemeral_resource_schemas": "ephemeral",
-    "functions": "functions",
+    "functions":                  "functions",
 }
 
 
 def _template_filename(schema_type: str, resource: str) -> str:
     if schema_type == "provider":
         return "provider.tf.j2"
-    suffix = SCHEMA_SUFFIX.get(schema_type, schema_type)
-    return f"{resource}-{suffix}.tf.j2"
-
-
-def _resolve_template(provider: str, schema_type: str, resource: str) -> tuple[str | None, bool]:
-    """Return (content, is_custom). Checks custom overlay first, then generated."""
-    filename = _template_filename(schema_type, resource)
-    for path, is_custom in [
-        (CUSTOM_DIR / provider / filename, True),
-        (TEMPLATES_DIR / provider / filename, False),
-    ]:
-        if path.exists():
-            return path.read_text(), is_custom
-    return None, False
+    return f"{resource}-{SCHEMA_SUFFIX.get(schema_type, schema_type)}.tf.j2"
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -88,35 +72,10 @@ async def get_index(request: Request):
 
 @app.get("/load_template/{provider}/{schema_type}/{resource}")
 async def load_template(provider: str, schema_type: str, resource: str):
-    content, is_custom = _resolve_template(provider, schema_type, resource)
-    if content is None:
+    path = TEMPLATES_DIR / provider / _template_filename(schema_type, resource)
+    if not path.exists():
         return JSONResponse(status_code=404, content={"error": "Template not found"})
-    return {"content": content, "is_custom": is_custom}
-
-
-class SaveTemplateRequest(BaseModel):
-    provider: str
-    schema_type: str
-    resource: str
-    content: str
-
-
-@app.post("/save_template")
-async def save_template(body: SaveTemplateRequest):
-    filename = _template_filename(body.schema_type, body.resource)
-    dest = CUSTOM_DIR / body.provider / filename
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    dest.write_text(body.content)
-    return {"message": "Template saved"}
-
-
-@app.delete("/reset_template/{provider}/{schema_type}/{resource}")
-async def reset_template(provider: str, schema_type: str, resource: str):
-    filename = _template_filename(schema_type, resource)
-    custom = CUSTOM_DIR / provider / filename
-    if custom.exists():
-        custom.unlink()
-    return {"message": "Reset to default"}
+    return {"content": path.read_text()}
 
 
 class SaveConfigRequest(BaseModel):
@@ -132,18 +91,12 @@ async def save_config(format: str, body: SaveConfigRequest):
     timestamp = datetime.now().strftime("%m%d%Y%H%M")
 
     if format == "hcl":
-        return {
-            "config": content,
-            "filename": f"terraform_{timestamp}.tf",
-        }
+        return {"config": content, "filename": f"terraform_{timestamp}.tf"}
 
     if format == "json":
         try:
             data = hcl_load(io.StringIO(content))
-            return {
-                "config": json.dumps(data, indent=2),
-                "filename": f"terraform_{timestamp}.json",
-            }
+            return {"config": json.dumps(data, indent=2), "filename": f"terraform_{timestamp}.json"}
         except Exception as e:
             return JSONResponse(status_code=400, content={"error": f"HCL parse error: {e}"})
 
@@ -164,11 +117,7 @@ async def search(q: str = ""):
         for key in SCHEMA_KEYS:
             for item in pschema.get(key, {}).keys():
                 if q_lower in item.lower():
-                    results.append({
-                        "provider": p["name"],
-                        "schema_type": key,
-                        "resource": item,
-                    })
+                    results.append({"provider": p["name"], "schema_type": key, "resource": item})
         if len(results) >= 100:
             break
 
