@@ -45,15 +45,24 @@ In Norse mythology, *eitr* is a primordial substance of raw creation — the per
 
 ## Quick start — Docker Compose
 
+`config/provider_schemas.json` is not stored in the repo (it is ~180 MB). It must be generated locally before building the image.
+
 ```bash
 git clone https://github.com/daytonjones/EITR.git
 cd EITR
+
+# One-time setup: generate provider schemas (requires terraform + jq on PATH)
+python3 -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+python utilities/generate_tf_provider_templates.py
+
+# Build and run
 docker compose up --build
 ```
 
 Open http://localhost:8085 in your browser.
 
-The compose file maps host port **8085** → container port 8000 and mounts `templates/custom/` so edited templates persist across container restarts.
+The compose file maps host port **8085** → container port 8000.
 
 ---
 

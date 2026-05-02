@@ -3,6 +3,7 @@ from pathlib import Path
 from hcl2.api import load as hcl_load
 import io
 import json
+import re
 
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, JSONResponse
@@ -95,7 +96,11 @@ async def save_config(format: str, body: SaveConfigRequest):
 
     if format == "json":
         try:
-            data = hcl_load(io.StringIO(content))
+            # Unquoted Jinja2 placeholders (booleans/numbers like `{{ enabled }}`) aren't
+            # valid HCL; replace them with a string sentinel before parsing.
+            # Quoted ones ("{{ ami }}") are already valid HCL string literals.
+            sanitized = re.sub(r'(?<!")\{\{\s*[\w_]+\s*\}\}(?!")', '"TODO"', content)
+            data = hcl_load(io.StringIO(sanitized))
             return {"config": json.dumps(data, indent=2), "filename": f"terraform_{timestamp}.json"}
         except Exception as e:
             return JSONResponse(status_code=400, content={"error": f"HCL parse error: {e}"})
