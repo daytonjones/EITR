@@ -7,3 +7,7 @@ tf_temp/
 .claude/
 CLAUDE.md
 *.md
+
+# Generated during docker build — not needed in build context
+config/provider_schemas.json
+templates/terraform/
