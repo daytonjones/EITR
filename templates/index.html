@@ -210,11 +210,12 @@
     </button>
 
     <!-- Mobile sidebar toggle -->
-    <button id="menuBtn" class="md:hidden btn-anim p-1.5 rounded-lg"
+    <button id="menuBtn" class="md:hidden btn-anim flex items-center gap-1.5 px-2 py-1.5 rounded-lg"
             style="color:var(--muted); border:1px solid var(--border)">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
+        <span class="text-xs font-semibold">Providers</span>
     </button>
 </header>
 
@@ -227,6 +228,23 @@
                   fixed inset-y-0 left-0 z-40 w-72
                   md:relative md:translate-x-0 -translate-x-full"
            style="top:52px; bottom:0;">
+
+        <!-- Mobile sidebar header (desktop always shows) -->
+        <div class="md:hidden flex items-center justify-between px-3 py-2.5 flex-shrink-0"
+             style="border-bottom:1px solid var(--border)">
+            <div>
+                <p class="text-sm font-semibold" style="color:var(--text)">Providers &amp; Resources</p>
+                <p class="text-xs" style="color:var(--muted)">Select items to build your config</p>
+            </div>
+            <button id="closeSidebarBtn" class="btn-anim p-1.5 rounded-md ml-2"
+                    style="color:var(--muted)"
+                    onmouseover="this.style.background='var(--raised)'"
+                    onmouseout="this.style.background='transparent'">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
 
         <!-- Search -->
         <div class="p-3 flex-shrink-0" style="border-bottom:1px solid var(--border)">
@@ -396,11 +414,22 @@
                           d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                 </svg>
                 <p class="text-base font-medium" style="color:var(--text)">No resources selected</p>
-                <p class="text-sm">Pick providers and resources from the sidebar to begin.</p>
+                <p class="text-sm text-center px-6">Use the sidebar to browse providers and check the resources you need.</p>
+                <button id="openSidebarBtn"
+                        class="md:hidden btn-anim flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold mt-1"
+                        style="background:rgba(88,166,255,.12);color:#58a6ff;border:1px solid rgba(88,166,255,.3)">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                    Browse Providers
+                </button>
             </div>
         </div>
     </main>
 </div>
+
+<!-- Provider metadata for required_providers block generation -->
+<script>const PROVIDER_META = {{ provider_meta | tojson }};</script>
 
 <script>
 // ── Monaco setup ─────────────────────────────────────────────────────────
@@ -540,6 +569,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const openSb  = () => { sidebar.classList.remove('-translate-x-full'); overlay.classList.remove('hidden'); };
     const closeSb = () => { sidebar.classList.add('-translate-x-full');    overlay.classList.add('hidden'); };
     get('menuBtn').addEventListener('click', () => sidebar.classList.contains('-translate-x-full') ? openSb() : closeSb());
+    get('closeSidebarBtn').addEventListener('click', closeSb);
+    get('openSidebarBtn')?.addEventListener('click', openSb);
     overlay.addEventListener('click', closeSb);
 
     // ── Logo tooltip ────────────────────────────────────────────────────
@@ -849,17 +880,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ── Export ────────────────────────────────────────────────────────────
+    const buildRequiredProviders = () => {
+        const selected = Object.keys(getConfig());
+        if (!selected.length) return '';
+        const lines = selected
+            .filter(name => PROVIDER_META[name])
+            .map(name => {
+                const { source, version } = PROVIDER_META[name];
+                return `    ${name} = {\n      source  = "${source}"\n      version = ">= ${version}"\n    }`;
+            });
+        if (!lines.length) return '';
+        return `terraform {\n  required_providers {\n${lines.join('\n')}\n  }\n}\n`;
+    };
+
     const exportConfig = async format => {
-        // Sync any active editor values into their pre elements before collecting
+        // Sync any active Monaco editors into their backing pre elements
         editors.forEach((ed, key) => {
             const card = configDisp.querySelector(`[data-card-key="${key}"]`);
             const pre  = card?.querySelector('pre.code-pre');
             if (pre) pre.textContent = ed.getValue();
         });
 
-        const combined = Array.from(configDisp.querySelectorAll('pre.code-pre'))
-            .map(p => p.textContent).join('\n\n');
-        if (!combined.trim()) return;
+        const blocks = Array.from(configDisp.querySelectorAll('pre.code-pre'))
+            .map(p => p.textContent).filter(t => t.trim());
+        if (!blocks.length) return;
+
+        const tfHeader = buildRequiredProviders();
+        const combined = tfHeader
+            ? tfHeader + '\n' + blocks.join('\n\n')
+            : blocks.join('\n\n');
 
         try {
             const res = await fetch(`/save_config/${format}`, {

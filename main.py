@@ -4,6 +4,7 @@ from hcl2.api import load as hcl_load
 import io
 import json
 import re
+import sys
 
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, JSONResponse
@@ -19,8 +20,16 @@ TEMPLATES_DIR = Path("templates/terraform")
 
 with open("config/providers.json") as f:
     PROVIDERS = json.load(f)
-with open("config/provider_schemas.json") as f:
-    SCHEMAS = json.load(f)
+
+try:
+    with open("config/provider_schemas.json") as f:
+        SCHEMAS = json.load(f)
+except FileNotFoundError:
+    sys.exit(
+        "\nERROR: config/provider_schemas.json not found.\n"
+        "Generate it first:\n"
+        "  python utilities/generate_tf_provider_templates.py\n"
+    )
 
 SCHEMA_KEYS = [
     "provider",
@@ -67,6 +76,13 @@ async def get_index(request: Request):
             "providers": providers_data,
             "total_providers": len(providers_data),
             "total_resources": total_resources,
+            "provider_meta": {
+                p["name"]: {
+                    "source":  p.get("source") or f"hashicorp/{p['name']}",
+                    "version": p["version"],
+                }
+                for p in PROVIDERS
+            },
         },
     )
 
@@ -97,7 +113,7 @@ async def save_config(format: str, body: SaveConfigRequest):
     if format == "json":
         try:
             # Unquoted Jinja2 placeholders (booleans/numbers like `{{ enabled }}`) aren't
-            # valid HCL; replace them with a string sentinel before parsing.
+            # valid HCL; replace with a string sentinel before parsing.
             # Quoted ones ("{{ ami }}") are already valid HCL string literals.
             sanitized = re.sub(r'(?<!")\{\{\s*[\w_]+\s*\}\}(?!")', '"TODO"', content)
             data = hcl_load(io.StringIO(sanitized))
@@ -114,16 +130,26 @@ async def search(q: str = ""):
         return {"results": []}
 
     q_lower = q.lower()
-    results = []
+    exact, starts, contains = [], [], []
+
     for p in PROVIDERS:
         psrc = p.get("source") or f"hashicorp/{p['name']}"
         pkey = f"registry.terraform.io/{psrc}"
         pschema = SCHEMAS["provider_schemas"].get(pkey, {})
         for key in SCHEMA_KEYS:
             for item in pschema.get(key, {}).keys():
-                if q_lower in item.lower():
-                    results.append({"provider": p["name"], "schema_type": key, "resource": item})
-        if len(results) >= 100:
-            break
+                item_lower = item.lower()
+                entry = {"provider": p["name"], "schema_type": key, "resource": item}
+                if item_lower == q_lower:
+                    exact.append(entry)
+                elif item_lower.startswith(q_lower):
+                    starts.append(entry)
+                elif q_lower in item_lower:
+                    contains.append(entry)
 
+    results = (
+        sorted(exact,    key=lambda x: x["resource"]) +
+        sorted(starts,   key=lambda x: x["resource"]) +
+        sorted(contains, key=lambda x: x["resource"])
+    )
     return {"results": results[:100]}
