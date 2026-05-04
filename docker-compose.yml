@@ -1,0 +1,7 @@
+services:
+  eitr:
+    build: .
+    container_name: eitr
+    ports:
+      - "8085:8000"
+    restart: unless-stopped

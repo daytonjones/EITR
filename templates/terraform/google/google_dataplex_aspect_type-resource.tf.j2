@@ -1,17 +1,18 @@
 resource "google_dataplex_aspect_type" "example" {
     aspect_type_id = "{{ aspect_type_id }}"
-    create_time = "{{ create_time }}"
+    data_classification = "{{ data_classification }}"
     description = "{{ description }}"
     display_name = "{{ display_name }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     metadata_template = "{{ metadata_template }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    terraform_labels = "{{ terraform_labels }}"
-    transfer_status = "{{ transfer_status }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

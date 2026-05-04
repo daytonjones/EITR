@@ -1,13 +1,23 @@
 resource "aws_route53_zone" "example" {
-    arn = "{{ arn }}"
     comment = "{{ comment }}"
     delegation_set_id = "{{ delegation_set_id }}"
-    force_destroy = "{{ force_destroy }}"
+    enable_accelerated_recovery = {{ enable_accelerated_recovery }}
+    force_destroy = {{ force_destroy }}
     id = "{{ id }}"
     name = "{{ name }}"
-    name_servers = "{{ name_servers }}"
-    primary_name_server = "{{ primary_name_server }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    zone_id = "{{ zone_id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    vpc {
+      vpc_id = "{{ vpc_id }}"
+      vpc_region = "{{ vpc_region }}"
+    }
 }

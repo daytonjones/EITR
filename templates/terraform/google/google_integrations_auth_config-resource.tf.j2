@@ -1,21 +1,72 @@
 resource "google_integrations_auth_config" "example" {
-    certificate_id = "{{ certificate_id }}"
-    create_time = "{{ create_time }}"
-    creator_email = "{{ creator_email }}"
-    credential_type = "{{ credential_type }}"
     description = "{{ description }}"
     display_name = "{{ display_name }}"
-    encrypted_credential = "{{ encrypted_credential }}"
-    expiry_notification_duration = "{{ expiry_notification_duration }}"
+    expiry_notification_duration = ["{{ expiry_notification_duration }}"]
     id = "{{ id }}"
-    last_modifier_email = "{{ last_modifier_email }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     override_valid_time = "{{ override_valid_time }}"
     project = "{{ project }}"
-    reason = "{{ reason }}"
-    state = "{{ state }}"
-    update_time = "{{ update_time }}"
-    valid_time = "{{ valid_time }}"
     visibility = "{{ visibility }}"
+    client_certificate {
+      encrypted_private_key = "{{ encrypted_private_key }}"
+      passphrase = "{{ passphrase }}"
+      ssl_certificate = "{{ ssl_certificate }}"
+    }
+    decrypted_credential {
+      credential_type = "{{ credential_type }}"
+      auth_token {
+        token = "{{ token }}"
+        type = "{{ type }}"
+      }
+      jwt {
+        jwt_header = "{{ jwt_header }}"
+        jwt_payload = "{{ jwt_payload }}"
+        secret = "{{ secret }}"
+      }
+      oauth2_authorization_code {
+        auth_endpoint = "{{ auth_endpoint }}"
+        client_id = "{{ client_id }}"
+        client_secret = "{{ client_secret }}"
+        scope = "{{ scope }}"
+        token_endpoint = "{{ token_endpoint }}"
+      }
+      oauth2_client_credentials {
+        client_id = "{{ client_id }}"
+        client_secret = "{{ client_secret }}"
+        request_type = "{{ request_type }}"
+        scope = "{{ scope }}"
+        token_endpoint = "{{ token_endpoint }}"
+        token_params {
+          entries {
+            key {
+              literal_value {
+                string_value = "{{ string_value }}"
+              }
+            }
+            value {
+              literal_value {
+                string_value = "{{ string_value }}"
+              }
+            }
+          }
+        }
+      }
+      oidc_token {
+        audience = "{{ audience }}"
+        service_account_email = "{{ service_account_email }}"
+      }
+      service_account_credentials {
+        scope = "{{ scope }}"
+        service_account = "{{ service_account }}"
+      }
+      username_and_password {
+        password = "{{ password }}"
+        username = "{{ username }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

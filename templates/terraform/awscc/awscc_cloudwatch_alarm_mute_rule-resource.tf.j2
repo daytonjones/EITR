@@ -1,0 +1,9 @@
+resource "awscc_cloudwatch_alarm_mute_rule" "example" {
+    description = "{{ description }}"
+    expire_date = "{{ expire_date }}"
+    mute_targets = "{{ mute_targets }}"
+    name = "{{ name }}"
+    rule = "{{ rule }}"
+    start_date = "{{ start_date }}"
+    tags = "{{ tags }}"
+}

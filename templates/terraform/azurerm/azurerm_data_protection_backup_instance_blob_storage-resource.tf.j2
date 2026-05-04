@@ -3,7 +3,13 @@ resource "azurerm_data_protection_backup_instance_blob_storage" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    storage_account_container_names = "{{ storage_account_container_names }}"
+    storage_account_container_names = ["{{ storage_account_container_names }}"]
     storage_account_id = "{{ storage_account_id }}"
     vault_id = "{{ vault_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

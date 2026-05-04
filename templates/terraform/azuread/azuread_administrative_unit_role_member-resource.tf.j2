@@ -3,4 +3,9 @@ resource "azuread_administrative_unit_role_member" "example" {
     id = "{{ id }}"
     member_object_id = "{{ member_object_id }}"
     role_object_id = "{{ role_object_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

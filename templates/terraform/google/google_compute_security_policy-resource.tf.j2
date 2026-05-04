@@ -1,9 +1,124 @@
 resource "google_compute_security_policy" "example" {
     description = "{{ description }}"
-    fingerprint = "{{ fingerprint }}"
     id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
     project = "{{ project }}"
-    self_link = "{{ self_link }}"
     type = "{{ type }}"
+    adaptive_protection_config {
+      layer_7_ddos_defense_config {
+        enable = {{ enable }}
+        rule_visibility = "{{ rule_visibility }}"
+        threshold_configs {
+          auto_deploy_confidence_threshold = {{ auto_deploy_confidence_threshold }}
+          auto_deploy_expiration_sec = {{ auto_deploy_expiration_sec }}
+          auto_deploy_impacted_baseline_threshold = {{ auto_deploy_impacted_baseline_threshold }}
+          auto_deploy_load_threshold = {{ auto_deploy_load_threshold }}
+          detection_absolute_qps = {{ detection_absolute_qps }}
+          detection_load_threshold = {{ detection_load_threshold }}
+          detection_relative_to_baseline_qps = {{ detection_relative_to_baseline_qps }}
+          name = "{{ name }}"
+          traffic_granularity_configs {
+            enable_each_unique_value = {{ enable_each_unique_value }}
+            type = "{{ type }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+    }
+    advanced_options_config {
+      json_parsing = "{{ json_parsing }}"
+      log_level = "{{ log_level }}"
+      request_body_inspection_size = "{{ request_body_inspection_size }}"
+      user_ip_request_headers = ["{{ user_ip_request_headers }}"]
+      json_custom_config {
+        content_types = ["{{ content_types }}"]
+      }
+    }
+    recaptcha_options_config {
+      redirect_site_key = "{{ redirect_site_key }}"
+    }
+    rule {
+      action = "{{ action }}"
+      description = "{{ description }}"
+      preview = {{ preview }}
+      priority = {{ priority }}
+      header_action {
+        request_headers_to_adds {
+          header_name = "{{ header_name }}"
+          header_value = "{{ header_value }}"
+        }
+      }
+      match {
+        versioned_expr = "{{ versioned_expr }}"
+        config {
+          src_ip_ranges = ["{{ src_ip_ranges }}"]
+        }
+        expr {
+          expression = "{{ expression }}"
+        }
+        expr_options {
+          recaptcha_options {
+            action_token_site_keys = ["{{ action_token_site_keys }}"]
+            session_token_site_keys = ["{{ session_token_site_keys }}"]
+          }
+        }
+      }
+      preconfigured_waf_config {
+        exclusion {
+          target_rule_ids = ["{{ target_rule_ids }}"]
+          target_rule_set = "{{ target_rule_set }}"
+          request_cookie {
+            operator = "{{ operator }}"
+            value = "{{ value }}"
+          }
+          request_header {
+            operator = "{{ operator }}"
+            value = "{{ value }}"
+          }
+          request_query_param {
+            operator = "{{ operator }}"
+            value = "{{ value }}"
+          }
+          request_uri {
+            operator = "{{ operator }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+      rate_limit_options {
+        ban_duration_sec = {{ ban_duration_sec }}
+        conform_action = "{{ conform_action }}"
+        enforce_on_key = "{{ enforce_on_key }}"
+        enforce_on_key_name = "{{ enforce_on_key_name }}"
+        exceed_action = "{{ exceed_action }}"
+        ban_threshold {
+          count = {{ count }}
+          interval_sec = {{ interval_sec }}
+        }
+        enforce_on_key_configs {
+          enforce_on_key_name = "{{ enforce_on_key_name }}"
+          enforce_on_key_type = "{{ enforce_on_key_type }}"
+        }
+        exceed_redirect_options {
+          target = "{{ target }}"
+          type = "{{ type }}"
+        }
+        rate_limit_threshold {
+          count = {{ count }}
+          interval_sec = {{ interval_sec }}
+        }
+      }
+      redirect_options {
+        target = "{{ target }}"
+        type = "{{ type }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

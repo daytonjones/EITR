@@ -2,4 +2,9 @@ resource "azuread_application_owner" "example" {
     application_id = "{{ application_id }}"
     id = "{{ id }}"
     owner_object_id = "{{ owner_object_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

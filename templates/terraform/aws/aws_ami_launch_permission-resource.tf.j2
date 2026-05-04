@@ -5,4 +5,5 @@ resource "aws_ami_launch_permission" "example" {
     image_id = "{{ image_id }}"
     organization_arn = "{{ organization_arn }}"
     organizational_unit_arn = "{{ organizational_unit_arn }}"
+    region = "{{ region }}"
 }

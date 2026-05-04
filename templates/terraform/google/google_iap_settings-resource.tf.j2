@@ -1,4 +1,57 @@
 resource "google_iap_settings" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
+    access_settings {
+      identity_sources = ["{{ identity_sources }}"]
+      allowed_domains_settings {
+        domains = ["{{ domains }}"]
+        enable = {{ enable }}
+      }
+      cors_settings {
+        allow_http_options = {{ allow_http_options }}
+      }
+      gcip_settings {
+        login_page_uri = "{{ login_page_uri }}"
+        tenant_ids = ["{{ tenant_ids }}"]
+      }
+      oauth_settings {
+        client_id = "{{ client_id }}"
+        client_secret = "{{ client_secret }}"
+        login_hint = "{{ login_hint }}"
+        programmatic_clients = ["{{ programmatic_clients }}"]
+      }
+      reauth_settings {
+        max_age = "{{ max_age }}"
+        method = "{{ method }}"
+        policy_type = "{{ policy_type }}"
+      }
+      workforce_identity_settings {
+        workforce_pools = ["{{ workforce_pools }}"]
+        oauth2 {
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+        }
+      }
+    }
+    application_settings {
+      cookie_domain = "{{ cookie_domain }}"
+      access_denied_page_settings {
+        access_denied_page_uri = "{{ access_denied_page_uri }}"
+        generate_troubleshooting_uri = {{ generate_troubleshooting_uri }}
+        remediation_token_generation_enabled = {{ remediation_token_generation_enabled }}
+      }
+      attribute_propagation_settings {
+        enable = {{ enable }}
+        expression = "{{ expression }}"
+        output_credentials = ["{{ output_credentials }}"]
+      }
+      csm_settings {
+        rctoken_aud = "{{ rctoken_aud }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

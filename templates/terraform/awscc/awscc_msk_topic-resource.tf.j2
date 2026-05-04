@@ -1,0 +1,7 @@
+resource "awscc_msk_topic" "example" {
+    cluster_arn = "{{ cluster_arn }}"
+    configs = "{{ configs }}"
+    partition_count = {{ partition_count }}
+    replication_factor = {{ replication_factor }}
+    topic_name = "{{ topic_name }}"
+}

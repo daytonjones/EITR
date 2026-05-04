@@ -1,26 +1,44 @@
 resource "google_compute_region_disk" "example" {
-    creation_timestamp = "{{ creation_timestamp }}"
+    access_mode = "{{ access_mode }}"
+    create_snapshot_before_destroy = {{ create_snapshot_before_destroy }}
+    create_snapshot_before_destroy_prefix = "{{ create_snapshot_before_destroy_prefix }}"
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
+    erase_windows_vss_signature = {{ erase_windows_vss_signature }}
     id = "{{ id }}"
     interface = "{{ interface }}"
-    label_fingerprint = "{{ label_fingerprint }}"
-    labels = "{{ labels }}"
-    last_attach_timestamp = "{{ last_attach_timestamp }}"
-    last_detach_timestamp = "{{ last_detach_timestamp }}"
-    licenses = "{{ licenses }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    licenses = ["{{ licenses }}"]
     name = "{{ name }}"
-    physical_block_size_bytes = "{{ physical_block_size_bytes }}"
+    physical_block_size_bytes = {{ physical_block_size_bytes }}
     project = "{{ project }}"
+    provisioned_iops = {{ provisioned_iops }}
+    provisioned_throughput = {{ provisioned_throughput }}
     region = "{{ region }}"
-    replica_zones = "{{ replica_zones }}"
-    self_link = "{{ self_link }}"
-    size = "{{ size }}"
+    replica_zones = ["{{ replica_zones }}"]
+    size = {{ size }}
     snapshot = "{{ snapshot }}"
     source_disk = "{{ source_disk }}"
-    source_disk_id = "{{ source_disk_id }}"
-    source_snapshot_id = "{{ source_snapshot_id }}"
-    terraform_labels = "{{ terraform_labels }}"
     type = "{{ type }}"
-    users = "{{ users }}"
+    async_primary_disk {
+      disk = "{{ disk }}"
+    }
+    disk_encryption_key {
+      kms_key_name = "{{ kms_key_name }}"
+      raw_key = "{{ raw_key }}"
+      rsa_encrypted_key = "{{ rsa_encrypted_key }}"
+    }
+    guest_os_features {
+      type = "{{ type }}"
+    }
+    source_snapshot_encryption_key {
+      kms_key_name = "{{ kms_key_name }}"
+      raw_key = "{{ raw_key }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,6 +1,6 @@
 resource "random_bytes" "example" {
-    base64 = "{{ base64 }}"
-    hex = "{{ hex }}"
-    keepers = "{{ keepers }}"
-    length = "{{ length }}"
+    keepers = {
+        key = "{{ keepers_value }}"
+      }
+    length = {{ length }}
 }

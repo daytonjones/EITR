@@ -1,12 +1,76 @@
 resource "google_dialogflow_cx_webhook" "example" {
-    disabled = "{{ disabled }}"
+    disabled = {{ disabled }}
     display_name = "{{ display_name }}"
-    enable_spell_correction = "{{ enable_spell_correction }}"
-    enable_stackdriver_logging = "{{ enable_stackdriver_logging }}"
+    enable_spell_correction = {{ enable_spell_correction }}
+    enable_stackdriver_logging = {{ enable_stackdriver_logging }}
     id = "{{ id }}"
-    name = "{{ name }}"
     parent = "{{ parent }}"
     security_settings = "{{ security_settings }}"
-    start_flow = "{{ start_flow }}"
     timeout = "{{ timeout }}"
+    generic_web_service {
+      allowed_ca_certs = ["{{ allowed_ca_certs }}"]
+      http_method = "{{ http_method }}"
+      parameter_mapping = {
+        key = "{{ parameter_mapping_value }}"
+      }
+      request_body = "{{ request_body }}"
+      request_headers = {
+        key = "{{ request_headers_value }}"
+      }
+      secret_version_for_username_password = "{{ secret_version_for_username_password }}"
+      service_agent_auth = "{{ service_agent_auth }}"
+      uri = "{{ uri }}"
+      webhook_type = "{{ webhook_type }}"
+      oauth_config {
+        client_id = "{{ client_id }}"
+        client_secret = "{{ client_secret }}"
+        scopes = ["{{ scopes }}"]
+        secret_version_for_client_secret = "{{ secret_version_for_client_secret }}"
+        token_endpoint = "{{ token_endpoint }}"
+      }
+      secret_versions_for_request_headers {
+        key = "{{ key }}"
+        secret_version = "{{ secret_version }}"
+      }
+      service_account_auth_config {
+        service_account = "{{ service_account }}"
+      }
+    }
+    service_directory {
+      service = "{{ service }}"
+      generic_web_service {
+        allowed_ca_certs = ["{{ allowed_ca_certs }}"]
+        http_method = "{{ http_method }}"
+        parameter_mapping = {
+        key = "{{ parameter_mapping_value }}"
+      }
+        request_body = "{{ request_body }}"
+        request_headers = {
+        key = "{{ request_headers_value }}"
+      }
+        secret_version_for_username_password = "{{ secret_version_for_username_password }}"
+        service_agent_auth = "{{ service_agent_auth }}"
+        uri = "{{ uri }}"
+        webhook_type = "{{ webhook_type }}"
+        oauth_config {
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+          scopes = ["{{ scopes }}"]
+          secret_version_for_client_secret = "{{ secret_version_for_client_secret }}"
+          token_endpoint = "{{ token_endpoint }}"
+        }
+        secret_versions_for_request_headers {
+          key = "{{ key }}"
+          secret_version = "{{ secret_version }}"
+        }
+        service_account_auth_config {
+          service_account = "{{ service_account }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -3,8 +3,15 @@ resource "aws_ec2_transit_gateway_peering_attachment" "example" {
     peer_account_id = "{{ peer_account_id }}"
     peer_region = "{{ peer_region }}"
     peer_transit_gateway_id = "{{ peer_transit_gateway_id }}"
-    state = "{{ state }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     transit_gateway_id = "{{ transit_gateway_id }}"
+    options {
+      dynamic_routing = "{{ dynamic_routing }}"
+    }
 }

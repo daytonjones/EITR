@@ -2,7 +2,15 @@ resource "azurerm_arc_private_link_scope" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    public_network_access_enabled = {{ public_network_access_enabled }}
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

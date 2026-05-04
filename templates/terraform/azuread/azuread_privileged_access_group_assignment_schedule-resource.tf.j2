@@ -5,10 +5,15 @@ resource "azuread_privileged_access_group_assignment_schedule" "example" {
     group_id = "{{ group_id }}"
     id = "{{ id }}"
     justification = "{{ justification }}"
-    permanent_assignment = "{{ permanent_assignment }}"
+    permanent_assignment = {{ permanent_assignment }}
     principal_id = "{{ principal_id }}"
     start_date = "{{ start_date }}"
-    status = "{{ status }}"
     ticket_number = "{{ ticket_number }}"
     ticket_system = "{{ ticket_system }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

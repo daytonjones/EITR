@@ -1,7 +1,8 @@
 resource "awscc_ecr_pull_through_cache_rule" "example" {
     credential_arn = "{{ credential_arn }}"
+    custom_role_arn = "{{ custom_role_arn }}"
     ecr_repository_prefix = "{{ ecr_repository_prefix }}"
-    id = "{{ id }}"
     upstream_registry = "{{ upstream_registry }}"
     upstream_registry_url = "{{ upstream_registry_url }}"
+    upstream_repository_prefix = "{{ upstream_repository_prefix }}"
 }

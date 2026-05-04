@@ -1,14 +1,38 @@
 resource "google_vertex_ai_feature_online_store" "example" {
-    create_time = "{{ create_time }}"
-    effective_labels = "{{ effective_labels }}"
-    etag = "{{ etag }}"
-    force_destroy = "{{ force_destroy }}"
+    force_destroy = {{ force_destroy }}
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
     project = "{{ project }}"
     region = "{{ region }}"
-    state = "{{ state }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
+    bigtable {
+      enable_direct_bigtable_access = {{ enable_direct_bigtable_access }}
+      zone = "{{ zone }}"
+      auto_scaling {
+        cpu_utilization_target = {{ cpu_utilization_target }}
+        max_node_count = {{ max_node_count }}
+        min_node_count = {{ min_node_count }}
+      }
+    }
+    dedicated_serving_endpoint {
+      private_service_connect_config {
+        enable_private_service_connect = {{ enable_private_service_connect }}
+        project_allowlist = ["{{ project_allowlist }}"]
+      }
+    }
+    embedding_management {
+      enabled = {{ enabled }}
+    }
+    encryption_spec {
+      kms_key_name = "{{ kms_key_name }}"
+    }
+    optimized {
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

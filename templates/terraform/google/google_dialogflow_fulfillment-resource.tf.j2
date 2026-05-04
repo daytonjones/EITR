@@ -1,7 +1,22 @@
 resource "google_dialogflow_fulfillment" "example" {
     display_name = "{{ display_name }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
-    name = "{{ name }}"
     project = "{{ project }}"
+    features {
+      type = "{{ type }}"
+    }
+    generic_web_service {
+      password = "{{ password }}"
+      request_headers = {
+        key = "{{ request_headers_value }}"
+      }
+      uri = "{{ uri }}"
+      username = "{{ username }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

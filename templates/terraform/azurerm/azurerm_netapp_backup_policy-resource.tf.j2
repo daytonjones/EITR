@@ -1,12 +1,20 @@
 resource "azurerm_netapp_backup_policy" "example" {
     account_name = "{{ account_name }}"
-    daily_backups_to_keep = "{{ daily_backups_to_keep }}"
-    enabled = "{{ enabled }}"
+    daily_backups_to_keep = {{ daily_backups_to_keep }}
+    enabled = {{ enabled }}
     id = "{{ id }}"
     location = "{{ location }}"
-    monthly_backups_to_keep = "{{ monthly_backups_to_keep }}"
+    monthly_backups_to_keep = {{ monthly_backups_to_keep }}
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
-    weekly_backups_to_keep = "{{ weekly_backups_to_keep }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    weekly_backups_to_keep = {{ weekly_backups_to_keep }}
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

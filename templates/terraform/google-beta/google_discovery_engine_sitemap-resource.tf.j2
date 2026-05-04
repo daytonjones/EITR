@@ -1,0 +1,11 @@
+resource "google_discovery_engine_sitemap" "example" {
+    data_store_id = "{{ data_store_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    uri = "{{ uri }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

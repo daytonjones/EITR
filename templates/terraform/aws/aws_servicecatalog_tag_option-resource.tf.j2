@@ -1,7 +1,13 @@
 resource "aws_servicecatalog_tag_option" "example" {
-    active = "{{ active }}"
+    active = {{ active }}
     id = "{{ id }}"
     key = "{{ key }}"
-    owner = "{{ owner }}"
+    region = "{{ region }}"
     value = "{{ value }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

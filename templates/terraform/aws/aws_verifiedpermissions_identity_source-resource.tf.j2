@@ -1,5 +1,32 @@
 resource "aws_verifiedpermissions_identity_source" "example" {
-    id = "{{ id }}"
     policy_store_id = "{{ policy_store_id }}"
     principal_entity_type = "{{ principal_entity_type }}"
+    region = "{{ region }}"
+    configuration {
+      cognito_user_pool_configuration {
+        client_ids = ["{{ client_ids }}"]
+        user_pool_arn = "{{ user_pool_arn }}"
+        group_configuration {
+          group_entity_type = "{{ group_entity_type }}"
+        }
+      }
+      open_id_connect_configuration {
+        entity_id_prefix = "{{ entity_id_prefix }}"
+        issuer = "{{ issuer }}"
+        group_configuration {
+          group_claim = "{{ group_claim }}"
+          group_entity_type = "{{ group_entity_type }}"
+        }
+        token_selection {
+          access_token_only {
+            audiences = ["{{ audiences }}"]
+            principal_id_claim = "{{ principal_id_claim }}"
+          }
+          identity_token_only {
+            client_ids = ["{{ client_ids }}"]
+            principal_id_claim = "{{ principal_id_claim }}"
+          }
+        }
+      }
+    }
 }

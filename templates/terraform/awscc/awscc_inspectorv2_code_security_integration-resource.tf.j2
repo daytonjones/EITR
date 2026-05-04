@@ -1,0 +1,9 @@
+resource "awscc_inspectorv2_code_security_integration" "example" {
+    create_integration_details = "{{ create_integration_details }}"
+    name = "{{ name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    type = "{{ type }}"
+    update_integration_details = "{{ update_integration_details }}"
+}

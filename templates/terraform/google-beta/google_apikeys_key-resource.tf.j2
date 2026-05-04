@@ -1,8 +1,33 @@
 resource "google_apikeys_key" "example" {
     display_name = "{{ display_name }}"
     id = "{{ id }}"
-    key_string = "{{ key_string }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    uid = "{{ uid }}"
+    service_account_email = "{{ service_account_email }}"
+    restrictions {
+      android_key_restrictions {
+        allowed_applications {
+          package_name = "{{ package_name }}"
+          sha1_fingerprint = "{{ sha1_fingerprint }}"
+        }
+      }
+      api_targets {
+        methods = ["{{ methods }}"]
+        service = "{{ service }}"
+      }
+      browser_key_restrictions {
+        allowed_referrers = ["{{ allowed_referrers }}"]
+      }
+      ios_key_restrictions {
+        allowed_bundle_ids = ["{{ allowed_bundle_ids }}"]
+      }
+      server_key_restrictions {
+        allowed_ips = ["{{ allowed_ips }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

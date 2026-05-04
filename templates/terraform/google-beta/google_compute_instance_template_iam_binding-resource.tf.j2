@@ -1,0 +1,12 @@
+resource "google_compute_instance_template_iam_binding" "example" {
+    id = "{{ id }}"
+    members = ["{{ members }}"]
+    name = "{{ name }}"
+    project = "{{ project }}"
+    role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

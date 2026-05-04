@@ -1,8 +1,12 @@
 resource "aws_config_aggregate_authorization" "example" {
     account_id = "{{ account_id }}"
-    arn = "{{ arn }}"
+    authorized_aws_region = "{{ authorized_aws_region }}"
     id = "{{ id }}"
     region = "{{ region }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

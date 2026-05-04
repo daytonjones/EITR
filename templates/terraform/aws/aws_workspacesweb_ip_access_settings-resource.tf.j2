@@ -1,0 +1,16 @@
+resource "aws_workspacesweb_ip_access_settings" "example" {
+    additional_encryption_context = {
+        key = "{{ additional_encryption_context_value }}"
+      }
+    customer_managed_key = "{{ customer_managed_key }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    ip_rule {
+      description = "{{ description }}"
+      ip_range = "{{ ip_range }}"
+    }
+}

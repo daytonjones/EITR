@@ -1,0 +1,27 @@
+resource "aws_billing_view" "example" {
+    description = "{{ description }}"
+    name = "{{ name }}"
+    source_views = ["{{ source_views }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    data_filter_expression {
+      dimensions {
+        key = "{{ key }}"
+        values = ["{{ values }}"]
+      }
+      tags {
+        key = "{{ key }}"
+        values = ["{{ values }}"]
+      }
+      time_range {
+        begin_date_inclusive = "{{ begin_date_inclusive }}"
+        end_date_inclusive = "{{ end_date_inclusive }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -3,4 +3,20 @@ resource "azurerm_policy_virtual_machine_configuration_assignment" "example" {
     location = "{{ location }}"
     name = "{{ name }}"
     virtual_machine_id = "{{ virtual_machine_id }}"
+    configuration {
+      assignment_type = "{{ assignment_type }}"
+      content_hash = "{{ content_hash }}"
+      content_uri = "{{ content_uri }}"
+      version = "{{ version }}"
+      parameter {
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

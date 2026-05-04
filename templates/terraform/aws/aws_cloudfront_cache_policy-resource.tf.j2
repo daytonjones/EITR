@@ -1,9 +1,30 @@
 resource "aws_cloudfront_cache_policy" "example" {
     comment = "{{ comment }}"
-    default_ttl = "{{ default_ttl }}"
-    etag = "{{ etag }}"
+    default_ttl = {{ default_ttl }}
     id = "{{ id }}"
-    max_ttl = "{{ max_ttl }}"
-    min_ttl = "{{ min_ttl }}"
+    max_ttl = {{ max_ttl }}
+    min_ttl = {{ min_ttl }}
     name = "{{ name }}"
+    parameters_in_cache_key_and_forwarded_to_origin {
+      enable_accept_encoding_brotli = {{ enable_accept_encoding_brotli }}
+      enable_accept_encoding_gzip = {{ enable_accept_encoding_gzip }}
+      cookies_config {
+        cookie_behavior = "{{ cookie_behavior }}"
+        cookies {
+          items = ["{{ items }}"]
+        }
+      }
+      headers_config {
+        header_behavior = "{{ header_behavior }}"
+        headers {
+          items = ["{{ items }}"]
+        }
+      }
+      query_strings_config {
+        query_string_behavior = "{{ query_string_behavior }}"
+        query_strings {
+          items = ["{{ items }}"]
+        }
+      }
+    }
 }

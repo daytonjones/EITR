@@ -1,9 +1,13 @@
 resource "google_dataform_repository_iam_member" "example" {
-    etag = "{{ etag }}"
     id = "{{ id }}"
     member = "{{ member }}"
     project = "{{ project }}"
     region = "{{ region }}"
     repository = "{{ repository }}"
     role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

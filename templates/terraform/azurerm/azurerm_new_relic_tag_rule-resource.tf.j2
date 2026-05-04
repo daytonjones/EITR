@@ -1,8 +1,24 @@
 resource "azurerm_new_relic_tag_rule" "example" {
-    activity_log_enabled = "{{ activity_log_enabled }}"
-    azure_active_directory_log_enabled = "{{ azure_active_directory_log_enabled }}"
+    activity_log_enabled = {{ activity_log_enabled }}
+    azure_active_directory_log_enabled = {{ azure_active_directory_log_enabled }}
     id = "{{ id }}"
-    metric_enabled = "{{ metric_enabled }}"
+    metric_enabled = {{ metric_enabled }}
     monitor_id = "{{ monitor_id }}"
-    subscription_log_enabled = "{{ subscription_log_enabled }}"
+    subscription_log_enabled = {{ subscription_log_enabled }}
+    log_tag_filter {
+      action = "{{ action }}"
+      name = "{{ name }}"
+      value = "{{ value }}"
+    }
+    metric_tag_filter {
+      action = "{{ action }}"
+      name = "{{ name }}"
+      value = "{{ value }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

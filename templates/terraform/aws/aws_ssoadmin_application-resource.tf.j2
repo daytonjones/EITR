@@ -1,13 +1,19 @@
 resource "aws_ssoadmin_application" "example" {
-    application_account = "{{ application_account }}"
-    application_arn = "{{ application_arn }}"
     application_provider_arn = "{{ application_provider_arn }}"
     client_token = "{{ client_token }}"
     description = "{{ description }}"
-    id = "{{ id }}"
     instance_arn = "{{ instance_arn }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    portal_options {
+      visibility = "{{ visibility }}"
+      sign_in_options {
+        application_url = "{{ application_url }}"
+        origin = "{{ origin }}"
+      }
+    }
 }

@@ -1,0 +1,5 @@
+resource "awscc_dax_subnet_group" "example" {
+    description = "{{ description }}"
+    subnet_group_name = "{{ subnet_group_name }}"
+    subnet_ids = ["{{ subnet_ids }}"]
+}

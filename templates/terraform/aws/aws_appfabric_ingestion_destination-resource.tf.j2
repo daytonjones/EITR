@@ -1,8 +1,32 @@
 resource "aws_appfabric_ingestion_destination" "example" {
     app_bundle_arn = "{{ app_bundle_arn }}"
-    arn = "{{ arn }}"
-    id = "{{ id }}"
     ingestion_arn = "{{ ingestion_arn }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    destination_configuration {
+      audit_log {
+        destination {
+          firehose_stream {
+            stream_name = "{{ stream_name }}"
+          }
+          s3_bucket {
+            bucket_name = "{{ bucket_name }}"
+            prefix = "{{ prefix }}"
+          }
+        }
+      }
+    }
+    processing_configuration {
+      audit_log {
+        format = "{{ format }}"
+        schema = "{{ schema }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,4 +1,21 @@
 resource "aws_elasticsearch_domain_saml_options" "example" {
     domain_name = "{{ domain_name }}"
     id = "{{ id }}"
+    region = "{{ region }}"
+    saml_options {
+      enabled = {{ enabled }}
+      master_backend_role = "{{ master_backend_role }}"
+      master_user_name = "{{ master_user_name }}"
+      roles_key = "{{ roles_key }}"
+      session_timeout_minutes = {{ session_timeout_minutes }}
+      subject_key = "{{ subject_key }}"
+      idp {
+        entity_id = "{{ entity_id }}"
+        metadata_content = "{{ metadata_content }}"
+      }
+    }
+    timeouts {
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,9 @@
+resource "awscc_directconnect_lag" "example" {
+    connections_bandwidth = "{{ connections_bandwidth }}"
+    lag_name = "{{ lag_name }}"
+    location = "{{ location }}"
+    minimum_links = {{ minimum_links }}
+    provider_name = "{{ provider_name }}"
+    request_mac_sec = {{ request_mac_sec }}
+    tags = "{{ tags }}"
+}

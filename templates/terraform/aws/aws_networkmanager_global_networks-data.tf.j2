@@ -1,5 +1,6 @@
 data "aws_networkmanager_global_networks" "example" {
     id = "{{ id }}"
-    ids = "{{ ids }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
 }

@@ -1,6 +1,88 @@
 resource "azurerm_stack_hci_deployment_setting" "example" {
-    arc_resource_ids = "{{ arc_resource_ids }}"
+    arc_resource_ids = ["{{ arc_resource_ids }}"]
     id = "{{ id }}"
     stack_hci_cluster_id = "{{ stack_hci_cluster_id }}"
     version = "{{ version }}"
+    scale_unit {
+      active_directory_organizational_unit_path = "{{ active_directory_organizational_unit_path }}"
+      bitlocker_boot_volume_enabled = {{ bitlocker_boot_volume_enabled }}
+      bitlocker_data_volume_enabled = {{ bitlocker_data_volume_enabled }}
+      credential_guard_enabled = {{ credential_guard_enabled }}
+      domain_fqdn = "{{ domain_fqdn }}"
+      drift_control_enabled = {{ drift_control_enabled }}
+      drtm_protection_enabled = {{ drtm_protection_enabled }}
+      episodic_data_upload_enabled = {{ episodic_data_upload_enabled }}
+      eu_location_enabled = {{ eu_location_enabled }}
+      hvci_protection_enabled = {{ hvci_protection_enabled }}
+      name_prefix = "{{ name_prefix }}"
+      secrets_location = "{{ secrets_location }}"
+      side_channel_mitigation_enabled = {{ side_channel_mitigation_enabled }}
+      smb_cluster_encryption_enabled = {{ smb_cluster_encryption_enabled }}
+      smb_signing_enabled = {{ smb_signing_enabled }}
+      streaming_data_client_enabled = {{ streaming_data_client_enabled }}
+      wdac_enabled = {{ wdac_enabled }}
+      cluster {
+        azure_service_endpoint = "{{ azure_service_endpoint }}"
+        cloud_account_name = "{{ cloud_account_name }}"
+        name = "{{ name }}"
+        witness_path = "{{ witness_path }}"
+        witness_type = "{{ witness_type }}"
+      }
+      host_network {
+        storage_auto_ip_enabled = {{ storage_auto_ip_enabled }}
+        storage_connectivity_switchless_enabled = {{ storage_connectivity_switchless_enabled }}
+        intent {
+          adapter = ["{{ adapter }}"]
+          adapter_property_override_enabled = {{ adapter_property_override_enabled }}
+          name = "{{ name }}"
+          qos_policy_override_enabled = {{ qos_policy_override_enabled }}
+          traffic_type = ["{{ traffic_type }}"]
+          virtual_switch_configuration_override_enabled = {{ virtual_switch_configuration_override_enabled }}
+          adapter_property_override {
+            jumbo_packet = "{{ jumbo_packet }}"
+            network_direct = "{{ network_direct }}"
+            network_direct_technology = "{{ network_direct_technology }}"
+          }
+          qos_policy_override {
+            bandwidth_percentage_smb = "{{ bandwidth_percentage_smb }}"
+            priority_value8021_action_cluster = "{{ priority_value8021_action_cluster }}"
+            priority_value8021_action_smb = "{{ priority_value8021_action_smb }}"
+          }
+          virtual_switch_configuration_override {
+            enable_iov = "{{ enable_iov }}"
+            load_balancing_algorithm = "{{ load_balancing_algorithm }}"
+          }
+        }
+        storage_network {
+          name = "{{ name }}"
+          network_adapter_name = "{{ network_adapter_name }}"
+          vlan_id = "{{ vlan_id }}"
+        }
+      }
+      infrastructure_network {
+        dhcp_enabled = {{ dhcp_enabled }}
+        dns_server = ["{{ dns_server }}"]
+        gateway = "{{ gateway }}"
+        subnet_mask = "{{ subnet_mask }}"
+        ip_pool {
+          ending_address = "{{ ending_address }}"
+          starting_address = "{{ starting_address }}"
+        }
+      }
+      optional_service {
+        custom_location = "{{ custom_location }}"
+      }
+      physical_node {
+        ipv4_address = "{{ ipv4_address }}"
+        name = "{{ name }}"
+      }
+      storage {
+        configuration_mode = "{{ configuration_mode }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

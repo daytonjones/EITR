@@ -1,0 +1,6 @@
+resource "awscc_directconnect_direct_connect_gateway_association" "example" {
+    accept_direct_connect_gateway_association_proposal_role_arn = "{{ accept_direct_connect_gateway_association_proposal_role_arn }}"
+    allowed_prefixes_to_direct_connect_gateway = ["{{ allowed_prefixes_to_direct_connect_gateway }}"]
+    associated_gateway_id = "{{ associated_gateway_id }}"
+    direct_connect_gateway_id = "{{ direct_connect_gateway_id }}"
+}

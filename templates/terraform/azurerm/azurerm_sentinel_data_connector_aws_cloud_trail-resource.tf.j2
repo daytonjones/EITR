@@ -3,4 +3,10 @@ resource "azurerm_sentinel_data_connector_aws_cloud_trail" "example" {
     id = "{{ id }}"
     log_analytics_workspace_id = "{{ log_analytics_workspace_id }}"
     name = "{{ name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

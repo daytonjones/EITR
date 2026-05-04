@@ -1,9 +1,12 @@
 resource "aws_dataexchange_revision" "example" {
-    arn = "{{ arn }}"
     comment = "{{ comment }}"
     data_set_id = "{{ data_set_id }}"
     id = "{{ id }}"
-    revision_id = "{{ revision_id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

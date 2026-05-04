@@ -2,8 +2,27 @@ resource "google_firestore_index" "example" {
     api_scope = "{{ api_scope }}"
     collection = "{{ collection }}"
     database = "{{ database }}"
+    deletion_policy = "{{ deletion_policy }}"
+    density = "{{ density }}"
     id = "{{ id }}"
-    name = "{{ name }}"
+    multikey = {{ multikey }}
     project = "{{ project }}"
     query_scope = "{{ query_scope }}"
+    skip_wait = {{ skip_wait }}
+    unique = {{ unique }}
+    fields {
+      array_config = "{{ array_config }}"
+      field_path = "{{ field_path }}"
+      order = "{{ order }}"
+      vector_config {
+        dimension = {{ dimension }}
+        flat {
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

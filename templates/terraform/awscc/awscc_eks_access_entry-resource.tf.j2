@@ -1,20 +1,9 @@
 resource "awscc_eks_access_entry" "example" {
-    access_entry_arn = "{{ access_entry_arn }}"
-    access_policies = "{
-    access_scope = {
-    namespaces = {{ namespaces }}
-    type = {{ type }}
-}
-    policy_arn = {{ policy_arn }}
-}"
+    access_policies = "{{ access_policies }}"
     cluster_name = "{{ cluster_name }}"
-    id = "{{ id }}"
-    kubernetes_groups = "{{ kubernetes_groups }}"
+    kubernetes_groups = ["{{ kubernetes_groups }}"]
     principal_arn = "{{ principal_arn }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
     type = "{{ type }}"
     username = "{{ username }}"
 }

@@ -1,10 +1,21 @@
 resource "azurerm_network_manager" "example" {
-    cross_tenant_scopes = "{{ cross_tenant_scopes }}"
     description = "{{ description }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    scope_accesses = "{{ scope_accesses }}"
-    tags = "{{ tags }}"
+    scope_accesses = ["{{ scope_accesses }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    scope {
+      management_group_ids = ["{{ management_group_ids }}"]
+      subscription_ids = ["{{ subscription_ids }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -3,4 +3,9 @@ resource "azurerm_cosmosdb_postgresql_role" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     password = "{{ password }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

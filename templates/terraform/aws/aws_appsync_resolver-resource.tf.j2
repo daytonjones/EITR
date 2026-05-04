@@ -1,13 +1,31 @@
 resource "aws_appsync_resolver" "example" {
     api_id = "{{ api_id }}"
-    arn = "{{ arn }}"
     code = "{{ code }}"
     data_source = "{{ data_source }}"
     field = "{{ field }}"
     id = "{{ id }}"
     kind = "{{ kind }}"
-    max_batch_size = "{{ max_batch_size }}"
+    max_batch_size = {{ max_batch_size }}
+    region = "{{ region }}"
     request_template = "{{ request_template }}"
     response_template = "{{ response_template }}"
     type = "{{ type }}"
+    caching_config {
+      caching_keys = ["{{ caching_keys }}"]
+      ttl = {{ ttl }}
+    }
+    pipeline_config {
+      functions = ["{{ functions }}"]
+    }
+    runtime {
+      name = "{{ name }}"
+      runtime_version = "{{ runtime_version }}"
+    }
+    sync_config {
+      conflict_detection = "{{ conflict_detection }}"
+      conflict_handler = "{{ conflict_handler }}"
+      lambda_conflict_handler_config {
+        lambda_conflict_handler_arn = "{{ lambda_conflict_handler_arn }}"
+      }
+    }
 }

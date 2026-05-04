@@ -1,13 +1,64 @@
 resource "google_iam_workforce_pool_provider" "example" {
     attribute_condition = "{{ attribute_condition }}"
-    attribute_mapping = "{{ attribute_mapping }}"
+    attribute_mapping = {
+        key = "{{ attribute_mapping_value }}"
+      }
     description = "{{ description }}"
-    disabled = "{{ disabled }}"
+    detailed_audit_logging = {{ detailed_audit_logging }}
+    disabled = {{ disabled }}
     display_name = "{{ display_name }}"
     id = "{{ id }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     provider_id = "{{ provider_id }}"
-    state = "{{ state }}"
+    scim_usage = "{{ scim_usage }}"
     workforce_pool_id = "{{ workforce_pool_id }}"
+    extended_attributes_oauth2_client {
+      attributes_type = "{{ attributes_type }}"
+      client_id = "{{ client_id }}"
+      issuer_uri = "{{ issuer_uri }}"
+      client_secret {
+        value {
+          plain_text = "{{ plain_text }}"
+        }
+      }
+      query_parameters {
+        filter = "{{ filter }}"
+      }
+    }
+    extra_attributes_oauth2_client {
+      attributes_type = "{{ attributes_type }}"
+      client_id = "{{ client_id }}"
+      issuer_uri = "{{ issuer_uri }}"
+      client_secret {
+        value {
+          plain_text = "{{ plain_text }}"
+        }
+      }
+      query_parameters {
+        filter = "{{ filter }}"
+      }
+    }
+    oidc {
+      client_id = "{{ client_id }}"
+      issuer_uri = "{{ issuer_uri }}"
+      jwks_json = "{{ jwks_json }}"
+      client_secret {
+        value {
+          plain_text = "{{ plain_text }}"
+        }
+      }
+      web_sso_config {
+        additional_scopes = ["{{ additional_scopes }}"]
+        assertion_claims_behavior = "{{ assertion_claims_behavior }}"
+        response_type = "{{ response_type }}"
+      }
+    }
+    saml {
+      idp_metadata_xml = "{{ idp_metadata_xml }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

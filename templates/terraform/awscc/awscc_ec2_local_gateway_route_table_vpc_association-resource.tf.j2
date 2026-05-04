@@ -1,12 +1,5 @@
 resource "awscc_ec2_local_gateway_route_table_vpc_association" "example" {
-    id = "{{ id }}"
-    local_gateway_id = "{{ local_gateway_id }}"
     local_gateway_route_table_id = "{{ local_gateway_route_table_id }}"
-    local_gateway_route_table_vpc_association_id = "{{ local_gateway_route_table_vpc_association_id }}"
-    state = "{{ state }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
     vpc_id = "{{ vpc_id }}"
 }

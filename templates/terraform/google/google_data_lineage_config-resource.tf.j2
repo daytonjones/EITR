@@ -1,0 +1,20 @@
+resource "google_data_lineage_config" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    parent = "{{ parent }}"
+    ingestion {
+      rule {
+        integration_selector {
+          integration = "{{ integration }}"
+        }
+        lineage_enablement {
+          enabled = {{ enabled }}
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

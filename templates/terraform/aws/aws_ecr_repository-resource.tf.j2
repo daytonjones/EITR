@@ -1,11 +1,27 @@
 resource "aws_ecr_repository" "example" {
-    arn = "{{ arn }}"
-    force_delete = "{{ force_delete }}"
+    force_delete = {{ force_delete }}
     id = "{{ id }}"
     image_tag_mutability = "{{ image_tag_mutability }}"
     name = "{{ name }}"
-    registry_id = "{{ registry_id }}"
-    repository_url = "{{ repository_url }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    encryption_configuration {
+      encryption_type = "{{ encryption_type }}"
+      kms_key = "{{ kms_key }}"
+    }
+    image_scanning_configuration {
+      scan_on_push = {{ scan_on_push }}
+    }
+    image_tag_mutability_exclusion_filter {
+      filter = "{{ filter }}"
+      filter_type = "{{ filter_type }}"
+    }
+    timeouts {
+      delete = "{{ delete }}"
+    }
 }

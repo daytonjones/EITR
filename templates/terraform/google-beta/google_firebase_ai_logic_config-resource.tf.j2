@@ -1,0 +1,22 @@
+resource "google_firebase_ai_logic_config" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    generative_language_config {
+      api_key = "{{ api_key }}"
+      api_key_wo = "{{ api_key_wo }}"
+      api_key_wo_version = "{{ api_key_wo_version }}"
+    }
+    telemetry_config {
+      mode = "{{ mode }}"
+      sampling_rate = {{ sampling_rate }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    traffic_filter {
+      template_only = {{ template_only }}
+    }
+}

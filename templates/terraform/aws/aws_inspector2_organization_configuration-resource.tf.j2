@@ -1,4 +1,16 @@
 resource "aws_inspector2_organization_configuration" "example" {
     id = "{{ id }}"
-    max_account_limit_reached = "{{ max_account_limit_reached }}"
+    region = "{{ region }}"
+    auto_enable {
+      code_repository = {{ code_repository }}
+      ec2 = {{ ec2 }}
+      ecr = {{ ecr }}
+      lambda = {{ lambda }}
+      lambda_code = {{ lambda_code }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

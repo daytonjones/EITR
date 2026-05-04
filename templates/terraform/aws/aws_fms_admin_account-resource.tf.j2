@@ -1,4 +1,8 @@
 resource "aws_fms_admin_account" "example" {
     account_id = "{{ account_id }}"
     id = "{{ id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

@@ -2,6 +2,23 @@ resource "azurerm_cdn_frontdoor_origin_group" "example" {
     cdn_frontdoor_profile_id = "{{ cdn_frontdoor_profile_id }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    restore_traffic_time_to_healed_or_new_endpoint_in_minutes = "{{ restore_traffic_time_to_healed_or_new_endpoint_in_minutes }}"
-    session_affinity_enabled = "{{ session_affinity_enabled }}"
+    restore_traffic_time_to_healed_or_new_endpoint_in_minutes = {{ restore_traffic_time_to_healed_or_new_endpoint_in_minutes }}
+    session_affinity_enabled = {{ session_affinity_enabled }}
+    health_probe {
+      interval_in_seconds = {{ interval_in_seconds }}
+      path = "{{ path }}"
+      protocol = "{{ protocol }}"
+      request_type = "{{ request_type }}"
+    }
+    load_balancing {
+      additional_latency_in_milliseconds = {{ additional_latency_in_milliseconds }}
+      sample_size = {{ sample_size }}
+      successful_samples_required = {{ successful_samples_required }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

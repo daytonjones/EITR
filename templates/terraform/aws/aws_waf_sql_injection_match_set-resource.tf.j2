@@ -1,4 +1,11 @@
 resource "aws_waf_sql_injection_match_set" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
+    sql_injection_match_tuples {
+      text_transformation = "{{ text_transformation }}"
+      field_to_match {
+        data = "{{ data }}"
+        type = "{{ type }}"
+      }
+    }
 }

@@ -1,8 +1,12 @@
 resource "aws_ec2_traffic_mirror_filter" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    network_services = "{{ network_services }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    network_services = ["{{ network_services }}"]
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

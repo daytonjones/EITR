@@ -2,4 +2,5 @@ data "vsphere_resource_pool" "example" {
     datacenter_id = "{{ datacenter_id }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    parent_resource_pool_id = "{{ parent_resource_pool_id }}"
 }

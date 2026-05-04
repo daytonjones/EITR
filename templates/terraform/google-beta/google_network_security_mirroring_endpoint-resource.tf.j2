@@ -1,0 +1,16 @@
+resource "google_network_security_mirroring_endpoint" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    mirroring_endpoint_group = "{{ mirroring_endpoint_group }}"
+    mirroring_endpoint_id = "{{ mirroring_endpoint_id }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

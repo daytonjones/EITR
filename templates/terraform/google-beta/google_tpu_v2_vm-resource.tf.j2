@@ -1,23 +1,56 @@
 resource "google_tpu_v2_vm" "example" {
     accelerator_type = "{{ accelerator_type }}"
-    api_version = "{{ api_version }}"
     cidr_block = "{{ cidr_block }}"
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
-    health = "{{ health }}"
-    health_description = "{{ health_description }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
-    metadata = "{{ metadata }}"
-    multislice_node = "{{ multislice_node }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    metadata = {
+        key = "{{ metadata_value }}"
+      }
     name = "{{ name }}"
-    network_endpoints = "{{ network_endpoints }}"
     project = "{{ project }}"
-    queued_resource = "{{ queued_resource }}"
     runtime_version = "{{ runtime_version }}"
-    state = "{{ state }}"
-    symptoms = "{{ symptoms }}"
-    tags = "{{ tags }}"
-    terraform_labels = "{{ terraform_labels }}"
+    tags = ["{{ tags }}"]
     zone = "{{ zone }}"
+    accelerator_config {
+      topology = "{{ topology }}"
+      type = "{{ type }}"
+    }
+    data_disks {
+      mode = "{{ mode }}"
+      source_disk = "{{ source_disk }}"
+    }
+    network_config {
+      can_ip_forward = {{ can_ip_forward }}
+      enable_external_ips = {{ enable_external_ips }}
+      network = "{{ network }}"
+      queue_count = {{ queue_count }}
+      subnetwork = "{{ subnetwork }}"
+    }
+    network_configs {
+      can_ip_forward = {{ can_ip_forward }}
+      enable_external_ips = {{ enable_external_ips }}
+      network = "{{ network }}"
+      queue_count = {{ queue_count }}
+      subnetwork = "{{ subnetwork }}"
+    }
+    scheduling_config {
+      preemptible = {{ preemptible }}
+      reserved = {{ reserved }}
+      spot = {{ spot }}
+    }
+    service_account {
+      email = "{{ email }}"
+      scope = ["{{ scope }}"]
+    }
+    shielded_instance_config {
+      enable_secure_boot = {{ enable_secure_boot }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

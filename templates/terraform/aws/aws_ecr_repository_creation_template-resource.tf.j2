@@ -1,12 +1,22 @@
 resource "aws_ecr_repository_creation_template" "example" {
-    applied_for = "{{ applied_for }}"
+    applied_for = ["{{ applied_for }}"]
     custom_role_arn = "{{ custom_role_arn }}"
     description = "{{ description }}"
     id = "{{ id }}"
     image_tag_mutability = "{{ image_tag_mutability }}"
     lifecycle_policy = "{{ lifecycle_policy }}"
     prefix = "{{ prefix }}"
-    registry_id = "{{ registry_id }}"
+    region = "{{ region }}"
     repository_policy = "{{ repository_policy }}"
-    resource_tags = "{{ resource_tags }}"
+    resource_tags = {
+        key = "{{ resource_tags_value }}"
+      }
+    encryption_configuration {
+      encryption_type = "{{ encryption_type }}"
+      kms_key = "{{ kms_key }}"
+    }
+    image_tag_mutability_exclusion_filter {
+      filter = "{{ filter }}"
+      filter_type = "{{ filter_type }}"
+    }
 }

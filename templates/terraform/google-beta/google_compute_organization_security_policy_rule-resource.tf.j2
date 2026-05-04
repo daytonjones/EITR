@@ -2,11 +2,63 @@ resource "google_compute_organization_security_policy_rule" "example" {
     action = "{{ action }}"
     description = "{{ description }}"
     direction = "{{ direction }}"
-    enable_logging = "{{ enable_logging }}"
+    enable_logging = {{ enable_logging }}
     id = "{{ id }}"
     policy_id = "{{ policy_id }}"
-    preview = "{{ preview }}"
-    priority = "{{ priority }}"
-    target_resources = "{{ target_resources }}"
-    target_service_accounts = "{{ target_service_accounts }}"
+    preview = {{ preview }}
+    priority = {{ priority }}
+    target_resources = ["{{ target_resources }}"]
+    target_service_accounts = ["{{ target_service_accounts }}"]
+    header_action {
+      request_headers_to_adds {
+        header_name = "{{ header_name }}"
+        header_value = "{{ header_value }}"
+      }
+    }
+    match {
+      description = "{{ description }}"
+      versioned_expr = "{{ versioned_expr }}"
+      config {
+        dest_ip_ranges = ["{{ dest_ip_ranges }}"]
+        src_ip_ranges = ["{{ src_ip_ranges }}"]
+        layer4_config {
+          ip_protocol = "{{ ip_protocol }}"
+          ports = ["{{ ports }}"]
+        }
+      }
+      expr {
+        expression = "{{ expression }}"
+      }
+    }
+    preconfigured_waf_config {
+      exclusion {
+        target_rule_ids = ["{{ target_rule_ids }}"]
+        target_rule_set = "{{ target_rule_set }}"
+        request_cookie {
+          operator = "{{ operator }}"
+          value = "{{ value }}"
+        }
+        request_header {
+          operator = "{{ operator }}"
+          value = "{{ value }}"
+        }
+        request_query_param {
+          operator = "{{ operator }}"
+          value = "{{ value }}"
+        }
+        request_uri {
+          operator = "{{ operator }}"
+          value = "{{ value }}"
+        }
+      }
+    }
+    redirect_options {
+      target = "{{ target }}"
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

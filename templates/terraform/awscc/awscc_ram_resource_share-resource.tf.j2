@@ -1,0 +1,9 @@
+resource "awscc_ram_resource_share" "example" {
+    allow_external_principals = {{ allow_external_principals }}
+    name = "{{ name }}"
+    permission_arns = ["{{ permission_arns }}"]
+    principals = ["{{ principals }}"]
+    resource_arns = ["{{ resource_arns }}"]
+    sources = ["{{ sources }}"]
+    tags = "{{ tags }}"
+}

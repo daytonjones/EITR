@@ -1,0 +1,8 @@
+resource "aws_bedrockagentcore_token_vault_cmk" "example" {
+    region = "{{ region }}"
+    token_vault_id = "{{ token_vault_id }}"
+    kms_configuration {
+      key_type = "{{ key_type }}"
+      kms_key_arn = "{{ kms_key_arn }}"
+    }
+}

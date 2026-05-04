@@ -1,8 +1,11 @@
 resource "hcp_packer_run_task" "example" {
-    endpoint_url = "{{ endpoint_url }}"
-    hmac_key = "{{ hmac_key }}"
     id = "{{ id }}"
-    organization_id = "{{ organization_id }}"
     project_id = "{{ project_id }}"
-    regenerate_hmac = "{{ regenerate_hmac }}"
+    regenerate_hmac = {{ regenerate_hmac }}
+    timeouts {
+      create = "{{ create }}"
+      default = "{{ default }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

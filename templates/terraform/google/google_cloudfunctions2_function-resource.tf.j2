@@ -1,15 +1,96 @@
 resource "google_cloudfunctions2_function" "example" {
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
-    environment = "{{ environment }}"
     id = "{{ id }}"
     kms_key_name = "{{ kms_key_name }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    state = "{{ state }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
-    url = "{{ url }}"
+    build_config {
+      docker_repository = "{{ docker_repository }}"
+      entry_point = "{{ entry_point }}"
+      environment_variables = {
+        key = "{{ environment_variables_value }}"
+      }
+      runtime = "{{ runtime }}"
+      service_account = "{{ service_account }}"
+      worker_pool = "{{ worker_pool }}"
+      automatic_update_policy {
+      }
+      on_deploy_update_policy {
+      }
+      source {
+        repo_source {
+          branch_name = "{{ branch_name }}"
+          commit_sha = "{{ commit_sha }}"
+          dir = "{{ dir }}"
+          invert_regex = {{ invert_regex }}
+          project_id = "{{ project_id }}"
+          repo_name = "{{ repo_name }}"
+          tag_name = "{{ tag_name }}"
+        }
+        storage_source {
+          bucket = "{{ bucket }}"
+          generation = {{ generation }}
+          object = "{{ object }}"
+        }
+      }
+    }
+    event_trigger {
+      event_type = "{{ event_type }}"
+      pubsub_topic = "{{ pubsub_topic }}"
+      retry_policy = "{{ retry_policy }}"
+      service_account_email = "{{ service_account_email }}"
+      trigger_region = "{{ trigger_region }}"
+      event_filters {
+        attribute = "{{ attribute }}"
+        operator = "{{ operator }}"
+        value = "{{ value }}"
+      }
+    }
+    service_config {
+      all_traffic_on_latest_revision = {{ all_traffic_on_latest_revision }}
+      available_cpu = "{{ available_cpu }}"
+      available_memory = "{{ available_memory }}"
+      binary_authorization_policy = "{{ binary_authorization_policy }}"
+      direct_vpc_egress = "{{ direct_vpc_egress }}"
+      environment_variables = {
+        key = "{{ environment_variables_value }}"
+      }
+      ingress_settings = "{{ ingress_settings }}"
+      max_instance_count = {{ max_instance_count }}
+      max_instance_request_concurrency = {{ max_instance_request_concurrency }}
+      min_instance_count = {{ min_instance_count }}
+      service_account_email = "{{ service_account_email }}"
+      timeout_seconds = {{ timeout_seconds }}
+      vpc_connector = "{{ vpc_connector }}"
+      vpc_connector_egress_settings = "{{ vpc_connector_egress_settings }}"
+      direct_vpc_network_interface {
+        network = "{{ network }}"
+        subnetwork = "{{ subnetwork }}"
+        tags = ["{{ tags }}"]
+      }
+      secret_environment_variables {
+        key = "{{ key }}"
+        project_id = "{{ project_id }}"
+        secret = "{{ secret }}"
+        version = "{{ version }}"
+      }
+      secret_volumes {
+        mount_path = "{{ mount_path }}"
+        project_id = "{{ project_id }}"
+        secret = "{{ secret }}"
+        versions {
+          path = "{{ path }}"
+          version = "{{ version }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

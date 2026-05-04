@@ -1,5 +1,107 @@
 data "aws_networkmanager_core_network_policy_document" "example" {
     id = "{{ id }}"
-    json = "{{ json }}"
     version = "{{ version }}"
+    attachment_policies {
+      condition_logic = "{{ condition_logic }}"
+      description = "{{ description }}"
+      rule_number = {{ rule_number }}
+      action {
+        add_to_network_function_group = "{{ add_to_network_function_group }}"
+        association_method = "{{ association_method }}"
+        require_acceptance = {{ require_acceptance }}
+        segment = "{{ segment }}"
+        tag_value_of_key = "{{ tag_value_of_key }}"
+      }
+      conditions {
+        key = "{{ key }}"
+        operator = "{{ operator }}"
+        type = "{{ type }}"
+        value = "{{ value }}"
+      }
+    }
+    attachment_routing_policy_rules {
+      description = "{{ description }}"
+      edge_locations = ["{{ edge_locations }}"]
+      rule_number = {{ rule_number }}
+      action {
+        associate_routing_policies = ["{{ associate_routing_policies }}"]
+      }
+      conditions {
+        type = "{{ type }}"
+        value = "{{ value }}"
+      }
+    }
+    core_network_configuration {
+      asn_ranges = ["{{ asn_ranges }}"]
+      dns_support = {{ dns_support }}
+      inside_cidr_blocks = ["{{ inside_cidr_blocks }}"]
+      security_group_referencing_support = {{ security_group_referencing_support }}
+      vpn_ecmp_support = {{ vpn_ecmp_support }}
+      edge_locations {
+        asn = "{{ asn }}"
+        inside_cidr_blocks = ["{{ inside_cidr_blocks }}"]
+        location = "{{ location }}"
+      }
+    }
+    network_function_groups {
+      description = "{{ description }}"
+      name = "{{ name }}"
+      require_attachment_acceptance = {{ require_attachment_acceptance }}
+    }
+    routing_policies {
+      routing_policy_description = "{{ routing_policy_description }}"
+      routing_policy_direction = "{{ routing_policy_direction }}"
+      routing_policy_name = "{{ routing_policy_name }}"
+      routing_policy_number = {{ routing_policy_number }}
+      routing_policy_rules {
+        rule_number = {{ rule_number }}
+        rule_definition {
+          condition_logic = "{{ condition_logic }}"
+          action {
+            type = "{{ type }}"
+            value = "{{ value }}"
+          }
+          match_conditions {
+            type = "{{ type }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+    }
+    segment_actions {
+      action = "{{ action }}"
+      description = "{{ description }}"
+      destination_cidr_blocks = ["{{ destination_cidr_blocks }}"]
+      destinations = ["{{ destinations }}"]
+      mode = "{{ mode }}"
+      routing_policy_names = ["{{ routing_policy_names }}"]
+      segment = "{{ segment }}"
+      share_with = ["{{ share_with }}"]
+      share_with_except = ["{{ share_with_except }}"]
+      edge_location_association {
+        edge_location = "{{ edge_location }}"
+        peer_edge_location = "{{ peer_edge_location }}"
+        routing_policy_names = ["{{ routing_policy_names }}"]
+      }
+      via {
+        network_function_groups = ["{{ network_function_groups }}"]
+        with_edge_override {
+          edge_sets = ["{{ edge_sets }}"]
+          use_edge = "{{ use_edge }}"
+          use_edge_location = "{{ use_edge_location }}"
+        }
+      }
+      when_sent_to {
+        segments = ["{{ segments }}"]
+      }
+    }
+    segments {
+      allow_filter = ["{{ allow_filter }}"]
+      deny_filter = ["{{ deny_filter }}"]
+      description = "{{ description }}"
+      edge_locations = ["{{ edge_locations }}"]
+      isolate_attachments = {{ isolate_attachments }}
+      name = "{{ name }}"
+      require_attachment_acceptance = {{ require_attachment_acceptance }}
+    }
 }

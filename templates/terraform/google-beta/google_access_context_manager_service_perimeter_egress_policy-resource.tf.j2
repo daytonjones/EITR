@@ -1,4 +1,30 @@
 resource "google_access_context_manager_service_perimeter_egress_policy" "example" {
     id = "{{ id }}"
     perimeter = "{{ perimeter }}"
+    title = "{{ title }}"
+    egress_from {
+      identities = ["{{ identities }}"]
+      identity_type = "{{ identity_type }}"
+      source_restriction = "{{ source_restriction }}"
+      sources {
+        access_level = "{{ access_level }}"
+        resource = "{{ resource }}"
+      }
+    }
+    egress_to {
+      external_resources = ["{{ external_resources }}"]
+      resources = ["{{ resources }}"]
+      roles = ["{{ roles }}"]
+      operations {
+        service_name = "{{ service_name }}"
+        method_selectors {
+          method = "{{ method }}"
+          permission = "{{ permission }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

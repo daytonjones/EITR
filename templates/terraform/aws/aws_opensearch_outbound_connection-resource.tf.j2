@@ -1,7 +1,26 @@
 resource "aws_opensearch_outbound_connection" "example" {
-    accept_connection = "{{ accept_connection }}"
+    accept_connection = {{ accept_connection }}
     connection_alias = "{{ connection_alias }}"
     connection_mode = "{{ connection_mode }}"
-    connection_status = "{{ connection_status }}"
     id = "{{ id }}"
+    region = "{{ region }}"
+    connection_properties {
+      cross_cluster_search {
+        skip_unavailable = "{{ skip_unavailable }}"
+      }
+    }
+    local_domain_info {
+      domain_name = "{{ domain_name }}"
+      owner_id = "{{ owner_id }}"
+      region = "{{ region }}"
+    }
+    remote_domain_info {
+      domain_name = "{{ domain_name }}"
+      owner_id = "{{ owner_id }}"
+      region = "{{ region }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

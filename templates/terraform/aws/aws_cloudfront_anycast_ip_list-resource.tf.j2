@@ -1,0 +1,10 @@
+resource "aws_cloudfront_anycast_ip_list" "example" {
+    ip_count = {{ ip_count }}
+    name = "{{ name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+    }
+}

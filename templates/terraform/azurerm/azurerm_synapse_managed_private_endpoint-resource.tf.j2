@@ -1,7 +1,13 @@
 resource "azurerm_synapse_managed_private_endpoint" "example" {
+    fully_qualified_domain_names = ["{{ fully_qualified_domain_names }}"]
     id = "{{ id }}"
     name = "{{ name }}"
     subresource_name = "{{ subresource_name }}"
     synapse_workspace_id = "{{ synapse_workspace_id }}"
     target_resource_id = "{{ target_resource_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

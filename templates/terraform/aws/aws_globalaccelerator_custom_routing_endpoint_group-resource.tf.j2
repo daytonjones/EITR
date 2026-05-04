@@ -1,6 +1,17 @@
 resource "aws_globalaccelerator_custom_routing_endpoint_group" "example" {
-    arn = "{{ arn }}"
     endpoint_group_region = "{{ endpoint_group_region }}"
     id = "{{ id }}"
     listener_arn = "{{ listener_arn }}"
+    destination_configuration {
+      from_port = {{ from_port }}
+      protocols = ["{{ protocols }}"]
+      to_port = {{ to_port }}
+    }
+    endpoint_configuration {
+      endpoint_id = "{{ endpoint_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

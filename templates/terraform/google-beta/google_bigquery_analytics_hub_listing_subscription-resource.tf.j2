@@ -1,0 +1,24 @@
+resource "google_bigquery_analytics_hub_listing_subscription" "example" {
+    data_exchange_id = "{{ data_exchange_id }}"
+    id = "{{ id }}"
+    listing_id = "{{ listing_id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    destination_dataset {
+      description = "{{ description }}"
+      friendly_name = "{{ friendly_name }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      location = "{{ location }}"
+      replica_locations = ["{{ replica_locations }}"]
+      dataset_reference {
+        dataset_id = "{{ dataset_id }}"
+        project_id = "{{ project_id }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

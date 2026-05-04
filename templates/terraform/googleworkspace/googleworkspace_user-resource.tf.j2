@@ -1,30 +1,129 @@
 resource "googleworkspace_user" "example" {
-    agreed_to_terms = "{{ agreed_to_terms }}"
-    aliases = "{{ aliases }}"
-    archived = "{{ archived }}"
-    change_password_at_next_login = "{{ change_password_at_next_login }}"
-    creation_time = "{{ creation_time }}"
-    customer_id = "{{ customer_id }}"
-    deletion_time = "{{ deletion_time }}"
-    etag = "{{ etag }}"
+    aliases = ["{{ aliases }}"]
+    archived = {{ archived }}
+    change_password_at_next_login = {{ change_password_at_next_login }}
     hash_function = "{{ hash_function }}"
-    id = "{{ id }}"
-    include_in_global_address_list = "{{ include_in_global_address_list }}"
-    ip_allowlist = "{{ ip_allowlist }}"
-    is_admin = "{{ is_admin }}"
-    is_delegated_admin = "{{ is_delegated_admin }}"
-    is_enforced_in_2_step_verification = "{{ is_enforced_in_2_step_verification }}"
-    is_enrolled_in_2_step_verification = "{{ is_enrolled_in_2_step_verification }}"
-    is_mailbox_setup = "{{ is_mailbox_setup }}"
-    last_login_time = "{{ last_login_time }}"
-    non_editable_aliases = "{{ non_editable_aliases }}"
+    include_in_global_address_list = {{ include_in_global_address_list }}
+    ip_allowlist = {{ ip_allowlist }}
+    is_admin = {{ is_admin }}
     org_unit_path = "{{ org_unit_path }}"
     password = "{{ password }}"
     primary_email = "{{ primary_email }}"
     recovery_email = "{{ recovery_email }}"
     recovery_phone = "{{ recovery_phone }}"
-    suspended = "{{ suspended }}"
-    suspension_reason = "{{ suspension_reason }}"
-    thumbnail_photo_etag = "{{ thumbnail_photo_etag }}"
-    thumbnail_photo_url = "{{ thumbnail_photo_url }}"
+    suspended = {{ suspended }}
+    addresses {
+      country = "{{ country }}"
+      country_code = "{{ country_code }}"
+      custom_type = "{{ custom_type }}"
+      extended_address = "{{ extended_address }}"
+      formatted = "{{ formatted }}"
+      locality = "{{ locality }}"
+      po_box = "{{ po_box }}"
+      postal_code = "{{ postal_code }}"
+      primary = {{ primary }}
+      region = "{{ region }}"
+      source_is_structured = {{ source_is_structured }}
+      street_address = "{{ street_address }}"
+      type = "{{ type }}"
+    }
+    custom_schemas {
+      schema_name = "{{ schema_name }}"
+      schema_values = {
+        key = "{{ schema_values_value }}"
+      }
+    }
+    emails {
+      address = "{{ address }}"
+      custom_type = "{{ custom_type }}"
+      primary = {{ primary }}
+      type = "{{ type }}"
+    }
+    external_ids {
+      custom_type = "{{ custom_type }}"
+      type = "{{ type }}"
+      value = "{{ value }}"
+    }
+    ims {
+      custom_protocol = "{{ custom_protocol }}"
+      custom_type = "{{ custom_type }}"
+      im = "{{ im }}"
+      primary = {{ primary }}
+      protocol = "{{ protocol }}"
+      type = "{{ type }}"
+    }
+    keywords {
+      custom_type = "{{ custom_type }}"
+      type = "{{ type }}"
+      value = "{{ value }}"
+    }
+    languages {
+      custom_language = "{{ custom_language }}"
+      language_code = "{{ language_code }}"
+      preference = "{{ preference }}"
+    }
+    locations {
+      area = "{{ area }}"
+      building_id = "{{ building_id }}"
+      custom_type = "{{ custom_type }}"
+      desk_code = "{{ desk_code }}"
+      floor_name = "{{ floor_name }}"
+      floor_section = "{{ floor_section }}"
+      type = "{{ type }}"
+    }
+    name {
+      family_name = "{{ family_name }}"
+      given_name = "{{ given_name }}"
+    }
+    organizations {
+      cost_center = "{{ cost_center }}"
+      custom_type = "{{ custom_type }}"
+      department = "{{ department }}"
+      description = "{{ description }}"
+      domain = "{{ domain }}"
+      full_time_equivalent = {{ full_time_equivalent }}
+      location = "{{ location }}"
+      name = "{{ name }}"
+      primary = {{ primary }}
+      symbol = "{{ symbol }}"
+      title = "{{ title }}"
+      type = "{{ type }}"
+    }
+    phones {
+      custom_type = "{{ custom_type }}"
+      primary = {{ primary }}
+      type = "{{ type }}"
+      value = "{{ value }}"
+    }
+    posix_accounts {
+      account_id = "{{ account_id }}"
+      gecos = "{{ gecos }}"
+      gid = "{{ gid }}"
+      home_directory = "{{ home_directory }}"
+      operating_system_type = "{{ operating_system_type }}"
+      primary = {{ primary }}
+      shell = "{{ shell }}"
+      system_id = "{{ system_id }}"
+      uid = "{{ uid }}"
+      username = "{{ username }}"
+    }
+    relations {
+      custom_type = "{{ custom_type }}"
+      type = "{{ type }}"
+      value = "{{ value }}"
+    }
+    ssh_public_keys {
+      expiration_time_usec = "{{ expiration_time_usec }}"
+      key = "{{ key }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
+    websites {
+      custom_type = "{{ custom_type }}"
+      primary = {{ primary }}
+      type = "{{ type }}"
+      value = "{{ value }}"
+    }
 }

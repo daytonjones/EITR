@@ -3,4 +3,18 @@ resource "azurerm_spring_cloud_build_pack_binding" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     spring_cloud_builder_id = "{{ spring_cloud_builder_id }}"
+    launch {
+      properties = {
+        key = "{{ properties_value }}"
+      }
+      secrets = {
+        key = "{{ secrets_value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

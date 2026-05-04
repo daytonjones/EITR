@@ -1,4 +1,9 @@
 resource "aws_chime_voice_connector_group" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
+    connector {
+      priority = {{ priority }}
+      voice_connector_id = "{{ voice_connector_id }}"
+    }
 }

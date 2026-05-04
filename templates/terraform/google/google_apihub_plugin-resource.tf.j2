@@ -1,0 +1,50 @@
+resource "google_apihub_plugin" "example" {
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    plugin_category = "{{ plugin_category }}"
+    plugin_id = "{{ plugin_id }}"
+    project = "{{ project }}"
+    actions_config {
+      description = "{{ description }}"
+      display_name = "{{ display_name }}"
+      id = "{{ id }}"
+      trigger_mode = "{{ trigger_mode }}"
+    }
+    config_template {
+      additional_config_template {
+        description = "{{ description }}"
+        id = "{{ id }}"
+        required = {{ required }}
+        validation_regex = "{{ validation_regex }}"
+        value_type = "{{ value_type }}"
+        enum_options {
+          description = "{{ description }}"
+          display_name = "{{ display_name }}"
+          id = "{{ id }}"
+        }
+        multi_select_options {
+          description = "{{ description }}"
+          display_name = "{{ display_name }}"
+          id = "{{ id }}"
+        }
+      }
+      auth_config_template {
+        supported_auth_types = ["{{ supported_auth_types }}"]
+        service_account {
+          service_account = "{{ service_account }}"
+        }
+      }
+    }
+    documentation {
+      external_uri = "{{ external_uri }}"
+    }
+    hosting_service {
+      service_uri = "{{ service_uri }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

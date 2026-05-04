@@ -1,49 +1,67 @@
 resource "aws_elasticache_replication_group" "example" {
-    apply_immediately = "{{ apply_immediately }}"
-    arn = "{{ arn }}"
+    apply_immediately = {{ apply_immediately }}
     at_rest_encryption_enabled = "{{ at_rest_encryption_enabled }}"
     auth_token = "{{ auth_token }}"
     auth_token_update_strategy = "{{ auth_token_update_strategy }}"
     auto_minor_version_upgrade = "{{ auto_minor_version_upgrade }}"
-    automatic_failover_enabled = "{{ automatic_failover_enabled }}"
-    cluster_enabled = "{{ cluster_enabled }}"
+    automatic_failover_enabled = {{ automatic_failover_enabled }}
     cluster_mode = "{{ cluster_mode }}"
-    configuration_endpoint_address = "{{ configuration_endpoint_address }}"
-    data_tiering_enabled = "{{ data_tiering_enabled }}"
+    data_tiering_enabled = {{ data_tiering_enabled }}
     description = "{{ description }}"
     engine = "{{ engine }}"
     engine_version = "{{ engine_version }}"
-    engine_version_actual = "{{ engine_version_actual }}"
     final_snapshot_identifier = "{{ final_snapshot_identifier }}"
     global_replication_group_id = "{{ global_replication_group_id }}"
     id = "{{ id }}"
     ip_discovery = "{{ ip_discovery }}"
     kms_key_id = "{{ kms_key_id }}"
     maintenance_window = "{{ maintenance_window }}"
-    member_clusters = "{{ member_clusters }}"
-    multi_az_enabled = "{{ multi_az_enabled }}"
+    multi_az_enabled = {{ multi_az_enabled }}
     network_type = "{{ network_type }}"
     node_type = "{{ node_type }}"
     notification_topic_arn = "{{ notification_topic_arn }}"
-    num_cache_clusters = "{{ num_cache_clusters }}"
-    num_node_groups = "{{ num_node_groups }}"
+    num_cache_clusters = {{ num_cache_clusters }}
+    num_node_groups = {{ num_node_groups }}
     parameter_group_name = "{{ parameter_group_name }}"
-    port = "{{ port }}"
-    preferred_cache_cluster_azs = "{{ preferred_cache_cluster_azs }}"
-    primary_endpoint_address = "{{ primary_endpoint_address }}"
-    reader_endpoint_address = "{{ reader_endpoint_address }}"
-    replicas_per_node_group = "{{ replicas_per_node_group }}"
+    port = {{ port }}
+    preferred_cache_cluster_azs = ["{{ preferred_cache_cluster_azs }}"]
+    region = "{{ region }}"
+    replicas_per_node_group = {{ replicas_per_node_group }}
     replication_group_id = "{{ replication_group_id }}"
-    security_group_ids = "{{ security_group_ids }}"
-    security_group_names = "{{ security_group_names }}"
-    snapshot_arns = "{{ snapshot_arns }}"
+    security_group_ids = ["{{ security_group_ids }}"]
+    security_group_names = ["{{ security_group_names }}"]
+    snapshot_arns = ["{{ snapshot_arns }}"]
     snapshot_name = "{{ snapshot_name }}"
-    snapshot_retention_limit = "{{ snapshot_retention_limit }}"
+    snapshot_retention_limit = {{ snapshot_retention_limit }}
     snapshot_window = "{{ snapshot_window }}"
     subnet_group_name = "{{ subnet_group_name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    transit_encryption_enabled = "{{ transit_encryption_enabled }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    transit_encryption_enabled = {{ transit_encryption_enabled }}
     transit_encryption_mode = "{{ transit_encryption_mode }}"
-    user_group_ids = "{{ user_group_ids }}"
+    user_group_ids = ["{{ user_group_ids }}"]
+    log_delivery_configuration {
+      destination = "{{ destination }}"
+      destination_type = "{{ destination_type }}"
+      log_format = "{{ log_format }}"
+      log_type = "{{ log_type }}"
+    }
+    node_group_configuration {
+      node_group_id = "{{ node_group_id }}"
+      primary_availability_zone = "{{ primary_availability_zone }}"
+      primary_outpost_arn = "{{ primary_outpost_arn }}"
+      replica_availability_zones = ["{{ replica_availability_zones }}"]
+      replica_count = {{ replica_count }}
+      replica_outpost_arns = ["{{ replica_outpost_arns }}"]
+      slots = "{{ slots }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

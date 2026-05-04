@@ -1,0 +1,28 @@
+resource "google_managed_kafka_connect_cluster" "example" {
+    connect_cluster_id = "{{ connect_cluster_id }}"
+    id = "{{ id }}"
+    kafka_cluster = "{{ kafka_cluster }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    capacity_config {
+      memory_bytes = "{{ memory_bytes }}"
+      vcpu_count = "{{ vcpu_count }}"
+    }
+    gcp_config {
+      access_config {
+        network_configs {
+          additional_subnets = ["{{ additional_subnets }}"]
+          dns_domain_names = ["{{ dns_domain_names }}"]
+          primary_subnet = "{{ primary_subnet }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

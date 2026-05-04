@@ -1,8 +1,7 @@
 resource "vault_identity_group_policies" "example" {
-    exclusive = "{{ exclusive }}"
+    exclusive = {{ exclusive }}
     group_id = "{{ group_id }}"
-    group_name = "{{ group_name }}"
     id = "{{ id }}"
     namespace = "{{ namespace }}"
-    policies = "{{ policies }}"
+    policies = ["{{ policies }}"]
 }

@@ -1,0 +1,21 @@
+resource "azurerm_api_management_standalone_gateway" "example" {
+    backend_subnet_id = "{{ backend_subnet_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    virtual_network_type = "{{ virtual_network_type }}"
+    sku {
+      capacity = {{ capacity }}
+      name = "{{ name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

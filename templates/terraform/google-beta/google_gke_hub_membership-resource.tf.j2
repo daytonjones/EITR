@@ -1,11 +1,22 @@
 resource "google_gke_hub_membership" "example" {
-    description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     membership_id = "{{ membership_id }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    terraform_labels = "{{ terraform_labels }}"
+    authority {
+      issuer = "{{ issuer }}"
+    }
+    endpoint {
+      gke_cluster {
+        resource_link = "{{ resource_link }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,7 +1,6 @@
 resource "tfe_team_token" "example" {
+    description = "{{ description }}"
     expired_at = "{{ expired_at }}"
-    force_regenerate = "{{ force_regenerate }}"
-    id = "{{ id }}"
+    force_regenerate = {{ force_regenerate }}
     team_id = "{{ team_id }}"
-    token = "{{ token }}"
 }

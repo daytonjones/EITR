@@ -1,13 +1,64 @@
 resource "azurerm_automanage_configuration" "example" {
-    automation_account_enabled = "{{ automation_account_enabled }}"
-    boot_diagnostics_enabled = "{{ boot_diagnostics_enabled }}"
-    defender_for_cloud_enabled = "{{ defender_for_cloud_enabled }}"
-    guest_configuration_enabled = "{{ guest_configuration_enabled }}"
+    automation_account_enabled = {{ automation_account_enabled }}
+    boot_diagnostics_enabled = {{ boot_diagnostics_enabled }}
+    defender_for_cloud_enabled = {{ defender_for_cloud_enabled }}
+    guest_configuration_enabled = {{ guest_configuration_enabled }}
     id = "{{ id }}"
     location = "{{ location }}"
-    log_analytics_enabled = "{{ log_analytics_enabled }}"
+    log_analytics_enabled = {{ log_analytics_enabled }}
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    status_change_alert_enabled = "{{ status_change_alert_enabled }}"
-    tags = "{{ tags }}"
+    status_change_alert_enabled = {{ status_change_alert_enabled }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    antimalware {
+      real_time_protection_enabled = {{ real_time_protection_enabled }}
+      scheduled_scan_day = {{ scheduled_scan_day }}
+      scheduled_scan_enabled = {{ scheduled_scan_enabled }}
+      scheduled_scan_time_in_minutes = {{ scheduled_scan_time_in_minutes }}
+      scheduled_scan_type = "{{ scheduled_scan_type }}"
+      exclusions {
+        extensions = "{{ extensions }}"
+        paths = "{{ paths }}"
+        processes = "{{ processes }}"
+      }
+    }
+    azure_security_baseline {
+      assignment_type = "{{ assignment_type }}"
+    }
+    backup {
+      instant_rp_retention_range_in_days = {{ instant_rp_retention_range_in_days }}
+      policy_name = "{{ policy_name }}"
+      time_zone = "{{ time_zone }}"
+      retention_policy {
+        retention_policy_type = "{{ retention_policy_type }}"
+        daily_schedule {
+          retention_times = ["{{ retention_times }}"]
+          retention_duration {
+            count = {{ count }}
+            duration_type = "{{ duration_type }}"
+          }
+        }
+        weekly_schedule {
+          retention_times = ["{{ retention_times }}"]
+          retention_duration {
+            count = {{ count }}
+            duration_type = "{{ duration_type }}"
+          }
+        }
+      }
+      schedule_policy {
+        schedule_policy_type = "{{ schedule_policy_type }}"
+        schedule_run_days = ["{{ schedule_run_days }}"]
+        schedule_run_frequency = "{{ schedule_run_frequency }}"
+        schedule_run_times = ["{{ schedule_run_times }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

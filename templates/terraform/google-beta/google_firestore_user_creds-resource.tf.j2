@@ -1,0 +1,10 @@
+resource "google_firestore_user_creds" "example" {
+    database = "{{ database }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

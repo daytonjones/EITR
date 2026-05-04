@@ -1,0 +1,9 @@
+resource "aws_vpc_route_server_vpc_association" "example" {
+    region = "{{ region }}"
+    route_server_id = "{{ route_server_id }}"
+    vpc_id = "{{ vpc_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

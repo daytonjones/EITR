@@ -2,5 +2,20 @@ resource "azurerm_automation_powershell72_module" "example" {
     automation_account_id = "{{ automation_account_id }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    module_link {
+      uri = "{{ uri }}"
+      hash {
+        algorithm = "{{ algorithm }}"
+        value = "{{ value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

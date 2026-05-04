@@ -1,19 +1,34 @@
 resource "vault_gcp_auth_backend" "example" {
-    accessor = "{{ accessor }}"
     client_email = "{{ client_email }}"
     client_id = "{{ client_id }}"
     credentials = "{{ credentials }}"
+    credentials_wo = "{{ credentials_wo }}"
+    credentials_wo_version = {{ credentials_wo_version }}
     description = "{{ description }}"
-    disable_remount = "{{ disable_remount }}"
+    disable_automated_rotation = {{ disable_automated_rotation }}
+    disable_remount = {{ disable_remount }}
+    gce_alias = "{{ gce_alias }}"
+    gce_metadata = ["{{ gce_metadata }}"]
+    iam_alias = "{{ iam_alias }}"
+    iam_metadata = ["{{ iam_metadata }}"]
     id = "{{ id }}"
     identity_token_audience = "{{ identity_token_audience }}"
     identity_token_key = "{{ identity_token_key }}"
-    identity_token_ttl = "{{ identity_token_ttl }}"
-    local = "{{ local }}"
+    identity_token_ttl = {{ identity_token_ttl }}
+    local = {{ local }}
     namespace = "{{ namespace }}"
     path = "{{ path }}"
     private_key_id = "{{ private_key_id }}"
     project_id = "{{ project_id }}"
+    rotation_period = {{ rotation_period }}
+    rotation_schedule = "{{ rotation_schedule }}"
+    rotation_window = {{ rotation_window }}
     service_account_email = "{{ service_account_email }}"
-    tune = "{{ tune }}"
+    tune = ["{{ tune }}"]
+    custom_endpoint {
+      api = "{{ api }}"
+      compute = "{{ compute }}"
+      crm = "{{ crm }}"
+      iam = "{{ iam }}"
+    }
 }

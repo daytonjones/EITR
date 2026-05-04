@@ -1,8 +1,12 @@
 resource "google_compute_machine_image_iam_binding" "example" {
-    etag = "{{ etag }}"
     id = "{{ id }}"
     machine_image = "{{ machine_image }}"
-    members = "{{ members }}"
+    members = ["{{ members }}"]
     project = "{{ project }}"
     role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

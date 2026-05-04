@@ -4,6 +4,24 @@ resource "azurerm_servicebus_subscription_rule" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     sql_filter = "{{ sql_filter }}"
-    sql_filter_compatibility_level = "{{ sql_filter_compatibility_level }}"
     subscription_id = "{{ subscription_id }}"
+    correlation_filter {
+      content_type = "{{ content_type }}"
+      correlation_id = "{{ correlation_id }}"
+      label = "{{ label }}"
+      message_id = "{{ message_id }}"
+      properties = {
+        key = "{{ properties_value }}"
+      }
+      reply_to = "{{ reply_to }}"
+      reply_to_session_id = "{{ reply_to_session_id }}"
+      session_id = "{{ session_id }}"
+      to = "{{ to }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

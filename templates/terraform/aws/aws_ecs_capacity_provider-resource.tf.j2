@@ -1,7 +1,96 @@
 resource "aws_ecs_capacity_provider" "example" {
-    arn = "{{ arn }}"
+    cluster = "{{ cluster }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    auto_scaling_group_provider {
+      auto_scaling_group_arn = "{{ auto_scaling_group_arn }}"
+      managed_draining = "{{ managed_draining }}"
+      managed_termination_protection = "{{ managed_termination_protection }}"
+      managed_scaling {
+        instance_warmup_period = {{ instance_warmup_period }}
+        maximum_scaling_step_size = {{ maximum_scaling_step_size }}
+        minimum_scaling_step_size = {{ minimum_scaling_step_size }}
+        status = "{{ status }}"
+        target_capacity = {{ target_capacity }}
+      }
+    }
+    managed_instances_provider {
+      infrastructure_role_arn = "{{ infrastructure_role_arn }}"
+      propagate_tags = "{{ propagate_tags }}"
+      infrastructure_optimization {
+        scale_in_after = {{ scale_in_after }}
+      }
+      instance_launch_template {
+        capacity_option_type = "{{ capacity_option_type }}"
+        ec2_instance_profile_arn = "{{ ec2_instance_profile_arn }}"
+        monitoring = "{{ monitoring }}"
+        instance_requirements {
+          accelerator_manufacturers = ["{{ accelerator_manufacturers }}"]
+          accelerator_names = ["{{ accelerator_names }}"]
+          accelerator_types = ["{{ accelerator_types }}"]
+          allowed_instance_types = ["{{ allowed_instance_types }}"]
+          bare_metal = "{{ bare_metal }}"
+          burstable_performance = "{{ burstable_performance }}"
+          cpu_manufacturers = ["{{ cpu_manufacturers }}"]
+          excluded_instance_types = ["{{ excluded_instance_types }}"]
+          instance_generations = ["{{ instance_generations }}"]
+          local_storage = "{{ local_storage }}"
+          local_storage_types = ["{{ local_storage_types }}"]
+          max_spot_price_as_percentage_of_optimal_on_demand_price = {{ max_spot_price_as_percentage_of_optimal_on_demand_price }}
+          on_demand_max_price_percentage_over_lowest_price = {{ on_demand_max_price_percentage_over_lowest_price }}
+          require_hibernate_support = {{ require_hibernate_support }}
+          spot_max_price_percentage_over_lowest_price = {{ spot_max_price_percentage_over_lowest_price }}
+          accelerator_count {
+            max = {{ max }}
+            min = {{ min }}
+          }
+          accelerator_total_memory_mib {
+            max = {{ max }}
+            min = {{ min }}
+          }
+          baseline_ebs_bandwidth_mbps {
+            max = {{ max }}
+            min = {{ min }}
+          }
+          memory_gib_per_vcpu {
+            max = {{ max }}
+            min = {{ min }}
+          }
+          memory_mib {
+            max = {{ max }}
+            min = {{ min }}
+          }
+          network_bandwidth_gbps {
+            max = {{ max }}
+            min = {{ min }}
+          }
+          network_interface_count {
+            max = {{ max }}
+            min = {{ min }}
+          }
+          total_local_storage_gb {
+            max = {{ max }}
+            min = {{ min }}
+          }
+          vcpu_count {
+            max = {{ max }}
+            min = {{ min }}
+          }
+        }
+        network_configuration {
+          security_groups = ["{{ security_groups }}"]
+          subnets = ["{{ subnets }}"]
+        }
+        storage_configuration {
+          storage_size_gib = {{ storage_size_gib }}
+        }
+      }
+    }
 }

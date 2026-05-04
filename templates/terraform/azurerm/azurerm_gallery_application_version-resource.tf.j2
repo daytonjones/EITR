@@ -1,12 +1,35 @@
 resource "azurerm_gallery_application_version" "example" {
     config_file = "{{ config_file }}"
-    enable_health_check = "{{ enable_health_check }}"
+    enable_health_check = {{ enable_health_check }}
     end_of_life_date = "{{ end_of_life_date }}"
-    exclude_from_latest = "{{ exclude_from_latest }}"
+    exclude_from_latest = {{ exclude_from_latest }}
     gallery_application_id = "{{ gallery_application_id }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     package_file = "{{ package_file }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    manage_action {
+      install = "{{ install }}"
+      remove = "{{ remove }}"
+      update = "{{ update }}"
+    }
+    source {
+      default_configuration_link = "{{ default_configuration_link }}"
+      media_link = "{{ media_link }}"
+    }
+    target_region {
+      exclude_from_latest = {{ exclude_from_latest }}
+      name = "{{ name }}"
+      regional_replica_count = {{ regional_replica_count }}
+      storage_account_type = "{{ storage_account_type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

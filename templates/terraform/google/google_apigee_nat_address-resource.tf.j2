@@ -1,8 +1,11 @@
 resource "google_apigee_nat_address" "example" {
-    activate = "{{ activate }}"
+    activate = {{ activate }}
     id = "{{ id }}"
     instance_id = "{{ instance_id }}"
-    ip_address = "{{ ip_address }}"
     name = "{{ name }}"
-    state = "{{ state }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

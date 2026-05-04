@@ -3,4 +3,19 @@ resource "azurerm_cdn_endpoint_custom_domain" "example" {
     host_name = "{{ host_name }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    cdn_managed_https {
+      certificate_type = "{{ certificate_type }}"
+      protocol_type = "{{ protocol_type }}"
+      tls_version = "{{ tls_version }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    user_managed_https {
+      key_vault_secret_id = "{{ key_vault_secret_id }}"
+      tls_version = "{{ tls_version }}"
+    }
 }

@@ -1,12 +1,46 @@
 resource "google_compute_reservation" "example" {
-    commitment = "{{ commitment }}"
-    creation_timestamp = "{{ creation_timestamp }}"
+    delete_at_time = "{{ delete_at_time }}"
     description = "{{ description }}"
-    id = "{{ id }}"
+    enable_emergent_maintenance = {{ enable_emergent_maintenance }}
     name = "{{ name }}"
     project = "{{ project }}"
-    self_link = "{{ self_link }}"
-    specific_reservation_required = "{{ specific_reservation_required }}"
-    status = "{{ status }}"
+    specific_reservation_required = {{ specific_reservation_required }}
     zone = "{{ zone }}"
+    delete_after_duration {
+      nanos = {{ nanos }}
+      seconds = "{{ seconds }}"
+    }
+    reservation_sharing_policy {
+      service_share_type = "{{ service_share_type }}"
+    }
+    share_settings {
+      projects = ["{{ projects }}"]
+      share_type = "{{ share_type }}"
+      project_map {
+        id = "{{ id }}"
+        project_id = "{{ project_id }}"
+      }
+    }
+    specific_reservation {
+      count = {{ count }}
+      source_instance_template = "{{ source_instance_template }}"
+      instance_properties {
+        machine_type = "{{ machine_type }}"
+        maintenance_interval = "{{ maintenance_interval }}"
+        min_cpu_platform = "{{ min_cpu_platform }}"
+        guest_accelerators {
+          accelerator_count = {{ accelerator_count }}
+          accelerator_type = "{{ accelerator_type }}"
+        }
+        local_ssds {
+          disk_size_gb = {{ disk_size_gb }}
+          interface = "{{ interface }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -6,4 +6,9 @@ resource "azurerm_orbital_contact" "example" {
     reservation_end_time = "{{ reservation_end_time }}"
     reservation_start_time = "{{ reservation_start_time }}"
     spacecraft_id = "{{ spacecraft_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

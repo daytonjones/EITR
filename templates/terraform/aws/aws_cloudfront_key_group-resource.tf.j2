@@ -1,7 +1,6 @@
 resource "aws_cloudfront_key_group" "example" {
     comment = "{{ comment }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
-    items = "{{ items }}"
+    items = ["{{ items }}"]
     name = "{{ name }}"
 }

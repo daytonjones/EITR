@@ -1,5 +1,4 @@
 data "aws_cognito_user_groups" "example" {
-    groups = "{{ groups }}"
-    id = "{{ id }}"
+    region = "{{ region }}"
     user_pool_id = "{{ user_pool_id }}"
 }

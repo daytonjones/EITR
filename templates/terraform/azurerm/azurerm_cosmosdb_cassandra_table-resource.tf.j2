@@ -1,8 +1,30 @@
 resource "azurerm_cosmosdb_cassandra_table" "example" {
-    analytical_storage_ttl = "{{ analytical_storage_ttl }}"
+    analytical_storage_ttl = {{ analytical_storage_ttl }}
     cassandra_keyspace_id = "{{ cassandra_keyspace_id }}"
-    default_ttl = "{{ default_ttl }}"
+    default_ttl = {{ default_ttl }}
     id = "{{ id }}"
     name = "{{ name }}"
-    throughput = "{{ throughput }}"
+    throughput = {{ throughput }}
+    autoscale_settings {
+      max_throughput = {{ max_throughput }}
+    }
+    schema {
+      cluster_key {
+        name = "{{ name }}"
+        order_by = "{{ order_by }}"
+      }
+      column {
+        name = "{{ name }}"
+        type = "{{ type }}"
+      }
+      partition_key {
+        name = "{{ name }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

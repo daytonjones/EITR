@@ -1,0 +1,21 @@
+resource "google_eventarc_enrollment" "example" {
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
+    cel_match = "{{ cel_match }}"
+    destination = "{{ destination }}"
+    display_name = "{{ display_name }}"
+    enrollment_id = "{{ enrollment_id }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    message_bus = "{{ message_bus }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

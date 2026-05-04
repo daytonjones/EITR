@@ -3,9 +3,10 @@ resource "aws_pinpoint_apns_sandbox_channel" "example" {
     bundle_id = "{{ bundle_id }}"
     certificate = "{{ certificate }}"
     default_authentication_method = "{{ default_authentication_method }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     private_key = "{{ private_key }}"
+    region = "{{ region }}"
     team_id = "{{ team_id }}"
     token_key = "{{ token_key }}"
     token_key_id = "{{ token_key_id }}"

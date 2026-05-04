@@ -3,5 +3,11 @@ resource "aws_cloudwatch_event_permission" "example" {
     event_bus_name = "{{ event_bus_name }}"
     id = "{{ id }}"
     principal = "{{ principal }}"
+    region = "{{ region }}"
     statement_id = "{{ statement_id }}"
+    condition {
+      key = "{{ key }}"
+      type = "{{ type }}"
+      value = "{{ value }}"
+    }
 }

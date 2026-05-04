@@ -1,5 +1,10 @@
 resource "aws_securityhub_configuration_policy_association" "example" {
     id = "{{ id }}"
     policy_id = "{{ policy_id }}"
+    region = "{{ region }}"
     target_id = "{{ target_id }}"
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,7 +1,6 @@
 resource "boundary_managed_group_ldap" "example" {
     auth_method_id = "{{ auth_method_id }}"
     description = "{{ description }}"
-    group_names = "{{ group_names }}"
-    id = "{{ id }}"
+    group_names = ["{{ group_names }}"]
     name = "{{ name }}"
 }

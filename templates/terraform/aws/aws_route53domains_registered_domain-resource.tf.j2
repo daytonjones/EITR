@@ -1,22 +1,96 @@
 resource "aws_route53domains_registered_domain" "example" {
-    abuse_contact_email = "{{ abuse_contact_email }}"
-    abuse_contact_phone = "{{ abuse_contact_phone }}"
-    admin_privacy = "{{ admin_privacy }}"
-    auto_renew = "{{ auto_renew }}"
-    billing_privacy = "{{ billing_privacy }}"
-    creation_date = "{{ creation_date }}"
+    admin_privacy = {{ admin_privacy }}
+    auto_renew = {{ auto_renew }}
+    billing_privacy = {{ billing_privacy }}
     domain_name = "{{ domain_name }}"
-    expiration_date = "{{ expiration_date }}"
     id = "{{ id }}"
-    registrant_privacy = "{{ registrant_privacy }}"
-    registrar_name = "{{ registrar_name }}"
-    registrar_url = "{{ registrar_url }}"
-    reseller = "{{ reseller }}"
-    status_list = "{{ status_list }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    tech_privacy = "{{ tech_privacy }}"
-    transfer_lock = "{{ transfer_lock }}"
-    updated_date = "{{ updated_date }}"
-    whois_server = "{{ whois_server }}"
+    registrant_privacy = {{ registrant_privacy }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    tech_privacy = {{ tech_privacy }}
+    transfer_lock = {{ transfer_lock }}
+    admin_contact {
+      address_line_1 = "{{ address_line_1 }}"
+      address_line_2 = "{{ address_line_2 }}"
+      city = "{{ city }}"
+      contact_type = "{{ contact_type }}"
+      country_code = "{{ country_code }}"
+      email = "{{ email }}"
+      extra_params = {
+        key = "{{ extra_params_value }}"
+      }
+      fax = "{{ fax }}"
+      first_name = "{{ first_name }}"
+      last_name = "{{ last_name }}"
+      organization_name = "{{ organization_name }}"
+      phone_number = "{{ phone_number }}"
+      state = "{{ state }}"
+      zip_code = "{{ zip_code }}"
+    }
+    billing_contact {
+      address_line_1 = "{{ address_line_1 }}"
+      address_line_2 = "{{ address_line_2 }}"
+      city = "{{ city }}"
+      contact_type = "{{ contact_type }}"
+      country_code = "{{ country_code }}"
+      email = "{{ email }}"
+      extra_params = {
+        key = "{{ extra_params_value }}"
+      }
+      fax = "{{ fax }}"
+      first_name = "{{ first_name }}"
+      last_name = "{{ last_name }}"
+      organization_name = "{{ organization_name }}"
+      phone_number = "{{ phone_number }}"
+      state = "{{ state }}"
+      zip_code = "{{ zip_code }}"
+    }
+    name_server {
+      glue_ips = ["{{ glue_ips }}"]
+      name = "{{ name }}"
+    }
+    registrant_contact {
+      address_line_1 = "{{ address_line_1 }}"
+      address_line_2 = "{{ address_line_2 }}"
+      city = "{{ city }}"
+      contact_type = "{{ contact_type }}"
+      country_code = "{{ country_code }}"
+      email = "{{ email }}"
+      extra_params = {
+        key = "{{ extra_params_value }}"
+      }
+      fax = "{{ fax }}"
+      first_name = "{{ first_name }}"
+      last_name = "{{ last_name }}"
+      organization_name = "{{ organization_name }}"
+      phone_number = "{{ phone_number }}"
+      state = "{{ state }}"
+      zip_code = "{{ zip_code }}"
+    }
+    tech_contact {
+      address_line_1 = "{{ address_line_1 }}"
+      address_line_2 = "{{ address_line_2 }}"
+      city = "{{ city }}"
+      contact_type = "{{ contact_type }}"
+      country_code = "{{ country_code }}"
+      email = "{{ email }}"
+      extra_params = {
+        key = "{{ extra_params_value }}"
+      }
+      fax = "{{ fax }}"
+      first_name = "{{ first_name }}"
+      last_name = "{{ last_name }}"
+      organization_name = "{{ organization_name }}"
+      phone_number = "{{ phone_number }}"
+      state = "{{ state }}"
+      zip_code = "{{ zip_code }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
 }

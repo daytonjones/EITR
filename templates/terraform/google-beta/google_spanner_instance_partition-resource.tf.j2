@@ -1,0 +1,28 @@
+resource "google_spanner_instance_partition" "example" {
+    config = "{{ config }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    name = "{{ name }}"
+    node_count = {{ node_count }}
+    processing_units = {{ processing_units }}
+    project = "{{ project }}"
+    autoscaling_config {
+      autoscaling_limits {
+        max_nodes = {{ max_nodes }}
+        max_processing_units = {{ max_processing_units }}
+        min_nodes = {{ min_nodes }}
+        min_processing_units = {{ min_processing_units }}
+      }
+      autoscaling_targets {
+        high_priority_cpu_utilization_percent = {{ high_priority_cpu_utilization_percent }}
+        storage_utilization_percent = {{ storage_utilization_percent }}
+        total_cpu_utilization_percent = {{ total_cpu_utilization_percent }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

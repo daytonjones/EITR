@@ -1,12 +1,26 @@
 resource "aws_glue_connection" "example" {
-    arn = "{{ arn }}"
+    athena_properties = {
+        key = "{{ athena_properties_value }}"
+      }
     catalog_id = "{{ catalog_id }}"
-    connection_properties = "{{ connection_properties }}"
+    connection_properties = {
+        key = "{{ connection_properties_value }}"
+      }
     connection_type = "{{ connection_type }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    match_criteria = "{{ match_criteria }}"
+    match_criteria = ["{{ match_criteria }}"]
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    physical_connection_requirements {
+      availability_zone = "{{ availability_zone }}"
+      security_group_id_list = ["{{ security_group_id_list }}"]
+      subnet_id = "{{ subnet_id }}"
+    }
 }

@@ -1,17 +1,30 @@
 resource "google_network_connectivity_policy_based_route" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    kind = "{{ kind }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
     network = "{{ network }}"
     next_hop_ilb_ip = "{{ next_hop_ilb_ip }}"
     next_hop_other_routes = "{{ next_hop_other_routes }}"
-    priority = "{{ priority }}"
+    priority = {{ priority }}
     project = "{{ project }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
-    warnings = "{{ warnings }}"
+    filter {
+      dest_range = "{{ dest_range }}"
+      ip_protocol = "{{ ip_protocol }}"
+      protocol_version = "{{ protocol_version }}"
+      src_range = "{{ src_range }}"
+    }
+    interconnect_attachment {
+      region = "{{ region }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    virtual_machine {
+      tags = ["{{ tags }}"]
+    }
 }

@@ -1,7 +1,23 @@
 resource "aws_emrcontainers_virtual_cluster" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    container_provider {
+      id = "{{ id }}"
+      type = "{{ type }}"
+      info {
+        eks_info {
+          namespace = "{{ namespace }}"
+        }
+      }
+    }
+    timeouts {
+      delete = "{{ delete }}"
+    }
 }

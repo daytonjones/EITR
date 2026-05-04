@@ -1,4 +1,9 @@
 resource "azurerm_palo_alto_local_rulestack_outbound_untrust_certificate_association" "example" {
     certificate_id = "{{ certificate_id }}"
     id = "{{ id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

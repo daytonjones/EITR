@@ -1,0 +1,11 @@
+resource "awscc_servicecatalog_stack_set_constraint" "example" {
+    accept_language = "{{ accept_language }}"
+    account_list = ["{{ account_list }}"]
+    admin_role = "{{ admin_role }}"
+    description = "{{ description }}"
+    execution_role = "{{ execution_role }}"
+    portfolio_id = "{{ portfolio_id }}"
+    product_id = "{{ product_id }}"
+    region_list = ["{{ region_list }}"]
+    stack_instance_control = "{{ stack_instance_control }}"
+}

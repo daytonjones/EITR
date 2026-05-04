@@ -1,0 +1,12 @@
+resource "google_iam_workload_identity_pool_iam_binding" "example" {
+    id = "{{ id }}"
+    members = ["{{ members }}"]
+    project = "{{ project }}"
+    role = "{{ role }}"
+    workload_identity_pool_id = "{{ workload_identity_pool_id }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

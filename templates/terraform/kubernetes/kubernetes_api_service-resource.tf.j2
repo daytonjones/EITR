@@ -1,3 +1,26 @@
 resource "kubernetes_api_service" "example" {
     id = "{{ id }}"
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      generate_name = "{{ generate_name }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      name = "{{ name }}"
+    }
+    spec {
+      ca_bundle = "{{ ca_bundle }}"
+      group = "{{ group }}"
+      group_priority_minimum = {{ group_priority_minimum }}
+      insecure_skip_tls_verify = {{ insecure_skip_tls_verify }}
+      version = "{{ version }}"
+      version_priority = {{ version_priority }}
+      service {
+        name = "{{ name }}"
+        namespace = "{{ namespace }}"
+        port = {{ port }}
+      }
+    }
 }

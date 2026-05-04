@@ -1,0 +1,197 @@
+resource "aws_bedrockagentcore_gateway_target" "example" {
+    description = "{{ description }}"
+    gateway_identifier = "{{ gateway_identifier }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+    credential_provider_configuration {
+      api_key {
+        credential_location = "{{ credential_location }}"
+        credential_parameter_name = "{{ credential_parameter_name }}"
+        credential_prefix = "{{ credential_prefix }}"
+        provider_arn = "{{ provider_arn }}"
+      }
+      gateway_iam_role {
+      }
+      oauth {
+        custom_parameters = {
+        key = "{{ custom_parameters_value }}"
+      }
+        default_return_url = "{{ default_return_url }}"
+        grant_type = "{{ grant_type }}"
+        provider_arn = "{{ provider_arn }}"
+        scopes = ["{{ scopes }}"]
+      }
+    }
+    metadata_configuration {
+      allowed_query_parameters = ["{{ allowed_query_parameters }}"]
+      allowed_request_headers = ["{{ allowed_request_headers }}"]
+      allowed_response_headers = ["{{ allowed_response_headers }}"]
+    }
+    target_configuration {
+      mcp {
+        api_gateway {
+          rest_api_id = "{{ rest_api_id }}"
+          stage = "{{ stage }}"
+          api_gateway_tool_configuration {
+            tool_filter {
+              filter_path = "{{ filter_path }}"
+              methods = ["{{ methods }}"]
+            }
+            tool_override {
+              description = "{{ description }}"
+              method = "{{ method }}"
+              name = "{{ name }}"
+              path = "{{ path }}"
+            }
+          }
+        }
+        lambda {
+          lambda_arn = "{{ lambda_arn }}"
+          tool_schema {
+            inline_payload {
+              description = "{{ description }}"
+              name = "{{ name }}"
+              input_schema {
+                description = "{{ description }}"
+                type = "{{ type }}"
+                items {
+                  description = "{{ description }}"
+                  type = "{{ type }}"
+                  items {
+                    description = "{{ description }}"
+                    items_json = "{{ items_json }}"
+                    properties_json = "{{ properties_json }}"
+                    type = "{{ type }}"
+                  }
+                  property {
+                    description = "{{ description }}"
+                    items_json = "{{ items_json }}"
+                    name = "{{ name }}"
+                    properties_json = "{{ properties_json }}"
+                    required = {{ required }}
+                    type = "{{ type }}"
+                  }
+                }
+                property {
+                  description = "{{ description }}"
+                  name = "{{ name }}"
+                  required = {{ required }}
+                  type = "{{ type }}"
+                  items {
+                    description = "{{ description }}"
+                    type = "{{ type }}"
+                    items {
+                      description = "{{ description }}"
+                      items_json = "{{ items_json }}"
+                      properties_json = "{{ properties_json }}"
+                      type = "{{ type }}"
+                    }
+                    property {
+                      description = "{{ description }}"
+                      items_json = "{{ items_json }}"
+                      name = "{{ name }}"
+                      properties_json = "{{ properties_json }}"
+                      required = {{ required }}
+                      type = "{{ type }}"
+                    }
+                  }
+                  property {
+                    description = "{{ description }}"
+                    items_json = "{{ items_json }}"
+                    name = "{{ name }}"
+                    properties_json = "{{ properties_json }}"
+                    required = {{ required }}
+                    type = "{{ type }}"
+                  }
+                }
+              }
+              output_schema {
+                description = "{{ description }}"
+                type = "{{ type }}"
+                items {
+                  description = "{{ description }}"
+                  type = "{{ type }}"
+                  items {
+                    description = "{{ description }}"
+                    items_json = "{{ items_json }}"
+                    properties_json = "{{ properties_json }}"
+                    type = "{{ type }}"
+                  }
+                  property {
+                    description = "{{ description }}"
+                    items_json = "{{ items_json }}"
+                    name = "{{ name }}"
+                    properties_json = "{{ properties_json }}"
+                    required = {{ required }}
+                    type = "{{ type }}"
+                  }
+                }
+                property {
+                  description = "{{ description }}"
+                  name = "{{ name }}"
+                  required = {{ required }}
+                  type = "{{ type }}"
+                  items {
+                    description = "{{ description }}"
+                    type = "{{ type }}"
+                    items {
+                      description = "{{ description }}"
+                      items_json = "{{ items_json }}"
+                      properties_json = "{{ properties_json }}"
+                      type = "{{ type }}"
+                    }
+                    property {
+                      description = "{{ description }}"
+                      items_json = "{{ items_json }}"
+                      name = "{{ name }}"
+                      properties_json = "{{ properties_json }}"
+                      required = {{ required }}
+                      type = "{{ type }}"
+                    }
+                  }
+                  property {
+                    description = "{{ description }}"
+                    items_json = "{{ items_json }}"
+                    name = "{{ name }}"
+                    properties_json = "{{ properties_json }}"
+                    required = {{ required }}
+                    type = "{{ type }}"
+                  }
+                }
+              }
+            }
+            s3 {
+              bucket_owner_account_id = "{{ bucket_owner_account_id }}"
+              uri = "{{ uri }}"
+            }
+          }
+        }
+        mcp_server {
+          endpoint = "{{ endpoint }}"
+        }
+        open_api_schema {
+          inline_payload {
+            payload = "{{ payload }}"
+          }
+          s3 {
+            bucket_owner_account_id = "{{ bucket_owner_account_id }}"
+            uri = "{{ uri }}"
+          }
+        }
+        smithy_model {
+          inline_payload {
+            payload = "{{ payload }}"
+          }
+          s3 {
+            bucket_owner_account_id = "{{ bucket_owner_account_id }}"
+            uri = "{{ uri }}"
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

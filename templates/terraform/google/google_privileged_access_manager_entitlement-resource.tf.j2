@@ -1,12 +1,47 @@
 resource "google_privileged_access_manager_entitlement" "example" {
-    create_time = "{{ create_time }}"
     entitlement_id = "{{ entitlement_id }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
     location = "{{ location }}"
     max_request_duration = "{{ max_request_duration }}"
-    name = "{{ name }}"
     parent = "{{ parent }}"
-    state = "{{ state }}"
-    update_time = "{{ update_time }}"
+    additional_notification_targets {
+      admin_email_recipients = ["{{ admin_email_recipients }}"]
+      requester_email_recipients = ["{{ requester_email_recipients }}"]
+    }
+    approval_workflow {
+      manual_approvals {
+        require_approver_justification = {{ require_approver_justification }}
+        steps {
+          approvals_needed = {{ approvals_needed }}
+          approver_email_recipients = ["{{ approver_email_recipients }}"]
+          approvers {
+            principals = ["{{ principals }}"]
+          }
+        }
+      }
+    }
+    eligible_users {
+      principals = ["{{ principals }}"]
+    }
+    privileged_access {
+      gcp_iam_access {
+        resource = "{{ resource }}"
+        resource_type = "{{ resource_type }}"
+        role_bindings {
+          condition_expression = "{{ condition_expression }}"
+          role = "{{ role }}"
+        }
+      }
+    }
+    requester_justification_config {
+      not_mandatory {
+      }
+      unstructured {
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

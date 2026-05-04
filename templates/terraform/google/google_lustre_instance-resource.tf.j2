@@ -1,0 +1,64 @@
+resource "google_lustre_instance" "example" {
+    capacity_gib = "{{ capacity_gib }}"
+    description = "{{ description }}"
+    filesystem = "{{ filesystem }}"
+    gke_support_enabled = {{ gke_support_enabled }}
+    id = "{{ id }}"
+    instance_id = "{{ instance_id }}"
+    kms_key = "{{ kms_key }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    network = "{{ network }}"
+    per_unit_storage_throughput = "{{ per_unit_storage_throughput }}"
+    placement_policy = "{{ placement_policy }}"
+    project = "{{ project }}"
+    access_rules_options {
+      default_squash_gid = {{ default_squash_gid }}
+      default_squash_mode = "{{ default_squash_mode }}"
+      default_squash_uid = {{ default_squash_uid }}
+      access_rules {
+        ip_address_ranges = ["{{ ip_address_ranges }}"]
+        name = "{{ name }}"
+        squash_mode = "{{ squash_mode }}"
+      }
+    }
+    dynamic_tier_options {
+      mode = "{{ mode }}"
+    }
+    maintenance_policy {
+      maintenance_exclusion_window {
+        end_date {
+          day = {{ day }}
+          month = {{ month }}
+          year = {{ year }}
+        }
+        start_date {
+          day = {{ day }}
+          month = {{ month }}
+          year = {{ year }}
+        }
+        time {
+          hours = {{ hours }}
+          minutes = {{ minutes }}
+          nanos = {{ nanos }}
+          seconds = {{ seconds }}
+        }
+      }
+      weekly_maintenance_windows {
+        day_of_week = "{{ day_of_week }}"
+        start_time {
+          hours = {{ hours }}
+          minutes = {{ minutes }}
+          nanos = {{ nanos }}
+          seconds = {{ seconds }}
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

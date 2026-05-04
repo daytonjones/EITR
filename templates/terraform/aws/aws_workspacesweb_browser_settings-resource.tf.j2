@@ -1,0 +1,11 @@
+resource "aws_workspacesweb_browser_settings" "example" {
+    additional_encryption_context = {
+        key = "{{ additional_encryption_context_value }}"
+      }
+    browser_policy = "{{ browser_policy }}"
+    customer_managed_key = "{{ customer_managed_key }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

@@ -3,5 +3,5 @@ resource "vault_ldap_auth_backend_group" "example" {
     groupname = "{{ groupname }}"
     id = "{{ id }}"
     namespace = "{{ namespace }}"
-    policies = "{{ policies }}"
+    policies = ["{{ policies }}"]
 }

@@ -3,6 +3,19 @@ resource "google_firestore_field" "example" {
     database = "{{ database }}"
     field = "{{ field }}"
     id = "{{ id }}"
-    name = "{{ name }}"
     project = "{{ project }}"
+    index_config {
+      indexes {
+        array_config = "{{ array_config }}"
+        order = "{{ order }}"
+        query_scope = "{{ query_scope }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    ttl_config {
+    }
 }

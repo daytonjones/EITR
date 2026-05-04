@@ -1,6 +1,63 @@
 resource "aws_s3_bucket_replication_configuration" "example" {
     bucket = "{{ bucket }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     role = "{{ role }}"
     token = "{{ token }}"
+    rule {
+      id = "{{ id }}"
+      prefix = "{{ prefix }}"
+      priority = {{ priority }}
+      status = "{{ status }}"
+      delete_marker_replication {
+        status = "{{ status }}"
+      }
+      destination {
+        account = "{{ account }}"
+        bucket = "{{ bucket }}"
+        storage_class = "{{ storage_class }}"
+        access_control_translation {
+          owner = "{{ owner }}"
+        }
+        encryption_configuration {
+          replica_kms_key_id = "{{ replica_kms_key_id }}"
+        }
+        metrics {
+          status = "{{ status }}"
+          event_threshold {
+            minutes = {{ minutes }}
+          }
+        }
+        replication_time {
+          status = "{{ status }}"
+          time {
+            minutes = {{ minutes }}
+          }
+        }
+      }
+      existing_object_replication {
+        status = "{{ status }}"
+      }
+      filter {
+        prefix = "{{ prefix }}"
+        and {
+          prefix = "{{ prefix }}"
+          tags = {
+        key = "{{ tags_value }}"
+      }
+        }
+        tag {
+          key = "{{ key }}"
+          value = "{{ value }}"
+        }
+      }
+      source_selection_criteria {
+        replica_modifications {
+          status = "{{ status }}"
+        }
+        sse_kms_encrypted_objects {
+          status = "{{ status }}"
+        }
+      }
+    }
 }

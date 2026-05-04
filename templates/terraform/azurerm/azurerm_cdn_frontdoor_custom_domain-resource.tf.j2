@@ -1,9 +1,18 @@
 resource "azurerm_cdn_frontdoor_custom_domain" "example" {
     cdn_frontdoor_profile_id = "{{ cdn_frontdoor_profile_id }}"
     dns_zone_id = "{{ dns_zone_id }}"
-    expiration_date = "{{ expiration_date }}"
     host_name = "{{ host_name }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    validation_token = "{{ validation_token }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    tls {
+      cdn_frontdoor_secret_id = "{{ cdn_frontdoor_secret_id }}"
+      certificate_type = "{{ certificate_type }}"
+      minimum_tls_version = "{{ minimum_tls_version }}"
+    }
 }

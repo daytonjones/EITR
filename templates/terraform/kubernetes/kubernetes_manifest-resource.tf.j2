@@ -1,6 +1,25 @@
 resource "kubernetes_manifest" "example" {
-    computed_fields = "{{ computed_fields }}"
+    computed_fields = ["{{ computed_fields }}"]
     manifest = "{{ manifest }}"
     object = "{{ object }}"
-    wait_for = "{{ wait_for }}"
+    wait_for = {{ wait_for }}
+    field_manager {
+      force_conflicts = {{ force_conflicts }}
+      name = "{{ name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    wait {
+      fields = {
+        key = "{{ fields_value }}"
+      }
+      rollout = {{ rollout }}
+      condition {
+        status = "{{ status }}"
+        type = "{{ type }}"
+      }
+    }
 }

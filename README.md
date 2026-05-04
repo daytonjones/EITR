@@ -1,180 +1,169 @@
-# EITR - Multi-Provider Terraform Config Generator
+# EITR — Multi-Provider Terraform Config Generator
+
 [![GitHub release](https://img.shields.io/github/v/release/daytonjones/eitr?sort=semver)](https://github.com/daytonjones/eitr/releases)
 [![GitHub last commit](https://img.shields.io/github/last-commit/daytonjones/eitr)](https://github.com/daytonjones/eitr/commits/main)
 [![GitHub issues](https://img.shields.io/github/issues/daytonjones/eitr)](https://github.com/daytonjones/eitr/issues)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/daytonjones/eitr)](https://github.com/daytonjones/eitr/pulls)
-[![GitHub stars](https://img.shields.io/github/stars/daytonjones/eitr)](https://github.com/daytonjones/eitr/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/daytonjones/eitr)](https://github.com/daytonjones/eitr/network/members)
 [![License](https://img.shields.io/github/license/daytonjones/eitr)](https://github.com/daytonjones/eitr/blob/main/LICENSE)
+
 ---
 
 ## Introduction
-- **E**: Environment – Spanning cloud (AWS, Azure, GCP), local, and virtualized setups.
-- **I**: Infrastructure – Focused on creating and managing critical infrastructure components.
-- **T**: Terraform – The de facto tool for infrastructure as code.
-- **R**: Renderer – A system for dynamically generating Terraform configurations.
 
-**EITR** is a web-based application designed to simplify and streamline Terraform configuration generation. It allows users to dynamically select multiple providers and resources, and then generate ready-to-use Terraform templates with minimal effort.  
+- **E** — Environment: spanning cloud (AWS, Azure, GCP), local, and virtualised setups
+- **I** — Infrastructure: focused on creating and managing critical infrastructure components
+- **T** — Terraform: the de facto tool for infrastructure as code
+- **R** — Renderer: dynamically generates Terraform configurations
 
-In Norse mythology, *eitr* represents raw potential and creation, making it the perfect name for a tool that shapes and defines infrastructure.
+**EITR** is a web application that simplifies Terraform configuration generation. Select providers and resources from the sidebar, edit the generated HCL templates inline with full syntax highlighting, and download the result as `.tf` or `.json`.
+
+In Norse mythology, *eitr* is a primordial substance of raw creation — the perfect name for a tool that shapes infrastructure.
+
+**Live demo:** https://eitr.gecko.org
 
 ---
 
 ## Features
 
-- **Dynamic Provider and Resource Management**  
-  Choose from the configured providers and their resources to generate custom Terraform configurations.  By default, EITR uses the 35 official (as of December, 2024) providers (https://registry.terraform.io/search/providers?namespace=hashicorp&tier=official)
-
-- **Template-Based Configuration**  
-  Leverage Jinja2 templates for consistent and reusable Terraform code.
-
-- **Rich User Interface**  
-  Interactive sidebar navigation, collapsible provider sections, and dynamic content loading.
-
-- **Editable Templates**
-  Inline editing of Terraform templates directly in the browser.
-
-- **Dynamic Preview**  
-  Review Terraform configurations dynamically before saving the final file.
-
-- **Save and Reset Options**
-  Save configurations as JSON or HCL and reset the workspace as needed.  Nothing is saved server-side, as the config is built dynamically in memory, and is only saved to your local machine.
+- **33 official Terraform providers** — AWS, Azure, GCP, Kubernetes, Vault, Consul, and more; all schemas generated directly from the Terraform registry
+- **Monaco editor** — full HCL/Terraform syntax highlighting, bracket matching, and line numbers for inline template editing
+- **Template persistence** — edited templates are saved server-side (`templates/custom/`) and survive restarts; a "Reset to default" button restores the generated original
+- **Dark / light theme** — toggle persisted to `localStorage`, defaults to dark
+- **Resource search** — live cross-provider search with 250 ms debounce; click a result to select it directly
+- **HCL and JSON export** — download the assembled configuration in either format; JSON export converts via `python-hcl2`
+- **No server-side session state** — resource selection is stored in browser `localStorage`; only custom template edits are written to disk
+- **Docker Compose** — single-command deployment
 
 ---
+
 ## Prerequisites
 
-To run the application, ensure you have the following installed:
 - Python 3.12+
-- Node.js 
-- Terraform
-- Gunicorn
+- Terraform (for schema generation only)
+- `jq` (for schema generation only)
 
 ---
 
-## Demo
-Visit: https://eitr.gecko.org to view Eitr in action
+## Quick start — Docker Compose
+
+`config/provider_schemas.json` is not stored in the repo (it is ~180 MB). It must be generated locally before building the image.
+
+```bash
+git clone https://github.com/daytonjones/EITR.git
+cd EITR
+
+# One-time setup: generate provider schemas (requires terraform + jq on PATH)
+python3 -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+python utilities/generate_tf_provider_templates.py
+
+# Build and run
+docker compose up --build
+```
+
+Open http://localhost:8085 in your browser.
+
+The compose file maps host port **8085** → container port 8000.
 
 ---
 
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/daytonjones/EITR.git
-   cd EITR
-   ```
-2. Set up a virtual environment:
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-   ```
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Generate the schemas, update the templates:
-   ```bash
-   utilities/generate_tf_provider_templates.py
-   ```
-5. Start Eitr:
-   ```bash
-   gunicorn -w 3 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app --daemon --name eitr
-   ```
-6. Access the app in your browser at `http://127.0.0.1:8000`.
+## Local development
+
+```bash
+git clone https://github.com/daytonjones/EITR.git
+cd EITR
+
+python3 -m venv venv
+source venv/bin/activate        # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+
+# Generate provider schemas and Jinja2 templates (required before first run)
+python utilities/generate_tf_provider_templates.py
+
+uvicorn main:app --reload
+```
+
+Open http://localhost:8000 in your browser.
+
+---
+
+## Schema generation
+
+`utilities/generate_tf_provider_templates.py` must be run:
+
+- Before starting the app for the first time after a fresh clone
+- After modifying `config/providers.json` (adding/removing/updating providers)
+
+The script:
+
+1. Writes a temporary `main.tf` from `config/providers.json`
+2. Runs `terraform init` to download provider plugins (slow on first run)
+3. Runs `terraform providers schema -json | jq .` and saves the output to `config/provider_schemas.json`
+4. Generates Jinja2 template skeletons for every resource, data source, ephemeral resource, function, and provider-config block into `templates/terraform/{provider}/`
+
+`config/provider_schemas.json` is gitignored (it is large); the generated templates in `templates/terraform/` are committed.
+
+---
+
+## Adding or updating providers
+
+Edit `config/providers.json`. Each entry requires:
+
+```json
+{ "name": "aws", "description": "AWS (Amazon Web Services)", "version": "5.78.0" }
+```
+
+For providers not under the `hashicorp/` namespace, add a `source` field:
+
+```json
+{ "name": "vsphere", "description": "VMware vSphere", "version": "2.10.0", "source": "vmware/vsphere" }
+```
+
+Then re-run the generator.
+
+---
 
 ## Usage
-1. Open the application in your browser.
-2. Select your provider(s) from the left to expand their collapsible sections.
-3. Choose the resources you want to include using the checkboxes.
-4. Click the "Edit" button to modify templates inline, then save your changes.
-5. Click either "Save as JSON" or "Save as HCL" to download the generated Terraform code.
-6. Use the "Reset Config" button to clear the workspace and deselect all resources.
 
-To change the providers, edit config/providers.json and the re-run "utilities/generate_tf_provider_templates.py" 
-
----
-
-Running utilities/generate_tf_provider_templates.py
-
-This script parses `config/providers.json` and generates all the required Jinja2 templates for the providers, as well as the `config/provider_schemas.json` file. It must be run:
-
-1. Before starting the app for the first time.
-2. Anytime the `config/providers.json` file is modified.
-
-### Steps to run:
-1. Ensure you have the necessary Python modules installed (see the installation instructions).
-2. Run the following command:
-   ```bash
-   python utilities/generate_tf_provider_templates.py
-   ```
-This will:
-
-- Generate Jinja2 templates for each provider in the templates/terraform/ directory.
-- Create or update the config/provider_schemas.json file containing provider schema information.
-
+1. Open the app in your browser.
+2. Use the sidebar to expand a provider and check the resources you need.
+3. Use the search box to find a specific resource across all providers.
+4. Click **Edit** on any resource card to edit its template in the Monaco editor.
+5. Click **Save** to persist your edits to the server; a "customized" badge appears on the card.
+6. Click **Reset to default** to restore the generated template.
+7. Click **HCL** or **JSON** in the action bar to download the assembled configuration.
+8. Click **Clear all** to deselect all resources (custom template edits are preserved).
 
 ---
 
-## Project Structure
+## Project structure
 
 ```
-EITR
-├── config
-│   └── providers.json
-├── Dockerfile
-├── LICENSE
-├── main.py
-├── README.md
-├── README.txt
-├── requirements.txt
-├── static
+EITR/
+├── config/
+│   └── providers.json           # Provider list (source of truth)
+│   # provider_schemas.json      # Generated — gitignored
+├── templates/
+│   ├── index.html               # Single-page frontend
+│   ├── terraform/               # Generated .tf.j2 skeletons (committed)
+│   │   ├── aws/
+│   │   ├── azurerm/
+│   │   └── …
+│   └── custom/                  # User-edited overrides (committed, volume-mounted)
+├── static/
 │   ├── eitr_background.jpeg
 │   ├── eitr.ico
 │   └── eitr.png
-├── templates
-│   ├── index.html
-│   └── terraform
-│       ├── ad
-│       ├── archive
-│       ├── assert
-│       ├── aws
-│       ├── awscc
-│       ├── azuread
-│       ├── azurerm
-│       ├── azurestack
-│       ├── boundary
-│       ├── cloudinit
-│       ├── consul
-│       ├── dns
-│       ├── external
-│       ├── google
-│       ├── google-beta
-│       ├── googleworkspace
-│       ├── hcp
-│       ├── hcs
-│       ├── helm
-│       ├── http
-│       ├── kubernetes
-│       ├── local
-│       ├── nomad
-│       ├── null
-│       ├── opc
-│       ├── oraclepaas
-│       ├── random
-│       ├── salesforce
-│       ├── template
-│       ├── tfe
-│       ├── tfmigrate
-│       ├── time
-│       ├── tls
-│       ├── vault
-│       └── vsphere
-└── utilities
-    └── generate_tf_provider_templates.py
+├── utilities/
+│   └── generate_tf_provider_templates.py
+├── main.py
+├── requirements.txt
+├── Dockerfile
+├── docker-compose.yml
+└── CHANGELOG.md
 ```
+
+---
 
 ## License
 
 EITR is licensed under the MIT License. See `LICENSE` for details.
-
----
-

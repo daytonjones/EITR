@@ -1,0 +1,11 @@
+resource "google_apigee_space" "example" {
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    org_id = "{{ org_id }}"
+    space_id = "{{ space_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

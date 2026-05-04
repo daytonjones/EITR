@@ -2,4 +2,21 @@ resource "azurerm_maintenance_assignment_dynamic_scope" "example" {
     id = "{{ id }}"
     maintenance_configuration_id = "{{ maintenance_configuration_id }}"
     name = "{{ name }}"
+    filter {
+      locations = ["{{ locations }}"]
+      os_types = ["{{ os_types }}"]
+      resource_groups = ["{{ resource_groups }}"]
+      resource_types = ["{{ resource_types }}"]
+      tag_filter = "{{ tag_filter }}"
+      tags {
+        tag = "{{ tag }}"
+        values = ["{{ values }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

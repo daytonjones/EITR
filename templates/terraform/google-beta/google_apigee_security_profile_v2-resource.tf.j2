@@ -1,0 +1,15 @@
+resource "google_apigee_security_profile_v2" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    org_id = "{{ org_id }}"
+    profile_id = "{{ profile_id }}"
+    profile_assessment_configs {
+      assessment = "{{ assessment }}"
+      weight = "{{ weight }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

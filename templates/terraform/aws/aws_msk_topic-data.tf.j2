@@ -1,0 +1,5 @@
+data "aws_msk_topic" "example" {
+    cluster_arn = "{{ cluster_arn }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+}

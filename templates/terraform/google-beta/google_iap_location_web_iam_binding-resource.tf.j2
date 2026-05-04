@@ -1,0 +1,12 @@
+resource "google_iap_location_web_iam_binding" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    members = ["{{ members }}"]
+    project = "{{ project }}"
+    role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

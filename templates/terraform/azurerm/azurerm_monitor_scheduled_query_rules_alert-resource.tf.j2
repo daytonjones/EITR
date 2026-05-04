@@ -1,18 +1,41 @@
 resource "azurerm_monitor_scheduled_query_rules_alert" "example" {
-    authorized_resource_ids = "{{ authorized_resource_ids }}"
-    auto_mitigation_enabled = "{{ auto_mitigation_enabled }}"
+    authorized_resource_ids = ["{{ authorized_resource_ids }}"]
+    auto_mitigation_enabled = {{ auto_mitigation_enabled }}
     data_source_id = "{{ data_source_id }}"
     description = "{{ description }}"
-    enabled = "{{ enabled }}"
-    frequency = "{{ frequency }}"
+    enabled = {{ enabled }}
+    frequency = {{ frequency }}
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     query = "{{ query }}"
     query_type = "{{ query_type }}"
     resource_group_name = "{{ resource_group_name }}"
-    severity = "{{ severity }}"
-    tags = "{{ tags }}"
-    throttling = "{{ throttling }}"
-    time_window = "{{ time_window }}"
+    severity = {{ severity }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    throttling = {{ throttling }}
+    time_window = {{ time_window }}
+    action {
+      action_group = ["{{ action_group }}"]
+      custom_webhook_payload = "{{ custom_webhook_payload }}"
+      email_subject = "{{ email_subject }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    trigger {
+      operator = "{{ operator }}"
+      threshold = {{ threshold }}
+      metric_trigger {
+        metric_column = "{{ metric_column }}"
+        metric_trigger_type = "{{ metric_trigger_type }}"
+        operator = "{{ operator }}"
+        threshold = {{ threshold }}
+      }
+    }
 }

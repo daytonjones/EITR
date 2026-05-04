@@ -5,4 +5,10 @@ resource "azurerm_mysql_flexible_server_active_directory_administrator" "example
     object_id = "{{ object_id }}"
     server_id = "{{ server_id }}"
     tenant_id = "{{ tenant_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

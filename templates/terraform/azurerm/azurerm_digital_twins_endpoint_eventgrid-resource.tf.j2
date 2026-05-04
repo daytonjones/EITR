@@ -6,4 +6,10 @@ resource "azurerm_digital_twins_endpoint_eventgrid" "example" {
     eventgrid_topic_secondary_access_key = "{{ eventgrid_topic_secondary_access_key }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

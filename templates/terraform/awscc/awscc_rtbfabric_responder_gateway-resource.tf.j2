@@ -1,0 +1,12 @@
+resource "awscc_rtbfabric_responder_gateway" "example" {
+    description = "{{ description }}"
+    domain_name = "{{ domain_name }}"
+    managed_endpoint_configuration = "{{ managed_endpoint_configuration }}"
+    port = {{ port }}
+    protocol = "{{ protocol }}"
+    security_group_ids = ["{{ security_group_ids }}"]
+    subnet_ids = ["{{ subnet_ids }}"]
+    tags = "{{ tags }}"
+    trust_store_configuration = "{{ trust_store_configuration }}"
+    vpc_id = "{{ vpc_id }}"
+}

@@ -1,0 +1,8 @@
+data "azurerm_mssql_failover_group" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    server_id = "{{ server_id }}"
+    timeouts {
+      read = "{{ read }}"
+    }
+}

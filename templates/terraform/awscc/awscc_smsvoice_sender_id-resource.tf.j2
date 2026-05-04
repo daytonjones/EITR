@@ -1,0 +1,6 @@
+resource "awscc_smsvoice_sender_id" "example" {
+    deletion_protection_enabled = {{ deletion_protection_enabled }}
+    iso_country_code = "{{ iso_country_code }}"
+    sender_id = "{{ sender_id }}"
+    tags = "{{ tags }}"
+}

@@ -1,9 +1,18 @@
 resource "tls_cert_request" "example" {
-    cert_request_pem = "{{ cert_request_pem }}"
-    dns_names = "{{ dns_names }}"
-    id = "{{ id }}"
-    ip_addresses = "{{ ip_addresses }}"
-    key_algorithm = "{{ key_algorithm }}"
+    dns_names = ["{{ dns_names }}"]
+    ip_addresses = ["{{ ip_addresses }}"]
     private_key_pem = "{{ private_key_pem }}"
-    uris = "{{ uris }}"
+    uris = ["{{ uris }}"]
+    subject {
+      common_name = "{{ common_name }}"
+      country = "{{ country }}"
+      email_address = "{{ email_address }}"
+      locality = "{{ locality }}"
+      organization = "{{ organization }}"
+      organizational_unit = "{{ organizational_unit }}"
+      postal_code = "{{ postal_code }}"
+      province = "{{ province }}"
+      serial_number = "{{ serial_number }}"
+      street_address = ["{{ street_address }}"]
+    }
 }

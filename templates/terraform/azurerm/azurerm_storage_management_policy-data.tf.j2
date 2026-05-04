@@ -1,5 +1,7 @@
 data "azurerm_storage_management_policy" "example" {
     id = "{{ id }}"
-    rule = "{{ rule }}"
     storage_account_id = "{{ storage_account_id }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

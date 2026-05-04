@@ -1,0 +1,19 @@
+resource "google_secure_source_manager_hook" "example" {
+    disabled = {{ disabled }}
+    events = ["{{ events }}"]
+    hook_id = "{{ hook_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    repository_id = "{{ repository_id }}"
+    sensitive_query_string = "{{ sensitive_query_string }}"
+    target_uri = "{{ target_uri }}"
+    push_option {
+      branch_filter = "{{ branch_filter }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,7 +1,18 @@
 resource "google_integrations_client" "example" {
-    create_sample_integrations = "{{ create_sample_integrations }}"
+    create_sample_integrations = {{ create_sample_integrations }}
     id = "{{ id }}"
     location = "{{ location }}"
     project = "{{ project }}"
     run_as_service_account = "{{ run_as_service_account }}"
+    cloud_kms_config {
+      key = "{{ key }}"
+      key_version = "{{ key_version }}"
+      kms_location = "{{ kms_location }}"
+      kms_project_id = "{{ kms_project_id }}"
+      kms_ring = "{{ kms_ring }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

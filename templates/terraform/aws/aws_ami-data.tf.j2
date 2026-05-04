@@ -1,40 +1,21 @@
 data "aws_ami" "example" {
-    architecture = "{{ architecture }}"
-    arn = "{{ arn }}"
-    block_device_mappings = "{{ block_device_mappings }}"
-    boot_mode = "{{ boot_mode }}"
-    creation_date = "{{ creation_date }}"
-    deprecation_time = "{{ deprecation_time }}"
-    description = "{{ description }}"
-    ena_support = "{{ ena_support }}"
-    executable_users = "{{ executable_users }}"
-    hypervisor = "{{ hypervisor }}"
+    allow_unsafe_filter = {{ allow_unsafe_filter }}
+    executable_users = ["{{ executable_users }}"]
     id = "{{ id }}"
-    image_id = "{{ image_id }}"
-    image_location = "{{ image_location }}"
-    image_owner_alias = "{{ image_owner_alias }}"
-    image_type = "{{ image_type }}"
-    imds_support = "{{ imds_support }}"
-    include_deprecated = "{{ include_deprecated }}"
-    kernel_id = "{{ kernel_id }}"
-    most_recent = "{{ most_recent }}"
-    name = "{{ name }}"
+    include_deprecated = {{ include_deprecated }}
+    most_recent = {{ most_recent }}
     name_regex = "{{ name_regex }}"
-    owner_id = "{{ owner_id }}"
-    owners = "{{ owners }}"
-    platform = "{{ platform }}"
-    platform_details = "{{ platform_details }}"
-    product_codes = "{{ product_codes }}"
-    public = "{{ public }}"
-    ramdisk_id = "{{ ramdisk_id }}"
-    root_device_name = "{{ root_device_name }}"
-    root_device_type = "{{ root_device_type }}"
-    root_snapshot_id = "{{ root_snapshot_id }}"
-    sriov_net_support = "{{ sriov_net_support }}"
-    state = "{{ state }}"
-    state_reason = "{{ state_reason }}"
-    tags = "{{ tags }}"
-    tpm_support = "{{ tpm_support }}"
-    usage_operation = "{{ usage_operation }}"
-    virtualization_type = "{{ virtualization_type }}"
+    owners = ["{{ owners }}"]
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    uefi_data = "{{ uefi_data }}"
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
+    timeouts {
+      read = "{{ read }}"
+    }
 }

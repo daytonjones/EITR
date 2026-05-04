@@ -1,0 +1,8 @@
+resource "aws_vpn_concentrator" "example" {
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    transit_gateway_id = "{{ transit_gateway_id }}"
+    type = "{{ type }}"
+}

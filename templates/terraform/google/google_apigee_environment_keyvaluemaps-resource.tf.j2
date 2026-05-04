@@ -2,4 +2,8 @@ resource "google_apigee_environment_keyvaluemaps" "example" {
     env_id = "{{ env_id }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

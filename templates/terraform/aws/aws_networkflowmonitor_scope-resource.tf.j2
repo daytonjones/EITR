@@ -1,0 +1,20 @@
+resource "aws_networkflowmonitor_scope" "example" {
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    target {
+      region = "{{ region }}"
+      target_identifier {
+        target_type = "{{ target_type }}"
+        target_id {
+          account_id = "{{ account_id }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

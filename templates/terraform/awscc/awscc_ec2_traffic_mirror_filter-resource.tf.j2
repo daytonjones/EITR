@@ -1,0 +1,5 @@
+resource "awscc_ec2_traffic_mirror_filter" "example" {
+    description = "{{ description }}"
+    network_services = ["{{ network_services }}"]
+    tags = "{{ tags }}"
+}

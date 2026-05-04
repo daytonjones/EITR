@@ -1,7 +1,89 @@
 resource "azuread_group_role_management_policy" "example" {
-    description = "{{ description }}"
-    display_name = "{{ display_name }}"
     group_id = "{{ group_id }}"
     id = "{{ id }}"
     role_id = "{{ role_id }}"
+    activation_rules {
+      maximum_duration = "{{ maximum_duration }}"
+      require_approval = {{ require_approval }}
+      require_justification = {{ require_justification }}
+      require_multifactor_authentication = {{ require_multifactor_authentication }}
+      require_ticket_info = {{ require_ticket_info }}
+      required_conditional_access_authentication_context = "{{ required_conditional_access_authentication_context }}"
+      approval_stage {
+        primary_approver {
+          object_id = "{{ object_id }}"
+          type = "{{ type }}"
+        }
+      }
+    }
+    active_assignment_rules {
+      expiration_required = {{ expiration_required }}
+      expire_after = "{{ expire_after }}"
+      require_justification = {{ require_justification }}
+      require_multifactor_authentication = {{ require_multifactor_authentication }}
+      require_ticket_info = {{ require_ticket_info }}
+    }
+    eligible_assignment_rules {
+      expiration_required = {{ expiration_required }}
+      expire_after = "{{ expire_after }}"
+    }
+    notification_rules {
+      active_assignments {
+        admin_notifications {
+          additional_recipients = ["{{ additional_recipients }}"]
+          default_recipients = {{ default_recipients }}
+          notification_level = "{{ notification_level }}"
+        }
+        approver_notifications {
+          additional_recipients = ["{{ additional_recipients }}"]
+          default_recipients = {{ default_recipients }}
+          notification_level = "{{ notification_level }}"
+        }
+        assignee_notifications {
+          additional_recipients = ["{{ additional_recipients }}"]
+          default_recipients = {{ default_recipients }}
+          notification_level = "{{ notification_level }}"
+        }
+      }
+      eligible_activations {
+        admin_notifications {
+          additional_recipients = ["{{ additional_recipients }}"]
+          default_recipients = {{ default_recipients }}
+          notification_level = "{{ notification_level }}"
+        }
+        approver_notifications {
+          additional_recipients = ["{{ additional_recipients }}"]
+          default_recipients = {{ default_recipients }}
+          notification_level = "{{ notification_level }}"
+        }
+        assignee_notifications {
+          additional_recipients = ["{{ additional_recipients }}"]
+          default_recipients = {{ default_recipients }}
+          notification_level = "{{ notification_level }}"
+        }
+      }
+      eligible_assignments {
+        admin_notifications {
+          additional_recipients = ["{{ additional_recipients }}"]
+          default_recipients = {{ default_recipients }}
+          notification_level = "{{ notification_level }}"
+        }
+        approver_notifications {
+          additional_recipients = ["{{ additional_recipients }}"]
+          default_recipients = {{ default_recipients }}
+          notification_level = "{{ notification_level }}"
+        }
+        assignee_notifications {
+          additional_recipients = ["{{ additional_recipients }}"]
+          default_recipients = {{ default_recipients }}
+          notification_level = "{{ notification_level }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

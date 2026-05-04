@@ -1,10 +1,18 @@
 resource "aws_sesv2_contact_list" "example" {
-    arn = "{{ arn }}"
     contact_list_name = "{{ contact_list_name }}"
-    created_timestamp = "{{ created_timestamp }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    last_updated_timestamp = "{{ last_updated_timestamp }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    topic {
+      default_subscription_status = "{{ default_subscription_status }}"
+      description = "{{ description }}"
+      display_name = "{{ display_name }}"
+      topic_name = "{{ topic_name }}"
+    }
 }

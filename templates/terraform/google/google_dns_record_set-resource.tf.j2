@@ -3,7 +3,75 @@ resource "google_dns_record_set" "example" {
     managed_zone = "{{ managed_zone }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    rrdatas = "{{ rrdatas }}"
-    ttl = "{{ ttl }}"
+    rrdatas = ["{{ rrdatas }}"]
+    ttl = {{ ttl }}
     type = "{{ type }}"
+    routing_policy {
+      enable_geo_fencing = {{ enable_geo_fencing }}
+      health_check = "{{ health_check }}"
+      geo {
+        location = "{{ location }}"
+        rrdatas = ["{{ rrdatas }}"]
+        health_checked_targets {
+          external_endpoints = ["{{ external_endpoints }}"]
+          internal_load_balancers {
+            ip_address = "{{ ip_address }}"
+            ip_protocol = "{{ ip_protocol }}"
+            load_balancer_type = "{{ load_balancer_type }}"
+            network_url = "{{ network_url }}"
+            port = "{{ port }}"
+            project = "{{ project }}"
+            region = "{{ region }}"
+          }
+        }
+      }
+      primary_backup {
+        enable_geo_fencing_for_backups = {{ enable_geo_fencing_for_backups }}
+        trickle_ratio = {{ trickle_ratio }}
+        backup_geo {
+          location = "{{ location }}"
+          rrdatas = ["{{ rrdatas }}"]
+          health_checked_targets {
+            external_endpoints = ["{{ external_endpoints }}"]
+            internal_load_balancers {
+              ip_address = "{{ ip_address }}"
+              ip_protocol = "{{ ip_protocol }}"
+              load_balancer_type = "{{ load_balancer_type }}"
+              network_url = "{{ network_url }}"
+              port = "{{ port }}"
+              project = "{{ project }}"
+              region = "{{ region }}"
+            }
+          }
+        }
+        primary {
+          external_endpoints = ["{{ external_endpoints }}"]
+          internal_load_balancers {
+            ip_address = "{{ ip_address }}"
+            ip_protocol = "{{ ip_protocol }}"
+            load_balancer_type = "{{ load_balancer_type }}"
+            network_url = "{{ network_url }}"
+            port = "{{ port }}"
+            project = "{{ project }}"
+            region = "{{ region }}"
+          }
+        }
+      }
+      wrr {
+        rrdatas = ["{{ rrdatas }}"]
+        weight = {{ weight }}
+        health_checked_targets {
+          external_endpoints = ["{{ external_endpoints }}"]
+          internal_load_balancers {
+            ip_address = "{{ ip_address }}"
+            ip_protocol = "{{ ip_protocol }}"
+            load_balancer_type = "{{ load_balancer_type }}"
+            network_url = "{{ network_url }}"
+            port = "{{ port }}"
+            project = "{{ project }}"
+            region = "{{ region }}"
+          }
+        }
+      }
+    }
 }

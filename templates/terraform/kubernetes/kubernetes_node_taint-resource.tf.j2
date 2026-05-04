@@ -1,5 +1,13 @@
 resource "kubernetes_node_taint" "example" {
     field_manager = "{{ field_manager }}"
-    force = "{{ force }}"
+    force = {{ force }}
     id = "{{ id }}"
+    metadata {
+      name = "{{ name }}"
+    }
+    taint {
+      effect = "{{ effect }}"
+      key = "{{ key }}"
+      value = "{{ value }}"
+    }
 }

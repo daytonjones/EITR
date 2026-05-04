@@ -1,12 +1,6 @@
 resource "awscc_elasticache_user_group" "example" {
-    arn = "{{ arn }}"
     engine = "{{ engine }}"
-    id = "{{ id }}"
-    status = "{{ status }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
     user_group_id = "{{ user_group_id }}"
-    user_ids = "{{ user_ids }}"
+    user_ids = ["{{ user_ids }}"]
 }

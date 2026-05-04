@@ -6,11 +6,22 @@ resource "azurerm_bot_web_app" "example" {
     endpoint = "{{ endpoint }}"
     id = "{{ id }}"
     location = "{{ location }}"
-    luis_app_ids = "{{ luis_app_ids }}"
+    luis_app_ids = ["{{ luis_app_ids }}"]
     luis_key = "{{ luis_key }}"
     microsoft_app_id = "{{ microsoft_app_id }}"
+    microsoft_app_tenant_id = "{{ microsoft_app_tenant_id }}"
+    microsoft_app_type = "{{ microsoft_app_type }}"
+    microsoft_app_user_assigned_identity_id = "{{ microsoft_app_user_assigned_identity_id }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     sku = "{{ sku }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

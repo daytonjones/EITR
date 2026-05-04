@@ -1,4 +1,8 @@
 resource "google_compute_shared_vpc_host_project" "example" {
     id = "{{ id }}"
     project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

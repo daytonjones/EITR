@@ -1,7 +1,14 @@
 resource "azurerm_application_load_balancer_frontend" "example" {
     application_load_balancer_id = "{{ application_load_balancer_id }}"
-    fully_qualified_domain_name = "{{ fully_qualified_domain_name }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

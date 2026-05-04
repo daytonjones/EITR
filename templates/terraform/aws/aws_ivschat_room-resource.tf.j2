@@ -1,10 +1,23 @@
 resource "aws_ivschat_room" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
-    logging_configuration_identifiers = "{{ logging_configuration_identifiers }}"
-    maximum_message_length = "{{ maximum_message_length }}"
-    maximum_message_rate_per_second = "{{ maximum_message_rate_per_second }}"
+    logging_configuration_identifiers = ["{{ logging_configuration_identifiers }}"]
+    maximum_message_length = {{ maximum_message_length }}
+    maximum_message_rate_per_second = {{ maximum_message_rate_per_second }}
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    message_review_handler {
+      fallback_result = "{{ fallback_result }}"
+      uri = "{{ uri }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

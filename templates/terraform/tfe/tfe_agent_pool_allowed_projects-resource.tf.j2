@@ -1,0 +1,5 @@
+resource "tfe_agent_pool_allowed_projects" "example" {
+    agent_pool_id = "{{ agent_pool_id }}"
+    allowed_project_ids = ["{{ allowed_project_ids }}"]
+    id = "{{ id }}"
+}

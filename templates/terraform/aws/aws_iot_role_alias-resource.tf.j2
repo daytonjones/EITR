@@ -1,9 +1,13 @@
 resource "aws_iot_role_alias" "example" {
     alias = "{{ alias }}"
-    arn = "{{ arn }}"
-    credential_duration = "{{ credential_duration }}"
+    credential_duration = {{ credential_duration }}
     id = "{{ id }}"
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

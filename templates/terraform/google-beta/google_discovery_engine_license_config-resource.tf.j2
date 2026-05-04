@@ -1,0 +1,26 @@
+resource "google_discovery_engine_license_config" "example" {
+    auto_renew = {{ auto_renew }}
+    free_trial = {{ free_trial }}
+    id = "{{ id }}"
+    license_config_id = "{{ license_config_id }}"
+    license_count = {{ license_count }}
+    location = "{{ location }}"
+    project = "{{ project }}"
+    subscription_term = "{{ subscription_term }}"
+    subscription_tier = "{{ subscription_tier }}"
+    end_date {
+      day = {{ day }}
+      month = {{ month }}
+      year = {{ year }}
+    }
+    start_date {
+      day = {{ day }}
+      month = {{ month }}
+      year = {{ year }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

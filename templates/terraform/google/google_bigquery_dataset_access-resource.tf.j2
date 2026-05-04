@@ -1,5 +1,4 @@
 resource "google_bigquery_dataset_access" "example" {
-    api_updated_member = "{{ api_updated_member }}"
     dataset_id = "{{ dataset_id }}"
     domain = "{{ domain }}"
     group_by_email = "{{ group_by_email }}"
@@ -9,4 +8,31 @@ resource "google_bigquery_dataset_access" "example" {
     role = "{{ role }}"
     special_group = "{{ special_group }}"
     user_by_email = "{{ user_by_email }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      location = "{{ location }}"
+      title = "{{ title }}"
+    }
+    dataset {
+      target_types = ["{{ target_types }}"]
+      dataset {
+        dataset_id = "{{ dataset_id }}"
+        project_id = "{{ project_id }}"
+      }
+    }
+    routine {
+      dataset_id = "{{ dataset_id }}"
+      project_id = "{{ project_id }}"
+      routine_id = "{{ routine_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+    view {
+      dataset_id = "{{ dataset_id }}"
+      project_id = "{{ project_id }}"
+      table_id = "{{ table_id }}"
+    }
 }

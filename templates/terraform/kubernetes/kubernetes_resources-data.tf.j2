@@ -3,7 +3,7 @@ data "kubernetes_resources" "example" {
     field_selector = "{{ field_selector }}"
     kind = "{{ kind }}"
     label_selector = "{{ label_selector }}"
-    limit = "{{ limit }}"
+    limit = {{ limit }}
     namespace = "{{ namespace }}"
     objects = "{{ objects }}"
 }

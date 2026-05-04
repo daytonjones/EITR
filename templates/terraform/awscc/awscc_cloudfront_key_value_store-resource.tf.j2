@@ -1,12 +1,6 @@
 resource "awscc_cloudfront_key_value_store" "example" {
-    arn = "{{ arn }}"
     comment = "{{ comment }}"
-    id = "{{ id }}"
-    import_source = "{
-    source_arn = {{ source_arn }}
-    source_type = {{ source_type }}
-}"
-    key_value_store_id = "{{ key_value_store_id }}"
+    import_source = "{{ import_source }}"
     name = "{{ name }}"
-    status = "{{ status }}"
+    tags = "{{ tags }}"
 }

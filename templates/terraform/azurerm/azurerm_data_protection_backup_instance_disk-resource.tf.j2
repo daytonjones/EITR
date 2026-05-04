@@ -5,5 +5,12 @@ resource "azurerm_data_protection_backup_instance_disk" "example" {
     location = "{{ location }}"
     name = "{{ name }}"
     snapshot_resource_group_name = "{{ snapshot_resource_group_name }}"
+    snapshot_subscription_id = "{{ snapshot_subscription_id }}"
     vault_id = "{{ vault_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

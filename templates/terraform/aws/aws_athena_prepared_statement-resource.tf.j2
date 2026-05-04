@@ -3,5 +3,11 @@ resource "aws_athena_prepared_statement" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     query_statement = "{{ query_statement }}"
+    region = "{{ region }}"
     workgroup = "{{ workgroup }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,9 +1,20 @@
 resource "aws_ram_resource_share" "example" {
-    allow_external_principals = "{{ allow_external_principals }}"
-    arn = "{{ arn }}"
+    allow_external_principals = {{ allow_external_principals }}
     id = "{{ id }}"
     name = "{{ name }}"
-    permission_arns = "{{ permission_arns }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    permission_arns = ["{{ permission_arns }}"]
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    resource_share_configuration {
+      retain_sharing_on_account_leave_organization = {{ retain_sharing_on_account_leave_organization }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

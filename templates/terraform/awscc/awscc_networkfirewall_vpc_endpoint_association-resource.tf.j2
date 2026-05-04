@@ -1,0 +1,7 @@
+resource "awscc_networkfirewall_vpc_endpoint_association" "example" {
+    description = "{{ description }}"
+    firewall_arn = "{{ firewall_arn }}"
+    subnet_mapping = "{{ subnet_mapping }}"
+    tags = "{{ tags }}"
+    vpc_id = "{{ vpc_id }}"
+}

@@ -1,0 +1,12 @@
+resource "azurerm_system_center_virtual_machine_manager_virtual_machine_instance_guest_agent" "example" {
+    id = "{{ id }}"
+    password = "{{ password }}"
+    provisioning_action = "{{ provisioning_action }}"
+    scoped_resource_id = "{{ scoped_resource_id }}"
+    username = "{{ username }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
+}

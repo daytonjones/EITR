@@ -1,5 +1,11 @@
 resource "azuread_application_known_clients" "example" {
     application_id = "{{ application_id }}"
     id = "{{ id }}"
-    known_client_ids = "{{ known_client_ids }}"
+    known_client_ids = ["{{ known_client_ids }}"]
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

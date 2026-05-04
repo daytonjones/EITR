@@ -1,8 +1,10 @@
 resource "vsphere_folder" "example" {
-    custom_attributes = "{{ custom_attributes }}"
+    custom_attributes = {
+        key = "{{ custom_attributes_value }}"
+      }
     datacenter_id = "{{ datacenter_id }}"
     id = "{{ id }}"
     path = "{{ path }}"
-    tags = "{{ tags }}"
+    tags = ["{{ tags }}"]
     type = "{{ type }}"
 }

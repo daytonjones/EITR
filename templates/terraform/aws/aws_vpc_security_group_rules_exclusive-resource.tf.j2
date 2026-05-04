@@ -1,0 +1,6 @@
+resource "aws_vpc_security_group_rules_exclusive" "example" {
+    egress_rule_ids = ["{{ egress_rule_ids }}"]
+    ingress_rule_ids = ["{{ ingress_rule_ids }}"]
+    region = "{{ region }}"
+    security_group_id = "{{ security_group_id }}"
+}

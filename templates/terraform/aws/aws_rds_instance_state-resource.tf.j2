@@ -1,4 +1,9 @@
 resource "aws_rds_instance_state" "example" {
     identifier = "{{ identifier }}"
+    region = "{{ region }}"
     state = "{{ state }}"
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
 }

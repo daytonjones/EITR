@@ -1,6 +1,12 @@
 resource "google_site_verification_web_resource" "example" {
     id = "{{ id }}"
-    owners = "{{ owners }}"
     verification_method = "{{ verification_method }}"
-    web_resource_id = "{{ web_resource_id }}"
+    site {
+      identifier = "{{ identifier }}"
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

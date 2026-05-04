@@ -1,9 +1,4 @@
 resource "awscc_ec2_transit_gateway_route_table" "example" {
-    id = "{{ id }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
     transit_gateway_id = "{{ transit_gateway_id }}"
-    transit_gateway_route_table_id = "{{ transit_gateway_route_table_id }}"
 }

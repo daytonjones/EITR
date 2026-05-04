@@ -1,9 +1,13 @@
 resource "google_gke_hub_feature_iam_member" "example" {
-    etag = "{{ etag }}"
     id = "{{ id }}"
     location = "{{ location }}"
     member = "{{ member }}"
     name = "{{ name }}"
     project = "{{ project }}"
     role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

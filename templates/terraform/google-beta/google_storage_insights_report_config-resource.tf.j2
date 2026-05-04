@@ -1,7 +1,42 @@
 resource "google_storage_insights_report_config" "example" {
     display_name = "{{ display_name }}"
+    force_destroy = {{ force_destroy }}
     id = "{{ id }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     project = "{{ project }}"
+    csv_options {
+      delimiter = "{{ delimiter }}"
+      header_required = {{ header_required }}
+      record_separator = "{{ record_separator }}"
+    }
+    frequency_options {
+      frequency = "{{ frequency }}"
+      end_date {
+        day = {{ day }}
+        month = {{ month }}
+        year = {{ year }}
+      }
+      start_date {
+        day = {{ day }}
+        month = {{ month }}
+        year = {{ year }}
+      }
+    }
+    object_metadata_report_options {
+      metadata_fields = ["{{ metadata_fields }}"]
+      storage_destination_options {
+        bucket = "{{ bucket }}"
+        destination_path = "{{ destination_path }}"
+      }
+      storage_filters {
+        bucket = "{{ bucket }}"
+      }
+    }
+    parquet_options {
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

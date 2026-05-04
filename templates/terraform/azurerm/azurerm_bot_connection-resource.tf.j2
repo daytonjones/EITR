@@ -5,8 +5,16 @@ resource "azurerm_bot_connection" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    parameters = "{{ parameters }}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
     resource_group_name = "{{ resource_group_name }}"
     scopes = "{{ scopes }}"
     service_provider_name = "{{ service_provider_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

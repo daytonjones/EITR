@@ -1,27 +1,49 @@
 resource "azurerm_databricks_workspace" "example" {
     access_connector_id = "{{ access_connector_id }}"
-    customer_managed_key_enabled = "{{ customer_managed_key_enabled }}"
-    default_storage_firewall_enabled = "{{ default_storage_firewall_enabled }}"
-    disk_encryption_set_id = "{{ disk_encryption_set_id }}"
+    customer_managed_key_enabled = {{ customer_managed_key_enabled }}
+    default_storage_firewall_enabled = {{ default_storage_firewall_enabled }}
     id = "{{ id }}"
-    infrastructure_encryption_enabled = "{{ infrastructure_encryption_enabled }}"
+    infrastructure_encryption_enabled = {{ infrastructure_encryption_enabled }}
     load_balancer_backend_address_pool_id = "{{ load_balancer_backend_address_pool_id }}"
     location = "{{ location }}"
     managed_disk_cmk_key_vault_id = "{{ managed_disk_cmk_key_vault_id }}"
     managed_disk_cmk_key_vault_key_id = "{{ managed_disk_cmk_key_vault_key_id }}"
-    managed_disk_cmk_rotation_to_latest_version_enabled = "{{ managed_disk_cmk_rotation_to_latest_version_enabled }}"
-    managed_disk_identity = "{{ managed_disk_identity }}"
-    managed_resource_group_id = "{{ managed_resource_group_id }}"
+    managed_disk_cmk_rotation_to_latest_version_enabled = {{ managed_disk_cmk_rotation_to_latest_version_enabled }}
     managed_resource_group_name = "{{ managed_resource_group_name }}"
     managed_services_cmk_key_vault_id = "{{ managed_services_cmk_key_vault_id }}"
     managed_services_cmk_key_vault_key_id = "{{ managed_services_cmk_key_vault_key_id }}"
     name = "{{ name }}"
     network_security_group_rules_required = "{{ network_security_group_rules_required }}"
-    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    public_network_access_enabled = {{ public_network_access_enabled }}
     resource_group_name = "{{ resource_group_name }}"
     sku = "{{ sku }}"
-    storage_account_identity = "{{ storage_account_identity }}"
-    tags = "{{ tags }}"
-    workspace_id = "{{ workspace_id }}"
-    workspace_url = "{{ workspace_url }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    custom_parameters {
+      machine_learning_workspace_id = "{{ machine_learning_workspace_id }}"
+      nat_gateway_name = "{{ nat_gateway_name }}"
+      no_public_ip = {{ no_public_ip }}
+      private_subnet_name = "{{ private_subnet_name }}"
+      private_subnet_network_security_group_association_id = "{{ private_subnet_network_security_group_association_id }}"
+      public_ip_name = "{{ public_ip_name }}"
+      public_subnet_name = "{{ public_subnet_name }}"
+      public_subnet_network_security_group_association_id = "{{ public_subnet_network_security_group_association_id }}"
+      storage_account_name = "{{ storage_account_name }}"
+      storage_account_sku_name = "{{ storage_account_sku_name }}"
+      virtual_network_id = "{{ virtual_network_id }}"
+      vnet_address_prefix = "{{ vnet_address_prefix }}"
+    }
+    enhanced_security_compliance {
+      automatic_cluster_update_enabled = {{ automatic_cluster_update_enabled }}
+      compliance_security_profile_enabled = {{ compliance_security_profile_enabled }}
+      compliance_security_profile_standards = ["{{ compliance_security_profile_standards }}"]
+      enhanced_security_monitoring_enabled = {{ enhanced_security_monitoring_enabled }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

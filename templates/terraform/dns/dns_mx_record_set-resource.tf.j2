@@ -1,6 +1,9 @@
 resource "dns_mx_record_set" "example" {
-    id = "{{ id }}"
     name = "{{ name }}"
-    ttl = "{{ ttl }}"
+    ttl = {{ ttl }}
     zone = "{{ zone }}"
+    mx {
+      exchange = "{{ exchange }}"
+      preference = {{ preference }}
+    }
 }

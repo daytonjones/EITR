@@ -1,0 +1,39 @@
+resource "azurerm_managed_redis" "example" {
+    high_availability_enabled = {{ high_availability_enabled }}
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    public_network_access = "{{ public_network_access }}"
+    resource_group_name = "{{ resource_group_name }}"
+    sku_name = "{{ sku_name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    customer_managed_key {
+      key_vault_key_id = "{{ key_vault_key_id }}"
+      user_assigned_identity_id = "{{ user_assigned_identity_id }}"
+    }
+    default_database {
+      access_keys_authentication_enabled = {{ access_keys_authentication_enabled }}
+      client_protocol = "{{ client_protocol }}"
+      clustering_policy = "{{ clustering_policy }}"
+      eviction_policy = "{{ eviction_policy }}"
+      geo_replication_group_name = "{{ geo_replication_group_name }}"
+      persistence_append_only_file_backup_frequency = "{{ persistence_append_only_file_backup_frequency }}"
+      persistence_redis_database_backup_frequency = "{{ persistence_redis_database_backup_frequency }}"
+      module {
+        args = "{{ args }}"
+        name = "{{ name }}"
+      }
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

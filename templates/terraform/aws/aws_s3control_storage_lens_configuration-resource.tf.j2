@@ -1,8 +1,126 @@
 resource "aws_s3control_storage_lens_configuration" "example" {
     account_id = "{{ account_id }}"
-    arn = "{{ arn }}"
     config_id = "{{ config_id }}"
     id = "{{ id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    storage_lens_configuration {
+      enabled = {{ enabled }}
+      prefix_delimiter = "{{ prefix_delimiter }}"
+      account_level {
+        activity_metrics {
+          enabled = {{ enabled }}
+        }
+        advanced_cost_optimization_metrics {
+          enabled = {{ enabled }}
+        }
+        advanced_data_protection_metrics {
+          enabled = {{ enabled }}
+        }
+        advanced_performance_metrics {
+          enabled = {{ enabled }}
+        }
+        bucket_level {
+          activity_metrics {
+            enabled = {{ enabled }}
+          }
+          advanced_cost_optimization_metrics {
+            enabled = {{ enabled }}
+          }
+          advanced_data_protection_metrics {
+            enabled = {{ enabled }}
+          }
+          advanced_performance_metrics {
+            enabled = {{ enabled }}
+          }
+          detailed_status_code_metrics {
+            enabled = {{ enabled }}
+          }
+          prefix_level {
+            storage_metrics {
+              enabled = {{ enabled }}
+              selection_criteria {
+                delimiter = "{{ delimiter }}"
+                max_depth = {{ max_depth }}
+                min_storage_bytes_percentage = {{ min_storage_bytes_percentage }}
+              }
+            }
+          }
+        }
+        detailed_status_code_metrics {
+          enabled = {{ enabled }}
+        }
+      }
+      aws_org {
+        arn = "{{ arn }}"
+      }
+      data_export {
+        cloud_watch_metrics {
+          enabled = {{ enabled }}
+        }
+        s3_bucket_destination {
+          account_id = "{{ account_id }}"
+          arn = "{{ arn }}"
+          format = "{{ format }}"
+          output_schema_version = "{{ output_schema_version }}"
+          prefix = "{{ prefix }}"
+          encryption {
+            sse_kms {
+              key_id = "{{ key_id }}"
+            }
+            sse_s3 {
+            }
+          }
+        }
+        storage_lens_table_destination {
+          enabled = {{ enabled }}
+          encryption {
+            sse_kms {
+              key_id = "{{ key_id }}"
+            }
+            sse_s3 {
+            }
+          }
+        }
+      }
+      exclude {
+        buckets = ["{{ buckets }}"]
+        regions = ["{{ regions }}"]
+      }
+      expanded_prefixes_data_export {
+        s3_bucket_destination {
+          account_id = "{{ account_id }}"
+          arn = "{{ arn }}"
+          format = "{{ format }}"
+          output_schema_version = "{{ output_schema_version }}"
+          prefix = "{{ prefix }}"
+          encryption {
+            sse_kms {
+              key_id = "{{ key_id }}"
+            }
+            sse_s3 {
+            }
+          }
+        }
+        storage_lens_table_destination {
+          enabled = {{ enabled }}
+          encryption {
+            sse_kms {
+              key_id = "{{ key_id }}"
+            }
+            sse_s3 {
+            }
+          }
+        }
+      }
+      include {
+        buckets = ["{{ buckets }}"]
+        regions = ["{{ regions }}"]
+      }
+    }
 }

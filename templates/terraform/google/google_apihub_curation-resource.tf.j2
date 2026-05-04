@@ -1,0 +1,19 @@
+resource "google_apihub_curation" "example" {
+    curation_id = "{{ curation_id }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    endpoint {
+      application_integration_endpoint_details {
+        trigger_id = "{{ trigger_id }}"
+        uri = "{{ uri }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

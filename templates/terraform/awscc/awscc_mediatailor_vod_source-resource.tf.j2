@@ -1,15 +1,6 @@
 resource "awscc_mediatailor_vod_source" "example" {
-    arn = "{{ arn }}"
-    http_package_configurations = "{
-    path = {{ path }}
-    source_group = {{ source_group }}
-    type = {{ type }}
-}"
-    id = "{{ id }}"
+    http_package_configurations = "{{ http_package_configurations }}"
     source_location_name = "{{ source_location_name }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
     vod_source_name = "{{ vod_source_name }}"
 }

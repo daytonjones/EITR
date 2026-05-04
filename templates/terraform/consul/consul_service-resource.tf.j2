@@ -1,15 +1,37 @@
 resource "consul_service" "example" {
     address = "{{ address }}"
     datacenter = "{{ datacenter }}"
-    enable_tag_override = "{{ enable_tag_override }}"
-    external = "{{ external }}"
+    enable_tag_override = {{ enable_tag_override }}
+    external = {{ external }}
     id = "{{ id }}"
-    meta = "{{ meta }}"
+    meta = {
+        key = "{{ meta_value }}"
+      }
     name = "{{ name }}"
     namespace = "{{ namespace }}"
     node = "{{ node }}"
     partition = "{{ partition }}"
-    port = "{{ port }}"
+    port = {{ port }}
     service_id = "{{ service_id }}"
-    tags = "{{ tags }}"
+    tags = ["{{ tags }}"]
+    weights = {
+        key = "{{ weights_value }}"
+      }
+    check {
+      check_id = "{{ check_id }}"
+      deregister_critical_service_after = "{{ deregister_critical_service_after }}"
+      http = "{{ http }}"
+      interval = "{{ interval }}"
+      method = "{{ method }}"
+      name = "{{ name }}"
+      notes = "{{ notes }}"
+      status = "{{ status }}"
+      tcp = "{{ tcp }}"
+      timeout = "{{ timeout }}"
+      tls_skip_verify = {{ tls_skip_verify }}
+      header {
+        name = "{{ name }}"
+        value = ["{{ value }}"]
+      }
+    }
 }

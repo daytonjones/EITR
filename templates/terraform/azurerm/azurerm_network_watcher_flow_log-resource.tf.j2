@@ -1,5 +1,5 @@
 resource "azurerm_network_watcher_flow_log" "example" {
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
@@ -7,7 +7,26 @@ resource "azurerm_network_watcher_flow_log" "example" {
     network_watcher_name = "{{ network_watcher_name }}"
     resource_group_name = "{{ resource_group_name }}"
     storage_account_id = "{{ storage_account_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     target_resource_id = "{{ target_resource_id }}"
-    version = "{{ version }}"
+    version = {{ version }}
+    retention_policy {
+      days = {{ days }}
+      enabled = {{ enabled }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    traffic_analytics {
+      enabled = {{ enabled }}
+      interval_in_minutes = {{ interval_in_minutes }}
+      workspace_id = "{{ workspace_id }}"
+      workspace_region = "{{ workspace_region }}"
+      workspace_resource_id = "{{ workspace_resource_id }}"
+    }
 }

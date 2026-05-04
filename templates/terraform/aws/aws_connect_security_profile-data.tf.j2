@@ -1,11 +1,10 @@
 data "aws_connect_security_profile" "example" {
-    arn = "{{ arn }}"
-    description = "{{ description }}"
     id = "{{ id }}"
     instance_id = "{{ instance_id }}"
     name = "{{ name }}"
-    organization_resource_id = "{{ organization_resource_id }}"
-    permissions = "{{ permissions }}"
+    region = "{{ region }}"
     security_profile_id = "{{ security_profile_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
 }

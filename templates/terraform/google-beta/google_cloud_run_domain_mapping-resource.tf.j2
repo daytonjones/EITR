@@ -3,5 +3,22 @@ resource "google_cloud_run_domain_mapping" "example" {
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    status = "{{ status }}"
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      namespace = "{{ namespace }}"
+    }
+    spec {
+      certificate_mode = "{{ certificate_mode }}"
+      force_override = {{ force_override }}
+      route_name = "{{ route_name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

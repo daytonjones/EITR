@@ -1,0 +1,5 @@
+data "aws_identitystore_group_memberships" "example" {
+    group_id = "{{ group_id }}"
+    identity_store_id = "{{ identity_store_id }}"
+    region = "{{ region }}"
+}

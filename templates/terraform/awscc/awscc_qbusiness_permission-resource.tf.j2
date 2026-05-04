@@ -1,0 +1,7 @@
+resource "awscc_qbusiness_permission" "example" {
+    actions = ["{{ actions }}"]
+    application_id = "{{ application_id }}"
+    conditions = "{{ conditions }}"
+    principal = "{{ principal }}"
+    statement_id = "{{ statement_id }}"
+}

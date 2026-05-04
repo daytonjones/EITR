@@ -1,9 +1,27 @@
 resource "azurerm_load_test" "example" {
-    data_plane_uri = "{{ data_plane_uri }}"
     description = "{{ description }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    encryption {
+      key_url = "{{ key_url }}"
+      identity {
+        identity_id = "{{ identity_id }}"
+        type = "{{ type }}"
+      }
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

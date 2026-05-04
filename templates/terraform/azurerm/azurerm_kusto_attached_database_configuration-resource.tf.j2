@@ -1,11 +1,29 @@
 resource "azurerm_kusto_attached_database_configuration" "example" {
-    attached_database_names = "{{ attached_database_names }}"
+    cluster_id = "{{ cluster_id }}"
     cluster_name = "{{ cluster_name }}"
     cluster_resource_id = "{{ cluster_resource_id }}"
     database_name = "{{ database_name }}"
+    database_name_override = "{{ database_name_override }}"
+    database_name_prefix = "{{ database_name_prefix }}"
     default_principal_modification_kind = "{{ default_principal_modification_kind }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
+    sharing {
+      external_tables_to_exclude = ["{{ external_tables_to_exclude }}"]
+      external_tables_to_include = ["{{ external_tables_to_include }}"]
+      functions_to_exclude = ["{{ functions_to_exclude }}"]
+      functions_to_include = ["{{ functions_to_include }}"]
+      materialized_views_to_exclude = ["{{ materialized_views_to_exclude }}"]
+      materialized_views_to_include = ["{{ materialized_views_to_include }}"]
+      tables_to_exclude = ["{{ tables_to_exclude }}"]
+      tables_to_include = ["{{ tables_to_include }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

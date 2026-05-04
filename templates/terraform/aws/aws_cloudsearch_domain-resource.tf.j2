@@ -1,9 +1,32 @@
 resource "aws_cloudsearch_domain" "example" {
-    arn = "{{ arn }}"
-    document_service_endpoint = "{{ document_service_endpoint }}"
-    domain_id = "{{ domain_id }}"
     id = "{{ id }}"
-    multi_az = "{{ multi_az }}"
+    multi_az = {{ multi_az }}
     name = "{{ name }}"
-    search_service_endpoint = "{{ search_service_endpoint }}"
+    region = "{{ region }}"
+    endpoint_options {
+      enforce_https = {{ enforce_https }}
+      tls_security_policy = "{{ tls_security_policy }}"
+    }
+    index_field {
+      analysis_scheme = "{{ analysis_scheme }}"
+      default_value = "{{ default_value }}"
+      facet = {{ facet }}
+      highlight = {{ highlight }}
+      name = "{{ name }}"
+      return = {{ return }}
+      search = {{ search }}
+      sort = {{ sort }}
+      source_fields = "{{ source_fields }}"
+      type = "{{ type }}"
+    }
+    scaling_parameters {
+      desired_instance_type = "{{ desired_instance_type }}"
+      desired_partition_count = {{ desired_partition_count }}
+      desired_replication_count = {{ desired_replication_count }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

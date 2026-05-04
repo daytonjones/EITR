@@ -1,7 +1,17 @@
 resource "kubernetes_priority_class" "example" {
     description = "{{ description }}"
-    global_default = "{{ global_default }}"
+    global_default = {{ global_default }}
     id = "{{ id }}"
     preemption_policy = "{{ preemption_policy }}"
-    value = "{{ value }}"
+    value = {{ value }}
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      generate_name = "{{ generate_name }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      name = "{{ name }}"
+    }
 }

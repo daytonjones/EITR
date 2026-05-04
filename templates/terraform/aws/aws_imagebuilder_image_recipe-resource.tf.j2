@@ -1,15 +1,44 @@
 resource "aws_imagebuilder_image_recipe" "example" {
-    arn = "{{ arn }}"
-    date_created = "{{ date_created }}"
+    ami_tags = {
+        key = "{{ ami_tags_value }}"
+      }
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    owner = "{{ owner }}"
     parent_image = "{{ parent_image }}"
-    platform = "{{ platform }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     user_data_base64 = "{{ user_data_base64 }}"
     version = "{{ version }}"
     working_directory = "{{ working_directory }}"
+    block_device_mapping {
+      device_name = "{{ device_name }}"
+      no_device = {{ no_device }}
+      virtual_name = "{{ virtual_name }}"
+      ebs {
+        delete_on_termination = "{{ delete_on_termination }}"
+        encrypted = "{{ encrypted }}"
+        iops = {{ iops }}
+        kms_key_id = "{{ kms_key_id }}"
+        snapshot_id = "{{ snapshot_id }}"
+        throughput = {{ throughput }}
+        volume_size = {{ volume_size }}
+        volume_type = "{{ volume_type }}"
+      }
+    }
+    component {
+      component_arn = "{{ component_arn }}"
+      parameter {
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+    }
+    systems_manager_agent {
+      uninstall_after_build = {{ uninstall_after_build }}
+    }
 }

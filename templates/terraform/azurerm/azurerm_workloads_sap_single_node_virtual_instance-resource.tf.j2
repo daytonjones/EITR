@@ -4,9 +4,58 @@ resource "azurerm_workloads_sap_single_node_virtual_instance" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
     managed_resource_group_name = "{{ managed_resource_group_name }}"
+    managed_resources_network_access_type = "{{ managed_resources_network_access_type }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     sap_fqdn = "{{ sap_fqdn }}"
     sap_product = "{{ sap_product }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    single_server_configuration {
+      app_resource_group_name = "{{ app_resource_group_name }}"
+      database_type = "{{ database_type }}"
+      secondary_ip_enabled = {{ secondary_ip_enabled }}
+      subnet_id = "{{ subnet_id }}"
+      disk_volume_configuration {
+        number_of_disks = {{ number_of_disks }}
+        size_in_gb = {{ size_in_gb }}
+        sku_name = "{{ sku_name }}"
+        volume_name = "{{ volume_name }}"
+      }
+      virtual_machine_configuration {
+        virtual_machine_size = "{{ virtual_machine_size }}"
+        image {
+          offer = "{{ offer }}"
+          publisher = "{{ publisher }}"
+          sku = "{{ sku }}"
+          version = "{{ version }}"
+        }
+        os_profile {
+          admin_username = "{{ admin_username }}"
+          ssh_private_key = "{{ ssh_private_key }}"
+          ssh_public_key = "{{ ssh_public_key }}"
+        }
+      }
+      virtual_machine_resource_names {
+        host_name = "{{ host_name }}"
+        network_interface_names = ["{{ network_interface_names }}"]
+        os_disk_name = "{{ os_disk_name }}"
+        virtual_machine_name = "{{ virtual_machine_name }}"
+        data_disk {
+          names = ["{{ names }}"]
+          volume_name = "{{ volume_name }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

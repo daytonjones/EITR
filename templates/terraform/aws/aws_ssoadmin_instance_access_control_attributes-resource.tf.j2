@@ -1,6 +1,11 @@
 resource "aws_ssoadmin_instance_access_control_attributes" "example" {
     id = "{{ id }}"
     instance_arn = "{{ instance_arn }}"
-    status = "{{ status }}"
-    status_reason = "{{ status_reason }}"
+    region = "{{ region }}"
+    attribute {
+      key = "{{ key }}"
+      value {
+        source = ["{{ source }}"]
+      }
+    }
 }

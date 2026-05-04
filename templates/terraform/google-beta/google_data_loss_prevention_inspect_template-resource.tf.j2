@@ -2,7 +2,128 @@ resource "google_data_loss_prevention_inspect_template" "example" {
     description = "{{ description }}"
     display_name = "{{ display_name }}"
     id = "{{ id }}"
-    name = "{{ name }}"
     parent = "{{ parent }}"
     template_id = "{{ template_id }}"
+    inspect_config {
+      content_options = ["{{ content_options }}"]
+      exclude_info_types = {{ exclude_info_types }}
+      include_quote = {{ include_quote }}
+      min_likelihood = "{{ min_likelihood }}"
+      custom_info_types {
+        exclusion_type = "{{ exclusion_type }}"
+        likelihood = "{{ likelihood }}"
+        dictionary {
+          cloud_storage_path {
+            path = "{{ path }}"
+          }
+          word_list {
+            words = ["{{ words }}"]
+          }
+        }
+        info_type {
+          name = "{{ name }}"
+          version = "{{ version }}"
+          sensitivity_score {
+            score = "{{ score }}"
+          }
+        }
+        regex {
+          group_indexes = ["{{ group_indexes }}"]
+          pattern = "{{ pattern }}"
+        }
+        sensitivity_score {
+          score = "{{ score }}"
+        }
+        stored_type {
+          name = "{{ name }}"
+        }
+        surrogate_type {
+        }
+      }
+      info_types {
+        name = "{{ name }}"
+        version = "{{ version }}"
+        sensitivity_score {
+          score = "{{ score }}"
+        }
+      }
+      limits {
+        max_findings_per_item = {{ max_findings_per_item }}
+        max_findings_per_request = {{ max_findings_per_request }}
+        max_findings_per_info_type {
+          max_findings = {{ max_findings }}
+          info_type {
+            name = "{{ name }}"
+            version = "{{ version }}"
+            sensitivity_score {
+              score = "{{ score }}"
+            }
+          }
+        }
+      }
+      rule_set {
+        info_types {
+          name = "{{ name }}"
+          version = "{{ version }}"
+          sensitivity_score {
+            score = "{{ score }}"
+          }
+        }
+        rules {
+          exclusion_rule {
+            matching_type = "{{ matching_type }}"
+            dictionary {
+              cloud_storage_path {
+                path = "{{ path }}"
+              }
+              word_list {
+                words = ["{{ words }}"]
+              }
+            }
+            exclude_by_hotword {
+              hotword_regex {
+                group_indexes = ["{{ group_indexes }}"]
+                pattern = "{{ pattern }}"
+              }
+              proximity {
+                window_after = {{ window_after }}
+                window_before = {{ window_before }}
+              }
+            }
+            exclude_info_types {
+              info_types {
+                name = "{{ name }}"
+                version = "{{ version }}"
+                sensitivity_score {
+                  score = "{{ score }}"
+                }
+              }
+            }
+            regex {
+              group_indexes = ["{{ group_indexes }}"]
+              pattern = "{{ pattern }}"
+            }
+          }
+          hotword_rule {
+            hotword_regex {
+              group_indexes = ["{{ group_indexes }}"]
+              pattern = "{{ pattern }}"
+            }
+            likelihood_adjustment {
+              fixed_likelihood = "{{ fixed_likelihood }}"
+              relative_likelihood = {{ relative_likelihood }}
+            }
+            proximity {
+              window_after = {{ window_after }}
+              window_before = {{ window_before }}
+            }
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

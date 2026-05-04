@@ -1,16 +1,78 @@
 resource "azurerm_service_fabric_managed_cluster" "example" {
-    backup_service_enabled = "{{ backup_service_enabled }}"
-    client_connection_port = "{{ client_connection_port }}"
+    backup_service_enabled = {{ backup_service_enabled }}
+    client_connection_port = {{ client_connection_port }}
     dns_name = "{{ dns_name }}"
-    dns_service_enabled = "{{ dns_service_enabled }}"
-    http_gateway_port = "{{ http_gateway_port }}"
+    dns_service_enabled = {{ dns_service_enabled }}
+    http_gateway_port = {{ http_gateway_port }}
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     password = "{{ password }}"
     resource_group_name = "{{ resource_group_name }}"
     sku = "{{ sku }}"
-    tags = "{{ tags }}"
+    subnet_id = "{{ subnet_id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     upgrade_wave = "{{ upgrade_wave }}"
     username = "{{ username }}"
+    authentication {
+      active_directory {
+        client_application_id = "{{ client_application_id }}"
+        cluster_application_id = "{{ cluster_application_id }}"
+        tenant_id = "{{ tenant_id }}"
+      }
+      certificate {
+        common_name = "{{ common_name }}"
+        thumbprint = "{{ thumbprint }}"
+        type = "{{ type }}"
+      }
+    }
+    custom_fabric_setting {
+      parameter = "{{ parameter }}"
+      section = "{{ section }}"
+      value = "{{ value }}"
+    }
+    lb_rule {
+      backend_port = {{ backend_port }}
+      frontend_port = {{ frontend_port }}
+      probe_protocol = "{{ probe_protocol }}"
+      probe_request_path = "{{ probe_request_path }}"
+      protocol = "{{ protocol }}"
+    }
+    node_type {
+      application_port_range = "{{ application_port_range }}"
+      capacities = {
+        key = "{{ capacities_value }}"
+      }
+      data_disk_size_gb = {{ data_disk_size_gb }}
+      data_disk_type = "{{ data_disk_type }}"
+      ephemeral_port_range = "{{ ephemeral_port_range }}"
+      multiple_placement_groups_enabled = {{ multiple_placement_groups_enabled }}
+      name = "{{ name }}"
+      placement_properties = {
+        key = "{{ placement_properties_value }}"
+      }
+      primary = {{ primary }}
+      stateless = {{ stateless }}
+      vm_image_offer = "{{ vm_image_offer }}"
+      vm_image_publisher = "{{ vm_image_publisher }}"
+      vm_image_sku = "{{ vm_image_sku }}"
+      vm_image_version = "{{ vm_image_version }}"
+      vm_instance_count = {{ vm_instance_count }}
+      vm_size = "{{ vm_size }}"
+      vm_secrets {
+        vault_id = "{{ vault_id }}"
+        certificates {
+          store = "{{ store }}"
+          url = "{{ url }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

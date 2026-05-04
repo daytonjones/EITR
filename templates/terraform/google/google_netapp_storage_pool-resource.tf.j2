@@ -1,22 +1,33 @@
 resource "google_netapp_storage_pool" "example" {
     active_directory = "{{ active_directory }}"
-    allow_auto_tiering = "{{ allow_auto_tiering }}"
+    allow_auto_tiering = {{ allow_auto_tiering }}
     capacity_gib = "{{ capacity_gib }}"
+    custom_performance_enabled = {{ custom_performance_enabled }}
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
-    encryption_type = "{{ encryption_type }}"
+    enable_hot_tier_auto_resize = {{ enable_hot_tier_auto_resize }}
+    hot_tier_size_gib = "{{ hot_tier_size_gib }}"
     id = "{{ id }}"
     kms_config = "{{ kms_config }}"
-    labels = "{{ labels }}"
-    ldap_enabled = "{{ ldap_enabled }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    ldap_enabled = {{ ldap_enabled }}
     location = "{{ location }}"
+    mode = "{{ mode }}"
     name = "{{ name }}"
     network = "{{ network }}"
     project = "{{ project }}"
+    qos_type = "{{ qos_type }}"
     replica_zone = "{{ replica_zone }}"
+    scale_type = "{{ scale_type }}"
     service_level = "{{ service_level }}"
-    terraform_labels = "{{ terraform_labels }}"
-    volume_capacity_gib = "{{ volume_capacity_gib }}"
-    volume_count = "{{ volume_count }}"
+    total_iops = "{{ total_iops }}"
+    total_throughput_mibps = "{{ total_throughput_mibps }}"
+    type = "{{ type }}"
     zone = "{{ zone }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

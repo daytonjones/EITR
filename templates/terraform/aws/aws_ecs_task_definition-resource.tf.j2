@@ -1,8 +1,7 @@
 resource "aws_ecs_task_definition" "example" {
-    arn = "{{ arn }}"
-    arn_without_revision = "{{ arn_without_revision }}"
     container_definitions = "{{ container_definitions }}"
     cpu = "{{ cpu }}"
+    enable_fault_injection = {{ enable_fault_injection }}
     execution_role_arn = "{{ execution_role_arn }}"
     family = "{{ family }}"
     id = "{{ id }}"
@@ -10,11 +9,73 @@ resource "aws_ecs_task_definition" "example" {
     memory = "{{ memory }}"
     network_mode = "{{ network_mode }}"
     pid_mode = "{{ pid_mode }}"
-    requires_compatibilities = "{{ requires_compatibilities }}"
-    revision = "{{ revision }}"
-    skip_destroy = "{{ skip_destroy }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    requires_compatibilities = ["{{ requires_compatibilities }}"]
+    skip_destroy = {{ skip_destroy }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     task_role_arn = "{{ task_role_arn }}"
-    track_latest = "{{ track_latest }}"
+    track_latest = {{ track_latest }}
+    ephemeral_storage {
+      size_in_gib = {{ size_in_gib }}
+    }
+    placement_constraints {
+      expression = "{{ expression }}"
+      type = "{{ type }}"
+    }
+    proxy_configuration {
+      container_name = "{{ container_name }}"
+      properties = {
+        key = "{{ properties_value }}"
+      }
+      type = "{{ type }}"
+    }
+    runtime_platform {
+      cpu_architecture = "{{ cpu_architecture }}"
+      operating_system_family = "{{ operating_system_family }}"
+    }
+    volume {
+      configure_at_launch = {{ configure_at_launch }}
+      host_path = "{{ host_path }}"
+      name = "{{ name }}"
+      docker_volume_configuration {
+        autoprovision = {{ autoprovision }}
+        driver = "{{ driver }}"
+        driver_opts = {
+        key = "{{ driver_opts_value }}"
+      }
+        labels = {
+        key = "{{ labels_value }}"
+      }
+        scope = "{{ scope }}"
+      }
+      efs_volume_configuration {
+        file_system_id = "{{ file_system_id }}"
+        root_directory = "{{ root_directory }}"
+        transit_encryption = "{{ transit_encryption }}"
+        transit_encryption_port = {{ transit_encryption_port }}
+        authorization_config {
+          access_point_id = "{{ access_point_id }}"
+          iam = "{{ iam }}"
+        }
+      }
+      fsx_windows_file_server_volume_configuration {
+        file_system_id = "{{ file_system_id }}"
+        root_directory = "{{ root_directory }}"
+        authorization_config {
+          credentials_parameter = "{{ credentials_parameter }}"
+          domain = "{{ domain }}"
+        }
+      }
+      s3files_volume_configuration {
+        access_point_arn = "{{ access_point_arn }}"
+        file_system_arn = "{{ file_system_arn }}"
+        root_directory = "{{ root_directory }}"
+        transit_encryption_port = {{ transit_encryption_port }}
+      }
+    }
 }

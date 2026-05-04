@@ -1,10 +1,22 @@
 resource "google_gke_hub_fleet" "example" {
-    create_time = "{{ create_time }}"
-    delete_time = "{{ delete_time }}"
     display_name = "{{ display_name }}"
     id = "{{ id }}"
     project = "{{ project }}"
-    state = "{{ state }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
+    default_cluster_config {
+      binary_authorization_config {
+        evaluation_mode = "{{ evaluation_mode }}"
+        policy_bindings {
+          name = "{{ name }}"
+        }
+      }
+      security_posture_config {
+        mode = "{{ mode }}"
+        vulnerability_mode = "{{ vulnerability_mode }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

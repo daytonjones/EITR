@@ -1,5 +1,14 @@
 resource "aws_securityhub_organization_configuration" "example" {
-    auto_enable = "{{ auto_enable }}"
+    auto_enable = {{ auto_enable }}
     auto_enable_standards = "{{ auto_enable_standards }}"
     id = "{{ id }}"
+    region = "{{ region }}"
+    organization_configuration {
+      configuration_type = "{{ configuration_type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

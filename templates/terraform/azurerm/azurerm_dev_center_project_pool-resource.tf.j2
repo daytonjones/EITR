@@ -3,9 +3,19 @@ resource "azurerm_dev_center_project_pool" "example" {
     dev_center_attached_network_name = "{{ dev_center_attached_network_name }}"
     dev_center_project_id = "{{ dev_center_project_id }}"
     id = "{{ id }}"
-    local_administrator_enabled = "{{ local_administrator_enabled }}"
+    local_administrator_enabled = {{ local_administrator_enabled }}
     location = "{{ location }}"
+    managed_virtual_network_regions = ["{{ managed_virtual_network_regions }}"]
     name = "{{ name }}"
-    stop_on_disconnect_grace_period_minutes = "{{ stop_on_disconnect_grace_period_minutes }}"
-    tags = "{{ tags }}"
+    single_sign_on_enabled = {{ single_sign_on_enabled }}
+    stop_on_disconnect_grace_period_minutes = {{ stop_on_disconnect_grace_period_minutes }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,23 +1,50 @@
 resource "aws_synthetics_canary" "example" {
-    arn = "{{ arn }}"
     artifact_s3_location = "{{ artifact_s3_location }}"
-    delete_lambda = "{{ delete_lambda }}"
-    engine_arn = "{{ engine_arn }}"
+    delete_lambda = {{ delete_lambda }}
     execution_role_arn = "{{ execution_role_arn }}"
-    failure_retention_period = "{{ failure_retention_period }}"
+    failure_retention_period = {{ failure_retention_period }}
     handler = "{{ handler }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     runtime_version = "{{ runtime_version }}"
     s3_bucket = "{{ s3_bucket }}"
     s3_key = "{{ s3_key }}"
     s3_version = "{{ s3_version }}"
-    source_location_arn = "{{ source_location_arn }}"
-    start_canary = "{{ start_canary }}"
-    status = "{{ status }}"
-    success_retention_period = "{{ success_retention_period }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    timeline = "{{ timeline }}"
+    start_canary = {{ start_canary }}
+    success_retention_period = {{ success_retention_period }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     zip_file = "{{ zip_file }}"
+    artifact_config {
+      s3_encryption {
+        encryption_mode = "{{ encryption_mode }}"
+        kms_key_arn = "{{ kms_key_arn }}"
+      }
+    }
+    run_config {
+      active_tracing = {{ active_tracing }}
+      environment_variables = {
+        key = "{{ environment_variables_value }}"
+      }
+      ephemeral_storage = {{ ephemeral_storage }}
+      memory_in_mb = {{ memory_in_mb }}
+      timeout_in_seconds = {{ timeout_in_seconds }}
+    }
+    schedule {
+      duration_in_seconds = {{ duration_in_seconds }}
+      expression = "{{ expression }}"
+      retry_config {
+        max_retries = {{ max_retries }}
+      }
+    }
+    vpc_config {
+      ipv6_allowed_for_dual_stack = {{ ipv6_allowed_for_dual_stack }}
+      security_group_ids = ["{{ security_group_ids }}"]
+      subnet_ids = ["{{ subnet_ids }}"]
+    }
 }

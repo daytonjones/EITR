@@ -1,7 +1,11 @@
 resource "google_kms_key_ring_iam_binding" "example" {
-    etag = "{{ etag }}"
     id = "{{ id }}"
     key_ring_id = "{{ key_ring_id }}"
-    members = "{{ members }}"
+    members = ["{{ members }}"]
     role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

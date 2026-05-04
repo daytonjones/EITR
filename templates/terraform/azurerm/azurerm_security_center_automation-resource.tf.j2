@@ -1,10 +1,35 @@
 resource "azurerm_security_center_automation" "example" {
     description = "{{ description }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    scopes = "{{ scopes }}"
-    tags = "{{ tags }}"
+    scopes = ["{{ scopes }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    action {
+      connection_string = "{{ connection_string }}"
+      resource_id = "{{ resource_id }}"
+      trigger_url = "{{ trigger_url }}"
+      type = "{{ type }}"
+    }
+    source {
+      event_source = "{{ event_source }}"
+      rule_set {
+        rule {
+          expected_value = "{{ expected_value }}"
+          operator = "{{ operator }}"
+          property_path = "{{ property_path }}"
+          property_type = "{{ property_type }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

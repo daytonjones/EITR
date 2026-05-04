@@ -1,7 +1,65 @@
 resource "consul_config_entry_service_router" "example" {
     id = "{{ id }}"
-    meta = "{{ meta }}"
+    meta = {
+        key = "{{ meta_value }}"
+      }
     name = "{{ name }}"
     namespace = "{{ namespace }}"
     partition = "{{ partition }}"
+    routes {
+      destination {
+        idle_timeout = "{{ idle_timeout }}"
+        namespace = "{{ namespace }}"
+        num_retries = {{ num_retries }}
+        partition = "{{ partition }}"
+        prefix_rewrite = "{{ prefix_rewrite }}"
+        request_timeout = "{{ request_timeout }}"
+        retry_on = ["{{ retry_on }}"]
+        retry_on_connect_failure = {{ retry_on_connect_failure }}
+        retry_on_status_codes = ["{{ retry_on_status_codes }}"]
+        service = "{{ service }}"
+        service_subset = "{{ service_subset }}"
+        request_headers {
+          add = {
+        key = "{{ add_value }}"
+      }
+          remove = ["{{ remove }}"]
+          set = {
+        key = "{{ set_value }}"
+      }
+        }
+        response_headers {
+          add = {
+        key = "{{ add_value }}"
+      }
+          remove = ["{{ remove }}"]
+          set = {
+        key = "{{ set_value }}"
+      }
+        }
+      }
+      match {
+        http {
+          methods = ["{{ methods }}"]
+          path_exact = "{{ path_exact }}"
+          path_prefix = "{{ path_prefix }}"
+          path_regex = "{{ path_regex }}"
+          header {
+            exact = "{{ exact }}"
+            invert = {{ invert }}
+            name = "{{ name }}"
+            prefix = "{{ prefix }}"
+            present = {{ present }}
+            regex = "{{ regex }}"
+            suffix = "{{ suffix }}"
+          }
+          query_param {
+            exact = "{{ exact }}"
+            name = "{{ name }}"
+            present = {{ present }}
+            regex = "{{ regex }}"
+          }
+        }
+      }
+    }
 }

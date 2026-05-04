@@ -1,0 +1,18 @@
+resource "google_iam_workforce_pool_provider_scim_tenant" "example" {
+    claim_mapping = {
+        key = "{{ claim_mapping_value }}"
+      }
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    hard_delete = {{ hard_delete }}
+    id = "{{ id }}"
+    location = "{{ location }}"
+    provider_id = "{{ provider_id }}"
+    scim_tenant_id = "{{ scim_tenant_id }}"
+    workforce_pool_id = "{{ workforce_pool_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

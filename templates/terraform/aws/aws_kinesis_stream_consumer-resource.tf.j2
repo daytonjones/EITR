@@ -1,7 +1,12 @@
 resource "aws_kinesis_stream_consumer" "example" {
-    arn = "{{ arn }}"
-    creation_timestamp = "{{ creation_timestamp }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     stream_arn = "{{ stream_arn }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

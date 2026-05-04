@@ -1,23 +1,56 @@
 resource "azurerm_monitor_scheduled_query_rules_alert_v2" "example" {
-    auto_mitigation_enabled = "{{ auto_mitigation_enabled }}"
-    created_with_api_version = "{{ created_with_api_version }}"
+    auto_mitigation_enabled = {{ auto_mitigation_enabled }}
     description = "{{ description }}"
     display_name = "{{ display_name }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     evaluation_frequency = "{{ evaluation_frequency }}"
     id = "{{ id }}"
-    is_a_legacy_log_analytics_rule = "{{ is_a_legacy_log_analytics_rule }}"
-    is_workspace_alerts_storage_configured = "{{ is_workspace_alerts_storage_configured }}"
     location = "{{ location }}"
     mute_actions_after_alert_duration = "{{ mute_actions_after_alert_duration }}"
     name = "{{ name }}"
     query_time_range_override = "{{ query_time_range_override }}"
     resource_group_name = "{{ resource_group_name }}"
-    scopes = "{{ scopes }}"
-    severity = "{{ severity }}"
-    skip_query_validation = "{{ skip_query_validation }}"
-    tags = "{{ tags }}"
-    target_resource_types = "{{ target_resource_types }}"
+    scopes = ["{{ scopes }}"]
+    severity = {{ severity }}
+    skip_query_validation = {{ skip_query_validation }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    target_resource_types = ["{{ target_resource_types }}"]
     window_duration = "{{ window_duration }}"
-    workspace_alerts_storage_enabled = "{{ workspace_alerts_storage_enabled }}"
+    workspace_alerts_storage_enabled = {{ workspace_alerts_storage_enabled }}
+    action {
+      action_groups = ["{{ action_groups }}"]
+      custom_properties = {
+        key = "{{ custom_properties_value }}"
+      }
+      email_subject = "{{ email_subject }}"
+    }
+    criteria {
+      metric_measure_column = "{{ metric_measure_column }}"
+      operator = "{{ operator }}"
+      query = "{{ query }}"
+      resource_id_column = "{{ resource_id_column }}"
+      threshold = {{ threshold }}
+      time_aggregation_method = "{{ time_aggregation_method }}"
+      dimension {
+        name = "{{ name }}"
+        operator = "{{ operator }}"
+        values = ["{{ values }}"]
+      }
+      failing_periods {
+        minimum_failing_periods_to_trigger_alert = {{ minimum_failing_periods_to_trigger_alert }}
+        number_of_evaluation_periods = {{ number_of_evaluation_periods }}
+      }
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

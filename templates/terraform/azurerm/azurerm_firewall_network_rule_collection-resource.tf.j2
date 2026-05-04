@@ -3,6 +3,23 @@ resource "azurerm_firewall_network_rule_collection" "example" {
     azure_firewall_name = "{{ azure_firewall_name }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    priority = "{{ priority }}"
+    priority = {{ priority }}
     resource_group_name = "{{ resource_group_name }}"
+    rule {
+      description = "{{ description }}"
+      destination_addresses = ["{{ destination_addresses }}"]
+      destination_fqdns = ["{{ destination_fqdns }}"]
+      destination_ip_groups = ["{{ destination_ip_groups }}"]
+      destination_ports = ["{{ destination_ports }}"]
+      name = "{{ name }}"
+      protocols = ["{{ protocols }}"]
+      source_addresses = ["{{ source_addresses }}"]
+      source_ip_groups = ["{{ source_ip_groups }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

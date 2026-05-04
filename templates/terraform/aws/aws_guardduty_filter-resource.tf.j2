@@ -1,11 +1,28 @@
 resource "aws_guardduty_filter" "example" {
     action = "{{ action }}"
-    arn = "{{ arn }}"
     description = "{{ description }}"
     detector_id = "{{ detector_id }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    rank = "{{ rank }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    rank = {{ rank }}
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    finding_criteria {
+      criterion {
+        equals = ["{{ equals }}"]
+        field = "{{ field }}"
+        greater_than = "{{ greater_than }}"
+        greater_than_or_equal = "{{ greater_than_or_equal }}"
+        less_than = "{{ less_than }}"
+        less_than_or_equal = "{{ less_than_or_equal }}"
+        matches = ["{{ matches }}"]
+        not_equals = ["{{ not_equals }}"]
+        not_matches = ["{{ not_matches }}"]
+      }
+    }
 }

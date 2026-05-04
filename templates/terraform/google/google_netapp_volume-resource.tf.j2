@@ -1,39 +1,118 @@
 resource "google_netapp_volume" "example" {
-    active_directory = "{{ active_directory }}"
     capacity_gib = "{{ capacity_gib }}"
-    cold_tier_size_gib = "{{ cold_tier_size_gib }}"
-    create_time = "{{ create_time }}"
     deletion_policy = "{{ deletion_policy }}"
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
-    encryption_type = "{{ encryption_type }}"
-    has_replication = "{{ has_replication }}"
     id = "{{ id }}"
-    kerberos_enabled = "{{ kerberos_enabled }}"
-    kms_config = "{{ kms_config }}"
-    labels = "{{ labels }}"
-    large_capacity = "{{ large_capacity }}"
-    ldap_enabled = "{{ ldap_enabled }}"
+    kerberos_enabled = {{ kerberos_enabled }}
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    large_capacity = {{ large_capacity }}
     location = "{{ location }}"
-    mount_options = "{{ mount_options }}"
-    multiple_endpoints = "{{ multiple_endpoints }}"
+    multiple_endpoints = {{ multiple_endpoints }}
     name = "{{ name }}"
-    network = "{{ network }}"
     project = "{{ project }}"
-    protocols = "{{ protocols }}"
-    psa_range = "{{ psa_range }}"
-    replica_zone = "{{ replica_zone }}"
-    restricted_actions = "{{ restricted_actions }}"
+    protocols = ["{{ protocols }}"]
+    restricted_actions = ["{{ restricted_actions }}"]
     security_style = "{{ security_style }}"
-    service_level = "{{ service_level }}"
     share_name = "{{ share_name }}"
-    smb_settings = "{{ smb_settings }}"
-    snapshot_directory = "{{ snapshot_directory }}"
-    state = "{{ state }}"
-    state_details = "{{ state_details }}"
+    smb_settings = ["{{ smb_settings }}"]
+    snapshot_directory = {{ snapshot_directory }}
     storage_pool = "{{ storage_pool }}"
-    terraform_labels = "{{ terraform_labels }}"
+    throughput_mibps = {{ throughput_mibps }}
     unix_permissions = "{{ unix_permissions }}"
-    used_gib = "{{ used_gib }}"
-    zone = "{{ zone }}"
+    backup_config {
+      backup_policies = ["{{ backup_policies }}"]
+      backup_vault = "{{ backup_vault }}"
+      scheduled_backup_enabled = {{ scheduled_backup_enabled }}
+    }
+    block_devices {
+      host_groups = ["{{ host_groups }}"]
+      name = "{{ name }}"
+      os_type = "{{ os_type }}"
+    }
+    cache_parameters {
+      enable_global_file_lock = {{ enable_global_file_lock }}
+      peer_cluster_name = "{{ peer_cluster_name }}"
+      peer_ip_addresses = ["{{ peer_ip_addresses }}"]
+      peer_svm_name = "{{ peer_svm_name }}"
+      peer_volume_name = "{{ peer_volume_name }}"
+      peering_command_expiry_time = "{{ peering_command_expiry_time }}"
+      cache_config {
+        cifs_change_notify_enabled = {{ cifs_change_notify_enabled }}
+      }
+    }
+    export_policy {
+      rules {
+        access_type = "{{ access_type }}"
+        allowed_clients = "{{ allowed_clients }}"
+        anon_uid = {{ anon_uid }}
+        has_root_access = "{{ has_root_access }}"
+        kerberos5_read_only = {{ kerberos5_read_only }}
+        kerberos5_read_write = {{ kerberos5_read_write }}
+        kerberos5i_read_only = {{ kerberos5i_read_only }}
+        kerberos5i_read_write = {{ kerberos5i_read_write }}
+        kerberos5p_read_only = {{ kerberos5p_read_only }}
+        kerberos5p_read_write = {{ kerberos5p_read_write }}
+        nfsv3 = {{ nfsv3 }}
+        nfsv4 = {{ nfsv4 }}
+        squash_mode = "{{ squash_mode }}"
+      }
+    }
+    hybrid_replication_parameters {
+      cluster_location = "{{ cluster_location }}"
+      description = "{{ description }}"
+      hybrid_replication_type = "{{ hybrid_replication_type }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      large_volume_constituent_count = {{ large_volume_constituent_count }}
+      peer_cluster_name = "{{ peer_cluster_name }}"
+      peer_ip_addresses = ["{{ peer_ip_addresses }}"]
+      peer_svm_name = "{{ peer_svm_name }}"
+      peer_volume_name = "{{ peer_volume_name }}"
+      replication = "{{ replication }}"
+      replication_schedule = "{{ replication_schedule }}"
+    }
+    large_capacity_config {
+      constituent_count = {{ constituent_count }}
+    }
+    restore_parameters {
+      source_backup = "{{ source_backup }}"
+      source_snapshot = "{{ source_snapshot }}"
+    }
+    snapshot_policy {
+      enabled = {{ enabled }}
+      daily_schedule {
+        hour = {{ hour }}
+        minute = {{ minute }}
+        snapshots_to_keep = {{ snapshots_to_keep }}
+      }
+      hourly_schedule {
+        minute = {{ minute }}
+        snapshots_to_keep = {{ snapshots_to_keep }}
+      }
+      monthly_schedule {
+        days_of_month = "{{ days_of_month }}"
+        hour = {{ hour }}
+        minute = {{ minute }}
+        snapshots_to_keep = {{ snapshots_to_keep }}
+      }
+      weekly_schedule {
+        day = "{{ day }}"
+        hour = {{ hour }}
+        minute = {{ minute }}
+        snapshots_to_keep = {{ snapshots_to_keep }}
+      }
+    }
+    tiering_policy {
+      cooling_threshold_days = {{ cooling_threshold_days }}
+      hot_tier_bypass_mode_enabled = {{ hot_tier_bypass_mode_enabled }}
+      tier_action = "{{ tier_action }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

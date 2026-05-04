@@ -1,9 +1,13 @@
 resource "google_privateca_certificate_template_iam_binding" "example" {
     certificate_template = "{{ certificate_template }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
     location = "{{ location }}"
-    members = "{{ members }}"
+    members = ["{{ members }}"]
     project = "{{ project }}"
     role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

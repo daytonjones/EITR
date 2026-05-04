@@ -1,0 +1,87 @@
+resource "aws_bedrockagent_prompt" "example" {
+    customer_encryption_key_arn = "{{ customer_encryption_key_arn }}"
+    default_variant = "{{ default_variant }}"
+    description = "{{ description }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    variant {
+      additional_model_request_fields = "{{ additional_model_request_fields }}"
+      model_id = "{{ model_id }}"
+      name = "{{ name }}"
+      template_type = "{{ template_type }}"
+      gen_ai_resource {
+        agent {
+          agent_identifier = "{{ agent_identifier }}"
+        }
+      }
+      inference_configuration {
+        text {
+          max_tokens = {{ max_tokens }}
+          stop_sequences = ["{{ stop_sequences }}"]
+          temperature = {{ temperature }}
+          top_p = {{ top_p }}
+        }
+      }
+      metadata {
+        key = "{{ key }}"
+        value = "{{ value }}"
+      }
+      template_configuration {
+        chat {
+          input_variable {
+            name = "{{ name }}"
+          }
+          message {
+            role = "{{ role }}"
+            content {
+              text = "{{ text }}"
+              cache_point {
+                type = "{{ type }}"
+              }
+            }
+          }
+          system {
+            text = "{{ text }}"
+            cache_point {
+              type = "{{ type }}"
+            }
+          }
+          tool_configuration {
+            tool {
+              cache_point {
+                type = "{{ type }}"
+              }
+              tool_spec {
+                description = "{{ description }}"
+                name = "{{ name }}"
+                input_schema {
+                  json = "{{ json }}"
+                }
+              }
+            }
+            tool_choice {
+              any {
+              }
+              auto {
+              }
+              tool {
+                name = "{{ name }}"
+              }
+            }
+          }
+        }
+        text {
+          text = "{{ text }}"
+          cache_point {
+            type = "{{ type }}"
+          }
+          input_variable {
+            name = "{{ name }}"
+          }
+        }
+      }
+    }
+}

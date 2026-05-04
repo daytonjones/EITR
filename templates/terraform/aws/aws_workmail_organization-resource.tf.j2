@@ -1,0 +1,16 @@
+resource "aws_workmail_organization" "example" {
+    delete_directory = {{ delete_directory }}
+    delete_identity_center_application = {{ delete_identity_center_application }}
+    directory_id = "{{ directory_id }}"
+    interoperability_enabled = {{ interoperability_enabled }}
+    kms_key_arn = "{{ kms_key_arn }}"
+    organization_alias = "{{ organization_alias }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

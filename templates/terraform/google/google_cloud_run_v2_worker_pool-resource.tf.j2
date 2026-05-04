@@ -1,0 +1,164 @@
+resource "google_cloud_run_v2_worker_pool" "example" {
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
+    client = "{{ client }}"
+    client_version = "{{ client_version }}"
+    custom_audiences = ["{{ custom_audiences }}"]
+    deletion_protection = {{ deletion_protection }}
+    description = "{{ description }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    launch_stage = "{{ launch_stage }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    binary_authorization {
+      breakglass_justification = "{{ breakglass_justification }}"
+      policy = "{{ policy }}"
+      use_default = {{ use_default }}
+    }
+    instance_splits {
+      percent = {{ percent }}
+      revision = "{{ revision }}"
+      type = "{{ type }}"
+    }
+    scaling {
+      manual_instance_count = {{ manual_instance_count }}
+      max_instance_count = {{ max_instance_count }}
+      min_instance_count = {{ min_instance_count }}
+      scaling_mode = "{{ scaling_mode }}"
+    }
+    template {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      encryption_key = "{{ encryption_key }}"
+      encryption_key_revocation_action = "{{ encryption_key_revocation_action }}"
+      encryption_key_shutdown_duration = "{{ encryption_key_shutdown_duration }}"
+      gpu_zonal_redundancy_disabled = {{ gpu_zonal_redundancy_disabled }}
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      revision = "{{ revision }}"
+      service_account = "{{ service_account }}"
+      containers {
+        args = ["{{ args }}"]
+        command = ["{{ command }}"]
+        depends_on = ["{{ depends_on }}"]
+        image = "{{ image }}"
+        name = "{{ name }}"
+        working_dir = "{{ working_dir }}"
+        env {
+          name = "{{ name }}"
+          value = "{{ value }}"
+          value_source {
+            secret_key_ref {
+              secret = "{{ secret }}"
+              version = "{{ version }}"
+            }
+          }
+        }
+        liveness_probe {
+          failure_threshold = {{ failure_threshold }}
+          initial_delay_seconds = {{ initial_delay_seconds }}
+          period_seconds = {{ period_seconds }}
+          timeout_seconds = {{ timeout_seconds }}
+          grpc {
+            port = {{ port }}
+            service = "{{ service }}"
+          }
+          http_get {
+            path = "{{ path }}"
+            port = {{ port }}
+            http_headers {
+              port = {{ port }}
+              value = "{{ value }}"
+            }
+          }
+          tcp_socket {
+            port = {{ port }}
+          }
+        }
+        resources {
+          limits = {
+        key = "{{ limits_value }}"
+      }
+        }
+        startup_probe {
+          failure_threshold = {{ failure_threshold }}
+          initial_delay_seconds = {{ initial_delay_seconds }}
+          period_seconds = {{ period_seconds }}
+          timeout_seconds = {{ timeout_seconds }}
+          grpc {
+            port = {{ port }}
+            service = "{{ service }}"
+          }
+          http_get {
+            path = "{{ path }}"
+            port = {{ port }}
+            http_headers {
+              port = {{ port }}
+              value = "{{ value }}"
+            }
+          }
+          tcp_socket {
+            port = {{ port }}
+          }
+        }
+        volume_mounts {
+          mount_path = "{{ mount_path }}"
+          name = "{{ name }}"
+          sub_path = "{{ sub_path }}"
+        }
+      }
+      node_selector {
+        accelerator = "{{ accelerator }}"
+      }
+      volumes {
+        name = "{{ name }}"
+        cloud_sql_instance {
+          instances = ["{{ instances }}"]
+        }
+        empty_dir {
+          medium = "{{ medium }}"
+          size_limit = "{{ size_limit }}"
+        }
+        gcs {
+          bucket = "{{ bucket }}"
+          mount_options = ["{{ mount_options }}"]
+          read_only = {{ read_only }}
+        }
+        nfs {
+          path = "{{ path }}"
+          read_only = {{ read_only }}
+          server = "{{ server }}"
+        }
+        secret {
+          default_mode = {{ default_mode }}
+          secret = "{{ secret }}"
+          items {
+            mode = {{ mode }}
+            path = "{{ path }}"
+            version = "{{ version }}"
+          }
+        }
+      }
+      vpc_access {
+        connector = "{{ connector }}"
+        egress = "{{ egress }}"
+        network_interfaces {
+          network = "{{ network }}"
+          subnetwork = "{{ subnetwork }}"
+          tags = ["{{ tags }}"]
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

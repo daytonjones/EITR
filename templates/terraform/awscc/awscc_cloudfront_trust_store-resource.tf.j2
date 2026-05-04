@@ -1,0 +1,5 @@
+resource "awscc_cloudfront_trust_store" "example" {
+    ca_certificates_bundle_source = "{{ ca_certificates_bundle_source }}"
+    name = "{{ name }}"
+    tags = "{{ tags }}"
+}

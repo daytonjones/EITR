@@ -12,4 +12,11 @@ resource "azurerm_iothub_endpoint_cosmosdb_account" "example" {
     primary_key = "{{ primary_key }}"
     resource_group_name = "{{ resource_group_name }}"
     secondary_key = "{{ secondary_key }}"
+    subscription_id = "{{ subscription_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

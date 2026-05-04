@@ -1,9 +1,13 @@
 resource "aws_sagemaker_studio_lifecycle_config" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     studio_lifecycle_config_app_type = "{{ studio_lifecycle_config_app_type }}"
     studio_lifecycle_config_content = "{{ studio_lifecycle_config_content }}"
     studio_lifecycle_config_name = "{{ studio_lifecycle_config_name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

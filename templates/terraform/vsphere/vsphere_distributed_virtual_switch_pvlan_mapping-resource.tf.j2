@@ -1,0 +1,7 @@
+resource "vsphere_distributed_virtual_switch_pvlan_mapping" "example" {
+    distributed_virtual_switch_id = "{{ distributed_virtual_switch_id }}"
+    id = "{{ id }}"
+    primary_vlan_id = {{ primary_vlan_id }}
+    pvlan_type = "{{ pvlan_type }}"
+    secondary_vlan_id = {{ secondary_vlan_id }}
+}

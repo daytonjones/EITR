@@ -1,7 +1,17 @@
 resource "azurerm_storage_object_replication" "example" {
-    destination_object_replication_id = "{{ destination_object_replication_id }}"
     destination_storage_account_id = "{{ destination_storage_account_id }}"
     id = "{{ id }}"
-    source_object_replication_id = "{{ source_object_replication_id }}"
     source_storage_account_id = "{{ source_storage_account_id }}"
+    rules {
+      copy_blobs_created_after = "{{ copy_blobs_created_after }}"
+      destination_container_name = "{{ destination_container_name }}"
+      filter_out_blobs_with_prefix = ["{{ filter_out_blobs_with_prefix }}"]
+      source_container_name = "{{ source_container_name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

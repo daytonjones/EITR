@@ -1,20 +1,20 @@
 resource "azurerm_mssql_database" "example" {
-    auto_pause_delay_in_minutes = "{{ auto_pause_delay_in_minutes }}"
+    auto_pause_delay_in_minutes = {{ auto_pause_delay_in_minutes }}
     collation = "{{ collation }}"
     create_mode = "{{ create_mode }}"
     creation_source_database_id = "{{ creation_source_database_id }}"
     elastic_pool_id = "{{ elastic_pool_id }}"
     enclave_type = "{{ enclave_type }}"
-    geo_backup_enabled = "{{ geo_backup_enabled }}"
+    geo_backup_enabled = {{ geo_backup_enabled }}
     id = "{{ id }}"
-    ledger_enabled = "{{ ledger_enabled }}"
+    ledger_enabled = {{ ledger_enabled }}
     license_type = "{{ license_type }}"
     maintenance_configuration_name = "{{ maintenance_configuration_name }}"
-    max_size_gb = "{{ max_size_gb }}"
-    min_capacity = "{{ min_capacity }}"
+    max_size_gb = {{ max_size_gb }}
+    min_capacity = {{ min_capacity }}
     name = "{{ name }}"
-    read_replica_count = "{{ read_replica_count }}"
-    read_scale = "{{ read_scale }}"
+    read_replica_count = {{ read_replica_count }}
+    read_scale = {{ read_scale }}
     recover_database_id = "{{ recover_database_id }}"
     recovery_point_id = "{{ recovery_point_id }}"
     restore_dropped_database_id = "{{ restore_dropped_database_id }}"
@@ -25,9 +25,50 @@ resource "azurerm_mssql_database" "example" {
     server_id = "{{ server_id }}"
     sku_name = "{{ sku_name }}"
     storage_account_type = "{{ storage_account_type }}"
-    tags = "{{ tags }}"
-    transparent_data_encryption_enabled = "{{ transparent_data_encryption_enabled }}"
-    transparent_data_encryption_key_automatic_rotation_enabled = "{{ transparent_data_encryption_key_automatic_rotation_enabled }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    transparent_data_encryption_enabled = {{ transparent_data_encryption_enabled }}
+    transparent_data_encryption_key_automatic_rotation_enabled = {{ transparent_data_encryption_key_automatic_rotation_enabled }}
     transparent_data_encryption_key_vault_key_id = "{{ transparent_data_encryption_key_vault_key_id }}"
-    zone_redundant = "{{ zone_redundant }}"
+    zone_redundant = {{ zone_redundant }}
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    import {
+      administrator_login = "{{ administrator_login }}"
+      administrator_login_password = "{{ administrator_login_password }}"
+      authentication_type = "{{ authentication_type }}"
+      storage_account_id = "{{ storage_account_id }}"
+      storage_key = "{{ storage_key }}"
+      storage_key_type = "{{ storage_key_type }}"
+      storage_uri = "{{ storage_uri }}"
+    }
+    long_term_retention_policy {
+      immutable_backups_enabled = {{ immutable_backups_enabled }}
+      monthly_retention = "{{ monthly_retention }}"
+      week_of_year = {{ week_of_year }}
+      weekly_retention = "{{ weekly_retention }}"
+      yearly_retention = "{{ yearly_retention }}"
+    }
+    short_term_retention_policy {
+      backup_interval_in_hours = {{ backup_interval_in_hours }}
+      retention_days = {{ retention_days }}
+    }
+    threat_detection_policy {
+      disabled_alerts = ["{{ disabled_alerts }}"]
+      email_account_admins = "{{ email_account_admins }}"
+      email_addresses = ["{{ email_addresses }}"]
+      retention_days = {{ retention_days }}
+      state = "{{ state }}"
+      storage_account_access_key = "{{ storage_account_access_key }}"
+      storage_endpoint = "{{ storage_endpoint }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

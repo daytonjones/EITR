@@ -1,5 +1,6 @@
 resource "aws_vpc_endpoint_service_allowed_principal" "example" {
     id = "{{ id }}"
     principal_arn = "{{ principal_arn }}"
+    region = "{{ region }}"
     vpc_endpoint_service_id = "{{ vpc_endpoint_service_id }}"
 }

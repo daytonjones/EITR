@@ -3,5 +3,12 @@ resource "google_storage_transfer_agent_pool" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    state = "{{ state }}"
+    bandwidth_limit {
+      limit_mbps = "{{ limit_mbps }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

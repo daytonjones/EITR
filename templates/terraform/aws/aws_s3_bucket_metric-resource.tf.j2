@@ -2,4 +2,12 @@ resource "aws_s3_bucket_metric" "example" {
     bucket = "{{ bucket }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
+    filter {
+      access_point = "{{ access_point }}"
+      prefix = "{{ prefix }}"
+      tags = {
+        key = "{{ tags_value }}"
+      }
+    }
 }

@@ -1,0 +1,14 @@
+resource "aws_networkmanager_dx_gateway_attachment" "example" {
+    core_network_id = "{{ core_network_id }}"
+    direct_connect_gateway_arn = "{{ direct_connect_gateway_arn }}"
+    edge_locations = ["{{ edge_locations }}"]
+    routing_policy_label = "{{ routing_policy_label }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,3 +1,14 @@
 resource "aws_devopsguru_service_integration" "example" {
-    id = "{{ id }}"
+    region = "{{ region }}"
+    kms_server_side_encryption {
+      kms_key_id = "{{ kms_key_id }}"
+      opt_in_status = "{{ opt_in_status }}"
+      type = "{{ type }}"
+    }
+    logs_anomaly_detection {
+      opt_in_status = "{{ opt_in_status }}"
+    }
+    ops_center {
+      opt_in_status = "{{ opt_in_status }}"
+    }
 }

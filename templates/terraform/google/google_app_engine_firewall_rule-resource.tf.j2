@@ -2,7 +2,12 @@ resource "google_app_engine_firewall_rule" "example" {
     action = "{{ action }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    priority = "{{ priority }}"
+    priority = {{ priority }}
     project = "{{ project }}"
     source_range = "{{ source_range }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

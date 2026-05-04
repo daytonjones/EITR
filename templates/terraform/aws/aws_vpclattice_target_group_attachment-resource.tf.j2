@@ -1,4 +1,13 @@
 resource "aws_vpclattice_target_group_attachment" "example" {
     id = "{{ id }}"
+    region = "{{ region }}"
     target_group_identifier = "{{ target_group_identifier }}"
+    target {
+      id = "{{ id }}"
+      port = {{ port }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

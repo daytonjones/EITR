@@ -1,10 +1,63 @@
 resource "aws_datasync_task" "example" {
-    arn = "{{ arn }}"
     cloudwatch_log_group_arn = "{{ cloudwatch_log_group_arn }}"
     destination_location_arn = "{{ destination_location_arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     source_location_arn = "{{ source_location_arn }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    task_mode = "{{ task_mode }}"
+    excludes {
+      filter_type = "{{ filter_type }}"
+      value = "{{ value }}"
+    }
+    includes {
+      filter_type = "{{ filter_type }}"
+      value = "{{ value }}"
+    }
+    options {
+      atime = "{{ atime }}"
+      bytes_per_second = {{ bytes_per_second }}
+      gid = "{{ gid }}"
+      log_level = "{{ log_level }}"
+      mtime = "{{ mtime }}"
+      object_tags = "{{ object_tags }}"
+      overwrite_mode = "{{ overwrite_mode }}"
+      posix_permissions = "{{ posix_permissions }}"
+      preserve_deleted_files = "{{ preserve_deleted_files }}"
+      preserve_devices = "{{ preserve_devices }}"
+      security_descriptor_copy_flags = "{{ security_descriptor_copy_flags }}"
+      task_queueing = "{{ task_queueing }}"
+      transfer_mode = "{{ transfer_mode }}"
+      uid = "{{ uid }}"
+      verify_mode = "{{ verify_mode }}"
+    }
+    schedule {
+      schedule_expression = "{{ schedule_expression }}"
+      status = "{{ status }}"
+    }
+    task_report_config {
+      output_type = "{{ output_type }}"
+      report_level = "{{ report_level }}"
+      s3_object_versioning = "{{ s3_object_versioning }}"
+      report_overrides {
+        deleted_override = "{{ deleted_override }}"
+        skipped_override = "{{ skipped_override }}"
+        transferred_override = "{{ transferred_override }}"
+        verified_override = "{{ verified_override }}"
+      }
+      s3_destination {
+        bucket_access_role_arn = "{{ bucket_access_role_arn }}"
+        s3_bucket_arn = "{{ s3_bucket_arn }}"
+        subdirectory = "{{ subdirectory }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+    }
 }

@@ -1,0 +1,17 @@
+resource "google_network_services_multicast_group_producer_activation" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    multicast_group_producer_activation_id = "{{ multicast_group_producer_activation_id }}"
+    multicast_group_range_activation = "{{ multicast_group_range_activation }}"
+    multicast_producer_association = "{{ multicast_producer_association }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

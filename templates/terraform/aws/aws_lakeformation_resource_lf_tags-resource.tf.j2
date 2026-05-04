@@ -1,4 +1,32 @@
 resource "aws_lakeformation_resource_lf_tags" "example" {
     catalog_id = "{{ catalog_id }}"
     id = "{{ id }}"
+    region = "{{ region }}"
+    database {
+      catalog_id = "{{ catalog_id }}"
+      name = "{{ name }}"
+    }
+    lf_tag {
+      catalog_id = "{{ catalog_id }}"
+      key = "{{ key }}"
+      value = "{{ value }}"
+    }
+    table {
+      catalog_id = "{{ catalog_id }}"
+      database_name = "{{ database_name }}"
+      name = "{{ name }}"
+      wildcard = {{ wildcard }}
+    }
+    table_with_columns {
+      catalog_id = "{{ catalog_id }}"
+      column_names = ["{{ column_names }}"]
+      database_name = "{{ database_name }}"
+      excluded_column_names = ["{{ excluded_column_names }}"]
+      name = "{{ name }}"
+      wildcard = {{ wildcard }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

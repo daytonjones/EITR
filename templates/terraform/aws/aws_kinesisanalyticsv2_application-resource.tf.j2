@@ -1,17 +1,169 @@
 resource "aws_kinesisanalyticsv2_application" "example" {
     application_mode = "{{ application_mode }}"
-    arn = "{{ arn }}"
-    create_timestamp = "{{ create_timestamp }}"
     description = "{{ description }}"
-    force_stop = "{{ force_stop }}"
+    force_stop = {{ force_stop }}
     id = "{{ id }}"
-    last_update_timestamp = "{{ last_update_timestamp }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     runtime_environment = "{{ runtime_environment }}"
     service_execution_role = "{{ service_execution_role }}"
-    start_application = "{{ start_application }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    version_id = "{{ version_id }}"
+    start_application = {{ start_application }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    application_configuration {
+      application_code_configuration {
+        code_content_type = "{{ code_content_type }}"
+        code_content {
+          text_content = "{{ text_content }}"
+          s3_content_location {
+            bucket_arn = "{{ bucket_arn }}"
+            file_key = "{{ file_key }}"
+            object_version = "{{ object_version }}"
+          }
+        }
+      }
+      application_encryption_configuration {
+        key_id = "{{ key_id }}"
+        key_type = "{{ key_type }}"
+      }
+      application_snapshot_configuration {
+        snapshots_enabled = {{ snapshots_enabled }}
+      }
+      environment_properties {
+        property_group {
+          property_group_id = "{{ property_group_id }}"
+          property_map = {
+        key = "{{ property_map_value }}"
+      }
+        }
+      }
+      flink_application_configuration {
+        checkpoint_configuration {
+          checkpoint_interval = {{ checkpoint_interval }}
+          checkpointing_enabled = {{ checkpointing_enabled }}
+          configuration_type = "{{ configuration_type }}"
+          min_pause_between_checkpoints = {{ min_pause_between_checkpoints }}
+        }
+        monitoring_configuration {
+          configuration_type = "{{ configuration_type }}"
+          log_level = "{{ log_level }}"
+          metrics_level = "{{ metrics_level }}"
+        }
+        parallelism_configuration {
+          auto_scaling_enabled = {{ auto_scaling_enabled }}
+          configuration_type = "{{ configuration_type }}"
+          parallelism = {{ parallelism }}
+          parallelism_per_kpu = {{ parallelism_per_kpu }}
+        }
+      }
+      run_configuration {
+        application_restore_configuration {
+          application_restore_type = "{{ application_restore_type }}"
+          snapshot_name = "{{ snapshot_name }}"
+        }
+        flink_run_configuration {
+          allow_non_restored_state = {{ allow_non_restored_state }}
+        }
+      }
+      sql_application_configuration {
+        input {
+          name_prefix = "{{ name_prefix }}"
+          input_parallelism {
+            count = {{ count }}
+          }
+          input_processing_configuration {
+            input_lambda_processor {
+              resource_arn = "{{ resource_arn }}"
+            }
+          }
+          input_schema {
+            record_encoding = "{{ record_encoding }}"
+            record_column {
+              mapping = "{{ mapping }}"
+              name = "{{ name }}"
+              sql_type = "{{ sql_type }}"
+            }
+            record_format {
+              record_format_type = "{{ record_format_type }}"
+              mapping_parameters {
+                csv_mapping_parameters {
+                  record_column_delimiter = "{{ record_column_delimiter }}"
+                  record_row_delimiter = "{{ record_row_delimiter }}"
+                }
+                json_mapping_parameters {
+                  record_row_path = "{{ record_row_path }}"
+                }
+              }
+            }
+          }
+          input_starting_position_configuration {
+            input_starting_position = "{{ input_starting_position }}"
+          }
+          kinesis_firehose_input {
+            resource_arn = "{{ resource_arn }}"
+          }
+          kinesis_streams_input {
+            resource_arn = "{{ resource_arn }}"
+          }
+        }
+        output {
+          name = "{{ name }}"
+          destination_schema {
+            record_format_type = "{{ record_format_type }}"
+          }
+          kinesis_firehose_output {
+            resource_arn = "{{ resource_arn }}"
+          }
+          kinesis_streams_output {
+            resource_arn = "{{ resource_arn }}"
+          }
+          lambda_output {
+            resource_arn = "{{ resource_arn }}"
+          }
+        }
+        reference_data_source {
+          table_name = "{{ table_name }}"
+          reference_schema {
+            record_encoding = "{{ record_encoding }}"
+            record_column {
+              mapping = "{{ mapping }}"
+              name = "{{ name }}"
+              sql_type = "{{ sql_type }}"
+            }
+            record_format {
+              record_format_type = "{{ record_format_type }}"
+              mapping_parameters {
+                csv_mapping_parameters {
+                  record_column_delimiter = "{{ record_column_delimiter }}"
+                  record_row_delimiter = "{{ record_row_delimiter }}"
+                }
+                json_mapping_parameters {
+                  record_row_path = "{{ record_row_path }}"
+                }
+              }
+            }
+          }
+          s3_reference_data_source {
+            bucket_arn = "{{ bucket_arn }}"
+            file_key = "{{ file_key }}"
+          }
+        }
+      }
+      vpc_configuration {
+        security_group_ids = ["{{ security_group_ids }}"]
+        subnet_ids = ["{{ subnet_ids }}"]
+      }
+    }
+    cloudwatch_logging_options {
+      log_stream_arn = "{{ log_stream_arn }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

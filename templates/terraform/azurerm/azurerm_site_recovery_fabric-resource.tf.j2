@@ -4,4 +4,9 @@ resource "azurerm_site_recovery_fabric" "example" {
     name = "{{ name }}"
     recovery_vault_name = "{{ recovery_vault_name }}"
     resource_group_name = "{{ resource_group_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

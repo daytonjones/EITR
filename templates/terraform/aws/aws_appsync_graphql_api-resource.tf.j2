@@ -1,17 +1,66 @@
 resource "aws_appsync_graphql_api" "example" {
     api_type = "{{ api_type }}"
-    arn = "{{ arn }}"
     authentication_type = "{{ authentication_type }}"
     id = "{{ id }}"
     introspection_config = "{{ introspection_config }}"
     merged_api_execution_role_arn = "{{ merged_api_execution_role_arn }}"
     name = "{{ name }}"
-    query_depth_limit = "{{ query_depth_limit }}"
-    resolver_count_limit = "{{ resolver_count_limit }}"
+    query_depth_limit = {{ query_depth_limit }}
+    region = "{{ region }}"
+    resolver_count_limit = {{ resolver_count_limit }}
     schema = "{{ schema }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    uris = "{{ uris }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     visibility = "{{ visibility }}"
-    xray_enabled = "{{ xray_enabled }}"
+    xray_enabled = {{ xray_enabled }}
+    additional_authentication_provider {
+      authentication_type = "{{ authentication_type }}"
+      lambda_authorizer_config {
+        authorizer_result_ttl_in_seconds = {{ authorizer_result_ttl_in_seconds }}
+        authorizer_uri = "{{ authorizer_uri }}"
+        identity_validation_expression = "{{ identity_validation_expression }}"
+      }
+      openid_connect_config {
+        auth_ttl = {{ auth_ttl }}
+        client_id = "{{ client_id }}"
+        iat_ttl = {{ iat_ttl }}
+        issuer = "{{ issuer }}"
+      }
+      user_pool_config {
+        app_id_client_regex = "{{ app_id_client_regex }}"
+        aws_region = "{{ aws_region }}"
+        user_pool_id = "{{ user_pool_id }}"
+      }
+    }
+    enhanced_metrics_config {
+      data_source_level_metrics_behavior = "{{ data_source_level_metrics_behavior }}"
+      operation_level_metrics_config = "{{ operation_level_metrics_config }}"
+      resolver_level_metrics_behavior = "{{ resolver_level_metrics_behavior }}"
+    }
+    lambda_authorizer_config {
+      authorizer_result_ttl_in_seconds = {{ authorizer_result_ttl_in_seconds }}
+      authorizer_uri = "{{ authorizer_uri }}"
+      identity_validation_expression = "{{ identity_validation_expression }}"
+    }
+    log_config {
+      cloudwatch_logs_role_arn = "{{ cloudwatch_logs_role_arn }}"
+      exclude_verbose_content = {{ exclude_verbose_content }}
+      field_log_level = "{{ field_log_level }}"
+    }
+    openid_connect_config {
+      auth_ttl = {{ auth_ttl }}
+      client_id = "{{ client_id }}"
+      iat_ttl = {{ iat_ttl }}
+      issuer = "{{ issuer }}"
+    }
+    user_pool_config {
+      app_id_client_regex = "{{ app_id_client_regex }}"
+      aws_region = "{{ aws_region }}"
+      default_action = "{{ default_action }}"
+      user_pool_id = "{{ user_pool_id }}"
+    }
 }

@@ -1,0 +1,6 @@
+resource "awscc_ec2_route_server_peer" "example" {
+    bgp_options = "{{ bgp_options }}"
+    peer_address = "{{ peer_address }}"
+    route_server_endpoint_id = "{{ route_server_endpoint_id }}"
+    tags = "{{ tags }}"
+}

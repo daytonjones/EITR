@@ -3,6 +3,7 @@ resource "aws_emr_studio_session_mapping" "example" {
     identity_id = "{{ identity_id }}"
     identity_name = "{{ identity_name }}"
     identity_type = "{{ identity_type }}"
+    region = "{{ region }}"
     session_policy_arn = "{{ session_policy_arn }}"
     studio_id = "{{ studio_id }}"
 }

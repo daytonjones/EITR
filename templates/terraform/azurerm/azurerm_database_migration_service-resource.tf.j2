@@ -5,5 +5,13 @@ resource "azurerm_database_migration_service" "example" {
     resource_group_name = "{{ resource_group_name }}"
     sku_name = "{{ sku_name }}"
     subnet_id = "{{ subnet_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

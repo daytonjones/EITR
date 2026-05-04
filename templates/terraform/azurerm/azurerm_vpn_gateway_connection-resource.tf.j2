@@ -1,7 +1,56 @@
 resource "azurerm_vpn_gateway_connection" "example" {
     id = "{{ id }}"
-    internet_security_enabled = "{{ internet_security_enabled }}"
+    internet_security_enabled = {{ internet_security_enabled }}
     name = "{{ name }}"
     remote_vpn_site_id = "{{ remote_vpn_site_id }}"
     vpn_gateway_id = "{{ vpn_gateway_id }}"
+    routing {
+      associated_route_table = "{{ associated_route_table }}"
+      inbound_route_map_id = "{{ inbound_route_map_id }}"
+      outbound_route_map_id = "{{ outbound_route_map_id }}"
+      propagated_route_table {
+        labels = ["{{ labels }}"]
+        route_table_ids = ["{{ route_table_ids }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    traffic_selector_policy {
+      local_address_ranges = ["{{ local_address_ranges }}"]
+      remote_address_ranges = ["{{ remote_address_ranges }}"]
+    }
+    vpn_link {
+      bandwidth_mbps = {{ bandwidth_mbps }}
+      bgp_enabled = {{ bgp_enabled }}
+      connection_mode = "{{ connection_mode }}"
+      dpd_timeout_seconds = {{ dpd_timeout_seconds }}
+      egress_nat_rule_ids = ["{{ egress_nat_rule_ids }}"]
+      ingress_nat_rule_ids = ["{{ ingress_nat_rule_ids }}"]
+      local_azure_ip_address_enabled = {{ local_azure_ip_address_enabled }}
+      name = "{{ name }}"
+      policy_based_traffic_selector_enabled = {{ policy_based_traffic_selector_enabled }}
+      protocol = "{{ protocol }}"
+      ratelimit_enabled = {{ ratelimit_enabled }}
+      route_weight = {{ route_weight }}
+      shared_key = "{{ shared_key }}"
+      vpn_site_link_id = "{{ vpn_site_link_id }}"
+      custom_bgp_address {
+        ip_address = "{{ ip_address }}"
+        ip_configuration_id = "{{ ip_configuration_id }}"
+      }
+      ipsec_policy {
+        dh_group = "{{ dh_group }}"
+        encryption_algorithm = "{{ encryption_algorithm }}"
+        ike_encryption_algorithm = "{{ ike_encryption_algorithm }}"
+        ike_integrity_algorithm = "{{ ike_integrity_algorithm }}"
+        integrity_algorithm = "{{ integrity_algorithm }}"
+        pfs_group = "{{ pfs_group }}"
+        sa_data_size_kb = {{ sa_data_size_kb }}
+        sa_lifetime_sec = {{ sa_lifetime_sec }}
+      }
+    }
 }

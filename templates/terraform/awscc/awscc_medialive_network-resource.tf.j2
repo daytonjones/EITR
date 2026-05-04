@@ -1,19 +1,6 @@
 resource "awscc_medialive_network" "example" {
-    arn = "{{ arn }}"
-    associated_cluster_ids = "{{ associated_cluster_ids }}"
-    id = "{{ id }}"
-    ip_pools = "{
-    cidr = {{ cidr }}
-}"
+    ip_pools = "{{ ip_pools }}"
     name = "{{ name }}"
-    network_id = "{{ network_id }}"
-    routes = "{
-    cidr = {{ cidr }}
-    gateway = {{ gateway }}
-}"
-    state = "{{ state }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    routes = "{{ routes }}"
+    tags = "{{ tags }}"
 }

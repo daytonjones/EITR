@@ -4,4 +4,9 @@ resource "google_pubsub_schema" "example" {
     name = "{{ name }}"
     project = "{{ project }}"
     type = "{{ type }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

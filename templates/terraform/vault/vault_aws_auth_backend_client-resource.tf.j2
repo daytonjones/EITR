@@ -1,17 +1,24 @@
 resource "vault_aws_auth_backend_client" "example" {
     access_key = "{{ access_key }}"
+    allowed_sts_header_values = ["{{ allowed_sts_header_values }}"]
     backend = "{{ backend }}"
+    disable_automated_rotation = {{ disable_automated_rotation }}
     ec2_endpoint = "{{ ec2_endpoint }}"
     iam_endpoint = "{{ iam_endpoint }}"
     iam_server_id_header_value = "{{ iam_server_id_header_value }}"
     id = "{{ id }}"
     identity_token_audience = "{{ identity_token_audience }}"
-    identity_token_ttl = "{{ identity_token_ttl }}"
-    max_retries = "{{ max_retries }}"
+    identity_token_ttl = {{ identity_token_ttl }}
+    max_retries = {{ max_retries }}
     namespace = "{{ namespace }}"
     role_arn = "{{ role_arn }}"
+    rotation_period = {{ rotation_period }}
+    rotation_schedule = "{{ rotation_schedule }}"
+    rotation_window = {{ rotation_window }}
     secret_key = "{{ secret_key }}"
+    secret_key_wo = "{{ secret_key_wo }}"
+    secret_key_wo_version = {{ secret_key_wo_version }}
     sts_endpoint = "{{ sts_endpoint }}"
     sts_region = "{{ sts_region }}"
-    use_sts_region_from_client = "{{ use_sts_region_from_client }}"
+    use_sts_region_from_client = {{ use_sts_region_from_client }}
 }

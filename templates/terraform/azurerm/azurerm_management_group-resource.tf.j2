@@ -3,6 +3,11 @@ resource "azurerm_management_group" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     parent_management_group_id = "{{ parent_management_group_id }}"
-    subscription_ids = "{{ subscription_ids }}"
-    tenant_scoped_id = "{{ tenant_scoped_id }}"
+    subscription_ids = ["{{ subscription_ids }}"]
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

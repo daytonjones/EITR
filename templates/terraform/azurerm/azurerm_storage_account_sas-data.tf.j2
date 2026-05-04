@@ -1,10 +1,35 @@
 data "azurerm_storage_account_sas" "example" {
     connection_string = "{{ connection_string }}"
     expiry = "{{ expiry }}"
-    https_only = "{{ https_only }}"
+    https_only = {{ https_only }}
     id = "{{ id }}"
     ip_addresses = "{{ ip_addresses }}"
-    sas = "{{ sas }}"
     signed_version = "{{ signed_version }}"
     start = "{{ start }}"
+    permissions {
+      add = {{ add }}
+      create = {{ create }}
+      delete = {{ delete }}
+      filter = {{ filter }}
+      list = {{ list }}
+      process = {{ process }}
+      read = {{ read }}
+      tag = {{ tag }}
+      update = {{ update }}
+      write = {{ write }}
+    }
+    resource_types {
+      container = {{ container }}
+      object = {{ object }}
+      service = {{ service }}
+    }
+    services {
+      blob = {{ blob }}
+      file = {{ file }}
+      queue = {{ queue }}
+      table = {{ table }}
+    }
+    timeouts {
+      read = "{{ read }}"
+    }
 }

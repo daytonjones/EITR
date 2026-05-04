@@ -1,15 +1,24 @@
 resource "tfe_policy_set" "example" {
-    agent_enabled = "{{ agent_enabled }}"
+    agent_enabled = {{ agent_enabled }}
     description = "{{ description }}"
-    global = "{{ global }}"
+    global = {{ global }}
     id = "{{ id }}"
     kind = "{{ kind }}"
     name = "{{ name }}"
     organization = "{{ organization }}"
-    overridable = "{{ overridable }}"
+    overridable = {{ overridable }}
     policies_path = "{{ policies_path }}"
-    policy_ids = "{{ policy_ids }}"
+    policy_ids = ["{{ policy_ids }}"]
     policy_tool_version = "{{ policy_tool_version }}"
-    slug = "{{ slug }}"
-    workspace_ids = "{{ workspace_ids }}"
+    slug = {
+        key = "{{ slug_value }}"
+      }
+    workspace_ids = ["{{ workspace_ids }}"]
+    vcs_repo {
+      branch = "{{ branch }}"
+      github_app_installation_id = "{{ github_app_installation_id }}"
+      identifier = "{{ identifier }}"
+      ingress_submodules = {{ ingress_submodules }}
+      oauth_token_id = "{{ oauth_token_id }}"
+    }
 }

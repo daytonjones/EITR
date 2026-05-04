@@ -1,8 +1,8 @@
 resource "aws_ses_template" "example" {
-    arn = "{{ arn }}"
     html = "{{ html }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     subject = "{{ subject }}"
     text = "{{ text }}"
 }

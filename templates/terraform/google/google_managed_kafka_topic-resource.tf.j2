@@ -1,11 +1,17 @@
 resource "google_managed_kafka_topic" "example" {
     cluster = "{{ cluster }}"
-    configs = "{{ configs }}"
+    configs = {
+        key = "{{ configs_value }}"
+      }
     id = "{{ id }}"
     location = "{{ location }}"
-    name = "{{ name }}"
-    partition_count = "{{ partition_count }}"
+    partition_count = {{ partition_count }}
     project = "{{ project }}"
-    replication_factor = "{{ replication_factor }}"
+    replication_factor = {{ replication_factor }}
     topic_id = "{{ topic_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

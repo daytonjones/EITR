@@ -1,10 +1,109 @@
 resource "azurerm_data_factory_flowlet_data_flow" "example" {
-    annotations = "{{ annotations }}"
+    annotations = ["{{ annotations }}"]
     data_factory_id = "{{ data_factory_id }}"
     description = "{{ description }}"
     folder = "{{ folder }}"
     id = "{{ id }}"
     name = "{{ name }}"
     script = "{{ script }}"
-    script_lines = "{{ script_lines }}"
+    script_lines = ["{{ script_lines }}"]
+    sink {
+      description = "{{ description }}"
+      name = "{{ name }}"
+      dataset {
+        name = "{{ name }}"
+        parameters = {
+        key = "{{ parameters_value }}"
+      }
+      }
+      flowlet {
+        dataset_parameters = "{{ dataset_parameters }}"
+        name = "{{ name }}"
+        parameters = {
+        key = "{{ parameters_value }}"
+      }
+      }
+      linked_service {
+        name = "{{ name }}"
+        parameters = {
+        key = "{{ parameters_value }}"
+      }
+      }
+      rejected_linked_service {
+        name = "{{ name }}"
+        parameters = {
+        key = "{{ parameters_value }}"
+      }
+      }
+      schema_linked_service {
+        name = "{{ name }}"
+        parameters = {
+        key = "{{ parameters_value }}"
+      }
+      }
+    }
+    source {
+      description = "{{ description }}"
+      name = "{{ name }}"
+      dataset {
+        name = "{{ name }}"
+        parameters = {
+        key = "{{ parameters_value }}"
+      }
+      }
+      flowlet {
+        dataset_parameters = "{{ dataset_parameters }}"
+        name = "{{ name }}"
+        parameters = {
+        key = "{{ parameters_value }}"
+      }
+      }
+      linked_service {
+        name = "{{ name }}"
+        parameters = {
+        key = "{{ parameters_value }}"
+      }
+      }
+      rejected_linked_service {
+        name = "{{ name }}"
+        parameters = {
+        key = "{{ parameters_value }}"
+      }
+      }
+      schema_linked_service {
+        name = "{{ name }}"
+        parameters = {
+        key = "{{ parameters_value }}"
+      }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    transformation {
+      description = "{{ description }}"
+      name = "{{ name }}"
+      dataset {
+        name = "{{ name }}"
+        parameters = {
+        key = "{{ parameters_value }}"
+      }
+      }
+      flowlet {
+        dataset_parameters = "{{ dataset_parameters }}"
+        name = "{{ name }}"
+        parameters = {
+        key = "{{ parameters_value }}"
+      }
+      }
+      linked_service {
+        name = "{{ name }}"
+        parameters = {
+        key = "{{ parameters_value }}"
+      }
+      }
+    }
 }

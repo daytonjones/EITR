@@ -1,6 +1,54 @@
 resource "aws_s3_bucket_lifecycle_configuration" "example" {
     bucket = "{{ bucket }}"
     expected_bucket_owner = "{{ expected_bucket_owner }}"
-    id = "{{ id }}"
+    region = "{{ region }}"
     transition_default_minimum_object_size = "{{ transition_default_minimum_object_size }}"
+    rule {
+      id = "{{ id }}"
+      prefix = "{{ prefix }}"
+      status = "{{ status }}"
+      abort_incomplete_multipart_upload {
+        days_after_initiation = {{ days_after_initiation }}
+      }
+      expiration {
+        date = "{{ date }}"
+        days = {{ days }}
+        expired_object_delete_marker = {{ expired_object_delete_marker }}
+      }
+      filter {
+        object_size_greater_than = {{ object_size_greater_than }}
+        object_size_less_than = {{ object_size_less_than }}
+        prefix = "{{ prefix }}"
+        and {
+          object_size_greater_than = {{ object_size_greater_than }}
+          object_size_less_than = {{ object_size_less_than }}
+          prefix = "{{ prefix }}"
+          tags = {
+        key = "{{ tags_value }}"
+      }
+        }
+        tag {
+          key = "{{ key }}"
+          value = "{{ value }}"
+        }
+      }
+      noncurrent_version_expiration {
+        newer_noncurrent_versions = {{ newer_noncurrent_versions }}
+        noncurrent_days = {{ noncurrent_days }}
+      }
+      noncurrent_version_transition {
+        newer_noncurrent_versions = {{ newer_noncurrent_versions }}
+        noncurrent_days = {{ noncurrent_days }}
+        storage_class = "{{ storage_class }}"
+      }
+      transition {
+        date = "{{ date }}"
+        days = {{ days }}
+        storage_class = "{{ storage_class }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
 }

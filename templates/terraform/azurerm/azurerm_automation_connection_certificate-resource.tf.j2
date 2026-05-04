@@ -6,4 +6,10 @@ resource "azurerm_automation_connection_certificate" "example" {
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     subscription_id = "{{ subscription_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

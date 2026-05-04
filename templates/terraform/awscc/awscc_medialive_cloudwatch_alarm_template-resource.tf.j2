@@ -1,22 +1,17 @@
 resource "awscc_medialive_cloudwatch_alarm_template" "example" {
-    arn = "{{ arn }}"
-    cloudwatch_alarm_template_id = "{{ cloudwatch_alarm_template_id }}"
     comparison_operator = "{{ comparison_operator }}"
-    created_at = "{{ created_at }}"
-    datapoints_to_alarm = "{{ datapoints_to_alarm }}"
+    datapoints_to_alarm = {{ datapoints_to_alarm }}
     description = "{{ description }}"
-    evaluation_periods = "{{ evaluation_periods }}"
-    group_id = "{{ group_id }}"
+    evaluation_periods = {{ evaluation_periods }}
     group_identifier = "{{ group_identifier }}"
-    id = "{{ id }}"
-    identifier = "{{ identifier }}"
     metric_name = "{{ metric_name }}"
-    modified_at = "{{ modified_at }}"
     name = "{{ name }}"
-    period = "{{ period }}"
+    period = {{ period }}
     statistic = "{{ statistic }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     target_resource_type = "{{ target_resource_type }}"
-    threshold = "{{ threshold }}"
+    threshold = {{ threshold }}
     treat_missing_data = "{{ treat_missing_data }}"
 }

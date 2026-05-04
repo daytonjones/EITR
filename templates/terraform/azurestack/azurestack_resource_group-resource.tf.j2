@@ -2,5 +2,13 @@ resource "azurestack_resource_group" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

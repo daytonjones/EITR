@@ -1,0 +1,18 @@
+resource "google_vertex_ai_rag_engine_config" "example" {
+    id = "{{ id }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    rag_managed_db_config {
+      basic {
+      }
+      scaled {
+      }
+      unprovisioned {
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

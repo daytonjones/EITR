@@ -1,7 +1,16 @@
 resource "google_firestore_backup_schedule" "example" {
     database = "{{ database }}"
     id = "{{ id }}"
-    name = "{{ name }}"
     project = "{{ project }}"
     retention = "{{ retention }}"
+    daily_recurrence {
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    weekly_recurrence {
+      day = "{{ day }}"
+    }
 }

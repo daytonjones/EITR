@@ -5,6 +5,22 @@ resource "azurerm_dedicated_hardware_security_module" "example" {
     resource_group_name = "{{ resource_group_name }}"
     sku_name = "{{ sku_name }}"
     stamp_id = "{{ stamp_id }}"
-    tags = "{{ tags }}"
-    zones = "{{ zones }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    zones = ["{{ zones }}"]
+    management_network_profile {
+      network_interface_private_ip_addresses = ["{{ network_interface_private_ip_addresses }}"]
+      subnet_id = "{{ subnet_id }}"
+    }
+    network_profile {
+      network_interface_private_ip_addresses = ["{{ network_interface_private_ip_addresses }}"]
+      subnet_id = "{{ subnet_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

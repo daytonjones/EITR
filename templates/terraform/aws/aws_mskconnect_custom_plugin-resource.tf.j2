@@ -1,11 +1,24 @@
 resource "aws_mskconnect_custom_plugin" "example" {
-    arn = "{{ arn }}"
     content_type = "{{ content_type }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    latest_revision = "{{ latest_revision }}"
     name = "{{ name }}"
-    state = "{{ state }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    location {
+      s3 {
+        bucket_arn = "{{ bucket_arn }}"
+        file_key = "{{ file_key }}"
+        object_version = "{{ object_version }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

@@ -1,5 +1,4 @@
 resource "aws_networkmanager_connection" "example" {
-    arn = "{{ arn }}"
     connected_device_id = "{{ connected_device_id }}"
     connected_link_id = "{{ connected_link_id }}"
     description = "{{ description }}"
@@ -7,6 +6,15 @@ resource "aws_networkmanager_connection" "example" {
     global_network_id = "{{ global_network_id }}"
     id = "{{ id }}"
     link_id = "{{ link_id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

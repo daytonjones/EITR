@@ -1,22 +1,11 @@
 resource "awscc_ssm_document" "example" {
-    attachments = "{
-    key = {{ key }}
-    name = {{ name }}
-    values = {{ values }}
-}"
+    attachments = "{{ attachments }}"
     content = "{{ content }}"
     document_format = "{{ document_format }}"
     document_type = "{{ document_type }}"
-    id = "{{ id }}"
     name = "{{ name }}"
-    requires = "{
-    name = {{ name }}
-    version = {{ version }}
-}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    requires = "{{ requires }}"
+    tags = "{{ tags }}"
     target_type = "{{ target_type }}"
     update_method = "{{ update_method }}"
     version_name = "{{ version_name }}"

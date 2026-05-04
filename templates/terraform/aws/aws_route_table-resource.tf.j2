@@ -1,10 +1,18 @@
 resource "aws_route_table" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
-    owner_id = "{{ owner_id }}"
-    propagating_vgws = "{{ propagating_vgws }}"
-    route = "{{ route }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    propagating_vgws = ["{{ propagating_vgws }}"]
+    region = "{{ region }}"
+    route = ["{{ route }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     vpc_id = "{{ vpc_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

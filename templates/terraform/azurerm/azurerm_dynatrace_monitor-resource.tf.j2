@@ -2,8 +2,36 @@ resource "azurerm_dynatrace_monitor" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
     marketplace_subscription = "{{ marketplace_subscription }}"
-    monitoring_enabled = "{{ monitoring_enabled }}"
+    monitoring_enabled = {{ monitoring_enabled }}
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    environment_properties {
+      environment_info {
+        environment_id = "{{ environment_id }}"
+      }
+    }
+    identity {
+      type = "{{ type }}"
+    }
+    plan {
+      billing_cycle = "{{ billing_cycle }}"
+      plan = "{{ plan }}"
+      usage_type = "{{ usage_type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    user {
+      country = "{{ country }}"
+      email = "{{ email }}"
+      first_name = "{{ first_name }}"
+      last_name = "{{ last_name }}"
+      phone_number = "{{ phone_number }}"
+    }
 }

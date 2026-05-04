@@ -1,0 +1,11 @@
+resource "google_apihub_host_project_registration" "example" {
+    gcp_project = "{{ gcp_project }}"
+    host_project_registration_id = "{{ host_project_registration_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

@@ -1,19 +1,36 @@
 resource "aws_ebs_snapshot_import" "example" {
-    arn = "{{ arn }}"
-    data_encryption_key_id = "{{ data_encryption_key_id }}"
     description = "{{ description }}"
-    encrypted = "{{ encrypted }}"
+    encrypted = {{ encrypted }}
     id = "{{ id }}"
     kms_key_id = "{{ kms_key_id }}"
-    outpost_arn = "{{ outpost_arn }}"
-    owner_alias = "{{ owner_alias }}"
-    owner_id = "{{ owner_id }}"
-    permanent_restore = "{{ permanent_restore }}"
+    permanent_restore = {{ permanent_restore }}
+    region = "{{ region }}"
     role_name = "{{ role_name }}"
     storage_tier = "{{ storage_tier }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    temporary_restore_days = "{{ temporary_restore_days }}"
-    volume_id = "{{ volume_id }}"
-    volume_size = "{{ volume_size }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    temporary_restore_days = {{ temporary_restore_days }}
+    client_data {
+      comment = "{{ comment }}"
+      upload_end = "{{ upload_end }}"
+      upload_size = {{ upload_size }}
+      upload_start = "{{ upload_start }}"
+    }
+    disk_container {
+      description = "{{ description }}"
+      format = "{{ format }}"
+      url = "{{ url }}"
+      user_bucket {
+        s3_bucket = "{{ s3_bucket }}"
+        s3_key = "{{ s3_key }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

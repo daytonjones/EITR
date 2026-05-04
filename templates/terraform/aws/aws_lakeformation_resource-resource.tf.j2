@@ -1,9 +1,10 @@
 resource "aws_lakeformation_resource" "example" {
     arn = "{{ arn }}"
-    hybrid_access_enabled = "{{ hybrid_access_enabled }}"
+    hybrid_access_enabled = {{ hybrid_access_enabled }}
     id = "{{ id }}"
-    last_modified = "{{ last_modified }}"
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
-    use_service_linked_role = "{{ use_service_linked_role }}"
-    with_federation = "{{ with_federation }}"
+    use_service_linked_role = {{ use_service_linked_role }}
+    with_federation = {{ with_federation }}
+    with_privileged_access = {{ with_privileged_access }}
 }

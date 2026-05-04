@@ -1,16 +1,46 @@
 resource "azurerm_iot_security_solution" "example" {
-    disabled_data_sources = "{{ disabled_data_sources }}"
+    disabled_data_sources = ["{{ disabled_data_sources }}"]
     display_name = "{{ display_name }}"
-    enabled = "{{ enabled }}"
-    events_to_export = "{{ events_to_export }}"
+    enabled = {{ enabled }}
+    events_to_export = ["{{ events_to_export }}"]
     id = "{{ id }}"
-    iothub_ids = "{{ iothub_ids }}"
+    iothub_ids = ["{{ iothub_ids }}"]
     location = "{{ location }}"
     log_analytics_workspace_id = "{{ log_analytics_workspace_id }}"
-    log_unmasked_ips_enabled = "{{ log_unmasked_ips_enabled }}"
+    log_unmasked_ips_enabled = {{ log_unmasked_ips_enabled }}
     name = "{{ name }}"
     query_for_resources = "{{ query_for_resources }}"
-    query_subscription_ids = "{{ query_subscription_ids }}"
+    query_subscription_ids = ["{{ query_subscription_ids }}"]
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    additional_workspace {
+      data_types = ["{{ data_types }}"]
+      workspace_id = "{{ workspace_id }}"
+    }
+    recommendations_enabled {
+      acr_authentication = {{ acr_authentication }}
+      agent_send_unutilized_msg = {{ agent_send_unutilized_msg }}
+      baseline = {{ baseline }}
+      edge_hub_mem_optimize = {{ edge_hub_mem_optimize }}
+      edge_logging_option = {{ edge_logging_option }}
+      inconsistent_module_settings = {{ inconsistent_module_settings }}
+      install_agent = {{ install_agent }}
+      ip_filter_deny_all = {{ ip_filter_deny_all }}
+      ip_filter_permissive_rule = {{ ip_filter_permissive_rule }}
+      open_ports = {{ open_ports }}
+      permissive_firewall_policy = {{ permissive_firewall_policy }}
+      permissive_input_firewall_rules = {{ permissive_input_firewall_rules }}
+      permissive_output_firewall_rules = {{ permissive_output_firewall_rules }}
+      privileged_docker_options = {{ privileged_docker_options }}
+      shared_credentials = {{ shared_credentials }}
+      vulnerable_tls_cipher_suite = {{ vulnerable_tls_cipher_suite }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

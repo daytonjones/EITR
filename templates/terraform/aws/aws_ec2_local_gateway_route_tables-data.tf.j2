@@ -1,5 +1,14 @@
 data "aws_ec2_local_gateway_route_tables" "example" {
     id = "{{ id }}"
-    ids = "{{ ids }}"
-    tags = "{{ tags }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
+    timeouts {
+      read = "{{ read }}"
+    }
 }

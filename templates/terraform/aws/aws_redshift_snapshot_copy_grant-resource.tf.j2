@@ -1,8 +1,12 @@
 resource "aws_redshift_snapshot_copy_grant" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     kms_key_id = "{{ kms_key_id }}"
+    region = "{{ region }}"
     snapshot_copy_grant_name = "{{ snapshot_copy_grant_name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

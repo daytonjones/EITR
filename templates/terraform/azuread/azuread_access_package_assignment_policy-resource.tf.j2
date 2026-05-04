@@ -2,8 +2,80 @@ resource "azuread_access_package_assignment_policy" "example" {
     access_package_id = "{{ access_package_id }}"
     description = "{{ description }}"
     display_name = "{{ display_name }}"
-    duration_in_days = "{{ duration_in_days }}"
+    duration_in_days = {{ duration_in_days }}
     expiration_date = "{{ expiration_date }}"
-    extension_enabled = "{{ extension_enabled }}"
+    extension_enabled = {{ extension_enabled }}
     id = "{{ id }}"
+    approval_settings {
+      approval_required = {{ approval_required }}
+      approval_required_for_extension = {{ approval_required_for_extension }}
+      requestor_justification_required = {{ requestor_justification_required }}
+      approval_stage {
+        alternative_approval_enabled = {{ alternative_approval_enabled }}
+        approval_timeout_in_days = {{ approval_timeout_in_days }}
+        approver_justification_required = {{ approver_justification_required }}
+        enable_alternative_approval_in_days = {{ enable_alternative_approval_in_days }}
+        alternative_approver {
+          backup = {{ backup }}
+          object_id = "{{ object_id }}"
+          subject_type = "{{ subject_type }}"
+        }
+        primary_approver {
+          backup = {{ backup }}
+          object_id = "{{ object_id }}"
+          subject_type = "{{ subject_type }}"
+        }
+      }
+    }
+    assignment_review_settings {
+      access_recommendation_enabled = {{ access_recommendation_enabled }}
+      access_review_timeout_behavior = "{{ access_review_timeout_behavior }}"
+      approver_justification_required = {{ approver_justification_required }}
+      duration_in_days = {{ duration_in_days }}
+      enabled = {{ enabled }}
+      review_frequency = "{{ review_frequency }}"
+      review_type = "{{ review_type }}"
+      starting_on = "{{ starting_on }}"
+      reviewer {
+        backup = {{ backup }}
+        object_id = "{{ object_id }}"
+        subject_type = "{{ subject_type }}"
+      }
+    }
+    question {
+      required = {{ required }}
+      sequence = {{ sequence }}
+      choice {
+        actual_value = "{{ actual_value }}"
+        display_value {
+          default_text = "{{ default_text }}"
+          localized_text {
+            content = "{{ content }}"
+            language_code = "{{ language_code }}"
+          }
+        }
+      }
+      text {
+        default_text = "{{ default_text }}"
+        localized_text {
+          content = "{{ content }}"
+          language_code = "{{ language_code }}"
+        }
+      }
+    }
+    requestor_settings {
+      requests_accepted = {{ requests_accepted }}
+      scope_type = "{{ scope_type }}"
+      requestor {
+        backup = {{ backup }}
+        object_id = "{{ object_id }}"
+        subject_type = "{{ subject_type }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

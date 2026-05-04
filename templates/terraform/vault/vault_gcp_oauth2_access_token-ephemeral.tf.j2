@@ -1,0 +1,9 @@
+ephemeral "vault_gcp_oauth2_access_token" "example" {
+    impersonated_account = "{{ impersonated_account }}"
+    max_retries = {{ max_retries }}
+    mount = "{{ mount }}"
+    mount_id = "{{ mount_id }}"
+    namespace = "{{ namespace }}"
+    roleset = "{{ roleset }}"
+    static_account = "{{ static_account }}"
+}

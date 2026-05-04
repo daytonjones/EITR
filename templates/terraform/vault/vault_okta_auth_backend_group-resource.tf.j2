@@ -3,5 +3,5 @@ resource "vault_okta_auth_backend_group" "example" {
     id = "{{ id }}"
     namespace = "{{ namespace }}"
     path = "{{ path }}"
-    policies = "{{ policies }}"
+    policies = ["{{ policies }}"]
 }

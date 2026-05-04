@@ -1,0 +1,16 @@
+resource "google_compute_snapshot_settings" "example" {
+    id = "{{ id }}"
+    project = "{{ project }}"
+    storage_location {
+      policy = "{{ policy }}"
+      locations {
+        location = "{{ location }}"
+        name = "{{ name }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

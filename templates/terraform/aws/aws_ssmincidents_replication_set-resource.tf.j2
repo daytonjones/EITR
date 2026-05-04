@@ -1,10 +1,22 @@
 resource "aws_ssmincidents_replication_set" "example" {
-    arn = "{{ arn }}"
-    created_by = "{{ created_by }}"
-    deletion_protected = "{{ deletion_protected }}"
     id = "{{ id }}"
-    last_modified_by = "{{ last_modified_by }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    region {
+      kms_key_arn = "{{ kms_key_arn }}"
+      name = "{{ name }}"
+    }
+    regions {
+      kms_key_arn = "{{ kms_key_arn }}"
+      name = "{{ name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

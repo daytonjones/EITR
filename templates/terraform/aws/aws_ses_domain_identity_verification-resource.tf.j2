@@ -1,5 +1,8 @@
 resource "aws_ses_domain_identity_verification" "example" {
-    arn = "{{ arn }}"
     domain = "{{ domain }}"
     id = "{{ id }}"
+    region = "{{ region }}"
+    timeouts {
+      create = "{{ create }}"
+    }
 }

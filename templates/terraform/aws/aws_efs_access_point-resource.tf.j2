@@ -1,9 +1,24 @@
 resource "aws_efs_access_point" "example" {
-    arn = "{{ arn }}"
-    file_system_arn = "{{ file_system_arn }}"
     file_system_id = "{{ file_system_id }}"
     id = "{{ id }}"
-    owner_id = "{{ owner_id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    posix_user {
+      gid = {{ gid }}
+      secondary_gids = ["{{ secondary_gids }}"]
+      uid = {{ uid }}
+    }
+    root_directory {
+      path = "{{ path }}"
+      creation_info {
+        owner_gid = {{ owner_gid }}
+        owner_uid = {{ owner_uid }}
+        permissions = "{{ permissions }}"
+      }
+    }
 }

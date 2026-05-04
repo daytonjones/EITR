@@ -1,27 +1,163 @@
 resource "google_bigquery_table" "example" {
-    clustering = "{{ clustering }}"
-    creation_time = "{{ creation_time }}"
+    clustering = ["{{ clustering }}"]
     dataset_id = "{{ dataset_id }}"
-    deletion_protection = "{{ deletion_protection }}"
+    deletion_protection = {{ deletion_protection }}
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
-    etag = "{{ etag }}"
-    expiration_time = "{{ expiration_time }}"
+    expiration_time = {{ expiration_time }}
     friendly_name = "{{ friendly_name }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
-    last_modified_time = "{{ last_modified_time }}"
-    location = "{{ location }}"
+    ignore_auto_generated_schema = {{ ignore_auto_generated_schema }}
+    ignore_schema_changes = ["{{ ignore_schema_changes }}"]
+    labels = {
+        key = "{{ labels_value }}"
+      }
     max_staleness = "{{ max_staleness }}"
-    num_bytes = "{{ num_bytes }}"
-    num_long_term_bytes = "{{ num_long_term_bytes }}"
-    num_rows = "{{ num_rows }}"
     project = "{{ project }}"
-    require_partition_filter = "{{ require_partition_filter }}"
-    resource_tags = "{{ resource_tags }}"
+    require_partition_filter = {{ require_partition_filter }}
+    resource_tags = {
+        key = "{{ resource_tags_value }}"
+      }
     schema = "{{ schema }}"
-    self_link = "{{ self_link }}"
     table_id = "{{ table_id }}"
-    terraform_labels = "{{ terraform_labels }}"
-    type = "{{ type }}"
+    table_metadata_view = "{{ table_metadata_view }}"
+    biglake_configuration {
+      connection_id = "{{ connection_id }}"
+      file_format = "{{ file_format }}"
+      storage_uri = "{{ storage_uri }}"
+      table_format = "{{ table_format }}"
+    }
+    encryption_configuration {
+      kms_key_name = "{{ kms_key_name }}"
+    }
+    external_catalog_table_options {
+      connection_id = "{{ connection_id }}"
+      parameters = {
+        key = "{{ parameters_value }}"
+      }
+      storage_descriptor {
+        input_format = "{{ input_format }}"
+        location_uri = "{{ location_uri }}"
+        output_format = "{{ output_format }}"
+        serde_info {
+          name = "{{ name }}"
+          parameters = {
+        key = "{{ parameters_value }}"
+      }
+          serialization_library = "{{ serialization_library }}"
+        }
+      }
+    }
+    external_data_configuration {
+      autodetect = {{ autodetect }}
+      compression = "{{ compression }}"
+      connection_id = "{{ connection_id }}"
+      decimal_target_types = ["{{ decimal_target_types }}"]
+      file_set_spec_type = "{{ file_set_spec_type }}"
+      ignore_unknown_values = {{ ignore_unknown_values }}
+      json_extension = "{{ json_extension }}"
+      max_bad_records = {{ max_bad_records }}
+      metadata_cache_mode = "{{ metadata_cache_mode }}"
+      object_metadata = "{{ object_metadata }}"
+      reference_file_schema_uri = "{{ reference_file_schema_uri }}"
+      schema = "{{ schema }}"
+      source_format = "{{ source_format }}"
+      source_uris = ["{{ source_uris }}"]
+      avro_options {
+        use_avro_logical_types = {{ use_avro_logical_types }}
+      }
+      bigtable_options {
+        ignore_unspecified_column_families = {{ ignore_unspecified_column_families }}
+        output_column_families_as_json = {{ output_column_families_as_json }}
+        read_rowkey_as_string = {{ read_rowkey_as_string }}
+        column_family {
+          encoding = "{{ encoding }}"
+          family_id = "{{ family_id }}"
+          only_read_latest = {{ only_read_latest }}
+          type = "{{ type }}"
+          column {
+            encoding = "{{ encoding }}"
+            field_name = "{{ field_name }}"
+            only_read_latest = {{ only_read_latest }}
+            qualifier_encoded = "{{ qualifier_encoded }}"
+            qualifier_string = "{{ qualifier_string }}"
+            type = "{{ type }}"
+          }
+        }
+      }
+      csv_options {
+        allow_jagged_rows = {{ allow_jagged_rows }}
+        allow_quoted_newlines = {{ allow_quoted_newlines }}
+        encoding = "{{ encoding }}"
+        field_delimiter = "{{ field_delimiter }}"
+        quote = "{{ quote }}"
+        skip_leading_rows = {{ skip_leading_rows }}
+        source_column_match = "{{ source_column_match }}"
+      }
+      google_sheets_options {
+        range = "{{ range }}"
+        skip_leading_rows = {{ skip_leading_rows }}
+      }
+      hive_partitioning_options {
+        mode = "{{ mode }}"
+        require_partition_filter = {{ require_partition_filter }}
+        source_uri_prefix = "{{ source_uri_prefix }}"
+      }
+      json_options {
+        encoding = "{{ encoding }}"
+      }
+      parquet_options {
+        enable_list_inference = {{ enable_list_inference }}
+        enum_as_string = {{ enum_as_string }}
+      }
+    }
+    materialized_view {
+      allow_non_incremental_definition = {{ allow_non_incremental_definition }}
+      enable_refresh = {{ enable_refresh }}
+      query = "{{ query }}"
+      refresh_interval_ms = {{ refresh_interval_ms }}
+    }
+    range_partitioning {
+      field = "{{ field }}"
+      range {
+        end = {{ end }}
+        interval = {{ interval }}
+        start = {{ start }}
+      }
+    }
+    schema_foreign_type_info {
+      type_system = "{{ type_system }}"
+    }
+    table_constraints {
+      foreign_keys {
+        name = "{{ name }}"
+        column_references {
+          referenced_column = "{{ referenced_column }}"
+          referencing_column = "{{ referencing_column }}"
+        }
+        referenced_table {
+          dataset_id = "{{ dataset_id }}"
+          project_id = "{{ project_id }}"
+          table_id = "{{ table_id }}"
+        }
+      }
+      primary_key {
+        columns = ["{{ columns }}"]
+      }
+    }
+    table_replication_info {
+      replication_interval_ms = {{ replication_interval_ms }}
+      source_dataset_id = "{{ source_dataset_id }}"
+      source_project_id = "{{ source_project_id }}"
+      source_table_id = "{{ source_table_id }}"
+    }
+    time_partitioning {
+      expiration_ms = {{ expiration_ms }}
+      field = "{{ field }}"
+      require_partition_filter = {{ require_partition_filter }}
+      type = "{{ type }}"
+    }
+    view {
+      query = "{{ query }}"
+      use_legacy_sql = {{ use_legacy_sql }}
+    }
 }

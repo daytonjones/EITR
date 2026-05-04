@@ -3,5 +3,19 @@ resource "azurerm_subnet_service_endpoint_storage_policy" "example" {
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    definition {
+      description = "{{ description }}"
+      name = "{{ name }}"
+      service = "{{ service }}"
+      service_resources = ["{{ service_resources }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

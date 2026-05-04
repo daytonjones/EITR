@@ -1,5 +1,4 @@
 resource "google_dataplex_task_iam_member" "example" {
-    etag = "{{ etag }}"
     id = "{{ id }}"
     lake = "{{ lake }}"
     location = "{{ location }}"
@@ -7,4 +6,9 @@ resource "google_dataplex_task_iam_member" "example" {
     project = "{{ project }}"
     role = "{{ role }}"
     task_id = "{{ task_id }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

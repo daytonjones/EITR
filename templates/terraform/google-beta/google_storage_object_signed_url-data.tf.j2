@@ -4,9 +4,10 @@ data "google_storage_object_signed_url" "example" {
     content_type = "{{ content_type }}"
     credentials = "{{ credentials }}"
     duration = "{{ duration }}"
-    extension_headers = "{{ extension_headers }}"
+    extension_headers = {
+        key = "{{ extension_headers_value }}"
+      }
     http_method = "{{ http_method }}"
     id = "{{ id }}"
     path = "{{ path }}"
-    signed_url = "{{ signed_url }}"
 }

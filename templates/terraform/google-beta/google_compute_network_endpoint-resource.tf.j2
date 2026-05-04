@@ -3,7 +3,11 @@ resource "google_compute_network_endpoint" "example" {
     instance = "{{ instance }}"
     ip_address = "{{ ip_address }}"
     network_endpoint_group = "{{ network_endpoint_group }}"
-    port = "{{ port }}"
+    port = {{ port }}
     project = "{{ project }}"
     zone = "{{ zone }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

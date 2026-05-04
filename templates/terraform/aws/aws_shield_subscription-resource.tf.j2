@@ -1,5 +1,4 @@
 resource "aws_shield_subscription" "example" {
     auto_renew = "{{ auto_renew }}"
-    id = "{{ id }}"
-    skip_destroy = "{{ skip_destroy }}"
+    skip_destroy = {{ skip_destroy }}
 }

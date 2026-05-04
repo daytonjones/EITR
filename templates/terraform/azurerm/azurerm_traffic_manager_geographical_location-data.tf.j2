@@ -1,4 +1,7 @@
 data "azurerm_traffic_manager_geographical_location" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

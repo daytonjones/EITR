@@ -5,6 +5,14 @@ resource "azurerm_database_migration_project" "example" {
     resource_group_name = "{{ resource_group_name }}"
     service_name = "{{ service_name }}"
     source_platform = "{{ source_platform }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     target_platform = "{{ target_platform }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

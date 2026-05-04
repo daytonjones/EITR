@@ -1,0 +1,5 @@
+resource "awscc_ec2_transit_gateway_metering_policy" "example" {
+    middlebox_attachment_ids = ["{{ middlebox_attachment_ids }}"]
+    tags = "{{ tags }}"
+    transit_gateway_id = "{{ transit_gateway_id }}"
+}

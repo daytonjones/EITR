@@ -1,9 +1,28 @@
 resource "google_data_catalog_tag_template" "example" {
     display_name = "{{ display_name }}"
-    force_delete = "{{ force_delete }}"
+    force_delete = {{ force_delete }}
     id = "{{ id }}"
-    name = "{{ name }}"
     project = "{{ project }}"
     region = "{{ region }}"
     tag_template_id = "{{ tag_template_id }}"
+    fields {
+      description = "{{ description }}"
+      display_name = "{{ display_name }}"
+      field_id = "{{ field_id }}"
+      is_required = {{ is_required }}
+      order = {{ order }}
+      type {
+        primitive_type = "{{ primitive_type }}"
+        enum_type {
+          allowed_values {
+            display_name = "{{ display_name }}"
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,21 @@
+resource "google_apihub_api_hub_instance" "example" {
+    api_hub_instance_id = "{{ api_hub_instance_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    config {
+      cmek_key_name = "{{ cmek_key_name }}"
+      disable_search = {{ disable_search }}
+      encryption_type = "{{ encryption_type }}"
+      vertex_location = "{{ vertex_location }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

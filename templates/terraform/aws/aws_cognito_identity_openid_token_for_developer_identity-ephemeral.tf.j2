@@ -1,0 +1,12 @@
+ephemeral "aws_cognito_identity_openid_token_for_developer_identity" "example" {
+    identity_id = "{{ identity_id }}"
+    identity_pool_id = "{{ identity_pool_id }}"
+    logins = {
+        key = "{{ logins_value }}"
+      }
+    principal_tags = {
+        key = "{{ principal_tags_value }}"
+      }
+    region = "{{ region }}"
+    token_duration = {{ token_duration }}
+}

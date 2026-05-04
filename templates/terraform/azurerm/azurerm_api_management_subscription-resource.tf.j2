@@ -1,5 +1,5 @@
 resource "azurerm_api_management_subscription" "example" {
-    allow_tracing = "{{ allow_tracing }}"
+    allow_tracing = {{ allow_tracing }}
     api_id = "{{ api_id }}"
     api_management_name = "{{ api_management_name }}"
     display_name = "{{ display_name }}"
@@ -11,4 +11,10 @@ resource "azurerm_api_management_subscription" "example" {
     state = "{{ state }}"
     subscription_id = "{{ subscription_id }}"
     user_id = "{{ user_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

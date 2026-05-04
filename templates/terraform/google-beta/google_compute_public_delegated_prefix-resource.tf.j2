@@ -1,11 +1,16 @@
 resource "google_compute_public_delegated_prefix" "example" {
+    allocatable_prefix_length = {{ allocatable_prefix_length }}
     description = "{{ description }}"
     id = "{{ id }}"
     ip_cidr_range = "{{ ip_cidr_range }}"
-    is_live_migration = "{{ is_live_migration }}"
+    is_live_migration = {{ is_live_migration }}
+    mode = "{{ mode }}"
     name = "{{ name }}"
     parent_prefix = "{{ parent_prefix }}"
     project = "{{ project }}"
     region = "{{ region }}"
-    self_link = "{{ self_link }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

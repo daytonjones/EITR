@@ -1,41 +1,14 @@
 resource "awscc_ecs_task_set" "example" {
-    capacity_provider_strategy = "{
-    base = {{ base }}
-    capacity_provider = {{ capacity_provider }}
-    weight = {{ weight }}
-}"
+    capacity_provider_strategy = "{{ capacity_provider_strategy }}"
     cluster = "{{ cluster }}"
     external_id = "{{ external_id }}"
-    id = "{{ id }}"
     launch_type = "{{ launch_type }}"
-    load_balancers = "{
-    container_name = {{ container_name }}
-    container_port = {{ container_port }}
-    target_group_arn = {{ target_group_arn }}
-}"
-    network_configuration = "{
-    aws_vpc_configuration = {
-    assign_public_ip = {{ assign_public_ip }}
-    security_groups = {{ security_groups }}
-    subnets = {{ subnets }}
-}
-}"
+    load_balancers = "{{ load_balancers }}"
+    network_configuration = "{{ network_configuration }}"
     platform_version = "{{ platform_version }}"
-    scale = "{
-    unit = {{ unit }}
-    value = {{ value }}
-}"
+    scale = "{{ scale }}"
     service = "{{ service }}"
-    service_registries = "{
-    container_name = {{ container_name }}
-    container_port = {{ container_port }}
-    port = {{ port }}
-    registry_arn = {{ registry_arn }}
-}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    service_registries = "{{ service_registries }}"
+    tags = "{{ tags }}"
     task_definition = "{{ task_definition }}"
-    task_set_id = "{{ task_set_id }}"
 }

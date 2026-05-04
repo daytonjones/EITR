@@ -1,12 +1,89 @@
 resource "google_monitoring_slo" "example" {
     calendar_period = "{{ calendar_period }}"
     display_name = "{{ display_name }}"
-    goal = "{{ goal }}"
+    goal = {{ goal }}
     id = "{{ id }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    rolling_period_days = "{{ rolling_period_days }}"
+    rolling_period_days = {{ rolling_period_days }}
     service = "{{ service }}"
     slo_id = "{{ slo_id }}"
-    user_labels = "{{ user_labels }}"
+    user_labels = {
+        key = "{{ user_labels_value }}"
+      }
+    basic_sli {
+      location = ["{{ location }}"]
+      method = ["{{ method }}"]
+      version = ["{{ version }}"]
+      availability {
+        enabled = {{ enabled }}
+      }
+      latency {
+        threshold = "{{ threshold }}"
+      }
+    }
+    request_based_sli {
+      distribution_cut {
+        distribution_filter = "{{ distribution_filter }}"
+        range {
+          max = {{ max }}
+          min = {{ min }}
+        }
+      }
+      good_total_ratio {
+        bad_service_filter = "{{ bad_service_filter }}"
+        good_service_filter = "{{ good_service_filter }}"
+        total_service_filter = "{{ total_service_filter }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    windows_based_sli {
+      good_bad_metric_filter = "{{ good_bad_metric_filter }}"
+      window_period = "{{ window_period }}"
+      good_total_ratio_threshold {
+        threshold = {{ threshold }}
+        basic_sli_performance {
+          location = ["{{ location }}"]
+          method = ["{{ method }}"]
+          version = ["{{ version }}"]
+          availability {
+            enabled = {{ enabled }}
+          }
+          latency {
+            threshold = "{{ threshold }}"
+          }
+        }
+        performance {
+          distribution_cut {
+            distribution_filter = "{{ distribution_filter }}"
+            range {
+              max = {{ max }}
+              min = {{ min }}
+            }
+          }
+          good_total_ratio {
+            bad_service_filter = "{{ bad_service_filter }}"
+            good_service_filter = "{{ good_service_filter }}"
+            total_service_filter = "{{ total_service_filter }}"
+          }
+        }
+      }
+      metric_mean_in_range {
+        time_series = "{{ time_series }}"
+        range {
+          max = {{ max }}
+          min = {{ min }}
+        }
+      }
+      metric_sum_in_range {
+        time_series = "{{ time_series }}"
+        range {
+          max = {{ max }}
+          min = {{ min }}
+        }
+      }
+    }
 }

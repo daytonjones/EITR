@@ -1,0 +1,16 @@
+resource "google_network_security_intercept_endpoint_group" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    intercept_deployment_group = "{{ intercept_deployment_group }}"
+    intercept_endpoint_group_id = "{{ intercept_endpoint_group_id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,19 +1,44 @@
 resource "azurerm_palo_alto_local_rulestack_rule" "example" {
     action = "{{ action }}"
-    applications = "{{ applications }}"
+    applications = ["{{ applications }}"]
     audit_comment = "{{ audit_comment }}"
     decryption_rule_type = "{{ decryption_rule_type }}"
     description = "{{ description }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     inspection_certificate_id = "{{ inspection_certificate_id }}"
-    logging_enabled = "{{ logging_enabled }}"
+    logging_enabled = {{ logging_enabled }}
     name = "{{ name }}"
-    negate_destination = "{{ negate_destination }}"
-    negate_source = "{{ negate_source }}"
-    priority = "{{ priority }}"
+    negate_destination = {{ negate_destination }}
+    negate_source = {{ negate_source }}
+    priority = {{ priority }}
     protocol = "{{ protocol }}"
-    protocol_ports = "{{ protocol_ports }}"
+    protocol_ports = ["{{ protocol_ports }}"]
     rulestack_id = "{{ rulestack_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    category {
+      custom_urls = ["{{ custom_urls }}"]
+      feeds = ["{{ feeds }}"]
+    }
+    destination {
+      cidrs = ["{{ cidrs }}"]
+      countries = ["{{ countries }}"]
+      feeds = ["{{ feeds }}"]
+      local_rulestack_fqdn_list_ids = ["{{ local_rulestack_fqdn_list_ids }}"]
+      local_rulestack_prefix_list_ids = ["{{ local_rulestack_prefix_list_ids }}"]
+    }
+    source {
+      cidrs = ["{{ cidrs }}"]
+      countries = ["{{ countries }}"]
+      feeds = ["{{ feeds }}"]
+      local_rulestack_prefix_list_ids = ["{{ local_rulestack_prefix_list_ids }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

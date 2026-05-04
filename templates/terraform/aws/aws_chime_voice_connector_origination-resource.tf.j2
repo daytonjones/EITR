@@ -1,5 +1,13 @@
 resource "aws_chime_voice_connector_origination" "example" {
-    disabled = "{{ disabled }}"
+    disabled = {{ disabled }}
     id = "{{ id }}"
+    region = "{{ region }}"
     voice_connector_id = "{{ voice_connector_id }}"
+    route {
+      host = "{{ host }}"
+      port = {{ port }}
+      priority = {{ priority }}
+      protocol = "{{ protocol }}"
+      weight = {{ weight }}
+    }
 }

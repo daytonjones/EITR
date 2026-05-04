@@ -1,0 +1,14 @@
+resource "azurerm_automation_runtime_environment_package" "example" {
+    automation_runtime_environment_id = "{{ automation_runtime_environment_id }}"
+    content_uri = "{{ content_uri }}"
+    content_version = "{{ content_version }}"
+    hash_algorithm = "{{ hash_algorithm }}"
+    hash_value = "{{ hash_value }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
+}

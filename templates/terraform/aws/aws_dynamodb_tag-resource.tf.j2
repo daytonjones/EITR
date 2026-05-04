@@ -1,6 +1,7 @@
 resource "aws_dynamodb_tag" "example" {
     id = "{{ id }}"
     key = "{{ key }}"
+    region = "{{ region }}"
     resource_arn = "{{ resource_arn }}"
     value = "{{ value }}"
 }

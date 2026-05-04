@@ -1,0 +1,21 @@
+resource "google_apigee_developer_app" "example" {
+    api_products = ["{{ api_products }}"]
+    app_family = "{{ app_family }}"
+    callback_url = "{{ callback_url }}"
+    developer_email = "{{ developer_email }}"
+    id = "{{ id }}"
+    key_expires_in = "{{ key_expires_in }}"
+    name = "{{ name }}"
+    org_id = "{{ org_id }}"
+    scopes = ["{{ scopes }}"]
+    status = "{{ status }}"
+    attributes {
+      name = "{{ name }}"
+      value = "{{ value }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,0 +1,37 @@
+resource "google_saas_runtime_unit_operation" "example" {
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    unit = "{{ unit }}"
+    unit_operation_id = "{{ unit_operation_id }}"
+    wait_for_completion = {{ wait_for_completion }}
+    deprovision {
+    }
+    provision {
+      release = "{{ release }}"
+      input_variables {
+        type = "{{ type }}"
+        value = "{{ value }}"
+        variable = "{{ variable }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    upgrade {
+      release = "{{ release }}"
+      input_variables {
+        type = "{{ type }}"
+        value = "{{ value }}"
+        variable = "{{ variable }}"
+      }
+    }
+}

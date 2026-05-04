@@ -1,10 +1,51 @@
 resource "aws_msk_replicator" "example" {
-    arn = "{{ arn }}"
-    current_version = "{{ current_version }}"
     description = "{{ description }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     replicator_name = "{{ replicator_name }}"
     service_execution_role_arn = "{{ service_execution_role_arn }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    kafka_cluster {
+      amazon_msk_cluster {
+        msk_cluster_arn = "{{ msk_cluster_arn }}"
+      }
+      vpc_config {
+        security_groups_ids = ["{{ security_groups_ids }}"]
+        subnet_ids = ["{{ subnet_ids }}"]
+      }
+    }
+    replication_info_list {
+      source_kafka_cluster_arn = "{{ source_kafka_cluster_arn }}"
+      target_compression_type = "{{ target_compression_type }}"
+      target_kafka_cluster_arn = "{{ target_kafka_cluster_arn }}"
+      consumer_group_replication {
+        consumer_groups_to_exclude = ["{{ consumer_groups_to_exclude }}"]
+        consumer_groups_to_replicate = ["{{ consumer_groups_to_replicate }}"]
+        detect_and_copy_new_consumer_groups = {{ detect_and_copy_new_consumer_groups }}
+        synchronise_consumer_group_offsets = {{ synchronise_consumer_group_offsets }}
+      }
+      topic_replication {
+        copy_access_control_lists_for_topics = {{ copy_access_control_lists_for_topics }}
+        copy_topic_configurations = {{ copy_topic_configurations }}
+        detect_and_copy_new_topics = {{ detect_and_copy_new_topics }}
+        topics_to_exclude = ["{{ topics_to_exclude }}"]
+        topics_to_replicate = ["{{ topics_to_replicate }}"]
+        starting_position {
+          type = "{{ type }}"
+        }
+        topic_name_configuration {
+          type = "{{ type }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

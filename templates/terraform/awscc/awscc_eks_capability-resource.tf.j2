@@ -1,0 +1,9 @@
+resource "awscc_eks_capability" "example" {
+    capability_name = "{{ capability_name }}"
+    cluster_name = "{{ cluster_name }}"
+    configuration = "{{ configuration }}"
+    delete_propagation_policy = "{{ delete_propagation_policy }}"
+    role_arn = "{{ role_arn }}"
+    tags = "{{ tags }}"
+    type = "{{ type }}"
+}

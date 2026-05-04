@@ -1,0 +1,6 @@
+resource "google_iam_workload_identity_pool_iam_policy" "example" {
+    id = "{{ id }}"
+    policy_data = "{{ policy_data }}"
+    project = "{{ project }}"
+    workload_identity_pool_id = "{{ workload_identity_pool_id }}"
+}

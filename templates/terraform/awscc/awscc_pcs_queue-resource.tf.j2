@@ -1,0 +1,9 @@
+resource "awscc_pcs_queue" "example" {
+    cluster_id = "{{ cluster_id }}"
+    compute_node_group_configurations = "{{ compute_node_group_configurations }}"
+    name = "{{ name }}"
+    slurm_configuration = "{{ slurm_configuration }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

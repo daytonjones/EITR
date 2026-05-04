@@ -1,0 +1,10 @@
+resource "awscc_pcs_cluster" "example" {
+    name = "{{ name }}"
+    networking = "{{ networking }}"
+    scheduler = "{{ scheduler }}"
+    size = "{{ size }}"
+    slurm_configuration = "{{ slurm_configuration }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

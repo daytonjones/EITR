@@ -1,11 +1,159 @@
 resource "aws_quicksight_data_set" "example" {
-    arn = "{{ arn }}"
     aws_account_id = "{{ aws_account_id }}"
     data_set_id = "{{ data_set_id }}"
     id = "{{ id }}"
     import_mode = "{{ import_mode }}"
     name = "{{ name }}"
-    output_columns = "{{ output_columns }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    use_as = "{{ use_as }}"
+    column_groups {
+      geo_spatial_column_group {
+        columns = ["{{ columns }}"]
+        country_code = "{{ country_code }}"
+        name = "{{ name }}"
+      }
+    }
+    column_level_permission_rules {
+      column_names = ["{{ column_names }}"]
+      principals = ["{{ principals }}"]
+    }
+    data_set_usage_configuration {
+      disable_use_as_direct_query_source = {{ disable_use_as_direct_query_source }}
+      disable_use_as_imported_source = {{ disable_use_as_imported_source }}
+    }
+    field_folders {
+      columns = ["{{ columns }}"]
+      description = "{{ description }}"
+      field_folders_id = "{{ field_folders_id }}"
+    }
+    logical_table_map {
+      alias = "{{ alias }}"
+      logical_table_map_id = "{{ logical_table_map_id }}"
+      data_transforms {
+        cast_column_type_operation {
+          column_name = "{{ column_name }}"
+          format = "{{ format }}"
+          new_column_type = "{{ new_column_type }}"
+        }
+        create_columns_operation {
+          columns {
+            column_id = "{{ column_id }}"
+            column_name = "{{ column_name }}"
+            expression = "{{ expression }}"
+          }
+        }
+        filter_operation {
+          condition_expression = "{{ condition_expression }}"
+        }
+        project_operation {
+          projected_columns = ["{{ projected_columns }}"]
+        }
+        rename_column_operation {
+          column_name = "{{ column_name }}"
+          new_column_name = "{{ new_column_name }}"
+        }
+        tag_column_operation {
+          column_name = "{{ column_name }}"
+          tags {
+            column_geographic_role = "{{ column_geographic_role }}"
+            column_description {
+              text = "{{ text }}"
+            }
+          }
+        }
+        untag_column_operation {
+          column_name = "{{ column_name }}"
+          tag_names = ["{{ tag_names }}"]
+        }
+      }
+      source {
+        data_set_arn = "{{ data_set_arn }}"
+        physical_table_id = "{{ physical_table_id }}"
+        join_instruction {
+          left_operand = "{{ left_operand }}"
+          on_clause = "{{ on_clause }}"
+          right_operand = "{{ right_operand }}"
+          type = "{{ type }}"
+          left_join_key_properties {
+            unique_key = {{ unique_key }}
+          }
+          right_join_key_properties {
+            unique_key = {{ unique_key }}
+          }
+        }
+      }
+    }
+    permissions {
+      actions = ["{{ actions }}"]
+      principal = "{{ principal }}"
+    }
+    physical_table_map {
+      physical_table_map_id = "{{ physical_table_map_id }}"
+      custom_sql {
+        data_source_arn = "{{ data_source_arn }}"
+        name = "{{ name }}"
+        sql_query = "{{ sql_query }}"
+        columns {
+          name = "{{ name }}"
+          type = "{{ type }}"
+        }
+      }
+      relational_table {
+        catalog = "{{ catalog }}"
+        data_source_arn = "{{ data_source_arn }}"
+        name = "{{ name }}"
+        schema = "{{ schema }}"
+        input_columns {
+          name = "{{ name }}"
+          type = "{{ type }}"
+        }
+      }
+      s3_source {
+        data_source_arn = "{{ data_source_arn }}"
+        input_columns {
+          name = "{{ name }}"
+          type = "{{ type }}"
+        }
+        upload_settings {
+          contains_header = {{ contains_header }}
+          delimiter = "{{ delimiter }}"
+          format = "{{ format }}"
+          start_from_row = {{ start_from_row }}
+          text_qualifier = "{{ text_qualifier }}"
+        }
+      }
+    }
+    refresh_properties {
+      refresh_configuration {
+        incremental_refresh {
+          lookback_window {
+            column_name = "{{ column_name }}"
+            size = {{ size }}
+            size_unit = "{{ size_unit }}"
+          }
+        }
+      }
+    }
+    row_level_permission_data_set {
+      arn = "{{ arn }}"
+      format_version = "{{ format_version }}"
+      namespace = "{{ namespace }}"
+      permission_policy = "{{ permission_policy }}"
+      status = "{{ status }}"
+    }
+    row_level_permission_tag_configuration {
+      status = "{{ status }}"
+      tag_rules {
+        column_name = "{{ column_name }}"
+        match_all_value = "{{ match_all_value }}"
+        tag_key = "{{ tag_key }}"
+        tag_multi_value_delimiter = "{{ tag_multi_value_delimiter }}"
+      }
+    }
 }

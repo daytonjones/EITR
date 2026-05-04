@@ -1,0 +1,8 @@
+resource "awscc_bedrock_intelligent_prompt_router" "example" {
+    description = "{{ description }}"
+    fallback_model = "{{ fallback_model }}"
+    models = "{{ models }}"
+    prompt_router_name = "{{ prompt_router_name }}"
+    routing_criteria = "{{ routing_criteria }}"
+    tags = "{{ tags }}"
+}

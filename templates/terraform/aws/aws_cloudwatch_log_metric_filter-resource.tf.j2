@@ -1,6 +1,18 @@
 resource "aws_cloudwatch_log_metric_filter" "example" {
+    apply_on_transformed_logs = {{ apply_on_transformed_logs }}
     id = "{{ id }}"
     log_group_name = "{{ log_group_name }}"
     name = "{{ name }}"
     pattern = "{{ pattern }}"
+    region = "{{ region }}"
+    metric_transformation {
+      default_value = "{{ default_value }}"
+      dimensions = {
+        key = "{{ dimensions_value }}"
+      }
+      name = "{{ name }}"
+      namespace = "{{ namespace }}"
+      unit = "{{ unit }}"
+      value = "{{ value }}"
+    }
 }

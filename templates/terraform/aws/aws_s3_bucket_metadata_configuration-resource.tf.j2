@@ -1,0 +1,27 @@
+resource "aws_s3_bucket_metadata_configuration" "example" {
+    bucket = "{{ bucket }}"
+    expected_bucket_owner = "{{ expected_bucket_owner }}"
+    region = "{{ region }}"
+    metadata_configuration {
+      inventory_table_configuration {
+        configuration_state = "{{ configuration_state }}"
+        encryption_configuration {
+          kms_key_arn = "{{ kms_key_arn }}"
+          sse_algorithm = "{{ sse_algorithm }}"
+        }
+      }
+      journal_table_configuration {
+        encryption_configuration {
+          kms_key_arn = "{{ kms_key_arn }}"
+          sse_algorithm = "{{ sse_algorithm }}"
+        }
+        record_expiration {
+          days = {{ days }}
+          expiration = "{{ expiration }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+    }
+}

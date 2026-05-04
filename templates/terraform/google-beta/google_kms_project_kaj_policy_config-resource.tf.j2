@@ -1,0 +1,12 @@
+resource "google_kms_project_kaj_policy_config" "example" {
+    id = "{{ id }}"
+    project = "{{ project }}"
+    default_key_access_justification_policy {
+      allowed_access_reasons = ["{{ allowed_access_reasons }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

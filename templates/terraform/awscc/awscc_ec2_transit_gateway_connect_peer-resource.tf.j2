@@ -1,0 +1,5 @@
+resource "awscc_ec2_transit_gateway_connect_peer" "example" {
+    connect_peer_configuration = "{{ connect_peer_configuration }}"
+    tags = "{{ tags }}"
+    transit_gateway_attachment_id = "{{ transit_gateway_attachment_id }}"
+}

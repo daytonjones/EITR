@@ -2,10 +2,136 @@ resource "azurerm_monitor_data_collection_rule" "example" {
     data_collection_endpoint_id = "{{ data_collection_endpoint_id }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    immutable_id = "{{ immutable_id }}"
     kind = "{{ kind }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    data_flow {
+      built_in_transform = "{{ built_in_transform }}"
+      destinations = ["{{ destinations }}"]
+      output_stream = "{{ output_stream }}"
+      streams = ["{{ streams }}"]
+      transform_kql = "{{ transform_kql }}"
+    }
+    data_sources {
+      data_import {
+        event_hub_data_source {
+          consumer_group = "{{ consumer_group }}"
+          name = "{{ name }}"
+          stream = "{{ stream }}"
+        }
+      }
+      extension {
+        extension_json = "{{ extension_json }}"
+        extension_name = "{{ extension_name }}"
+        input_data_sources = ["{{ input_data_sources }}"]
+        name = "{{ name }}"
+        streams = ["{{ streams }}"]
+      }
+      iis_log {
+        log_directories = ["{{ log_directories }}"]
+        name = "{{ name }}"
+        streams = ["{{ streams }}"]
+      }
+      log_file {
+        file_patterns = ["{{ file_patterns }}"]
+        format = "{{ format }}"
+        name = "{{ name }}"
+        streams = ["{{ streams }}"]
+        settings {
+          text {
+            record_start_timestamp_format = "{{ record_start_timestamp_format }}"
+          }
+        }
+      }
+      performance_counter {
+        counter_specifiers = ["{{ counter_specifiers }}"]
+        name = "{{ name }}"
+        sampling_frequency_in_seconds = {{ sampling_frequency_in_seconds }}
+        streams = ["{{ streams }}"]
+      }
+      platform_telemetry {
+        name = "{{ name }}"
+        streams = ["{{ streams }}"]
+      }
+      prometheus_forwarder {
+        name = "{{ name }}"
+        streams = ["{{ streams }}"]
+        label_include_filter {
+          label = "{{ label }}"
+          value = "{{ value }}"
+        }
+      }
+      syslog {
+        facility_names = ["{{ facility_names }}"]
+        log_levels = ["{{ log_levels }}"]
+        name = "{{ name }}"
+        streams = ["{{ streams }}"]
+      }
+      windows_event_log {
+        name = "{{ name }}"
+        streams = ["{{ streams }}"]
+        x_path_queries = ["{{ x_path_queries }}"]
+      }
+      windows_firewall_log {
+        name = "{{ name }}"
+        streams = ["{{ streams }}"]
+      }
+    }
+    destinations {
+      azure_monitor_metrics {
+        name = "{{ name }}"
+      }
+      event_hub {
+        event_hub_id = "{{ event_hub_id }}"
+        name = "{{ name }}"
+      }
+      event_hub_direct {
+        event_hub_id = "{{ event_hub_id }}"
+        name = "{{ name }}"
+      }
+      log_analytics {
+        name = "{{ name }}"
+        workspace_resource_id = "{{ workspace_resource_id }}"
+      }
+      monitor_account {
+        monitor_account_id = "{{ monitor_account_id }}"
+        name = "{{ name }}"
+      }
+      storage_blob {
+        container_name = "{{ container_name }}"
+        name = "{{ name }}"
+        storage_account_id = "{{ storage_account_id }}"
+      }
+      storage_blob_direct {
+        container_name = "{{ container_name }}"
+        name = "{{ name }}"
+        storage_account_id = "{{ storage_account_id }}"
+      }
+      storage_table_direct {
+        name = "{{ name }}"
+        storage_account_id = "{{ storage_account_id }}"
+        table_name = "{{ table_name }}"
+      }
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    stream_declaration {
+      stream_name = "{{ stream_name }}"
+      column {
+        name = "{{ name }}"
+        type = "{{ type }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

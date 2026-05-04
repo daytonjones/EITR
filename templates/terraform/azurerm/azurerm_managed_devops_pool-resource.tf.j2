@@ -1,0 +1,138 @@
+resource "azurerm_managed_devops_pool" "example" {
+    dev_center_project_id = "{{ dev_center_project_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    maximum_concurrency = {{ maximum_concurrency }}
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    work_folder = "{{ work_folder }}"
+    azure_devops_organization {
+      organization {
+        parallelism = {{ parallelism }}
+        projects = ["{{ projects }}"]
+        url = "{{ url }}"
+      }
+      permission {
+        kind = "{{ kind }}"
+        administrator_account {
+          groups = ["{{ groups }}"]
+          users = ["{{ users }}"]
+        }
+      }
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    stateful_agent {
+      grace_period_time_span = "{{ grace_period_time_span }}"
+      maximum_agent_lifetime = "{{ maximum_agent_lifetime }}"
+      automatic_resource_prediction {
+        prediction_preference = "{{ prediction_preference }}"
+      }
+      manual_resource_prediction {
+        all_week_schedule = {{ all_week_schedule }}
+        time_zone_name = "{{ time_zone_name }}"
+        friday_schedule {
+          count = {{ count }}
+          time = "{{ time }}"
+        }
+        monday_schedule {
+          count = {{ count }}
+          time = "{{ time }}"
+        }
+        saturday_schedule {
+          count = {{ count }}
+          time = "{{ time }}"
+        }
+        sunday_schedule {
+          count = {{ count }}
+          time = "{{ time }}"
+        }
+        thursday_schedule {
+          count = {{ count }}
+          time = "{{ time }}"
+        }
+        tuesday_schedule {
+          count = {{ count }}
+          time = "{{ time }}"
+        }
+        wednesday_schedule {
+          count = {{ count }}
+          time = "{{ time }}"
+        }
+      }
+    }
+    stateless_agent {
+      automatic_resource_prediction {
+        prediction_preference = "{{ prediction_preference }}"
+      }
+      manual_resource_prediction {
+        all_week_schedule = {{ all_week_schedule }}
+        time_zone_name = "{{ time_zone_name }}"
+        friday_schedule {
+          count = {{ count }}
+          time = "{{ time }}"
+        }
+        monday_schedule {
+          count = {{ count }}
+          time = "{{ time }}"
+        }
+        saturday_schedule {
+          count = {{ count }}
+          time = "{{ time }}"
+        }
+        sunday_schedule {
+          count = {{ count }}
+          time = "{{ time }}"
+        }
+        thursday_schedule {
+          count = {{ count }}
+          time = "{{ time }}"
+        }
+        tuesday_schedule {
+          count = {{ count }}
+          time = "{{ time }}"
+        }
+        wednesday_schedule {
+          count = {{ count }}
+          time = "{{ time }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    virtual_machine_scale_set_fabric {
+      os_disk_storage_account_type = "{{ os_disk_storage_account_type }}"
+      sku_name = "{{ sku_name }}"
+      subnet_id = "{{ subnet_id }}"
+      image {
+        aliases = ["{{ aliases }}"]
+        buffer = "{{ buffer }}"
+        id = "{{ id }}"
+        well_known_image_name = "{{ well_known_image_name }}"
+      }
+      security {
+        interactive_logon_enabled = {{ interactive_logon_enabled }}
+        key_vault_management {
+          certificate_store_location = "{{ certificate_store_location }}"
+          certificate_store_name = "{{ certificate_store_name }}"
+          key_export_enabled = {{ key_export_enabled }}
+          key_vault_certificate_ids = ["{{ key_vault_certificate_ids }}"]
+        }
+      }
+      storage {
+        caching = "{{ caching }}"
+        disk_size_in_gb = {{ disk_size_in_gb }}
+        drive_letter = "{{ drive_letter }}"
+        storage_account_type = "{{ storage_account_type }}"
+      }
+    }
+}

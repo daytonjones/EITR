@@ -1,15 +1,61 @@
 resource "google_network_connectivity_spoke" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
+    group = "{{ group }}"
     hub = "{{ hub }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    state = "{{ state }}"
-    terraform_labels = "{{ terraform_labels }}"
-    unique_id = "{{ unique_id }}"
-    update_time = "{{ update_time }}"
+    gateway {
+      capacity = "{{ capacity }}"
+      ip_range_reservations {
+        ip_range = "{{ ip_range }}"
+      }
+    }
+    linked_interconnect_attachments {
+      exclude_export_ranges = ["{{ exclude_export_ranges }}"]
+      exclude_import_ranges = ["{{ exclude_import_ranges }}"]
+      include_export_ranges = ["{{ include_export_ranges }}"]
+      include_import_ranges = ["{{ include_import_ranges }}"]
+      site_to_site_data_transfer = {{ site_to_site_data_transfer }}
+      uris = ["{{ uris }}"]
+    }
+    linked_producer_vpc_network {
+      exclude_export_ranges = ["{{ exclude_export_ranges }}"]
+      include_export_ranges = ["{{ include_export_ranges }}"]
+      network = "{{ network }}"
+      peering = "{{ peering }}"
+    }
+    linked_router_appliance_instances {
+      exclude_export_ranges = ["{{ exclude_export_ranges }}"]
+      exclude_import_ranges = ["{{ exclude_import_ranges }}"]
+      include_export_ranges = ["{{ include_export_ranges }}"]
+      include_import_ranges = ["{{ include_import_ranges }}"]
+      site_to_site_data_transfer = {{ site_to_site_data_transfer }}
+      instances {
+        ip_address = "{{ ip_address }}"
+        virtual_machine = "{{ virtual_machine }}"
+      }
+    }
+    linked_vpc_network {
+      exclude_export_ranges = ["{{ exclude_export_ranges }}"]
+      include_export_ranges = ["{{ include_export_ranges }}"]
+      uri = "{{ uri }}"
+    }
+    linked_vpn_tunnels {
+      exclude_export_ranges = ["{{ exclude_export_ranges }}"]
+      exclude_import_ranges = ["{{ exclude_import_ranges }}"]
+      include_export_ranges = ["{{ include_export_ranges }}"]
+      include_import_ranges = ["{{ include_import_ranges }}"]
+      site_to_site_data_transfer = {{ site_to_site_data_transfer }}
+      uris = ["{{ uris }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

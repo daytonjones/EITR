@@ -1,5 +1,5 @@
 resource "aws_api_gateway_integration" "example" {
-    cache_key_parameters = "{{ cache_key_parameters }}"
+    cache_key_parameters = ["{{ cache_key_parameters }}"]
     cache_namespace = "{{ cache_namespace }}"
     connection_id = "{{ connection_id }}"
     connection_type = "{{ connection_type }}"
@@ -8,12 +8,22 @@ resource "aws_api_gateway_integration" "example" {
     http_method = "{{ http_method }}"
     id = "{{ id }}"
     integration_http_method = "{{ integration_http_method }}"
+    integration_target = "{{ integration_target }}"
     passthrough_behavior = "{{ passthrough_behavior }}"
-    request_parameters = "{{ request_parameters }}"
-    request_templates = "{{ request_templates }}"
+    region = "{{ region }}"
+    request_parameters = {
+        key = "{{ request_parameters_value }}"
+      }
+    request_templates = {
+        key = "{{ request_templates_value }}"
+      }
     resource_id = "{{ resource_id }}"
+    response_transfer_mode = "{{ response_transfer_mode }}"
     rest_api_id = "{{ rest_api_id }}"
-    timeout_milliseconds = "{{ timeout_milliseconds }}"
+    timeout_milliseconds = {{ timeout_milliseconds }}
     type = "{{ type }}"
     uri = "{{ uri }}"
+    tls_config {
+      insecure_skip_verification = {{ insecure_skip_verification }}
+    }
 }

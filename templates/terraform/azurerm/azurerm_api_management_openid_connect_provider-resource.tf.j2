@@ -8,4 +8,10 @@ resource "azurerm_api_management_openid_connect_provider" "example" {
     metadata_endpoint = "{{ metadata_endpoint }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

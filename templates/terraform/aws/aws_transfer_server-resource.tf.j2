@@ -1,25 +1,53 @@
 resource "aws_transfer_server" "example" {
-    arn = "{{ arn }}"
     certificate = "{{ certificate }}"
     directory_id = "{{ directory_id }}"
     domain = "{{ domain }}"
-    endpoint = "{{ endpoint }}"
     endpoint_type = "{{ endpoint_type }}"
-    force_destroy = "{{ force_destroy }}"
+    force_destroy = {{ force_destroy }}
     function = "{{ function }}"
     host_key = "{{ host_key }}"
-    host_key_fingerprint = "{{ host_key_fingerprint }}"
     id = "{{ id }}"
     identity_provider_type = "{{ identity_provider_type }}"
     invocation_role = "{{ invocation_role }}"
     logging_role = "{{ logging_role }}"
     post_authentication_login_banner = "{{ post_authentication_login_banner }}"
     pre_authentication_login_banner = "{{ pre_authentication_login_banner }}"
-    protocols = "{{ protocols }}"
+    protocols = ["{{ protocols }}"]
+    region = "{{ region }}"
     security_policy_name = "{{ security_policy_name }}"
     sftp_authentication_methods = "{{ sftp_authentication_methods }}"
-    structured_log_destinations = "{{ structured_log_destinations }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    structured_log_destinations = ["{{ structured_log_destinations }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     url = "{{ url }}"
+    endpoint_details {
+      address_allocation_ids = ["{{ address_allocation_ids }}"]
+      security_group_ids = ["{{ security_group_ids }}"]
+      subnet_ids = ["{{ subnet_ids }}"]
+      vpc_endpoint_id = "{{ vpc_endpoint_id }}"
+      vpc_id = "{{ vpc_id }}"
+    }
+    protocol_details {
+      as2_transports = ["{{ as2_transports }}"]
+      passive_ip = "{{ passive_ip }}"
+      set_stat_option = "{{ set_stat_option }}"
+      tls_session_resumption_mode = "{{ tls_session_resumption_mode }}"
+    }
+    s3_storage_options {
+      directory_listing_optimization = "{{ directory_listing_optimization }}"
+    }
+    workflow_details {
+      on_partial_upload {
+        execution_role = "{{ execution_role }}"
+        workflow_id = "{{ workflow_id }}"
+      }
+      on_upload {
+        execution_role = "{{ execution_role }}"
+        workflow_id = "{{ workflow_id }}"
+      }
+    }
 }

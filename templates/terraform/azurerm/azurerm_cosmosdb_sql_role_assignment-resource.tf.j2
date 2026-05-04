@@ -6,4 +6,10 @@ resource "azurerm_cosmosdb_sql_role_assignment" "example" {
     resource_group_name = "{{ resource_group_name }}"
     role_definition_id = "{{ role_definition_id }}"
     scope = "{{ scope }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

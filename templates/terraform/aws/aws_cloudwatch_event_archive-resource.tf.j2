@@ -1,9 +1,10 @@
 resource "aws_cloudwatch_event_archive" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     event_pattern = "{{ event_pattern }}"
     event_source_arn = "{{ event_source_arn }}"
     id = "{{ id }}"
+    kms_key_identifier = "{{ kms_key_identifier }}"
     name = "{{ name }}"
-    retention_days = "{{ retention_days }}"
+    region = "{{ region }}"
+    retention_days = {{ retention_days }}
 }

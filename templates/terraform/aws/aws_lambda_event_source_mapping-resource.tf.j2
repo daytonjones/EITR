@@ -1,28 +1,89 @@
 resource "aws_lambda_event_source_mapping" "example" {
-    arn = "{{ arn }}"
-    batch_size = "{{ batch_size }}"
-    bisect_batch_on_function_error = "{{ bisect_batch_on_function_error }}"
-    enabled = "{{ enabled }}"
+    batch_size = {{ batch_size }}
+    bisect_batch_on_function_error = {{ bisect_batch_on_function_error }}
+    enabled = {{ enabled }}
     event_source_arn = "{{ event_source_arn }}"
-    function_arn = "{{ function_arn }}"
     function_name = "{{ function_name }}"
-    function_response_types = "{{ function_response_types }}"
+    function_response_types = ["{{ function_response_types }}"]
     id = "{{ id }}"
     kms_key_arn = "{{ kms_key_arn }}"
-    last_modified = "{{ last_modified }}"
-    last_processing_result = "{{ last_processing_result }}"
-    maximum_batching_window_in_seconds = "{{ maximum_batching_window_in_seconds }}"
-    maximum_record_age_in_seconds = "{{ maximum_record_age_in_seconds }}"
-    maximum_retry_attempts = "{{ maximum_retry_attempts }}"
-    parallelization_factor = "{{ parallelization_factor }}"
-    queues = "{{ queues }}"
+    maximum_batching_window_in_seconds = {{ maximum_batching_window_in_seconds }}
+    maximum_record_age_in_seconds = {{ maximum_record_age_in_seconds }}
+    maximum_retry_attempts = {{ maximum_retry_attempts }}
+    parallelization_factor = {{ parallelization_factor }}
+    queues = ["{{ queues }}"]
+    region = "{{ region }}"
     starting_position = "{{ starting_position }}"
     starting_position_timestamp = "{{ starting_position_timestamp }}"
-    state = "{{ state }}"
-    state_transition_reason = "{{ state_transition_reason }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    topics = "{{ topics }}"
-    tumbling_window_in_seconds = "{{ tumbling_window_in_seconds }}"
-    uuid = "{{ uuid }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    topics = ["{{ topics }}"]
+    tumbling_window_in_seconds = {{ tumbling_window_in_seconds }}
+    amazon_managed_kafka_event_source_config {
+      consumer_group_id = "{{ consumer_group_id }}"
+      schema_registry_config {
+        event_record_format = "{{ event_record_format }}"
+        schema_registry_uri = "{{ schema_registry_uri }}"
+        access_config {
+          type = "{{ type }}"
+          uri = "{{ uri }}"
+        }
+        schema_validation_config {
+          attribute = "{{ attribute }}"
+        }
+      }
+    }
+    destination_config {
+      on_failure {
+        destination_arn = "{{ destination_arn }}"
+      }
+    }
+    document_db_event_source_config {
+      collection_name = "{{ collection_name }}"
+      database_name = "{{ database_name }}"
+      full_document = "{{ full_document }}"
+    }
+    filter_criteria {
+      filter {
+        pattern = "{{ pattern }}"
+      }
+    }
+    metrics_config {
+      metrics = ["{{ metrics }}"]
+    }
+    provisioned_poller_config {
+      maximum_pollers = {{ maximum_pollers }}
+      minimum_pollers = {{ minimum_pollers }}
+      poller_group_name = "{{ poller_group_name }}"
+    }
+    scaling_config {
+      maximum_concurrency = {{ maximum_concurrency }}
+    }
+    self_managed_event_source {
+      endpoints = {
+        key = "{{ endpoints_value }}"
+      }
+    }
+    self_managed_kafka_event_source_config {
+      consumer_group_id = "{{ consumer_group_id }}"
+      schema_registry_config {
+        event_record_format = "{{ event_record_format }}"
+        schema_registry_uri = "{{ schema_registry_uri }}"
+        access_config {
+          type = "{{ type }}"
+          uri = "{{ uri }}"
+        }
+        schema_validation_config {
+          attribute = "{{ attribute }}"
+        }
+      }
+    }
+    source_access_configuration {
+      type = "{{ type }}"
+      uri = "{{ uri }}"
+    }
 }

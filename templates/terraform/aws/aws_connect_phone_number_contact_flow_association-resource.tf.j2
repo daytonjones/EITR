@@ -1,0 +1,6 @@
+resource "aws_connect_phone_number_contact_flow_association" "example" {
+    contact_flow_id = "{{ contact_flow_id }}"
+    instance_id = "{{ instance_id }}"
+    phone_number_id = "{{ phone_number_id }}"
+    region = "{{ region }}"
+}

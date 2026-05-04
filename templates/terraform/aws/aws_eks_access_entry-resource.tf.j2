@@ -1,13 +1,19 @@
 resource "aws_eks_access_entry" "example" {
-    access_entry_arn = "{{ access_entry_arn }}"
     cluster_name = "{{ cluster_name }}"
-    created_at = "{{ created_at }}"
     id = "{{ id }}"
-    kubernetes_groups = "{{ kubernetes_groups }}"
-    modified_at = "{{ modified_at }}"
+    kubernetes_groups = ["{{ kubernetes_groups }}"]
     principal_arn = "{{ principal_arn }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     type = "{{ type }}"
     user_name = "{{ user_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

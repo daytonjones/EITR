@@ -1,13 +1,39 @@
 resource "azurerm_spring_cloud_app" "example" {
     addon_json = "{{ addon_json }}"
-    fqdn = "{{ fqdn }}"
-    https_only = "{{ https_only }}"
+    https_only = {{ https_only }}
     id = "{{ id }}"
-    is_public = "{{ is_public }}"
+    is_public = {{ is_public }}
     name = "{{ name }}"
-    public_endpoint_enabled = "{{ public_endpoint_enabled }}"
+    public_endpoint_enabled = {{ public_endpoint_enabled }}
     resource_group_name = "{{ resource_group_name }}"
     service_name = "{{ service_name }}"
-    tls_enabled = "{{ tls_enabled }}"
-    url = "{{ url }}"
+    tls_enabled = {{ tls_enabled }}
+    custom_persistent_disk {
+      mount_options = ["{{ mount_options }}"]
+      mount_path = "{{ mount_path }}"
+      read_only_enabled = {{ read_only_enabled }}
+      share_name = "{{ share_name }}"
+      storage_name = "{{ storage_name }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    ingress_settings {
+      backend_protocol = "{{ backend_protocol }}"
+      read_timeout_in_seconds = {{ read_timeout_in_seconds }}
+      send_timeout_in_seconds = {{ send_timeout_in_seconds }}
+      session_affinity = "{{ session_affinity }}"
+      session_cookie_max_age = {{ session_cookie_max_age }}
+    }
+    persistent_disk {
+      mount_path = "{{ mount_path }}"
+      size_in_gb = {{ size_in_gb }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

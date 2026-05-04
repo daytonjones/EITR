@@ -1,0 +1,13 @@
+resource "azurerm_kubernetes_cluster_deployment_safeguard" "example" {
+    excluded_namespaces = ["{{ excluded_namespaces }}"]
+    id = "{{ id }}"
+    kubernetes_cluster_id = "{{ kubernetes_cluster_id }}"
+    level = "{{ level }}"
+    pod_security_standards_level = "{{ pod_security_standards_level }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

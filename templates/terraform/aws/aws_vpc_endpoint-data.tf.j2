@@ -1,22 +1,19 @@
 data "aws_vpc_endpoint" "example" {
-    arn = "{{ arn }}"
-    cidr_blocks = "{{ cidr_blocks }}"
-    dns_entry = "{{ dns_entry }}"
-    dns_options = "{{ dns_options }}"
     id = "{{ id }}"
-    ip_address_type = "{{ ip_address_type }}"
-    network_interface_ids = "{{ network_interface_ids }}"
-    owner_id = "{{ owner_id }}"
-    policy = "{{ policy }}"
-    prefix_list_id = "{{ prefix_list_id }}"
-    private_dns_enabled = "{{ private_dns_enabled }}"
-    requester_managed = "{{ requester_managed }}"
-    route_table_ids = "{{ route_table_ids }}"
-    security_group_ids = "{{ security_group_ids }}"
+    region = "{{ region }}"
     service_name = "{{ service_name }}"
+    service_region = "{{ service_region }}"
     state = "{{ state }}"
-    subnet_ids = "{{ subnet_ids }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     vpc_endpoint_type = "{{ vpc_endpoint_type }}"
     vpc_id = "{{ vpc_id }}"
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
+    timeouts {
+      read = "{{ read }}"
+    }
 }

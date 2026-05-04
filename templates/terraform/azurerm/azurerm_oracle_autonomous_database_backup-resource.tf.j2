@@ -1,0 +1,13 @@
+resource "azurerm_oracle_autonomous_database_backup" "example" {
+    autonomous_database_id = "{{ autonomous_database_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    retention_period_in_days = {{ retention_period_in_days }}
+    type = "{{ type }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

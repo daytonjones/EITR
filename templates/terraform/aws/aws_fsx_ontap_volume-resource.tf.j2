@@ -1,24 +1,64 @@
 resource "aws_fsx_ontap_volume" "example" {
-    arn = "{{ arn }}"
-    bypass_snaplock_enterprise_retention = "{{ bypass_snaplock_enterprise_retention }}"
-    copy_tags_to_backups = "{{ copy_tags_to_backups }}"
-    file_system_id = "{{ file_system_id }}"
-    final_backup_tags = "{{ final_backup_tags }}"
-    flexcache_endpoint_type = "{{ flexcache_endpoint_type }}"
+    bypass_snaplock_enterprise_retention = {{ bypass_snaplock_enterprise_retention }}
+    copy_tags_to_backups = {{ copy_tags_to_backups }}
+    final_backup_tags = {
+        key = "{{ final_backup_tags_value }}"
+      }
     id = "{{ id }}"
     junction_path = "{{ junction_path }}"
     name = "{{ name }}"
     ontap_volume_type = "{{ ontap_volume_type }}"
+    region = "{{ region }}"
     security_style = "{{ security_style }}"
     size_in_bytes = "{{ size_in_bytes }}"
-    size_in_megabytes = "{{ size_in_megabytes }}"
-    skip_final_backup = "{{ skip_final_backup }}"
+    size_in_megabytes = {{ size_in_megabytes }}
+    skip_final_backup = {{ skip_final_backup }}
     snapshot_policy = "{{ snapshot_policy }}"
-    storage_efficiency_enabled = "{{ storage_efficiency_enabled }}"
+    storage_efficiency_enabled = {{ storage_efficiency_enabled }}
     storage_virtual_machine_id = "{{ storage_virtual_machine_id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    uuid = "{{ uuid }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     volume_style = "{{ volume_style }}"
     volume_type = "{{ volume_type }}"
+    aggregate_configuration {
+      aggregates = ["{{ aggregates }}"]
+      constituents_per_aggregate = {{ constituents_per_aggregate }}
+    }
+    snaplock_configuration {
+      audit_log_volume = {{ audit_log_volume }}
+      privileged_delete = "{{ privileged_delete }}"
+      snaplock_type = "{{ snaplock_type }}"
+      volume_append_mode_enabled = {{ volume_append_mode_enabled }}
+      autocommit_period {
+        type = "{{ type }}"
+        value = {{ value }}
+      }
+      retention_period {
+        default_retention {
+          type = "{{ type }}"
+          value = {{ value }}
+        }
+        maximum_retention {
+          type = "{{ type }}"
+          value = {{ value }}
+        }
+        minimum_retention {
+          type = "{{ type }}"
+          value = {{ value }}
+        }
+      }
+    }
+    tiering_policy {
+      cooling_period = {{ cooling_period }}
+      name = "{{ name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

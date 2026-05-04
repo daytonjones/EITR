@@ -1,7 +1,16 @@
 resource "google_firebaserules_ruleset" "example" {
-    create_time = "{{ create_time }}"
     id = "{{ id }}"
-    metadata = "{{ metadata }}"
-    name = "{{ name }}"
     project = "{{ project }}"
+    source {
+      language = "{{ language }}"
+      files {
+        content = "{{ content }}"
+        fingerprint = "{{ fingerprint }}"
+        name = "{{ name }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

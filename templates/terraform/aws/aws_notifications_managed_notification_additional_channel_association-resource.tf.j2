@@ -1,0 +1,4 @@
+resource "aws_notifications_managed_notification_additional_channel_association" "example" {
+    channel_arn = "{{ channel_arn }}"
+    managed_notification_arn = "{{ managed_notification_arn }}"
+}

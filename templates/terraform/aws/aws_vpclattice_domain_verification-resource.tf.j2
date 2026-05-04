@@ -1,0 +1,7 @@
+resource "aws_vpclattice_domain_verification" "example" {
+    domain_name = "{{ domain_name }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

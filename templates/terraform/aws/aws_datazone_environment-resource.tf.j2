@@ -2,16 +2,20 @@ resource "aws_datazone_environment" "example" {
     account_identifier = "{{ account_identifier }}"
     account_region = "{{ account_region }}"
     blueprint_identifier = "{{ blueprint_identifier }}"
-    created_at = "{{ created_at }}"
-    created_by = "{{ created_by }}"
     description = "{{ description }}"
     domain_identifier = "{{ domain_identifier }}"
-    glossary_terms = "{{ glossary_terms }}"
-    id = "{{ id }}"
-    last_deployment = "{{ last_deployment }}"
+    glossary_terms = ["{{ glossary_terms }}"]
     name = "{{ name }}"
     profile_identifier = "{{ profile_identifier }}"
     project_identifier = "{{ project_identifier }}"
-    provider_environment = "{{ provider_environment }}"
-    provisioned_resources = "{{ provisioned_resources }}"
+    region = "{{ region }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    user_parameters {
+      name = "{{ name }}"
+      value = "{{ value }}"
+    }
 }

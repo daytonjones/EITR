@@ -1,0 +1,15 @@
+resource "hcp_dns_forwarding_rule" "example" {
+    dns_forwarding_id = "{{ dns_forwarding_id }}"
+    domain_name = "{{ domain_name }}"
+    hvn_id = "{{ hvn_id }}"
+    id = "{{ id }}"
+    inbound_endpoint_ips = ["{{ inbound_endpoint_ips }}"]
+    project_id = "{{ project_id }}"
+    rule_id = "{{ rule_id }}"
+    timeouts {
+      create = "{{ create }}"
+      default = "{{ default }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
+}

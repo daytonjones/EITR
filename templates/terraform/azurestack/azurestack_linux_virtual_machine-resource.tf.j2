@@ -1,31 +1,71 @@
 resource "azurestack_linux_virtual_machine" "example" {
     admin_password = "{{ admin_password }}"
     admin_username = "{{ admin_username }}"
-    allow_extension_operations = "{{ allow_extension_operations }}"
+    allow_extension_operations = {{ allow_extension_operations }}
     availability_set_id = "{{ availability_set_id }}"
     computer_name = "{{ computer_name }}"
     custom_data = "{{ custom_data }}"
-    disable_password_authentication = "{{ disable_password_authentication }}"
-    encryption_at_host_enabled = "{{ encryption_at_host_enabled }}"
+    disable_password_authentication = {{ disable_password_authentication }}
+    encryption_at_host_enabled = {{ encryption_at_host_enabled }}
     eviction_policy = "{{ eviction_policy }}"
     extensions_time_budget = "{{ extensions_time_budget }}"
     id = "{{ id }}"
     license_type = "{{ license_type }}"
     location = "{{ location }}"
-    max_bid_price = "{{ max_bid_price }}"
+    max_bid_price = {{ max_bid_price }}
     name = "{{ name }}"
-    network_interface_ids = "{{ network_interface_ids }}"
+    network_interface_ids = ["{{ network_interface_ids }}"]
     priority = "{{ priority }}"
-    private_ip_address = "{{ private_ip_address }}"
-    private_ip_addresses = "{{ private_ip_addresses }}"
-    provision_vm_agent = "{{ provision_vm_agent }}"
-    public_ip_address = "{{ public_ip_address }}"
-    public_ip_addresses = "{{ public_ip_addresses }}"
+    provision_vm_agent = {{ provision_vm_agent }}
     resource_group_name = "{{ resource_group_name }}"
     size = "{{ size }}"
     source_image_id = "{{ source_image_id }}"
-    tags = "{{ tags }}"
-    virtual_machine_id = "{{ virtual_machine_id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     virtual_machine_scale_set_id = "{{ virtual_machine_scale_set_id }}"
     zone = "{{ zone }}"
+    additional_capabilities {
+      ultra_ssd_enabled = {{ ultra_ssd_enabled }}
+    }
+    admin_ssh_key {
+      public_key = "{{ public_key }}"
+      username = "{{ username }}"
+    }
+    boot_diagnostics {
+      storage_account_uri = "{{ storage_account_uri }}"
+    }
+    os_disk {
+      caching = "{{ caching }}"
+      disk_encryption_set_id = "{{ disk_encryption_set_id }}"
+      disk_size_gb = {{ disk_size_gb }}
+      name = "{{ name }}"
+      storage_account_type = "{{ storage_account_type }}"
+      write_accelerator_enabled = {{ write_accelerator_enabled }}
+      diff_disk_settings {
+        option = "{{ option }}"
+      }
+    }
+    plan {
+      name = "{{ name }}"
+      product = "{{ product }}"
+      publisher = "{{ publisher }}"
+    }
+    secret {
+      key_vault_id = "{{ key_vault_id }}"
+      certificate {
+      }
+    }
+    source_image_reference {
+      offer = "{{ offer }}"
+      publisher = "{{ publisher }}"
+      sku = "{{ sku }}"
+      version = "{{ version }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

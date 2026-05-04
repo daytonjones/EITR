@@ -1,9 +1,10 @@
 resource "tfe_organization_run_task" "example" {
     category = "{{ category }}"
     description = "{{ description }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     hmac_key = "{{ hmac_key }}"
-    id = "{{ id }}"
+    hmac_key_wo = "{{ hmac_key_wo }}"
+    hmac_key_wo_version = {{ hmac_key_wo_version }}
     name = "{{ name }}"
     organization = "{{ organization }}"
     url = "{{ url }}"

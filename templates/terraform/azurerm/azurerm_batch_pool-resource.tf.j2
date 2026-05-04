@@ -4,13 +4,185 @@ resource "azurerm_batch_pool" "example" {
     id = "{{ id }}"
     inter_node_communication = "{{ inter_node_communication }}"
     license_type = "{{ license_type }}"
-    max_tasks_per_node = "{{ max_tasks_per_node }}"
-    metadata = "{{ metadata }}"
+    max_tasks_per_node = {{ max_tasks_per_node }}
+    metadata = {
+        key = "{{ metadata_value }}"
+      }
     name = "{{ name }}"
     node_agent_sku_id = "{{ node_agent_sku_id }}"
     os_disk_placement = "{{ os_disk_placement }}"
     resource_group_name = "{{ resource_group_name }}"
-    stop_pending_resize_operation = "{{ stop_pending_resize_operation }}"
+    stop_pending_resize_operation = {{ stop_pending_resize_operation }}
     target_node_communication_mode = "{{ target_node_communication_mode }}"
     vm_size = "{{ vm_size }}"
+    auto_scale {
+      evaluation_interval = "{{ evaluation_interval }}"
+      formula = "{{ formula }}"
+    }
+    certificate {
+      id = "{{ id }}"
+      store_location = "{{ store_location }}"
+      store_name = "{{ store_name }}"
+      visibility = ["{{ visibility }}"]
+    }
+    container_configuration {
+      container_image_names = ["{{ container_image_names }}"]
+      container_registries = ["{{ container_registries }}"]
+      type = "{{ type }}"
+    }
+    data_disks {
+      caching = "{{ caching }}"
+      disk_size_gb = {{ disk_size_gb }}
+      lun = {{ lun }}
+      storage_account_type = "{{ storage_account_type }}"
+    }
+    disk_encryption {
+      disk_encryption_target = "{{ disk_encryption_target }}"
+    }
+    extensions {
+      auto_upgrade_minor_version = {{ auto_upgrade_minor_version }}
+      automatic_upgrade_enabled = {{ automatic_upgrade_enabled }}
+      name = "{{ name }}"
+      protected_settings = "{{ protected_settings }}"
+      provision_after_extensions = ["{{ provision_after_extensions }}"]
+      publisher = "{{ publisher }}"
+      settings_json = "{{ settings_json }}"
+      type = "{{ type }}"
+      type_handler_version = "{{ type_handler_version }}"
+    }
+    fixed_scale {
+      node_deallocation_method = "{{ node_deallocation_method }}"
+      resize_timeout = "{{ resize_timeout }}"
+      target_dedicated_nodes = {{ target_dedicated_nodes }}
+      target_low_priority_nodes = {{ target_low_priority_nodes }}
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    mount {
+      azure_blob_file_system {
+        account_key = "{{ account_key }}"
+        account_name = "{{ account_name }}"
+        blobfuse_options = "{{ blobfuse_options }}"
+        container_name = "{{ container_name }}"
+        identity_id = "{{ identity_id }}"
+        relative_mount_path = "{{ relative_mount_path }}"
+        sas_key = "{{ sas_key }}"
+      }
+      azure_file_share {
+        account_key = "{{ account_key }}"
+        account_name = "{{ account_name }}"
+        azure_file_url = "{{ azure_file_url }}"
+        mount_options = "{{ mount_options }}"
+        relative_mount_path = "{{ relative_mount_path }}"
+      }
+      cifs_mount {
+        mount_options = "{{ mount_options }}"
+        password = "{{ password }}"
+        relative_mount_path = "{{ relative_mount_path }}"
+        source = "{{ source }}"
+        user_name = "{{ user_name }}"
+      }
+      nfs_mount {
+        mount_options = "{{ mount_options }}"
+        relative_mount_path = "{{ relative_mount_path }}"
+        source = "{{ source }}"
+      }
+    }
+    network_configuration {
+      accelerated_networking_enabled = {{ accelerated_networking_enabled }}
+      dynamic_vnet_assignment_scope = "{{ dynamic_vnet_assignment_scope }}"
+      public_address_provisioning_type = "{{ public_address_provisioning_type }}"
+      public_ips = ["{{ public_ips }}"]
+      subnet_id = "{{ subnet_id }}"
+      endpoint_configuration {
+        backend_port = {{ backend_port }}
+        frontend_port_range = "{{ frontend_port_range }}"
+        name = "{{ name }}"
+        protocol = "{{ protocol }}"
+        network_security_group_rules {
+          access = "{{ access }}"
+          priority = {{ priority }}
+          source_address_prefix = "{{ source_address_prefix }}"
+          source_port_ranges = ["{{ source_port_ranges }}"]
+        }
+      }
+    }
+    node_placement {
+      policy = "{{ policy }}"
+    }
+    security_profile {
+      host_encryption_enabled = {{ host_encryption_enabled }}
+      secure_boot_enabled = {{ secure_boot_enabled }}
+      security_type = "{{ security_type }}"
+      vtpm_enabled = {{ vtpm_enabled }}
+    }
+    start_task {
+      command_line = "{{ command_line }}"
+      common_environment_properties = {
+        key = "{{ common_environment_properties_value }}"
+      }
+      task_retry_maximum = {{ task_retry_maximum }}
+      wait_for_success = {{ wait_for_success }}
+      container {
+        image_name = "{{ image_name }}"
+        run_options = "{{ run_options }}"
+        working_directory = "{{ working_directory }}"
+        registry {
+          password = "{{ password }}"
+          registry_server = "{{ registry_server }}"
+          user_assigned_identity_id = "{{ user_assigned_identity_id }}"
+          user_name = "{{ user_name }}"
+        }
+      }
+      resource_file {
+        auto_storage_container_name = "{{ auto_storage_container_name }}"
+        blob_prefix = "{{ blob_prefix }}"
+        file_mode = "{{ file_mode }}"
+        file_path = "{{ file_path }}"
+        http_url = "{{ http_url }}"
+        storage_container_url = "{{ storage_container_url }}"
+        user_assigned_identity_id = "{{ user_assigned_identity_id }}"
+      }
+      user_identity {
+        user_name = "{{ user_name }}"
+        auto_user {
+          elevation_level = "{{ elevation_level }}"
+          scope = "{{ scope }}"
+        }
+      }
+    }
+    storage_image_reference {
+      id = "{{ id }}"
+      offer = "{{ offer }}"
+      publisher = "{{ publisher }}"
+      sku = "{{ sku }}"
+      version = "{{ version }}"
+    }
+    task_scheduling_policy {
+      node_fill_type = "{{ node_fill_type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    user_accounts {
+      elevation_level = "{{ elevation_level }}"
+      name = "{{ name }}"
+      password = "{{ password }}"
+      linux_user_configuration {
+        gid = {{ gid }}
+        ssh_private_key = "{{ ssh_private_key }}"
+        uid = {{ uid }}
+      }
+      windows_user_configuration {
+        login_mode = "{{ login_mode }}"
+      }
+    }
+    windows {
+      enable_automatic_updates = {{ enable_automatic_updates }}
+    }
 }

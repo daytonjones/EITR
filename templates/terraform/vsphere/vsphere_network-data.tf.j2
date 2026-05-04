@@ -3,5 +3,10 @@ data "vsphere_network" "example" {
     distributed_virtual_switch_uuid = "{{ distributed_virtual_switch_uuid }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    type = "{{ type }}"
+    retry_interval = {{ retry_interval }}
+    retry_timeout = {{ retry_timeout }}
+    vpc_id = "{{ vpc_id }}"
+    filter {
+      network_type = "{{ network_type }}"
+    }
 }

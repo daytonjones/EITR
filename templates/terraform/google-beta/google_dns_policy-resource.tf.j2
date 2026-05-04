@@ -1,8 +1,27 @@
 resource "google_dns_policy" "example" {
     description = "{{ description }}"
-    enable_inbound_forwarding = "{{ enable_inbound_forwarding }}"
-    enable_logging = "{{ enable_logging }}"
+    enable_inbound_forwarding = {{ enable_inbound_forwarding }}
+    enable_logging = {{ enable_logging }}
     id = "{{ id }}"
     name = "{{ name }}"
     project = "{{ project }}"
+    alternative_name_server_config {
+      target_name_servers {
+        forwarding_path = "{{ forwarding_path }}"
+        ipv4_address = "{{ ipv4_address }}"
+      }
+    }
+    dns64_config {
+      scope {
+        all_queries = {{ all_queries }}
+      }
+    }
+    networks {
+      network_url = "{{ network_url }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -3,6 +3,13 @@ resource "google_healthcare_dataset" "example" {
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    self_link = "{{ self_link }}"
     time_zone = "{{ time_zone }}"
+    encryption_spec {
+      kms_key_name = "{{ kms_key_name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

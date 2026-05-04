@@ -1,9 +1,15 @@
 resource "aws_resourceexplorer2_view" "example" {
-    arn = "{{ arn }}"
-    default_view = "{{ default_view }}"
-    id = "{{ id }}"
+    default_view = {{ default_view }}
     name = "{{ name }}"
+    region = "{{ region }}"
     scope = "{{ scope }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    filters {
+      filter_string = "{{ filter_string }}"
+    }
+    included_property {
+      name = "{{ name }}"
+    }
 }

@@ -3,6 +3,7 @@ resource "aws_cloudwatch_log_account_policy" "example" {
     policy_document = "{{ policy_document }}"
     policy_name = "{{ policy_name }}"
     policy_type = "{{ policy_type }}"
+    region = "{{ region }}"
     scope = "{{ scope }}"
     selection_criteria = "{{ selection_criteria }}"
 }

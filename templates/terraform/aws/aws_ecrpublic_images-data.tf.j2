@@ -1,0 +1,9 @@
+data "aws_ecrpublic_images" "example" {
+    region = "{{ region }}"
+    registry_id = "{{ registry_id }}"
+    repository_name = "{{ repository_name }}"
+    image_ids {
+      image_digest = "{{ image_digest }}"
+      image_tag = "{{ image_tag }}"
+    }
+}

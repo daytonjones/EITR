@@ -1,8 +1,8 @@
 resource "ad_gplink" "example" {
-    enabled = "{{ enabled }}"
-    enforced = "{{ enforced }}"
+    enabled = {{ enabled }}
+    enforced = {{ enforced }}
     gpo_guid = "{{ gpo_guid }}"
     id = "{{ id }}"
-    order = "{{ order }}"
+    order = {{ order }}
     target_dn = "{{ target_dn }}"
 }

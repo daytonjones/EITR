@@ -1,0 +1,15 @@
+resource "aws_cloudfront_connection_group" "example" {
+    anycast_ip_list_id = "{{ anycast_ip_list_id }}"
+    enabled = {{ enabled }}
+    ipv6_enabled = {{ ipv6_enabled }}
+    name = "{{ name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    wait_for_deployment = {{ wait_for_deployment }}
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

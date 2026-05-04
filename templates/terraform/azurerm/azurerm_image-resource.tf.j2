@@ -5,6 +5,33 @@ resource "azurerm_image" "example" {
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     source_virtual_machine_id = "{{ source_virtual_machine_id }}"
-    tags = "{{ tags }}"
-    zone_resilient = "{{ zone_resilient }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    zone_resilient = {{ zone_resilient }}
+    data_disk {
+      blob_uri = "{{ blob_uri }}"
+      caching = "{{ caching }}"
+      disk_encryption_set_id = "{{ disk_encryption_set_id }}"
+      lun = {{ lun }}
+      managed_disk_id = "{{ managed_disk_id }}"
+      size_gb = {{ size_gb }}
+      storage_type = "{{ storage_type }}"
+    }
+    os_disk {
+      blob_uri = "{{ blob_uri }}"
+      caching = "{{ caching }}"
+      disk_encryption_set_id = "{{ disk_encryption_set_id }}"
+      managed_disk_id = "{{ managed_disk_id }}"
+      os_state = "{{ os_state }}"
+      os_type = "{{ os_type }}"
+      size_gb = {{ size_gb }}
+      storage_type = "{{ storage_type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,7 @@
+resource "awscc_securityhub_aggregator_v2" "example" {
+    linked_regions = ["{{ linked_regions }}"]
+    region_linking_mode = "{{ region_linking_mode }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

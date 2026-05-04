@@ -1,25 +1,63 @@
 resource "aws_lb_target_group" "example" {
-    arn = "{{ arn }}"
-    arn_suffix = "{{ arn_suffix }}"
-    connection_termination = "{{ connection_termination }}"
+    connection_termination = {{ connection_termination }}
     deregistration_delay = "{{ deregistration_delay }}"
     id = "{{ id }}"
     ip_address_type = "{{ ip_address_type }}"
-    lambda_multi_value_headers_enabled = "{{ lambda_multi_value_headers_enabled }}"
-    load_balancer_arns = "{{ load_balancer_arns }}"
+    lambda_multi_value_headers_enabled = {{ lambda_multi_value_headers_enabled }}
     load_balancing_algorithm_type = "{{ load_balancing_algorithm_type }}"
     load_balancing_anomaly_mitigation = "{{ load_balancing_anomaly_mitigation }}"
     load_balancing_cross_zone_enabled = "{{ load_balancing_cross_zone_enabled }}"
     name = "{{ name }}"
     name_prefix = "{{ name_prefix }}"
-    port = "{{ port }}"
+    port = {{ port }}
     preserve_client_ip = "{{ preserve_client_ip }}"
     protocol = "{{ protocol }}"
     protocol_version = "{{ protocol_version }}"
-    proxy_protocol_v2 = "{{ proxy_protocol_v2 }}"
-    slow_start = "{{ slow_start }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    proxy_protocol_v2 = {{ proxy_protocol_v2 }}
+    region = "{{ region }}"
+    slow_start = {{ slow_start }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    target_control_port = {{ target_control_port }}
     target_type = "{{ target_type }}"
     vpc_id = "{{ vpc_id }}"
+    health_check {
+      enabled = {{ enabled }}
+      healthy_threshold = {{ healthy_threshold }}
+      interval = {{ interval }}
+      matcher = "{{ matcher }}"
+      path = "{{ path }}"
+      port = "{{ port }}"
+      protocol = "{{ protocol }}"
+      timeout = {{ timeout }}
+      unhealthy_threshold = {{ unhealthy_threshold }}
+    }
+    stickiness {
+      cookie_duration = {{ cookie_duration }}
+      cookie_name = "{{ cookie_name }}"
+      enabled = {{ enabled }}
+      type = "{{ type }}"
+    }
+    target_failover {
+      on_deregistration = "{{ on_deregistration }}"
+      on_unhealthy = "{{ on_unhealthy }}"
+    }
+    target_group_health {
+      dns_failover {
+        minimum_healthy_targets_count = "{{ minimum_healthy_targets_count }}"
+        minimum_healthy_targets_percentage = "{{ minimum_healthy_targets_percentage }}"
+      }
+      unhealthy_state_routing {
+        minimum_healthy_targets_count = {{ minimum_healthy_targets_count }}
+        minimum_healthy_targets_percentage = "{{ minimum_healthy_targets_percentage }}"
+      }
+    }
+    target_health_state {
+      enable_unhealthy_connection_termination = {{ enable_unhealthy_connection_termination }}
+      unhealthy_draining_interval = {{ unhealthy_draining_interval }}
+    }
 }

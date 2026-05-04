@@ -1,9 +1,17 @@
 resource "azuread_custom_directory_role" "example" {
     description = "{{ description }}"
     display_name = "{{ display_name }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
-    object_id = "{{ object_id }}"
     template_id = "{{ template_id }}"
     version = "{{ version }}"
+    permissions {
+      allowed_resource_actions = ["{{ allowed_resource_actions }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

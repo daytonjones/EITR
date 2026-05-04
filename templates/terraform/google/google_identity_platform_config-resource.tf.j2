@@ -1,7 +1,78 @@
 resource "google_identity_platform_config" "example" {
-    authorized_domains = "{{ authorized_domains }}"
-    autodelete_anonymous_users = "{{ autodelete_anonymous_users }}"
+    authorized_domains = ["{{ authorized_domains }}"]
+    autodelete_anonymous_users = {{ autodelete_anonymous_users }}
     id = "{{ id }}"
-    name = "{{ name }}"
     project = "{{ project }}"
+    blocking_functions {
+      forward_inbound_credentials {
+        access_token = {{ access_token }}
+        id_token = {{ id_token }}
+        refresh_token = {{ refresh_token }}
+      }
+      triggers {
+        event_type = "{{ event_type }}"
+        function_uri = "{{ function_uri }}"
+      }
+    }
+    client {
+      permissions {
+        disabled_user_deletion = {{ disabled_user_deletion }}
+        disabled_user_signup = {{ disabled_user_signup }}
+      }
+    }
+    mfa {
+      enabled_providers = ["{{ enabled_providers }}"]
+      state = "{{ state }}"
+      provider_configs {
+        state = "{{ state }}"
+        totp_provider_config {
+          adjacent_intervals = {{ adjacent_intervals }}
+        }
+      }
+    }
+    monitoring {
+      request_logging {
+        enabled = {{ enabled }}
+      }
+    }
+    multi_tenant {
+      allow_tenants = {{ allow_tenants }}
+      default_tenant_location = "{{ default_tenant_location }}"
+    }
+    quota {
+      sign_up_quota_config {
+        quota = {{ quota }}
+        quota_duration = "{{ quota_duration }}"
+        start_time = "{{ start_time }}"
+      }
+    }
+    sign_in {
+      allow_duplicate_emails = {{ allow_duplicate_emails }}
+      anonymous {
+        enabled = {{ enabled }}
+      }
+      email {
+        enabled = {{ enabled }}
+        password_required = {{ password_required }}
+      }
+      phone_number {
+        enabled = {{ enabled }}
+        test_phone_numbers = {
+        key = "{{ test_phone_numbers_value }}"
+      }
+      }
+    }
+    sms_region_config {
+      allow_by_default {
+        disallowed_regions = ["{{ disallowed_regions }}"]
+      }
+      allowlist_only {
+        allowed_regions = ["{{ allowed_regions }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

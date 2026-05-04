@@ -1,0 +1,8 @@
+resource "awscc_odb_odb_peering_connection" "example" {
+    additional_peer_network_cidrs = ["{{ additional_peer_network_cidrs }}"]
+    display_name = "{{ display_name }}"
+    odb_network_id = "{{ odb_network_id }}"
+    peer_network_id = "{{ peer_network_id }}"
+    peer_network_route_table_ids = ["{{ peer_network_route_table_ids }}"]
+    tags = "{{ tags }}"
+}

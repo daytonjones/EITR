@@ -3,5 +3,13 @@ resource "azurerm_resource_group" "example" {
     location = "{{ location }}"
     managed_by = "{{ managed_by }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

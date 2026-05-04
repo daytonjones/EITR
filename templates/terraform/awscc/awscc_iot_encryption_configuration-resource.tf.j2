@@ -1,0 +1,5 @@
+resource "awscc_iot_encryption_configuration" "example" {
+    encryption_type = "{{ encryption_type }}"
+    kms_access_role_arn = "{{ kms_access_role_arn }}"
+    kms_key_arn = "{{ kms_key_arn }}"
+}

@@ -1,0 +1,6 @@
+resource "awscc_workspacesinstances_volume_association" "example" {
+    device = "{{ device }}"
+    disassociate_mode = "{{ disassociate_mode }}"
+    volume_id = "{{ volume_id }}"
+    workspace_instance_id = "{{ workspace_instance_id }}"
+}

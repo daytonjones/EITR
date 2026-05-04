@@ -1,16 +1,72 @@
 resource "azurerm_firewall_policy" "example" {
-    auto_learn_private_ranges_enabled = "{{ auto_learn_private_ranges_enabled }}"
+    auto_learn_private_ranges_enabled = {{ auto_learn_private_ranges_enabled }}
     base_policy_id = "{{ base_policy_id }}"
-    child_policies = "{{ child_policies }}"
-    firewalls = "{{ firewalls }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    private_ip_ranges = "{{ private_ip_ranges }}"
+    private_ip_ranges = ["{{ private_ip_ranges }}"]
     resource_group_name = "{{ resource_group_name }}"
-    rule_collection_groups = "{{ rule_collection_groups }}"
     sku = "{{ sku }}"
-    sql_redirect_allowed = "{{ sql_redirect_allowed }}"
-    tags = "{{ tags }}"
+    sql_redirect_allowed = {{ sql_redirect_allowed }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
     threat_intelligence_mode = "{{ threat_intelligence_mode }}"
+    dns {
+      proxy_enabled = {{ proxy_enabled }}
+      servers = ["{{ servers }}"]
+    }
+    explicit_proxy {
+      enable_pac_file = {{ enable_pac_file }}
+      enabled = {{ enabled }}
+      http_port = {{ http_port }}
+      https_port = {{ https_port }}
+      pac_file = "{{ pac_file }}"
+      pac_file_port = {{ pac_file_port }}
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    insights {
+      default_log_analytics_workspace_id = "{{ default_log_analytics_workspace_id }}"
+      enabled = {{ enabled }}
+      retention_in_days = {{ retention_in_days }}
+      log_analytics_workspace {
+        firewall_location = "{{ firewall_location }}"
+        id = "{{ id }}"
+      }
+    }
+    intrusion_detection {
+      mode = "{{ mode }}"
+      private_ranges = ["{{ private_ranges }}"]
+      signature_overrides {
+        id = "{{ id }}"
+        state = "{{ state }}"
+      }
+      traffic_bypass {
+        description = "{{ description }}"
+        destination_addresses = ["{{ destination_addresses }}"]
+        destination_ip_groups = ["{{ destination_ip_groups }}"]
+        destination_ports = ["{{ destination_ports }}"]
+        name = "{{ name }}"
+        protocol = "{{ protocol }}"
+        source_addresses = ["{{ source_addresses }}"]
+        source_ip_groups = ["{{ source_ip_groups }}"]
+      }
+    }
+    threat_intelligence_allowlist {
+      fqdns = ["{{ fqdns }}"]
+      ip_addresses = ["{{ ip_addresses }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    tls_certificate {
+      key_vault_secret_id = "{{ key_vault_secret_id }}"
+      name = "{{ name }}"
+    }
 }

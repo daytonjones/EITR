@@ -1,13 +1,63 @@
 resource "azurerm_frontdoor_firewall_policy" "example" {
     custom_block_response_body = "{{ custom_block_response_body }}"
-    custom_block_response_status_code = "{{ custom_block_response_status_code }}"
-    enabled = "{{ enabled }}"
-    frontend_endpoint_ids = "{{ frontend_endpoint_ids }}"
+    custom_block_response_status_code = {{ custom_block_response_status_code }}
+    enabled = {{ enabled }}
     id = "{{ id }}"
-    location = "{{ location }}"
     mode = "{{ mode }}"
     name = "{{ name }}"
     redirect_url = "{{ redirect_url }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    custom_rule {
+      action = "{{ action }}"
+      enabled = {{ enabled }}
+      name = "{{ name }}"
+      priority = {{ priority }}
+      rate_limit_duration_in_minutes = {{ rate_limit_duration_in_minutes }}
+      rate_limit_threshold = {{ rate_limit_threshold }}
+      type = "{{ type }}"
+      match_condition {
+        match_values = ["{{ match_values }}"]
+        match_variable = "{{ match_variable }}"
+        negation_condition = {{ negation_condition }}
+        operator = "{{ operator }}"
+        selector = "{{ selector }}"
+        transforms = ["{{ transforms }}"]
+      }
+    }
+    managed_rule {
+      type = "{{ type }}"
+      version = "{{ version }}"
+      exclusion {
+        match_variable = "{{ match_variable }}"
+        operator = "{{ operator }}"
+        selector = "{{ selector }}"
+      }
+      override {
+        rule_group_name = "{{ rule_group_name }}"
+        exclusion {
+          match_variable = "{{ match_variable }}"
+          operator = "{{ operator }}"
+          selector = "{{ selector }}"
+        }
+        rule {
+          action = "{{ action }}"
+          enabled = {{ enabled }}
+          rule_id = "{{ rule_id }}"
+          exclusion {
+            match_variable = "{{ match_variable }}"
+            operator = "{{ operator }}"
+            selector = "{{ selector }}"
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

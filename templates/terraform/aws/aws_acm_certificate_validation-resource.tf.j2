@@ -1,5 +1,9 @@
 resource "aws_acm_certificate_validation" "example" {
     certificate_arn = "{{ certificate_arn }}"
     id = "{{ id }}"
-    validation_record_fqdns = "{{ validation_record_fqdns }}"
+    region = "{{ region }}"
+    validation_record_fqdns = ["{{ validation_record_fqdns }}"]
+    timeouts {
+      create = "{{ create }}"
+    }
 }

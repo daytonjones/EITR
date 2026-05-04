@@ -1,0 +1,23 @@
+resource "google_vmwareengine_datastore" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    nfs_datastore {
+      google_file_service {
+        filestore_instance = "{{ filestore_instance }}"
+        netapp_volume = "{{ netapp_volume }}"
+      }
+      third_party_file_service {
+        file_share = "{{ file_share }}"
+        network = "{{ network }}"
+        servers = ["{{ servers }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

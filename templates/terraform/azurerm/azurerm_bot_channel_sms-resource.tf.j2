@@ -6,4 +6,10 @@ resource "azurerm_bot_channel_sms" "example" {
     resource_group_name = "{{ resource_group_name }}"
     sms_channel_account_security_id = "{{ sms_channel_account_security_id }}"
     sms_channel_auth_token = "{{ sms_channel_auth_token }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

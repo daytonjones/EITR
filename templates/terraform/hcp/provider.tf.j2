@@ -2,5 +2,12 @@ provider "hcp" {
     client_id = "{{ client_id }}"
     client_secret = "{{ client_secret }}"
     credential_file = "{{ credential_file }}"
+    geography = "{{ geography }}"
     project_id = "{{ project_id }}"
+    skip_status_check = {{ skip_status_check }}
+    workload_identity {
+      resource_name = "{{ resource_name }}"
+      token = "{{ token }}"
+      token_file = "{{ token_file }}"
+    }
 }

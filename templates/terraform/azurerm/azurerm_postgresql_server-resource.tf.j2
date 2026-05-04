@@ -1,23 +1,44 @@
 resource "azurerm_postgresql_server" "example" {
     administrator_login = "{{ administrator_login }}"
     administrator_login_password = "{{ administrator_login_password }}"
-    auto_grow_enabled = "{{ auto_grow_enabled }}"
-    backup_retention_days = "{{ backup_retention_days }}"
+    administrator_login_password_wo = "{{ administrator_login_password_wo }}"
+    administrator_login_password_wo_version = {{ administrator_login_password_wo_version }}
+    auto_grow_enabled = {{ auto_grow_enabled }}
+    backup_retention_days = {{ backup_retention_days }}
     create_mode = "{{ create_mode }}"
     creation_source_server_id = "{{ creation_source_server_id }}"
-    fqdn = "{{ fqdn }}"
-    geo_redundant_backup_enabled = "{{ geo_redundant_backup_enabled }}"
+    geo_redundant_backup_enabled = {{ geo_redundant_backup_enabled }}
     id = "{{ id }}"
-    infrastructure_encryption_enabled = "{{ infrastructure_encryption_enabled }}"
+    infrastructure_encryption_enabled = {{ infrastructure_encryption_enabled }}
     location = "{{ location }}"
     name = "{{ name }}"
-    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    public_network_access_enabled = {{ public_network_access_enabled }}
     resource_group_name = "{{ resource_group_name }}"
     restore_point_in_time = "{{ restore_point_in_time }}"
     sku_name = "{{ sku_name }}"
-    ssl_enforcement_enabled = "{{ ssl_enforcement_enabled }}"
+    ssl_enforcement_enabled = {{ ssl_enforcement_enabled }}
     ssl_minimal_tls_version_enforced = "{{ ssl_minimal_tls_version_enforced }}"
-    storage_mb = "{{ storage_mb }}"
-    tags = "{{ tags }}"
+    storage_mb = {{ storage_mb }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
     version = "{{ version }}"
+    identity {
+      type = "{{ type }}"
+    }
+    threat_detection_policy {
+      disabled_alerts = ["{{ disabled_alerts }}"]
+      email_account_admins = {{ email_account_admins }}
+      email_addresses = ["{{ email_addresses }}"]
+      enabled = {{ enabled }}
+      retention_days = {{ retention_days }}
+      storage_account_access_key = "{{ storage_account_access_key }}"
+      storage_endpoint = "{{ storage_endpoint }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

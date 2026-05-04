@@ -1,15 +1,29 @@
 resource "aws_nat_gateway" "example" {
     allocation_id = "{{ allocation_id }}"
-    association_id = "{{ association_id }}"
+    availability_mode = "{{ availability_mode }}"
     connectivity_type = "{{ connectivity_type }}"
     id = "{{ id }}"
-    network_interface_id = "{{ network_interface_id }}"
     private_ip = "{{ private_ip }}"
-    public_ip = "{{ public_ip }}"
-    secondary_allocation_ids = "{{ secondary_allocation_ids }}"
-    secondary_private_ip_address_count = "{{ secondary_private_ip_address_count }}"
-    secondary_private_ip_addresses = "{{ secondary_private_ip_addresses }}"
+    region = "{{ region }}"
+    secondary_allocation_ids = ["{{ secondary_allocation_ids }}"]
+    secondary_private_ip_address_count = {{ secondary_private_ip_address_count }}
+    secondary_private_ip_addresses = ["{{ secondary_private_ip_addresses }}"]
     subnet_id = "{{ subnet_id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    vpc_id = "{{ vpc_id }}"
+    availability_zone_address {
+      allocation_ids = ["{{ allocation_ids }}"]
+      availability_zone = "{{ availability_zone }}"
+      availability_zone_id = "{{ availability_zone_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

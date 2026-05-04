@@ -3,4 +3,14 @@ resource "azurerm_bot_channel_line" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
     resource_group_name = "{{ resource_group_name }}"
+    line_channel {
+      access_token = "{{ access_token }}"
+      secret = "{{ secret }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

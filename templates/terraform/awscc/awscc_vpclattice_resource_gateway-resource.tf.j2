@@ -1,0 +1,9 @@
+resource "awscc_vpclattice_resource_gateway" "example" {
+    ip_address_type = "{{ ip_address_type }}"
+    ipv_4_addresses_per_eni = {{ ipv_4_addresses_per_eni }}
+    name = "{{ name }}"
+    security_group_ids = ["{{ security_group_ids }}"]
+    subnet_ids = ["{{ subnet_ids }}"]
+    tags = "{{ tags }}"
+    vpc_identifier = "{{ vpc_identifier }}"
+}

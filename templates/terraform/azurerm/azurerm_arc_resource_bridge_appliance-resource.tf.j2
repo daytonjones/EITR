@@ -6,5 +6,16 @@ resource "azurerm_arc_resource_bridge_appliance" "example" {
     name = "{{ name }}"
     public_key_base64 = "{{ public_key_base64 }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    identity {
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -3,4 +3,21 @@ resource "azurerm_bot_channel_directline" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
     resource_group_name = "{{ resource_group_name }}"
+    site {
+      enabled = {{ enabled }}
+      endpoint_parameters_enabled = {{ endpoint_parameters_enabled }}
+      enhanced_authentication_enabled = {{ enhanced_authentication_enabled }}
+      name = "{{ name }}"
+      storage_enabled = {{ storage_enabled }}
+      trusted_origins = ["{{ trusted_origins }}"]
+      user_upload_enabled = {{ user_upload_enabled }}
+      v1_allowed = {{ v1_allowed }}
+      v3_allowed = {{ v3_allowed }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

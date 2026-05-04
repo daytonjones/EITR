@@ -3,6 +3,10 @@ resource "azurerm_advisor_suppression" "example" {
     name = "{{ name }}"
     recommendation_id = "{{ recommendation_id }}"
     resource_id = "{{ resource_id }}"
-    suppression_id = "{{ suppression_id }}"
     ttl = "{{ ttl }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

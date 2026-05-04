@@ -1,0 +1,17 @@
+resource "google_oracle_database_odb_network" "example" {
+    deletion_protection = {{ deletion_protection }}
+    gcp_oracle_zone = "{{ gcp_oracle_zone }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    network = "{{ network }}"
+    odb_network_id = "{{ odb_network_id }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

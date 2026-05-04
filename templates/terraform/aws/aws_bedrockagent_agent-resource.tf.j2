@@ -1,19 +1,24 @@
 resource "aws_bedrockagent_agent" "example" {
-    agent_arn = "{{ agent_arn }}"
-    agent_id = "{{ agent_id }}"
+    agent_collaboration = "{{ agent_collaboration }}"
     agent_name = "{{ agent_name }}"
     agent_resource_role_arn = "{{ agent_resource_role_arn }}"
-    agent_version = "{{ agent_version }}"
     customer_encryption_key_arn = "{{ customer_encryption_key_arn }}"
     description = "{{ description }}"
     foundation_model = "{{ foundation_model }}"
-    guardrail_configuration = "{{ guardrail_configuration }}"
-    id = "{{ id }}"
-    idle_session_ttl_in_seconds = "{{ idle_session_ttl_in_seconds }}"
+    guardrail_configuration = ["{{ guardrail_configuration }}"]
+    idle_session_ttl_in_seconds = {{ idle_session_ttl_in_seconds }}
     instruction = "{{ instruction }}"
-    prepare_agent = "{{ prepare_agent }}"
-    prompt_override_configuration = "{{ prompt_override_configuration }}"
-    skip_resource_in_use_check = "{{ skip_resource_in_use_check }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    memory_configuration = ["{{ memory_configuration }}"]
+    prepare_agent = {{ prepare_agent }}
+    prompt_override_configuration = ["{{ prompt_override_configuration }}"]
+    region = "{{ region }}"
+    skip_resource_in_use_check = {{ skip_resource_in_use_check }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

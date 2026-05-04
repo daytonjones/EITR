@@ -1,21 +1,41 @@
 resource "aws_lex_bot" "example" {
-    arn = "{{ arn }}"
-    checksum = "{{ checksum }}"
-    child_directed = "{{ child_directed }}"
-    create_version = "{{ create_version }}"
-    created_date = "{{ created_date }}"
+    child_directed = {{ child_directed }}
+    create_version = {{ create_version }}
     description = "{{ description }}"
-    detect_sentiment = "{{ detect_sentiment }}"
-    enable_model_improvements = "{{ enable_model_improvements }}"
-    failure_reason = "{{ failure_reason }}"
+    detect_sentiment = {{ detect_sentiment }}
+    enable_model_improvements = {{ enable_model_improvements }}
     id = "{{ id }}"
-    idle_session_ttl_in_seconds = "{{ idle_session_ttl_in_seconds }}"
-    last_updated_date = "{{ last_updated_date }}"
+    idle_session_ttl_in_seconds = {{ idle_session_ttl_in_seconds }}
     locale = "{{ locale }}"
     name = "{{ name }}"
-    nlu_intent_confidence_threshold = "{{ nlu_intent_confidence_threshold }}"
+    nlu_intent_confidence_threshold = {{ nlu_intent_confidence_threshold }}
     process_behavior = "{{ process_behavior }}"
-    status = "{{ status }}"
-    version = "{{ version }}"
+    region = "{{ region }}"
     voice_id = "{{ voice_id }}"
+    abort_statement {
+      response_card = "{{ response_card }}"
+      message {
+        content = "{{ content }}"
+        content_type = "{{ content_type }}"
+        group_number = {{ group_number }}
+      }
+    }
+    clarification_prompt {
+      max_attempts = {{ max_attempts }}
+      response_card = "{{ response_card }}"
+      message {
+        content = "{{ content }}"
+        content_type = "{{ content_type }}"
+        group_number = {{ group_number }}
+      }
+    }
+    intent {
+      intent_name = "{{ intent_name }}"
+      intent_version = "{{ intent_version }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

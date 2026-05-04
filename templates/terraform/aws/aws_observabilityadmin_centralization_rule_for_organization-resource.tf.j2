@@ -1,0 +1,40 @@
+resource "aws_observabilityadmin_centralization_rule_for_organization" "example" {
+    region = "{{ region }}"
+    rule_name = "{{ rule_name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    rule {
+      destination {
+        account = "{{ account }}"
+        region = "{{ region }}"
+        destination_logs_configuration {
+          backup_configuration {
+            kms_key_arn = "{{ kms_key_arn }}"
+            region = "{{ region }}"
+          }
+          log_group_name_configuration {
+            log_group_name_pattern = "{{ log_group_name_pattern }}"
+          }
+          logs_encryption_configuration {
+            encryption_conflict_resolution_strategy = "{{ encryption_conflict_resolution_strategy }}"
+            encryption_strategy = "{{ encryption_strategy }}"
+            kms_key_arn = "{{ kms_key_arn }}"
+          }
+        }
+      }
+      source {
+        regions = ["{{ regions }}"]
+        scope = "{{ scope }}"
+        source_logs_configuration {
+          data_source_selection_criteria = "{{ data_source_selection_criteria }}"
+          encrypted_log_group_strategy = "{{ encrypted_log_group_strategy }}"
+          log_group_selection_criteria = "{{ log_group_selection_criteria }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
+}

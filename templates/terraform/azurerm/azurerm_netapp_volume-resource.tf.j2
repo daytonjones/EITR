@@ -1,29 +1,75 @@
 resource "azurerm_netapp_volume" "example" {
+    accept_grow_capacity_pool_for_short_term_clone_split = "{{ accept_grow_capacity_pool_for_short_term_clone_split }}"
     account_name = "{{ account_name }}"
-    azure_vmware_data_store_enabled = "{{ azure_vmware_data_store_enabled }}"
+    azure_vmware_data_store_enabled = {{ azure_vmware_data_store_enabled }}
     create_from_snapshot_resource_id = "{{ create_from_snapshot_resource_id }}"
     encryption_key_source = "{{ encryption_key_source }}"
     id = "{{ id }}"
-    kerberos_enabled = "{{ kerberos_enabled }}"
+    kerberos_enabled = {{ kerberos_enabled }}
     key_vault_private_endpoint_id = "{{ key_vault_private_endpoint_id }}"
+    large_volume_enabled = {{ large_volume_enabled }}
     location = "{{ location }}"
-    mount_ip_addresses = "{{ mount_ip_addresses }}"
     name = "{{ name }}"
     network_features = "{{ network_features }}"
     pool_name = "{{ pool_name }}"
-    protocols = "{{ protocols }}"
+    protocols = ["{{ protocols }}"]
     resource_group_name = "{{ resource_group_name }}"
     security_style = "{{ security_style }}"
     service_level = "{{ service_level }}"
-    smb3_protocol_encryption_enabled = "{{ smb3_protocol_encryption_enabled }}"
-    smb_access_based_enumeration_enabled = "{{ smb_access_based_enumeration_enabled }}"
-    smb_continuous_availability_enabled = "{{ smb_continuous_availability_enabled }}"
-    smb_non_browsable_enabled = "{{ smb_non_browsable_enabled }}"
-    snapshot_directory_visible = "{{ snapshot_directory_visible }}"
-    storage_quota_in_gb = "{{ storage_quota_in_gb }}"
+    smb3_protocol_encryption_enabled = {{ smb3_protocol_encryption_enabled }}
+    smb_access_based_enumeration_enabled = {{ smb_access_based_enumeration_enabled }}
+    smb_continuous_availability_enabled = {{ smb_continuous_availability_enabled }}
+    smb_non_browsable_enabled = {{ smb_non_browsable_enabled }}
+    snapshot_directory_visible = {{ snapshot_directory_visible }}
+    storage_quota_in_gb = {{ storage_quota_in_gb }}
     subnet_id = "{{ subnet_id }}"
-    tags = "{{ tags }}"
-    throughput_in_mibps = "{{ throughput_in_mibps }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    throughput_in_mibps = {{ throughput_in_mibps }}
     volume_path = "{{ volume_path }}"
     zone = "{{ zone }}"
+    cool_access {
+      coolness_period_in_days = {{ coolness_period_in_days }}
+      retrieval_policy = "{{ retrieval_policy }}"
+      tiering_policy = "{{ tiering_policy }}"
+    }
+    data_protection_advanced_ransomware {
+      protection_enabled = {{ protection_enabled }}
+    }
+    data_protection_backup_policy {
+      backup_policy_id = "{{ backup_policy_id }}"
+      backup_vault_id = "{{ backup_vault_id }}"
+      policy_enabled = {{ policy_enabled }}
+    }
+    data_protection_replication {
+      endpoint_type = "{{ endpoint_type }}"
+      remote_volume_location = "{{ remote_volume_location }}"
+      remote_volume_resource_id = "{{ remote_volume_resource_id }}"
+      replication_frequency = "{{ replication_frequency }}"
+    }
+    data_protection_snapshot_policy {
+      snapshot_policy_id = "{{ snapshot_policy_id }}"
+    }
+    export_policy_rule {
+      allowed_clients = ["{{ allowed_clients }}"]
+      kerberos_5_read_only_enabled = {{ kerberos_5_read_only_enabled }}
+      kerberos_5_read_write_enabled = {{ kerberos_5_read_write_enabled }}
+      kerberos_5i_read_only_enabled = {{ kerberos_5i_read_only_enabled }}
+      kerberos_5i_read_write_enabled = {{ kerberos_5i_read_write_enabled }}
+      kerberos_5p_read_only_enabled = {{ kerberos_5p_read_only_enabled }}
+      kerberos_5p_read_write_enabled = {{ kerberos_5p_read_write_enabled }}
+      protocol = ["{{ protocol }}"]
+      protocols_enabled = ["{{ protocols_enabled }}"]
+      root_access_enabled = {{ root_access_enabled }}
+      rule_index = {{ rule_index }}
+      unix_read_only = {{ unix_read_only }}
+      unix_read_write = {{ unix_read_write }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

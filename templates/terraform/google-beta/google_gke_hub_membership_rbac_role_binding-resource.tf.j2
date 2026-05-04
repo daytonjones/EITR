@@ -1,14 +1,15 @@
 resource "google_gke_hub_membership_rbac_role_binding" "example" {
-    create_time = "{{ create_time }}"
-    delete_time = "{{ delete_time }}"
     id = "{{ id }}"
     location = "{{ location }}"
     membership_id = "{{ membership_id }}"
     membership_rbac_role_binding_id = "{{ membership_rbac_role_binding_id }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    state = "{{ state }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
     user = "{{ user }}"
+    role {
+      predefined_role = "{{ predefined_role }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

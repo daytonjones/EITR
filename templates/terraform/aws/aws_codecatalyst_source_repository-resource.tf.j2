@@ -3,5 +3,11 @@ resource "aws_codecatalyst_source_repository" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     project_name = "{{ project_name }}"
+    region = "{{ region }}"
     space_name = "{{ space_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

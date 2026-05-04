@@ -1,0 +1,23 @@
+resource "aws_apigatewayv2_routing_rule" "example" {
+    domain_name = "{{ domain_name }}"
+    priority = {{ priority }}
+    region = "{{ region }}"
+    action {
+      invoke_api {
+        api_id = "{{ api_id }}"
+        stage = "{{ stage }}"
+        strip_base_path = {{ strip_base_path }}
+      }
+    }
+    condition {
+      match_base_paths {
+        any_of = ["{{ any_of }}"]
+      }
+      match_headers {
+        any_of {
+          header = "{{ header }}"
+          value_glob = "{{ value_glob }}"
+        }
+      }
+    }
+}

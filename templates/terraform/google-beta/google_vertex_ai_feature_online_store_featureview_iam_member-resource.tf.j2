@@ -1,0 +1,14 @@
+resource "google_vertex_ai_feature_online_store_featureview_iam_member" "example" {
+    feature_online_store = "{{ feature_online_store }}"
+    feature_view = "{{ feature_view }}"
+    id = "{{ id }}"
+    member = "{{ member }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

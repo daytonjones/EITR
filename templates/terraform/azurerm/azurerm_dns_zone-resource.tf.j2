@@ -1,9 +1,26 @@
 resource "azurerm_dns_zone" "example" {
     id = "{{ id }}"
-    max_number_of_record_sets = "{{ max_number_of_record_sets }}"
     name = "{{ name }}"
-    name_servers = "{{ name_servers }}"
-    number_of_record_sets = "{{ number_of_record_sets }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    soa_record {
+      email = "{{ email }}"
+      expire_time = {{ expire_time }}
+      minimum_ttl = {{ minimum_ttl }}
+      refresh_time = {{ refresh_time }}
+      retry_time = {{ retry_time }}
+      serial_number = {{ serial_number }}
+      tags = {
+        key = "{{ tags_value }}"
+      }
+      ttl = {{ ttl }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

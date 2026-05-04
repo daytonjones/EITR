@@ -1,0 +1,20 @@
+resource "aws_memorydb_multi_region_cluster" "example" {
+    description = "{{ description }}"
+    engine = "{{ engine }}"
+    engine_version = "{{ engine_version }}"
+    multi_region_cluster_name_suffix = "{{ multi_region_cluster_name_suffix }}"
+    multi_region_parameter_group_name = "{{ multi_region_parameter_group_name }}"
+    node_type = "{{ node_type }}"
+    num_shards = {{ num_shards }}
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tls_enabled = {{ tls_enabled }}
+    update_strategy = "{{ update_strategy }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,0 +1,5 @@
+resource "aws_workspacesweb_ip_access_settings_association" "example" {
+    ip_access_settings_arn = "{{ ip_access_settings_arn }}"
+    portal_arn = "{{ portal_arn }}"
+    region = "{{ region }}"
+}

@@ -1,6 +1,14 @@
 resource "azurerm_sentinel_watchlist_item" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
-    properties = "{{ properties }}"
+    properties = {
+        key = "{{ properties_value }}"
+      }
     watchlist_id = "{{ watchlist_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

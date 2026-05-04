@@ -1,9 +1,61 @@
 resource "aws_elastictranscoder_preset" "example" {
-    arn = "{{ arn }}"
     container = "{{ container }}"
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     type = "{{ type }}"
-    video_codec_options = "{{ video_codec_options }}"
+    video_codec_options = {
+        key = "{{ video_codec_options_value }}"
+      }
+    audio {
+      audio_packing_mode = "{{ audio_packing_mode }}"
+      bit_rate = "{{ bit_rate }}"
+      channels = "{{ channels }}"
+      codec = "{{ codec }}"
+      sample_rate = "{{ sample_rate }}"
+    }
+    audio_codec_options {
+      bit_depth = "{{ bit_depth }}"
+      bit_order = "{{ bit_order }}"
+      profile = "{{ profile }}"
+      signed = "{{ signed }}"
+    }
+    thumbnails {
+      aspect_ratio = "{{ aspect_ratio }}"
+      format = "{{ format }}"
+      interval = "{{ interval }}"
+      max_height = "{{ max_height }}"
+      max_width = "{{ max_width }}"
+      padding_policy = "{{ padding_policy }}"
+      resolution = "{{ resolution }}"
+      sizing_policy = "{{ sizing_policy }}"
+    }
+    video {
+      aspect_ratio = "{{ aspect_ratio }}"
+      bit_rate = "{{ bit_rate }}"
+      codec = "{{ codec }}"
+      display_aspect_ratio = "{{ display_aspect_ratio }}"
+      fixed_gop = "{{ fixed_gop }}"
+      frame_rate = "{{ frame_rate }}"
+      keyframes_max_dist = "{{ keyframes_max_dist }}"
+      max_frame_rate = "{{ max_frame_rate }}"
+      max_height = "{{ max_height }}"
+      max_width = "{{ max_width }}"
+      padding_policy = "{{ padding_policy }}"
+      resolution = "{{ resolution }}"
+      sizing_policy = "{{ sizing_policy }}"
+    }
+    video_watermarks {
+      horizontal_align = "{{ horizontal_align }}"
+      horizontal_offset = "{{ horizontal_offset }}"
+      id = "{{ id }}"
+      max_height = "{{ max_height }}"
+      max_width = "{{ max_width }}"
+      opacity = "{{ opacity }}"
+      sizing_policy = "{{ sizing_policy }}"
+      target = "{{ target }}"
+      vertical_align = "{{ vertical_align }}"
+      vertical_offset = "{{ vertical_offset }}"
+    }
 }

@@ -2,4 +2,9 @@ resource "azurerm_virtual_desktop_workspace_application_group_association" "exam
     application_group_id = "{{ application_group_id }}"
     id = "{{ id }}"
     workspace_id = "{{ workspace_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

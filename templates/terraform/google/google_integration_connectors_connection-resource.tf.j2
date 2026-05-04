@@ -1,23 +1,189 @@
 resource "google_integration_connectors_connection" "example" {
-    connection_revision = "{{ connection_revision }}"
     connector_version = "{{ connector_version }}"
-    connector_version_infra_config = "{{ connector_version_infra_config }}"
-    connector_version_launch_stage = "{{ connector_version_launch_stage }}"
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
     eventing_enablement_type = "{{ eventing_enablement_type }}"
-    eventing_runtime_data = "{{ eventing_runtime_data }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
     service_account = "{{ service_account }}"
-    service_directory = "{{ service_directory }}"
-    status = "{{ status }}"
-    subscription_type = "{{ subscription_type }}"
-    suspended = "{{ suspended }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
+    suspended = {{ suspended }}
+    auth_config {
+      auth_key = "{{ auth_key }}"
+      auth_type = "{{ auth_type }}"
+      additional_variable {
+        boolean_value = {{ boolean_value }}
+        integer_value = {{ integer_value }}
+        key = "{{ key }}"
+        string_value = "{{ string_value }}"
+        encryption_key_value {
+          kms_key_name = "{{ kms_key_name }}"
+          type = "{{ type }}"
+        }
+        secret_value {
+          secret_version = "{{ secret_version }}"
+        }
+      }
+      oauth2_auth_code_flow {
+        auth_uri = "{{ auth_uri }}"
+        client_id = "{{ client_id }}"
+        enable_pkce = {{ enable_pkce }}
+        scopes = ["{{ scopes }}"]
+        client_secret {
+          secret_version = "{{ secret_version }}"
+        }
+      }
+      oauth2_client_credentials {
+        client_id = "{{ client_id }}"
+        client_secret {
+          secret_version = "{{ secret_version }}"
+        }
+      }
+      oauth2_jwt_bearer {
+        client_key {
+          secret_version = "{{ secret_version }}"
+        }
+        jwt_claims {
+          audience = "{{ audience }}"
+          issuer = "{{ issuer }}"
+          subject = "{{ subject }}"
+        }
+      }
+      ssh_public_key {
+        cert_type = "{{ cert_type }}"
+        username = "{{ username }}"
+        ssh_client_cert {
+          secret_version = "{{ secret_version }}"
+        }
+        ssh_client_cert_pass {
+          secret_version = "{{ secret_version }}"
+        }
+      }
+      user_password {
+        username = "{{ username }}"
+        password {
+          secret_version = "{{ secret_version }}"
+        }
+      }
+    }
+    config_variable {
+      boolean_value = {{ boolean_value }}
+      integer_value = {{ integer_value }}
+      key = "{{ key }}"
+      string_value = "{{ string_value }}"
+      encryption_key_value {
+        kms_key_name = "{{ kms_key_name }}"
+        type = "{{ type }}"
+      }
+      secret_value {
+        secret_version = "{{ secret_version }}"
+      }
+    }
+    destination_config {
+      key = "{{ key }}"
+      destination {
+        host = "{{ host }}"
+        port = {{ port }}
+        service_attachment = "{{ service_attachment }}"
+      }
+    }
+    eventing_config {
+      enrichment_enabled = {{ enrichment_enabled }}
+      additional_variable {
+        boolean_value = {{ boolean_value }}
+        integer_value = {{ integer_value }}
+        key = "{{ key }}"
+        string_value = "{{ string_value }}"
+        encryption_key_value {
+          kms_key_name = "{{ kms_key_name }}"
+          type = "{{ type }}"
+        }
+        secret_value {
+          secret_version = "{{ secret_version }}"
+        }
+      }
+      auth_config {
+        auth_key = "{{ auth_key }}"
+        auth_type = "{{ auth_type }}"
+        additional_variable {
+          boolean_value = {{ boolean_value }}
+          integer_value = {{ integer_value }}
+          key = "{{ key }}"
+          string_value = "{{ string_value }}"
+          encryption_key_value {
+            kms_key_name = "{{ kms_key_name }}"
+            type = "{{ type }}"
+          }
+          secret_value {
+            secret_version = "{{ secret_version }}"
+          }
+        }
+        user_password {
+          username = "{{ username }}"
+          password {
+            secret_version = "{{ secret_version }}"
+          }
+        }
+      }
+      registration_destination_config {
+        key = "{{ key }}"
+        destination {
+          host = "{{ host }}"
+          port = {{ port }}
+          service_attachment = "{{ service_attachment }}"
+        }
+      }
+    }
+    lock_config {
+      locked = {{ locked }}
+      reason = "{{ reason }}"
+    }
+    log_config {
+      enabled = {{ enabled }}
+      level = "{{ level }}"
+    }
+    node_config {
+      max_node_count = {{ max_node_count }}
+      min_node_count = {{ min_node_count }}
+    }
+    ssl_config {
+      client_cert_type = "{{ client_cert_type }}"
+      server_cert_type = "{{ server_cert_type }}"
+      trust_model = "{{ trust_model }}"
+      type = "{{ type }}"
+      use_ssl = {{ use_ssl }}
+      additional_variable {
+        boolean_value = {{ boolean_value }}
+        integer_value = {{ integer_value }}
+        key = "{{ key }}"
+        string_value = "{{ string_value }}"
+        encryption_key_value {
+          kms_key_name = "{{ kms_key_name }}"
+          type = "{{ type }}"
+        }
+        secret_value {
+          secret_version = "{{ secret_version }}"
+        }
+      }
+      client_certificate {
+        secret_version = "{{ secret_version }}"
+      }
+      client_private_key {
+        secret_version = "{{ secret_version }}"
+      }
+      client_private_key_pass {
+        secret_version = "{{ secret_version }}"
+      }
+      private_server_certificate {
+        secret_version = "{{ secret_version }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

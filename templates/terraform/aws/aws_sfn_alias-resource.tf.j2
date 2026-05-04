@@ -1,7 +1,15 @@
 resource "aws_sfn_alias" "example" {
-    arn = "{{ arn }}"
-    creation_date = "{{ creation_date }}"
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
+    routing_configuration {
+      state_machine_version_arn = "{{ state_machine_version_arn }}"
+      weight = {{ weight }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

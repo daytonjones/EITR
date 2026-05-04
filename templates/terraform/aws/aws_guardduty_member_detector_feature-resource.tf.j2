@@ -1,0 +1,11 @@
+resource "aws_guardduty_member_detector_feature" "example" {
+    account_id = "{{ account_id }}"
+    detector_id = "{{ detector_id }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+    status = "{{ status }}"
+    additional_configuration {
+      name = "{{ name }}"
+      status = "{{ status }}"
+    }
+}

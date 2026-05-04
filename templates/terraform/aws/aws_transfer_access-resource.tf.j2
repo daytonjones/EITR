@@ -4,6 +4,16 @@ resource "aws_transfer_access" "example" {
     home_directory_type = "{{ home_directory_type }}"
     id = "{{ id }}"
     policy = "{{ policy }}"
+    region = "{{ region }}"
     role = "{{ role }}"
     server_id = "{{ server_id }}"
+    home_directory_mappings {
+      entry = "{{ entry }}"
+      target = "{{ target }}"
+    }
+    posix_profile {
+      gid = {{ gid }}
+      secondary_gids = ["{{ secondary_gids }}"]
+      uid = {{ uid }}
+    }
 }

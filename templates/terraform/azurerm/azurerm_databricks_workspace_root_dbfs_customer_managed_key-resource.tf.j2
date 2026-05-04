@@ -3,4 +3,10 @@ resource "azurerm_databricks_workspace_root_dbfs_customer_managed_key" "example"
     key_vault_id = "{{ key_vault_id }}"
     key_vault_key_id = "{{ key_vault_key_id }}"
     workspace_id = "{{ workspace_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

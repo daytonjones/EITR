@@ -1,0 +1,14 @@
+resource "google_biglake_iceberg_namespace" "example" {
+    catalog = "{{ catalog }}"
+    id = "{{ id }}"
+    namespace_id = "{{ namespace_id }}"
+    project = "{{ project }}"
+    properties = {
+        key = "{{ properties_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

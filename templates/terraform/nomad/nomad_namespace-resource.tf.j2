@@ -1,7 +1,30 @@
 resource "nomad_namespace" "example" {
     description = "{{ description }}"
     id = "{{ id }}"
-    meta = "{{ meta }}"
+    meta = {
+        key = "{{ meta_value }}"
+      }
     name = "{{ name }}"
     quota = "{{ quota }}"
+    capabilities {
+      disabled_network_modes = ["{{ disabled_network_modes }}"]
+      disabled_task_drivers = ["{{ disabled_task_drivers }}"]
+      enabled_network_modes = ["{{ enabled_network_modes }}"]
+      enabled_task_drivers = ["{{ enabled_task_drivers }}"]
+    }
+    consul_config {
+      allowed = ["{{ allowed }}"]
+      default = "{{ default }}"
+      denied = ["{{ denied }}"]
+    }
+    node_pool_config {
+      allowed = ["{{ allowed }}"]
+      default = "{{ default }}"
+      denied = ["{{ denied }}"]
+    }
+    vault_config {
+      allowed = ["{{ allowed }}"]
+      default = "{{ default }}"
+      denied = ["{{ denied }}"]
+    }
 }

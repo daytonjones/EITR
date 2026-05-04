@@ -1,20 +1,49 @@
 resource "aws_imagebuilder_container_recipe" "example" {
-    arn = "{{ arn }}"
     container_type = "{{ container_type }}"
-    date_created = "{{ date_created }}"
     description = "{{ description }}"
     dockerfile_template_data = "{{ dockerfile_template_data }}"
     dockerfile_template_uri = "{{ dockerfile_template_uri }}"
-    encrypted = "{{ encrypted }}"
     id = "{{ id }}"
     kms_key_id = "{{ kms_key_id }}"
     name = "{{ name }}"
-    owner = "{{ owner }}"
     parent_image = "{{ parent_image }}"
-    platform = "{{ platform }}"
     platform_override = "{{ platform_override }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     version = "{{ version }}"
     working_directory = "{{ working_directory }}"
+    component {
+      component_arn = "{{ component_arn }}"
+      parameter {
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+    }
+    instance_configuration {
+      image = "{{ image }}"
+      block_device_mapping {
+        device_name = "{{ device_name }}"
+        no_device = {{ no_device }}
+        virtual_name = "{{ virtual_name }}"
+        ebs {
+          delete_on_termination = "{{ delete_on_termination }}"
+          encrypted = "{{ encrypted }}"
+          iops = {{ iops }}
+          kms_key_id = "{{ kms_key_id }}"
+          snapshot_id = "{{ snapshot_id }}"
+          throughput = {{ throughput }}
+          volume_size = {{ volume_size }}
+          volume_type = "{{ volume_type }}"
+        }
+      }
+    }
+    target_repository {
+      repository_name = "{{ repository_name }}"
+      service = "{{ service }}"
+    }
 }

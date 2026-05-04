@@ -1,13 +1,27 @@
 resource "aws_appfabric_app_authorization" "example" {
     app = "{{ app }}"
     app_bundle_arn = "{{ app_bundle_arn }}"
-    arn = "{{ arn }}"
     auth_type = "{{ auth_type }}"
-    auth_url = "{{ auth_url }}"
-    created_at = "{{ created_at }}"
-    id = "{{ id }}"
-    persona = "{{ persona }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    updated_at = "{{ updated_at }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    credential {
+      api_key_credential {
+        api_key = "{{ api_key }}"
+      }
+      oauth2_credential {
+        client_id = "{{ client_id }}"
+        client_secret = "{{ client_secret }}"
+      }
+    }
+    tenant {
+      tenant_display_name = "{{ tenant_display_name }}"
+      tenant_identifier = "{{ tenant_identifier }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

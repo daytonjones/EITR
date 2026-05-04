@@ -1,11 +1,18 @@
 resource "azurestack_virtual_network" "example" {
-    address_space = "{{ address_space }}"
-    dns_servers = "{{ dns_servers }}"
-    guid = "{{ guid }}"
+    address_space = ["{{ address_space }}"]
+    dns_servers = ["{{ dns_servers }}"]
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    subnet = "{{ subnet }}"
-    tags = "{{ tags }}"
+    subnet = ["{{ subnet }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

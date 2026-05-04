@@ -1,6 +1,7 @@
 data "aws_datapipeline_pipeline_definition" "example" {
     id = "{{ id }}"
-    parameter_object = "{{ parameter_object }}"
     pipeline_id = "{{ pipeline_id }}"
-    pipeline_object = "{{ pipeline_object }}"
+    region = "{{ region }}"
+    parameter_value {
+    }
 }

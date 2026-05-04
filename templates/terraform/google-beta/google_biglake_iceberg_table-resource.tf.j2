@@ -1,0 +1,34 @@
+resource "google_biglake_iceberg_table" "example" {
+    catalog = "{{ catalog }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    project = "{{ project }}"
+    properties = {
+        key = "{{ properties_value }}"
+      }
+    partition_spec {
+      fields {
+        name = "{{ name }}"
+        source_id = {{ source_id }}
+        transform = "{{ transform }}"
+      }
+    }
+    schema {
+      identifier_field_ids = ["{{ identifier_field_ids }}"]
+      type = "{{ type }}"
+      fields {
+        doc = "{{ doc }}"
+        id = {{ id }}
+        name = "{{ name }}"
+        required = {{ required }}
+        type = "{{ type }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

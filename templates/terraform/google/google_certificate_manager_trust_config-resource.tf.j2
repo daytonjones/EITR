@@ -1,12 +1,26 @@
 resource "google_certificate_manager_trust_config" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
+    allowlisted_certificates {
+      pem_certificate = "{{ pem_certificate }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    trust_stores {
+      intermediate_cas {
+        pem_certificate = "{{ pem_certificate }}"
+      }
+      trust_anchors {
+        pem_certificate = "{{ pem_certificate }}"
+      }
+    }
 }

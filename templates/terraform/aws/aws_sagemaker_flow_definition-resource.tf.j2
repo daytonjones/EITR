@@ -1,8 +1,41 @@
 resource "aws_sagemaker_flow_definition" "example" {
-    arn = "{{ arn }}"
     flow_definition_name = "{{ flow_definition_name }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    human_loop_activation_config {
+      human_loop_activation_conditions_config {
+        human_loop_activation_conditions = "{{ human_loop_activation_conditions }}"
+      }
+    }
+    human_loop_config {
+      human_task_ui_arn = "{{ human_task_ui_arn }}"
+      task_availability_lifetime_in_seconds = {{ task_availability_lifetime_in_seconds }}
+      task_count = {{ task_count }}
+      task_description = "{{ task_description }}"
+      task_keywords = ["{{ task_keywords }}"]
+      task_time_limit_in_seconds = {{ task_time_limit_in_seconds }}
+      task_title = "{{ task_title }}"
+      workteam_arn = "{{ workteam_arn }}"
+      public_workforce_task_price {
+        amount_in_usd {
+          cents = {{ cents }}
+          dollars = {{ dollars }}
+          tenth_fractions_of_a_cent = {{ tenth_fractions_of_a_cent }}
+        }
+      }
+    }
+    human_loop_request_source {
+      aws_managed_human_loop_request_source = "{{ aws_managed_human_loop_request_source }}"
+    }
+    output_config {
+      kms_key_id = "{{ kms_key_id }}"
+      s3_output_path = "{{ s3_output_path }}"
+    }
 }

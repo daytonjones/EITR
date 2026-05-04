@@ -1,8 +1,12 @@
 resource "google_scc_v2_organization_source_iam_binding" "example" {
-    etag = "{{ etag }}"
     id = "{{ id }}"
-    members = "{{ members }}"
+    members = ["{{ members }}"]
     organization = "{{ organization }}"
     role = "{{ role }}"
     source = "{{ source }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

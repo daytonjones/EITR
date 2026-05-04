@@ -1,0 +1,9 @@
+resource "awscc_bedrockagentcore_code_interpreter_custom" "example" {
+    description = "{{ description }}"
+    execution_role_arn = "{{ execution_role_arn }}"
+    name = "{{ name }}"
+    network_configuration = "{{ network_configuration }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

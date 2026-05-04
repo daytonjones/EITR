@@ -3,4 +3,9 @@ resource "azurerm_api_management_notification_recipient_user" "example" {
     id = "{{ id }}"
     notification_type = "{{ notification_type }}"
     user_id = "{{ user_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

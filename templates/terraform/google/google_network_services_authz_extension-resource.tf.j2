@@ -1,0 +1,25 @@
+resource "google_network_services_authz_extension" "example" {
+    authority = "{{ authority }}"
+    description = "{{ description }}"
+    fail_open = {{ fail_open }}
+    forward_headers = ["{{ forward_headers }}"]
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    load_balancing_scheme = "{{ load_balancing_scheme }}"
+    location = "{{ location }}"
+    metadata = {
+        key = "{{ metadata_value }}"
+      }
+    name = "{{ name }}"
+    project = "{{ project }}"
+    service = "{{ service }}"
+    timeout = "{{ timeout }}"
+    wire_format = "{{ wire_format }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

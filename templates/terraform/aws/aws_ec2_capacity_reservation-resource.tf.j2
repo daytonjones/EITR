@@ -1,19 +1,27 @@
 resource "aws_ec2_capacity_reservation" "example" {
-    arn = "{{ arn }}"
     availability_zone = "{{ availability_zone }}"
-    ebs_optimized = "{{ ebs_optimized }}"
+    ebs_optimized = {{ ebs_optimized }}
     end_date = "{{ end_date }}"
     end_date_type = "{{ end_date_type }}"
-    ephemeral_storage = "{{ ephemeral_storage }}"
+    ephemeral_storage = {{ ephemeral_storage }}
     id = "{{ id }}"
-    instance_count = "{{ instance_count }}"
+    instance_count = {{ instance_count }}
     instance_match_criteria = "{{ instance_match_criteria }}"
     instance_platform = "{{ instance_platform }}"
     instance_type = "{{ instance_type }}"
     outpost_arn = "{{ outpost_arn }}"
-    owner_id = "{{ owner_id }}"
     placement_group_arn = "{{ placement_group_arn }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     tenancy = "{{ tenancy }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

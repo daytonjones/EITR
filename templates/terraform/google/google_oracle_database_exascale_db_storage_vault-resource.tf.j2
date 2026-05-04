@@ -1,0 +1,27 @@
+resource "google_oracle_database_exascale_db_storage_vault" "example" {
+    deletion_protection = {{ deletion_protection }}
+    display_name = "{{ display_name }}"
+    exascale_db_storage_vault_id = "{{ exascale_db_storage_vault_id }}"
+    gcp_oracle_zone = "{{ gcp_oracle_zone }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    properties {
+      additional_flash_cache_percent = {{ additional_flash_cache_percent }}
+      exascale_db_storage_details {
+        total_size_gbs = {{ total_size_gbs }}
+      }
+      time_zone {
+        id = "{{ id }}"
+        version = "{{ version }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

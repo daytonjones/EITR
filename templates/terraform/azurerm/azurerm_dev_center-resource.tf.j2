@@ -1,8 +1,20 @@
 resource "azurerm_dev_center" "example" {
-    dev_center_uri = "{{ dev_center_uri }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
+    project_catalog_item_sync_enabled = {{ project_catalog_item_sync_enabled }}
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

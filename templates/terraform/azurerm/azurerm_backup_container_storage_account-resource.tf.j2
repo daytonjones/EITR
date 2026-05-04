@@ -3,4 +3,9 @@ resource "azurerm_backup_container_storage_account" "example" {
     recovery_vault_name = "{{ recovery_vault_name }}"
     resource_group_name = "{{ resource_group_name }}"
     storage_account_id = "{{ storage_account_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

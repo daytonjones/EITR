@@ -4,7 +4,16 @@ resource "azurerm_mssql_managed_instance_failover_group" "example" {
     managed_instance_id = "{{ managed_instance_id }}"
     name = "{{ name }}"
     partner_managed_instance_id = "{{ partner_managed_instance_id }}"
-    partner_region = "{{ partner_region }}"
-    readonly_endpoint_failover_policy_enabled = "{{ readonly_endpoint_failover_policy_enabled }}"
-    role = "{{ role }}"
+    readonly_endpoint_failover_policy_enabled = {{ readonly_endpoint_failover_policy_enabled }}
+    secondary_type = "{{ secondary_type }}"
+    read_write_endpoint_failover_policy {
+      grace_minutes = {{ grace_minutes }}
+      mode = "{{ mode }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

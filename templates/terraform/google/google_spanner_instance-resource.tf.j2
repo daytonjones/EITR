@@ -3,14 +3,49 @@ resource "google_spanner_instance" "example" {
     default_backup_schedule_type = "{{ default_backup_schedule_type }}"
     display_name = "{{ display_name }}"
     edition = "{{ edition }}"
-    effective_labels = "{{ effective_labels }}"
-    force_destroy = "{{ force_destroy }}"
+    force_destroy = {{ force_destroy }}
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    instance_type = "{{ instance_type }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
-    num_nodes = "{{ num_nodes }}"
-    processing_units = "{{ processing_units }}"
+    num_nodes = {{ num_nodes }}
+    processing_units = {{ processing_units }}
     project = "{{ project }}"
-    state = "{{ state }}"
-    terraform_labels = "{{ terraform_labels }}"
+    autoscaling_config {
+      asymmetric_autoscaling_options {
+        overrides {
+          autoscaling_target_high_priority_cpu_utilization_percent = {{ autoscaling_target_high_priority_cpu_utilization_percent }}
+          autoscaling_target_total_cpu_utilization_percent = {{ autoscaling_target_total_cpu_utilization_percent }}
+          disable_high_priority_cpu_autoscaling = {{ disable_high_priority_cpu_autoscaling }}
+          disable_total_cpu_autoscaling = {{ disable_total_cpu_autoscaling }}
+          autoscaling_limits {
+            max_nodes = {{ max_nodes }}
+            max_processing_units = {{ max_processing_units }}
+            min_nodes = {{ min_nodes }}
+            min_processing_units = {{ min_processing_units }}
+          }
+        }
+        replica_selection {
+          location = "{{ location }}"
+        }
+      }
+      autoscaling_limits {
+        max_nodes = {{ max_nodes }}
+        max_processing_units = {{ max_processing_units }}
+        min_nodes = {{ min_nodes }}
+        min_processing_units = {{ min_processing_units }}
+      }
+      autoscaling_targets {
+        high_priority_cpu_utilization_percent = {{ high_priority_cpu_utilization_percent }}
+        storage_utilization_percent = {{ storage_utilization_percent }}
+        total_cpu_utilization_percent = {{ total_cpu_utilization_percent }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

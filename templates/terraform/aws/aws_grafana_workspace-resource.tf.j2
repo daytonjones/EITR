@@ -1,21 +1,36 @@
 resource "aws_grafana_workspace" "example" {
     account_access_type = "{{ account_access_type }}"
-    arn = "{{ arn }}"
-    authentication_providers = "{{ authentication_providers }}"
+    authentication_providers = ["{{ authentication_providers }}"]
     configuration = "{{ configuration }}"
-    data_sources = "{{ data_sources }}"
+    data_sources = ["{{ data_sources }}"]
     description = "{{ description }}"
-    endpoint = "{{ endpoint }}"
     grafana_version = "{{ grafana_version }}"
     id = "{{ id }}"
+    kms_key_id = "{{ kms_key_id }}"
     name = "{{ name }}"
-    notification_destinations = "{{ notification_destinations }}"
+    notification_destinations = ["{{ notification_destinations }}"]
     organization_role_name = "{{ organization_role_name }}"
-    organizational_units = "{{ organizational_units }}"
+    organizational_units = ["{{ organizational_units }}"]
     permission_type = "{{ permission_type }}"
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
-    saml_configuration_status = "{{ saml_configuration_status }}"
     stack_set_name = "{{ stack_set_name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    network_access_control {
+      prefix_list_ids = ["{{ prefix_list_ids }}"]
+      vpce_ids = ["{{ vpce_ids }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
+    vpc_configuration {
+      security_group_ids = ["{{ security_group_ids }}"]
+      subnet_ids = ["{{ subnet_ids }}"]
+    }
 }

@@ -1,7 +1,6 @@
 resource "dns_txt_record_set" "example" {
-    id = "{{ id }}"
     name = "{{ name }}"
-    ttl = "{{ ttl }}"
-    txt = "{{ txt }}"
+    ttl = {{ ttl }}
+    txt = ["{{ txt }}"]
     zone = "{{ zone }}"
 }

@@ -4,4 +4,10 @@ resource "azurerm_mssql_firewall_rule" "example" {
     name = "{{ name }}"
     server_id = "{{ server_id }}"
     start_ip_address = "{{ start_ip_address }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

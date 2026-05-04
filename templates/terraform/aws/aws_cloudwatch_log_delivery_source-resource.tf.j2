@@ -1,0 +1,9 @@
+resource "aws_cloudwatch_log_delivery_source" "example" {
+    log_type = "{{ log_type }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+    resource_arn = "{{ resource_arn }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

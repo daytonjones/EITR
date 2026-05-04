@@ -8,4 +8,25 @@ resource "google_apigee_environment" "example" {
     name = "{{ name }}"
     org_id = "{{ org_id }}"
     type = "{{ type }}"
+    client_ip_resolution_config {
+      header_index_algorithm {
+        ip_header_index = {{ ip_header_index }}
+        ip_header_name = "{{ ip_header_name }}"
+      }
+    }
+    node_config {
+      max_node_count = "{{ max_node_count }}"
+      min_node_count = "{{ min_node_count }}"
+    }
+    properties {
+      property {
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

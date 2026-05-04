@@ -1,0 +1,11 @@
+resource "awscc_smsvoice_pool" "example" {
+    deletion_protection_enabled = {{ deletion_protection_enabled }}
+    mandatory_keywords = "{{ mandatory_keywords }}"
+    opt_out_list_name = "{{ opt_out_list_name }}"
+    optional_keywords = "{{ optional_keywords }}"
+    origination_identities = ["{{ origination_identities }}"]
+    self_managed_opt_outs_enabled = {{ self_managed_opt_outs_enabled }}
+    shared_routes_enabled = {{ shared_routes_enabled }}
+    tags = "{{ tags }}"
+    two_way = "{{ two_way }}"
+}

@@ -1,15 +1,6 @@
 resource "awscc_memorydb_user" "example" {
     access_string = "{{ access_string }}"
-    arn = "{{ arn }}"
-    authentication_mode = "{
-    passwords = {{ passwords }}
-    type = {{ type }}
-}"
-    id = "{{ id }}"
-    status = "{{ status }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    authentication_mode = "{{ authentication_mode }}"
+    tags = "{{ tags }}"
     user_name = "{{ user_name }}"
 }

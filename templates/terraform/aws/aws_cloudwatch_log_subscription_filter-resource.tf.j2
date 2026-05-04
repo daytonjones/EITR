@@ -1,9 +1,12 @@
 resource "aws_cloudwatch_log_subscription_filter" "example" {
+    apply_on_transformed_logs = {{ apply_on_transformed_logs }}
     destination_arn = "{{ destination_arn }}"
     distribution = "{{ distribution }}"
+    emit_system_fields = ["{{ emit_system_fields }}"]
     filter_pattern = "{{ filter_pattern }}"
     id = "{{ id }}"
     log_group_name = "{{ log_group_name }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
 }

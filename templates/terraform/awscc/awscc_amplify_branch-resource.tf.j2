@@ -1,30 +1,18 @@
 resource "awscc_amplify_branch" "example" {
     app_id = "{{ app_id }}"
-    arn = "{{ arn }}"
-    backend = "{
-    stack_arn = {{ stack_arn }}
-}"
-    basic_auth_config = "{
-    enable_basic_auth = {{ enable_basic_auth }}
-    password = {{ password }}
-    username = {{ username }}
-}"
+    backend = "{{ backend }}"
+    basic_auth_config = "{{ basic_auth_config }}"
     branch_name = "{{ branch_name }}"
     build_spec = "{{ build_spec }}"
+    compute_role_arn = "{{ compute_role_arn }}"
     description = "{{ description }}"
-    enable_auto_build = "{{ enable_auto_build }}"
-    enable_performance_mode = "{{ enable_performance_mode }}"
-    enable_pull_request_preview = "{{ enable_pull_request_preview }}"
-    environment_variables = "{
-    name = {{ name }}
-    value = {{ value }}
-}"
+    enable_auto_build = {{ enable_auto_build }}
+    enable_performance_mode = {{ enable_performance_mode }}
+    enable_pull_request_preview = {{ enable_pull_request_preview }}
+    enable_skew_protection = {{ enable_skew_protection }}
+    environment_variables = "{{ environment_variables }}"
     framework = "{{ framework }}"
-    id = "{{ id }}"
     pull_request_environment_name = "{{ pull_request_environment_name }}"
     stage = "{{ stage }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
 }

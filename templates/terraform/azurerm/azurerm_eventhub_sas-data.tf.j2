@@ -2,5 +2,7 @@ data "azurerm_eventhub_sas" "example" {
     connection_string = "{{ connection_string }}"
     expiry = "{{ expiry }}"
     id = "{{ id }}"
-    sas = "{{ sas }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

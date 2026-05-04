@@ -1,0 +1,39 @@
+resource "aws_ecs_express_gateway_service" "example" {
+    cluster = "{{ cluster }}"
+    cpu = "{{ cpu }}"
+    execution_role_arn = "{{ execution_role_arn }}"
+    health_check_path = "{{ health_check_path }}"
+    infrastructure_role_arn = "{{ infrastructure_role_arn }}"
+    memory = "{{ memory }}"
+    network_configuration = ["{{ network_configuration }}"]
+    region = "{{ region }}"
+    scaling_target = ["{{ scaling_target }}"]
+    service_name = "{{ service_name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    task_role_arn = "{{ task_role_arn }}"
+    wait_for_steady_state = {{ wait_for_steady_state }}
+    primary_container {
+      aws_logs_configuration = ["{{ aws_logs_configuration }}"]
+      command = ["{{ command }}"]
+      container_port = {{ container_port }}
+      image = "{{ image }}"
+      environment {
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+      repository_credentials {
+        credentials_parameter = "{{ credentials_parameter }}"
+      }
+      secret {
+        name = "{{ name }}"
+        value_from = "{{ value_from }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

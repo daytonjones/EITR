@@ -3,5 +3,11 @@ resource "azurerm_api_management_gateway_certificate_authority" "example" {
     certificate_name = "{{ certificate_name }}"
     gateway_name = "{{ gateway_name }}"
     id = "{{ id }}"
-    is_trusted = "{{ is_trusted }}"
+    is_trusted = {{ is_trusted }}
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

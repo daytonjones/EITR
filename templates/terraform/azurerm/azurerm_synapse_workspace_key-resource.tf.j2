@@ -1,7 +1,13 @@
 resource "azurerm_synapse_workspace_key" "example" {
-    active = "{{ active }}"
+    active = {{ active }}
     customer_managed_key_name = "{{ customer_managed_key_name }}"
     customer_managed_key_versionless_id = "{{ customer_managed_key_versionless_id }}"
     id = "{{ id }}"
     synapse_workspace_id = "{{ synapse_workspace_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

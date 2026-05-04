@@ -1,21 +1,95 @@
 resource "azurerm_virtual_network_gateway" "example" {
-    active_active = "{{ active_active }}"
-    bgp_route_translation_for_nat_enabled = "{{ bgp_route_translation_for_nat_enabled }}"
+    active_active = {{ active_active }}
+    bgp_enabled = {{ bgp_enabled }}
+    bgp_route_translation_for_nat_enabled = {{ bgp_route_translation_for_nat_enabled }}
     default_local_network_gateway_id = "{{ default_local_network_gateway_id }}"
-    dns_forwarding_enabled = "{{ dns_forwarding_enabled }}"
+    dns_forwarding_enabled = {{ dns_forwarding_enabled }}
     edge_zone = "{{ edge_zone }}"
-    enable_bgp = "{{ enable_bgp }}"
+    enable_bgp = {{ enable_bgp }}
     generation = "{{ generation }}"
     id = "{{ id }}"
-    ip_sec_replay_protection_enabled = "{{ ip_sec_replay_protection_enabled }}"
+    ip_sec_replay_protection_enabled = {{ ip_sec_replay_protection_enabled }}
     location = "{{ location }}"
     name = "{{ name }}"
-    private_ip_address_enabled = "{{ private_ip_address_enabled }}"
-    remote_vnet_traffic_enabled = "{{ remote_vnet_traffic_enabled }}"
+    private_ip_address_enabled = {{ private_ip_address_enabled }}
+    remote_vnet_traffic_enabled = {{ remote_vnet_traffic_enabled }}
     resource_group_name = "{{ resource_group_name }}"
     sku = "{{ sku }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     type = "{{ type }}"
-    virtual_wan_traffic_enabled = "{{ virtual_wan_traffic_enabled }}"
+    virtual_wan_traffic_enabled = {{ virtual_wan_traffic_enabled }}
     vpn_type = "{{ vpn_type }}"
+    bgp_settings {
+      asn = {{ asn }}
+      peer_weight = {{ peer_weight }}
+      peering_addresses {
+        apipa_addresses = ["{{ apipa_addresses }}"]
+        ip_configuration_name = "{{ ip_configuration_name }}"
+      }
+    }
+    custom_route {
+      address_prefixes = ["{{ address_prefixes }}"]
+    }
+    ip_configuration {
+      name = "{{ name }}"
+      private_ip_address_allocation = "{{ private_ip_address_allocation }}"
+      public_ip_address_id = "{{ public_ip_address_id }}"
+      subnet_id = "{{ subnet_id }}"
+    }
+    policy_group {
+      is_default = {{ is_default }}
+      name = "{{ name }}"
+      priority = {{ priority }}
+      policy_member {
+        name = "{{ name }}"
+        type = "{{ type }}"
+        value = "{{ value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    vpn_client_configuration {
+      aad_audience = "{{ aad_audience }}"
+      aad_issuer = "{{ aad_issuer }}"
+      aad_tenant = "{{ aad_tenant }}"
+      address_space = ["{{ address_space }}"]
+      radius_server_address = "{{ radius_server_address }}"
+      radius_server_secret = "{{ radius_server_secret }}"
+      vpn_auth_types = ["{{ vpn_auth_types }}"]
+      vpn_client_protocols = ["{{ vpn_client_protocols }}"]
+      ipsec_policy {
+        dh_group = "{{ dh_group }}"
+        ike_encryption = "{{ ike_encryption }}"
+        ike_integrity = "{{ ike_integrity }}"
+        ipsec_encryption = "{{ ipsec_encryption }}"
+        ipsec_integrity = "{{ ipsec_integrity }}"
+        pfs_group = "{{ pfs_group }}"
+        sa_data_size_in_kilobytes = {{ sa_data_size_in_kilobytes }}
+        sa_lifetime_in_seconds = {{ sa_lifetime_in_seconds }}
+      }
+      radius_server {
+        address = "{{ address }}"
+        score = {{ score }}
+        secret = "{{ secret }}"
+      }
+      revoked_certificate {
+        name = "{{ name }}"
+        thumbprint = "{{ thumbprint }}"
+      }
+      root_certificate {
+        name = "{{ name }}"
+        public_cert_data = "{{ public_cert_data }}"
+      }
+      virtual_network_gateway_client_connection {
+        address_prefixes = ["{{ address_prefixes }}"]
+        name = "{{ name }}"
+        policy_group_names = ["{{ policy_group_names }}"]
+      }
+    }
 }

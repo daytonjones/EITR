@@ -1,0 +1,15 @@
+resource "aws_ec2_allowed_images_settings" "example" {
+    region = "{{ region }}"
+    state = "{{ state }}"
+    image_criterion {
+      image_names = ["{{ image_names }}"]
+      image_providers = ["{{ image_providers }}"]
+      marketplace_product_codes = ["{{ marketplace_product_codes }}"]
+      creation_date_condition {
+        maximum_days_since_created = {{ maximum_days_since_created }}
+      }
+      deprecation_time_condition {
+        maximum_days_since_deprecated = {{ maximum_days_since_deprecated }}
+      }
+    }
+}

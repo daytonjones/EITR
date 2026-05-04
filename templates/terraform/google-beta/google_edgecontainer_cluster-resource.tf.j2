@@ -1,22 +1,70 @@
 resource "google_edgecontainer_cluster" "example" {
-    cluster_ca_certificate = "{{ cluster_ca_certificate }}"
-    control_plane_version = "{{ control_plane_version }}"
-    create_time = "{{ create_time }}"
-    default_max_pods_per_node = "{{ default_max_pods_per_node }}"
-    effective_labels = "{{ effective_labels }}"
-    endpoint = "{{ endpoint }}"
-    external_load_balancer_ipv4_address_pools = "{{ external_load_balancer_ipv4_address_pools }}"
+    default_max_pods_per_node = {{ default_max_pods_per_node }}
+    external_load_balancer_ipv4_address_pools = ["{{ external_load_balancer_ipv4_address_pools }}"]
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
-    maintenance_events = "{{ maintenance_events }}"
     name = "{{ name }}"
-    node_version = "{{ node_version }}"
-    port = "{{ port }}"
     project = "{{ project }}"
     release_channel = "{{ release_channel }}"
-    status = "{{ status }}"
     target_version = "{{ target_version }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
+    authorization {
+      admin_users {
+        username = "{{ username }}"
+      }
+    }
+    control_plane {
+      local {
+        machine_filter = "{{ machine_filter }}"
+        node_count = {{ node_count }}
+        node_location = "{{ node_location }}"
+        shared_deployment_policy = "{{ shared_deployment_policy }}"
+      }
+      remote {
+        node_location = "{{ node_location }}"
+      }
+    }
+    control_plane_encryption {
+      kms_key = "{{ kms_key }}"
+    }
+    fleet {
+      project = "{{ project }}"
+    }
+    maintenance_policy {
+      maintenance_exclusions {
+        id = "{{ id }}"
+        window {
+          end_time = "{{ end_time }}"
+          start_time = "{{ start_time }}"
+        }
+      }
+      window {
+        recurring_window {
+          recurrence = "{{ recurrence }}"
+          window {
+            end_time = "{{ end_time }}"
+            start_time = "{{ start_time }}"
+          }
+        }
+      }
+    }
+    networking {
+      cluster_ipv4_cidr_blocks = ["{{ cluster_ipv4_cidr_blocks }}"]
+      cluster_ipv6_cidr_blocks = ["{{ cluster_ipv6_cidr_blocks }}"]
+      services_ipv4_cidr_blocks = ["{{ services_ipv4_cidr_blocks }}"]
+      services_ipv6_cidr_blocks = ["{{ services_ipv6_cidr_blocks }}"]
+    }
+    system_addons_config {
+      ingress {
+        disabled = {{ disabled }}
+        ipv4_vip = "{{ ipv4_vip }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

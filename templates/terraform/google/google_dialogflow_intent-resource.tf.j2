@@ -1,18 +1,20 @@
 resource "google_dialogflow_intent" "example" {
     action = "{{ action }}"
-    default_response_platforms = "{{ default_response_platforms }}"
+    default_response_platforms = ["{{ default_response_platforms }}"]
     display_name = "{{ display_name }}"
-    events = "{{ events }}"
-    followup_intent_info = "{{ followup_intent_info }}"
+    events = ["{{ events }}"]
     id = "{{ id }}"
-    input_context_names = "{{ input_context_names }}"
-    is_fallback = "{{ is_fallback }}"
-    ml_disabled = "{{ ml_disabled }}"
-    name = "{{ name }}"
+    input_context_names = ["{{ input_context_names }}"]
+    is_fallback = {{ is_fallback }}
+    ml_disabled = {{ ml_disabled }}
     parent_followup_intent_name = "{{ parent_followup_intent_name }}"
-    priority = "{{ priority }}"
+    priority = {{ priority }}
     project = "{{ project }}"
-    reset_contexts = "{{ reset_contexts }}"
-    root_followup_intent_name = "{{ root_followup_intent_name }}"
+    reset_contexts = {{ reset_contexts }}
     webhook_state = "{{ webhook_state }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

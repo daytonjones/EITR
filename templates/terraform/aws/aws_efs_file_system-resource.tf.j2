@@ -1,19 +1,25 @@
 resource "aws_efs_file_system" "example" {
-    arn = "{{ arn }}"
-    availability_zone_id = "{{ availability_zone_id }}"
     availability_zone_name = "{{ availability_zone_name }}"
     creation_token = "{{ creation_token }}"
-    dns_name = "{{ dns_name }}"
-    encrypted = "{{ encrypted }}"
+    encrypted = {{ encrypted }}
     id = "{{ id }}"
     kms_key_id = "{{ kms_key_id }}"
-    name = "{{ name }}"
-    number_of_mount_targets = "{{ number_of_mount_targets }}"
-    owner_id = "{{ owner_id }}"
     performance_mode = "{{ performance_mode }}"
-    provisioned_throughput_in_mibps = "{{ provisioned_throughput_in_mibps }}"
-    size_in_bytes = "{{ size_in_bytes }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    provisioned_throughput_in_mibps = {{ provisioned_throughput_in_mibps }}
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     throughput_mode = "{{ throughput_mode }}"
+    lifecycle_policy {
+      transition_to_archive = "{{ transition_to_archive }}"
+      transition_to_ia = "{{ transition_to_ia }}"
+      transition_to_primary_storage_class = "{{ transition_to_primary_storage_class }}"
+    }
+    protection {
+      replication_overwrite = "{{ replication_overwrite }}"
+    }
 }

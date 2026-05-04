@@ -1,17 +1,34 @@
 resource "aws_glue_ml_transform" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     glue_version = "{{ glue_version }}"
     id = "{{ id }}"
-    label_count = "{{ label_count }}"
-    max_capacity = "{{ max_capacity }}"
-    max_retries = "{{ max_retries }}"
+    max_capacity = {{ max_capacity }}
+    max_retries = {{ max_retries }}
     name = "{{ name }}"
-    number_of_workers = "{{ number_of_workers }}"
+    number_of_workers = {{ number_of_workers }}
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
-    schema = "{{ schema }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    timeout = "{{ timeout }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    timeout = {{ timeout }}
     worker_type = "{{ worker_type }}"
+    input_record_tables {
+      catalog_id = "{{ catalog_id }}"
+      connection_name = "{{ connection_name }}"
+      database_name = "{{ database_name }}"
+      table_name = "{{ table_name }}"
+    }
+    parameters {
+      transform_type = "{{ transform_type }}"
+      find_matches_parameters {
+        accuracy_cost_trade_off = {{ accuracy_cost_trade_off }}
+        enforce_provided_labels = {{ enforce_provided_labels }}
+        precision_recall_trade_off = {{ precision_recall_trade_off }}
+        primary_key_column_name = "{{ primary_key_column_name }}"
+      }
+    }
 }

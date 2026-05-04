@@ -1,14 +1,37 @@
 resource "google_oracle_database_cloud_exadata_infrastructure" "example" {
     cloud_exadata_infrastructure_id = "{{ cloud_exadata_infrastructure_id }}"
-    create_time = "{{ create_time }}"
+    deletion_protection = {{ deletion_protection }}
     display_name = "{{ display_name }}"
-    effective_labels = "{{ effective_labels }}"
-    entitlement_id = "{{ entitlement_id }}"
     gcp_oracle_zone = "{{ gcp_oracle_zone }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    terraform_labels = "{{ terraform_labels }}"
+    properties {
+      compute_count = {{ compute_count }}
+      shape = "{{ shape }}"
+      storage_count = {{ storage_count }}
+      total_storage_size_gb = {{ total_storage_size_gb }}
+      customer_contacts {
+        email = "{{ email }}"
+      }
+      maintenance_window {
+        custom_action_timeout_mins = {{ custom_action_timeout_mins }}
+        days_of_week = ["{{ days_of_week }}"]
+        hours_of_day = ["{{ hours_of_day }}"]
+        is_custom_action_timeout_enabled = {{ is_custom_action_timeout_enabled }}
+        lead_time_week = {{ lead_time_week }}
+        months = ["{{ months }}"]
+        patching_mode = "{{ patching_mode }}"
+        preference = "{{ preference }}"
+        weeks_of_month = ["{{ weeks_of_month }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

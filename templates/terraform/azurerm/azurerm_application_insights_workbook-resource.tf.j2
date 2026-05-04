@@ -9,5 +9,17 @@ resource "azurerm_application_insights_workbook" "example" {
     resource_group_name = "{{ resource_group_name }}"
     source_id = "{{ source_id }}"
     storage_container_id = "{{ storage_container_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

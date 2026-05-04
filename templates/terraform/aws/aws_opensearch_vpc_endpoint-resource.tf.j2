@@ -1,5 +1,14 @@
 resource "aws_opensearch_vpc_endpoint" "example" {
     domain_arn = "{{ domain_arn }}"
-    endpoint = "{{ endpoint }}"
     id = "{{ id }}"
+    region = "{{ region }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    vpc_options {
+      security_group_ids = ["{{ security_group_ids }}"]
+      subnet_ids = ["{{ subnet_ids }}"]
+    }
 }

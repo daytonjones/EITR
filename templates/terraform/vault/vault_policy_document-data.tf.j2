@@ -1,5 +1,21 @@
 data "vault_policy_document" "example" {
-    hcl = "{{ hcl }}"
     id = "{{ id }}"
     namespace = "{{ namespace }}"
+    rule {
+      capabilities = ["{{ capabilities }}"]
+      description = "{{ description }}"
+      max_wrapping_ttl = "{{ max_wrapping_ttl }}"
+      min_wrapping_ttl = "{{ min_wrapping_ttl }}"
+      path = "{{ path }}"
+      required_parameters = ["{{ required_parameters }}"]
+      subscribe_event_types = ["{{ subscribe_event_types }}"]
+      allowed_parameter {
+        key = "{{ key }}"
+        value = ["{{ value }}"]
+      }
+      denied_parameter {
+        key = "{{ key }}"
+        value = ["{{ value }}"]
+      }
+    }
 }

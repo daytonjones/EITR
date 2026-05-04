@@ -2,6 +2,8 @@ resource "aws_api_gateway_base_path_mapping" "example" {
     api_id = "{{ api_id }}"
     base_path = "{{ base_path }}"
     domain_name = "{{ domain_name }}"
+    domain_name_id = "{{ domain_name_id }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     stage_name = "{{ stage_name }}"
 }

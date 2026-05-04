@@ -1,0 +1,10 @@
+resource "google_kms_project_autokey_config" "example" {
+    id = "{{ id }}"
+    key_project_resolution_mode = "{{ key_project_resolution_mode }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,0 +1,13 @@
+resource "aws_savingsplans_savings_plan" "example" {
+    commitment = "{{ commitment }}"
+    purchase_time = "{{ purchase_time }}"
+    savings_plan_offering_id = "{{ savings_plan_offering_id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    upfront_payment_amount = "{{ upfront_payment_amount }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

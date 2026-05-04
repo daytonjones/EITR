@@ -1,0 +1,48 @@
+resource "azurerm_palo_alto_next_generation_firewall_virtual_network_strata_cloud_manager" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    marketplace_offer_id = "{{ marketplace_offer_id }}"
+    name = "{{ name }}"
+    plan_id = "{{ plan_id }}"
+    resource_group_name = "{{ resource_group_name }}"
+    strata_cloud_manager_tenant_name = "{{ strata_cloud_manager_tenant_name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    destination_nat {
+      name = "{{ name }}"
+      protocol = "{{ protocol }}"
+      backend_config {
+        port = {{ port }}
+        public_ip_address = "{{ public_ip_address }}"
+      }
+      frontend_config {
+        port = {{ port }}
+        public_ip_address_id = "{{ public_ip_address_id }}"
+      }
+    }
+    dns_settings {
+      dns_servers = ["{{ dns_servers }}"]
+      use_azure_dns = {{ use_azure_dns }}
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    network_profile {
+      egress_nat_ip_address_ids = ["{{ egress_nat_ip_address_ids }}"]
+      public_ip_address_ids = ["{{ public_ip_address_ids }}"]
+      trusted_address_ranges = ["{{ trusted_address_ranges }}"]
+      vnet_configuration {
+        trusted_subnet_id = "{{ trusted_subnet_id }}"
+        untrusted_subnet_id = "{{ untrusted_subnet_id }}"
+        virtual_network_id = "{{ virtual_network_id }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

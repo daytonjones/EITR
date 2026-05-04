@@ -4,6 +4,14 @@ resource "azurerm_virtual_hub_security_partner_provider" "example" {
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     security_provider_name = "{{ security_provider_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     virtual_hub_id = "{{ virtual_hub_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

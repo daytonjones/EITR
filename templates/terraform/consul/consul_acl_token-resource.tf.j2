@@ -3,9 +3,24 @@ resource "consul_acl_token" "example" {
     description = "{{ description }}"
     expiration_time = "{{ expiration_time }}"
     id = "{{ id }}"
-    local = "{{ local }}"
+    local = {{ local }}
     namespace = "{{ namespace }}"
     partition = "{{ partition }}"
-    policies = "{{ policies }}"
-    roles = "{{ roles }}"
+    policies = ["{{ policies }}"]
+    roles = ["{{ roles }}"]
+    node_identities {
+      datacenter = "{{ datacenter }}"
+      node_name = "{{ node_name }}"
+    }
+    service_identities {
+      datacenters = ["{{ datacenters }}"]
+      service_name = "{{ service_name }}"
+    }
+    templated_policies {
+      datacenters = ["{{ datacenters }}"]
+      template_name = "{{ template_name }}"
+      template_variables {
+        name = "{{ name }}"
+      }
+    }
 }

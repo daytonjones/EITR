@@ -1,4 +1,5 @@
 resource "aws_ebs_snapshot_block_public_access" "example" {
     id = "{{ id }}"
+    region = "{{ region }}"
     state = "{{ state }}"
 }

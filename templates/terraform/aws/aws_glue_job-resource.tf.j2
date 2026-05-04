@@ -1,22 +1,53 @@
 resource "aws_glue_job" "example" {
-    arn = "{{ arn }}"
-    connections = "{{ connections }}"
-    default_arguments = "{{ default_arguments }}"
+    connections = ["{{ connections }}"]
+    default_arguments = {
+        key = "{{ default_arguments_value }}"
+      }
     description = "{{ description }}"
     execution_class = "{{ execution_class }}"
     glue_version = "{{ glue_version }}"
     id = "{{ id }}"
-    job_run_queuing_enabled = "{{ job_run_queuing_enabled }}"
+    job_mode = "{{ job_mode }}"
+    job_run_queuing_enabled = {{ job_run_queuing_enabled }}
     maintenance_window = "{{ maintenance_window }}"
-    max_capacity = "{{ max_capacity }}"
-    max_retries = "{{ max_retries }}"
+    max_capacity = {{ max_capacity }}
+    max_retries = {{ max_retries }}
     name = "{{ name }}"
-    non_overridable_arguments = "{{ non_overridable_arguments }}"
-    number_of_workers = "{{ number_of_workers }}"
+    non_overridable_arguments = {
+        key = "{{ non_overridable_arguments_value }}"
+      }
+    number_of_workers = {{ number_of_workers }}
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
     security_configuration = "{{ security_configuration }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    timeout = "{{ timeout }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    timeout = {{ timeout }}
     worker_type = "{{ worker_type }}"
+    command {
+      name = "{{ name }}"
+      python_version = "{{ python_version }}"
+      runtime = "{{ runtime }}"
+      script_location = "{{ script_location }}"
+    }
+    execution_property {
+      max_concurrent_runs = {{ max_concurrent_runs }}
+    }
+    notification_property {
+      notify_delay_after = {{ notify_delay_after }}
+    }
+    source_control_details {
+      auth_strategy = "{{ auth_strategy }}"
+      auth_token = "{{ auth_token }}"
+      branch = "{{ branch }}"
+      folder = "{{ folder }}"
+      last_commit_id = "{{ last_commit_id }}"
+      owner = "{{ owner }}"
+      provider = "{{ provider }}"
+      repository = "{{ repository }}"
+    }
 }

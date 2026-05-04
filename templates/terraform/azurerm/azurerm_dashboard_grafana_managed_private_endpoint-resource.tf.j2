@@ -1,11 +1,20 @@
 resource "azurerm_dashboard_grafana_managed_private_endpoint" "example" {
     grafana_id = "{{ grafana_id }}"
-    group_ids = "{{ group_ids }}"
+    group_ids = ["{{ group_ids }}"]
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     private_link_resource_id = "{{ private_link_resource_id }}"
     private_link_resource_region = "{{ private_link_resource_region }}"
+    private_link_service_url = "{{ private_link_service_url }}"
     request_message = "{{ request_message }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

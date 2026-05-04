@@ -1,7 +1,15 @@
 resource "azurerm_storage_table_entity" "example" {
-    entity = "{{ entity }}"
+    entity = {
+        key = "{{ entity_value }}"
+      }
     id = "{{ id }}"
     partition_key = "{{ partition_key }}"
     row_key = "{{ row_key }}"
     storage_table_id = "{{ storage_table_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

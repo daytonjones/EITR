@@ -1,8 +1,34 @@
 resource "azurerm_data_protection_backup_policy_kubernetes_cluster" "example" {
-    backup_repeating_time_intervals = "{{ backup_repeating_time_intervals }}"
+    backup_repeating_time_intervals = ["{{ backup_repeating_time_intervals }}"]
     id = "{{ id }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     time_zone = "{{ time_zone }}"
     vault_name = "{{ vault_name }}"
+    default_retention_rule {
+      life_cycle {
+        data_store_type = "{{ data_store_type }}"
+        duration = "{{ duration }}"
+      }
+    }
+    retention_rule {
+      name = "{{ name }}"
+      priority = {{ priority }}
+      criteria {
+        absolute_criteria = "{{ absolute_criteria }}"
+        days_of_week = ["{{ days_of_week }}"]
+        months_of_year = ["{{ months_of_year }}"]
+        scheduled_backup_times = ["{{ scheduled_backup_times }}"]
+        weeks_of_month = ["{{ weeks_of_month }}"]
+      }
+      life_cycle {
+        data_store_type = "{{ data_store_type }}"
+        duration = "{{ duration }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

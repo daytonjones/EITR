@@ -1,0 +1,9 @@
+resource "aws_ec2_default_credit_specification" "example" {
+    cpu_credits = "{{ cpu_credits }}"
+    instance_family = "{{ instance_family }}"
+    region = "{{ region }}"
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
+}

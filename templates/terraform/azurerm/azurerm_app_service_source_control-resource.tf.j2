@@ -3,10 +3,26 @@ resource "azurerm_app_service_source_control" "example" {
     branch = "{{ branch }}"
     id = "{{ id }}"
     repo_url = "{{ repo_url }}"
-    rollback_enabled = "{{ rollback_enabled }}"
-    scm_type = "{{ scm_type }}"
-    use_local_git = "{{ use_local_git }}"
-    use_manual_integration = "{{ use_manual_integration }}"
-    use_mercurial = "{{ use_mercurial }}"
-    uses_github_action = "{{ uses_github_action }}"
+    rollback_enabled = {{ rollback_enabled }}
+    use_local_git = {{ use_local_git }}
+    use_manual_integration = {{ use_manual_integration }}
+    use_mercurial = {{ use_mercurial }}
+    github_action_configuration {
+      generate_workflow_file = {{ generate_workflow_file }}
+      code_configuration {
+        runtime_stack = "{{ runtime_stack }}"
+        runtime_version = "{{ runtime_version }}"
+      }
+      container_configuration {
+        image_name = "{{ image_name }}"
+        registry_password = "{{ registry_password }}"
+        registry_url = "{{ registry_url }}"
+        registry_username = "{{ registry_username }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

@@ -1,0 +1,10 @@
+resource "google_cloud_quotas_quota_adjuster_settings" "example" {
+    enablement = "{{ enablement }}"
+    id = "{{ id }}"
+    parent = "{{ parent }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

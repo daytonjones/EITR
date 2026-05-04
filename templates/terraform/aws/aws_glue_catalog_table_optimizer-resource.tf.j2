@@ -1,6 +1,26 @@
 resource "aws_glue_catalog_table_optimizer" "example" {
     catalog_id = "{{ catalog_id }}"
     database_name = "{{ database_name }}"
+    region = "{{ region }}"
     table_name = "{{ table_name }}"
     type = "{{ type }}"
+    configuration {
+      enabled = {{ enabled }}
+      role_arn = "{{ role_arn }}"
+      orphan_file_deletion_configuration {
+        iceberg_configuration {
+          location = "{{ location }}"
+          orphan_file_retention_period_in_days = {{ orphan_file_retention_period_in_days }}
+          run_rate_in_hours = {{ run_rate_in_hours }}
+        }
+      }
+      retention_configuration {
+        iceberg_configuration {
+          clean_expired_files = {{ clean_expired_files }}
+          number_of_snapshots_to_retain = {{ number_of_snapshots_to_retain }}
+          run_rate_in_hours = {{ run_rate_in_hours }}
+          snapshot_retention_period_in_days = {{ snapshot_retention_period_in_days }}
+        }
+      }
+    }
 }

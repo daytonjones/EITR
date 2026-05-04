@@ -1,0 +1,13 @@
+resource "awscc_mwaaserverless_workflow" "example" {
+    definition_s3_location = "{{ definition_s3_location }}"
+    description = "{{ description }}"
+    encryption_configuration = "{{ encryption_configuration }}"
+    logging_configuration = "{{ logging_configuration }}"
+    name = "{{ name }}"
+    network_configuration = "{{ network_configuration }}"
+    role_arn = "{{ role_arn }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    trigger_mode = "{{ trigger_mode }}"
+}

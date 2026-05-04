@@ -1,5 +1,12 @@
 resource "aws_codecommit_trigger" "example" {
-    configuration_id = "{{ configuration_id }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     repository_name = "{{ repository_name }}"
+    trigger {
+      branches = ["{{ branches }}"]
+      custom_data = "{{ custom_data }}"
+      destination_arn = "{{ destination_arn }}"
+      events = ["{{ events }}"]
+      name = "{{ name }}"
+    }
 }

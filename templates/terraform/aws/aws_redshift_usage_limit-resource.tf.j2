@@ -1,12 +1,16 @@
 resource "aws_redshift_usage_limit" "example" {
-    amount = "{{ amount }}"
-    arn = "{{ arn }}"
+    amount = {{ amount }}
     breach_action = "{{ breach_action }}"
     cluster_identifier = "{{ cluster_identifier }}"
     feature_type = "{{ feature_type }}"
     id = "{{ id }}"
     limit_type = "{{ limit_type }}"
     period = "{{ period }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

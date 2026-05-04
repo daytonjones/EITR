@@ -1,8 +1,14 @@
 resource "azurerm_container_registry_scope_map" "example" {
-    actions = "{{ actions }}"
+    actions = ["{{ actions }}"]
     container_registry_name = "{{ container_registry_name }}"
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

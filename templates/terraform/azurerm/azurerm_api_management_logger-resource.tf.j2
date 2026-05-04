@@ -1,9 +1,25 @@
 resource "azurerm_api_management_logger" "example" {
     api_management_name = "{{ api_management_name }}"
-    buffered = "{{ buffered }}"
+    buffered = {{ buffered }}
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     resource_id = "{{ resource_id }}"
+    application_insights {
+      connection_string = "{{ connection_string }}"
+      instrumentation_key = "{{ instrumentation_key }}"
+    }
+    eventhub {
+      connection_string = "{{ connection_string }}"
+      endpoint_uri = "{{ endpoint_uri }}"
+      name = "{{ name }}"
+      user_assigned_identity_client_id = "{{ user_assigned_identity_client_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

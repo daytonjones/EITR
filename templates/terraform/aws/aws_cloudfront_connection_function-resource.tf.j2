@@ -1,0 +1,15 @@
+resource "aws_cloudfront_connection_function" "example" {
+    connection_function_code = "{{ connection_function_code }}"
+    name = "{{ name }}"
+    publish = {{ publish }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    connection_function_config {
+      comment = "{{ comment }}"
+      runtime = "{{ runtime }}"
+      key_value_store_association {
+        key_value_store_arn = "{{ key_value_store_arn }}"
+      }
+    }
+}

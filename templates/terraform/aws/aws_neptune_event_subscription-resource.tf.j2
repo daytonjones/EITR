@@ -1,14 +1,22 @@
 resource "aws_neptune_event_subscription" "example" {
-    arn = "{{ arn }}"
-    customer_aws_id = "{{ customer_aws_id }}"
-    enabled = "{{ enabled }}"
-    event_categories = "{{ event_categories }}"
+    enabled = {{ enabled }}
+    event_categories = ["{{ event_categories }}"]
     id = "{{ id }}"
     name = "{{ name }}"
     name_prefix = "{{ name_prefix }}"
+    region = "{{ region }}"
     sns_topic_arn = "{{ sns_topic_arn }}"
-    source_ids = "{{ source_ids }}"
+    source_ids = ["{{ source_ids }}"]
     source_type = "{{ source_type }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

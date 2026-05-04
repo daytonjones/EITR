@@ -3,7 +3,17 @@ resource "azurerm_api_connection" "example" {
     id = "{{ id }}"
     managed_api_id = "{{ managed_api_id }}"
     name = "{{ name }}"
-    parameter_values = "{{ parameter_values }}"
+    parameter_values = {
+        key = "{{ parameter_values_value }}"
+      }
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

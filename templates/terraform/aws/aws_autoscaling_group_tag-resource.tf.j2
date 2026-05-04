@@ -1,4 +1,10 @@
 resource "aws_autoscaling_group_tag" "example" {
     autoscaling_group_name = "{{ autoscaling_group_name }}"
     id = "{{ id }}"
+    region = "{{ region }}"
+    tag {
+      key = "{{ key }}"
+      propagate_at_launch = {{ propagate_at_launch }}
+      value = "{{ value }}"
+    }
 }

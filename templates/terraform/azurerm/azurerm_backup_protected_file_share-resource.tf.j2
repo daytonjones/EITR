@@ -5,4 +5,10 @@ resource "azurerm_backup_protected_file_share" "example" {
     resource_group_name = "{{ resource_group_name }}"
     source_file_share_name = "{{ source_file_share_name }}"
     source_storage_account_id = "{{ source_storage_account_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

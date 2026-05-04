@@ -1,11 +1,22 @@
 resource "google_biglake_table" "example" {
-    create_time = "{{ create_time }}"
     database = "{{ database }}"
-    delete_time = "{{ delete_time }}"
-    etag = "{{ etag }}"
-    expire_time = "{{ expire_time }}"
     id = "{{ id }}"
     name = "{{ name }}"
     type = "{{ type }}"
-    update_time = "{{ update_time }}"
+    hive_options {
+      parameters = {
+        key = "{{ parameters_value }}"
+      }
+      table_type = "{{ table_type }}"
+      storage_descriptor {
+        input_format = "{{ input_format }}"
+        location_uri = "{{ location_uri }}"
+        output_format = "{{ output_format }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

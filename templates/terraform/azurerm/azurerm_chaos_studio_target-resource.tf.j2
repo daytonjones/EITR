@@ -3,4 +3,9 @@ resource "azurerm_chaos_studio_target" "example" {
     location = "{{ location }}"
     target_resource_id = "{{ target_resource_id }}"
     target_type = "{{ target_type }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

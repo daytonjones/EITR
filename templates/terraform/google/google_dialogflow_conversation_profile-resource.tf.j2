@@ -1,0 +1,161 @@
+resource "google_dialogflow_conversation_profile" "example" {
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    language_code = "{{ language_code }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    security_settings = "{{ security_settings }}"
+    time_zone = "{{ time_zone }}"
+    automated_agent_config {
+      agent = "{{ agent }}"
+      session_ttl = "{{ session_ttl }}"
+    }
+    human_agent_assistant_config {
+      end_user_suggestion_config {
+        disable_high_latency_features_sync_delivery = {{ disable_high_latency_features_sync_delivery }}
+        generators = ["{{ generators }}"]
+        group_suggestion_responses = {{ group_suggestion_responses }}
+        feature_configs {
+          disable_agent_query_logging = {{ disable_agent_query_logging }}
+          enable_conversation_augmented_query = {{ enable_conversation_augmented_query }}
+          enable_event_based_suggestion = {{ enable_event_based_suggestion }}
+          enable_query_suggestion_only = {{ enable_query_suggestion_only }}
+          enable_query_suggestion_when_no_answer = {{ enable_query_suggestion_when_no_answer }}
+          conversation_model_config {
+            baseline_model_version = "{{ baseline_model_version }}"
+            model = "{{ model }}"
+          }
+          conversation_process_config {
+            recent_sentences_count = {{ recent_sentences_count }}
+          }
+          query_config {
+            confidence_threshold = {{ confidence_threshold }}
+            max_results = {{ max_results }}
+            context_filter_settings {
+              drop_handoff_messages = {{ drop_handoff_messages }}
+              drop_ivr_messages = {{ drop_ivr_messages }}
+              drop_virtual_agent_messages = {{ drop_virtual_agent_messages }}
+            }
+            dialogflow_query_source {
+              agent = "{{ agent }}"
+              human_agent_side_config {
+                agent = "{{ agent }}"
+              }
+            }
+            document_query_source {
+              documents = ["{{ documents }}"]
+            }
+            knowledge_base_query_source {
+              knowledge_bases = ["{{ knowledge_bases }}"]
+            }
+            sections {
+              section_types = ["{{ section_types }}"]
+            }
+          }
+          suggestion_feature {
+            type = "{{ type }}"
+          }
+          suggestion_trigger_settings {
+            no_small_talk = {{ no_small_talk }}
+            only_end_user = {{ only_end_user }}
+          }
+        }
+      }
+      human_agent_suggestion_config {
+        disable_high_latency_features_sync_delivery = {{ disable_high_latency_features_sync_delivery }}
+        generators = ["{{ generators }}"]
+        group_suggestion_responses = {{ group_suggestion_responses }}
+        feature_configs {
+          disable_agent_query_logging = {{ disable_agent_query_logging }}
+          enable_conversation_augmented_query = {{ enable_conversation_augmented_query }}
+          enable_event_based_suggestion = {{ enable_event_based_suggestion }}
+          enable_query_suggestion_only = {{ enable_query_suggestion_only }}
+          enable_query_suggestion_when_no_answer = {{ enable_query_suggestion_when_no_answer }}
+          conversation_model_config {
+            baseline_model_version = "{{ baseline_model_version }}"
+            model = "{{ model }}"
+          }
+          conversation_process_config {
+            recent_sentences_count = {{ recent_sentences_count }}
+          }
+          query_config {
+            confidence_threshold = {{ confidence_threshold }}
+            max_results = {{ max_results }}
+            context_filter_settings {
+              drop_handoff_messages = {{ drop_handoff_messages }}
+              drop_ivr_messages = {{ drop_ivr_messages }}
+              drop_virtual_agent_messages = {{ drop_virtual_agent_messages }}
+            }
+            dialogflow_query_source {
+              agent = "{{ agent }}"
+              human_agent_side_config {
+                agent = "{{ agent }}"
+              }
+            }
+            sections {
+              section_types = ["{{ section_types }}"]
+            }
+          }
+          suggestion_feature {
+            type = "{{ type }}"
+          }
+          suggestion_trigger_settings {
+            no_small_talk = {{ no_small_talk }}
+            only_end_user = {{ only_end_user }}
+          }
+        }
+      }
+      message_analysis_config {
+        enable_entity_extraction = {{ enable_entity_extraction }}
+        enable_sentiment_analysis = {{ enable_sentiment_analysis }}
+      }
+      notification_config {
+        message_format = "{{ message_format }}"
+        topic = "{{ topic }}"
+      }
+    }
+    human_agent_handoff_config {
+      live_person_config {
+        account_number = "{{ account_number }}"
+      }
+    }
+    logging_config {
+      enable_stackdriver_logging = {{ enable_stackdriver_logging }}
+    }
+    new_message_event_notification_config {
+      message_format = "{{ message_format }}"
+      topic = "{{ topic }}"
+    }
+    new_recognition_result_notification_config {
+      message_format = "{{ message_format }}"
+      topic = "{{ topic }}"
+    }
+    notification_config {
+      message_format = "{{ message_format }}"
+      topic = "{{ topic }}"
+    }
+    stt_config {
+      audio_encoding = "{{ audio_encoding }}"
+      enable_word_info = {{ enable_word_info }}
+      language_code = "{{ language_code }}"
+      model = "{{ model }}"
+      sample_rate_hertz = {{ sample_rate_hertz }}
+      speech_model_variant = "{{ speech_model_variant }}"
+      use_timeout_based_endpointing = {{ use_timeout_based_endpointing }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    tts_config {
+      effects_profile_id = ["{{ effects_profile_id }}"]
+      pitch = {{ pitch }}
+      speaking_rate = {{ speaking_rate }}
+      volume_gain_db = {{ volume_gain_db }}
+      voice {
+        name = "{{ name }}"
+        ssml_gender = "{{ ssml_gender }}"
+      }
+    }
+}

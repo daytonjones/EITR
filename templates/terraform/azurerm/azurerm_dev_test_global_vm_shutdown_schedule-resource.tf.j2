@@ -1,9 +1,23 @@
 resource "azurerm_dev_test_global_vm_shutdown_schedule" "example" {
     daily_recurrence_time = "{{ daily_recurrence_time }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     location = "{{ location }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     timezone = "{{ timezone }}"
     virtual_machine_id = "{{ virtual_machine_id }}"
+    notification_settings {
+      email = "{{ email }}"
+      enabled = {{ enabled }}
+      time_in_minutes = {{ time_in_minutes }}
+      webhook_url = "{{ webhook_url }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

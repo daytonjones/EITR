@@ -1,14 +1,31 @@
 resource "google_compute_node_group" "example" {
-    creation_timestamp = "{{ creation_timestamp }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    initial_size = "{{ initial_size }}"
+    initial_size = {{ initial_size }}
     maintenance_interval = "{{ maintenance_interval }}"
     maintenance_policy = "{{ maintenance_policy }}"
     name = "{{ name }}"
     node_template = "{{ node_template }}"
     project = "{{ project }}"
-    self_link = "{{ self_link }}"
-    size = "{{ size }}"
     zone = "{{ zone }}"
+    autoscaling_policy {
+      max_nodes = {{ max_nodes }}
+      min_nodes = {{ min_nodes }}
+      mode = "{{ mode }}"
+    }
+    maintenance_window {
+      start_time = "{{ start_time }}"
+    }
+    share_settings {
+      share_type = "{{ share_type }}"
+      project_map {
+        id = "{{ id }}"
+        project_id = "{{ project_id }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

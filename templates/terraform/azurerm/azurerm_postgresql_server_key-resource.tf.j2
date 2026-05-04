@@ -2,4 +2,10 @@ resource "azurerm_postgresql_server_key" "example" {
     id = "{{ id }}"
     key_vault_key_id = "{{ key_vault_key_id }}"
     server_id = "{{ server_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

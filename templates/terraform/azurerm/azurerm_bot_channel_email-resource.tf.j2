@@ -6,4 +6,10 @@ resource "azurerm_bot_channel_email" "example" {
     location = "{{ location }}"
     magic_code = "{{ magic_code }}"
     resource_group_name = "{{ resource_group_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

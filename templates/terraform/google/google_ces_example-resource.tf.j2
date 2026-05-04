@@ -1,0 +1,47 @@
+resource "google_ces_example" "example" {
+    app = "{{ app }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    entry_agent = "{{ entry_agent }}"
+    example_id = "{{ example_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    messages {
+      role = "{{ role }}"
+      chunks {
+        text = "{{ text }}"
+        updated_variables = "{{ updated_variables }}"
+        agent_transfer {
+          target_agent = "{{ target_agent }}"
+        }
+        image {
+          data = "{{ data }}"
+          mime_type = "{{ mime_type }}"
+        }
+        tool_call {
+          args = "{{ args }}"
+          id = "{{ id }}"
+          tool = "{{ tool }}"
+          toolset_tool {
+            tool_id = "{{ tool_id }}"
+            toolset = "{{ toolset }}"
+          }
+        }
+        tool_response {
+          id = "{{ id }}"
+          response = "{{ response }}"
+          tool = "{{ tool }}"
+          toolset_tool {
+            tool_id = "{{ tool_id }}"
+            toolset = "{{ toolset }}"
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,15 +1,125 @@
 resource "google_database_migration_service_connection_profile" "example" {
     connection_profile_id = "{{ connection_profile_id }}"
-    create_time = "{{ create_time }}"
-    dbprovider = "{{ dbprovider }}"
     display_name = "{{ display_name }}"
-    effective_labels = "{{ effective_labels }}"
-    error = "{{ error }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    state = "{{ state }}"
-    terraform_labels = "{{ terraform_labels }}"
+    alloydb {
+      cluster_id = "{{ cluster_id }}"
+      settings {
+        labels = {
+        key = "{{ labels_value }}"
+      }
+        vpc_network = "{{ vpc_network }}"
+        initial_user {
+          password = "{{ password }}"
+          user = "{{ user }}"
+        }
+        primary_instance_settings {
+          database_flags = {
+        key = "{{ database_flags_value }}"
+      }
+          id = "{{ id }}"
+          labels = {
+        key = "{{ labels_value }}"
+      }
+          machine_config {
+            cpu_count = {{ cpu_count }}
+          }
+        }
+      }
+    }
+    cloudsql {
+      settings {
+        activation_policy = "{{ activation_policy }}"
+        auto_storage_increase = {{ auto_storage_increase }}
+        cmek_key_name = "{{ cmek_key_name }}"
+        collation = "{{ collation }}"
+        data_disk_size_gb = "{{ data_disk_size_gb }}"
+        data_disk_type = "{{ data_disk_type }}"
+        database_flags = {
+        key = "{{ database_flags_value }}"
+      }
+        database_version = "{{ database_version }}"
+        edition = "{{ edition }}"
+        root_password = "{{ root_password }}"
+        source_id = "{{ source_id }}"
+        storage_auto_resize_limit = "{{ storage_auto_resize_limit }}"
+        tier = "{{ tier }}"
+        user_labels = {
+        key = "{{ user_labels_value }}"
+      }
+        zone = "{{ zone }}"
+        ip_config {
+          enable_ipv4 = {{ enable_ipv4 }}
+          private_network = "{{ private_network }}"
+          require_ssl = {{ require_ssl }}
+          authorized_networks {
+            expire_time = "{{ expire_time }}"
+            label = "{{ label }}"
+            ttl = "{{ ttl }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+    }
+    mysql {
+      cloud_sql_id = "{{ cloud_sql_id }}"
+      host = "{{ host }}"
+      password = "{{ password }}"
+      port = {{ port }}
+      username = "{{ username }}"
+      ssl {
+        ca_certificate = "{{ ca_certificate }}"
+        client_certificate = "{{ client_certificate }}"
+        client_key = "{{ client_key }}"
+        type = "{{ type }}"
+      }
+    }
+    oracle {
+      database_service = "{{ database_service }}"
+      host = "{{ host }}"
+      password = "{{ password }}"
+      port = {{ port }}
+      username = "{{ username }}"
+      forward_ssh_connectivity {
+        hostname = "{{ hostname }}"
+        password = "{{ password }}"
+        port = {{ port }}
+        private_key = "{{ private_key }}"
+        username = "{{ username }}"
+      }
+      private_connectivity {
+        private_connection = "{{ private_connection }}"
+      }
+      ssl {
+        ca_certificate = "{{ ca_certificate }}"
+        client_certificate = "{{ client_certificate }}"
+        client_key = "{{ client_key }}"
+      }
+      static_service_ip_connectivity {
+      }
+    }
+    postgresql {
+      alloydb_cluster_id = "{{ alloydb_cluster_id }}"
+      cloud_sql_id = "{{ cloud_sql_id }}"
+      host = "{{ host }}"
+      password = "{{ password }}"
+      port = {{ port }}
+      username = "{{ username }}"
+      ssl {
+        ca_certificate = "{{ ca_certificate }}"
+        client_certificate = "{{ client_certificate }}"
+        client_key = "{{ client_key }}"
+        type = "{{ type }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

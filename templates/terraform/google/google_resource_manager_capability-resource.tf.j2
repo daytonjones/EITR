@@ -1,0 +1,11 @@
+resource "google_resource_manager_capability" "example" {
+    capability_name = "{{ capability_name }}"
+    id = "{{ id }}"
+    parent = "{{ parent }}"
+    value = {{ value }}
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

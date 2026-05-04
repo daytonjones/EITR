@@ -7,6 +7,12 @@ resource "azurerm_hpc_cache_blob_nfs_target" "example" {
     resource_group_name = "{{ resource_group_name }}"
     storage_container_id = "{{ storage_container_id }}"
     usage_model = "{{ usage_model }}"
-    verification_timer_in_seconds = "{{ verification_timer_in_seconds }}"
-    write_back_timer_in_seconds = "{{ write_back_timer_in_seconds }}"
+    verification_timer_in_seconds = {{ verification_timer_in_seconds }}
+    write_back_timer_in_seconds = {{ write_back_timer_in_seconds }}
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

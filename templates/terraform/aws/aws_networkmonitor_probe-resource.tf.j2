@@ -1,15 +1,12 @@
 resource "aws_networkmonitor_probe" "example" {
-    address_family = "{{ address_family }}"
-    arn = "{{ arn }}"
     destination = "{{ destination }}"
-    destination_port = "{{ destination_port }}"
-    id = "{{ id }}"
+    destination_port = {{ destination_port }}
     monitor_name = "{{ monitor_name }}"
-    packet_size = "{{ packet_size }}"
-    probe_id = "{{ probe_id }}"
+    packet_size = {{ packet_size }}
     protocol = "{{ protocol }}"
+    region = "{{ region }}"
     source_arn = "{{ source_arn }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    vpc_id = "{{ vpc_id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
 }

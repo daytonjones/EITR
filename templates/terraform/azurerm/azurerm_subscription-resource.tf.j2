@@ -4,7 +4,14 @@ resource "azurerm_subscription" "example" {
     id = "{{ id }}"
     subscription_id = "{{ subscription_id }}"
     subscription_name = "{{ subscription_name }}"
-    tags = "{{ tags }}"
-    tenant_id = "{{ tenant_id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     workload = "{{ workload }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

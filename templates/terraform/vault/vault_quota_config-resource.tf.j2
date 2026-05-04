@@ -1,0 +1,7 @@
+resource "vault_quota_config" "example" {
+    absolute_rate_limit_exempt_paths = ["{{ absolute_rate_limit_exempt_paths }}"]
+    enable_rate_limit_audit_logging = {{ enable_rate_limit_audit_logging }}
+    enable_rate_limit_response_headers = {{ enable_rate_limit_response_headers }}
+    namespace = "{{ namespace }}"
+    rate_limit_exempt_paths = ["{{ rate_limit_exempt_paths }}"]
+}

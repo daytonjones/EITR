@@ -1,0 +1,14 @@
+resource "google_network_security_ull_mirroring_engine" "example" {
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    ull_mirroring_engine_id = "{{ ull_mirroring_engine_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

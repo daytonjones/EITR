@@ -6,4 +6,10 @@ resource "azurerm_api_management_global_schema" "example" {
     schema_id = "{{ schema_id }}"
     type = "{{ type }}"
     value = "{{ value }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,8 +1,57 @@
 resource "aws_emrcontainers_job_template" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     kms_key_arn = "{{ kms_key_arn }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    job_template_data {
+      execution_role_arn = "{{ execution_role_arn }}"
+      job_tags = {
+        key = "{{ job_tags_value }}"
+      }
+      release_label = "{{ release_label }}"
+      configuration_overrides {
+        application_configuration {
+          classification = "{{ classification }}"
+          properties = {
+        key = "{{ properties_value }}"
+      }
+          configurations {
+            classification = "{{ classification }}"
+            properties = {
+        key = "{{ properties_value }}"
+      }
+          }
+        }
+        monitoring_configuration {
+          persistent_app_ui = "{{ persistent_app_ui }}"
+          cloud_watch_monitoring_configuration {
+            log_group_name = "{{ log_group_name }}"
+            log_stream_name_prefix = "{{ log_stream_name_prefix }}"
+          }
+          s3_monitoring_configuration {
+            log_uri = "{{ log_uri }}"
+          }
+        }
+      }
+      job_driver {
+        spark_sql_job_driver {
+          entry_point = "{{ entry_point }}"
+          spark_sql_parameters = "{{ spark_sql_parameters }}"
+        }
+        spark_submit_job_driver {
+          entry_point = "{{ entry_point }}"
+          entry_point_arguments = ["{{ entry_point_arguments }}"]
+          spark_submit_parameters = "{{ spark_submit_parameters }}"
+        }
+      }
+    }
+    timeouts {
+      delete = "{{ delete }}"
+    }
 }

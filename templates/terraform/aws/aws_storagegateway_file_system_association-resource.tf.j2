@@ -1,11 +1,23 @@
 resource "aws_storagegateway_file_system_association" "example" {
-    arn = "{{ arn }}"
     audit_destination_arn = "{{ audit_destination_arn }}"
     gateway_arn = "{{ gateway_arn }}"
     id = "{{ id }}"
     location_arn = "{{ location_arn }}"
     password = "{{ password }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     username = "{{ username }}"
+    cache_attributes {
+      cache_stale_timeout_in_seconds = {{ cache_stale_timeout_in_seconds }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

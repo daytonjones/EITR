@@ -5,4 +5,17 @@ resource "google_dns_response_policy_rule" "example" {
     project = "{{ project }}"
     response_policy = "{{ response_policy }}"
     rule_name = "{{ rule_name }}"
+    local_data {
+      local_datas {
+        name = "{{ name }}"
+        rrdatas = ["{{ rrdatas }}"]
+        ttl = {{ ttl }}
+        type = "{{ type }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

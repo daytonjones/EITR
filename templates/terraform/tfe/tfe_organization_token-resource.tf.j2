@@ -1,7 +1,6 @@
 resource "tfe_organization_token" "example" {
     expired_at = "{{ expired_at }}"
-    force_regenerate = "{{ force_regenerate }}"
+    force_regenerate = {{ force_regenerate }}
     id = "{{ id }}"
     organization = "{{ organization }}"
-    token = "{{ token }}"
 }

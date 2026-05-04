@@ -1,7 +1,35 @@
 data "aws_cloudwatch_log_data_protection_policy_document" "example" {
     description = "{{ description }}"
     id = "{{ id }}"
-    json = "{{ json }}"
     name = "{{ name }}"
     version = "{{ version }}"
+    configuration {
+      custom_data_identifier {
+        name = "{{ name }}"
+        regex = "{{ regex }}"
+      }
+    }
+    statement {
+      data_identifiers = ["{{ data_identifiers }}"]
+      sid = "{{ sid }}"
+      operation {
+        audit {
+          findings_destination {
+            cloudwatch_logs {
+              log_group = "{{ log_group }}"
+            }
+            firehose {
+              delivery_stream = "{{ delivery_stream }}"
+            }
+            s3 {
+              bucket = "{{ bucket }}"
+            }
+          }
+        }
+        deidentify {
+          mask_config {
+          }
+        }
+      }
+    }
 }

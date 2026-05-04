@@ -1,0 +1,23 @@
+resource "azurerm_oracle_exascale_database_storage_vault" "example" {
+    additional_flash_cache_percentage = {{ additional_flash_cache_percentage }}
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    time_zone = "{{ time_zone }}"
+    zones = ["{{ zones }}"]
+    high_capacity_database_storage {
+      total_size_in_gb = {{ total_size_in_gb }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

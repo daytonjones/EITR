@@ -2,10 +2,8 @@ data "aws_servicecatalog_constraint" "example" {
     accept_language = "{{ accept_language }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    owner = "{{ owner }}"
-    parameters = "{{ parameters }}"
-    portfolio_id = "{{ portfolio_id }}"
-    product_id = "{{ product_id }}"
-    status = "{{ status }}"
-    type = "{{ type }}"
+    region = "{{ region }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

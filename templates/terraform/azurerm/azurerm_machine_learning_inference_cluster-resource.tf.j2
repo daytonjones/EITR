@@ -6,5 +6,23 @@ resource "azurerm_machine_learning_inference_cluster" "example" {
     location = "{{ location }}"
     machine_learning_workspace_id = "{{ machine_learning_workspace_id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    ssl {
+      cert = "{{ cert }}"
+      cname = "{{ cname }}"
+      key = "{{ key }}"
+      leaf_domain_label = "{{ leaf_domain_label }}"
+      overwrite_existing_domain = {{ overwrite_existing_domain }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

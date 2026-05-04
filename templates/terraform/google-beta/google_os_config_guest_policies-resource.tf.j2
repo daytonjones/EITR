@@ -1,10 +1,145 @@
 resource "google_os_config_guest_policies" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
     etag = "{{ etag }}"
     guest_policy_id = "{{ guest_policy_id }}"
     id = "{{ id }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    update_time = "{{ update_time }}"
+    assignment {
+      instance_name_prefixes = ["{{ instance_name_prefixes }}"]
+      instances = ["{{ instances }}"]
+      zones = ["{{ zones }}"]
+      group_labels {
+        labels = {
+        key = "{{ labels_value }}"
+      }
+      }
+      os_types {
+        os_architecture = "{{ os_architecture }}"
+        os_short_name = "{{ os_short_name }}"
+        os_version = "{{ os_version }}"
+      }
+    }
+    package_repositories {
+      apt {
+        archive_type = "{{ archive_type }}"
+        components = ["{{ components }}"]
+        distribution = "{{ distribution }}"
+        gpg_key = "{{ gpg_key }}"
+        uri = "{{ uri }}"
+      }
+      goo {
+        name = "{{ name }}"
+        url = "{{ url }}"
+      }
+      yum {
+        base_url = "{{ base_url }}"
+        display_name = "{{ display_name }}"
+        gpg_keys = ["{{ gpg_keys }}"]
+        id = "{{ id }}"
+      }
+      zypper {
+        base_url = "{{ base_url }}"
+        display_name = "{{ display_name }}"
+        gpg_keys = ["{{ gpg_keys }}"]
+        id = "{{ id }}"
+      }
+    }
+    packages {
+      desired_state = "{{ desired_state }}"
+      manager = "{{ manager }}"
+      name = "{{ name }}"
+    }
+    recipes {
+      desired_state = "{{ desired_state }}"
+      name = "{{ name }}"
+      version = "{{ version }}"
+      artifacts {
+        allow_insecure = {{ allow_insecure }}
+        id = "{{ id }}"
+        gcs {
+          bucket = "{{ bucket }}"
+          generation = {{ generation }}
+          object = "{{ object }}"
+        }
+        remote {
+          check_sum = "{{ check_sum }}"
+          uri = "{{ uri }}"
+        }
+      }
+      install_steps {
+        archive_extraction {
+          artifact_id = "{{ artifact_id }}"
+          destination = "{{ destination }}"
+          type = "{{ type }}"
+        }
+        dpkg_installation {
+          artifact_id = "{{ artifact_id }}"
+        }
+        file_copy {
+          artifact_id = "{{ artifact_id }}"
+          destination = "{{ destination }}"
+          overwrite = {{ overwrite }}
+          permissions = "{{ permissions }}"
+        }
+        file_exec {
+          allowed_exit_codes = "{{ allowed_exit_codes }}"
+          args = ["{{ args }}"]
+          artifact_id = "{{ artifact_id }}"
+          local_path = "{{ local_path }}"
+        }
+        msi_installation {
+          allowed_exit_codes = ["{{ allowed_exit_codes }}"]
+          artifact_id = "{{ artifact_id }}"
+          flags = ["{{ flags }}"]
+        }
+        rpm_installation {
+          artifact_id = "{{ artifact_id }}"
+        }
+        script_run {
+          allowed_exit_codes = ["{{ allowed_exit_codes }}"]
+          interpreter = "{{ interpreter }}"
+          script = "{{ script }}"
+        }
+      }
+      update_steps {
+        archive_extraction {
+          artifact_id = "{{ artifact_id }}"
+          destination = "{{ destination }}"
+          type = "{{ type }}"
+        }
+        dpkg_installation {
+          artifact_id = "{{ artifact_id }}"
+        }
+        file_copy {
+          artifact_id = "{{ artifact_id }}"
+          destination = "{{ destination }}"
+          overwrite = {{ overwrite }}
+          permissions = "{{ permissions }}"
+        }
+        file_exec {
+          allowed_exit_codes = ["{{ allowed_exit_codes }}"]
+          args = ["{{ args }}"]
+          artifact_id = "{{ artifact_id }}"
+          local_path = "{{ local_path }}"
+        }
+        msi_installation {
+          allowed_exit_codes = ["{{ allowed_exit_codes }}"]
+          artifact_id = "{{ artifact_id }}"
+          flags = ["{{ flags }}"]
+        }
+        rpm_installation {
+          artifact_id = "{{ artifact_id }}"
+        }
+        script_run {
+          allowed_exit_codes = ["{{ allowed_exit_codes }}"]
+          interpreter = "{{ interpreter }}"
+          script = "{{ script }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

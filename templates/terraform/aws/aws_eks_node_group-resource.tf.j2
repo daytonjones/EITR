@@ -1,21 +1,67 @@
 resource "aws_eks_node_group" "example" {
     ami_type = "{{ ami_type }}"
-    arn = "{{ arn }}"
     capacity_type = "{{ capacity_type }}"
     cluster_name = "{{ cluster_name }}"
-    disk_size = "{{ disk_size }}"
-    force_update_version = "{{ force_update_version }}"
+    disk_size = {{ disk_size }}
+    force_update_version = {{ force_update_version }}
     id = "{{ id }}"
-    instance_types = "{{ instance_types }}"
-    labels = "{{ labels }}"
+    instance_types = ["{{ instance_types }}"]
+    labels = {
+        key = "{{ labels_value }}"
+      }
     node_group_name = "{{ node_group_name }}"
     node_group_name_prefix = "{{ node_group_name_prefix }}"
     node_role_arn = "{{ node_role_arn }}"
+    region = "{{ region }}"
     release_version = "{{ release_version }}"
-    resources = "{{ resources }}"
-    status = "{{ status }}"
-    subnet_ids = "{{ subnet_ids }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    subnet_ids = ["{{ subnet_ids }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     version = "{{ version }}"
+    launch_template {
+      id = "{{ id }}"
+      name = "{{ name }}"
+      version = "{{ version }}"
+    }
+    node_repair_config {
+      enabled = {{ enabled }}
+      max_parallel_nodes_repaired_count = {{ max_parallel_nodes_repaired_count }}
+      max_parallel_nodes_repaired_percentage = {{ max_parallel_nodes_repaired_percentage }}
+      max_unhealthy_node_threshold_count = {{ max_unhealthy_node_threshold_count }}
+      max_unhealthy_node_threshold_percentage = {{ max_unhealthy_node_threshold_percentage }}
+      node_repair_config_overrides {
+        min_repair_wait_time_mins = {{ min_repair_wait_time_mins }}
+        node_monitoring_condition = "{{ node_monitoring_condition }}"
+        node_unhealthy_reason = "{{ node_unhealthy_reason }}"
+        repair_action = "{{ repair_action }}"
+      }
+    }
+    remote_access {
+      ec2_ssh_key = "{{ ec2_ssh_key }}"
+      source_security_group_ids = ["{{ source_security_group_ids }}"]
+    }
+    scaling_config {
+      desired_size = {{ desired_size }}
+      max_size = {{ max_size }}
+      min_size = {{ min_size }}
+    }
+    taint {
+      effect = "{{ effect }}"
+      key = "{{ key }}"
+      value = "{{ value }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    update_config {
+      max_unavailable = {{ max_unavailable }}
+      max_unavailable_percentage = {{ max_unavailable_percentage }}
+      update_strategy = "{{ update_strategy }}"
+    }
 }

@@ -1,5 +1,12 @@
 data "aws_ec2_transit_gateway_route_table_propagations" "example" {
     id = "{{ id }}"
-    ids = "{{ ids }}"
+    region = "{{ region }}"
     transit_gateway_route_table_id = "{{ transit_gateway_route_table_id }}"
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
+    timeouts {
+      read = "{{ read }}"
+    }
 }

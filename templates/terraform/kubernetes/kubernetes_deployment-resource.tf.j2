@@ -1,4 +1,988 @@
 resource "kubernetes_deployment" "example" {
     id = "{{ id }}"
-    wait_for_rollout = "{{ wait_for_rollout }}"
+    wait_for_rollout = {{ wait_for_rollout }}
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      generate_name = "{{ generate_name }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      name = "{{ name }}"
+      namespace = "{{ namespace }}"
+    }
+    spec {
+      min_ready_seconds = {{ min_ready_seconds }}
+      paused = {{ paused }}
+      progress_deadline_seconds = {{ progress_deadline_seconds }}
+      replicas = "{{ replicas }}"
+      revision_history_limit = {{ revision_history_limit }}
+      selector {
+        match_labels = {
+        key = "{{ match_labels_value }}"
+      }
+        match_expressions {
+          key = "{{ key }}"
+          operator = "{{ operator }}"
+          values = ["{{ values }}"]
+        }
+      }
+      strategy {
+        type = "{{ type }}"
+        rolling_update {
+          max_surge = "{{ max_surge }}"
+          max_unavailable = "{{ max_unavailable }}"
+        }
+      }
+      template {
+        metadata {
+          annotations = {
+        key = "{{ annotations_value }}"
+      }
+          generate_name = "{{ generate_name }}"
+          labels = {
+        key = "{{ labels_value }}"
+      }
+          name = "{{ name }}"
+          namespace = "{{ namespace }}"
+        }
+        spec {
+          active_deadline_seconds = {{ active_deadline_seconds }}
+          automount_service_account_token = {{ automount_service_account_token }}
+          dns_policy = "{{ dns_policy }}"
+          enable_service_links = {{ enable_service_links }}
+          host_ipc = {{ host_ipc }}
+          host_network = {{ host_network }}
+          host_pid = {{ host_pid }}
+          hostname = "{{ hostname }}"
+          node_name = "{{ node_name }}"
+          node_selector = {
+        key = "{{ node_selector_value }}"
+      }
+          priority_class_name = "{{ priority_class_name }}"
+          restart_policy = "{{ restart_policy }}"
+          runtime_class_name = "{{ runtime_class_name }}"
+          scheduler_name = "{{ scheduler_name }}"
+          service_account_name = "{{ service_account_name }}"
+          share_process_namespace = {{ share_process_namespace }}
+          subdomain = "{{ subdomain }}"
+          termination_grace_period_seconds = {{ termination_grace_period_seconds }}
+          affinity {
+            node_affinity {
+              preferred_during_scheduling_ignored_during_execution {
+                weight = {{ weight }}
+                preference {
+                  match_expressions {
+                    key = "{{ key }}"
+                    operator = "{{ operator }}"
+                    values = ["{{ values }}"]
+                  }
+                  match_fields {
+                    key = "{{ key }}"
+                    operator = "{{ operator }}"
+                    values = ["{{ values }}"]
+                  }
+                }
+              }
+              required_during_scheduling_ignored_during_execution {
+                node_selector_term {
+                  match_expressions {
+                    key = "{{ key }}"
+                    operator = "{{ operator }}"
+                    values = ["{{ values }}"]
+                  }
+                  match_fields {
+                    key = "{{ key }}"
+                    operator = "{{ operator }}"
+                    values = ["{{ values }}"]
+                  }
+                }
+              }
+            }
+            pod_affinity {
+              preferred_during_scheduling_ignored_during_execution {
+                weight = {{ weight }}
+                pod_affinity_term {
+                  namespaces = ["{{ namespaces }}"]
+                  topology_key = "{{ topology_key }}"
+                  label_selector {
+                    match_labels = {
+        key = "{{ match_labels_value }}"
+      }
+                    match_expressions {
+                      key = "{{ key }}"
+                      operator = "{{ operator }}"
+                      values = ["{{ values }}"]
+                    }
+                  }
+                  namespace_selector {
+                    match_labels = {
+        key = "{{ match_labels_value }}"
+      }
+                    match_expressions {
+                      key = "{{ key }}"
+                      operator = "{{ operator }}"
+                      values = ["{{ values }}"]
+                    }
+                  }
+                }
+              }
+              required_during_scheduling_ignored_during_execution {
+                namespaces = ["{{ namespaces }}"]
+                topology_key = "{{ topology_key }}"
+                label_selector {
+                  match_labels = {
+        key = "{{ match_labels_value }}"
+      }
+                  match_expressions {
+                    key = "{{ key }}"
+                    operator = "{{ operator }}"
+                    values = ["{{ values }}"]
+                  }
+                }
+                namespace_selector {
+                  match_labels = {
+        key = "{{ match_labels_value }}"
+      }
+                  match_expressions {
+                    key = "{{ key }}"
+                    operator = "{{ operator }}"
+                    values = ["{{ values }}"]
+                  }
+                }
+              }
+            }
+            pod_anti_affinity {
+              preferred_during_scheduling_ignored_during_execution {
+                weight = {{ weight }}
+                pod_affinity_term {
+                  namespaces = ["{{ namespaces }}"]
+                  topology_key = "{{ topology_key }}"
+                  label_selector {
+                    match_labels = {
+        key = "{{ match_labels_value }}"
+      }
+                    match_expressions {
+                      key = "{{ key }}"
+                      operator = "{{ operator }}"
+                      values = ["{{ values }}"]
+                    }
+                  }
+                  namespace_selector {
+                    match_labels = {
+        key = "{{ match_labels_value }}"
+      }
+                    match_expressions {
+                      key = "{{ key }}"
+                      operator = "{{ operator }}"
+                      values = ["{{ values }}"]
+                    }
+                  }
+                }
+              }
+              required_during_scheduling_ignored_during_execution {
+                namespaces = ["{{ namespaces }}"]
+                topology_key = "{{ topology_key }}"
+                label_selector {
+                  match_labels = {
+        key = "{{ match_labels_value }}"
+      }
+                  match_expressions {
+                    key = "{{ key }}"
+                    operator = "{{ operator }}"
+                    values = ["{{ values }}"]
+                  }
+                }
+                namespace_selector {
+                  match_labels = {
+        key = "{{ match_labels_value }}"
+      }
+                  match_expressions {
+                    key = "{{ key }}"
+                    operator = "{{ operator }}"
+                    values = ["{{ values }}"]
+                  }
+                }
+              }
+            }
+          }
+          container {
+            args = ["{{ args }}"]
+            command = ["{{ command }}"]
+            image = "{{ image }}"
+            image_pull_policy = "{{ image_pull_policy }}"
+            name = "{{ name }}"
+            restart_policy = "{{ restart_policy }}"
+            stdin = {{ stdin }}
+            stdin_once = {{ stdin_once }}
+            termination_message_path = "{{ termination_message_path }}"
+            termination_message_policy = "{{ termination_message_policy }}"
+            tty = {{ tty }}
+            working_dir = "{{ working_dir }}"
+            env {
+              name = "{{ name }}"
+              value = "{{ value }}"
+              value_from {
+                config_map_key_ref {
+                  key = "{{ key }}"
+                  name = "{{ name }}"
+                  optional = {{ optional }}
+                }
+                field_ref {
+                  api_version = "{{ api_version }}"
+                  field_path = "{{ field_path }}"
+                }
+                resource_field_ref {
+                  container_name = "{{ container_name }}"
+                  divisor = "{{ divisor }}"
+                  resource = "{{ resource }}"
+                }
+                secret_key_ref {
+                  key = "{{ key }}"
+                  name = "{{ name }}"
+                  optional = {{ optional }}
+                }
+              }
+            }
+            env_from {
+              prefix = "{{ prefix }}"
+              config_map_ref {
+                name = "{{ name }}"
+                optional = {{ optional }}
+              }
+              secret_ref {
+                name = "{{ name }}"
+                optional = {{ optional }}
+              }
+            }
+            lifecycle {
+              post_start {
+                exec {
+                  command = ["{{ command }}"]
+                }
+                http_get {
+                  host = "{{ host }}"
+                  path = "{{ path }}"
+                  port = "{{ port }}"
+                  scheme = "{{ scheme }}"
+                  http_header {
+                    name = "{{ name }}"
+                    value = "{{ value }}"
+                  }
+                }
+                tcp_socket {
+                  port = "{{ port }}"
+                }
+              }
+              pre_stop {
+                exec {
+                  command = ["{{ command }}"]
+                }
+                http_get {
+                  host = "{{ host }}"
+                  path = "{{ path }}"
+                  port = "{{ port }}"
+                  scheme = "{{ scheme }}"
+                  http_header {
+                    name = "{{ name }}"
+                    value = "{{ value }}"
+                  }
+                }
+                tcp_socket {
+                  port = "{{ port }}"
+                }
+              }
+            }
+            liveness_probe {
+              failure_threshold = {{ failure_threshold }}
+              initial_delay_seconds = {{ initial_delay_seconds }}
+              period_seconds = {{ period_seconds }}
+              success_threshold = {{ success_threshold }}
+              timeout_seconds = {{ timeout_seconds }}
+              exec {
+                command = ["{{ command }}"]
+              }
+              grpc {
+                port = {{ port }}
+                service = "{{ service }}"
+              }
+              http_get {
+                host = "{{ host }}"
+                path = "{{ path }}"
+                port = "{{ port }}"
+                scheme = "{{ scheme }}"
+                http_header {
+                  name = "{{ name }}"
+                  value = "{{ value }}"
+                }
+              }
+              tcp_socket {
+                port = "{{ port }}"
+              }
+            }
+            port {
+              container_port = {{ container_port }}
+              host_ip = "{{ host_ip }}"
+              host_port = {{ host_port }}
+              name = "{{ name }}"
+              protocol = "{{ protocol }}"
+            }
+            readiness_probe {
+              failure_threshold = {{ failure_threshold }}
+              initial_delay_seconds = {{ initial_delay_seconds }}
+              period_seconds = {{ period_seconds }}
+              success_threshold = {{ success_threshold }}
+              timeout_seconds = {{ timeout_seconds }}
+              exec {
+                command = ["{{ command }}"]
+              }
+              grpc {
+                port = {{ port }}
+                service = "{{ service }}"
+              }
+              http_get {
+                host = "{{ host }}"
+                path = "{{ path }}"
+                port = "{{ port }}"
+                scheme = "{{ scheme }}"
+                http_header {
+                  name = "{{ name }}"
+                  value = "{{ value }}"
+                }
+              }
+              tcp_socket {
+                port = "{{ port }}"
+              }
+            }
+            resources {
+              limits = {
+        key = "{{ limits_value }}"
+      }
+              requests = {
+        key = "{{ requests_value }}"
+      }
+            }
+            security_context {
+              allow_privilege_escalation = {{ allow_privilege_escalation }}
+              privileged = {{ privileged }}
+              read_only_root_filesystem = {{ read_only_root_filesystem }}
+              run_as_group = "{{ run_as_group }}"
+              run_as_non_root = {{ run_as_non_root }}
+              run_as_user = "{{ run_as_user }}"
+              capabilities {
+                add = ["{{ add }}"]
+                drop = ["{{ drop }}"]
+              }
+              se_linux_options {
+                level = "{{ level }}"
+                role = "{{ role }}"
+                type = "{{ type }}"
+                user = "{{ user }}"
+              }
+              seccomp_profile {
+                localhost_profile = "{{ localhost_profile }}"
+                type = "{{ type }}"
+              }
+            }
+            startup_probe {
+              failure_threshold = {{ failure_threshold }}
+              initial_delay_seconds = {{ initial_delay_seconds }}
+              period_seconds = {{ period_seconds }}
+              success_threshold = {{ success_threshold }}
+              timeout_seconds = {{ timeout_seconds }}
+              exec {
+                command = ["{{ command }}"]
+              }
+              grpc {
+                port = {{ port }}
+                service = "{{ service }}"
+              }
+              http_get {
+                host = "{{ host }}"
+                path = "{{ path }}"
+                port = "{{ port }}"
+                scheme = "{{ scheme }}"
+                http_header {
+                  name = "{{ name }}"
+                  value = "{{ value }}"
+                }
+              }
+              tcp_socket {
+                port = "{{ port }}"
+              }
+            }
+            volume_device {
+              device_path = "{{ device_path }}"
+              name = "{{ name }}"
+            }
+            volume_mount {
+              mount_path = "{{ mount_path }}"
+              mount_propagation = "{{ mount_propagation }}"
+              name = "{{ name }}"
+              read_only = {{ read_only }}
+              sub_path = "{{ sub_path }}"
+              sub_path_expr = "{{ sub_path_expr }}"
+            }
+          }
+          dns_config {
+            nameservers = ["{{ nameservers }}"]
+            searches = ["{{ searches }}"]
+            option {
+              name = "{{ name }}"
+              value = "{{ value }}"
+            }
+          }
+          host_aliases {
+            hostnames = ["{{ hostnames }}"]
+            ip = "{{ ip }}"
+          }
+          image_pull_secrets {
+            name = "{{ name }}"
+          }
+          init_container {
+            args = ["{{ args }}"]
+            command = ["{{ command }}"]
+            image = "{{ image }}"
+            image_pull_policy = "{{ image_pull_policy }}"
+            name = "{{ name }}"
+            restart_policy = "{{ restart_policy }}"
+            stdin = {{ stdin }}
+            stdin_once = {{ stdin_once }}
+            termination_message_path = "{{ termination_message_path }}"
+            termination_message_policy = "{{ termination_message_policy }}"
+            tty = {{ tty }}
+            working_dir = "{{ working_dir }}"
+            env {
+              name = "{{ name }}"
+              value = "{{ value }}"
+              value_from {
+                config_map_key_ref {
+                  key = "{{ key }}"
+                  name = "{{ name }}"
+                  optional = {{ optional }}
+                }
+                field_ref {
+                  api_version = "{{ api_version }}"
+                  field_path = "{{ field_path }}"
+                }
+                resource_field_ref {
+                  container_name = "{{ container_name }}"
+                  divisor = "{{ divisor }}"
+                  resource = "{{ resource }}"
+                }
+                secret_key_ref {
+                  key = "{{ key }}"
+                  name = "{{ name }}"
+                  optional = {{ optional }}
+                }
+              }
+            }
+            env_from {
+              prefix = "{{ prefix }}"
+              config_map_ref {
+                name = "{{ name }}"
+                optional = {{ optional }}
+              }
+              secret_ref {
+                name = "{{ name }}"
+                optional = {{ optional }}
+              }
+            }
+            lifecycle {
+              post_start {
+                exec {
+                  command = ["{{ command }}"]
+                }
+                http_get {
+                  host = "{{ host }}"
+                  path = "{{ path }}"
+                  port = "{{ port }}"
+                  scheme = "{{ scheme }}"
+                  http_header {
+                    name = "{{ name }}"
+                    value = "{{ value }}"
+                  }
+                }
+                tcp_socket {
+                  port = "{{ port }}"
+                }
+              }
+              pre_stop {
+                exec {
+                  command = ["{{ command }}"]
+                }
+                http_get {
+                  host = "{{ host }}"
+                  path = "{{ path }}"
+                  port = "{{ port }}"
+                  scheme = "{{ scheme }}"
+                  http_header {
+                    name = "{{ name }}"
+                    value = "{{ value }}"
+                  }
+                }
+                tcp_socket {
+                  port = "{{ port }}"
+                }
+              }
+            }
+            liveness_probe {
+              failure_threshold = {{ failure_threshold }}
+              initial_delay_seconds = {{ initial_delay_seconds }}
+              period_seconds = {{ period_seconds }}
+              success_threshold = {{ success_threshold }}
+              timeout_seconds = {{ timeout_seconds }}
+              exec {
+                command = ["{{ command }}"]
+              }
+              grpc {
+                port = {{ port }}
+                service = "{{ service }}"
+              }
+              http_get {
+                host = "{{ host }}"
+                path = "{{ path }}"
+                port = "{{ port }}"
+                scheme = "{{ scheme }}"
+                http_header {
+                  name = "{{ name }}"
+                  value = "{{ value }}"
+                }
+              }
+              tcp_socket {
+                port = "{{ port }}"
+              }
+            }
+            port {
+              container_port = {{ container_port }}
+              host_ip = "{{ host_ip }}"
+              host_port = {{ host_port }}
+              name = "{{ name }}"
+              protocol = "{{ protocol }}"
+            }
+            readiness_probe {
+              failure_threshold = {{ failure_threshold }}
+              initial_delay_seconds = {{ initial_delay_seconds }}
+              period_seconds = {{ period_seconds }}
+              success_threshold = {{ success_threshold }}
+              timeout_seconds = {{ timeout_seconds }}
+              exec {
+                command = ["{{ command }}"]
+              }
+              grpc {
+                port = {{ port }}
+                service = "{{ service }}"
+              }
+              http_get {
+                host = "{{ host }}"
+                path = "{{ path }}"
+                port = "{{ port }}"
+                scheme = "{{ scheme }}"
+                http_header {
+                  name = "{{ name }}"
+                  value = "{{ value }}"
+                }
+              }
+              tcp_socket {
+                port = "{{ port }}"
+              }
+            }
+            resources {
+              limits = {
+        key = "{{ limits_value }}"
+      }
+              requests = {
+        key = "{{ requests_value }}"
+      }
+            }
+            security_context {
+              allow_privilege_escalation = {{ allow_privilege_escalation }}
+              privileged = {{ privileged }}
+              read_only_root_filesystem = {{ read_only_root_filesystem }}
+              run_as_group = "{{ run_as_group }}"
+              run_as_non_root = {{ run_as_non_root }}
+              run_as_user = "{{ run_as_user }}"
+              capabilities {
+                add = ["{{ add }}"]
+                drop = ["{{ drop }}"]
+              }
+              se_linux_options {
+                level = "{{ level }}"
+                role = "{{ role }}"
+                type = "{{ type }}"
+                user = "{{ user }}"
+              }
+              seccomp_profile {
+                localhost_profile = "{{ localhost_profile }}"
+                type = "{{ type }}"
+              }
+            }
+            startup_probe {
+              failure_threshold = {{ failure_threshold }}
+              initial_delay_seconds = {{ initial_delay_seconds }}
+              period_seconds = {{ period_seconds }}
+              success_threshold = {{ success_threshold }}
+              timeout_seconds = {{ timeout_seconds }}
+              exec {
+                command = ["{{ command }}"]
+              }
+              grpc {
+                port = {{ port }}
+                service = "{{ service }}"
+              }
+              http_get {
+                host = "{{ host }}"
+                path = "{{ path }}"
+                port = "{{ port }}"
+                scheme = "{{ scheme }}"
+                http_header {
+                  name = "{{ name }}"
+                  value = "{{ value }}"
+                }
+              }
+              tcp_socket {
+                port = "{{ port }}"
+              }
+            }
+            volume_device {
+              device_path = "{{ device_path }}"
+              name = "{{ name }}"
+            }
+            volume_mount {
+              mount_path = "{{ mount_path }}"
+              mount_propagation = "{{ mount_propagation }}"
+              name = "{{ name }}"
+              read_only = {{ read_only }}
+              sub_path = "{{ sub_path }}"
+              sub_path_expr = "{{ sub_path_expr }}"
+            }
+          }
+          os {
+            name = "{{ name }}"
+          }
+          readiness_gate {
+            condition_type = "{{ condition_type }}"
+          }
+          security_context {
+            fs_group = "{{ fs_group }}"
+            fs_group_change_policy = "{{ fs_group_change_policy }}"
+            run_as_group = "{{ run_as_group }}"
+            run_as_non_root = {{ run_as_non_root }}
+            run_as_user = "{{ run_as_user }}"
+            supplemental_groups = ["{{ supplemental_groups }}"]
+            se_linux_options {
+              level = "{{ level }}"
+              role = "{{ role }}"
+              type = "{{ type }}"
+              user = "{{ user }}"
+            }
+            seccomp_profile {
+              localhost_profile = "{{ localhost_profile }}"
+              type = "{{ type }}"
+            }
+            sysctl {
+              name = "{{ name }}"
+              value = "{{ value }}"
+            }
+            windows_options {
+              gmsa_credential_spec = "{{ gmsa_credential_spec }}"
+              gmsa_credential_spec_name = "{{ gmsa_credential_spec_name }}"
+              host_process = {{ host_process }}
+              run_as_username = "{{ run_as_username }}"
+            }
+          }
+          toleration {
+            effect = "{{ effect }}"
+            key = "{{ key }}"
+            operator = "{{ operator }}"
+            toleration_seconds = "{{ toleration_seconds }}"
+            value = "{{ value }}"
+          }
+          topology_spread_constraint {
+            match_label_keys = ["{{ match_label_keys }}"]
+            max_skew = {{ max_skew }}
+            min_domains = {{ min_domains }}
+            node_affinity_policy = "{{ node_affinity_policy }}"
+            node_taints_policy = "{{ node_taints_policy }}"
+            topology_key = "{{ topology_key }}"
+            when_unsatisfiable = "{{ when_unsatisfiable }}"
+            label_selector {
+              match_labels = {
+        key = "{{ match_labels_value }}"
+      }
+              match_expressions {
+                key = "{{ key }}"
+                operator = "{{ operator }}"
+                values = ["{{ values }}"]
+              }
+            }
+          }
+          volume {
+            name = "{{ name }}"
+            aws_elastic_block_store {
+              fs_type = "{{ fs_type }}"
+              partition = {{ partition }}
+              read_only = {{ read_only }}
+              volume_id = "{{ volume_id }}"
+            }
+            azure_disk {
+              caching_mode = "{{ caching_mode }}"
+              data_disk_uri = "{{ data_disk_uri }}"
+              disk_name = "{{ disk_name }}"
+              fs_type = "{{ fs_type }}"
+              kind = "{{ kind }}"
+              read_only = {{ read_only }}
+            }
+            azure_file {
+              read_only = {{ read_only }}
+              secret_name = "{{ secret_name }}"
+              secret_namespace = "{{ secret_namespace }}"
+              share_name = "{{ share_name }}"
+            }
+            ceph_fs {
+              monitors = ["{{ monitors }}"]
+              path = "{{ path }}"
+              read_only = {{ read_only }}
+              secret_file = "{{ secret_file }}"
+              user = "{{ user }}"
+              secret_ref {
+                name = "{{ name }}"
+                namespace = "{{ namespace }}"
+              }
+            }
+            cinder {
+              fs_type = "{{ fs_type }}"
+              read_only = {{ read_only }}
+              volume_id = "{{ volume_id }}"
+            }
+            config_map {
+              default_mode = "{{ default_mode }}"
+              name = "{{ name }}"
+              optional = {{ optional }}
+              items {
+                key = "{{ key }}"
+                mode = "{{ mode }}"
+                path = "{{ path }}"
+              }
+            }
+            csi {
+              driver = "{{ driver }}"
+              fs_type = "{{ fs_type }}"
+              read_only = {{ read_only }}
+              volume_attributes = {
+        key = "{{ volume_attributes_value }}"
+      }
+              node_publish_secret_ref {
+                name = "{{ name }}"
+              }
+            }
+            downward_api {
+              default_mode = "{{ default_mode }}"
+              items {
+                mode = "{{ mode }}"
+                path = "{{ path }}"
+                field_ref {
+                  api_version = "{{ api_version }}"
+                  field_path = "{{ field_path }}"
+                }
+                resource_field_ref {
+                  container_name = "{{ container_name }}"
+                  divisor = "{{ divisor }}"
+                  resource = "{{ resource }}"
+                }
+              }
+            }
+            empty_dir {
+              medium = "{{ medium }}"
+              size_limit = "{{ size_limit }}"
+            }
+            ephemeral {
+              volume_claim_template {
+                metadata {
+                  annotations = {
+        key = "{{ annotations_value }}"
+      }
+                  labels = {
+        key = "{{ labels_value }}"
+      }
+                }
+                spec {
+                  access_modes = ["{{ access_modes }}"]
+                  storage_class_name = "{{ storage_class_name }}"
+                  volume_mode = "{{ volume_mode }}"
+                  volume_name = "{{ volume_name }}"
+                  resources {
+                    limits = {
+        key = "{{ limits_value }}"
+      }
+                    requests = {
+        key = "{{ requests_value }}"
+      }
+                  }
+                  selector {
+                    match_labels = {
+        key = "{{ match_labels_value }}"
+      }
+                    match_expressions {
+                      key = "{{ key }}"
+                      operator = "{{ operator }}"
+                      values = ["{{ values }}"]
+                    }
+                  }
+                }
+              }
+            }
+            fc {
+              fs_type = "{{ fs_type }}"
+              lun = {{ lun }}
+              read_only = {{ read_only }}
+              target_ww_ns = ["{{ target_ww_ns }}"]
+            }
+            flex_volume {
+              driver = "{{ driver }}"
+              fs_type = "{{ fs_type }}"
+              options = {
+        key = "{{ options_value }}"
+      }
+              read_only = {{ read_only }}
+              secret_ref {
+                name = "{{ name }}"
+                namespace = "{{ namespace }}"
+              }
+            }
+            flocker {
+              dataset_name = "{{ dataset_name }}"
+              dataset_uuid = "{{ dataset_uuid }}"
+            }
+            gce_persistent_disk {
+              fs_type = "{{ fs_type }}"
+              partition = {{ partition }}
+              pd_name = "{{ pd_name }}"
+              read_only = {{ read_only }}
+            }
+            git_repo {
+              directory = "{{ directory }}"
+              repository = "{{ repository }}"
+              revision = "{{ revision }}"
+            }
+            glusterfs {
+              endpoints_name = "{{ endpoints_name }}"
+              path = "{{ path }}"
+              read_only = {{ read_only }}
+            }
+            host_path {
+              path = "{{ path }}"
+              type = "{{ type }}"
+            }
+            iscsi {
+              fs_type = "{{ fs_type }}"
+              iqn = "{{ iqn }}"
+              iscsi_interface = "{{ iscsi_interface }}"
+              lun = {{ lun }}
+              read_only = {{ read_only }}
+              target_portal = "{{ target_portal }}"
+            }
+            local {
+              path = "{{ path }}"
+            }
+            nfs {
+              path = "{{ path }}"
+              read_only = {{ read_only }}
+              server = "{{ server }}"
+            }
+            persistent_volume_claim {
+              claim_name = "{{ claim_name }}"
+              read_only = {{ read_only }}
+            }
+            photon_persistent_disk {
+              fs_type = "{{ fs_type }}"
+              pd_id = "{{ pd_id }}"
+            }
+            projected {
+              default_mode = "{{ default_mode }}"
+              sources {
+                config_map {
+                  name = "{{ name }}"
+                  optional = {{ optional }}
+                  items {
+                    key = "{{ key }}"
+                    mode = "{{ mode }}"
+                    path = "{{ path }}"
+                  }
+                }
+                downward_api {
+                  items {
+                    mode = "{{ mode }}"
+                    path = "{{ path }}"
+                    field_ref {
+                      api_version = "{{ api_version }}"
+                      field_path = "{{ field_path }}"
+                    }
+                    resource_field_ref {
+                      container_name = "{{ container_name }}"
+                      divisor = "{{ divisor }}"
+                      resource = "{{ resource }}"
+                    }
+                  }
+                }
+                secret {
+                  name = "{{ name }}"
+                  optional = {{ optional }}
+                  items {
+                    key = "{{ key }}"
+                    mode = "{{ mode }}"
+                    path = "{{ path }}"
+                  }
+                }
+                service_account_token {
+                  audience = "{{ audience }}"
+                  expiration_seconds = {{ expiration_seconds }}
+                  path = "{{ path }}"
+                }
+              }
+            }
+            quobyte {
+              group = "{{ group }}"
+              read_only = {{ read_only }}
+              registry = "{{ registry }}"
+              user = "{{ user }}"
+              volume = "{{ volume }}"
+            }
+            rbd {
+              ceph_monitors = ["{{ ceph_monitors }}"]
+              fs_type = "{{ fs_type }}"
+              keyring = "{{ keyring }}"
+              rados_user = "{{ rados_user }}"
+              rbd_image = "{{ rbd_image }}"
+              rbd_pool = "{{ rbd_pool }}"
+              read_only = {{ read_only }}
+              secret_ref {
+                name = "{{ name }}"
+                namespace = "{{ namespace }}"
+              }
+            }
+            secret {
+              default_mode = "{{ default_mode }}"
+              optional = {{ optional }}
+              secret_name = "{{ secret_name }}"
+              items {
+                key = "{{ key }}"
+                mode = "{{ mode }}"
+                path = "{{ path }}"
+              }
+            }
+            vsphere_volume {
+              fs_type = "{{ fs_type }}"
+              volume_path = "{{ volume_path }}"
+            }
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

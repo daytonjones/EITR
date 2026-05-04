@@ -1,5 +1,9 @@
 resource "aws_wafregional_ipset" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
+    ip_set_descriptor {
+      type = "{{ type }}"
+      value = "{{ value }}"
+    }
 }

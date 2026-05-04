@@ -1,12 +1,81 @@
 resource "aws_mskconnect_connector" "example" {
-    arn = "{{ arn }}"
-    connector_configuration = "{{ connector_configuration }}"
+    connector_configuration = {
+        key = "{{ connector_configuration_value }}"
+      }
     description = "{{ description }}"
     id = "{{ id }}"
     kafkaconnect_version = "{{ kafkaconnect_version }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     service_execution_role_arn = "{{ service_execution_role_arn }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    version = "{{ version }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    capacity {
+      autoscaling {
+        max_worker_count = {{ max_worker_count }}
+        mcu_count = {{ mcu_count }}
+        min_worker_count = {{ min_worker_count }}
+        scale_in_policy {
+          cpu_utilization_percentage = {{ cpu_utilization_percentage }}
+        }
+        scale_out_policy {
+          cpu_utilization_percentage = {{ cpu_utilization_percentage }}
+        }
+      }
+      provisioned_capacity {
+        mcu_count = {{ mcu_count }}
+        worker_count = {{ worker_count }}
+      }
+    }
+    kafka_cluster {
+      apache_kafka_cluster {
+        bootstrap_servers = "{{ bootstrap_servers }}"
+        vpc {
+          security_groups = ["{{ security_groups }}"]
+          subnets = ["{{ subnets }}"]
+        }
+      }
+    }
+    kafka_cluster_client_authentication {
+      authentication_type = "{{ authentication_type }}"
+    }
+    kafka_cluster_encryption_in_transit {
+      encryption_type = "{{ encryption_type }}"
+    }
+    log_delivery {
+      worker_log_delivery {
+        cloudwatch_logs {
+          enabled = {{ enabled }}
+          log_group = "{{ log_group }}"
+        }
+        firehose {
+          delivery_stream = "{{ delivery_stream }}"
+          enabled = {{ enabled }}
+        }
+        s3 {
+          bucket = "{{ bucket }}"
+          enabled = {{ enabled }}
+          prefix = "{{ prefix }}"
+        }
+      }
+    }
+    plugin {
+      custom_plugin {
+        arn = "{{ arn }}"
+        revision = {{ revision }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    worker_configuration {
+      arn = "{{ arn }}"
+      revision = {{ revision }}
+    }
 }

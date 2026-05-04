@@ -1,7 +1,12 @@
 resource "aws_appfabric_app_authorization_connection" "example" {
-    app = "{{ app }}"
     app_authorization_arn = "{{ app_authorization_arn }}"
     app_bundle_arn = "{{ app_bundle_arn }}"
-    id = "{{ id }}"
-    tenant = "{{ tenant }}"
+    region = "{{ region }}"
+    auth_request {
+      code = "{{ code }}"
+      redirect_uri = "{{ redirect_uri }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+    }
 }

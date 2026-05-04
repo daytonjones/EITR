@@ -1,45 +1,13 @@
 resource "awscc_connect_task_template" "example" {
-    arn = "{{ arn }}"
     client_token = "{{ client_token }}"
-    constraints = "{
-    invisible_fields = {
-    id = {
-    name = {{ name }}
-}
-}
-    read_only_fields = {
-    id = {
-    name = {{ name }}
-}
-}
-    required_fields = {
-    id = {
-    name = {{ name }}
-}
-}
-}"
+    constraints = "{{ constraints }}"
     contact_flow_arn = "{{ contact_flow_arn }}"
-    defaults = "{
-    default_value = {{ default_value }}
-    id = {
-    name = {{ name }}
-}
-}"
+    defaults = "{{ defaults }}"
     description = "{{ description }}"
-    fields = "{
-    description = {{ description }}
-    id = {
-    name = {{ name }}
-}
-    single_select_options = {{ single_select_options }}
-    type = {{ type }}
-}"
-    id = "{{ id }}"
+    fields = "{{ fields }}"
     instance_arn = "{{ instance_arn }}"
     name = "{{ name }}"
+    self_assign_contact_flow_arn = "{{ self_assign_contact_flow_arn }}"
     status = "{{ status }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
 }

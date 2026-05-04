@@ -3,4 +3,9 @@ resource "azurerm_lighthouse_assignment" "example" {
     lighthouse_definition_id = "{{ lighthouse_definition_id }}"
     name = "{{ name }}"
     scope = "{{ scope }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

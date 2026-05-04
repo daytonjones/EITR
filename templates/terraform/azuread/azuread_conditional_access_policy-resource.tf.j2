@@ -1,6 +1,85 @@
 resource "azuread_conditional_access_policy" "example" {
     display_name = "{{ display_name }}"
     id = "{{ id }}"
-    object_id = "{{ object_id }}"
     state = "{{ state }}"
+    conditions {
+      authentication_flow_transfer_methods = ["{{ authentication_flow_transfer_methods }}"]
+      client_app_types = ["{{ client_app_types }}"]
+      insider_risk_levels = "{{ insider_risk_levels }}"
+      service_principal_risk_levels = ["{{ service_principal_risk_levels }}"]
+      sign_in_risk_levels = ["{{ sign_in_risk_levels }}"]
+      user_risk_levels = ["{{ user_risk_levels }}"]
+      applications {
+        excluded_applications = ["{{ excluded_applications }}"]
+        included_applications = ["{{ included_applications }}"]
+        included_user_actions = ["{{ included_user_actions }}"]
+      }
+      client_applications {
+        excluded_service_principals = ["{{ excluded_service_principals }}"]
+        included_service_principals = ["{{ included_service_principals }}"]
+        filter {
+          mode = "{{ mode }}"
+          rule = "{{ rule }}"
+        }
+      }
+      devices {
+        filter {
+          mode = "{{ mode }}"
+          rule = "{{ rule }}"
+        }
+      }
+      locations {
+        excluded_locations = ["{{ excluded_locations }}"]
+        included_locations = ["{{ included_locations }}"]
+      }
+      platforms {
+        excluded_platforms = ["{{ excluded_platforms }}"]
+        included_platforms = ["{{ included_platforms }}"]
+      }
+      users {
+        excluded_groups = ["{{ excluded_groups }}"]
+        excluded_roles = ["{{ excluded_roles }}"]
+        excluded_users = ["{{ excluded_users }}"]
+        included_groups = ["{{ included_groups }}"]
+        included_roles = ["{{ included_roles }}"]
+        included_users = ["{{ included_users }}"]
+        excluded_guests_or_external_users {
+          guest_or_external_user_types = ["{{ guest_or_external_user_types }}"]
+          external_tenants {
+            members = ["{{ members }}"]
+            membership_kind = "{{ membership_kind }}"
+          }
+        }
+        included_guests_or_external_users {
+          guest_or_external_user_types = ["{{ guest_or_external_user_types }}"]
+          external_tenants {
+            members = ["{{ members }}"]
+            membership_kind = "{{ membership_kind }}"
+          }
+        }
+      }
+    }
+    grant_controls {
+      authentication_strength_policy_id = "{{ authentication_strength_policy_id }}"
+      built_in_controls = ["{{ built_in_controls }}"]
+      custom_authentication_factors = ["{{ custom_authentication_factors }}"]
+      operator = "{{ operator }}"
+      terms_of_use = ["{{ terms_of_use }}"]
+    }
+    session_controls {
+      application_enforced_restrictions_enabled = {{ application_enforced_restrictions_enabled }}
+      cloud_app_security_policy = "{{ cloud_app_security_policy }}"
+      disable_resilience_defaults = {{ disable_resilience_defaults }}
+      persistent_browser_mode = "{{ persistent_browser_mode }}"
+      sign_in_frequency = {{ sign_in_frequency }}
+      sign_in_frequency_authentication_type = "{{ sign_in_frequency_authentication_type }}"
+      sign_in_frequency_interval = "{{ sign_in_frequency_interval }}"
+      sign_in_frequency_period = "{{ sign_in_frequency_period }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,10 +1,12 @@
 data "azuread_domains" "example" {
-    admin_managed = "{{ admin_managed }}"
-    domains = "{{ domains }}"
+    admin_managed = {{ admin_managed }}
     id = "{{ id }}"
-    include_unverified = "{{ include_unverified }}"
-    only_default = "{{ only_default }}"
-    only_initial = "{{ only_initial }}"
-    only_root = "{{ only_root }}"
-    supports_services = "{{ supports_services }}"
+    include_unverified = {{ include_unverified }}
+    only_default = {{ only_default }}
+    only_initial = {{ only_initial }}
+    only_root = {{ only_root }}
+    supports_services = ["{{ supports_services }}"]
+    timeouts {
+      read = "{{ read }}"
+    }
 }

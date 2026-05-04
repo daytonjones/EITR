@@ -1,8 +1,9 @@
 resource "vsphere_datacenter" "example" {
-    custom_attributes = "{{ custom_attributes }}"
+    custom_attributes = {
+        key = "{{ custom_attributes_value }}"
+      }
     folder = "{{ folder }}"
     id = "{{ id }}"
-    moid = "{{ moid }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
+    tags = ["{{ tags }}"]
 }

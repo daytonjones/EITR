@@ -3,4 +3,9 @@ resource "azurerm_site_recovery_hyperv_replication_policy_association" "example"
     id = "{{ id }}"
     name = "{{ name }}"
     policy_id = "{{ policy_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

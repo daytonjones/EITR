@@ -1,6 +1,11 @@
 resource "aws_route53_resolver_rule_association" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     resolver_rule_id = "{{ resolver_rule_id }}"
     vpc_id = "{{ vpc_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

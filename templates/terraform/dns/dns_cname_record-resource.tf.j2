@@ -1,7 +1,6 @@
 resource "dns_cname_record" "example" {
     cname = "{{ cname }}"
-    id = "{{ id }}"
     name = "{{ name }}"
-    ttl = "{{ ttl }}"
+    ttl = {{ ttl }}
     zone = "{{ zone }}"
 }

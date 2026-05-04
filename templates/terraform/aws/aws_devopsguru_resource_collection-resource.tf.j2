@@ -1,4 +1,11 @@
 resource "aws_devopsguru_resource_collection" "example" {
-    id = "{{ id }}"
+    region = "{{ region }}"
     type = "{{ type }}"
+    cloudformation {
+      stack_names = ["{{ stack_names }}"]
+    }
+    tags {
+      app_boundary_key = "{{ app_boundary_key }}"
+      tag_values = ["{{ tag_values }}"]
+    }
 }

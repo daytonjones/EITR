@@ -1,5 +1,7 @@
 resource "consul_acl_auth_method" "example" {
-    config = "{{ config }}"
+    config = {
+        key = "{{ config_value }}"
+      }
     config_json = "{{ config_json }}"
     description = "{{ description }}"
     display_name = "{{ display_name }}"
@@ -10,4 +12,8 @@ resource "consul_acl_auth_method" "example" {
     partition = "{{ partition }}"
     token_locality = "{{ token_locality }}"
     type = "{{ type }}"
+    namespace_rule {
+      bind_namespace = "{{ bind_namespace }}"
+      selector = "{{ selector }}"
+    }
 }

@@ -1,3 +1,59 @@
 resource "kubernetes_mutating_webhook_configuration_v1" "example" {
     id = "{{ id }}"
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      generate_name = "{{ generate_name }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      name = "{{ name }}"
+    }
+    webhook {
+      admission_review_versions = ["{{ admission_review_versions }}"]
+      failure_policy = "{{ failure_policy }}"
+      match_policy = "{{ match_policy }}"
+      name = "{{ name }}"
+      reinvocation_policy = "{{ reinvocation_policy }}"
+      side_effects = "{{ side_effects }}"
+      timeout_seconds = {{ timeout_seconds }}
+      client_config {
+        ca_bundle = "{{ ca_bundle }}"
+        url = "{{ url }}"
+        service {
+          name = "{{ name }}"
+          namespace = "{{ namespace }}"
+          path = "{{ path }}"
+          port = {{ port }}
+        }
+      }
+      namespace_selector {
+        match_labels = {
+        key = "{{ match_labels_value }}"
+      }
+        match_expressions {
+          key = "{{ key }}"
+          operator = "{{ operator }}"
+          values = ["{{ values }}"]
+        }
+      }
+      object_selector {
+        match_labels = {
+        key = "{{ match_labels_value }}"
+      }
+        match_expressions {
+          key = "{{ key }}"
+          operator = "{{ operator }}"
+          values = ["{{ values }}"]
+        }
+      }
+      rule {
+        api_groups = ["{{ api_groups }}"]
+        api_versions = ["{{ api_versions }}"]
+        operations = ["{{ operations }}"]
+        resources = ["{{ resources }}"]
+        scope = "{{ scope }}"
+      }
+    }
 }

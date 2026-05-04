@@ -1,9 +1,5 @@
 data "aws_ecr_authorization_token" "example" {
-    authorization_token = "{{ authorization_token }}"
-    expires_at = "{{ expires_at }}"
     id = "{{ id }}"
-    password = "{{ password }}"
-    proxy_endpoint = "{{ proxy_endpoint }}"
+    region = "{{ region }}"
     registry_id = "{{ registry_id }}"
-    user_name = "{{ user_name }}"
 }

@@ -1,5 +1,24 @@
 resource "aws_medialive_multiplex_program" "example" {
-    id = "{{ id }}"
     multiplex_id = "{{ multiplex_id }}"
     program_name = "{{ program_name }}"
+    region = "{{ region }}"
+    multiplex_program_settings {
+      preferred_channel_pipeline = "{{ preferred_channel_pipeline }}"
+      program_number = {{ program_number }}
+      service_descriptor {
+        provider_name = "{{ provider_name }}"
+        service_name = "{{ service_name }}"
+      }
+      video_settings {
+        constant_bitrate = {{ constant_bitrate }}
+        statmux_settings {
+          maximum_bitrate = {{ maximum_bitrate }}
+          minimum_bitrate = {{ minimum_bitrate }}
+          priority = {{ priority }}
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+    }
 }

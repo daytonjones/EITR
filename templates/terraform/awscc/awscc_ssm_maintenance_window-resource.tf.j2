@@ -1,0 +1,13 @@
+resource "awscc_ssm_maintenance_window" "example" {
+    allow_unassociated_targets = {{ allow_unassociated_targets }}
+    cutoff = {{ cutoff }}
+    description = "{{ description }}"
+    duration = {{ duration }}
+    end_date = "{{ end_date }}"
+    name = "{{ name }}"
+    schedule = "{{ schedule }}"
+    schedule_offset = {{ schedule_offset }}
+    schedule_timezone = "{{ schedule_timezone }}"
+    start_date = "{{ start_date }}"
+    tags = "{{ tags }}"
+}

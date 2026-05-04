@@ -1,0 +1,13 @@
+resource "awscc_bedrock_data_automation_project" "example" {
+    custom_output_configuration = "{{ custom_output_configuration }}"
+    kms_encryption_context = {
+        key = "{{ kms_encryption_context_value }}"
+      }
+    kms_key_id = "{{ kms_key_id }}"
+    override_configuration = "{{ override_configuration }}"
+    project_description = "{{ project_description }}"
+    project_name = "{{ project_name }}"
+    project_type = "{{ project_type }}"
+    standard_output_configuration = "{{ standard_output_configuration }}"
+    tags = "{{ tags }}"
+}

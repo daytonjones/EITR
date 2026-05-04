@@ -1,11 +1,53 @@
 resource "aws_imagebuilder_lifecycle_policy" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     execution_role = "{{ execution_role }}"
-    id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     resource_type = "{{ resource_type }}"
     status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    policy_detail {
+      action {
+        type = "{{ type }}"
+        include_resources {
+          amis = {{ amis }}
+          containers = {{ containers }}
+          snapshots = {{ snapshots }}
+        }
+      }
+      exclusion_rules {
+        tag_map = {
+        key = "{{ tag_map_value }}"
+      }
+        amis {
+          is_public = {{ is_public }}
+          regions = ["{{ regions }}"]
+          shared_accounts = ["{{ shared_accounts }}"]
+          tag_map = {
+        key = "{{ tag_map_value }}"
+      }
+          last_launched {
+            unit = "{{ unit }}"
+            value = {{ value }}
+          }
+        }
+      }
+      filter {
+        retain_at_least = {{ retain_at_least }}
+        type = "{{ type }}"
+        unit = "{{ unit }}"
+        value = {{ value }}
+      }
+    }
+    resource_selection {
+      tag_map = {
+        key = "{{ tag_map_value }}"
+      }
+      recipe {
+        name = "{{ name }}"
+        semantic_version = "{{ semantic_version }}"
+      }
+    }
 }

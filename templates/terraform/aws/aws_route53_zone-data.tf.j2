@@ -1,16 +1,11 @@
 data "aws_route53_zone" "example" {
-    arn = "{{ arn }}"
-    caller_reference = "{{ caller_reference }}"
-    comment = "{{ comment }}"
+    enable_accelerated_recovery = {{ enable_accelerated_recovery }}
     id = "{{ id }}"
-    linked_service_description = "{{ linked_service_description }}"
-    linked_service_principal = "{{ linked_service_principal }}"
     name = "{{ name }}"
-    name_servers = "{{ name_servers }}"
-    primary_name_server = "{{ primary_name_server }}"
-    private_zone = "{{ private_zone }}"
-    resource_record_set_count = "{{ resource_record_set_count }}"
-    tags = "{{ tags }}"
+    private_zone = {{ private_zone }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
     vpc_id = "{{ vpc_id }}"
     zone_id = "{{ zone_id }}"
 }

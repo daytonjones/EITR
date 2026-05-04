@@ -1,8 +1,12 @@
 resource "google_apigee_environment_iam_binding" "example" {
     env_id = "{{ env_id }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
-    members = "{{ members }}"
+    members = ["{{ members }}"]
     org_id = "{{ org_id }}"
     role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

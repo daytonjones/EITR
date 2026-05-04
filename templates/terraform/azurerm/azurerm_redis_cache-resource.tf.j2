@@ -1,29 +1,59 @@
 resource "azurerm_redis_cache" "example" {
-    access_keys_authentication_enabled = "{{ access_keys_authentication_enabled }}"
-    capacity = "{{ capacity }}"
+    access_keys_authentication_enabled = {{ access_keys_authentication_enabled }}
+    capacity = {{ capacity }}
     family = "{{ family }}"
-    hostname = "{{ hostname }}"
     id = "{{ id }}"
     location = "{{ location }}"
     minimum_tls_version = "{{ minimum_tls_version }}"
     name = "{{ name }}"
-    non_ssl_port_enabled = "{{ non_ssl_port_enabled }}"
-    port = "{{ port }}"
-    primary_access_key = "{{ primary_access_key }}"
-    primary_connection_string = "{{ primary_connection_string }}"
+    non_ssl_port_enabled = {{ non_ssl_port_enabled }}
     private_static_ip_address = "{{ private_static_ip_address }}"
-    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    public_network_access_enabled = {{ public_network_access_enabled }}
     redis_version = "{{ redis_version }}"
-    replicas_per_master = "{{ replicas_per_master }}"
-    replicas_per_primary = "{{ replicas_per_primary }}"
+    replicas_per_master = {{ replicas_per_master }}
+    replicas_per_primary = {{ replicas_per_primary }}
     resource_group_name = "{{ resource_group_name }}"
-    secondary_access_key = "{{ secondary_access_key }}"
-    secondary_connection_string = "{{ secondary_connection_string }}"
-    shard_count = "{{ shard_count }}"
+    shard_count = {{ shard_count }}
     sku_name = "{{ sku_name }}"
-    ssl_port = "{{ ssl_port }}"
     subnet_id = "{{ subnet_id }}"
-    tags = "{{ tags }}"
-    tenant_settings = "{{ tenant_settings }}"
-    zones = "{{ zones }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tenant_settings = {
+        key = "{{ tenant_settings_value }}"
+      }
+    zones = ["{{ zones }}"]
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    patch_schedule {
+      day_of_week = "{{ day_of_week }}"
+      maintenance_window = "{{ maintenance_window }}"
+      start_hour_utc = {{ start_hour_utc }}
+    }
+    redis_configuration {
+      active_directory_authentication_enabled = {{ active_directory_authentication_enabled }}
+      aof_backup_enabled = {{ aof_backup_enabled }}
+      aof_storage_connection_string_0 = "{{ aof_storage_connection_string_0 }}"
+      aof_storage_connection_string_1 = "{{ aof_storage_connection_string_1 }}"
+      authentication_enabled = {{ authentication_enabled }}
+      data_persistence_authentication_method = "{{ data_persistence_authentication_method }}"
+      maxfragmentationmemory_reserved = {{ maxfragmentationmemory_reserved }}
+      maxmemory_delta = {{ maxmemory_delta }}
+      maxmemory_policy = "{{ maxmemory_policy }}"
+      maxmemory_reserved = {{ maxmemory_reserved }}
+      notify_keyspace_events = "{{ notify_keyspace_events }}"
+      rdb_backup_enabled = {{ rdb_backup_enabled }}
+      rdb_backup_frequency = {{ rdb_backup_frequency }}
+      rdb_backup_max_snapshot_count = {{ rdb_backup_max_snapshot_count }}
+      rdb_storage_connection_string = "{{ rdb_storage_connection_string }}"
+      storage_account_subscription_id = "{{ storage_account_subscription_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,5 +1,11 @@
 resource "aws_inspector2_enabler" "example" {
-    account_ids = "{{ account_ids }}"
+    account_ids = ["{{ account_ids }}"]
     id = "{{ id }}"
-    resource_types = "{{ resource_types }}"
+    region = "{{ region }}"
+    resource_types = ["{{ resource_types }}"]
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

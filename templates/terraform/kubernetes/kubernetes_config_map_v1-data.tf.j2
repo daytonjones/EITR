@@ -1,6 +1,14 @@
 data "kubernetes_config_map_v1" "example" {
-    binary_data = "{{ binary_data }}"
-    data = "{{ data }}"
     id = "{{ id }}"
-    immutable = "{{ immutable }}"
+    immutable = {{ immutable }}
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      name = "{{ name }}"
+      namespace = "{{ namespace }}"
+    }
 }

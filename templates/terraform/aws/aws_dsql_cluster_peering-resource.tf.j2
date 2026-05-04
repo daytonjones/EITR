@@ -1,0 +1,9 @@
+resource "aws_dsql_cluster_peering" "example" {
+    clusters = ["{{ clusters }}"]
+    identifier = "{{ identifier }}"
+    region = "{{ region }}"
+    witness_region = "{{ witness_region }}"
+    timeouts {
+      create = "{{ create }}"
+    }
+}

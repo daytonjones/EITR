@@ -1,0 +1,51 @@
+resource "google_beyondcorp_security_gateway_application" "example" {
+    application_id = "{{ application_id }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    project = "{{ project }}"
+    schema = "{{ schema }}"
+    security_gateway_id = "{{ security_gateway_id }}"
+    endpoint_matchers {
+      hostname = "{{ hostname }}"
+      ports = ["{{ ports }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    upstreams {
+      egress_policy {
+        regions = ["{{ regions }}"]
+      }
+      external {
+        endpoints {
+          hostname = "{{ hostname }}"
+          port = {{ port }}
+        }
+      }
+      network {
+        name = "{{ name }}"
+      }
+      proxy_protocol {
+        allowed_client_headers = ["{{ allowed_client_headers }}"]
+        client_ip = {{ client_ip }}
+        gateway_identity = "{{ gateway_identity }}"
+        metadata_headers = {
+        key = "{{ metadata_headers_value }}"
+      }
+        contextual_headers {
+          output_type = "{{ output_type }}"
+          device_info {
+            output_type = "{{ output_type }}"
+          }
+          group_info {
+            output_type = "{{ output_type }}"
+          }
+          user_info {
+            output_type = "{{ output_type }}"
+          }
+        }
+      }
+    }
+}

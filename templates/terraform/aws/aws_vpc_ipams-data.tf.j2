@@ -1,0 +1,8 @@
+data "aws_vpc_ipams" "example" {
+    ipam_ids = ["{{ ipam_ids }}"]
+    region = "{{ region }}"
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
+}

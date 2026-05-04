@@ -1,19 +1,51 @@
 resource "azurerm_logic_app_workflow" "example" {
-    access_endpoint = "{{ access_endpoint }}"
-    connector_endpoint_ip_addresses = "{{ connector_endpoint_ip_addresses }}"
-    connector_outbound_ip_addresses = "{{ connector_outbound_ip_addresses }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     integration_service_environment_id = "{{ integration_service_environment_id }}"
     location = "{{ location }}"
     logic_app_integration_account_id = "{{ logic_app_integration_account_id }}"
     name = "{{ name }}"
-    parameters = "{{ parameters }}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
-    workflow_endpoint_ip_addresses = "{{ workflow_endpoint_ip_addresses }}"
-    workflow_outbound_ip_addresses = "{{ workflow_outbound_ip_addresses }}"
-    workflow_parameters = "{{ workflow_parameters }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    workflow_parameters = {
+        key = "{{ workflow_parameters_value }}"
+      }
     workflow_schema = "{{ workflow_schema }}"
     workflow_version = "{{ workflow_version }}"
+    access_control {
+      action {
+        allowed_caller_ip_address_range = ["{{ allowed_caller_ip_address_range }}"]
+      }
+      content {
+        allowed_caller_ip_address_range = ["{{ allowed_caller_ip_address_range }}"]
+      }
+      trigger {
+        allowed_caller_ip_address_range = ["{{ allowed_caller_ip_address_range }}"]
+        open_authentication_policy {
+          name = "{{ name }}"
+          claim {
+            name = "{{ name }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+      workflow_management {
+        allowed_caller_ip_address_range = ["{{ allowed_caller_ip_address_range }}"]
+      }
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

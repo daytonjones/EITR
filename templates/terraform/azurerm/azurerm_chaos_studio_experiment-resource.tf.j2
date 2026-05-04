@@ -3,4 +3,33 @@ resource "azurerm_chaos_studio_experiment" "example" {
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    selectors {
+      chaos_studio_target_ids = ["{{ chaos_studio_target_ids }}"]
+      name = "{{ name }}"
+    }
+    steps {
+      name = "{{ name }}"
+      branch {
+        name = "{{ name }}"
+        actions {
+          action_type = "{{ action_type }}"
+          duration = "{{ duration }}"
+          parameters = {
+        key = "{{ parameters_value }}"
+      }
+          selector_name = "{{ selector_name }}"
+          urn = "{{ urn }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

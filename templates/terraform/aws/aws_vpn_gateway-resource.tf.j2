@@ -1,9 +1,13 @@
 resource "aws_vpn_gateway" "example" {
     amazon_side_asn = "{{ amazon_side_asn }}"
-    arn = "{{ arn }}"
     availability_zone = "{{ availability_zone }}"
     id = "{{ id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     vpc_id = "{{ vpc_id }}"
 }

@@ -1,10 +1,22 @@
 resource "azurerm_stack_hci_network_interface" "example" {
     custom_location_id = "{{ custom_location_id }}"
-    dns_servers = "{{ dns_servers }}"
+    dns_servers = ["{{ dns_servers }}"]
     id = "{{ id }}"
     location = "{{ location }}"
     mac_address = "{{ mac_address }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    ip_configuration {
+      private_ip_address = "{{ private_ip_address }}"
+      subnet_id = "{{ subnet_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

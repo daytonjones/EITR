@@ -1,0 +1,23 @@
+resource "azurerm_cognitive_account_rai_policy" "example" {
+    base_policy_name = "{{ base_policy_name }}"
+    cognitive_account_id = "{{ cognitive_account_id }}"
+    id = "{{ id }}"
+    mode = "{{ mode }}"
+    name = "{{ name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    content_filter {
+      block_enabled = {{ block_enabled }}
+      filter_enabled = {{ filter_enabled }}
+      name = "{{ name }}"
+      severity_threshold = "{{ severity_threshold }}"
+      source = "{{ source }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

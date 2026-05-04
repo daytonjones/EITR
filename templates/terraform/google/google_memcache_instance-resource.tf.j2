@@ -1,20 +1,43 @@
 resource "google_memcache_instance" "example" {
     authorized_network = "{{ authorized_network }}"
-    create_time = "{{ create_time }}"
-    discovery_endpoint = "{{ discovery_endpoint }}"
+    deletion_protection = {{ deletion_protection }}
     display_name = "{{ display_name }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
-    maintenance_schedule = "{{ maintenance_schedule }}"
-    memcache_full_version = "{{ memcache_full_version }}"
-    memcache_nodes = "{{ memcache_nodes }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     memcache_version = "{{ memcache_version }}"
     name = "{{ name }}"
-    node_count = "{{ node_count }}"
+    node_count = {{ node_count }}
     project = "{{ project }}"
     region = "{{ region }}"
-    reserved_ip_range_id = "{{ reserved_ip_range_id }}"
-    terraform_labels = "{{ terraform_labels }}"
-    zones = "{{ zones }}"
+    reserved_ip_range_id = ["{{ reserved_ip_range_id }}"]
+    zones = ["{{ zones }}"]
+    maintenance_policy {
+      description = "{{ description }}"
+      weekly_maintenance_window {
+        day = "{{ day }}"
+        duration = "{{ duration }}"
+        start_time {
+          hours = {{ hours }}
+          minutes = {{ minutes }}
+          nanos = {{ nanos }}
+          seconds = {{ seconds }}
+        }
+      }
+    }
+    memcache_parameters {
+      params = {
+        key = "{{ params_value }}"
+      }
+    }
+    node_config {
+      cpu_count = {{ cpu_count }}
+      memory_size_mb = {{ memory_size_mb }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

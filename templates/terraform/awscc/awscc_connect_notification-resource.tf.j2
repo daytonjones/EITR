@@ -1,0 +1,8 @@
+resource "awscc_connect_notification" "example" {
+    content = "{{ content }}"
+    expires_at = "{{ expires_at }}"
+    instance_arn = "{{ instance_arn }}"
+    priority = "{{ priority }}"
+    recipients = ["{{ recipients }}"]
+    tags = "{{ tags }}"
+}

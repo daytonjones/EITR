@@ -5,4 +5,10 @@ resource "azurerm_postgresql_active_directory_administrator" "example" {
     resource_group_name = "{{ resource_group_name }}"
     server_name = "{{ server_name }}"
     tenant_id = "{{ tenant_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

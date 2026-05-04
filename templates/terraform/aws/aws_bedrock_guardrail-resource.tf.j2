@@ -1,14 +1,84 @@
 resource "aws_bedrock_guardrail" "example" {
     blocked_input_messaging = "{{ blocked_input_messaging }}"
     blocked_outputs_messaging = "{{ blocked_outputs_messaging }}"
-    created_at = "{{ created_at }}"
     description = "{{ description }}"
-    guardrail_arn = "{{ guardrail_arn }}"
-    guardrail_id = "{{ guardrail_id }}"
     kms_key_arn = "{{ kms_key_arn }}"
     name = "{{ name }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    version = "{{ version }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    content_policy_config {
+      tier_config = ["{{ tier_config }}"]
+      filters_config {
+        input_action = "{{ input_action }}"
+        input_enabled = {{ input_enabled }}
+        input_modalities = ["{{ input_modalities }}"]
+        input_strength = "{{ input_strength }}"
+        output_action = "{{ output_action }}"
+        output_enabled = {{ output_enabled }}
+        output_modalities = ["{{ output_modalities }}"]
+        output_strength = "{{ output_strength }}"
+        type = "{{ type }}"
+      }
+    }
+    contextual_grounding_policy_config {
+      filters_config {
+        threshold = {{ threshold }}
+        type = "{{ type }}"
+      }
+    }
+    cross_region_config {
+      guardrail_profile_identifier = "{{ guardrail_profile_identifier }}"
+    }
+    sensitive_information_policy_config {
+      pii_entities_config {
+        action = "{{ action }}"
+        input_action = "{{ input_action }}"
+        input_enabled = {{ input_enabled }}
+        output_action = "{{ output_action }}"
+        output_enabled = {{ output_enabled }}
+        type = "{{ type }}"
+      }
+      regexes_config {
+        action = "{{ action }}"
+        description = "{{ description }}"
+        input_action = "{{ input_action }}"
+        input_enabled = {{ input_enabled }}
+        name = "{{ name }}"
+        output_action = "{{ output_action }}"
+        output_enabled = {{ output_enabled }}
+        pattern = "{{ pattern }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    topic_policy_config {
+      tier_config = ["{{ tier_config }}"]
+      topics_config {
+        definition = "{{ definition }}"
+        examples = ["{{ examples }}"]
+        name = "{{ name }}"
+        type = "{{ type }}"
+      }
+    }
+    word_policy_config {
+      managed_word_lists_config {
+        input_action = "{{ input_action }}"
+        input_enabled = {{ input_enabled }}
+        output_action = "{{ output_action }}"
+        output_enabled = {{ output_enabled }}
+        type = "{{ type }}"
+      }
+      words_config {
+        input_action = "{{ input_action }}"
+        input_enabled = {{ input_enabled }}
+        output_action = "{{ output_action }}"
+        output_enabled = {{ output_enabled }}
+        text = "{{ text }}"
+      }
+    }
 }

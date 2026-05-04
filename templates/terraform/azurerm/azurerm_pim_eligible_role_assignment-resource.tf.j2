@@ -1,8 +1,26 @@
 resource "azurerm_pim_eligible_role_assignment" "example" {
+    condition = "{{ condition }}"
+    condition_version = "{{ condition_version }}"
     id = "{{ id }}"
     justification = "{{ justification }}"
     principal_id = "{{ principal_id }}"
-    principal_type = "{{ principal_type }}"
     role_definition_id = "{{ role_definition_id }}"
     scope = "{{ scope }}"
+    schedule {
+      start_date_time = "{{ start_date_time }}"
+      expiration {
+        duration_days = {{ duration_days }}
+        duration_hours = {{ duration_hours }}
+        end_date_time = "{{ end_date_time }}"
+      }
+    }
+    ticket {
+      number = "{{ number }}"
+      system = "{{ system }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

@@ -1,5 +1,6 @@
 resource "aws_verifiedaccess_instance_trust_provider_attachment" "example" {
     id = "{{ id }}"
+    region = "{{ region }}"
     verifiedaccess_instance_id = "{{ verifiedaccess_instance_id }}"
     verifiedaccess_trust_provider_id = "{{ verifiedaccess_trust_provider_id }}"
 }

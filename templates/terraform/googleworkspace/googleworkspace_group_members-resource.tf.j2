@@ -1,5 +1,9 @@
 resource "googleworkspace_group_members" "example" {
-    etag = "{{ etag }}"
     group_id = "{{ group_id }}"
-    id = "{{ id }}"
+    members {
+      delivery_settings = "{{ delivery_settings }}"
+      email = "{{ email }}"
+      role = "{{ role }}"
+      type = "{{ type }}"
+    }
 }

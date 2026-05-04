@@ -1,11 +1,16 @@
 resource "vault_config_ui_custom_message" "example" {
-    authenticated = "{{ authenticated }}"
+    authenticated = {{ authenticated }}
     end_time = "{{ end_time }}"
-    id = "{{ id }}"
     message_base64 = "{{ message_base64 }}"
     namespace = "{{ namespace }}"
-    options = "{{ options }}"
+    options = {
+        key = "{{ options_value }}"
+      }
     start_time = "{{ start_time }}"
     title = "{{ title }}"
     type = "{{ type }}"
+    link {
+      href = "{{ href }}"
+      title = "{{ title }}"
+    }
 }

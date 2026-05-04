@@ -1,27 +1,12 @@
 resource "awscc_networkmanager_device" "example" {
-    aws_location = "{
-    subnet_arn = {{ subnet_arn }}
-    zone = {{ zone }}
-}"
-    created_at = "{{ created_at }}"
+    aws_location = "{{ aws_location }}"
     description = "{{ description }}"
-    device_arn = "{{ device_arn }}"
-    device_id = "{{ device_id }}"
     global_network_id = "{{ global_network_id }}"
-    id = "{{ id }}"
-    location = "{
-    address = {{ address }}
-    latitude = {{ latitude }}
-    longitude = {{ longitude }}
-}"
+    location = "{{ location }}"
     model = "{{ model }}"
     serial_number = "{{ serial_number }}"
     site_id = "{{ site_id }}"
-    state = "{{ state }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
     type = "{{ type }}"
     vendor = "{{ vendor }}"
 }

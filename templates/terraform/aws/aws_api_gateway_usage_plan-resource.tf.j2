@@ -1,9 +1,31 @@
 resource "aws_api_gateway_usage_plan" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
     product_code = "{{ product_code }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    api_stages {
+      api_id = "{{ api_id }}"
+      stage = "{{ stage }}"
+      throttle {
+        burst_limit = {{ burst_limit }}
+        path = "{{ path }}"
+        rate_limit = {{ rate_limit }}
+      }
+    }
+    quota_settings {
+      limit = {{ limit }}
+      offset = {{ offset }}
+      period = "{{ period }}"
+    }
+    throttle_settings {
+      burst_limit = {{ burst_limit }}
+      rate_limit = {{ rate_limit }}
+    }
 }

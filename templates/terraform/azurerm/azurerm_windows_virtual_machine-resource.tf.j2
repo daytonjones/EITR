@@ -1,9 +1,10 @@
 resource "azurerm_windows_virtual_machine" "example" {
     admin_password = "{{ admin_password }}"
     admin_username = "{{ admin_username }}"
-    allow_extension_operations = "{{ allow_extension_operations }}"
+    allow_extension_operations = {{ allow_extension_operations }}
+    automatic_updates_enabled = {{ automatic_updates_enabled }}
     availability_set_id = "{{ availability_set_id }}"
-    bypass_platform_safety_checks_on_user_schedule_enabled = "{{ bypass_platform_safety_checks_on_user_schedule_enabled }}"
+    bypass_platform_safety_checks_on_user_schedule_enabled = {{ bypass_platform_safety_checks_on_user_schedule_enabled }}
     capacity_reservation_group_id = "{{ capacity_reservation_group_id }}"
     computer_name = "{{ computer_name }}"
     custom_data = "{{ custom_data }}"
@@ -11,38 +12,108 @@ resource "azurerm_windows_virtual_machine" "example" {
     dedicated_host_id = "{{ dedicated_host_id }}"
     disk_controller_type = "{{ disk_controller_type }}"
     edge_zone = "{{ edge_zone }}"
-    enable_automatic_updates = "{{ enable_automatic_updates }}"
-    encryption_at_host_enabled = "{{ encryption_at_host_enabled }}"
+    enable_automatic_updates = {{ enable_automatic_updates }}
+    encryption_at_host_enabled = {{ encryption_at_host_enabled }}
     eviction_policy = "{{ eviction_policy }}"
     extensions_time_budget = "{{ extensions_time_budget }}"
-    hotpatching_enabled = "{{ hotpatching_enabled }}"
+    hotpatching_enabled = {{ hotpatching_enabled }}
     id = "{{ id }}"
     license_type = "{{ license_type }}"
     location = "{{ location }}"
-    max_bid_price = "{{ max_bid_price }}"
+    max_bid_price = {{ max_bid_price }}
     name = "{{ name }}"
-    network_interface_ids = "{{ network_interface_ids }}"
+    network_interface_ids = ["{{ network_interface_ids }}"]
+    os_managed_disk_id = "{{ os_managed_disk_id }}"
     patch_assessment_mode = "{{ patch_assessment_mode }}"
     patch_mode = "{{ patch_mode }}"
-    platform_fault_domain = "{{ platform_fault_domain }}"
+    platform_fault_domain = {{ platform_fault_domain }}
     priority = "{{ priority }}"
-    private_ip_address = "{{ private_ip_address }}"
-    private_ip_addresses = "{{ private_ip_addresses }}"
-    provision_vm_agent = "{{ provision_vm_agent }}"
+    provision_vm_agent = {{ provision_vm_agent }}
     proximity_placement_group_id = "{{ proximity_placement_group_id }}"
-    public_ip_address = "{{ public_ip_address }}"
-    public_ip_addresses = "{{ public_ip_addresses }}"
     reboot_setting = "{{ reboot_setting }}"
     resource_group_name = "{{ resource_group_name }}"
-    secure_boot_enabled = "{{ secure_boot_enabled }}"
+    secure_boot_enabled = {{ secure_boot_enabled }}
     size = "{{ size }}"
     source_image_id = "{{ source_image_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     timezone = "{{ timezone }}"
     user_data = "{{ user_data }}"
-    virtual_machine_id = "{{ virtual_machine_id }}"
     virtual_machine_scale_set_id = "{{ virtual_machine_scale_set_id }}"
-    vm_agent_platform_updates_enabled = "{{ vm_agent_platform_updates_enabled }}"
-    vtpm_enabled = "{{ vtpm_enabled }}"
+    vm_agent_platform_updates_enabled = {{ vm_agent_platform_updates_enabled }}
+    vtpm_enabled = {{ vtpm_enabled }}
     zone = "{{ zone }}"
+    additional_capabilities {
+      hibernation_enabled = {{ hibernation_enabled }}
+      ultra_ssd_enabled = {{ ultra_ssd_enabled }}
+    }
+    additional_unattend_content {
+      content = "{{ content }}"
+      setting = "{{ setting }}"
+    }
+    boot_diagnostics {
+      storage_account_uri = "{{ storage_account_uri }}"
+    }
+    gallery_application {
+      automatic_upgrade_enabled = {{ automatic_upgrade_enabled }}
+      configuration_blob_uri = "{{ configuration_blob_uri }}"
+      order = {{ order }}
+      tag = "{{ tag }}"
+      treat_failure_as_deployment_failure_enabled = {{ treat_failure_as_deployment_failure_enabled }}
+      version_id = "{{ version_id }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    os_disk {
+      caching = "{{ caching }}"
+      disk_encryption_set_id = "{{ disk_encryption_set_id }}"
+      disk_size_gb = {{ disk_size_gb }}
+      name = "{{ name }}"
+      secure_vm_disk_encryption_set_id = "{{ secure_vm_disk_encryption_set_id }}"
+      security_encryption_type = "{{ security_encryption_type }}"
+      storage_account_type = "{{ storage_account_type }}"
+      write_accelerator_enabled = {{ write_accelerator_enabled }}
+      diff_disk_settings {
+        option = "{{ option }}"
+        placement = "{{ placement }}"
+      }
+    }
+    os_image_notification {
+      timeout = "{{ timeout }}"
+    }
+    plan {
+      name = "{{ name }}"
+      product = "{{ product }}"
+      publisher = "{{ publisher }}"
+    }
+    secret {
+      key_vault_id = "{{ key_vault_id }}"
+      certificate {
+        store = "{{ store }}"
+        url = "{{ url }}"
+      }
+    }
+    source_image_reference {
+      offer = "{{ offer }}"
+      publisher = "{{ publisher }}"
+      sku = "{{ sku }}"
+      version = "{{ version }}"
+    }
+    termination_notification {
+      enabled = {{ enabled }}
+      timeout = "{{ timeout }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    winrm_listener {
+      certificate_url = "{{ certificate_url }}"
+      protocol = "{{ protocol }}"
+    }
 }

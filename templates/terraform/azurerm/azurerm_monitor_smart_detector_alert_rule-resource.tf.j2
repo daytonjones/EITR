@@ -1,13 +1,26 @@
 resource "azurerm_monitor_smart_detector_alert_rule" "example" {
     description = "{{ description }}"
     detector_type = "{{ detector_type }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     frequency = "{{ frequency }}"
     id = "{{ id }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    scope_resource_ids = "{{ scope_resource_ids }}"
+    scope_resource_ids = ["{{ scope_resource_ids }}"]
     severity = "{{ severity }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     throttling_duration = "{{ throttling_duration }}"
+    action_group {
+      email_subject = "{{ email_subject }}"
+      ids = ["{{ ids }}"]
+      webhook_payload = "{{ webhook_payload }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

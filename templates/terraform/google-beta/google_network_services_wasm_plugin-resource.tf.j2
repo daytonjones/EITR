@@ -1,0 +1,31 @@
+resource "google_network_services_wasm_plugin" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    main_version_id = "{{ main_version_id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    log_config {
+      enable = {{ enable }}
+      min_log_level = "{{ min_log_level }}"
+      sample_rate = {{ sample_rate }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    versions {
+      description = "{{ description }}"
+      image_uri = "{{ image_uri }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      plugin_config_data = "{{ plugin_config_data }}"
+      plugin_config_uri = "{{ plugin_config_uri }}"
+      version_name = "{{ version_name }}"
+    }
+}

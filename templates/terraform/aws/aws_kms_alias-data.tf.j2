@@ -1,7 +1,5 @@
 data "aws_kms_alias" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    target_key_arn = "{{ target_key_arn }}"
-    target_key_id = "{{ target_key_id }}"
+    region = "{{ region }}"
 }

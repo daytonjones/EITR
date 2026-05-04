@@ -1,19 +1,6 @@
 resource "awscc_macie_allow_list" "example" {
-    allow_list_id = "{{ allow_list_id }}"
-    arn = "{{ arn }}"
-    criteria = "{
-    regex = {{ regex }}
-    s3_words_list = {
-    bucket_name = {{ bucket_name }}
-    object_key = {{ object_key }}
-}
-}"
+    criteria = "{{ criteria }}"
     description = "{{ description }}"
-    id = "{{ id }}"
     name = "{{ name }}"
-    status = "{{ status }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
 }

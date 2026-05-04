@@ -1,15 +1,416 @@
 resource "google_datastream_stream" "example" {
-    create_without_validation = "{{ create_without_validation }}"
+    create_without_validation = {{ create_without_validation }}
     customer_managed_encryption_key = "{{ customer_managed_encryption_key }}"
     desired_state = "{{ desired_state }}"
     display_name = "{{ display_name }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    state = "{{ state }}"
     stream_id = "{{ stream_id }}"
-    terraform_labels = "{{ terraform_labels }}"
+    backfill_all {
+      mongodb_excluded_objects {
+        databases {
+          database = "{{ database }}"
+          collections {
+            collection = "{{ collection }}"
+            fields {
+              field = "{{ field }}"
+            }
+          }
+        }
+      }
+      mysql_excluded_objects {
+        mysql_databases {
+          database = "{{ database }}"
+          mysql_tables {
+            table = "{{ table }}"
+            mysql_columns {
+              collation = "{{ collation }}"
+              column = "{{ column }}"
+              data_type = "{{ data_type }}"
+              nullable = {{ nullable }}
+              ordinal_position = {{ ordinal_position }}
+              primary_key = {{ primary_key }}
+            }
+          }
+        }
+      }
+      oracle_excluded_objects {
+        oracle_schemas {
+          schema = "{{ schema }}"
+          oracle_tables {
+            table = "{{ table }}"
+            oracle_columns {
+              column = "{{ column }}"
+              data_type = "{{ data_type }}"
+            }
+          }
+        }
+      }
+      postgresql_excluded_objects {
+        postgresql_schemas {
+          schema = "{{ schema }}"
+          postgresql_tables {
+            table = "{{ table }}"
+            postgresql_columns {
+              column = "{{ column }}"
+              data_type = "{{ data_type }}"
+              nullable = {{ nullable }}
+              ordinal_position = {{ ordinal_position }}
+              primary_key = {{ primary_key }}
+            }
+          }
+        }
+      }
+      salesforce_excluded_objects {
+        objects {
+          object_name = "{{ object_name }}"
+          fields {
+            name = "{{ name }}"
+          }
+        }
+      }
+      spanner_excluded_objects {
+        schemas {
+          schema = "{{ schema }}"
+          tables {
+            table = "{{ table }}"
+            columns {
+              column = "{{ column }}"
+            }
+          }
+        }
+      }
+      sql_server_excluded_objects {
+        schemas {
+          schema = "{{ schema }}"
+          tables {
+            table = "{{ table }}"
+            columns {
+              column = "{{ column }}"
+              data_type = "{{ data_type }}"
+            }
+          }
+        }
+      }
+    }
+    backfill_none {
+    }
+    destination_config {
+      destination_connection_profile = "{{ destination_connection_profile }}"
+      bigquery_destination_config {
+        data_freshness = "{{ data_freshness }}"
+        append_only {
+        }
+        blmt_config {
+          bucket = "{{ bucket }}"
+          connection_name = "{{ connection_name }}"
+          file_format = "{{ file_format }}"
+          root_path = "{{ root_path }}"
+          table_format = "{{ table_format }}"
+        }
+        merge {
+        }
+        single_target_dataset {
+          dataset_id = "{{ dataset_id }}"
+        }
+        source_hierarchy_datasets {
+          project_id = "{{ project_id }}"
+          dataset_template {
+            dataset_id_prefix = "{{ dataset_id_prefix }}"
+            kms_key_name = "{{ kms_key_name }}"
+            location = "{{ location }}"
+          }
+        }
+      }
+      gcs_destination_config {
+        file_rotation_interval = "{{ file_rotation_interval }}"
+        file_rotation_mb = {{ file_rotation_mb }}
+        path = "{{ path }}"
+        avro_file_format {
+        }
+        json_file_format {
+          compression = "{{ compression }}"
+          schema_file_format = "{{ schema_file_format }}"
+        }
+      }
+    }
+    rule_sets {
+      customization_rules {
+        bigquery_clustering {
+          columns = ["{{ columns }}"]
+        }
+        bigquery_partitioning {
+          require_partition_filter = {{ require_partition_filter }}
+          ingestion_time_partition {
+            partitioning_time_granularity = "{{ partitioning_time_granularity }}"
+          }
+          integer_range_partition {
+            column = "{{ column }}"
+            end = {{ end }}
+            interval = {{ interval }}
+            start = {{ start }}
+          }
+          time_unit_partition {
+            column = "{{ column }}"
+            partitioning_time_granularity = "{{ partitioning_time_granularity }}"
+          }
+        }
+      }
+      object_filter {
+        source_object_identifier {
+          mongodb_identifier {
+            collection = "{{ collection }}"
+            database = "{{ database }}"
+          }
+          mysql_identifier {
+            database = "{{ database }}"
+            table = "{{ table }}"
+          }
+          oracle_identifier {
+            schema = "{{ schema }}"
+            table = "{{ table }}"
+          }
+          postgresql_identifier {
+            schema = "{{ schema }}"
+            table = "{{ table }}"
+          }
+          salesforce_identifier {
+            object_name = "{{ object_name }}"
+          }
+          spanner_identifier {
+            schema = "{{ schema }}"
+            table = "{{ table }}"
+          }
+          sql_server_identifier {
+            schema = "{{ schema }}"
+            table = "{{ table }}"
+          }
+        }
+      }
+    }
+    source_config {
+      source_connection_profile = "{{ source_connection_profile }}"
+      mongodb_source_config {
+        max_concurrent_backfill_tasks = {{ max_concurrent_backfill_tasks }}
+        exclude_objects {
+          databases {
+            database = "{{ database }}"
+            collections {
+              collection = "{{ collection }}"
+              fields {
+                field = "{{ field }}"
+              }
+            }
+          }
+        }
+        include_objects {
+          databases {
+            database = "{{ database }}"
+            collections {
+              collection = "{{ collection }}"
+              fields {
+                field = "{{ field }}"
+              }
+            }
+          }
+        }
+      }
+      mysql_source_config {
+        max_concurrent_backfill_tasks = {{ max_concurrent_backfill_tasks }}
+        max_concurrent_cdc_tasks = {{ max_concurrent_cdc_tasks }}
+        binary_log_position {
+        }
+        exclude_objects {
+          mysql_databases {
+            database = "{{ database }}"
+            mysql_tables {
+              table = "{{ table }}"
+              mysql_columns {
+                collation = "{{ collation }}"
+                column = "{{ column }}"
+                data_type = "{{ data_type }}"
+                nullable = {{ nullable }}
+                ordinal_position = {{ ordinal_position }}
+                primary_key = {{ primary_key }}
+              }
+            }
+          }
+        }
+        gtid {
+        }
+        include_objects {
+          mysql_databases {
+            database = "{{ database }}"
+            mysql_tables {
+              table = "{{ table }}"
+              mysql_columns {
+                collation = "{{ collation }}"
+                column = "{{ column }}"
+                data_type = "{{ data_type }}"
+                nullable = {{ nullable }}
+                ordinal_position = {{ ordinal_position }}
+                primary_key = {{ primary_key }}
+              }
+            }
+          }
+        }
+      }
+      oracle_source_config {
+        max_concurrent_backfill_tasks = {{ max_concurrent_backfill_tasks }}
+        max_concurrent_cdc_tasks = {{ max_concurrent_cdc_tasks }}
+        drop_large_objects {
+        }
+        exclude_objects {
+          oracle_schemas {
+            schema = "{{ schema }}"
+            oracle_tables {
+              table = "{{ table }}"
+              oracle_columns {
+                column = "{{ column }}"
+                data_type = "{{ data_type }}"
+              }
+            }
+          }
+        }
+        include_objects {
+          oracle_schemas {
+            schema = "{{ schema }}"
+            oracle_tables {
+              table = "{{ table }}"
+              oracle_columns {
+                column = "{{ column }}"
+                data_type = "{{ data_type }}"
+              }
+            }
+          }
+        }
+        stream_large_objects {
+        }
+      }
+      postgresql_source_config {
+        max_concurrent_backfill_tasks = {{ max_concurrent_backfill_tasks }}
+        publication = "{{ publication }}"
+        replication_slot = "{{ replication_slot }}"
+        exclude_objects {
+          postgresql_schemas {
+            schema = "{{ schema }}"
+            postgresql_tables {
+              table = "{{ table }}"
+              postgresql_columns {
+                column = "{{ column }}"
+                data_type = "{{ data_type }}"
+                nullable = {{ nullable }}
+                ordinal_position = {{ ordinal_position }}
+                primary_key = {{ primary_key }}
+              }
+            }
+          }
+        }
+        include_objects {
+          postgresql_schemas {
+            schema = "{{ schema }}"
+            postgresql_tables {
+              table = "{{ table }}"
+              postgresql_columns {
+                column = "{{ column }}"
+                data_type = "{{ data_type }}"
+                nullable = {{ nullable }}
+                ordinal_position = {{ ordinal_position }}
+                primary_key = {{ primary_key }}
+              }
+            }
+          }
+        }
+      }
+      salesforce_source_config {
+        polling_interval = "{{ polling_interval }}"
+        exclude_objects {
+          objects {
+            object_name = "{{ object_name }}"
+            fields {
+              name = "{{ name }}"
+            }
+          }
+        }
+        include_objects {
+          objects {
+            object_name = "{{ object_name }}"
+            fields {
+              name = "{{ name }}"
+            }
+          }
+        }
+      }
+      spanner_source_config {
+        backfill_data_boost_enabled = {{ backfill_data_boost_enabled }}
+        change_stream_name = "{{ change_stream_name }}"
+        fgac_role = "{{ fgac_role }}"
+        max_concurrent_backfill_tasks = {{ max_concurrent_backfill_tasks }}
+        max_concurrent_cdc_tasks = {{ max_concurrent_cdc_tasks }}
+        spanner_rpc_priority = "{{ spanner_rpc_priority }}"
+        exclude_objects {
+          schemas {
+            schema = "{{ schema }}"
+            tables {
+              table = "{{ table }}"
+              columns {
+                column = "{{ column }}"
+              }
+            }
+          }
+        }
+        include_objects {
+          schemas {
+            schema = "{{ schema }}"
+            tables {
+              table = "{{ table }}"
+              columns {
+                column = "{{ column }}"
+              }
+            }
+          }
+        }
+      }
+      sql_server_source_config {
+        max_concurrent_backfill_tasks = {{ max_concurrent_backfill_tasks }}
+        max_concurrent_cdc_tasks = {{ max_concurrent_cdc_tasks }}
+        change_tables {
+        }
+        exclude_objects {
+          schemas {
+            schema = "{{ schema }}"
+            tables {
+              table = "{{ table }}"
+              columns {
+                column = "{{ column }}"
+                data_type = "{{ data_type }}"
+              }
+            }
+          }
+        }
+        include_objects {
+          schemas {
+            schema = "{{ schema }}"
+            tables {
+              table = "{{ table }}"
+              columns {
+                column = "{{ column }}"
+                data_type = "{{ data_type }}"
+              }
+            }
+          }
+        }
+        transaction_logs {
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,7 +1,11 @@
 resource "google_artifact_registry_vpcsc_config" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     project = "{{ project }}"
     vpcsc_policy = "{{ vpcsc_policy }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,5 +1,7 @@
 data "azurerm_subscription_template_deployment" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
-    output_content = "{{ output_content }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

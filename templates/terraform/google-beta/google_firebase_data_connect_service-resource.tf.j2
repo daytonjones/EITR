@@ -1,0 +1,19 @@
+resource "google_firebase_data_connect_service" "example" {
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
+    deletion_policy = "{{ deletion_policy }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    service_id = "{{ service_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

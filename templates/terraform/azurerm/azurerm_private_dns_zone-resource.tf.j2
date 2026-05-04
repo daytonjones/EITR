@@ -1,10 +1,25 @@
 resource "azurerm_private_dns_zone" "example" {
     id = "{{ id }}"
-    max_number_of_record_sets = "{{ max_number_of_record_sets }}"
-    max_number_of_virtual_network_links = "{{ max_number_of_virtual_network_links }}"
-    max_number_of_virtual_network_links_with_registration = "{{ max_number_of_virtual_network_links_with_registration }}"
     name = "{{ name }}"
-    number_of_record_sets = "{{ number_of_record_sets }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    soa_record {
+      email = "{{ email }}"
+      expire_time = {{ expire_time }}
+      minimum_ttl = {{ minimum_ttl }}
+      refresh_time = {{ refresh_time }}
+      retry_time = {{ retry_time }}
+      tags = {
+        key = "{{ tags_value }}"
+      }
+      ttl = {{ ttl }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

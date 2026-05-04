@@ -1,0 +1,8 @@
+resource "google_biglake_iceberg_table_iam_policy" "example" {
+    catalog = "{{ catalog }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    policy_data = "{{ policy_data }}"
+    project = "{{ project }}"
+}

@@ -1,12 +1,133 @@
 resource "google_monitoring_alert_policy" "example" {
     combiner = "{{ combiner }}"
-    creation_record = "{{ creation_record }}"
     display_name = "{{ display_name }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
-    name = "{{ name }}"
-    notification_channels = "{{ notification_channels }}"
+    notification_channels = ["{{ notification_channels }}"]
     project = "{{ project }}"
     severity = "{{ severity }}"
-    user_labels = "{{ user_labels }}"
+    user_labels = {
+        key = "{{ user_labels_value }}"
+      }
+    alert_strategy {
+      auto_close = "{{ auto_close }}"
+      notification_prompts = ["{{ notification_prompts }}"]
+      notification_channel_strategy {
+        notification_channel_names = ["{{ notification_channel_names }}"]
+        renotify_interval = "{{ renotify_interval }}"
+      }
+      notification_rate_limit {
+        period = "{{ period }}"
+      }
+    }
+    conditions {
+      display_name = "{{ display_name }}"
+      condition_absent {
+        duration = "{{ duration }}"
+        filter = "{{ filter }}"
+        aggregations {
+          alignment_period = "{{ alignment_period }}"
+          cross_series_reducer = "{{ cross_series_reducer }}"
+          group_by_fields = ["{{ group_by_fields }}"]
+          per_series_aligner = "{{ per_series_aligner }}"
+        }
+        trigger {
+          count = {{ count }}
+          percent = {{ percent }}
+        }
+      }
+      condition_matched_log {
+        filter = "{{ filter }}"
+        label_extractors = {
+        key = "{{ label_extractors_value }}"
+      }
+      }
+      condition_monitoring_query_language {
+        duration = "{{ duration }}"
+        evaluation_missing_data = "{{ evaluation_missing_data }}"
+        query = "{{ query }}"
+        trigger {
+          count = {{ count }}
+          percent = {{ percent }}
+        }
+      }
+      condition_prometheus_query_language {
+        alert_rule = "{{ alert_rule }}"
+        disable_metric_validation = {{ disable_metric_validation }}
+        duration = "{{ duration }}"
+        evaluation_interval = "{{ evaluation_interval }}"
+        labels = {
+        key = "{{ labels_value }}"
+      }
+        query = "{{ query }}"
+        rule_group = "{{ rule_group }}"
+      }
+      condition_sql {
+        query = "{{ query }}"
+        boolean_test {
+          column = "{{ column }}"
+        }
+        daily {
+          periodicity = {{ periodicity }}
+          execution_time {
+            hours = {{ hours }}
+            minutes = {{ minutes }}
+            nanos = {{ nanos }}
+            seconds = {{ seconds }}
+          }
+        }
+        hourly {
+          minute_offset = {{ minute_offset }}
+          periodicity = {{ periodicity }}
+        }
+        minutes {
+          periodicity = {{ periodicity }}
+        }
+        row_count_test {
+          comparison = "{{ comparison }}"
+          threshold = {{ threshold }}
+        }
+      }
+      condition_threshold {
+        comparison = "{{ comparison }}"
+        denominator_filter = "{{ denominator_filter }}"
+        duration = "{{ duration }}"
+        evaluation_missing_data = "{{ evaluation_missing_data }}"
+        filter = "{{ filter }}"
+        threshold_value = {{ threshold_value }}
+        aggregations {
+          alignment_period = "{{ alignment_period }}"
+          cross_series_reducer = "{{ cross_series_reducer }}"
+          group_by_fields = ["{{ group_by_fields }}"]
+          per_series_aligner = "{{ per_series_aligner }}"
+        }
+        denominator_aggregations {
+          alignment_period = "{{ alignment_period }}"
+          cross_series_reducer = "{{ cross_series_reducer }}"
+          group_by_fields = ["{{ group_by_fields }}"]
+          per_series_aligner = "{{ per_series_aligner }}"
+        }
+        forecast_options {
+          forecast_horizon = "{{ forecast_horizon }}"
+        }
+        trigger {
+          count = {{ count }}
+          percent = {{ percent }}
+        }
+      }
+    }
+    documentation {
+      content = "{{ content }}"
+      mime_type = "{{ mime_type }}"
+      subject = "{{ subject }}"
+      links {
+        display_name = "{{ display_name }}"
+        url = "{{ url }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

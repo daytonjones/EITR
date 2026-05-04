@@ -1,9 +1,6 @@
 data "aws_lambda_alias" "example" {
-    arn = "{{ arn }}"
-    description = "{{ description }}"
     function_name = "{{ function_name }}"
-    function_version = "{{ function_version }}"
     id = "{{ id }}"
-    invoke_arn = "{{ invoke_arn }}"
     name = "{{ name }}"
+    region = "{{ region }}"
 }

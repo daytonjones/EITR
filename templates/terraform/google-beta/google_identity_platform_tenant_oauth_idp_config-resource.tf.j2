@@ -2,10 +2,15 @@ resource "google_identity_platform_tenant_oauth_idp_config" "example" {
     client_id = "{{ client_id }}"
     client_secret = "{{ client_secret }}"
     display_name = "{{ display_name }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     issuer = "{{ issuer }}"
     name = "{{ name }}"
     project = "{{ project }}"
     tenant = "{{ tenant }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

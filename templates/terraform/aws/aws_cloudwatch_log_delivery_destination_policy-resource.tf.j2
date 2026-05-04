@@ -1,0 +1,5 @@
+resource "aws_cloudwatch_log_delivery_destination_policy" "example" {
+    delivery_destination_name = "{{ delivery_destination_name }}"
+    delivery_destination_policy = "{{ delivery_destination_policy }}"
+    region = "{{ region }}"
+}

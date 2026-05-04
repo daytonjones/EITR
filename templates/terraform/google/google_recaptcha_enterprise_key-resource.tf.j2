@@ -1,10 +1,36 @@
 resource "google_recaptcha_enterprise_key" "example" {
-    create_time = "{{ create_time }}"
     display_name = "{{ display_name }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
-    name = "{{ name }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     project = "{{ project }}"
-    terraform_labels = "{{ terraform_labels }}"
+    android_settings {
+      allow_all_package_names = {{ allow_all_package_names }}
+      allowed_package_names = ["{{ allowed_package_names }}"]
+    }
+    ios_settings {
+      allow_all_bundle_ids = {{ allow_all_bundle_ids }}
+      allowed_bundle_ids = ["{{ allowed_bundle_ids }}"]
+    }
+    testing_options {
+      testing_challenge = "{{ testing_challenge }}"
+      testing_score = {{ testing_score }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    waf_settings {
+      waf_feature = "{{ waf_feature }}"
+      waf_service = "{{ waf_service }}"
+    }
+    web_settings {
+      allow_all_domains = {{ allow_all_domains }}
+      allow_amp_traffic = {{ allow_amp_traffic }}
+      allowed_domains = ["{{ allowed_domains }}"]
+      challenge_security_preference = "{{ challenge_security_preference }}"
+      integration_type = "{{ integration_type }}"
+    }
 }

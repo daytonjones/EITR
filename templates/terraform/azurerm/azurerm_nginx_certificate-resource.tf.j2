@@ -5,4 +5,10 @@ resource "azurerm_nginx_certificate" "example" {
     key_virtual_path = "{{ key_virtual_path }}"
     name = "{{ name }}"
     nginx_deployment_id = "{{ nginx_deployment_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

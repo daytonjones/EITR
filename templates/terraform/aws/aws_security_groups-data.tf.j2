@@ -1,7 +1,14 @@
 data "aws_security_groups" "example" {
-    arns = "{{ arns }}"
     id = "{{ id }}"
-    ids = "{{ ids }}"
-    tags = "{{ tags }}"
-    vpc_ids = "{{ vpc_ids }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
+    timeouts {
+      read = "{{ read }}"
+    }
 }

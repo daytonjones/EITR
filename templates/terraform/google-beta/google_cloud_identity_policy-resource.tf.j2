@@ -1,0 +1,18 @@
+resource "google_cloud_identity_policy" "example" {
+    customer = "{{ customer }}"
+    id = "{{ id }}"
+    policy_query {
+      group = "{{ group }}"
+      org_unit = "{{ org_unit }}"
+      query = "{{ query }}"
+    }
+    setting {
+      type = "{{ type }}"
+      value_json = "{{ value_json }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

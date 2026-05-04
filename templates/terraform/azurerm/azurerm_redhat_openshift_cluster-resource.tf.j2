@@ -1,8 +1,52 @@
 resource "azurerm_redhat_openshift_cluster" "example" {
-    console_url = "{{ console_url }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    api_server_profile {
+      visibility = "{{ visibility }}"
+    }
+    cluster_profile {
+      domain = "{{ domain }}"
+      fips_enabled = {{ fips_enabled }}
+      managed_resource_group_name = "{{ managed_resource_group_name }}"
+      pull_secret = "{{ pull_secret }}"
+      version = "{{ version }}"
+    }
+    ingress_profile {
+      visibility = "{{ visibility }}"
+    }
+    main_profile {
+      disk_encryption_set_id = "{{ disk_encryption_set_id }}"
+      encryption_at_host_enabled = {{ encryption_at_host_enabled }}
+      subnet_id = "{{ subnet_id }}"
+      vm_size = "{{ vm_size }}"
+    }
+    network_profile {
+      outbound_type = "{{ outbound_type }}"
+      pod_cidr = "{{ pod_cidr }}"
+      preconfigured_network_security_group_enabled = {{ preconfigured_network_security_group_enabled }}
+      service_cidr = "{{ service_cidr }}"
+    }
+    service_principal {
+      client_id = "{{ client_id }}"
+      client_secret = "{{ client_secret }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    worker_profile {
+      disk_encryption_set_id = "{{ disk_encryption_set_id }}"
+      disk_size_gb = {{ disk_size_gb }}
+      encryption_at_host_enabled = {{ encryption_at_host_enabled }}
+      node_count = {{ node_count }}
+      subnet_id = "{{ subnet_id }}"
+      vm_size = "{{ vm_size }}"
+    }
 }

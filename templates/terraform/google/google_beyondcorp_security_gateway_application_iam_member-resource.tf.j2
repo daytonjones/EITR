@@ -1,0 +1,13 @@
+resource "google_beyondcorp_security_gateway_application_iam_member" "example" {
+    application_id = "{{ application_id }}"
+    id = "{{ id }}"
+    member = "{{ member }}"
+    project = "{{ project }}"
+    role = "{{ role }}"
+    security_gateway_id = "{{ security_gateway_id }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

@@ -5,4 +5,12 @@ resource "google_pubsub_lite_subscription" "example" {
     region = "{{ region }}"
     topic = "{{ topic }}"
     zone = "{{ zone }}"
+    delivery_config {
+      delivery_requirement = "{{ delivery_requirement }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

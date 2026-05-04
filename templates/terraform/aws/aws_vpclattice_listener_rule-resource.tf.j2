@@ -1,11 +1,51 @@
 resource "aws_vpclattice_listener_rule" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     listener_identifier = "{{ listener_identifier }}"
     name = "{{ name }}"
-    priority = "{{ priority }}"
-    rule_id = "{{ rule_id }}"
+    priority = {{ priority }}
+    region = "{{ region }}"
     service_identifier = "{{ service_identifier }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    action {
+      fixed_response {
+        status_code = {{ status_code }}
+      }
+      forward {
+        target_groups {
+          target_group_identifier = "{{ target_group_identifier }}"
+          weight = {{ weight }}
+        }
+      }
+    }
+    match {
+      http_match {
+        method = "{{ method }}"
+        header_matches {
+          case_sensitive = {{ case_sensitive }}
+          name = "{{ name }}"
+          match {
+            contains = "{{ contains }}"
+            exact = "{{ exact }}"
+            prefix = "{{ prefix }}"
+          }
+        }
+        path_match {
+          case_sensitive = {{ case_sensitive }}
+          match {
+            exact = "{{ exact }}"
+            prefix = "{{ prefix }}"
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

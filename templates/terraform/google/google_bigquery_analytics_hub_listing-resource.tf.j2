@@ -1,15 +1,47 @@
 resource "google_bigquery_analytics_hub_listing" "example" {
-    categories = "{{ categories }}"
+    allow_only_metadata_sharing = {{ allow_only_metadata_sharing }}
+    categories = ["{{ categories }}"]
     data_exchange_id = "{{ data_exchange_id }}"
+    delete_commercial = {{ delete_commercial }}
     description = "{{ description }}"
+    discovery_type = "{{ discovery_type }}"
     display_name = "{{ display_name }}"
     documentation = "{{ documentation }}"
     icon = "{{ icon }}"
     id = "{{ id }}"
     listing_id = "{{ listing_id }}"
     location = "{{ location }}"
-    name = "{{ name }}"
+    log_linked_dataset_query_user_email = {{ log_linked_dataset_query_user_email }}
     primary_contact = "{{ primary_contact }}"
     project = "{{ project }}"
     request_access = "{{ request_access }}"
+    bigquery_dataset {
+      dataset = "{{ dataset }}"
+      replica_locations = ["{{ replica_locations }}"]
+      selected_resources {
+        routine = "{{ routine }}"
+        table = "{{ table }}"
+      }
+    }
+    data_provider {
+      name = "{{ name }}"
+      primary_contact = "{{ primary_contact }}"
+    }
+    publisher {
+      name = "{{ name }}"
+      primary_contact = "{{ primary_contact }}"
+    }
+    pubsub_topic {
+      data_affinity_regions = ["{{ data_affinity_regions }}"]
+      topic = "{{ topic }}"
+    }
+    restricted_export_config {
+      enabled = {{ enabled }}
+      restrict_query_result = {{ restrict_query_result }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

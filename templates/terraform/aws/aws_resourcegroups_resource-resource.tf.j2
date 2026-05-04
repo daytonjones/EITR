@@ -1,6 +1,10 @@
 resource "aws_resourcegroups_resource" "example" {
     group_arn = "{{ group_arn }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     resource_arn = "{{ resource_arn }}"
-    resource_type = "{{ resource_type }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

@@ -1,5 +1,7 @@
 resource "aws_iot_thing_principal_attachment" "example" {
     id = "{{ id }}"
     principal = "{{ principal }}"
+    region = "{{ region }}"
     thing = "{{ thing }}"
+    thing_principal_type = "{{ thing_principal_type }}"
 }

@@ -1,0 +1,13 @@
+resource "azurerm_network_manager_routing_configuration" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    network_manager_id = "{{ network_manager_id }}"
+    route_table_usage_mode = "{{ route_table_usage_mode }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

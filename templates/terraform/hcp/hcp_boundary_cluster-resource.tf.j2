@@ -1,12 +1,21 @@
 resource "hcp_boundary_cluster" "example" {
+    auth_token_time_to_live = "{{ auth_token_time_to_live }}"
+    auth_token_time_to_stale = "{{ auth_token_time_to_stale }}"
     cluster_id = "{{ cluster_id }}"
-    cluster_url = "{{ cluster_url }}"
-    created_at = "{{ created_at }}"
     id = "{{ id }}"
     password = "{{ password }}"
     project_id = "{{ project_id }}"
-    state = "{{ state }}"
     tier = "{{ tier }}"
     username = "{{ username }}"
-    version = "{{ version }}"
+    maintenance_window_config {
+      day = "{{ day }}"
+      end = {{ end }}
+      start = {{ start }}
+      upgrade_type = "{{ upgrade_type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      default = "{{ default }}"
+      delete = "{{ delete }}"
+    }
 }

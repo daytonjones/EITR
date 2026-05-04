@@ -1,0 +1,13 @@
+resource "awscc_wisdom_quick_response" "example" {
+    channels = ["{{ channels }}"]
+    content = "{{ content }}"
+    content_type = "{{ content_type }}"
+    description = "{{ description }}"
+    grouping_configuration = "{{ grouping_configuration }}"
+    is_active = {{ is_active }}
+    knowledge_base_arn = "{{ knowledge_base_arn }}"
+    language = "{{ language }}"
+    name = "{{ name }}"
+    shortcut_key = "{{ shortcut_key }}"
+    tags = "{{ tags }}"
+}

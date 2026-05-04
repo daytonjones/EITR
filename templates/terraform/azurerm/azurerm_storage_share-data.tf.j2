@@ -1,9 +1,14 @@
 data "azurerm_storage_share" "example" {
     id = "{{ id }}"
-    metadata = "{{ metadata }}"
+    metadata = {
+        key = "{{ metadata_value }}"
+      }
     name = "{{ name }}"
-    quota = "{{ quota }}"
-    resource_manager_id = "{{ resource_manager_id }}"
     storage_account_id = "{{ storage_account_id }}"
     storage_account_name = "{{ storage_account_name }}"
+    acl {
+    }
+    timeouts {
+      read = "{{ read }}"
+    }
 }

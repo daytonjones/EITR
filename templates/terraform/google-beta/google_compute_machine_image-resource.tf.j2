@@ -1,10 +1,22 @@
 resource "google_compute_machine_image" "example" {
     description = "{{ description }}"
-    guest_flush = "{{ guest_flush }}"
+    guest_flush = {{ guest_flush }}
     id = "{{ id }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    self_link = "{{ self_link }}"
     source_instance = "{{ source_instance }}"
-    storage_locations = "{{ storage_locations }}"
+    machine_image_encryption_key {
+      kms_key_name = "{{ kms_key_name }}"
+      kms_key_service_account = "{{ kms_key_service_account }}"
+      raw_key = "{{ raw_key }}"
+    }
+    params {
+      resource_manager_tags = {
+        key = "{{ resource_manager_tags_value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

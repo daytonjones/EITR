@@ -1,12 +1,23 @@
 resource "aws_cleanrooms_configured_table" "example" {
-    allowed_columns = "{{ allowed_columns }}"
+    allowed_columns = ["{{ allowed_columns }}"]
     analysis_method = "{{ analysis_method }}"
-    arn = "{{ arn }}"
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    update_time = "{{ update_time }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    table_reference {
+      database_name = "{{ database_name }}"
+      table_name = "{{ table_name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

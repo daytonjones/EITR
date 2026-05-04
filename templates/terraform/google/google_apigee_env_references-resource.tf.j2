@@ -5,4 +5,9 @@ resource "google_apigee_env_references" "example" {
     name = "{{ name }}"
     refers = "{{ refers }}"
     resource_type = "{{ resource_type }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

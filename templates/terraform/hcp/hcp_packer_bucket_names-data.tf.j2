@@ -1,6 +1,7 @@
 data "hcp_packer_bucket_names" "example" {
     id = "{{ id }}"
-    names = "{{ names }}"
-    organization_id = "{{ organization_id }}"
     project_id = "{{ project_id }}"
+    timeouts {
+      default = "{{ default }}"
+    }
 }

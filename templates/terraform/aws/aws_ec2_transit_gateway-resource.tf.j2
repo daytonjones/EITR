@@ -1,19 +1,26 @@
 resource "aws_ec2_transit_gateway" "example" {
-    amazon_side_asn = "{{ amazon_side_asn }}"
-    arn = "{{ arn }}"
-    association_default_route_table_id = "{{ association_default_route_table_id }}"
+    amazon_side_asn = {{ amazon_side_asn }}
     auto_accept_shared_attachments = "{{ auto_accept_shared_attachments }}"
     default_route_table_association = "{{ default_route_table_association }}"
     default_route_table_propagation = "{{ default_route_table_propagation }}"
     description = "{{ description }}"
     dns_support = "{{ dns_support }}"
+    encryption_support = "{{ encryption_support }}"
     id = "{{ id }}"
     multicast_support = "{{ multicast_support }}"
-    owner_id = "{{ owner_id }}"
-    propagation_default_route_table_id = "{{ propagation_default_route_table_id }}"
+    region = "{{ region }}"
     security_group_referencing_support = "{{ security_group_referencing_support }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    transit_gateway_cidr_blocks = "{{ transit_gateway_cidr_blocks }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    transit_gateway_cidr_blocks = ["{{ transit_gateway_cidr_blocks }}"]
     vpn_ecmp_support = "{{ vpn_ecmp_support }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,7 @@
+resource "awscc_elasticloadbalancingv2_listener_rule" "example" {
+    actions = "{{ actions }}"
+    conditions = "{{ conditions }}"
+    listener_arn = "{{ listener_arn }}"
+    priority = {{ priority }}
+    transforms = "{{ transforms }}"
+}

@@ -1,0 +1,23 @@
+resource "azurerm_qumulo_file_system" "example" {
+    admin_password = "{{ admin_password }}"
+    email = "{{ email }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    offer_id = "{{ offer_id }}"
+    plan_id = "{{ plan_id }}"
+    publisher_id = "{{ publisher_id }}"
+    resource_group_name = "{{ resource_group_name }}"
+    storage_sku = "{{ storage_sku }}"
+    subnet_id = "{{ subnet_id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    zone = "{{ zone }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

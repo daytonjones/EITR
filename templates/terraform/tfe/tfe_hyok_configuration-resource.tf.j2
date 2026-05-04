@@ -1,0 +1,13 @@
+resource "tfe_hyok_configuration" "example" {
+    agent_pool_id = "{{ agent_pool_id }}"
+    kek_id = "{{ kek_id }}"
+    name = "{{ name }}"
+    oidc_configuration_id = "{{ oidc_configuration_id }}"
+    oidc_configuration_type = "{{ oidc_configuration_type }}"
+    organization = "{{ organization }}"
+    kms_options {
+      key_location = "{{ key_location }}"
+      key_region = "{{ key_region }}"
+      key_ring_id = "{{ key_ring_id }}"
+    }
+}

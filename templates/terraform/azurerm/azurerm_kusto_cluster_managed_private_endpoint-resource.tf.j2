@@ -7,4 +7,10 @@ resource "azurerm_kusto_cluster_managed_private_endpoint" "example" {
     private_link_resource_region = "{{ private_link_resource_region }}"
     request_message = "{{ request_message }}"
     resource_group_name = "{{ resource_group_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

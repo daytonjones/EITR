@@ -1,0 +1,292 @@
+resource "aws_arcregionswitch_plan" "example" {
+    description = "{{ description }}"
+    execution_role = "{{ execution_role }}"
+    name = "{{ name }}"
+    primary_region = "{{ primary_region }}"
+    recovery_approach = "{{ recovery_approach }}"
+    recovery_time_objective_minutes = {{ recovery_time_objective_minutes }}
+    region = "{{ region }}"
+    regions = ["{{ regions }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    associated_alarms {
+      alarm_type = "{{ alarm_type }}"
+      cross_account_role = "{{ cross_account_role }}"
+      external_id = "{{ external_id }}"
+      map_block_key = "{{ map_block_key }}"
+      resource_identifier = "{{ resource_identifier }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    triggers {
+      action = "{{ action }}"
+      description = "{{ description }}"
+      min_delay_minutes_between_executions = {{ min_delay_minutes_between_executions }}
+      target_region = "{{ target_region }}"
+      conditions {
+        associated_alarm_name = "{{ associated_alarm_name }}"
+        condition = "{{ condition }}"
+      }
+    }
+    workflow {
+      workflow_description = "{{ workflow_description }}"
+      workflow_target_action = "{{ workflow_target_action }}"
+      workflow_target_region = "{{ workflow_target_region }}"
+      step {
+        description = "{{ description }}"
+        execution_block_type = "{{ execution_block_type }}"
+        name = "{{ name }}"
+        arc_routing_control_config {
+          cross_account_role = "{{ cross_account_role }}"
+          external_id = "{{ external_id }}"
+          timeout_minutes = {{ timeout_minutes }}
+          region_and_routing_controls {
+            region = "{{ region }}"
+            routing_control {
+              routing_control_arn = "{{ routing_control_arn }}"
+              state = "{{ state }}"
+            }
+          }
+        }
+        custom_action_lambda_config {
+          region_to_run = "{{ region_to_run }}"
+          retry_interval_minutes = {{ retry_interval_minutes }}
+          timeout_minutes = {{ timeout_minutes }}
+          lambda {
+            arn = "{{ arn }}"
+            cross_account_role = "{{ cross_account_role }}"
+            external_id = "{{ external_id }}"
+          }
+          ungraceful {
+            behavior = "{{ behavior }}"
+          }
+        }
+        document_db_config {
+          behavior = "{{ behavior }}"
+          cross_account_role = "{{ cross_account_role }}"
+          database_cluster_arns = ["{{ database_cluster_arns }}"]
+          external_id = "{{ external_id }}"
+          global_cluster_identifier = "{{ global_cluster_identifier }}"
+          timeout_minutes = {{ timeout_minutes }}
+          ungraceful {
+            ungraceful = "{{ ungraceful }}"
+          }
+        }
+        ec2_asg_capacity_increase_config {
+          capacity_monitoring_approach = "{{ capacity_monitoring_approach }}"
+          target_percent = {{ target_percent }}
+          timeout_minutes = {{ timeout_minutes }}
+          asg {
+            arn = "{{ arn }}"
+            cross_account_role = "{{ cross_account_role }}"
+            external_id = "{{ external_id }}"
+          }
+          ungraceful {
+            minimum_success_percentage = {{ minimum_success_percentage }}
+          }
+        }
+        ecs_capacity_increase_config {
+          capacity_monitoring_approach = "{{ capacity_monitoring_approach }}"
+          target_percent = {{ target_percent }}
+          timeout_minutes = {{ timeout_minutes }}
+          service {
+            cluster_arn = "{{ cluster_arn }}"
+            cross_account_role = "{{ cross_account_role }}"
+            external_id = "{{ external_id }}"
+            service_arn = "{{ service_arn }}"
+          }
+          ungraceful {
+            minimum_success_percentage = {{ minimum_success_percentage }}
+          }
+        }
+        eks_resource_scaling_config {
+          capacity_monitoring_approach = "{{ capacity_monitoring_approach }}"
+          target_percent = {{ target_percent }}
+          timeout_minutes = {{ timeout_minutes }}
+          eks_clusters {
+            cluster_arn = "{{ cluster_arn }}"
+            cross_account_role = "{{ cross_account_role }}"
+            external_id = "{{ external_id }}"
+          }
+          kubernetes_resource_type {
+            api_version = "{{ api_version }}"
+            kind = "{{ kind }}"
+          }
+          scaling_resources {
+            namespace = "{{ namespace }}"
+            resources {
+              hpa_name = "{{ hpa_name }}"
+              name = "{{ name }}"
+              namespace = "{{ namespace }}"
+              resource_name = "{{ resource_name }}"
+            }
+          }
+          ungraceful {
+            minimum_success_percentage = {{ minimum_success_percentage }}
+          }
+        }
+        execution_approval_config {
+          approval_role = "{{ approval_role }}"
+          timeout_minutes = {{ timeout_minutes }}
+        }
+        global_aurora_config {
+          behavior = "{{ behavior }}"
+          cross_account_role = "{{ cross_account_role }}"
+          database_cluster_arns = ["{{ database_cluster_arns }}"]
+          external_id = "{{ external_id }}"
+          global_cluster_identifier = "{{ global_cluster_identifier }}"
+          timeout_minutes = {{ timeout_minutes }}
+          ungraceful {
+            ungraceful = "{{ ungraceful }}"
+          }
+        }
+        parallel_config {
+          step {
+            description = "{{ description }}"
+            execution_block_type = "{{ execution_block_type }}"
+            name = "{{ name }}"
+            arc_routing_control_config {
+              cross_account_role = "{{ cross_account_role }}"
+              external_id = "{{ external_id }}"
+              timeout_minutes = {{ timeout_minutes }}
+              region_and_routing_controls {
+                region = "{{ region }}"
+                routing_control {
+                  routing_control_arn = "{{ routing_control_arn }}"
+                  state = "{{ state }}"
+                }
+              }
+            }
+            custom_action_lambda_config {
+              region_to_run = "{{ region_to_run }}"
+              retry_interval_minutes = {{ retry_interval_minutes }}
+              timeout_minutes = {{ timeout_minutes }}
+              lambda {
+                arn = "{{ arn }}"
+                cross_account_role = "{{ cross_account_role }}"
+                external_id = "{{ external_id }}"
+              }
+              ungraceful {
+                behavior = "{{ behavior }}"
+              }
+            }
+            document_db_config {
+              behavior = "{{ behavior }}"
+              cross_account_role = "{{ cross_account_role }}"
+              database_cluster_arns = ["{{ database_cluster_arns }}"]
+              external_id = "{{ external_id }}"
+              global_cluster_identifier = "{{ global_cluster_identifier }}"
+              timeout_minutes = {{ timeout_minutes }}
+              ungraceful {
+                ungraceful = "{{ ungraceful }}"
+              }
+            }
+            ec2_asg_capacity_increase_config {
+              capacity_monitoring_approach = "{{ capacity_monitoring_approach }}"
+              target_percent = {{ target_percent }}
+              timeout_minutes = {{ timeout_minutes }}
+              asg {
+                arn = "{{ arn }}"
+                cross_account_role = "{{ cross_account_role }}"
+                external_id = "{{ external_id }}"
+              }
+              ungraceful {
+                minimum_success_percentage = {{ minimum_success_percentage }}
+              }
+            }
+            ecs_capacity_increase_config {
+              capacity_monitoring_approach = "{{ capacity_monitoring_approach }}"
+              target_percent = {{ target_percent }}
+              timeout_minutes = {{ timeout_minutes }}
+              service {
+                cluster_arn = "{{ cluster_arn }}"
+                cross_account_role = "{{ cross_account_role }}"
+                external_id = "{{ external_id }}"
+                service_arn = "{{ service_arn }}"
+              }
+              ungraceful {
+                minimum_success_percentage = {{ minimum_success_percentage }}
+              }
+            }
+            eks_resource_scaling_config {
+              capacity_monitoring_approach = "{{ capacity_monitoring_approach }}"
+              target_percent = {{ target_percent }}
+              timeout_minutes = {{ timeout_minutes }}
+              eks_clusters {
+                cluster_arn = "{{ cluster_arn }}"
+                cross_account_role = "{{ cross_account_role }}"
+                external_id = "{{ external_id }}"
+              }
+              kubernetes_resource_type {
+                api_version = "{{ api_version }}"
+                kind = "{{ kind }}"
+              }
+              scaling_resources {
+                namespace = "{{ namespace }}"
+                resources {
+                  hpa_name = "{{ hpa_name }}"
+                  name = "{{ name }}"
+                  namespace = "{{ namespace }}"
+                  resource_name = "{{ resource_name }}"
+                }
+              }
+              ungraceful {
+                minimum_success_percentage = {{ minimum_success_percentage }}
+              }
+            }
+            execution_approval_config {
+              approval_role = "{{ approval_role }}"
+              timeout_minutes = {{ timeout_minutes }}
+            }
+            global_aurora_config {
+              behavior = "{{ behavior }}"
+              cross_account_role = "{{ cross_account_role }}"
+              database_cluster_arns = ["{{ database_cluster_arns }}"]
+              external_id = "{{ external_id }}"
+              global_cluster_identifier = "{{ global_cluster_identifier }}"
+              timeout_minutes = {{ timeout_minutes }}
+              ungraceful {
+                ungraceful = "{{ ungraceful }}"
+              }
+            }
+            region_switch_plan_config {
+              arn = "{{ arn }}"
+              cross_account_role = "{{ cross_account_role }}"
+              external_id = "{{ external_id }}"
+            }
+            route53_health_check_config {
+              cross_account_role = "{{ cross_account_role }}"
+              external_id = "{{ external_id }}"
+              hosted_zone_id = "{{ hosted_zone_id }}"
+              record_name = "{{ record_name }}"
+              timeout_minutes = {{ timeout_minutes }}
+              record_set {
+                record_set_identifier = "{{ record_set_identifier }}"
+                region = "{{ region }}"
+              }
+            }
+          }
+        }
+        region_switch_plan_config {
+          arn = "{{ arn }}"
+          cross_account_role = "{{ cross_account_role }}"
+          external_id = "{{ external_id }}"
+        }
+        route53_health_check_config {
+          cross_account_role = "{{ cross_account_role }}"
+          external_id = "{{ external_id }}"
+          hosted_zone_id = "{{ hosted_zone_id }}"
+          record_name = "{{ record_name }}"
+          timeout_minutes = {{ timeout_minutes }}
+          record_set {
+            record_set_identifier = "{{ record_set_identifier }}"
+            region = "{{ region }}"
+          }
+        }
+      }
+    }
+}

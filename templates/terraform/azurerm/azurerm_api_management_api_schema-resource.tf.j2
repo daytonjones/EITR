@@ -8,4 +8,10 @@ resource "azurerm_api_management_api_schema" "example" {
     resource_group_name = "{{ resource_group_name }}"
     schema_id = "{{ schema_id }}"
     value = "{{ value }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

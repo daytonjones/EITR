@@ -6,4 +6,10 @@ resource "azurerm_logic_app_integration_account_schema" "example" {
     metadata = "{{ metadata }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

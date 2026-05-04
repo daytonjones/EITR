@@ -1,0 +1,6 @@
+resource "vault_rotation_policy" "example" {
+    max_retries_per_cycle = {{ max_retries_per_cycle }}
+    max_retry_cycles = {{ max_retry_cycles }}
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+}

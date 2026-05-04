@@ -4,4 +4,10 @@ resource "azurerm_api_management_api_tag_description" "example" {
     external_documentation_description = "{{ external_documentation_description }}"
     external_documentation_url = "{{ external_documentation_url }}"
     id = "{{ id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,8 +1,12 @@
 resource "google_vertex_ai_featurestore_entitytype_iam_binding" "example" {
     entitytype = "{{ entitytype }}"
-    etag = "{{ etag }}"
     featurestore = "{{ featurestore }}"
     id = "{{ id }}"
-    members = "{{ members }}"
+    members = ["{{ members }}"]
     role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

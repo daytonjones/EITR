@@ -1,12 +1,42 @@
 resource "google_vertex_ai_feature_online_store_featureview" "example" {
-    create_time = "{{ create_time }}"
-    effective_labels = "{{ effective_labels }}"
     feature_online_store = "{{ feature_online_store }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
     project = "{{ project }}"
     region = "{{ region }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
+    big_query_source {
+      entity_id_columns = ["{{ entity_id_columns }}"]
+      uri = "{{ uri }}"
+    }
+    feature_registry_source {
+      project_number = "{{ project_number }}"
+      feature_groups {
+        feature_group_id = "{{ feature_group_id }}"
+        feature_ids = ["{{ feature_ids }}"]
+      }
+    }
+    sync_config {
+      continuous = {{ continuous }}
+      cron = "{{ cron }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    vector_search_config {
+      crowding_column = "{{ crowding_column }}"
+      distance_measure_type = "{{ distance_measure_type }}"
+      embedding_column = "{{ embedding_column }}"
+      embedding_dimension = {{ embedding_dimension }}
+      filter_columns = ["{{ filter_columns }}"]
+      brute_force_config {
+      }
+      tree_ah_config {
+        leaf_node_embedding_count = "{{ leaf_node_embedding_count }}"
+      }
+    }
 }

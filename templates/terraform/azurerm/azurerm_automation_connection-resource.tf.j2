@@ -5,5 +5,13 @@ resource "azurerm_automation_connection" "example" {
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     type = "{{ type }}"
-    values = "{{ values }}"
+    values = {
+        key = "{{ values_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

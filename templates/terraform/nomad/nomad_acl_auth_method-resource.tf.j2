@@ -1,9 +1,51 @@
 resource "nomad_acl_auth_method" "example" {
-    default = "{{ default }}"
+    default = {{ default }}
     id = "{{ id }}"
     max_token_ttl = "{{ max_token_ttl }}"
     name = "{{ name }}"
     token_locality = "{{ token_locality }}"
     token_name_format = "{{ token_name_format }}"
     type = "{{ type }}"
+    config {
+      allowed_redirect_uris = ["{{ allowed_redirect_uris }}"]
+      bound_audiences = ["{{ bound_audiences }}"]
+      bound_issuer = ["{{ bound_issuer }}"]
+      claim_mappings = {
+        key = "{{ claim_mappings_value }}"
+      }
+      clock_skew_leeway = "{{ clock_skew_leeway }}"
+      discovery_ca_pem = ["{{ discovery_ca_pem }}"]
+      expiration_leeway = "{{ expiration_leeway }}"
+      jwks_ca_cert = "{{ jwks_ca_cert }}"
+      jwks_url = "{{ jwks_url }}"
+      jwt_validation_pub_keys = ["{{ jwt_validation_pub_keys }}"]
+      list_claim_mappings = {
+        key = "{{ list_claim_mappings_value }}"
+      }
+      not_before_leeway = "{{ not_before_leeway }}"
+      oidc_client_id = "{{ oidc_client_id }}"
+      oidc_client_secret = "{{ oidc_client_secret }}"
+      oidc_disable_userinfo = {{ oidc_disable_userinfo }}
+      oidc_discovery_url = "{{ oidc_discovery_url }}"
+      oidc_enable_pkce = {{ oidc_enable_pkce }}
+      oidc_scopes = ["{{ oidc_scopes }}"]
+      signing_algs = ["{{ signing_algs }}"]
+      verbose_logging = {{ verbose_logging }}
+      oidc_client_assertion {
+        audience = ["{{ audience }}"]
+        extra_headers = {
+        key = "{{ extra_headers_value }}"
+      }
+        key_algorithm = "{{ key_algorithm }}"
+        key_source = "{{ key_source }}"
+        private_key {
+          key_id = "{{ key_id }}"
+          key_id_header = "{{ key_id_header }}"
+          pem_cert = "{{ pem_cert }}"
+          pem_cert_file = "{{ pem_cert_file }}"
+          pem_key = "{{ pem_key }}"
+          pem_key_file = "{{ pem_key_file }}"
+        }
+      }
+    }
 }

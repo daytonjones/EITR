@@ -1,12 +1,132 @@
 resource "google_dataproc_job" "example" {
-    driver_controls_files_uri = "{{ driver_controls_files_uri }}"
-    driver_output_resource_uri = "{{ driver_output_resource_uri }}"
-    effective_labels = "{{ effective_labels }}"
-    force_delete = "{{ force_delete }}"
+    force_delete = {{ force_delete }}
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     project = "{{ project }}"
     region = "{{ region }}"
-    status = "{{ status }}"
-    terraform_labels = "{{ terraform_labels }}"
+    wait_for_completion = {{ wait_for_completion }}
+    hadoop_config {
+      archive_uris = ["{{ archive_uris }}"]
+      args = ["{{ args }}"]
+      file_uris = ["{{ file_uris }}"]
+      jar_file_uris = ["{{ jar_file_uris }}"]
+      main_class = "{{ main_class }}"
+      main_jar_file_uri = "{{ main_jar_file_uri }}"
+      properties = {
+        key = "{{ properties_value }}"
+      }
+      logging_config {
+        driver_log_levels = {
+        key = "{{ driver_log_levels_value }}"
+      }
+      }
+    }
+    hive_config {
+      continue_on_failure = {{ continue_on_failure }}
+      jar_file_uris = ["{{ jar_file_uris }}"]
+      properties = {
+        key = "{{ properties_value }}"
+      }
+      query_file_uri = "{{ query_file_uri }}"
+      query_list = ["{{ query_list }}"]
+      script_variables = {
+        key = "{{ script_variables_value }}"
+      }
+    }
+    pig_config {
+      continue_on_failure = {{ continue_on_failure }}
+      jar_file_uris = ["{{ jar_file_uris }}"]
+      properties = {
+        key = "{{ properties_value }}"
+      }
+      query_file_uri = "{{ query_file_uri }}"
+      query_list = ["{{ query_list }}"]
+      script_variables = {
+        key = "{{ script_variables_value }}"
+      }
+      logging_config {
+        driver_log_levels = {
+        key = "{{ driver_log_levels_value }}"
+      }
+      }
+    }
+    placement {
+      cluster_name = "{{ cluster_name }}"
+    }
+    presto_config {
+      client_tags = ["{{ client_tags }}"]
+      continue_on_failure = {{ continue_on_failure }}
+      output_format = "{{ output_format }}"
+      properties = {
+        key = "{{ properties_value }}"
+      }
+      query_file_uri = "{{ query_file_uri }}"
+      query_list = ["{{ query_list }}"]
+      logging_config {
+        driver_log_levels = {
+        key = "{{ driver_log_levels_value }}"
+      }
+      }
+    }
+    pyspark_config {
+      archive_uris = ["{{ archive_uris }}"]
+      args = ["{{ args }}"]
+      file_uris = ["{{ file_uris }}"]
+      jar_file_uris = ["{{ jar_file_uris }}"]
+      main_python_file_uri = "{{ main_python_file_uri }}"
+      properties = {
+        key = "{{ properties_value }}"
+      }
+      python_file_uris = ["{{ python_file_uris }}"]
+      logging_config {
+        driver_log_levels = {
+        key = "{{ driver_log_levels_value }}"
+      }
+      }
+    }
+    reference {
+      job_id = "{{ job_id }}"
+    }
+    scheduling {
+      max_failures_per_hour = {{ max_failures_per_hour }}
+      max_failures_total = {{ max_failures_total }}
+    }
+    spark_config {
+      archive_uris = ["{{ archive_uris }}"]
+      args = ["{{ args }}"]
+      file_uris = ["{{ file_uris }}"]
+      jar_file_uris = ["{{ jar_file_uris }}"]
+      main_class = "{{ main_class }}"
+      main_jar_file_uri = "{{ main_jar_file_uri }}"
+      properties = {
+        key = "{{ properties_value }}"
+      }
+      logging_config {
+        driver_log_levels = {
+        key = "{{ driver_log_levels_value }}"
+      }
+      }
+    }
+    sparksql_config {
+      jar_file_uris = ["{{ jar_file_uris }}"]
+      properties = {
+        key = "{{ properties_value }}"
+      }
+      query_file_uri = "{{ query_file_uri }}"
+      query_list = ["{{ query_list }}"]
+      script_variables = {
+        key = "{{ script_variables_value }}"
+      }
+      logging_config {
+        driver_log_levels = {
+        key = "{{ driver_log_levels_value }}"
+      }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

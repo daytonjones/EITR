@@ -4,4 +4,10 @@ resource "azurerm_api_management_identity_provider_google" "example" {
     client_secret = "{{ client_secret }}"
     id = "{{ id }}"
     resource_group_name = "{{ resource_group_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

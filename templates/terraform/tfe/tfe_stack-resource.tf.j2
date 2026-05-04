@@ -1,9 +1,14 @@
 resource "tfe_stack" "example" {
-    created_at = "{{ created_at }}"
-    deployment_names = "{{ deployment_names }}"
+    agent_pool_id = "{{ agent_pool_id }}"
     description = "{{ description }}"
-    id = "{{ id }}"
+    migration = {{ migration }}
     name = "{{ name }}"
     project_id = "{{ project_id }}"
-    updated_at = "{{ updated_at }}"
+    speculative_enabled = {{ speculative_enabled }}
+    vcs_repo {
+      branch = "{{ branch }}"
+      github_app_installation_id = "{{ github_app_installation_id }}"
+      identifier = "{{ identifier }}"
+      oauth_token_id = "{{ oauth_token_id }}"
+    }
 }

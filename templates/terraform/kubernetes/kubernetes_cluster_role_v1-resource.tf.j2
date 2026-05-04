@@ -1,3 +1,32 @@
 resource "kubernetes_cluster_role_v1" "example" {
     id = "{{ id }}"
+    aggregation_rule {
+      cluster_role_selectors {
+        match_labels = {
+        key = "{{ match_labels_value }}"
+      }
+        match_expressions {
+          key = "{{ key }}"
+          operator = "{{ operator }}"
+          values = ["{{ values }}"]
+        }
+      }
+    }
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      generate_name = "{{ generate_name }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      name = "{{ name }}"
+    }
+    rule {
+      api_groups = ["{{ api_groups }}"]
+      non_resource_urls = ["{{ non_resource_urls }}"]
+      resource_names = ["{{ resource_names }}"]
+      resources = ["{{ resources }}"]
+      verbs = ["{{ verbs }}"]
+    }
 }

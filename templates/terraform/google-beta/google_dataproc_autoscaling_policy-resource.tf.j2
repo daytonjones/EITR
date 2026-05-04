@@ -1,7 +1,31 @@
 resource "google_dataproc_autoscaling_policy" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     policy_id = "{{ policy_id }}"
     project = "{{ project }}"
+    basic_algorithm {
+      cooldown_period = "{{ cooldown_period }}"
+      yarn_config {
+        graceful_decommission_timeout = "{{ graceful_decommission_timeout }}"
+        scale_down_factor = {{ scale_down_factor }}
+        scale_down_min_worker_fraction = {{ scale_down_min_worker_fraction }}
+        scale_up_factor = {{ scale_up_factor }}
+        scale_up_min_worker_fraction = {{ scale_up_min_worker_fraction }}
+      }
+    }
+    secondary_worker_config {
+      max_instances = {{ max_instances }}
+      min_instances = {{ min_instances }}
+      weight = {{ weight }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    worker_config {
+      max_instances = {{ max_instances }}
+      min_instances = {{ min_instances }}
+      weight = {{ weight }}
+    }
 }

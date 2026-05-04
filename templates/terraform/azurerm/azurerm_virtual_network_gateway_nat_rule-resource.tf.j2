@@ -6,4 +6,18 @@ resource "azurerm_virtual_network_gateway_nat_rule" "example" {
     resource_group_name = "{{ resource_group_name }}"
     type = "{{ type }}"
     virtual_network_gateway_id = "{{ virtual_network_gateway_id }}"
+    external_mapping {
+      address_space = "{{ address_space }}"
+      port_range = "{{ port_range }}"
+    }
+    internal_mapping {
+      address_space = "{{ address_space }}"
+      port_range = "{{ port_range }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

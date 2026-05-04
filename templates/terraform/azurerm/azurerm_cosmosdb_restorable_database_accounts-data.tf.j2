@@ -1,6 +1,8 @@
 data "azurerm_cosmosdb_restorable_database_accounts" "example" {
-    accounts = "{{ accounts }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

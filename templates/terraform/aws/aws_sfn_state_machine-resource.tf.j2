@@ -1,18 +1,34 @@
 resource "aws_sfn_state_machine" "example" {
-    arn = "{{ arn }}"
-    creation_date = "{{ creation_date }}"
     definition = "{{ definition }}"
-    description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
     name_prefix = "{{ name_prefix }}"
-    publish = "{{ publish }}"
-    revision_id = "{{ revision_id }}"
+    publish = {{ publish }}
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
-    state_machine_version_arn = "{{ state_machine_version_arn }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     type = "{{ type }}"
-    version_description = "{{ version_description }}"
+    encryption_configuration {
+      kms_data_key_reuse_period_seconds = {{ kms_data_key_reuse_period_seconds }}
+      kms_key_id = "{{ kms_key_id }}"
+      type = "{{ type }}"
+    }
+    logging_configuration {
+      include_execution_data = {{ include_execution_data }}
+      level = "{{ level }}"
+      log_destination = "{{ log_destination }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    tracing_configuration {
+      enabled = {{ enabled }}
+    }
 }

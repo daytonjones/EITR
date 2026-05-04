@@ -2,6 +2,23 @@ resource "aws_s3_bucket_logging" "example" {
     bucket = "{{ bucket }}"
     expected_bucket_owner = "{{ expected_bucket_owner }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     target_bucket = "{{ target_bucket }}"
     target_prefix = "{{ target_prefix }}"
+    target_grant {
+      permission = "{{ permission }}"
+      grantee {
+        email_address = "{{ email_address }}"
+        id = "{{ id }}"
+        type = "{{ type }}"
+        uri = "{{ uri }}"
+      }
+    }
+    target_object_key_format {
+      partitioned_prefix {
+        partition_date_source = "{{ partition_date_source }}"
+      }
+      simple_prefix {
+      }
+    }
 }

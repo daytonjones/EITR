@@ -5,5 +5,13 @@ resource "azurerm_system_center_virtual_machine_manager_virtual_machine_template
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     system_center_virtual_machine_manager_server_inventory_item_id = "{{ system_center_virtual_machine_manager_server_inventory_item_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

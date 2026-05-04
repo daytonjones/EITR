@@ -1,11 +1,22 @@
 resource "aws_codepipeline_webhook" "example" {
-    arn = "{{ arn }}"
     authentication = "{{ authentication }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     target_action = "{{ target_action }}"
     target_pipeline = "{{ target_pipeline }}"
-    url = "{{ url }}"
+    authentication_configuration {
+      allowed_ip_range = "{{ allowed_ip_range }}"
+      secret_token = "{{ secret_token }}"
+    }
+    filter {
+      json_path = "{{ json_path }}"
+      match_equals = "{{ match_equals }}"
+    }
 }

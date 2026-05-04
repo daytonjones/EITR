@@ -5,5 +5,13 @@ resource "azurerm_system_center_virtual_machine_manager_availability_set" "examp
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     system_center_virtual_machine_manager_server_id = "{{ system_center_virtual_machine_manager_server_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

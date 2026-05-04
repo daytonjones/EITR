@@ -1,9 +1,9 @@
 resource "azurerm_site_recovery_replicated_vm" "example" {
     id = "{{ id }}"
-    managed_disk = "{{ managed_disk }}"
+    managed_disk = ["{{ managed_disk }}"]
     multi_vm_group_name = "{{ multi_vm_group_name }}"
     name = "{{ name }}"
-    network_interface = "{{ network_interface }}"
+    network_interface = ["{{ network_interface }}"]
     recovery_replication_policy_id = "{{ recovery_replication_policy_id }}"
     recovery_vault_name = "{{ recovery_vault_name }}"
     resource_group_name = "{{ resource_group_name }}"
@@ -23,5 +23,11 @@ resource "azurerm_site_recovery_replicated_vm" "example" {
     target_virtual_machine_size = "{{ target_virtual_machine_size }}"
     target_zone = "{{ target_zone }}"
     test_network_id = "{{ test_network_id }}"
-    unmanaged_disk = "{{ unmanaged_disk }}"
+    unmanaged_disk = ["{{ unmanaged_disk }}"]
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

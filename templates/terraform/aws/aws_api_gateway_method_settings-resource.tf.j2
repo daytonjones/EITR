@@ -1,6 +1,19 @@
 resource "aws_api_gateway_method_settings" "example" {
     id = "{{ id }}"
     method_path = "{{ method_path }}"
+    region = "{{ region }}"
     rest_api_id = "{{ rest_api_id }}"
     stage_name = "{{ stage_name }}"
+    settings {
+      cache_data_encrypted = {{ cache_data_encrypted }}
+      cache_ttl_in_seconds = {{ cache_ttl_in_seconds }}
+      caching_enabled = {{ caching_enabled }}
+      data_trace_enabled = {{ data_trace_enabled }}
+      logging_level = "{{ logging_level }}"
+      metrics_enabled = {{ metrics_enabled }}
+      require_authorization_for_cache_control = {{ require_authorization_for_cache_control }}
+      throttling_burst_limit = {{ throttling_burst_limit }}
+      throttling_rate_limit = {{ throttling_rate_limit }}
+      unauthorized_cache_control_header_strategy = "{{ unauthorized_cache_control_header_strategy }}"
+    }
 }

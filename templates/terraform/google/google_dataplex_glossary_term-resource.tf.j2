@@ -1,0 +1,18 @@
+resource "google_dataplex_glossary_term" "example" {
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    glossary_id = "{{ glossary_id }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    parent = "{{ parent }}"
+    project = "{{ project }}"
+    term_id = "{{ term_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

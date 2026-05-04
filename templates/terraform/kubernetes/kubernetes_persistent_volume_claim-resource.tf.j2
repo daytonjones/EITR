@@ -1,4 +1,42 @@
 resource "kubernetes_persistent_volume_claim" "example" {
     id = "{{ id }}"
-    wait_until_bound = "{{ wait_until_bound }}"
+    wait_until_bound = {{ wait_until_bound }}
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      generate_name = "{{ generate_name }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      name = "{{ name }}"
+      namespace = "{{ namespace }}"
+    }
+    spec {
+      access_modes = ["{{ access_modes }}"]
+      storage_class_name = "{{ storage_class_name }}"
+      volume_mode = "{{ volume_mode }}"
+      volume_name = "{{ volume_name }}"
+      resources {
+        limits = {
+        key = "{{ limits_value }}"
+      }
+        requests = {
+        key = "{{ requests_value }}"
+      }
+      }
+      selector {
+        match_labels = {
+        key = "{{ match_labels_value }}"
+      }
+        match_expressions {
+          key = "{{ key }}"
+          operator = "{{ operator }}"
+          values = ["{{ values }}"]
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+    }
 }

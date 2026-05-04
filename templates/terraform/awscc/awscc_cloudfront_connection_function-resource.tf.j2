@@ -1,0 +1,7 @@
+resource "awscc_cloudfront_connection_function" "example" {
+    auto_publish = {{ auto_publish }}
+    connection_function_code = "{{ connection_function_code }}"
+    connection_function_config = "{{ connection_function_config }}"
+    name = "{{ name }}"
+    tags = "{{ tags }}"
+}

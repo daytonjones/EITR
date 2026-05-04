@@ -4,4 +4,10 @@ resource "azurerm_spring_cloud_custom_domain" "example" {
     name = "{{ name }}"
     spring_cloud_app_id = "{{ spring_cloud_app_id }}"
     thumbprint = "{{ thumbprint }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

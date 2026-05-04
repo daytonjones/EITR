@@ -4,4 +4,22 @@ resource "azurerm_elastic_san_volume_group" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     protocol_type = "{{ protocol_type }}"
+    encryption {
+      key_vault_key_id = "{{ key_vault_key_id }}"
+      user_assigned_identity_id = "{{ user_assigned_identity_id }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    network_rule {
+      action = "{{ action }}"
+      subnet_id = "{{ subnet_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

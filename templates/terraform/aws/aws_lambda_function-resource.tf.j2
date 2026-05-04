@@ -1,6 +1,5 @@
 resource "aws_lambda_function" "example" {
-    architectures = "{{ architectures }}"
-    arn = "{{ arn }}"
+    architectures = ["{{ architectures }}"]
     code_sha256 = "{{ code_sha256 }}"
     code_signing_config_arn = "{{ code_signing_config_arn }}"
     description = "{{ description }}"
@@ -9,30 +8,85 @@ resource "aws_lambda_function" "example" {
     handler = "{{ handler }}"
     id = "{{ id }}"
     image_uri = "{{ image_uri }}"
-    invoke_arn = "{{ invoke_arn }}"
     kms_key_arn = "{{ kms_key_arn }}"
-    last_modified = "{{ last_modified }}"
-    layers = "{{ layers }}"
-    memory_size = "{{ memory_size }}"
+    layers = ["{{ layers }}"]
+    memory_size = {{ memory_size }}
     package_type = "{{ package_type }}"
-    publish = "{{ publish }}"
-    qualified_arn = "{{ qualified_arn }}"
-    qualified_invoke_arn = "{{ qualified_invoke_arn }}"
-    replace_security_groups_on_destroy = "{{ replace_security_groups_on_destroy }}"
-    replacement_security_group_ids = "{{ replacement_security_group_ids }}"
-    reserved_concurrent_executions = "{{ reserved_concurrent_executions }}"
+    publish = {{ publish }}
+    publish_to = "{{ publish_to }}"
+    region = "{{ region }}"
+    replace_security_groups_on_destroy = {{ replace_security_groups_on_destroy }}
+    replacement_security_group_ids = ["{{ replacement_security_group_ids }}"]
+    reserved_concurrent_executions = {{ reserved_concurrent_executions }}
     role = "{{ role }}"
     runtime = "{{ runtime }}"
     s3_bucket = "{{ s3_bucket }}"
     s3_key = "{{ s3_key }}"
     s3_object_version = "{{ s3_object_version }}"
-    signing_job_arn = "{{ signing_job_arn }}"
-    signing_profile_version_arn = "{{ signing_profile_version_arn }}"
-    skip_destroy = "{{ skip_destroy }}"
+    skip_destroy = {{ skip_destroy }}
     source_code_hash = "{{ source_code_hash }}"
-    source_code_size = "{{ source_code_size }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    timeout = "{{ timeout }}"
-    version = "{{ version }}"
+    source_kms_key_arn = "{{ source_kms_key_arn }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    timeout = {{ timeout }}
+    capacity_provider_config {
+      lambda_managed_instances_capacity_provider_config {
+        capacity_provider_arn = "{{ capacity_provider_arn }}"
+        execution_environment_memory_gib_per_vcpu = {{ execution_environment_memory_gib_per_vcpu }}
+        per_execution_environment_max_concurrency = {{ per_execution_environment_max_concurrency }}
+      }
+    }
+    dead_letter_config {
+      target_arn = "{{ target_arn }}"
+    }
+    durable_config {
+      execution_timeout = {{ execution_timeout }}
+      retention_period = {{ retention_period }}
+    }
+    environment {
+      variables = {
+        key = "{{ variables_value }}"
+      }
+    }
+    ephemeral_storage {
+      size = {{ size }}
+    }
+    file_system_config {
+      arn = "{{ arn }}"
+      local_mount_path = "{{ local_mount_path }}"
+    }
+    image_config {
+      command = ["{{ command }}"]
+      entry_point = ["{{ entry_point }}"]
+      working_directory = "{{ working_directory }}"
+    }
+    logging_config {
+      application_log_level = "{{ application_log_level }}"
+      log_format = "{{ log_format }}"
+      log_group = "{{ log_group }}"
+      system_log_level = "{{ system_log_level }}"
+    }
+    snap_start {
+      apply_on = "{{ apply_on }}"
+    }
+    tenancy_config {
+      tenant_isolation_mode = "{{ tenant_isolation_mode }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    tracing_config {
+      mode = "{{ mode }}"
+    }
+    vpc_config {
+      ipv6_allowed_for_dual_stack = {{ ipv6_allowed_for_dual_stack }}
+      security_group_ids = ["{{ security_group_ids }}"]
+      subnet_ids = ["{{ subnet_ids }}"]
+    }
 }

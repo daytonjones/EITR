@@ -1,14 +1,26 @@
 resource "google_vertex_ai_featurestore" "example" {
-    create_time = "{{ create_time }}"
-    effective_labels = "{{ effective_labels }}"
-    etag = "{{ etag }}"
-    force_destroy = "{{ force_destroy }}"
+    force_destroy = {{ force_destroy }}
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
-    online_storage_ttl_days = "{{ online_storage_ttl_days }}"
+    online_storage_ttl_days = {{ online_storage_ttl_days }}
     project = "{{ project }}"
     region = "{{ region }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
+    encryption_spec {
+      kms_key_name = "{{ kms_key_name }}"
+    }
+    online_serving_config {
+      fixed_node_count = {{ fixed_node_count }}
+      scaling {
+        max_node_count = {{ max_node_count }}
+        min_node_count = {{ min_node_count }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

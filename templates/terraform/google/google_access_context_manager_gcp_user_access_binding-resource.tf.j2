@@ -1,7 +1,41 @@
 resource "google_access_context_manager_gcp_user_access_binding" "example" {
-    access_levels = "{{ access_levels }}"
+    access_levels = ["{{ access_levels }}"]
     group_key = "{{ group_key }}"
     id = "{{ id }}"
-    name = "{{ name }}"
     organization_id = "{{ organization_id }}"
+    scoped_access_settings {
+      active_settings {
+        access_levels = ["{{ access_levels }}"]
+        session_settings {
+          max_inactivity = "{{ max_inactivity }}"
+          session_length = "{{ session_length }}"
+          session_length_enabled = {{ session_length_enabled }}
+          session_reauth_method = "{{ session_reauth_method }}"
+          use_oidc_max_age = {{ use_oidc_max_age }}
+        }
+      }
+      dry_run_settings {
+        access_levels = ["{{ access_levels }}"]
+      }
+      scope {
+        client_scope {
+          restricted_client_application {
+            client_id = "{{ client_id }}"
+            name = "{{ name }}"
+          }
+        }
+      }
+    }
+    session_settings {
+      max_inactivity = "{{ max_inactivity }}"
+      session_length = "{{ session_length }}"
+      session_length_enabled = {{ session_length_enabled }}
+      session_reauth_method = "{{ session_reauth_method }}"
+      use_oidc_max_age = {{ use_oidc_max_age }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

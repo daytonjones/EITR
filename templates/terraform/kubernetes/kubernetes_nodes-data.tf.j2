@@ -1,4 +1,8 @@
 data "kubernetes_nodes" "example" {
     id = "{{ id }}"
-    nodes = "{{ nodes }}"
+    metadata {
+      labels = {
+        key = "{{ labels_value }}"
+      }
+    }
 }

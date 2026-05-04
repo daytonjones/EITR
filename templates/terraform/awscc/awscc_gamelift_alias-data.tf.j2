@@ -1,11 +1,3 @@
 data "awscc_gamelift_alias" "example" {
-    alias_id = "{{ alias_id }}"
-    description = "{{ description }}"
     id = "{{ id }}"
-    name = "{{ name }}"
-    routing_strategy = "{
-    fleet_id = {{ fleet_id }}
-    message = {{ message }}
-    type = {{ type }}
-}"
 }

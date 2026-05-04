@@ -5,8 +5,22 @@ resource "azurerm_managed_application" "example" {
     location = "{{ location }}"
     managed_resource_group_name = "{{ managed_resource_group_name }}"
     name = "{{ name }}"
-    outputs = "{{ outputs }}"
     parameter_values = "{{ parameter_values }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    plan {
+      name = "{{ name }}"
+      product = "{{ product }}"
+      promotion_code = "{{ promotion_code }}"
+      publisher = "{{ publisher }}"
+      version = "{{ version }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

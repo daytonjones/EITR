@@ -1,5 +1,14 @@
 data "aws_ec2_transit_gateway_attachments" "example" {
     id = "{{ id }}"
-    ids = "{{ ids }}"
-    tags = "{{ tags }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
+    timeouts {
+      read = "{{ read }}"
+    }
 }

@@ -1,0 +1,11 @@
+resource "kubernetes_validating_admission_policy_v1" "example" {
+    id = "{{ id }}"
+    metadata = "{{ metadata }}"
+    spec = "{{ spec }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

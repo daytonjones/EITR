@@ -1,0 +1,11 @@
+resource "awscc_securityhub_automation_rule_v2" "example" {
+    actions = "{{ actions }}"
+    criteria = "{{ criteria }}"
+    description = "{{ description }}"
+    rule_name = "{{ rule_name }}"
+    rule_order = {{ rule_order }}
+    rule_status = "{{ rule_status }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

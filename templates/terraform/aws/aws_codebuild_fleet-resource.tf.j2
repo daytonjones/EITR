@@ -1,16 +1,36 @@
 resource "aws_codebuild_fleet" "example" {
-    arn = "{{ arn }}"
-    base_capacity = "{{ base_capacity }}"
+    base_capacity = {{ base_capacity }}
     compute_type = "{{ compute_type }}"
-    created = "{{ created }}"
     environment_type = "{{ environment_type }}"
     fleet_service_role = "{{ fleet_service_role }}"
-    id = "{{ id }}"
     image_id = "{{ image_id }}"
-    last_modified = "{{ last_modified }}"
     name = "{{ name }}"
     overflow_behavior = "{{ overflow_behavior }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    compute_configuration {
+      disk = {{ disk }}
+      instance_type = "{{ instance_type }}"
+      machine_type = "{{ machine_type }}"
+      memory = {{ memory }}
+      vcpu = {{ vcpu }}
+    }
+    scaling_configuration {
+      max_capacity = {{ max_capacity }}
+      scaling_type = "{{ scaling_type }}"
+      target_tracking_scaling_configs {
+        metric_type = "{{ metric_type }}"
+        target_value = {{ target_value }}
+      }
+    }
+    vpc_config {
+      security_group_ids = ["{{ security_group_ids }}"]
+      subnets = ["{{ subnets }}"]
+      vpc_id = "{{ vpc_id }}"
+    }
 }

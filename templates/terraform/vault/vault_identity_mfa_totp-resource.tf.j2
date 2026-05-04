@@ -1,19 +1,12 @@
 resource "vault_identity_mfa_totp" "example" {
     algorithm = "{{ algorithm }}"
-    digits = "{{ digits }}"
+    digits = {{ digits }}
     id = "{{ id }}"
     issuer = "{{ issuer }}"
-    key_size = "{{ key_size }}"
-    max_validation_attempts = "{{ max_validation_attempts }}"
-    method_id = "{{ method_id }}"
-    mount_accessor = "{{ mount_accessor }}"
-    name = "{{ name }}"
+    key_size = {{ key_size }}
+    max_validation_attempts = {{ max_validation_attempts }}
     namespace = "{{ namespace }}"
-    namespace_id = "{{ namespace_id }}"
-    namespace_path = "{{ namespace_path }}"
-    period = "{{ period }}"
-    qr_size = "{{ qr_size }}"
-    skew = "{{ skew }}"
-    type = "{{ type }}"
-    uuid = "{{ uuid }}"
+    period = {{ period }}
+    qr_size = {{ qr_size }}
+    skew = {{ skew }}
 }

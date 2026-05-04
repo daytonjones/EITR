@@ -1,22 +1,31 @@
 resource "azurerm_web_pubsub" "example" {
-    aad_auth_enabled = "{{ aad_auth_enabled }}"
-    capacity = "{{ capacity }}"
-    external_ip = "{{ external_ip }}"
-    hostname = "{{ hostname }}"
+    aad_auth_enabled = {{ aad_auth_enabled }}
+    capacity = {{ capacity }}
     id = "{{ id }}"
-    local_auth_enabled = "{{ local_auth_enabled }}"
+    local_auth_enabled = {{ local_auth_enabled }}
     location = "{{ location }}"
     name = "{{ name }}"
-    primary_access_key = "{{ primary_access_key }}"
-    primary_connection_string = "{{ primary_connection_string }}"
-    public_network_access_enabled = "{{ public_network_access_enabled }}"
-    public_port = "{{ public_port }}"
+    public_network_access_enabled = {{ public_network_access_enabled }}
     resource_group_name = "{{ resource_group_name }}"
-    secondary_access_key = "{{ secondary_access_key }}"
-    secondary_connection_string = "{{ secondary_connection_string }}"
-    server_port = "{{ server_port }}"
     sku = "{{ sku }}"
-    tags = "{{ tags }}"
-    tls_client_cert_enabled = "{{ tls_client_cert_enabled }}"
-    version = "{{ version }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tls_client_cert_enabled = {{ tls_client_cert_enabled }}
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    live_trace {
+      connectivity_logs_enabled = {{ connectivity_logs_enabled }}
+      enabled = {{ enabled }}
+      http_request_logs_enabled = {{ http_request_logs_enabled }}
+      messaging_logs_enabled = {{ messaging_logs_enabled }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

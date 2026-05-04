@@ -1,8 +1,7 @@
 resource "aws_launch_configuration" "example" {
-    arn = "{{ arn }}"
-    associate_public_ip_address = "{{ associate_public_ip_address }}"
-    ebs_optimized = "{{ ebs_optimized }}"
-    enable_monitoring = "{{ enable_monitoring }}"
+    associate_public_ip_address = {{ associate_public_ip_address }}
+    ebs_optimized = {{ ebs_optimized }}
+    enable_monitoring = {{ enable_monitoring }}
     iam_instance_profile = "{{ iam_instance_profile }}"
     id = "{{ id }}"
     image_id = "{{ image_id }}"
@@ -11,8 +10,38 @@ resource "aws_launch_configuration" "example" {
     name = "{{ name }}"
     name_prefix = "{{ name_prefix }}"
     placement_tenancy = "{{ placement_tenancy }}"
-    security_groups = "{{ security_groups }}"
+    region = "{{ region }}"
+    security_groups = ["{{ security_groups }}"]
     spot_price = "{{ spot_price }}"
     user_data = "{{ user_data }}"
     user_data_base64 = "{{ user_data_base64 }}"
+    ebs_block_device {
+      delete_on_termination = {{ delete_on_termination }}
+      device_name = "{{ device_name }}"
+      encrypted = {{ encrypted }}
+      iops = {{ iops }}
+      no_device = {{ no_device }}
+      snapshot_id = "{{ snapshot_id }}"
+      throughput = {{ throughput }}
+      volume_size = {{ volume_size }}
+      volume_type = "{{ volume_type }}"
+    }
+    ephemeral_block_device {
+      device_name = "{{ device_name }}"
+      no_device = {{ no_device }}
+      virtual_name = "{{ virtual_name }}"
+    }
+    metadata_options {
+      http_endpoint = "{{ http_endpoint }}"
+      http_put_response_hop_limit = {{ http_put_response_hop_limit }}
+      http_tokens = "{{ http_tokens }}"
+    }
+    root_block_device {
+      delete_on_termination = {{ delete_on_termination }}
+      encrypted = {{ encrypted }}
+      iops = {{ iops }}
+      throughput = {{ throughput }}
+      volume_size = {{ volume_size }}
+      volume_type = "{{ volume_type }}"
+    }
 }

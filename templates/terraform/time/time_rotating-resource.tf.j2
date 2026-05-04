@@ -1,18 +1,12 @@
 resource "time_rotating" "example" {
-    day = "{{ day }}"
-    hour = "{{ hour }}"
-    id = "{{ id }}"
-    minute = "{{ minute }}"
-    month = "{{ month }}"
     rfc3339 = "{{ rfc3339 }}"
-    rotation_days = "{{ rotation_days }}"
-    rotation_hours = "{{ rotation_hours }}"
-    rotation_minutes = "{{ rotation_minutes }}"
-    rotation_months = "{{ rotation_months }}"
+    rotation_days = {{ rotation_days }}
+    rotation_hours = {{ rotation_hours }}
+    rotation_minutes = {{ rotation_minutes }}
+    rotation_months = {{ rotation_months }}
     rotation_rfc3339 = "{{ rotation_rfc3339 }}"
-    rotation_years = "{{ rotation_years }}"
-    second = "{{ second }}"
-    triggers = "{{ triggers }}"
-    unix = "{{ unix }}"
-    year = "{{ year }}"
+    rotation_years = {{ rotation_years }}
+    triggers = {
+        key = "{{ triggers_value }}"
+      }
 }

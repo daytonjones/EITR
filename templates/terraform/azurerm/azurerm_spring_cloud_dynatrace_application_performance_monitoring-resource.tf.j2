@@ -3,10 +3,16 @@ resource "azurerm_spring_cloud_dynatrace_application_performance_monitoring" "ex
     api_url = "{{ api_url }}"
     connection_point = "{{ connection_point }}"
     environment_id = "{{ environment_id }}"
-    globally_enabled = "{{ globally_enabled }}"
+    globally_enabled = {{ globally_enabled }}
     id = "{{ id }}"
     name = "{{ name }}"
     spring_cloud_service_id = "{{ spring_cloud_service_id }}"
     tenant = "{{ tenant }}"
     tenant_token = "{{ tenant_token }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

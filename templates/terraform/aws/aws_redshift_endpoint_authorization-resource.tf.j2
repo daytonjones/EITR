@@ -1,11 +1,8 @@
 resource "aws_redshift_endpoint_authorization" "example" {
     account = "{{ account }}"
-    allowed_all_vpcs = "{{ allowed_all_vpcs }}"
     cluster_identifier = "{{ cluster_identifier }}"
-    endpoint_count = "{{ endpoint_count }}"
-    force_delete = "{{ force_delete }}"
-    grantee = "{{ grantee }}"
-    grantor = "{{ grantor }}"
+    force_delete = {{ force_delete }}
     id = "{{ id }}"
-    vpc_ids = "{{ vpc_ids }}"
+    region = "{{ region }}"
+    vpc_ids = ["{{ vpc_ids }}"]
 }

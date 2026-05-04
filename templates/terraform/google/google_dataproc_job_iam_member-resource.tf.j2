@@ -1,9 +1,13 @@
 resource "google_dataproc_job_iam_member" "example" {
-    etag = "{{ etag }}"
     id = "{{ id }}"
     job_id = "{{ job_id }}"
     member = "{{ member }}"
     project = "{{ project }}"
     region = "{{ region }}"
     role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

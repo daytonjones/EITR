@@ -1,0 +1,7 @@
+ephemeral "local_command" "example" {
+    allow_non_zero_exit_code = {{ allow_non_zero_exit_code }}
+    arguments = ["{{ arguments }}"]
+    command = "{{ command }}"
+    stdin = "{{ stdin }}"
+    working_directory = "{{ working_directory }}"
+}

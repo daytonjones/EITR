@@ -1,9 +1,39 @@
 resource "aws_vpclattice_target_group" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     type = "{{ type }}"
+    config {
+      ip_address_type = "{{ ip_address_type }}"
+      lambda_event_structure_version = "{{ lambda_event_structure_version }}"
+      port = {{ port }}
+      protocol = "{{ protocol }}"
+      protocol_version = "{{ protocol_version }}"
+      vpc_identifier = "{{ vpc_identifier }}"
+      health_check {
+        enabled = {{ enabled }}
+        health_check_interval_seconds = {{ health_check_interval_seconds }}
+        health_check_timeout_seconds = {{ health_check_timeout_seconds }}
+        healthy_threshold_count = {{ healthy_threshold_count }}
+        path = "{{ path }}"
+        port = {{ port }}
+        protocol = "{{ protocol }}"
+        protocol_version = "{{ protocol_version }}"
+        unhealthy_threshold_count = {{ unhealthy_threshold_count }}
+        matcher {
+          value = "{{ value }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

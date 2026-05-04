@@ -1,12 +1,44 @@
 resource "azurerm_virtual_machine_run_command" "example" {
     error_blob_uri = "{{ error_blob_uri }}"
     id = "{{ id }}"
-    instance_view = "{{ instance_view }}"
     location = "{{ location }}"
     name = "{{ name }}"
     output_blob_uri = "{{ output_blob_uri }}"
     run_as_password = "{{ run_as_password }}"
     run_as_user = "{{ run_as_user }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     virtual_machine_id = "{{ virtual_machine_id }}"
+    error_blob_managed_identity {
+      client_id = "{{ client_id }}"
+      object_id = "{{ object_id }}"
+    }
+    output_blob_managed_identity {
+      client_id = "{{ client_id }}"
+      object_id = "{{ object_id }}"
+    }
+    parameter {
+      name = "{{ name }}"
+      value = "{{ value }}"
+    }
+    protected_parameter {
+      name = "{{ name }}"
+      value = "{{ value }}"
+    }
+    source {
+      command_id = "{{ command_id }}"
+      script = "{{ script }}"
+      script_uri = "{{ script_uri }}"
+      script_uri_managed_identity {
+        client_id = "{{ client_id }}"
+        object_id = "{{ object_id }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

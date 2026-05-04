@@ -1,0 +1,9 @@
+resource "aws_s3control_directory_bucket_access_point_scope" "example" {
+    account_id = "{{ account_id }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+    scope {
+      permissions = ["{{ permissions }}"]
+      prefixes = ["{{ prefixes }}"]
+    }
+}

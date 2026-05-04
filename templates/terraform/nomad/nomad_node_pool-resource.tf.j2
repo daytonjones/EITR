@@ -1,6 +1,13 @@
 resource "nomad_node_pool" "example" {
     description = "{{ description }}"
     id = "{{ id }}"
-    meta = "{{ meta }}"
+    meta = {
+        key = "{{ meta_value }}"
+      }
     name = "{{ name }}"
+    node_identity_ttl = "{{ node_identity_ttl }}"
+    scheduler_config {
+      memory_oversubscription = "{{ memory_oversubscription }}"
+      scheduler_algorithm = "{{ scheduler_algorithm }}"
+    }
 }

@@ -1,14 +1,30 @@
 resource "google_blockchain_node_engine_blockchain_nodes" "example" {
     blockchain_node_id = "{{ blockchain_node_id }}"
     blockchain_type = "{{ blockchain_type }}"
-    connection_info = "{{ connection_info }}"
-    create_time = "{{ create_time }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
+    ethereum_details {
+      api_enable_admin = {{ api_enable_admin }}
+      api_enable_debug = {{ api_enable_debug }}
+      consensus_client = "{{ consensus_client }}"
+      execution_client = "{{ execution_client }}"
+      network = "{{ network }}"
+      node_type = "{{ node_type }}"
+      geth_details {
+        garbage_collection_mode = "{{ garbage_collection_mode }}"
+      }
+      validator_config {
+        beacon_fee_recipient = "{{ beacon_fee_recipient }}"
+        mev_relay_urls = ["{{ mev_relay_urls }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

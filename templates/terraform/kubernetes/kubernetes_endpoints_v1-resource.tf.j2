@@ -1,3 +1,31 @@
 resource "kubernetes_endpoints_v1" "example" {
     id = "{{ id }}"
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      generate_name = "{{ generate_name }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      name = "{{ name }}"
+      namespace = "{{ namespace }}"
+    }
+    subset {
+      address {
+        hostname = "{{ hostname }}"
+        ip = "{{ ip }}"
+        node_name = "{{ node_name }}"
+      }
+      not_ready_address {
+        hostname = "{{ hostname }}"
+        ip = "{{ ip }}"
+        node_name = "{{ node_name }}"
+      }
+      port {
+        name = "{{ name }}"
+        port = {{ port }}
+        protocol = "{{ protocol }}"
+      }
+    }
 }

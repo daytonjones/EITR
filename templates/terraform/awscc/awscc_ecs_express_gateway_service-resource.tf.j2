@@ -1,0 +1,14 @@
+resource "awscc_ecs_express_gateway_service" "example" {
+    cluster = "{{ cluster }}"
+    cpu = "{{ cpu }}"
+    execution_role_arn = "{{ execution_role_arn }}"
+    health_check_path = "{{ health_check_path }}"
+    infrastructure_role_arn = "{{ infrastructure_role_arn }}"
+    memory = "{{ memory }}"
+    network_configuration = "{{ network_configuration }}"
+    primary_container = "{{ primary_container }}"
+    scaling_target = "{{ scaling_target }}"
+    service_name = "{{ service_name }}"
+    tags = "{{ tags }}"
+    task_role_arn = "{{ task_role_arn }}"
+}

@@ -1,4 +1,66 @@
 resource "vault_managed_keys" "example" {
     id = "{{ id }}"
     namespace = "{{ namespace }}"
+    aws {
+      access_key = "{{ access_key }}"
+      allow_generate_key = {{ allow_generate_key }}
+      allow_replace_key = {{ allow_replace_key }}
+      allow_store_key = {{ allow_store_key }}
+      any_mount = {{ any_mount }}
+      curve = "{{ curve }}"
+      endpoint = "{{ endpoint }}"
+      key_bits = "{{ key_bits }}"
+      key_type = "{{ key_type }}"
+      kms_key = "{{ kms_key }}"
+      name = "{{ name }}"
+      region = "{{ region }}"
+      secret_key = "{{ secret_key }}"
+    }
+    azure {
+      allow_generate_key = {{ allow_generate_key }}
+      allow_replace_key = {{ allow_replace_key }}
+      allow_store_key = {{ allow_store_key }}
+      any_mount = {{ any_mount }}
+      client_id = "{{ client_id }}"
+      client_secret = "{{ client_secret }}"
+      environment = "{{ environment }}"
+      key_bits = "{{ key_bits }}"
+      key_name = "{{ key_name }}"
+      key_type = "{{ key_type }}"
+      name = "{{ name }}"
+      resource = "{{ resource }}"
+      tenant_id = "{{ tenant_id }}"
+      vault_name = "{{ vault_name }}"
+    }
+    gcp {
+      algorithm = "{{ algorithm }}"
+      allow_generate_key = {{ allow_generate_key }}
+      allow_replace_key = {{ allow_replace_key }}
+      allow_store_key = {{ allow_store_key }}
+      any_mount = {{ any_mount }}
+      credentials = "{{ credentials }}"
+      crypto_key = "{{ crypto_key }}"
+      crypto_key_version = "{{ crypto_key_version }}"
+      key_ring = "{{ key_ring }}"
+      name = "{{ name }}"
+      project = "{{ project }}"
+      region = "{{ region }}"
+    }
+    pkcs {
+      allow_generate_key = {{ allow_generate_key }}
+      allow_replace_key = {{ allow_replace_key }}
+      allow_store_key = {{ allow_store_key }}
+      any_mount = {{ any_mount }}
+      curve = "{{ curve }}"
+      force_rw_session = "{{ force_rw_session }}"
+      key_bits = "{{ key_bits }}"
+      key_id = "{{ key_id }}"
+      key_label = "{{ key_label }}"
+      library = "{{ library }}"
+      mechanism = "{{ mechanism }}"
+      name = "{{ name }}"
+      pin = "{{ pin }}"
+      slot = "{{ slot }}"
+      token_label = "{{ token_label }}"
+    }
 }

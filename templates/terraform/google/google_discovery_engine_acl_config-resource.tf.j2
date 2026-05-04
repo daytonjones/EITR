@@ -1,0 +1,16 @@
+resource "google_discovery_engine_acl_config" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    idp_config {
+      idp_type = "{{ idp_type }}"
+      external_idp_config {
+        workforce_pool_name = "{{ workforce_pool_name }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

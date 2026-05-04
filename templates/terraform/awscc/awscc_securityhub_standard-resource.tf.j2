@@ -1,9 +1,4 @@
 resource "awscc_securityhub_standard" "example" {
-    disabled_standards_controls = "{
-    reason = {{ reason }}
-    standards_control_arn = {{ standards_control_arn }}
-}"
-    id = "{{ id }}"
+    disabled_standards_controls = "{{ disabled_standards_controls }}"
     standards_arn = "{{ standards_arn }}"
-    standards_subscription_arn = "{{ standards_subscription_arn }}"
 }

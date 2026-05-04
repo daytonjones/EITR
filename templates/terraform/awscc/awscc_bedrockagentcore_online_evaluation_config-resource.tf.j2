@@ -1,0 +1,10 @@
+resource "awscc_bedrockagentcore_online_evaluation_config" "example" {
+    data_source_config = "{{ data_source_config }}"
+    description = "{{ description }}"
+    evaluation_execution_role_arn = "{{ evaluation_execution_role_arn }}"
+    evaluators = "{{ evaluators }}"
+    execution_status = "{{ execution_status }}"
+    online_evaluation_config_name = "{{ online_evaluation_config_name }}"
+    rule = "{{ rule }}"
+    tags = "{{ tags }}"
+}

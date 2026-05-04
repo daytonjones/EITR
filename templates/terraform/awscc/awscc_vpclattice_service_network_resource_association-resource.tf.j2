@@ -1,0 +1,6 @@
+resource "awscc_vpclattice_service_network_resource_association" "example" {
+    private_dns_enabled = {{ private_dns_enabled }}
+    resource_configuration_id = "{{ resource_configuration_id }}"
+    service_network_id = "{{ service_network_id }}"
+    tags = "{{ tags }}"
+}

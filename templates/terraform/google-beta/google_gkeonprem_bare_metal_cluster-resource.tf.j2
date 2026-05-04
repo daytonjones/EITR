@@ -1,23 +1,178 @@
 resource "google_gkeonprem_bare_metal_cluster" "example" {
     admin_cluster_membership = "{{ admin_cluster_membership }}"
-    annotations = "{{ annotations }}"
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
     bare_metal_version = "{{ bare_metal_version }}"
-    create_time = "{{ create_time }}"
-    delete_time = "{{ delete_time }}"
     description = "{{ description }}"
-    effective_annotations = "{{ effective_annotations }}"
-    endpoint = "{{ endpoint }}"
-    etag = "{{ etag }}"
-    fleet = "{{ fleet }}"
     id = "{{ id }}"
-    local_name = "{{ local_name }}"
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    reconciling = "{{ reconciling }}"
-    state = "{{ state }}"
-    status = "{{ status }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
-    validation_check = "{{ validation_check }}"
+    binary_authorization {
+      evaluation_mode = "{{ evaluation_mode }}"
+    }
+    cluster_operations {
+      enable_application_logs = {{ enable_application_logs }}
+    }
+    control_plane {
+      api_server_args {
+        argument = "{{ argument }}"
+        value = "{{ value }}"
+      }
+      control_plane_node_pool_config {
+        node_pool_config {
+          labels = {
+        key = "{{ labels_value }}"
+      }
+          operating_system = "{{ operating_system }}"
+          node_configs {
+            labels = {
+        key = "{{ labels_value }}"
+      }
+            node_ip = "{{ node_ip }}"
+          }
+          taints {
+            effect = "{{ effect }}"
+            key = "{{ key }}"
+            value = "{{ value }}"
+          }
+        }
+      }
+    }
+    load_balancer {
+      bgp_lb_config {
+        asn = {{ asn }}
+        address_pools {
+          addresses = ["{{ addresses }}"]
+          avoid_buggy_ips = {{ avoid_buggy_ips }}
+          manual_assign = {{ manual_assign }}
+          pool = "{{ pool }}"
+        }
+        bgp_peer_configs {
+          asn = {{ asn }}
+          control_plane_nodes = ["{{ control_plane_nodes }}"]
+          ip_address = "{{ ip_address }}"
+        }
+        load_balancer_node_pool_config {
+          node_pool_config {
+            labels = {
+        key = "{{ labels_value }}"
+      }
+            operating_system = "{{ operating_system }}"
+            kubelet_config {
+              registry_burst = {{ registry_burst }}
+              registry_pull_qps = {{ registry_pull_qps }}
+              serialize_image_pulls_disabled = {{ serialize_image_pulls_disabled }}
+            }
+            node_configs {
+              labels = {
+        key = "{{ labels_value }}"
+      }
+              node_ip = "{{ node_ip }}"
+            }
+            taints {
+              effect = "{{ effect }}"
+              key = "{{ key }}"
+              value = "{{ value }}"
+            }
+          }
+        }
+      }
+      manual_lb_config {
+        enabled = {{ enabled }}
+      }
+      metal_lb_config {
+        address_pools {
+          addresses = ["{{ addresses }}"]
+          avoid_buggy_ips = {{ avoid_buggy_ips }}
+          manual_assign = {{ manual_assign }}
+          pool = "{{ pool }}"
+        }
+        load_balancer_node_pool_config {
+          node_pool_config {
+            labels = {
+        key = "{{ labels_value }}"
+      }
+            operating_system = "{{ operating_system }}"
+            node_configs {
+              labels = {
+        key = "{{ labels_value }}"
+      }
+              node_ip = "{{ node_ip }}"
+            }
+            taints {
+              effect = "{{ effect }}"
+              key = "{{ key }}"
+              value = "{{ value }}"
+            }
+          }
+        }
+      }
+      port_config {
+        control_plane_load_balancer_port = {{ control_plane_load_balancer_port }}
+      }
+      vip_config {
+        control_plane_vip = "{{ control_plane_vip }}"
+        ingress_vip = "{{ ingress_vip }}"
+      }
+    }
+    maintenance_config {
+      maintenance_address_cidr_blocks = ["{{ maintenance_address_cidr_blocks }}"]
+    }
+    network_config {
+      advanced_networking = {{ advanced_networking }}
+      island_mode_cidr {
+        pod_address_cidr_blocks = ["{{ pod_address_cidr_blocks }}"]
+        service_address_cidr_blocks = ["{{ service_address_cidr_blocks }}"]
+      }
+      multiple_network_interfaces_config {
+        enabled = {{ enabled }}
+      }
+      sr_iov_config {
+        enabled = {{ enabled }}
+      }
+    }
+    node_access_config {
+      login_user = "{{ login_user }}"
+    }
+    node_config {
+      container_runtime = "{{ container_runtime }}"
+      max_pods_per_node = {{ max_pods_per_node }}
+    }
+    os_environment_config {
+      package_repo_excluded = {{ package_repo_excluded }}
+    }
+    proxy {
+      no_proxy = ["{{ no_proxy }}"]
+      uri = "{{ uri }}"
+    }
+    security_config {
+      authorization {
+        admin_users {
+          username = "{{ username }}"
+        }
+      }
+    }
+    storage {
+      lvp_node_mounts_config {
+        path = "{{ path }}"
+        storage_class = "{{ storage_class }}"
+      }
+      lvp_share_config {
+        shared_path_pv_count = {{ shared_path_pv_count }}
+        lvp_config {
+          path = "{{ path }}"
+          storage_class = "{{ storage_class }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    upgrade_policy {
+      policy = "{{ policy }}"
+    }
 }

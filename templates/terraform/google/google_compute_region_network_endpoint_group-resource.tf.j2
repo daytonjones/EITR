@@ -7,6 +7,26 @@ resource "google_compute_region_network_endpoint_group" "example" {
     project = "{{ project }}"
     psc_target_service = "{{ psc_target_service }}"
     region = "{{ region }}"
-    self_link = "{{ self_link }}"
     subnetwork = "{{ subnetwork }}"
+    app_engine {
+      service = "{{ service }}"
+      url_mask = "{{ url_mask }}"
+      version = "{{ version }}"
+    }
+    cloud_function {
+      function = "{{ function }}"
+      url_mask = "{{ url_mask }}"
+    }
+    cloud_run {
+      service = "{{ service }}"
+      tag = "{{ tag }}"
+      url_mask = "{{ url_mask }}"
+    }
+    psc_data {
+      producer_port = "{{ producer_port }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

@@ -1,0 +1,13 @@
+resource "awscc_odb_cloud_exadata_infrastructure" "example" {
+    availability_zone = "{{ availability_zone }}"
+    availability_zone_id = "{{ availability_zone_id }}"
+    compute_count = {{ compute_count }}
+    customer_contacts_to_send_to_oci = "{{ customer_contacts_to_send_to_oci }}"
+    database_server_type = "{{ database_server_type }}"
+    display_name = "{{ display_name }}"
+    maintenance_window = "{{ maintenance_window }}"
+    shape = "{{ shape }}"
+    storage_count = {{ storage_count }}
+    storage_server_type = "{{ storage_server_type }}"
+    tags = "{{ tags }}"
+}

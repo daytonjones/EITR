@@ -1,0 +1,125 @@
+resource "aws_cloudwatch_log_transformer" "example" {
+    log_group_arn = "{{ log_group_arn }}"
+    region = "{{ region }}"
+    transformer_config {
+      add_keys {
+        entry {
+          key = "{{ key }}"
+          overwrite_if_exists = {{ overwrite_if_exists }}
+          value = "{{ value }}"
+        }
+      }
+      copy_value {
+        entry {
+          overwrite_if_exists = {{ overwrite_if_exists }}
+          source = "{{ source }}"
+          target = "{{ target }}"
+        }
+      }
+      csv {
+        columns = ["{{ columns }}"]
+        delimiter = "{{ delimiter }}"
+        quote_character = "{{ quote_character }}"
+        source = "{{ source }}"
+      }
+      date_time_converter {
+        locale = "{{ locale }}"
+        match_patterns = ["{{ match_patterns }}"]
+        source = "{{ source }}"
+        source_timezone = "{{ source_timezone }}"
+        target = "{{ target }}"
+        target_format = "{{ target_format }}"
+        target_timezone = "{{ target_timezone }}"
+      }
+      delete_keys {
+        with_keys = ["{{ with_keys }}"]
+      }
+      grok {
+        match = "{{ match }}"
+        source = "{{ source }}"
+      }
+      list_to_map {
+        flatten = {{ flatten }}
+        flattened_element = "{{ flattened_element }}"
+        key = "{{ key }}"
+        source = "{{ source }}"
+        target = "{{ target }}"
+        value_key = "{{ value_key }}"
+      }
+      lower_case_string {
+        with_keys = ["{{ with_keys }}"]
+      }
+      move_keys {
+        entry {
+          overwrite_if_exists = {{ overwrite_if_exists }}
+          source = "{{ source }}"
+          target = "{{ target }}"
+        }
+      }
+      parse_cloudfront {
+        source = "{{ source }}"
+      }
+      parse_json {
+        destination = "{{ destination }}"
+        source = "{{ source }}"
+      }
+      parse_key_value {
+        destination = "{{ destination }}"
+        field_delimiter = "{{ field_delimiter }}"
+        key_prefix = "{{ key_prefix }}"
+        key_value_delimiter = "{{ key_value_delimiter }}"
+        non_match_value = "{{ non_match_value }}"
+        overwrite_if_exists = {{ overwrite_if_exists }}
+        source = "{{ source }}"
+      }
+      parse_postgres {
+        source = "{{ source }}"
+      }
+      parse_route53 {
+        source = "{{ source }}"
+      }
+      parse_to_ocsf {
+        event_source = "{{ event_source }}"
+        ocsf_version = "{{ ocsf_version }}"
+        source = "{{ source }}"
+      }
+      parse_vpc {
+        source = "{{ source }}"
+      }
+      parse_waf {
+        source = "{{ source }}"
+      }
+      rename_keys {
+        entry {
+          key = "{{ key }}"
+          overwrite_if_exists = {{ overwrite_if_exists }}
+          rename_to = "{{ rename_to }}"
+        }
+      }
+      split_string {
+        entry {
+          delimiter = "{{ delimiter }}"
+          source = "{{ source }}"
+        }
+      }
+      substitute_string {
+        entry {
+          from = "{{ from }}"
+          source = "{{ source }}"
+          to = "{{ to }}"
+        }
+      }
+      trim_string {
+        with_keys = ["{{ with_keys }}"]
+      }
+      type_converter {
+        entry {
+          key = "{{ key }}"
+          type = "{{ type }}"
+        }
+      }
+      upper_case_string {
+        with_keys = ["{{ with_keys }}"]
+      }
+    }
+}

@@ -1,0 +1,28 @@
+resource "google_network_services_agent_gateway" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    protocols = ["{{ protocols }}"]
+    registries = ["{{ registries }}"]
+    google_managed {
+      governed_access_path = "{{ governed_access_path }}"
+    }
+    network_config {
+      egress {
+        network_attachment = "{{ network_attachment }}"
+      }
+    }
+    self_managed {
+      resource_uri = "{{ resource_uri }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,10 +1,49 @@
 resource "google_dialogflow_cx_test_case" "example" {
-    creation_time = "{{ creation_time }}"
     display_name = "{{ display_name }}"
     id = "{{ id }}"
-    last_test_result = "{{ last_test_result }}"
-    name = "{{ name }}"
     notes = "{{ notes }}"
     parent = "{{ parent }}"
-    tags = "{{ tags }}"
+    tags = ["{{ tags }}"]
+    test_case_conversation_turns {
+      user_input {
+        enable_sentiment_analysis = {{ enable_sentiment_analysis }}
+        injected_parameters = "{{ injected_parameters }}"
+        is_webhook_enabled = {{ is_webhook_enabled }}
+        input {
+          language_code = "{{ language_code }}"
+          dtmf {
+            digits = "{{ digits }}"
+            finish_digit = "{{ finish_digit }}"
+          }
+          event {
+            event = "{{ event }}"
+          }
+          text {
+            text = "{{ text }}"
+          }
+        }
+      }
+      virtual_agent_output {
+        session_parameters = "{{ session_parameters }}"
+        current_page {
+          name = "{{ name }}"
+        }
+        text_responses {
+          text = ["{{ text }}"]
+        }
+        triggered_intent {
+          name = "{{ name }}"
+        }
+      }
+    }
+    test_config {
+      flow = "{{ flow }}"
+      page = "{{ page }}"
+      tracking_parameters = ["{{ tracking_parameters }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

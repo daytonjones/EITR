@@ -1,5 +1,6 @@
 resource "aws_vpn_gateway_attachment" "example" {
     id = "{{ id }}"
+    region = "{{ region }}"
     vpc_id = "{{ vpc_id }}"
     vpn_gateway_id = "{{ vpn_gateway_id }}"
 }

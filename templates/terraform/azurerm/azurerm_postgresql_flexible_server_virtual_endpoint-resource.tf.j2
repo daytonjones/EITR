@@ -4,4 +4,10 @@ resource "azurerm_postgresql_flexible_server_virtual_endpoint" "example" {
     replica_server_id = "{{ replica_server_id }}"
     source_server_id = "{{ source_server_id }}"
     type = "{{ type }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

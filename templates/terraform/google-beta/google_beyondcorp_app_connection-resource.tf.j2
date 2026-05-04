@@ -1,12 +1,25 @@
 resource "google_beyondcorp_app_connection" "example" {
-    connectors = "{{ connectors }}"
+    connectors = ["{{ connectors }}"]
     display_name = "{{ display_name }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
     project = "{{ project }}"
     region = "{{ region }}"
-    terraform_labels = "{{ terraform_labels }}"
     type = "{{ type }}"
+    application_endpoint {
+      host = "{{ host }}"
+      port = {{ port }}
+    }
+    gateway {
+      app_gateway = "{{ app_gateway }}"
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,11 +1,13 @@
 resource "vault_quota_rate_limit" "example" {
-    block_interval = "{{ block_interval }}"
+    block_interval = {{ block_interval }}
+    group_by = "{{ group_by }}"
     id = "{{ id }}"
-    inheritable = "{{ inheritable }}"
-    interval = "{{ interval }}"
+    inheritable = {{ inheritable }}
+    interval = {{ interval }}
     name = "{{ name }}"
     namespace = "{{ namespace }}"
     path = "{{ path }}"
-    rate = "{{ rate }}"
+    rate = {{ rate }}
     role = "{{ role }}"
+    secondary_rate = {{ secondary_rate }}
 }

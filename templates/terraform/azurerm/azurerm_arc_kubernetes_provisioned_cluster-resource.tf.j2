@@ -1,0 +1,25 @@
+resource "azurerm_arc_kubernetes_provisioned_cluster" "example" {
+    arc_agent_auto_upgrade_enabled = {{ arc_agent_auto_upgrade_enabled }}
+    arc_agent_desired_version = "{{ arc_agent_desired_version }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    azure_active_directory {
+      admin_group_object_ids = ["{{ admin_group_object_ids }}"]
+      azure_rbac_enabled = {{ azure_rbac_enabled }}
+      tenant_id = "{{ tenant_id }}"
+    }
+    identity {
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

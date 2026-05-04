@@ -2,5 +2,16 @@ resource "aws_s3_bucket_intelligent_tiering_configuration" "example" {
     bucket = "{{ bucket }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     status = "{{ status }}"
+    filter {
+      prefix = "{{ prefix }}"
+      tags = {
+        key = "{{ tags_value }}"
+      }
+    }
+    tiering {
+      access_tier = "{{ access_tier }}"
+      days = {{ days }}
+    }
 }

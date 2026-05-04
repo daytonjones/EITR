@@ -2,19 +2,35 @@ resource "azurerm_stream_analytics_job" "example" {
     compatibility_level = "{{ compatibility_level }}"
     content_storage_policy = "{{ content_storage_policy }}"
     data_locale = "{{ data_locale }}"
-    events_late_arrival_max_delay_in_seconds = "{{ events_late_arrival_max_delay_in_seconds }}"
-    events_out_of_order_max_delay_in_seconds = "{{ events_out_of_order_max_delay_in_seconds }}"
+    events_late_arrival_max_delay_in_seconds = {{ events_late_arrival_max_delay_in_seconds }}
+    events_out_of_order_max_delay_in_seconds = {{ events_out_of_order_max_delay_in_seconds }}
     events_out_of_order_policy = "{{ events_out_of_order_policy }}"
     id = "{{ id }}"
-    job_id = "{{ job_id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     output_error_policy = "{{ output_error_policy }}"
     resource_group_name = "{{ resource_group_name }}"
     sku_name = "{{ sku_name }}"
     stream_analytics_cluster_id = "{{ stream_analytics_cluster_id }}"
-    streaming_units = "{{ streaming_units }}"
-    tags = "{{ tags }}"
+    streaming_units = {{ streaming_units }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
     transformation_query = "{{ transformation_query }}"
     type = "{{ type }}"
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    job_storage_account {
+      account_key = "{{ account_key }}"
+      account_name = "{{ account_name }}"
+      authentication_mode = "{{ authentication_mode }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

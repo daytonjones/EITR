@@ -1,3 +1,31 @@
 resource "kubernetes_resource_quota" "example" {
     id = "{{ id }}"
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      generate_name = "{{ generate_name }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      name = "{{ name }}"
+      namespace = "{{ namespace }}"
+    }
+    spec {
+      hard = {
+        key = "{{ hard_value }}"
+      }
+      scopes = ["{{ scopes }}"]
+      scope_selector {
+        match_expression {
+          operator = "{{ operator }}"
+          scope_name = "{{ scope_name }}"
+          values = ["{{ values }}"]
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,11 @@
+resource "google_dataform_team_folder" "example" {
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

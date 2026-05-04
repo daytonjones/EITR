@@ -1,9 +1,20 @@
 resource "azurerm_logic_app_trigger_recurrence" "example" {
     frequency = "{{ frequency }}"
     id = "{{ id }}"
-    interval = "{{ interval }}"
+    interval = {{ interval }}
     logic_app_id = "{{ logic_app_id }}"
     name = "{{ name }}"
     start_time = "{{ start_time }}"
     time_zone = "{{ time_zone }}"
+    schedule {
+      at_these_hours = ["{{ at_these_hours }}"]
+      at_these_minutes = ["{{ at_these_minutes }}"]
+      on_these_days = ["{{ on_these_days }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

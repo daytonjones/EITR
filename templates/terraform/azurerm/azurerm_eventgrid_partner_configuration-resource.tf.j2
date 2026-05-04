@@ -1,0 +1,19 @@
+resource "azurerm_eventgrid_partner_configuration" "example" {
+    default_maximum_expiration_time_in_days = {{ default_maximum_expiration_time_in_days }}
+    id = "{{ id }}"
+    resource_group_name = "{{ resource_group_name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    partner_authorization {
+      authorization_expiration_time_in_utc = "{{ authorization_expiration_time_in_utc }}"
+      partner_name = "{{ partner_name }}"
+      partner_registration_id = "{{ partner_registration_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

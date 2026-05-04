@@ -1,7 +1,17 @@
 resource "tfe_workspace_settings" "example" {
     agent_pool_id = "{{ agent_pool_id }}"
+    assessments_enabled = {{ assessments_enabled }}
+    auto_apply = {{ auto_apply }}
+    description = "{{ description }}"
+    effective_tags = {
+        key = "{{ effective_tags_value }}"
+      }
     execution_mode = "{{ execution_mode }}"
-    id = "{{ id }}"
-    overwrites = "{{ overwrites }}"
+    global_remote_state = {{ global_remote_state }}
+    project_remote_state = {{ project_remote_state }}
+    remote_state_consumer_ids = ["{{ remote_state_consumer_ids }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
     workspace_id = "{{ workspace_id }}"
 }

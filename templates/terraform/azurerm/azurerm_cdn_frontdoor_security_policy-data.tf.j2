@@ -1,0 +1,9 @@
+data "azurerm_cdn_frontdoor_security_policy" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    profile_name = "{{ profile_name }}"
+    resource_group_name = "{{ resource_group_name }}"
+    timeouts {
+      read = "{{ read }}"
+    }
+}

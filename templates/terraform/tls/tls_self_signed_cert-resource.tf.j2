@@ -1,18 +1,25 @@
 resource "tls_self_signed_cert" "example" {
-    allowed_uses = "{{ allowed_uses }}"
-    cert_pem = "{{ cert_pem }}"
-    dns_names = "{{ dns_names }}"
-    early_renewal_hours = "{{ early_renewal_hours }}"
-    id = "{{ id }}"
-    ip_addresses = "{{ ip_addresses }}"
-    is_ca_certificate = "{{ is_ca_certificate }}"
-    key_algorithm = "{{ key_algorithm }}"
+    allowed_uses = ["{{ allowed_uses }}"]
+    dns_names = ["{{ dns_names }}"]
+    early_renewal_hours = {{ early_renewal_hours }}
+    ip_addresses = ["{{ ip_addresses }}"]
+    is_ca_certificate = {{ is_ca_certificate }}
+    max_path_length = {{ max_path_length }}
     private_key_pem = "{{ private_key_pem }}"
-    ready_for_renewal = "{{ ready_for_renewal }}"
-    set_authority_key_id = "{{ set_authority_key_id }}"
-    set_subject_key_id = "{{ set_subject_key_id }}"
-    uris = "{{ uris }}"
-    validity_end_time = "{{ validity_end_time }}"
-    validity_period_hours = "{{ validity_period_hours }}"
-    validity_start_time = "{{ validity_start_time }}"
+    set_authority_key_id = {{ set_authority_key_id }}
+    set_subject_key_id = {{ set_subject_key_id }}
+    uris = ["{{ uris }}"]
+    validity_period_hours = {{ validity_period_hours }}
+    subject {
+      common_name = "{{ common_name }}"
+      country = "{{ country }}"
+      email_address = "{{ email_address }}"
+      locality = "{{ locality }}"
+      organization = "{{ organization }}"
+      organizational_unit = "{{ organizational_unit }}"
+      postal_code = "{{ postal_code }}"
+      province = "{{ province }}"
+      serial_number = "{{ serial_number }}"
+      street_address = ["{{ street_address }}"]
+    }
 }

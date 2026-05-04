@@ -1,0 +1,12 @@
+resource "azurerm_servicebus_namespace_customer_managed_key" "example" {
+    id = "{{ id }}"
+    infrastructure_encryption_enabled = {{ infrastructure_encryption_enabled }}
+    key_vault_key_id = "{{ key_vault_key_id }}"
+    namespace_id = "{{ namespace_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

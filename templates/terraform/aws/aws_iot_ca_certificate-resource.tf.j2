@@ -1,14 +1,20 @@
 resource "aws_iot_ca_certificate" "example" {
-    active = "{{ active }}"
-    allow_auto_registration = "{{ allow_auto_registration }}"
-    arn = "{{ arn }}"
+    active = {{ active }}
+    allow_auto_registration = {{ allow_auto_registration }}
     ca_certificate_pem = "{{ ca_certificate_pem }}"
     certificate_mode = "{{ certificate_mode }}"
-    customer_version = "{{ customer_version }}"
-    generation_id = "{{ generation_id }}"
     id = "{{ id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    validity = "{{ validity }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     verification_certificate_pem = "{{ verification_certificate_pem }}"
+    registration_config {
+      role_arn = "{{ role_arn }}"
+      template_body = "{{ template_body }}"
+      template_name = "{{ template_name }}"
+    }
 }

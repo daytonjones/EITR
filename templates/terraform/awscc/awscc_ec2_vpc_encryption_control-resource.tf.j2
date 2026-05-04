@@ -1,0 +1,13 @@
+resource "awscc_ec2_vpc_encryption_control" "example" {
+    egress_only_internet_gateway_exclusion_input = "{{ egress_only_internet_gateway_exclusion_input }}"
+    elastic_file_system_exclusion_input = "{{ elastic_file_system_exclusion_input }}"
+    internet_gateway_exclusion_input = "{{ internet_gateway_exclusion_input }}"
+    lambda_exclusion_input = "{{ lambda_exclusion_input }}"
+    mode = "{{ mode }}"
+    nat_gateway_exclusion_input = "{{ nat_gateway_exclusion_input }}"
+    tags = "{{ tags }}"
+    virtual_private_gateway_exclusion_input = "{{ virtual_private_gateway_exclusion_input }}"
+    vpc_id = "{{ vpc_id }}"
+    vpc_lattice_exclusion_input = "{{ vpc_lattice_exclusion_input }}"
+    vpc_peering_exclusion_input = "{{ vpc_peering_exclusion_input }}"
+}

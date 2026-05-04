@@ -1,6 +1,6 @@
 data "vault_transform_decode" "example" {
-    batch_input = "{{ batch_input }}"
-    batch_results = "{{ batch_results }}"
+    batch_input = ["{{ batch_input }}"]
+    batch_results = ["{{ batch_results }}"]
     decoded_value = "{{ decoded_value }}"
     id = "{{ id }}"
     namespace = "{{ namespace }}"

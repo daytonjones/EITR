@@ -1,5 +1,5 @@
 resource "consul_acl_policy" "example" {
-    datacenters = "{{ datacenters }}"
+    datacenters = ["{{ datacenters }}"]
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"

@@ -1,0 +1,44 @@
+resource "google_dialogflow_environment" "example" {
+    agent_version = "{{ agent_version }}"
+    description = "{{ description }}"
+    environmentid = "{{ environmentid }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    fulfillment {
+      display_name = "{{ display_name }}"
+      name = "{{ name }}"
+      features {
+        type = "{{ type }}"
+      }
+      generic_web_service {
+        password = "{{ password }}"
+        request_headers = {
+        key = "{{ request_headers_value }}"
+      }
+        uri = "{{ uri }}"
+        username = "{{ username }}"
+      }
+    }
+    text_to_speech_settings {
+      enable_text_to_speech = {{ enable_text_to_speech }}
+      output_audio_encoding = "{{ output_audio_encoding }}"
+      sample_rate_hertz = {{ sample_rate_hertz }}
+      synthesize_speech_configs {
+        effects_profile_id = ["{{ effects_profile_id }}"]
+        language = "{{ language }}"
+        pitch = {{ pitch }}
+        speaking_rate = {{ speaking_rate }}
+        volume_gain_db = {{ volume_gain_db }}
+        voice {
+          name = "{{ name }}"
+          ssml_gender = "{{ ssml_gender }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,14 +1,36 @@
 resource "azurerm_eventgrid_topic" "example" {
-    endpoint = "{{ endpoint }}"
     id = "{{ id }}"
-    inbound_ip_rule = "{{ inbound_ip_rule }}"
+    inbound_ip_rule = ["{{ inbound_ip_rule }}"]
     input_schema = "{{ input_schema }}"
-    local_auth_enabled = "{{ local_auth_enabled }}"
+    local_auth_enabled = {{ local_auth_enabled }}
     location = "{{ location }}"
     name = "{{ name }}"
-    primary_access_key = "{{ primary_access_key }}"
-    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    public_network_access_enabled = {{ public_network_access_enabled }}
     resource_group_name = "{{ resource_group_name }}"
-    secondary_access_key = "{{ secondary_access_key }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    input_mapping_default_values {
+      data_version = "{{ data_version }}"
+      event_type = "{{ event_type }}"
+      subject = "{{ subject }}"
+    }
+    input_mapping_fields {
+      data_version = "{{ data_version }}"
+      event_time = "{{ event_time }}"
+      event_type = "{{ event_type }}"
+      id = "{{ id }}"
+      subject = "{{ subject }}"
+      topic = "{{ topic }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

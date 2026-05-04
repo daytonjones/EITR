@@ -1,10 +1,33 @@
 resource "azurerm_datadog_monitor" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
-    marketplace_subscription_status = "{{ marketplace_subscription_status }}"
-    monitoring_enabled = "{{ monitoring_enabled }}"
+    monitoring_enabled = {{ monitoring_enabled }}
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     sku_name = "{{ sku_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    datadog_organization {
+      api_key = "{{ api_key }}"
+      application_key = "{{ application_key }}"
+      enterprise_app_id = "{{ enterprise_app_id }}"
+      linking_auth_code = "{{ linking_auth_code }}"
+      linking_client_id = "{{ linking_client_id }}"
+      redirect_uri = "{{ redirect_uri }}"
+    }
+    identity {
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    user {
+      email = "{{ email }}"
+      name = "{{ name }}"
+      phone_number = "{{ phone_number }}"
+    }
 }

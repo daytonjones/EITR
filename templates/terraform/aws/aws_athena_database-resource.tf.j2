@@ -2,8 +2,19 @@ resource "aws_athena_database" "example" {
     bucket = "{{ bucket }}"
     comment = "{{ comment }}"
     expected_bucket_owner = "{{ expected_bucket_owner }}"
-    force_destroy = "{{ force_destroy }}"
+    force_destroy = {{ force_destroy }}
     id = "{{ id }}"
     name = "{{ name }}"
-    properties = "{{ properties }}"
+    properties = {
+        key = "{{ properties_value }}"
+      }
+    region = "{{ region }}"
+    workgroup = "{{ workgroup }}"
+    acl_configuration {
+      s3_acl_option = "{{ s3_acl_option }}"
+    }
+    encryption_configuration {
+      encryption_option = "{{ encryption_option }}"
+      kms_key = "{{ kms_key }}"
+    }
 }

@@ -6,4 +6,8 @@ resource "google_document_ai_warehouse_location" "example" {
     kms_key = "{{ kms_key }}"
     location = "{{ location }}"
     project_number = "{{ project_number }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

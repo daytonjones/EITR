@@ -1,0 +1,18 @@
+resource "awscc_bedrockagentcore_runtime" "example" {
+    agent_runtime_artifact = "{{ agent_runtime_artifact }}"
+    agent_runtime_name = "{{ agent_runtime_name }}"
+    authorizer_configuration = "{{ authorizer_configuration }}"
+    description = "{{ description }}"
+    environment_variables = {
+        key = "{{ environment_variables_value }}"
+      }
+    filesystem_configurations = "{{ filesystem_configurations }}"
+    lifecycle_configuration = "{{ lifecycle_configuration }}"
+    network_configuration = "{{ network_configuration }}"
+    protocol_configuration = "{{ protocol_configuration }}"
+    request_header_configuration = "{{ request_header_configuration }}"
+    role_arn = "{{ role_arn }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

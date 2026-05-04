@@ -1,0 +1,90 @@
+resource "google_ces_guardrail" "example" {
+    app = "{{ app }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    enabled = {{ enabled }}
+    guardrail_id = "{{ guardrail_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    action {
+      generative_answer {
+        prompt = "{{ prompt }}"
+      }
+      respond_immediately {
+        responses {
+          disabled = {{ disabled }}
+          text = "{{ text }}"
+        }
+      }
+      transfer_agent {
+        agent = "{{ agent }}"
+      }
+    }
+    code_callback {
+      after_agent_callback {
+        description = "{{ description }}"
+        disabled = {{ disabled }}
+        python_code = "{{ python_code }}"
+      }
+      after_model_callback {
+        description = "{{ description }}"
+        disabled = {{ disabled }}
+        python_code = "{{ python_code }}"
+      }
+      before_agent_callback {
+        description = "{{ description }}"
+        disabled = {{ disabled }}
+        python_code = "{{ python_code }}"
+      }
+      before_model_callback {
+        description = "{{ description }}"
+        disabled = {{ disabled }}
+        python_code = "{{ python_code }}"
+      }
+    }
+    content_filter {
+      banned_contents = ["{{ banned_contents }}"]
+      banned_contents_in_agent_response = ["{{ banned_contents_in_agent_response }}"]
+      banned_contents_in_user_input = ["{{ banned_contents_in_user_input }}"]
+      disregard_diacritics = {{ disregard_diacritics }}
+      match_type = "{{ match_type }}"
+    }
+    llm_policy {
+      allow_short_utterance = {{ allow_short_utterance }}
+      fail_open = {{ fail_open }}
+      max_conversation_messages = {{ max_conversation_messages }}
+      policy_scope = "{{ policy_scope }}"
+      prompt = "{{ prompt }}"
+      model_settings {
+        model = "{{ model }}"
+        temperature = {{ temperature }}
+      }
+    }
+    llm_prompt_security {
+      custom_policy {
+        allow_short_utterance = {{ allow_short_utterance }}
+        fail_open = {{ fail_open }}
+        max_conversation_messages = {{ max_conversation_messages }}
+        policy_scope = "{{ policy_scope }}"
+        prompt = "{{ prompt }}"
+        model_settings {
+          model = "{{ model }}"
+          temperature = {{ temperature }}
+        }
+      }
+      default_settings {
+      }
+    }
+    model_safety {
+      safety_settings {
+        category = "{{ category }}"
+        threshold = "{{ threshold }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

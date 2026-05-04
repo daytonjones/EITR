@@ -1,13 +1,9 @@
 resource "awscc_ec2_vpc_peering_connection" "example" {
-    id = "{{ id }}"
+    assume_role_region = "{{ assume_role_region }}"
     peer_owner_id = "{{ peer_owner_id }}"
     peer_region = "{{ peer_region }}"
     peer_role_arn = "{{ peer_role_arn }}"
     peer_vpc_id = "{{ peer_vpc_id }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
     vpc_id = "{{ vpc_id }}"
-    vpc_peering_connection_id = "{{ vpc_peering_connection_id }}"
 }

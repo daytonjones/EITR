@@ -1,0 +1,8 @@
+resource "awscc_events_event_bus_policy" "example" {
+    action = "{{ action }}"
+    condition = "{{ condition }}"
+    event_bus_name = "{{ event_bus_name }}"
+    principal = "{{ principal }}"
+    statement = "{{ statement }}"
+    statement_id = "{{ statement_id }}"
+}

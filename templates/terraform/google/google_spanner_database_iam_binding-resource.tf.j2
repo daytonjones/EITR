@@ -1,9 +1,13 @@
 resource "google_spanner_database_iam_binding" "example" {
     database = "{{ database }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
     instance = "{{ instance }}"
-    members = "{{ members }}"
+    members = ["{{ members }}"]
     project = "{{ project }}"
     role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

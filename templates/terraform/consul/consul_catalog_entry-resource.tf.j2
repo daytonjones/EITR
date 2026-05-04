@@ -4,4 +4,11 @@ resource "consul_catalog_entry" "example" {
     id = "{{ id }}"
     node = "{{ node }}"
     token = "{{ token }}"
+    service {
+      address = "{{ address }}"
+      id = "{{ id }}"
+      name = "{{ name }}"
+      port = {{ port }}
+      tags = ["{{ tags }}"]
+    }
 }

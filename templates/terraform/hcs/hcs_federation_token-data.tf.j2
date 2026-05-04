@@ -2,5 +2,7 @@ data "hcs_federation_token" "example" {
     id = "{{ id }}"
     managed_application_name = "{{ managed_application_name }}"
     resource_group_name = "{{ resource_group_name }}"
-    token = "{{ token }}"
+    timeouts {
+      default = "{{ default }}"
+    }
 }

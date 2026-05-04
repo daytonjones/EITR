@@ -1,12 +1,80 @@
 resource "google_notebooks_runtime" "example" {
-    effective_labels = "{{ effective_labels }}"
-    health_state = "{{ health_state }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
-    metrics = "{{ metrics }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    state = "{{ state }}"
-    terraform_labels = "{{ terraform_labels }}"
+    access_config {
+      access_type = "{{ access_type }}"
+      runtime_owner = "{{ runtime_owner }}"
+    }
+    software_config {
+      custom_gpu_driver_path = "{{ custom_gpu_driver_path }}"
+      enable_health_monitoring = {{ enable_health_monitoring }}
+      idle_shutdown = {{ idle_shutdown }}
+      idle_shutdown_timeout = {{ idle_shutdown_timeout }}
+      install_gpu_driver = {{ install_gpu_driver }}
+      notebook_upgrade_schedule = "{{ notebook_upgrade_schedule }}"
+      post_startup_script = "{{ post_startup_script }}"
+      post_startup_script_behavior = "{{ post_startup_script_behavior }}"
+      kernels {
+        repository = "{{ repository }}"
+        tag = "{{ tag }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    virtual_machine {
+      virtual_machine_config {
+        internal_ip_only = {{ internal_ip_only }}
+        labels = {
+        key = "{{ labels_value }}"
+      }
+        machine_type = "{{ machine_type }}"
+        metadata = {
+        key = "{{ metadata_value }}"
+      }
+        network = "{{ network }}"
+        nic_type = "{{ nic_type }}"
+        reserved_ip_range = "{{ reserved_ip_range }}"
+        subnet = "{{ subnet }}"
+        tags = ["{{ tags }}"]
+        accelerator_config {
+          core_count = {{ core_count }}
+          type = "{{ type }}"
+        }
+        container_images {
+          repository = "{{ repository }}"
+          tag = "{{ tag }}"
+        }
+        data_disk {
+          interface = "{{ interface }}"
+          mode = "{{ mode }}"
+          source = "{{ source }}"
+          type = "{{ type }}"
+          initialize_params {
+            description = "{{ description }}"
+            disk_name = "{{ disk_name }}"
+            disk_size_gb = {{ disk_size_gb }}
+            disk_type = "{{ disk_type }}"
+            labels = {
+        key = "{{ labels_value }}"
+      }
+          }
+        }
+        encryption_config {
+          kms_key = "{{ kms_key }}"
+        }
+        shielded_instance_config {
+          enable_integrity_monitoring = {{ enable_integrity_monitoring }}
+          enable_secure_boot = {{ enable_secure_boot }}
+          enable_vtpm = {{ enable_vtpm }}
+        }
+      }
+    }
 }

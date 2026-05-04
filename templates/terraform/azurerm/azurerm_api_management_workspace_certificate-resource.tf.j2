@@ -1,0 +1,15 @@
+resource "azurerm_api_management_workspace_certificate" "example" {
+    api_management_workspace_id = "{{ api_management_workspace_id }}"
+    certificate_data_base64 = "{{ certificate_data_base64 }}"
+    id = "{{ id }}"
+    key_vault_secret_id = "{{ key_vault_secret_id }}"
+    name = "{{ name }}"
+    password = "{{ password }}"
+    user_assigned_identity_client_id = "{{ user_assigned_identity_client_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

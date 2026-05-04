@@ -1,0 +1,19 @@
+resource "google_colab_runtime" "example" {
+    auto_upgrade = {{ auto_upgrade }}
+    description = "{{ description }}"
+    desired_state = "{{ desired_state }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    runtime_user = "{{ runtime_user }}"
+    notebook_runtime_template_ref {
+      notebook_runtime_template = "{{ notebook_runtime_template }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

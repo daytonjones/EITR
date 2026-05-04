@@ -2,8 +2,37 @@ resource "kubernetes_env" "example" {
     api_version = "{{ api_version }}"
     container = "{{ container }}"
     field_manager = "{{ field_manager }}"
-    force = "{{ force }}"
+    force = {{ force }}
     id = "{{ id }}"
     init_container = "{{ init_container }}"
     kind = "{{ kind }}"
+    env {
+      name = "{{ name }}"
+      value = "{{ value }}"
+      value_from {
+        config_map_key_ref {
+          key = "{{ key }}"
+          name = "{{ name }}"
+          optional = {{ optional }}
+        }
+        field_ref {
+          api_version = "{{ api_version }}"
+          field_path = "{{ field_path }}"
+        }
+        resource_field_ref {
+          container_name = "{{ container_name }}"
+          divisor = "{{ divisor }}"
+          resource = "{{ resource }}"
+        }
+        secret_key_ref {
+          key = "{{ key }}"
+          name = "{{ name }}"
+          optional = {{ optional }}
+        }
+      }
+    }
+    metadata {
+      name = "{{ name }}"
+      namespace = "{{ namespace }}"
+    }
 }

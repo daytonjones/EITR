@@ -1,13 +1,9 @@
 resource "awscc_rds_event_subscription" "example" {
-    enabled = "{{ enabled }}"
-    event_categories = "{{ event_categories }}"
-    id = "{{ id }}"
+    enabled = {{ enabled }}
+    event_categories = ["{{ event_categories }}"]
     sns_topic_arn = "{{ sns_topic_arn }}"
-    source_ids = "{{ source_ids }}"
+    source_ids = ["{{ source_ids }}"]
     source_type = "{{ source_type }}"
     subscription_name = "{{ subscription_name }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
 }

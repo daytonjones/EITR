@@ -1,0 +1,8 @@
+data "azurerm_container_app_environment_storage" "example" {
+    container_app_environment_id = "{{ container_app_environment_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    timeouts {
+      read = "{{ read }}"
+    }
+}

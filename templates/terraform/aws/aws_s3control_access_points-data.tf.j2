@@ -1,0 +1,7 @@
+data "aws_s3control_access_points" "example" {
+    account_id = "{{ account_id }}"
+    bucket = "{{ bucket }}"
+    data_source_id = "{{ data_source_id }}"
+    data_source_type = "{{ data_source_type }}"
+    region = "{{ region }}"
+}

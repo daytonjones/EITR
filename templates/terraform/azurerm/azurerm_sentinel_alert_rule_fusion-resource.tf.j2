@@ -1,7 +1,22 @@
 resource "azurerm_sentinel_alert_rule_fusion" "example" {
     alert_rule_template_guid = "{{ alert_rule_template_guid }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     log_analytics_workspace_id = "{{ log_analytics_workspace_id }}"
     name = "{{ name }}"
+    source {
+      enabled = {{ enabled }}
+      name = "{{ name }}"
+      sub_type {
+        enabled = {{ enabled }}
+        name = "{{ name }}"
+        severities_allowed = ["{{ severities_allowed }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,13 +1,30 @@
 resource "aws_fsx_ontap_storage_virtual_machine" "example" {
-    arn = "{{ arn }}"
-    endpoints = "{{ endpoints }}"
     file_system_id = "{{ file_system_id }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     root_volume_security_style = "{{ root_volume_security_style }}"
-    subtype = "{{ subtype }}"
     svm_admin_password = "{{ svm_admin_password }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    uuid = "{{ uuid }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    active_directory_configuration {
+      netbios_name = "{{ netbios_name }}"
+      self_managed_active_directory_configuration {
+        dns_ips = ["{{ dns_ips }}"]
+        domain_name = "{{ domain_name }}"
+        file_system_administrators_group = "{{ file_system_administrators_group }}"
+        organizational_unit_distinguished_name = "{{ organizational_unit_distinguished_name }}"
+        password = "{{ password }}"
+        username = "{{ username }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,7 +1,8 @@
 data "azurerm_proximity_placement_group" "example" {
     id = "{{ id }}"
-    location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

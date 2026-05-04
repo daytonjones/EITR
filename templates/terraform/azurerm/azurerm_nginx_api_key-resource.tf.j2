@@ -1,0 +1,13 @@
+resource "azurerm_nginx_api_key" "example" {
+    end_date_time = "{{ end_date_time }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    nginx_deployment_id = "{{ nginx_deployment_id }}"
+    secret_text = "{{ secret_text }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

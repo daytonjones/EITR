@@ -1,15 +1,37 @@
 resource "google_bigquery_data_transfer_config" "example" {
-    data_refresh_window_days = "{{ data_refresh_window_days }}"
+    data_refresh_window_days = {{ data_refresh_window_days }}
     data_source_id = "{{ data_source_id }}"
     destination_dataset_id = "{{ destination_dataset_id }}"
-    disabled = "{{ disabled }}"
+    disabled = {{ disabled }}
     display_name = "{{ display_name }}"
     id = "{{ id }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     notification_pubsub_topic = "{{ notification_pubsub_topic }}"
-    params = "{{ params }}"
+    params = {
+        key = "{{ params_value }}"
+      }
     project = "{{ project }}"
     schedule = "{{ schedule }}"
     service_account_name = "{{ service_account_name }}"
+    email_preferences {
+      enable_failure_email = {{ enable_failure_email }}
+    }
+    encryption_configuration {
+      kms_key_name = "{{ kms_key_name }}"
+    }
+    schedule_options {
+      disable_auto_scheduling = {{ disable_auto_scheduling }}
+      end_time = "{{ end_time }}"
+      start_time = "{{ start_time }}"
+    }
+    sensitive_params {
+      secret_access_key = "{{ secret_access_key }}"
+      secret_access_key_wo = "{{ secret_access_key_wo }}"
+      secret_access_key_wo_version = {{ secret_access_key_wo_version }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

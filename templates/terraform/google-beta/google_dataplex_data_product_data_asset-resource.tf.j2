@@ -1,0 +1,20 @@
+resource "google_dataplex_data_product_data_asset" "example" {
+    data_asset_id = "{{ data_asset_id }}"
+    data_product_id = "{{ data_product_id }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    resource = "{{ resource }}"
+    access_group_configs {
+      access_group = "{{ access_group }}"
+      iam_roles = ["{{ iam_roles }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

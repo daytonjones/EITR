@@ -1,10 +1,13 @@
 resource "aws_verifiedaccess_instance" "example" {
-    creation_time = "{{ creation_time }}"
+    cidr_endpoints_custom_subdomain = "{{ cidr_endpoints_custom_subdomain }}"
     description = "{{ description }}"
-    fips_enabled = "{{ fips_enabled }}"
+    fips_enabled = {{ fips_enabled }}
     id = "{{ id }}"
-    last_updated_time = "{{ last_updated_time }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    verified_access_trust_providers = "{{ verified_access_trust_providers }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

@@ -1,0 +1,13 @@
+resource "google_cloud_run_v2_worker_pool_iam_binding" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    members = ["{{ members }}"]
+    name = "{{ name }}"
+    project = "{{ project }}"
+    role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

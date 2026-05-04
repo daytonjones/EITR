@@ -1,20 +1,10 @@
 resource "awscc_iot_ca_certificate" "example" {
-    arn = "{{ arn }}"
     auto_registration_status = "{{ auto_registration_status }}"
-    ca_certificate_id = "{{ ca_certificate_id }}"
     ca_certificate_pem = "{{ ca_certificate_pem }}"
     certificate_mode = "{{ certificate_mode }}"
-    id = "{{ id }}"
-    registration_config = "{
-    role_arn = {{ role_arn }}
-    template_body = {{ template_body }}
-    template_name = {{ template_name }}
-}"
-    remove_auto_registration = "{{ remove_auto_registration }}"
+    registration_config = "{{ registration_config }}"
+    remove_auto_registration = {{ remove_auto_registration }}
     status = "{{ status }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
     verification_certificate_pem = "{{ verification_certificate_pem }}"
 }

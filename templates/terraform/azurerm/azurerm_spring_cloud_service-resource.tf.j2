@@ -2,16 +2,80 @@ resource "azurerm_spring_cloud_service" "example" {
     build_agent_pool_size = "{{ build_agent_pool_size }}"
     id = "{{ id }}"
     location = "{{ location }}"
-    log_stream_public_endpoint_enabled = "{{ log_stream_public_endpoint_enabled }}"
+    log_stream_public_endpoint_enabled = {{ log_stream_public_endpoint_enabled }}
     managed_environment_id = "{{ managed_environment_id }}"
     name = "{{ name }}"
-    outbound_public_ip_addresses = "{{ outbound_public_ip_addresses }}"
-    required_network_traffic_rules = "{{ required_network_traffic_rules }}"
     resource_group_name = "{{ resource_group_name }}"
-    service_registry_enabled = "{{ service_registry_enabled }}"
-    service_registry_id = "{{ service_registry_id }}"
+    service_registry_enabled = {{ service_registry_enabled }}
     sku_name = "{{ sku_name }}"
     sku_tier = "{{ sku_tier }}"
-    tags = "{{ tags }}"
-    zone_redundant = "{{ zone_redundant }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    zone_redundant = {{ zone_redundant }}
+    config_server_git_setting {
+      label = "{{ label }}"
+      search_paths = ["{{ search_paths }}"]
+      uri = "{{ uri }}"
+      http_basic_auth {
+        password = "{{ password }}"
+        username = "{{ username }}"
+      }
+      repository {
+        label = "{{ label }}"
+        name = "{{ name }}"
+        pattern = ["{{ pattern }}"]
+        search_paths = ["{{ search_paths }}"]
+        uri = "{{ uri }}"
+        http_basic_auth {
+          password = "{{ password }}"
+          username = "{{ username }}"
+        }
+        ssh_auth {
+          host_key = "{{ host_key }}"
+          host_key_algorithm = "{{ host_key_algorithm }}"
+          private_key = "{{ private_key }}"
+          strict_host_key_checking_enabled = {{ strict_host_key_checking_enabled }}
+        }
+      }
+      ssh_auth {
+        host_key = "{{ host_key }}"
+        host_key_algorithm = "{{ host_key_algorithm }}"
+        private_key = "{{ private_key }}"
+        strict_host_key_checking_enabled = {{ strict_host_key_checking_enabled }}
+      }
+    }
+    container_registry {
+      name = "{{ name }}"
+      password = "{{ password }}"
+      server = "{{ server }}"
+      username = "{{ username }}"
+    }
+    default_build_service {
+      container_registry_name = "{{ container_registry_name }}"
+    }
+    marketplace {
+      plan = "{{ plan }}"
+      product = "{{ product }}"
+      publisher = "{{ publisher }}"
+    }
+    network {
+      app_network_resource_group = "{{ app_network_resource_group }}"
+      app_subnet_id = "{{ app_subnet_id }}"
+      cidr_ranges = ["{{ cidr_ranges }}"]
+      outbound_type = "{{ outbound_type }}"
+      read_timeout_seconds = {{ read_timeout_seconds }}
+      service_runtime_network_resource_group = "{{ service_runtime_network_resource_group }}"
+      service_runtime_subnet_id = "{{ service_runtime_subnet_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    trace {
+      connection_string = "{{ connection_string }}"
+      sample_rate = {{ sample_rate }}
+    }
 }

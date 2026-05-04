@@ -1,5 +1,4 @@
 resource "google_notebooks_environment" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
     display_name = "{{ display_name }}"
     id = "{{ id }}"
@@ -7,4 +6,18 @@ resource "google_notebooks_environment" "example" {
     name = "{{ name }}"
     post_startup_script = "{{ post_startup_script }}"
     project = "{{ project }}"
+    container_image {
+      repository = "{{ repository }}"
+      tag = "{{ tag }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    vm_image {
+      image_family = "{{ image_family }}"
+      image_name = "{{ image_name }}"
+      project = "{{ project }}"
+    }
 }

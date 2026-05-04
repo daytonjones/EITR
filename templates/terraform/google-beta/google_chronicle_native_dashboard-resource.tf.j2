@@ -1,0 +1,40 @@
+resource "google_chronicle_native_dashboard" "example" {
+    access = "{{ access }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    is_pinned = {{ is_pinned }}
+    location = "{{ location }}"
+    project = "{{ project }}"
+    type = "{{ type }}"
+    charts {
+      dashboard_chart = "{{ dashboard_chart }}"
+      filters_ids = ["{{ filters_ids }}"]
+      chart_layout {
+        span_x = {{ span_x }}
+        span_y = {{ span_y }}
+        start_x = {{ start_x }}
+        start_y = {{ start_y }}
+      }
+    }
+    filters {
+      chart_ids = ["{{ chart_ids }}"]
+      data_source = "{{ data_source }}"
+      display_name = "{{ display_name }}"
+      field_path = "{{ field_path }}"
+      id = "{{ id }}"
+      is_mandatory = {{ is_mandatory }}
+      is_standard_time_range_filter = {{ is_standard_time_range_filter }}
+      is_standard_time_range_filter_enabled = {{ is_standard_time_range_filter_enabled }}
+      filter_operator_and_field_values {
+        field_values = ["{{ field_values }}"]
+        filter_operator = "{{ filter_operator }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

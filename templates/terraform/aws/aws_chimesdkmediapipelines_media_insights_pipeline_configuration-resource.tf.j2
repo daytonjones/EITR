@@ -1,8 +1,91 @@
 resource "aws_chimesdkmediapipelines_media_insights_pipeline_configuration" "example" {
-    arn = "{{ arn }}"
-    id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     resource_access_role_arn = "{{ resource_access_role_arn }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    elements {
+      type = "{{ type }}"
+      amazon_transcribe_call_analytics_processor_configuration {
+        call_analytics_stream_categories = ["{{ call_analytics_stream_categories }}"]
+        content_identification_type = "{{ content_identification_type }}"
+        content_redaction_type = "{{ content_redaction_type }}"
+        enable_partial_results_stabilization = {{ enable_partial_results_stabilization }}
+        filter_partial_results = {{ filter_partial_results }}
+        language_code = "{{ language_code }}"
+        language_model_name = "{{ language_model_name }}"
+        partial_results_stability = "{{ partial_results_stability }}"
+        pii_entity_types = "{{ pii_entity_types }}"
+        vocabulary_filter_method = "{{ vocabulary_filter_method }}"
+        vocabulary_filter_name = "{{ vocabulary_filter_name }}"
+        vocabulary_name = "{{ vocabulary_name }}"
+        post_call_analytics_settings {
+          content_redaction_output = "{{ content_redaction_output }}"
+          data_access_role_arn = "{{ data_access_role_arn }}"
+          output_encryption_kms_key_id = "{{ output_encryption_kms_key_id }}"
+          output_location = "{{ output_location }}"
+        }
+      }
+      amazon_transcribe_processor_configuration {
+        content_identification_type = "{{ content_identification_type }}"
+        content_redaction_type = "{{ content_redaction_type }}"
+        enable_partial_results_stabilization = {{ enable_partial_results_stabilization }}
+        filter_partial_results = {{ filter_partial_results }}
+        language_code = "{{ language_code }}"
+        language_model_name = "{{ language_model_name }}"
+        partial_results_stability = "{{ partial_results_stability }}"
+        pii_entity_types = "{{ pii_entity_types }}"
+        show_speaker_label = {{ show_speaker_label }}
+        vocabulary_filter_method = "{{ vocabulary_filter_method }}"
+        vocabulary_filter_name = "{{ vocabulary_filter_name }}"
+        vocabulary_name = "{{ vocabulary_name }}"
+      }
+      kinesis_data_stream_sink_configuration {
+        insights_target = "{{ insights_target }}"
+      }
+      lambda_function_sink_configuration {
+        insights_target = "{{ insights_target }}"
+      }
+      s3_recording_sink_configuration {
+        destination = "{{ destination }}"
+      }
+      sns_topic_sink_configuration {
+        insights_target = "{{ insights_target }}"
+      }
+      sqs_queue_sink_configuration {
+        insights_target = "{{ insights_target }}"
+      }
+      voice_analytics_processor_configuration {
+        speaker_search_status = "{{ speaker_search_status }}"
+        voice_tone_analysis_status = "{{ voice_tone_analysis_status }}"
+      }
+    }
+    real_time_alert_configuration {
+      disabled = {{ disabled }}
+      rules {
+        type = "{{ type }}"
+        issue_detection_configuration {
+          rule_name = "{{ rule_name }}"
+        }
+        keyword_match_configuration {
+          keywords = ["{{ keywords }}"]
+          negate = {{ negate }}
+          rule_name = "{{ rule_name }}"
+        }
+        sentiment_configuration {
+          rule_name = "{{ rule_name }}"
+          sentiment_type = "{{ sentiment_type }}"
+          time_period = {{ time_period }}
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

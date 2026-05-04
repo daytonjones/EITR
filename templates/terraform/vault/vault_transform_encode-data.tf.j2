@@ -1,6 +1,6 @@
 data "vault_transform_encode" "example" {
-    batch_input = "{{ batch_input }}"
-    batch_results = "{{ batch_results }}"
+    batch_input = ["{{ batch_input }}"]
+    batch_results = ["{{ batch_results }}"]
     encoded_value = "{{ encoded_value }}"
     id = "{{ id }}"
     namespace = "{{ namespace }}"

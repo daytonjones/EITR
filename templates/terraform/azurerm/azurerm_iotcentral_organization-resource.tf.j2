@@ -4,4 +4,10 @@ resource "azurerm_iotcentral_organization" "example" {
     iotcentral_application_id = "{{ iotcentral_application_id }}"
     organization_id = "{{ organization_id }}"
     parent_organization_id = "{{ parent_organization_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,8 +1,34 @@
 resource "aws_waf_web_acl" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     metric_name = "{{ metric_name }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    default_action {
+      type = "{{ type }}"
+    }
+    logging_configuration {
+      log_destination = "{{ log_destination }}"
+      redacted_fields {
+        field_to_match {
+          data = "{{ data }}"
+          type = "{{ type }}"
+        }
+      }
+    }
+    rules {
+      priority = {{ priority }}
+      rule_id = "{{ rule_id }}"
+      type = "{{ type }}"
+      action {
+        type = "{{ type }}"
+      }
+      override_action {
+        type = "{{ type }}"
+      }
+    }
 }

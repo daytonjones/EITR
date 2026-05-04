@@ -4,4 +4,10 @@ resource "azurerm_synapse_firewall_rule" "example" {
     name = "{{ name }}"
     start_ip_address = "{{ start_ip_address }}"
     synapse_workspace_id = "{{ synapse_workspace_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

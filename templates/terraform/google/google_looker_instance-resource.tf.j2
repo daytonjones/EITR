@@ -1,21 +1,87 @@
 resource "google_looker_instance" "example" {
     consumer_network = "{{ consumer_network }}"
-    create_time = "{{ create_time }}"
+    controlled_egress_enabled = {{ controlled_egress_enabled }}
     deletion_policy = "{{ deletion_policy }}"
-    egress_public_ip = "{{ egress_public_ip }}"
-    fips_enabled = "{{ fips_enabled }}"
+    fips_enabled = {{ fips_enabled }}
+    gemini_enabled = {{ gemini_enabled }}
     id = "{{ id }}"
-    ingress_private_ip = "{{ ingress_private_ip }}"
-    ingress_public_ip = "{{ ingress_public_ip }}"
-    looker_uri = "{{ looker_uri }}"
-    looker_version = "{{ looker_version }}"
     name = "{{ name }}"
     platform_edition = "{{ platform_edition }}"
-    private_ip_enabled = "{{ private_ip_enabled }}"
+    private_ip_enabled = {{ private_ip_enabled }}
     project = "{{ project }}"
-    psc_enabled = "{{ psc_enabled }}"
-    public_ip_enabled = "{{ public_ip_enabled }}"
+    psc_enabled = {{ psc_enabled }}
+    public_ip_enabled = {{ public_ip_enabled }}
     region = "{{ region }}"
     reserved_range = "{{ reserved_range }}"
-    update_time = "{{ update_time }}"
+    admin_settings {
+      allowed_email_domains = ["{{ allowed_email_domains }}"]
+    }
+    controlled_egress_config {
+      egress_fqdns = ["{{ egress_fqdns }}"]
+      marketplace_enabled = {{ marketplace_enabled }}
+    }
+    custom_domain {
+      domain = "{{ domain }}"
+    }
+    deny_maintenance_period {
+      end_date {
+        day = {{ day }}
+        month = {{ month }}
+        year = {{ year }}
+      }
+      start_date {
+        day = {{ day }}
+        month = {{ month }}
+        year = {{ year }}
+      }
+      time {
+        hours = {{ hours }}
+        minutes = {{ minutes }}
+        nanos = {{ nanos }}
+        seconds = {{ seconds }}
+      }
+    }
+    encryption_config {
+      kms_key_name = "{{ kms_key_name }}"
+    }
+    maintenance_window {
+      day_of_week = "{{ day_of_week }}"
+      start_time {
+        hours = {{ hours }}
+        minutes = {{ minutes }}
+        nanos = {{ nanos }}
+        seconds = {{ seconds }}
+      }
+    }
+    oauth_config {
+      client_id = "{{ client_id }}"
+      client_secret = "{{ client_secret }}"
+    }
+    periodic_export_config {
+      gcs_uri = "{{ gcs_uri }}"
+      kms_key = "{{ kms_key }}"
+      start_time {
+        hours = {{ hours }}
+        minutes = {{ minutes }}
+        nanos = {{ nanos }}
+        seconds = {{ seconds }}
+      }
+    }
+    psc_config {
+      allowed_vpcs = ["{{ allowed_vpcs }}"]
+      service_attachments {
+        local_fqdn = "{{ local_fqdn }}"
+        target_service_attachment_uri = "{{ target_service_attachment_uri }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    user_metadata {
+      additional_developer_user_count = {{ additional_developer_user_count }}
+      additional_standard_user_count = {{ additional_standard_user_count }}
+      additional_viewer_user_count = {{ additional_viewer_user_count }}
+    }
 }

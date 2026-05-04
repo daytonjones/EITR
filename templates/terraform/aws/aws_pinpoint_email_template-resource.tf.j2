@@ -1,6 +1,19 @@
 resource "aws_pinpoint_email_template" "example" {
-    arn = "{{ arn }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     template_name = "{{ template_name }}"
+    email_template {
+      default_substitutions = "{{ default_substitutions }}"
+      description = "{{ description }}"
+      html_part = "{{ html_part }}"
+      recommender_id = "{{ recommender_id }}"
+      subject = "{{ subject }}"
+      text_part = "{{ text_part }}"
+      header {
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+    }
 }

@@ -1,5 +1,10 @@
 resource "aws_vpc_endpoint_policy" "example" {
     id = "{{ id }}"
     policy = "{{ policy }}"
+    region = "{{ region }}"
     vpc_endpoint_id = "{{ vpc_endpoint_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

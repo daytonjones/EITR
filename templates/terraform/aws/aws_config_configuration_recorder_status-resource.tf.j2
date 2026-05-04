@@ -1,5 +1,6 @@
 resource "aws_config_configuration_recorder_status" "example" {
     id = "{{ id }}"
-    is_enabled = "{{ is_enabled }}"
+    is_enabled = {{ is_enabled }}
     name = "{{ name }}"
+    region = "{{ region }}"
 }

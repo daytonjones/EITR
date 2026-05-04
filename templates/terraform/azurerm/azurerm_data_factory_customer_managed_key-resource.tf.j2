@@ -1,0 +1,12 @@
+resource "azurerm_data_factory_customer_managed_key" "example" {
+    customer_managed_key_id = "{{ customer_managed_key_id }}"
+    data_factory_id = "{{ data_factory_id }}"
+    id = "{{ id }}"
+    user_assigned_identity_id = "{{ user_assigned_identity_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

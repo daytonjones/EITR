@@ -1,8 +1,13 @@
 resource "azurerm_data_factory_managed_private_endpoint" "example" {
     data_factory_id = "{{ data_factory_id }}"
-    fqdns = "{{ fqdns }}"
+    fqdns = ["{{ fqdns }}"]
     id = "{{ id }}"
     name = "{{ name }}"
     subresource_name = "{{ subresource_name }}"
     target_resource_id = "{{ target_resource_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

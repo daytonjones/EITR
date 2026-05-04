@@ -1,10 +1,21 @@
 resource "azurerm_machine_learning_synapse_spark" "example" {
     description = "{{ description }}"
     id = "{{ id }}"
-    local_auth_enabled = "{{ local_auth_enabled }}"
+    local_auth_enabled = {{ local_auth_enabled }}
     location = "{{ location }}"
     machine_learning_workspace_id = "{{ machine_learning_workspace_id }}"
     name = "{{ name }}"
     synapse_spark_pool_id = "{{ synapse_spark_pool_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

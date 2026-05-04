@@ -2,9 +2,45 @@ resource "aws_lexv2models_slot_type" "example" {
     bot_id = "{{ bot_id }}"
     bot_version = "{{ bot_version }}"
     description = "{{ description }}"
-    id = "{{ id }}"
     locale_id = "{{ locale_id }}"
     name = "{{ name }}"
     parent_slot_type_signature = "{{ parent_slot_type_signature }}"
-    slot_type_id = "{{ slot_type_id }}"
+    region = "{{ region }}"
+    composite_slot_type_setting {
+      sub_slots {
+        name = "{{ name }}"
+        slot_type_id = "{{ slot_type_id }}"
+      }
+    }
+    external_source_setting {
+      grammar_slot_type_setting {
+        source {
+          kms_key_arn = "{{ kms_key_arn }}"
+          s3_bucket_name = "{{ s3_bucket_name }}"
+          s3_object_key = "{{ s3_object_key }}"
+        }
+      }
+    }
+    slot_type_values {
+      sample_value {
+        value = "{{ value }}"
+      }
+      synonyms {
+        value = "{{ value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    value_selection_setting {
+      resolution_strategy = "{{ resolution_strategy }}"
+      advanced_recognition_setting {
+        audio_recognition_strategy = "{{ audio_recognition_strategy }}"
+      }
+      regex_filter {
+        pattern = "{{ pattern }}"
+      }
+    }
 }

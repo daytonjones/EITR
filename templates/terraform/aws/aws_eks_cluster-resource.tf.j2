@@ -1,18 +1,80 @@
 resource "aws_eks_cluster" "example" {
-    arn = "{{ arn }}"
-    bootstrap_self_managed_addons = "{{ bootstrap_self_managed_addons }}"
-    certificate_authority = "{{ certificate_authority }}"
-    cluster_id = "{{ cluster_id }}"
-    created_at = "{{ created_at }}"
-    enabled_cluster_log_types = "{{ enabled_cluster_log_types }}"
-    endpoint = "{{ endpoint }}"
+    bootstrap_self_managed_addons = {{ bootstrap_self_managed_addons }}
+    deletion_protection = {{ deletion_protection }}
+    enabled_cluster_log_types = ["{{ enabled_cluster_log_types }}"]
+    force_update_version = {{ force_update_version }}
     id = "{{ id }}"
-    identity = "{{ identity }}"
     name = "{{ name }}"
-    platform_version = "{{ platform_version }}"
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     version = "{{ version }}"
+    access_config {
+      authentication_mode = "{{ authentication_mode }}"
+      bootstrap_cluster_creator_admin_permissions = {{ bootstrap_cluster_creator_admin_permissions }}
+    }
+    compute_config {
+      enabled = {{ enabled }}
+      node_pools = ["{{ node_pools }}"]
+      node_role_arn = "{{ node_role_arn }}"
+    }
+    control_plane_scaling_config {
+      tier = "{{ tier }}"
+    }
+    encryption_config {
+      resources = ["{{ resources }}"]
+      provider {
+        key_arn = "{{ key_arn }}"
+      }
+    }
+    kubernetes_network_config {
+      ip_family = "{{ ip_family }}"
+      service_ipv4_cidr = "{{ service_ipv4_cidr }}"
+      elastic_load_balancing {
+        enabled = {{ enabled }}
+      }
+    }
+    outpost_config {
+      control_plane_instance_type = "{{ control_plane_instance_type }}"
+      outpost_arns = ["{{ outpost_arns }}"]
+      control_plane_placement {
+        group_name = "{{ group_name }}"
+      }
+    }
+    remote_network_config {
+      remote_node_networks {
+        cidrs = ["{{ cidrs }}"]
+      }
+      remote_pod_networks {
+        cidrs = ["{{ cidrs }}"]
+      }
+    }
+    storage_config {
+      block_storage {
+        enabled = {{ enabled }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    upgrade_policy {
+      support_type = "{{ support_type }}"
+    }
+    vpc_config {
+      endpoint_private_access = {{ endpoint_private_access }}
+      endpoint_public_access = {{ endpoint_public_access }}
+      public_access_cidrs = ["{{ public_access_cidrs }}"]
+      security_group_ids = ["{{ security_group_ids }}"]
+      subnet_ids = ["{{ subnet_ids }}"]
+    }
+    zonal_shift_config {
+      enabled = {{ enabled }}
+    }
 }

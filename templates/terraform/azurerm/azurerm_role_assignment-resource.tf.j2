@@ -10,5 +10,10 @@ resource "azurerm_role_assignment" "example" {
     role_definition_id = "{{ role_definition_id }}"
     role_definition_name = "{{ role_definition_name }}"
     scope = "{{ scope }}"
-    skip_service_principal_aad_check = "{{ skip_service_principal_aad_check }}"
+    skip_service_principal_aad_check = {{ skip_service_principal_aad_check }}
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

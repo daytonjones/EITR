@@ -1,6 +1,8 @@
 data "azurerm_oracle_db_servers" "example" {
     cloud_exadata_infrastructure_name = "{{ cloud_exadata_infrastructure_name }}"
-    db_servers = "{{ db_servers }}"
     id = "{{ id }}"
     resource_group_name = "{{ resource_group_name }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

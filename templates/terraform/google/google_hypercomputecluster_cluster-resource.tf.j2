@@ -1,0 +1,140 @@
+resource "google_hypercomputecluster_cluster" "example" {
+    cluster_id = "{{ cluster_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    compute_resources {
+      id = "{{ id }}"
+      config {
+        new_flex_start_instances {
+          machine_type = "{{ machine_type }}"
+          max_duration = "{{ max_duration }}"
+          zone = "{{ zone }}"
+        }
+        new_on_demand_instances {
+          machine_type = "{{ machine_type }}"
+          zone = "{{ zone }}"
+        }
+        new_reserved_instances {
+          reservation = "{{ reservation }}"
+        }
+        new_spot_instances {
+          machine_type = "{{ machine_type }}"
+          termination_action = "{{ termination_action }}"
+          zone = "{{ zone }}"
+        }
+      }
+    }
+    network_resources {
+      id = "{{ id }}"
+      config {
+        existing_network {
+          network = "{{ network }}"
+          subnetwork = "{{ subnetwork }}"
+        }
+        new_network {
+          description = "{{ description }}"
+          network = "{{ network }}"
+        }
+      }
+    }
+    orchestrator {
+      slurm {
+        default_partition = "{{ default_partition }}"
+        epilog_bash_scripts = ["{{ epilog_bash_scripts }}"]
+        prolog_bash_scripts = ["{{ prolog_bash_scripts }}"]
+        login_nodes {
+          count = "{{ count }}"
+          enable_os_login = {{ enable_os_login }}
+          enable_public_ips = {{ enable_public_ips }}
+          labels = {
+        key = "{{ labels_value }}"
+      }
+          machine_type = "{{ machine_type }}"
+          startup_script = "{{ startup_script }}"
+          zone = "{{ zone }}"
+          boot_disk {
+            size_gb = "{{ size_gb }}"
+            type = "{{ type }}"
+          }
+          storage_configs {
+            id = "{{ id }}"
+            local_mount = "{{ local_mount }}"
+          }
+        }
+        node_sets {
+          compute_id = "{{ compute_id }}"
+          id = "{{ id }}"
+          max_dynamic_node_count = "{{ max_dynamic_node_count }}"
+          static_node_count = "{{ static_node_count }}"
+          compute_instance {
+            labels = {
+        key = "{{ labels_value }}"
+      }
+            startup_script = "{{ startup_script }}"
+            boot_disk {
+              size_gb = "{{ size_gb }}"
+              type = "{{ type }}"
+            }
+          }
+          storage_configs {
+            id = "{{ id }}"
+            local_mount = "{{ local_mount }}"
+          }
+        }
+        partitions {
+          id = "{{ id }}"
+          node_set_ids = ["{{ node_set_ids }}"]
+        }
+      }
+    }
+    storage_resources {
+      id = "{{ id }}"
+      config {
+        existing_bucket {
+          bucket = "{{ bucket }}"
+        }
+        existing_filestore {
+          filestore = "{{ filestore }}"
+        }
+        existing_lustre {
+          lustre = "{{ lustre }}"
+        }
+        new_bucket {
+          bucket = "{{ bucket }}"
+          storage_class = "{{ storage_class }}"
+          autoclass {
+            enabled = {{ enabled }}
+          }
+          hierarchical_namespace {
+            enabled = {{ enabled }}
+          }
+        }
+        new_filestore {
+          description = "{{ description }}"
+          filestore = "{{ filestore }}"
+          protocol = "{{ protocol }}"
+          tier = "{{ tier }}"
+          file_shares {
+            capacity_gb = "{{ capacity_gb }}"
+            file_share = "{{ file_share }}"
+          }
+        }
+        new_lustre {
+          capacity_gb = "{{ capacity_gb }}"
+          description = "{{ description }}"
+          filesystem = "{{ filesystem }}"
+          lustre = "{{ lustre }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

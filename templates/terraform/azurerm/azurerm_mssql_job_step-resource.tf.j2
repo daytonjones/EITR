@@ -1,0 +1,26 @@
+resource "azurerm_mssql_job_step" "example" {
+    id = "{{ id }}"
+    initial_retry_interval_seconds = {{ initial_retry_interval_seconds }}
+    job_credential_id = "{{ job_credential_id }}"
+    job_id = "{{ job_id }}"
+    job_step_index = {{ job_step_index }}
+    job_target_group_id = "{{ job_target_group_id }}"
+    maximum_retry_interval_seconds = {{ maximum_retry_interval_seconds }}
+    name = "{{ name }}"
+    retry_attempts = {{ retry_attempts }}
+    retry_interval_backoff_multiplier = {{ retry_interval_backoff_multiplier }}
+    sql_script = "{{ sql_script }}"
+    timeout_seconds = {{ timeout_seconds }}
+    output_target {
+      job_credential_id = "{{ job_credential_id }}"
+      mssql_database_id = "{{ mssql_database_id }}"
+      schema_name = "{{ schema_name }}"
+      table_name = "{{ table_name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

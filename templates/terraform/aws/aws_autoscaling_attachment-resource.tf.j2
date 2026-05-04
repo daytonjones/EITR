@@ -3,4 +3,5 @@ resource "aws_autoscaling_attachment" "example" {
     elb = "{{ elb }}"
     id = "{{ id }}"
     lb_target_group_arn = "{{ lb_target_group_arn }}"
+    region = "{{ region }}"
 }

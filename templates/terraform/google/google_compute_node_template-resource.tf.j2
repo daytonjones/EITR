@@ -1,12 +1,32 @@
 resource "google_compute_node_template" "example" {
     cpu_overcommit_type = "{{ cpu_overcommit_type }}"
-    creation_timestamp = "{{ creation_timestamp }}"
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    node_affinity_labels = "{{ node_affinity_labels }}"
+    node_affinity_labels = {
+        key = "{{ node_affinity_labels_value }}"
+      }
     node_type = "{{ node_type }}"
     project = "{{ project }}"
     region = "{{ region }}"
-    self_link = "{{ self_link }}"
+    accelerators {
+      accelerator_count = {{ accelerator_count }}
+      accelerator_type = "{{ accelerator_type }}"
+    }
+    disks {
+      disk_count = {{ disk_count }}
+      disk_size_gb = {{ disk_size_gb }}
+      disk_type = "{{ disk_type }}"
+    }
+    node_type_flexibility {
+      cpus = "{{ cpus }}"
+      memory = "{{ memory }}"
+    }
+    server_binding {
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

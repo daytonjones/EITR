@@ -3,9 +3,39 @@ resource "azurerm_maintenance_configuration" "example" {
     in_guest_user_patch_mode = "{{ in_guest_user_patch_mode }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    properties = "{{ properties }}"
+    properties = {
+        key = "{{ properties_value }}"
+      }
     resource_group_name = "{{ resource_group_name }}"
     scope = "{{ scope }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     visibility = "{{ visibility }}"
+    install_patches {
+      reboot = "{{ reboot }}"
+      linux {
+        classifications_to_include = ["{{ classifications_to_include }}"]
+        package_names_mask_to_exclude = ["{{ package_names_mask_to_exclude }}"]
+        package_names_mask_to_include = ["{{ package_names_mask_to_include }}"]
+      }
+      windows {
+        classifications_to_include = ["{{ classifications_to_include }}"]
+        kb_numbers_to_exclude = ["{{ kb_numbers_to_exclude }}"]
+        kb_numbers_to_include = ["{{ kb_numbers_to_include }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    window {
+      duration = "{{ duration }}"
+      expiration_date_time = "{{ expiration_date_time }}"
+      recur_every = "{{ recur_every }}"
+      start_date_time = "{{ start_date_time }}"
+      time_zone = "{{ time_zone }}"
+    }
 }

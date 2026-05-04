@@ -1,0 +1,16 @@
+resource "awscc_logs_scheduled_query" "example" {
+    description = "{{ description }}"
+    destination_configuration = "{{ destination_configuration }}"
+    execution_role_arn = "{{ execution_role_arn }}"
+    log_group_identifiers = ["{{ log_group_identifiers }}"]
+    name = "{{ name }}"
+    query_language = "{{ query_language }}"
+    query_string = "{{ query_string }}"
+    schedule_end_time = {{ schedule_end_time }}
+    schedule_expression = "{{ schedule_expression }}"
+    schedule_start_time = {{ schedule_start_time }}
+    start_time_offset = {{ start_time_offset }}
+    state = "{{ state }}"
+    tags = "{{ tags }}"
+    timezone = "{{ timezone }}"
+}

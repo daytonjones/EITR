@@ -1,10 +1,8 @@
 resource "azurerm_container_group" "example" {
     dns_name_label = "{{ dns_name_label }}"
     dns_name_label_reuse_policy = "{{ dns_name_label_reuse_policy }}"
-    exposed_port = "{{ exposed_port }}"
-    fqdn = "{{ fqdn }}"
+    exposed_port = ["{{ exposed_port }}"]
     id = "{{ id }}"
-    ip_address = "{{ ip_address }}"
     ip_address_type = "{{ ip_address_type }}"
     key_vault_key_id = "{{ key_vault_key_id }}"
     key_vault_user_assigned_identity_id = "{{ key_vault_user_assigned_identity_id }}"
@@ -16,7 +14,142 @@ resource "azurerm_container_group" "example" {
     resource_group_name = "{{ resource_group_name }}"
     restart_policy = "{{ restart_policy }}"
     sku = "{{ sku }}"
-    subnet_ids = "{{ subnet_ids }}"
-    tags = "{{ tags }}"
-    zones = "{{ zones }}"
+    subnet_ids = ["{{ subnet_ids }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    zones = ["{{ zones }}"]
+    container {
+      commands = ["{{ commands }}"]
+      cpu = {{ cpu }}
+      cpu_limit = {{ cpu_limit }}
+      environment_variables = {
+        key = "{{ environment_variables_value }}"
+      }
+      image = "{{ image }}"
+      memory = {{ memory }}
+      memory_limit = {{ memory_limit }}
+      name = "{{ name }}"
+      secure_environment_variables = {
+        key = "{{ secure_environment_variables_value }}"
+      }
+      liveness_probe {
+        exec = ["{{ exec }}"]
+        failure_threshold = {{ failure_threshold }}
+        initial_delay_seconds = {{ initial_delay_seconds }}
+        period_seconds = {{ period_seconds }}
+        success_threshold = {{ success_threshold }}
+        timeout_seconds = {{ timeout_seconds }}
+        http_get {
+          http_headers = {
+        key = "{{ http_headers_value }}"
+      }
+          path = "{{ path }}"
+          port = {{ port }}
+          scheme = "{{ scheme }}"
+        }
+      }
+      ports {
+        port = {{ port }}
+        protocol = "{{ protocol }}"
+      }
+      readiness_probe {
+        exec = ["{{ exec }}"]
+        failure_threshold = {{ failure_threshold }}
+        initial_delay_seconds = {{ initial_delay_seconds }}
+        period_seconds = {{ period_seconds }}
+        success_threshold = {{ success_threshold }}
+        timeout_seconds = {{ timeout_seconds }}
+        http_get {
+          http_headers = {
+        key = "{{ http_headers_value }}"
+      }
+          path = "{{ path }}"
+          port = {{ port }}
+          scheme = "{{ scheme }}"
+        }
+      }
+      security {
+        privilege_enabled = {{ privilege_enabled }}
+      }
+      volume {
+        empty_dir = {{ empty_dir }}
+        mount_path = "{{ mount_path }}"
+        name = "{{ name }}"
+        read_only = {{ read_only }}
+        secret = {
+        key = "{{ secret_value }}"
+      }
+        share_name = "{{ share_name }}"
+        storage_account_key = "{{ storage_account_key }}"
+        storage_account_name = "{{ storage_account_name }}"
+        git_repo {
+          directory = "{{ directory }}"
+          revision = "{{ revision }}"
+          url = "{{ url }}"
+        }
+      }
+    }
+    diagnostics {
+      log_analytics {
+        log_type = "{{ log_type }}"
+        metadata = {
+        key = "{{ metadata_value }}"
+      }
+        workspace_id = "{{ workspace_id }}"
+        workspace_key = "{{ workspace_key }}"
+      }
+    }
+    dns_config {
+      nameservers = ["{{ nameservers }}"]
+      options = ["{{ options }}"]
+      search_domains = ["{{ search_domains }}"]
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    image_registry_credential {
+      password = "{{ password }}"
+      server = "{{ server }}"
+      user_assigned_identity_id = "{{ user_assigned_identity_id }}"
+      username = "{{ username }}"
+    }
+    init_container {
+      commands = ["{{ commands }}"]
+      environment_variables = {
+        key = "{{ environment_variables_value }}"
+      }
+      image = "{{ image }}"
+      name = "{{ name }}"
+      secure_environment_variables = {
+        key = "{{ secure_environment_variables_value }}"
+      }
+      security {
+        privilege_enabled = {{ privilege_enabled }}
+      }
+      volume {
+        empty_dir = {{ empty_dir }}
+        mount_path = "{{ mount_path }}"
+        name = "{{ name }}"
+        read_only = {{ read_only }}
+        secret = {
+        key = "{{ secret_value }}"
+      }
+        share_name = "{{ share_name }}"
+        storage_account_key = "{{ storage_account_key }}"
+        storage_account_name = "{{ storage_account_name }}"
+        git_repo {
+          directory = "{{ directory }}"
+          revision = "{{ revision }}"
+          url = "{{ url }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

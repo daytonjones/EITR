@@ -1,6 +1,10 @@
 resource "aws_ec2_transit_gateway_default_route_table_propagation" "example" {
-    id = "{{ id }}"
-    original_default_route_table_id = "{{ original_default_route_table_id }}"
+    region = "{{ region }}"
     transit_gateway_id = "{{ transit_gateway_id }}"
     transit_gateway_route_table_id = "{{ transit_gateway_route_table_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

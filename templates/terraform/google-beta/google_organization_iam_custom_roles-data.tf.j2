@@ -1,0 +1,6 @@
+data "google_organization_iam_custom_roles" "example" {
+    id = "{{ id }}"
+    org_id = "{{ org_id }}"
+    show_deleted = {{ show_deleted }}
+    view = "{{ view }}"
+}

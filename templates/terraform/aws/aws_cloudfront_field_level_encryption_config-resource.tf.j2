@@ -1,6 +1,23 @@
 resource "aws_cloudfront_field_level_encryption_config" "example" {
-    caller_reference = "{{ caller_reference }}"
     comment = "{{ comment }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
+    content_type_profile_config {
+      forward_when_content_type_is_unknown = {{ forward_when_content_type_is_unknown }}
+      content_type_profiles {
+        items {
+          content_type = "{{ content_type }}"
+          format = "{{ format }}"
+          profile_id = "{{ profile_id }}"
+        }
+      }
+    }
+    query_arg_profile_config {
+      forward_when_query_arg_profile_is_unknown = {{ forward_when_query_arg_profile_is_unknown }}
+      query_arg_profiles {
+        items {
+          profile_id = "{{ profile_id }}"
+          query_arg = "{{ query_arg }}"
+        }
+      }
+    }
 }

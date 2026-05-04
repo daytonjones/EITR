@@ -1,0 +1,12 @@
+resource "google_dialogflow_encryption_spec" "example" {
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    encryption_spec {
+      kms_key = "{{ kms_key }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

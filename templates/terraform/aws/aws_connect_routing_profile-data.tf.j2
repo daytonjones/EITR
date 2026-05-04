@@ -1,12 +1,10 @@
 data "aws_connect_routing_profile" "example" {
-    arn = "{{ arn }}"
-    default_outbound_queue_id = "{{ default_outbound_queue_id }}"
-    description = "{{ description }}"
     id = "{{ id }}"
     instance_id = "{{ instance_id }}"
-    media_concurrencies = "{{ media_concurrencies }}"
     name = "{{ name }}"
-    queue_configs = "{{ queue_configs }}"
+    region = "{{ region }}"
     routing_profile_id = "{{ routing_profile_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
 }

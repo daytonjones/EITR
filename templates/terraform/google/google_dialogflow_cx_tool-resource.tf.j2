@@ -1,0 +1,59 @@
+resource "google_dialogflow_cx_tool" "example" {
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    parent = "{{ parent }}"
+    data_store_spec {
+      data_store_connections {
+        data_store = "{{ data_store }}"
+        data_store_type = "{{ data_store_type }}"
+        document_processing_mode = "{{ document_processing_mode }}"
+      }
+      fallback_prompt {
+      }
+    }
+    function_spec {
+      input_schema = "{{ input_schema }}"
+      output_schema = "{{ output_schema }}"
+    }
+    open_api_spec {
+      text_schema = "{{ text_schema }}"
+      authentication {
+        api_key_config {
+          api_key = "{{ api_key }}"
+          key_name = "{{ key_name }}"
+          request_location = "{{ request_location }}"
+          secret_version_for_api_key = "{{ secret_version_for_api_key }}"
+        }
+        bearer_token_config {
+          secret_version_for_token = "{{ secret_version_for_token }}"
+          token = "{{ token }}"
+        }
+        oauth_config {
+          client_id = "{{ client_id }}"
+          client_secret = "{{ client_secret }}"
+          oauth_grant_type = "{{ oauth_grant_type }}"
+          scopes = ["{{ scopes }}"]
+          secret_version_for_client_secret = "{{ secret_version_for_client_secret }}"
+          token_endpoint = "{{ token_endpoint }}"
+        }
+        service_agent_auth_config {
+          service_agent_auth = "{{ service_agent_auth }}"
+        }
+      }
+      service_directory_config {
+        service = "{{ service }}"
+      }
+      tls_config {
+        ca_certs {
+          cert = "{{ cert }}"
+          display_name = "{{ display_name }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

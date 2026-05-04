@@ -1,12 +1,7 @@
 resource "awscc_rolesanywhere_crl" "example" {
     crl_data = "{{ crl_data }}"
-    crl_id = "{{ crl_id }}"
-    enabled = "{{ enabled }}"
-    id = "{{ id }}"
+    enabled = {{ enabled }}
     name = "{{ name }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
     trust_anchor_arn = "{{ trust_anchor_arn }}"
 }

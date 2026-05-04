@@ -1,15 +1,88 @@
 resource "aws_codedeploy_deployment_group" "example" {
     app_name = "{{ app_name }}"
-    arn = "{{ arn }}"
-    autoscaling_groups = "{{ autoscaling_groups }}"
-    compute_platform = "{{ compute_platform }}"
+    autoscaling_groups = ["{{ autoscaling_groups }}"]
     deployment_config_name = "{{ deployment_config_name }}"
-    deployment_group_id = "{{ deployment_group_id }}"
     deployment_group_name = "{{ deployment_group_name }}"
     id = "{{ id }}"
     outdated_instances_strategy = "{{ outdated_instances_strategy }}"
+    region = "{{ region }}"
     service_role_arn = "{{ service_role_arn }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    termination_hook_enabled = "{{ termination_hook_enabled }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    termination_hook_enabled = {{ termination_hook_enabled }}
+    alarm_configuration {
+      alarms = ["{{ alarms }}"]
+      enabled = {{ enabled }}
+      ignore_poll_alarm_failure = {{ ignore_poll_alarm_failure }}
+    }
+    auto_rollback_configuration {
+      enabled = {{ enabled }}
+      events = ["{{ events }}"]
+    }
+    blue_green_deployment_config {
+      deployment_ready_option {
+        action_on_timeout = "{{ action_on_timeout }}"
+        wait_time_in_minutes = {{ wait_time_in_minutes }}
+      }
+      green_fleet_provisioning_option {
+        action = "{{ action }}"
+      }
+      terminate_blue_instances_on_deployment_success {
+        action = "{{ action }}"
+        termination_wait_time_in_minutes = {{ termination_wait_time_in_minutes }}
+      }
+    }
+    deployment_style {
+      deployment_option = "{{ deployment_option }}"
+      deployment_type = "{{ deployment_type }}"
+    }
+    ec2_tag_filter {
+      key = "{{ key }}"
+      type = "{{ type }}"
+      value = "{{ value }}"
+    }
+    ec2_tag_set {
+      ec2_tag_filter {
+        key = "{{ key }}"
+        type = "{{ type }}"
+        value = "{{ value }}"
+      }
+    }
+    ecs_service {
+      cluster_name = "{{ cluster_name }}"
+      service_name = "{{ service_name }}"
+    }
+    load_balancer_info {
+      elb_info {
+        name = "{{ name }}"
+      }
+      target_group_info {
+        name = "{{ name }}"
+      }
+      target_group_pair_info {
+        prod_traffic_route {
+          listener_arns = ["{{ listener_arns }}"]
+        }
+        target_group {
+          name = "{{ name }}"
+        }
+        test_traffic_route {
+          listener_arns = ["{{ listener_arns }}"]
+        }
+      }
+    }
+    on_premises_instance_tag_filter {
+      key = "{{ key }}"
+      type = "{{ type }}"
+      value = "{{ value }}"
+    }
+    trigger_configuration {
+      trigger_events = ["{{ trigger_events }}"]
+      trigger_name = "{{ trigger_name }}"
+      trigger_target_arn = "{{ trigger_target_arn }}"
+    }
 }

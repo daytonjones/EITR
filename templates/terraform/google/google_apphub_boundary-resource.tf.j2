@@ -1,0 +1,11 @@
+resource "google_apphub_boundary" "example" {
+    crm_node = "{{ crm_node }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

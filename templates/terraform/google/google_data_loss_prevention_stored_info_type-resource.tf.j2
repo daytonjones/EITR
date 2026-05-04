@@ -2,7 +2,41 @@ resource "google_data_loss_prevention_stored_info_type" "example" {
     description = "{{ description }}"
     display_name = "{{ display_name }}"
     id = "{{ id }}"
-    name = "{{ name }}"
     parent = "{{ parent }}"
     stored_info_type_id = "{{ stored_info_type_id }}"
+    dictionary {
+      cloud_storage_path {
+        path = "{{ path }}"
+      }
+      word_list {
+        words = ["{{ words }}"]
+      }
+    }
+    large_custom_dictionary {
+      big_query_field {
+        field {
+          name = "{{ name }}"
+        }
+        table {
+          dataset_id = "{{ dataset_id }}"
+          project_id = "{{ project_id }}"
+          table_id = "{{ table_id }}"
+        }
+      }
+      cloud_storage_file_set {
+        url = "{{ url }}"
+      }
+      output_path {
+        path = "{{ path }}"
+      }
+    }
+    regex {
+      group_indexes = ["{{ group_indexes }}"]
+      pattern = "{{ pattern }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

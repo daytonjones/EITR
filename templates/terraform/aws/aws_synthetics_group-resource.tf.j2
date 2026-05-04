@@ -1,8 +1,11 @@
 resource "aws_synthetics_group" "example" {
-    arn = "{{ arn }}"
-    group_id = "{{ group_id }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

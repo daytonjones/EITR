@@ -2,5 +2,8 @@ data "aws_servicecatalog_launch_paths" "example" {
     accept_language = "{{ accept_language }}"
     id = "{{ id }}"
     product_id = "{{ product_id }}"
-    summaries = "{{ summaries }}"
+    region = "{{ region }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

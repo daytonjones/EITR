@@ -5,4 +5,15 @@ resource "azurerm_logic_app_integration_account_certificate" "example" {
     name = "{{ name }}"
     public_certificate = "{{ public_certificate }}"
     resource_group_name = "{{ resource_group_name }}"
+    key_vault_key {
+      key_name = "{{ key_name }}"
+      key_vault_id = "{{ key_vault_id }}"
+      key_version = "{{ key_version }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

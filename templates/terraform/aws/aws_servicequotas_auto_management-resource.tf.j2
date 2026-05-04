@@ -1,0 +1,9 @@
+resource "aws_servicequotas_auto_management" "example" {
+    exclusion_list = {
+        key = "{{ exclusion_list_value }}"
+      }
+    notification_arn = "{{ notification_arn }}"
+    opt_in_level = "{{ opt_in_level }}"
+    opt_in_type = "{{ opt_in_type }}"
+    region = "{{ region }}"
+}

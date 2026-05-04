@@ -1,16 +1,43 @@
 resource "azurerm_ai_services" "example" {
     custom_subdomain_name = "{{ custom_subdomain_name }}"
-    endpoint = "{{ endpoint }}"
-    fqdns = "{{ fqdns }}"
+    fqdns = ["{{ fqdns }}"]
     id = "{{ id }}"
-    local_authentication_enabled = "{{ local_authentication_enabled }}"
+    local_authentication_enabled = {{ local_authentication_enabled }}
     location = "{{ location }}"
     name = "{{ name }}"
-    outbound_network_access_restricted = "{{ outbound_network_access_restricted }}"
-    primary_access_key = "{{ primary_access_key }}"
+    outbound_network_access_restricted = {{ outbound_network_access_restricted }}
     public_network_access = "{{ public_network_access }}"
     resource_group_name = "{{ resource_group_name }}"
-    secondary_access_key = "{{ secondary_access_key }}"
     sku_name = "{{ sku_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    customer_managed_key {
+      identity_client_id = "{{ identity_client_id }}"
+      key_vault_key_id = "{{ key_vault_key_id }}"
+      managed_hsm_key_id = "{{ managed_hsm_key_id }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    network_acls {
+      bypass = "{{ bypass }}"
+      default_action = "{{ default_action }}"
+      ip_rules = ["{{ ip_rules }}"]
+      virtual_network_rules {
+        ignore_missing_vnet_service_endpoint = {{ ignore_missing_vnet_service_endpoint }}
+        subnet_id = "{{ subnet_id }}"
+      }
+    }
+    storage {
+      identity_client_id = "{{ identity_client_id }}"
+      storage_account_id = "{{ storage_account_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

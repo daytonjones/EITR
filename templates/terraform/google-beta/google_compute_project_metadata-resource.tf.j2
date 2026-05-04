@@ -1,5 +1,11 @@
 resource "google_compute_project_metadata" "example" {
     id = "{{ id }}"
-    metadata = "{{ metadata }}"
+    metadata = {
+        key = "{{ metadata_value }}"
+      }
     project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

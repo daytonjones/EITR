@@ -3,5 +3,11 @@ resource "aws_servicecatalog_product_portfolio_association" "example" {
     id = "{{ id }}"
     portfolio_id = "{{ portfolio_id }}"
     product_id = "{{ product_id }}"
+    region = "{{ region }}"
     source_portfolio_id = "{{ source_portfolio_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

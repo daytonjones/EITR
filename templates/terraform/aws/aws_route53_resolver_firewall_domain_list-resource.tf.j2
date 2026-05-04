@@ -1,8 +1,12 @@
 resource "aws_route53_resolver_firewall_domain_list" "example" {
-    arn = "{{ arn }}"
-    domains = "{{ domains }}"
+    domains = ["{{ domains }}"]
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

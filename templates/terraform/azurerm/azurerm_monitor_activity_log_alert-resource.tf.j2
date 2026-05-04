@@ -1,10 +1,56 @@
 resource "azurerm_monitor_activity_log_alert" "example" {
     description = "{{ description }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    scopes = "{{ scopes }}"
-    tags = "{{ tags }}"
+    scopes = ["{{ scopes }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    action {
+      action_group_id = "{{ action_group_id }}"
+      webhook_properties = {
+        key = "{{ webhook_properties_value }}"
+      }
+    }
+    criteria {
+      caller = "{{ caller }}"
+      category = "{{ category }}"
+      level = "{{ level }}"
+      levels = ["{{ levels }}"]
+      operation_name = "{{ operation_name }}"
+      recommendation_category = "{{ recommendation_category }}"
+      recommendation_impact = "{{ recommendation_impact }}"
+      recommendation_type = "{{ recommendation_type }}"
+      resource_group = "{{ resource_group }}"
+      resource_groups = ["{{ resource_groups }}"]
+      resource_id = "{{ resource_id }}"
+      resource_ids = ["{{ resource_ids }}"]
+      resource_provider = "{{ resource_provider }}"
+      resource_providers = ["{{ resource_providers }}"]
+      resource_type = "{{ resource_type }}"
+      resource_types = ["{{ resource_types }}"]
+      status = "{{ status }}"
+      statuses = ["{{ statuses }}"]
+      sub_status = "{{ sub_status }}"
+      sub_statuses = ["{{ sub_statuses }}"]
+      resource_health {
+        current = ["{{ current }}"]
+        previous = ["{{ previous }}"]
+        reason = ["{{ reason }}"]
+      }
+      service_health {
+        events = ["{{ events }}"]
+        locations = ["{{ locations }}"]
+        services = ["{{ services }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

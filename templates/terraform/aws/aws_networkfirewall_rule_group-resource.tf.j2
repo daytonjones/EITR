@@ -1,12 +1,108 @@
 resource "aws_networkfirewall_rule_group" "example" {
-    arn = "{{ arn }}"
-    capacity = "{{ capacity }}"
+    capacity = {{ capacity }}
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     rules = "{{ rules }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     type = "{{ type }}"
-    update_token = "{{ update_token }}"
+    encryption_configuration {
+      key_id = "{{ key_id }}"
+      type = "{{ type }}"
+    }
+    rule_group {
+      reference_sets {
+        ip_set_references {
+          key = "{{ key }}"
+          ip_set_reference {
+            reference_arn = "{{ reference_arn }}"
+          }
+        }
+      }
+      rule_variables {
+        ip_sets {
+          key = "{{ key }}"
+          ip_set {
+            definition = ["{{ definition }}"]
+          }
+        }
+        port_sets {
+          key = "{{ key }}"
+          port_set {
+            definition = ["{{ definition }}"]
+          }
+        }
+      }
+      rules_source {
+        rules_string = "{{ rules_string }}"
+        rules_source_list {
+          generated_rules_type = "{{ generated_rules_type }}"
+          target_types = ["{{ target_types }}"]
+          targets = ["{{ targets }}"]
+        }
+        stateful_rule {
+          action = "{{ action }}"
+          header {
+            destination = "{{ destination }}"
+            destination_port = "{{ destination_port }}"
+            direction = "{{ direction }}"
+            protocol = "{{ protocol }}"
+            source = "{{ source }}"
+            source_port = "{{ source_port }}"
+          }
+          rule_option {
+            keyword = "{{ keyword }}"
+            settings = ["{{ settings }}"]
+          }
+        }
+        stateless_rules_and_custom_actions {
+          custom_action {
+            action_name = "{{ action_name }}"
+            action_definition {
+              publish_metric_action {
+                dimension {
+                  value = "{{ value }}"
+                }
+              }
+            }
+          }
+          stateless_rule {
+            priority = {{ priority }}
+            rule_definition {
+              actions = ["{{ actions }}"]
+              match_attributes {
+                protocols = ["{{ protocols }}"]
+                destination {
+                  address_definition = "{{ address_definition }}"
+                }
+                destination_port {
+                  from_port = {{ from_port }}
+                  to_port = {{ to_port }}
+                }
+                source {
+                  address_definition = "{{ address_definition }}"
+                }
+                source_port {
+                  from_port = {{ from_port }}
+                  to_port = {{ to_port }}
+                }
+                tcp_flag {
+                  flags = ["{{ flags }}"]
+                  masks = ["{{ masks }}"]
+                }
+              }
+            }
+          }
+        }
+      }
+      stateful_rule_options {
+        rule_order = "{{ rule_order }}"
+      }
+    }
 }

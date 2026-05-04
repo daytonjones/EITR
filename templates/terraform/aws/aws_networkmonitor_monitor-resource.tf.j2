@@ -1,8 +1,8 @@
 resource "aws_networkmonitor_monitor" "example" {
-    aggregation_period = "{{ aggregation_period }}"
-    arn = "{{ arn }}"
-    id = "{{ id }}"
+    aggregation_period = {{ aggregation_period }}
     monitor_name = "{{ monitor_name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
 }

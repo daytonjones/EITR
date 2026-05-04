@@ -1,19 +1,59 @@
 resource "google_clouddeploy_target" "example" {
-    annotations = "{{ annotations }}"
-    create_time = "{{ create_time }}"
-    deploy_parameters = "{{ deploy_parameters }}"
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
+    deploy_parameters = {
+        key = "{{ deploy_parameters_value }}"
+      }
     description = "{{ description }}"
-    effective_annotations = "{{ effective_annotations }}"
-    effective_labels = "{{ effective_labels }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    require_approval = "{{ require_approval }}"
-    target_id = "{{ target_id }}"
-    terraform_labels = "{{ terraform_labels }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
+    require_approval = {{ require_approval }}
+    anthos_cluster {
+      membership = "{{ membership }}"
+    }
+    associated_entities {
+      entity_id = "{{ entity_id }}"
+      anthos_clusters {
+        membership = "{{ membership }}"
+      }
+      gke_clusters {
+        cluster = "{{ cluster }}"
+        internal_ip = {{ internal_ip }}
+        proxy_url = "{{ proxy_url }}"
+      }
+    }
+    custom_target {
+      custom_target_type = "{{ custom_target_type }}"
+    }
+    execution_configs {
+      artifact_storage = "{{ artifact_storage }}"
+      execution_timeout = "{{ execution_timeout }}"
+      service_account = "{{ service_account }}"
+      usages = ["{{ usages }}"]
+      verbose = {{ verbose }}
+      worker_pool = "{{ worker_pool }}"
+    }
+    gke {
+      cluster = "{{ cluster }}"
+      dns_endpoint = {{ dns_endpoint }}
+      internal_ip = {{ internal_ip }}
+      proxy_url = "{{ proxy_url }}"
+    }
+    multi_target {
+      target_ids = ["{{ target_ids }}"]
+    }
+    run {
+      location = "{{ location }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

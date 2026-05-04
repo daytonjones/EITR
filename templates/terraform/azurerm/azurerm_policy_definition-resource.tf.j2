@@ -9,5 +9,10 @@ resource "azurerm_policy_definition" "example" {
     parameters = "{{ parameters }}"
     policy_rule = "{{ policy_rule }}"
     policy_type = "{{ policy_type }}"
-    role_definition_ids = "{{ role_definition_ids }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

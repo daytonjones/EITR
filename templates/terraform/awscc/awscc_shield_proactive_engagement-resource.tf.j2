@@ -1,10 +1,4 @@
 resource "awscc_shield_proactive_engagement" "example" {
-    account_id = "{{ account_id }}"
-    emergency_contact_list = "{
-    contact_notes = {{ contact_notes }}
-    email_address = {{ email_address }}
-    phone_number = {{ phone_number }}
-}"
-    id = "{{ id }}"
+    emergency_contact_list = "{{ emergency_contact_list }}"
     proactive_engagement_status = "{{ proactive_engagement_status }}"
 }

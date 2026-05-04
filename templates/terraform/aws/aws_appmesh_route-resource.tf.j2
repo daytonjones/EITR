@@ -1,13 +1,200 @@
 resource "aws_appmesh_route" "example" {
-    arn = "{{ arn }}"
-    created_date = "{{ created_date }}"
     id = "{{ id }}"
-    last_updated_date = "{{ last_updated_date }}"
     mesh_name = "{{ mesh_name }}"
     mesh_owner = "{{ mesh_owner }}"
     name = "{{ name }}"
-    resource_owner = "{{ resource_owner }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     virtual_router_name = "{{ virtual_router_name }}"
+    spec {
+      priority = {{ priority }}
+      grpc_route {
+        action {
+          weighted_target {
+            port = {{ port }}
+            virtual_node = "{{ virtual_node }}"
+            weight = {{ weight }}
+          }
+        }
+        match {
+          method_name = "{{ method_name }}"
+          port = {{ port }}
+          prefix = "{{ prefix }}"
+          service_name = "{{ service_name }}"
+          metadata {
+            invert = {{ invert }}
+            name = "{{ name }}"
+            match {
+              exact = "{{ exact }}"
+              prefix = "{{ prefix }}"
+              regex = "{{ regex }}"
+              suffix = "{{ suffix }}"
+              range {
+                end = {{ end }}
+                start = {{ start }}
+              }
+            }
+          }
+        }
+        retry_policy {
+          grpc_retry_events = ["{{ grpc_retry_events }}"]
+          http_retry_events = ["{{ http_retry_events }}"]
+          max_retries = {{ max_retries }}
+          tcp_retry_events = ["{{ tcp_retry_events }}"]
+          per_retry_timeout {
+            unit = "{{ unit }}"
+            value = {{ value }}
+          }
+        }
+        timeout {
+          idle {
+            unit = "{{ unit }}"
+            value = {{ value }}
+          }
+          per_request {
+            unit = "{{ unit }}"
+            value = {{ value }}
+          }
+        }
+      }
+      http2_route {
+        action {
+          weighted_target {
+            port = {{ port }}
+            virtual_node = "{{ virtual_node }}"
+            weight = {{ weight }}
+          }
+        }
+        match {
+          method = "{{ method }}"
+          port = {{ port }}
+          prefix = "{{ prefix }}"
+          scheme = "{{ scheme }}"
+          header {
+            invert = {{ invert }}
+            name = "{{ name }}"
+            match {
+              exact = "{{ exact }}"
+              prefix = "{{ prefix }}"
+              regex = "{{ regex }}"
+              suffix = "{{ suffix }}"
+              range {
+                end = {{ end }}
+                start = {{ start }}
+              }
+            }
+          }
+          path {
+            exact = "{{ exact }}"
+            regex = "{{ regex }}"
+          }
+          query_parameter {
+            name = "{{ name }}"
+            match {
+              exact = "{{ exact }}"
+            }
+          }
+        }
+        retry_policy {
+          http_retry_events = ["{{ http_retry_events }}"]
+          max_retries = {{ max_retries }}
+          tcp_retry_events = ["{{ tcp_retry_events }}"]
+          per_retry_timeout {
+            unit = "{{ unit }}"
+            value = {{ value }}
+          }
+        }
+        timeout {
+          idle {
+            unit = "{{ unit }}"
+            value = {{ value }}
+          }
+          per_request {
+            unit = "{{ unit }}"
+            value = {{ value }}
+          }
+        }
+      }
+      http_route {
+        action {
+          weighted_target {
+            port = {{ port }}
+            virtual_node = "{{ virtual_node }}"
+            weight = {{ weight }}
+          }
+        }
+        match {
+          method = "{{ method }}"
+          port = {{ port }}
+          prefix = "{{ prefix }}"
+          scheme = "{{ scheme }}"
+          header {
+            invert = {{ invert }}
+            name = "{{ name }}"
+            match {
+              exact = "{{ exact }}"
+              prefix = "{{ prefix }}"
+              regex = "{{ regex }}"
+              suffix = "{{ suffix }}"
+              range {
+                end = {{ end }}
+                start = {{ start }}
+              }
+            }
+          }
+          path {
+            exact = "{{ exact }}"
+            regex = "{{ regex }}"
+          }
+          query_parameter {
+            name = "{{ name }}"
+            match {
+              exact = "{{ exact }}"
+            }
+          }
+        }
+        retry_policy {
+          http_retry_events = ["{{ http_retry_events }}"]
+          max_retries = {{ max_retries }}
+          tcp_retry_events = ["{{ tcp_retry_events }}"]
+          per_retry_timeout {
+            unit = "{{ unit }}"
+            value = {{ value }}
+          }
+        }
+        timeout {
+          idle {
+            unit = "{{ unit }}"
+            value = {{ value }}
+          }
+          per_request {
+            unit = "{{ unit }}"
+            value = {{ value }}
+          }
+        }
+      }
+      tcp_route {
+        action {
+          weighted_target {
+            port = {{ port }}
+            virtual_node = "{{ virtual_node }}"
+            weight = {{ weight }}
+          }
+        }
+        match {
+          port = {{ port }}
+        }
+        timeout {
+          idle {
+            unit = "{{ unit }}"
+            value = {{ value }}
+          }
+        }
+      }
+    }
 }

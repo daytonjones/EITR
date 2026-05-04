@@ -1,0 +1,29 @@
+resource "google_compute_network_firewall_policy_packet_mirroring_rule" "example" {
+    action = "{{ action }}"
+    description = "{{ description }}"
+    direction = "{{ direction }}"
+    disabled = {{ disabled }}
+    firewall_policy = "{{ firewall_policy }}"
+    id = "{{ id }}"
+    priority = {{ priority }}
+    project = "{{ project }}"
+    rule_name = "{{ rule_name }}"
+    security_profile_group = "{{ security_profile_group }}"
+    tls_inspect = {{ tls_inspect }}
+    match {
+      dest_ip_ranges = ["{{ dest_ip_ranges }}"]
+      src_ip_ranges = ["{{ src_ip_ranges }}"]
+      layer4_configs {
+        ip_protocol = "{{ ip_protocol }}"
+        ports = ["{{ ports }}"]
+      }
+    }
+    target_secure_tags {
+      name = "{{ name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

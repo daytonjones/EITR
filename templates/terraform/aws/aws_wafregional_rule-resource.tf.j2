@@ -1,8 +1,17 @@
 resource "aws_wafregional_rule" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     metric_name = "{{ metric_name }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    predicate {
+      data_id = "{{ data_id }}"
+      negated = {{ negated }}
+      type = "{{ type }}"
+    }
 }

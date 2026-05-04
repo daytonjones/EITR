@@ -1,0 +1,39 @@
+resource "google_apigee_security_action" "example" {
+    api_proxies = ["{{ api_proxies }}"]
+    description = "{{ description }}"
+    env_id = "{{ env_id }}"
+    expire_time = "{{ expire_time }}"
+    id = "{{ id }}"
+    org_id = "{{ org_id }}"
+    security_action_id = "{{ security_action_id }}"
+    state = "{{ state }}"
+    ttl = "{{ ttl }}"
+    allow {
+    }
+    condition_config {
+      access_tokens = ["{{ access_tokens }}"]
+      api_keys = ["{{ api_keys }}"]
+      api_products = ["{{ api_products }}"]
+      asns = ["{{ asns }}"]
+      bot_reasons = ["{{ bot_reasons }}"]
+      developer_apps = ["{{ developer_apps }}"]
+      developers = ["{{ developers }}"]
+      http_methods = ["{{ http_methods }}"]
+      ip_address_ranges = ["{{ ip_address_ranges }}"]
+      region_codes = ["{{ region_codes }}"]
+      user_agents = ["{{ user_agents }}"]
+    }
+    deny {
+      response_code = {{ response_code }}
+    }
+    flag {
+      headers {
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

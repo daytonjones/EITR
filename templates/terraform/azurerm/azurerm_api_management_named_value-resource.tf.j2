@@ -4,7 +4,17 @@ resource "azurerm_api_management_named_value" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    secret = "{{ secret }}"
-    tags = "{{ tags }}"
+    secret = {{ secret }}
+    tags = ["{{ tags }}"]
     value = "{{ value }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    value_from_key_vault {
+      identity_client_id = "{{ identity_client_id }}"
+      secret_id = "{{ secret_id }}"
+    }
 }

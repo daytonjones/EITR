@@ -1,0 +1,173 @@
+resource "google_network_security_authz_policy" "example" {
+    action = "{{ action }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    name = "{{ name }}"
+    policy_profile = "{{ policy_profile }}"
+    project = "{{ project }}"
+    custom_provider {
+      authz_extension {
+        resources = ["{{ resources }}"]
+      }
+      cloud_iap {
+        enabled = {{ enabled }}
+      }
+    }
+    http_rules {
+      when = "{{ when }}"
+      from {
+        not_sources {
+          ip_blocks {
+            length = {{ length }}
+            prefix = "{{ prefix }}"
+          }
+          principals {
+            contains = "{{ contains }}"
+            exact = "{{ exact }}"
+            ignore_case = {{ ignore_case }}
+            prefix = "{{ prefix }}"
+            principal_selector = "{{ principal_selector }}"
+            suffix = "{{ suffix }}"
+            principal {
+              contains = "{{ contains }}"
+              exact = "{{ exact }}"
+              ignore_case = {{ ignore_case }}
+              prefix = "{{ prefix }}"
+              suffix = "{{ suffix }}"
+            }
+          }
+          resources {
+            iam_service_account {
+              contains = "{{ contains }}"
+              exact = "{{ exact }}"
+              ignore_case = {{ ignore_case }}
+              prefix = "{{ prefix }}"
+              suffix = "{{ suffix }}"
+            }
+            tag_value_id_set {
+              ids = ["{{ ids }}"]
+            }
+          }
+        }
+        sources {
+          ip_blocks {
+            length = {{ length }}
+            prefix = "{{ prefix }}"
+          }
+          principals {
+            contains = "{{ contains }}"
+            exact = "{{ exact }}"
+            ignore_case = {{ ignore_case }}
+            prefix = "{{ prefix }}"
+            principal_selector = "{{ principal_selector }}"
+            suffix = "{{ suffix }}"
+            principal {
+              contains = "{{ contains }}"
+              exact = "{{ exact }}"
+              ignore_case = {{ ignore_case }}
+              prefix = "{{ prefix }}"
+              suffix = "{{ suffix }}"
+            }
+          }
+          resources {
+            iam_service_account {
+              contains = "{{ contains }}"
+              exact = "{{ exact }}"
+              ignore_case = {{ ignore_case }}
+              prefix = "{{ prefix }}"
+              suffix = "{{ suffix }}"
+            }
+            tag_value_id_set {
+              ids = ["{{ ids }}"]
+            }
+          }
+        }
+      }
+      to {
+        not_operations {
+          methods = ["{{ methods }}"]
+          header_set {
+            headers {
+              name = "{{ name }}"
+              value {
+                contains = "{{ contains }}"
+                exact = "{{ exact }}"
+                ignore_case = {{ ignore_case }}
+                prefix = "{{ prefix }}"
+                suffix = "{{ suffix }}"
+              }
+            }
+          }
+          hosts {
+            contains = "{{ contains }}"
+            exact = "{{ exact }}"
+            ignore_case = {{ ignore_case }}
+            prefix = "{{ prefix }}"
+            suffix = "{{ suffix }}"
+          }
+          paths {
+            contains = "{{ contains }}"
+            exact = "{{ exact }}"
+            ignore_case = {{ ignore_case }}
+            prefix = "{{ prefix }}"
+            suffix = "{{ suffix }}"
+          }
+        }
+        operations {
+          methods = ["{{ methods }}"]
+          header_set {
+            headers {
+              name = "{{ name }}"
+              value {
+                contains = "{{ contains }}"
+                exact = "{{ exact }}"
+                ignore_case = {{ ignore_case }}
+                prefix = "{{ prefix }}"
+                suffix = "{{ suffix }}"
+              }
+            }
+          }
+          hosts {
+            contains = "{{ contains }}"
+            exact = "{{ exact }}"
+            ignore_case = {{ ignore_case }}
+            prefix = "{{ prefix }}"
+            suffix = "{{ suffix }}"
+          }
+          mcp {
+            base_protocol_methods_option = "{{ base_protocol_methods_option }}"
+            methods {
+              name = "{{ name }}"
+              params {
+                contains = "{{ contains }}"
+                exact = "{{ exact }}"
+                ignore_case = {{ ignore_case }}
+                prefix = "{{ prefix }}"
+                suffix = "{{ suffix }}"
+              }
+            }
+          }
+          paths {
+            contains = "{{ contains }}"
+            exact = "{{ exact }}"
+            ignore_case = {{ ignore_case }}
+            prefix = "{{ prefix }}"
+            suffix = "{{ suffix }}"
+          }
+        }
+      }
+    }
+    target {
+      load_balancing_scheme = "{{ load_balancing_scheme }}"
+      resources = ["{{ resources }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

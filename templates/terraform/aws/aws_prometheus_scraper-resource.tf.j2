@@ -1,9 +1,33 @@
 resource "aws_prometheus_scraper" "example" {
     alias = "{{ alias }}"
-    arn = "{{ arn }}"
-    id = "{{ id }}"
-    role_arn = "{{ role_arn }}"
+    region = "{{ region }}"
     scrape_configuration = "{{ scrape_configuration }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    destination {
+      amp {
+        workspace_arn = "{{ workspace_arn }}"
+      }
+    }
+    role_configuration {
+      source_role_arn = "{{ source_role_arn }}"
+      target_role_arn = "{{ target_role_arn }}"
+    }
+    source {
+      eks {
+        cluster_arn = "{{ cluster_arn }}"
+        security_group_ids = ["{{ security_group_ids }}"]
+        subnet_ids = ["{{ subnet_ids }}"]
+      }
+      vpc {
+        security_group_ids = ["{{ security_group_ids }}"]
+        subnet_ids = ["{{ subnet_ids }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

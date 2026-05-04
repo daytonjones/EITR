@@ -1,0 +1,13 @@
+resource "google_vertex_ai_feature_group_iam_member" "example" {
+    feature_group = "{{ feature_group }}"
+    id = "{{ id }}"
+    member = "{{ member }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

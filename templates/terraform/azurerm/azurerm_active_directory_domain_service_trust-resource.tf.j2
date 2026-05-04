@@ -3,6 +3,12 @@ resource "azurerm_active_directory_domain_service_trust" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     password = "{{ password }}"
-    trusted_domain_dns_ips = "{{ trusted_domain_dns_ips }}"
+    trusted_domain_dns_ips = ["{{ trusted_domain_dns_ips }}"]
     trusted_domain_fqdn = "{{ trusted_domain_fqdn }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

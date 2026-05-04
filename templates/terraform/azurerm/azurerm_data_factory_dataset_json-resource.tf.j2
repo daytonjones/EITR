@@ -1,6 +1,8 @@
 resource "azurerm_data_factory_dataset_json" "example" {
-    additional_properties = "{{ additional_properties }}"
-    annotations = "{{ annotations }}"
+    additional_properties = {
+        key = "{{ additional_properties_value }}"
+      }
+    annotations = ["{{ annotations }}"]
     data_factory_id = "{{ data_factory_id }}"
     description = "{{ description }}"
     encoding = "{{ encoding }}"
@@ -8,5 +10,33 @@ resource "azurerm_data_factory_dataset_json" "example" {
     id = "{{ id }}"
     linked_service_name = "{{ linked_service_name }}"
     name = "{{ name }}"
-    parameters = "{{ parameters }}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
+    azure_blob_storage_location {
+      container = "{{ container }}"
+      dynamic_container_enabled = {{ dynamic_container_enabled }}
+      dynamic_filename_enabled = {{ dynamic_filename_enabled }}
+      dynamic_path_enabled = {{ dynamic_path_enabled }}
+      filename = "{{ filename }}"
+      path = "{{ path }}"
+    }
+    http_server_location {
+      dynamic_filename_enabled = {{ dynamic_filename_enabled }}
+      dynamic_path_enabled = {{ dynamic_path_enabled }}
+      filename = "{{ filename }}"
+      path = "{{ path }}"
+      relative_url = "{{ relative_url }}"
+    }
+    schema_column {
+      description = "{{ description }}"
+      name = "{{ name }}"
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

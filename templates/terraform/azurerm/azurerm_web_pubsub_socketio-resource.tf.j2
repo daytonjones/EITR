@@ -1,0 +1,32 @@
+resource "azurerm_web_pubsub_socketio" "example" {
+    aad_auth_enabled = {{ aad_auth_enabled }}
+    id = "{{ id }}"
+    live_trace_connectivity_logs_enabled = {{ live_trace_connectivity_logs_enabled }}
+    live_trace_enabled = {{ live_trace_enabled }}
+    live_trace_http_request_logs_enabled = {{ live_trace_http_request_logs_enabled }}
+    live_trace_messaging_logs_enabled = {{ live_trace_messaging_logs_enabled }}
+    local_auth_enabled = {{ local_auth_enabled }}
+    location = "{{ location }}"
+    name = "{{ name }}"
+    public_network_access = "{{ public_network_access }}"
+    resource_group_name = "{{ resource_group_name }}"
+    service_mode = "{{ service_mode }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tls_client_cert_enabled = {{ tls_client_cert_enabled }}
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    sku {
+      capacity = {{ capacity }}
+      name = "{{ name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

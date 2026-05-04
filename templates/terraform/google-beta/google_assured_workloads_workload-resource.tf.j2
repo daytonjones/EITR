@@ -1,24 +1,38 @@
 resource "google_assured_workloads_workload" "example" {
     billing_account = "{{ billing_account }}"
     compliance_regime = "{{ compliance_regime }}"
-    compliance_status = "{{ compliance_status }}"
-    compliant_but_disallowed_services = "{{ compliant_but_disallowed_services }}"
-    create_time = "{{ create_time }}"
     display_name = "{{ display_name }}"
-    effective_labels = "{{ effective_labels }}"
-    ekm_provisioning_response = "{{ ekm_provisioning_response }}"
-    enable_sovereign_controls = "{{ enable_sovereign_controls }}"
+    enable_sovereign_controls = {{ enable_sovereign_controls }}
     id = "{{ id }}"
-    kaj_enrollment_state = "{{ kaj_enrollment_state }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
-    name = "{{ name }}"
     organization = "{{ organization }}"
     partner = "{{ partner }}"
     partner_services_billing_account = "{{ partner_services_billing_account }}"
     provisioned_resources_parent = "{{ provisioned_resources_parent }}"
-    resources = "{{ resources }}"
-    saa_enrollment_response = "{{ saa_enrollment_response }}"
-    terraform_labels = "{{ terraform_labels }}"
-    violation_notifications_enabled = "{{ violation_notifications_enabled }}"
+    violation_notifications_enabled = {{ violation_notifications_enabled }}
+    kms_settings {
+      next_rotation_time = "{{ next_rotation_time }}"
+      rotation_period = "{{ rotation_period }}"
+    }
+    partner_permissions {
+      assured_workloads_monitoring = {{ assured_workloads_monitoring }}
+      data_logs_viewer = {{ data_logs_viewer }}
+      service_access_approver = {{ service_access_approver }}
+    }
+    resource_settings {
+      display_name = "{{ display_name }}"
+      resource_id = "{{ resource_id }}"
+      resource_type = "{{ resource_type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    workload_options {
+      kaj_enrollment_type = "{{ kaj_enrollment_type }}"
+    }
 }

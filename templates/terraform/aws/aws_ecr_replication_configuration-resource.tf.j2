@@ -1,4 +1,16 @@
 resource "aws_ecr_replication_configuration" "example" {
     id = "{{ id }}"
-    registry_id = "{{ registry_id }}"
+    region = "{{ region }}"
+    replication_configuration {
+      rule {
+        destination {
+          region = "{{ region }}"
+          registry_id = "{{ registry_id }}"
+        }
+        repository_filter {
+          filter = "{{ filter }}"
+          filter_type = "{{ filter_type }}"
+        }
+      }
+    }
 }

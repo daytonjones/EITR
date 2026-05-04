@@ -1,13 +1,40 @@
 resource "google_managed_kafka_cluster" "example" {
     cluster_id = "{{ cluster_id }}"
-    create_time = "{{ create_time }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    state = "{{ state }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
+    broker_capacity_config {
+      disk_size_gib = "{{ disk_size_gib }}"
+    }
+    capacity_config {
+      memory_bytes = "{{ memory_bytes }}"
+      vcpu_count = "{{ vcpu_count }}"
+    }
+    gcp_config {
+      kms_key = "{{ kms_key }}"
+      access_config {
+        network_configs {
+          subnet = "{{ subnet }}"
+        }
+      }
+    }
+    rebalance_config {
+      mode = "{{ mode }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    tls_config {
+      ssl_principal_mapping_rules = "{{ ssl_principal_mapping_rules }}"
+      trust_config {
+        cas_configs {
+          ca_pool = "{{ ca_pool }}"
+        }
+      }
+    }
 }

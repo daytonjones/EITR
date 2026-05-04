@@ -1,0 +1,23 @@
+resource "aws_cleanrooms_membership" "example" {
+    collaboration_id = "{{ collaboration_id }}"
+    query_log_status = "{{ query_log_status }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    default_result_configuration {
+      role_arn = "{{ role_arn }}"
+      output_configuration {
+        s3 {
+          bucket = "{{ bucket }}"
+          key_prefix = "{{ key_prefix }}"
+          result_format = "{{ result_format }}"
+        }
+      }
+    }
+    payment_configuration {
+      query_compute {
+        is_responsible = {{ is_responsible }}
+      }
+    }
+}

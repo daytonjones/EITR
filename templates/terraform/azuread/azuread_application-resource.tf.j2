@@ -1,29 +1,104 @@
 resource "azuread_application" "example" {
-    app_role_ids = "{{ app_role_ids }}"
-    client_id = "{{ client_id }}"
     description = "{{ description }}"
-    device_only_auth_enabled = "{{ device_only_auth_enabled }}"
-    disabled_by_microsoft = "{{ disabled_by_microsoft }}"
+    device_only_auth_enabled = {{ device_only_auth_enabled }}
     display_name = "{{ display_name }}"
-    fallback_public_client_enabled = "{{ fallback_public_client_enabled }}"
-    group_membership_claims = "{{ group_membership_claims }}"
+    fallback_public_client_enabled = {{ fallback_public_client_enabled }}
+    group_membership_claims = ["{{ group_membership_claims }}"]
     id = "{{ id }}"
-    identifier_uris = "{{ identifier_uris }}"
+    identifier_uris = ["{{ identifier_uris }}"]
     logo_image = "{{ logo_image }}"
-    logo_url = "{{ logo_url }}"
     marketing_url = "{{ marketing_url }}"
     notes = "{{ notes }}"
-    oauth2_permission_scope_ids = "{{ oauth2_permission_scope_ids }}"
-    oauth2_post_response_required = "{{ oauth2_post_response_required }}"
-    object_id = "{{ object_id }}"
-    owners = "{{ owners }}"
-    prevent_duplicate_names = "{{ prevent_duplicate_names }}"
+    oauth2_post_response_required = {{ oauth2_post_response_required }}
+    owners = ["{{ owners }}"]
+    prevent_duplicate_names = {{ prevent_duplicate_names }}
     privacy_statement_url = "{{ privacy_statement_url }}"
-    publisher_domain = "{{ publisher_domain }}"
     service_management_reference = "{{ service_management_reference }}"
     sign_in_audience = "{{ sign_in_audience }}"
     support_url = "{{ support_url }}"
-    tags = "{{ tags }}"
+    tags = ["{{ tags }}"]
     template_id = "{{ template_id }}"
     terms_of_service_url = "{{ terms_of_service_url }}"
+    api {
+      known_client_applications = ["{{ known_client_applications }}"]
+      mapped_claims_enabled = {{ mapped_claims_enabled }}
+      requested_access_token_version = {{ requested_access_token_version }}
+      oauth2_permission_scope {
+        admin_consent_description = "{{ admin_consent_description }}"
+        admin_consent_display_name = "{{ admin_consent_display_name }}"
+        enabled = {{ enabled }}
+        id = "{{ id }}"
+        type = "{{ type }}"
+        user_consent_description = "{{ user_consent_description }}"
+        user_consent_display_name = "{{ user_consent_display_name }}"
+        value = "{{ value }}"
+      }
+    }
+    app_role {
+      allowed_member_types = ["{{ allowed_member_types }}"]
+      description = "{{ description }}"
+      display_name = "{{ display_name }}"
+      enabled = {{ enabled }}
+      id = "{{ id }}"
+      value = "{{ value }}"
+    }
+    feature_tags {
+      custom_single_sign_on = {{ custom_single_sign_on }}
+      enterprise = {{ enterprise }}
+      gallery = {{ gallery }}
+      hide = {{ hide }}
+    }
+    optional_claims {
+      access_token {
+        additional_properties = ["{{ additional_properties }}"]
+        essential = {{ essential }}
+        name = "{{ name }}"
+        source = "{{ source }}"
+      }
+      id_token {
+        additional_properties = ["{{ additional_properties }}"]
+        essential = {{ essential }}
+        name = "{{ name }}"
+        source = "{{ source }}"
+      }
+      saml2_token {
+        additional_properties = ["{{ additional_properties }}"]
+        essential = {{ essential }}
+        name = "{{ name }}"
+        source = "{{ source }}"
+      }
+    }
+    password {
+      display_name = "{{ display_name }}"
+      end_date = "{{ end_date }}"
+      start_date = "{{ start_date }}"
+    }
+    public_client {
+      redirect_uris = ["{{ redirect_uris }}"]
+    }
+    required_resource_access {
+      resource_app_id = "{{ resource_app_id }}"
+      resource_access {
+        id = "{{ id }}"
+        type = "{{ type }}"
+      }
+    }
+    single_page_application {
+      redirect_uris = ["{{ redirect_uris }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    web {
+      homepage_url = "{{ homepage_url }}"
+      logout_url = "{{ logout_url }}"
+      redirect_uris = ["{{ redirect_uris }}"]
+      implicit_grant {
+        access_token_issuance_enabled = {{ access_token_issuance_enabled }}
+        id_token_issuance_enabled = {{ id_token_issuance_enabled }}
+      }
+    }
 }

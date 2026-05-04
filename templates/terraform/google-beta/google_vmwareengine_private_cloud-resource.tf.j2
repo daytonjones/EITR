@@ -1,15 +1,53 @@
 resource "google_vmwareengine_private_cloud" "example" {
-    deletion_delay_hours = "{{ deletion_delay_hours }}"
+    deletion_delay_hours = {{ deletion_delay_hours }}
     description = "{{ description }}"
-    hcx = "{{ hcx }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    nsx = "{{ nsx }}"
     project = "{{ project }}"
-    send_deletion_delay_hours_if_zero = "{{ send_deletion_delay_hours_if_zero }}"
-    state = "{{ state }}"
+    send_deletion_delay_hours_if_zero = {{ send_deletion_delay_hours_if_zero }}
     type = "{{ type }}"
-    uid = "{{ uid }}"
-    vcenter = "{{ vcenter }}"
+    management_cluster {
+      cluster_id = "{{ cluster_id }}"
+      autoscaling_settings {
+        cool_down_period = "{{ cool_down_period }}"
+        max_cluster_node_count = {{ max_cluster_node_count }}
+        min_cluster_node_count = {{ min_cluster_node_count }}
+        autoscaling_policies {
+          autoscale_policy_id = "{{ autoscale_policy_id }}"
+          node_type_id = "{{ node_type_id }}"
+          scale_out_size = {{ scale_out_size }}
+          consumed_memory_thresholds {
+            scale_in = {{ scale_in }}
+            scale_out = {{ scale_out }}
+          }
+          cpu_thresholds {
+            scale_in = {{ scale_in }}
+            scale_out = {{ scale_out }}
+          }
+          storage_thresholds {
+            scale_in = {{ scale_in }}
+            scale_out = {{ scale_out }}
+          }
+        }
+      }
+      node_type_configs {
+        custom_core_count = {{ custom_core_count }}
+        node_count = {{ node_count }}
+        node_type_id = "{{ node_type_id }}"
+      }
+      stretched_cluster_config {
+        preferred_location = "{{ preferred_location }}"
+        secondary_location = "{{ secondary_location }}"
+      }
+    }
+    network_config {
+      management_cidr = "{{ management_cidr }}"
+      vmware_engine_network = "{{ vmware_engine_network }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

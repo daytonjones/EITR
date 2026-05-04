@@ -1,2 +1,3 @@
-function "name_from_id" {
-}
+# name_from_id()
+# Takes a single string argument, which should be a resource's id, resource URI, self link, or full resource name. This function will return the short-form name of a resource from the input string, or raise an error due to a problem with the input string. The function returns the final element in the input string as the resource's name, e.g. when the function is passed the id "projects/my-project/zones/us-central1-c/instances/my-instance" as an argument it will return "my-instance".
+# provider::{provider}::name_from_id()

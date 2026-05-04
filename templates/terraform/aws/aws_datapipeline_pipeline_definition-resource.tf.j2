@@ -1,4 +1,25 @@
 resource "aws_datapipeline_pipeline_definition" "example" {
     id = "{{ id }}"
     pipeline_id = "{{ pipeline_id }}"
+    region = "{{ region }}"
+    parameter_object {
+      id = "{{ id }}"
+      attribute {
+        key = "{{ key }}"
+        string_value = "{{ string_value }}"
+      }
+    }
+    parameter_value {
+      id = "{{ id }}"
+      string_value = "{{ string_value }}"
+    }
+    pipeline_object {
+      id = "{{ id }}"
+      name = "{{ name }}"
+      field {
+        key = "{{ key }}"
+        ref_value = "{{ ref_value }}"
+        string_value = "{{ string_value }}"
+      }
+    }
 }

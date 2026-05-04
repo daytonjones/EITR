@@ -4,11 +4,18 @@ resource "azurerm_machine_learning_datastore_datalake_gen2" "example" {
     client_secret = "{{ client_secret }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    is_default = "{{ is_default }}"
     name = "{{ name }}"
     service_data_identity = "{{ service_data_identity }}"
     storage_container_id = "{{ storage_container_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     tenant_id = "{{ tenant_id }}"
     workspace_id = "{{ workspace_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

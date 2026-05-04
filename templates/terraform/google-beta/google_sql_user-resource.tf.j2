@@ -1,11 +1,24 @@
 resource "google_sql_user" "example" {
+    database_roles = ["{{ database_roles }}"]
     deletion_policy = "{{ deletion_policy }}"
     host = "{{ host }}"
     id = "{{ id }}"
     instance = "{{ instance }}"
     name = "{{ name }}"
     password = "{{ password }}"
+    password_wo = "{{ password_wo }}"
+    password_wo_version = {{ password_wo_version }}
     project = "{{ project }}"
-    sql_server_user_details = "{{ sql_server_user_details }}"
     type = "{{ type }}"
+    password_policy {
+      allowed_failed_attempts = {{ allowed_failed_attempts }}
+      enable_failed_attempts_check = {{ enable_failed_attempts_check }}
+      enable_password_verification = {{ enable_password_verification }}
+      password_expiration_duration = "{{ password_expiration_duration }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

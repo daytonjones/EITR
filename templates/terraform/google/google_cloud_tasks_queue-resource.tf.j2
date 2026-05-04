@@ -1,6 +1,60 @@
 resource "google_cloud_tasks_queue" "example" {
+    desired_state = "{{ desired_state }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
+    app_engine_routing_override {
+      instance = "{{ instance }}"
+      service = "{{ service }}"
+      version = "{{ version }}"
+    }
+    http_target {
+      http_method = "{{ http_method }}"
+      header_overrides {
+        header {
+          key = "{{ key }}"
+          value = "{{ value }}"
+        }
+      }
+      oauth_token {
+        scope = "{{ scope }}"
+        service_account_email = "{{ service_account_email }}"
+      }
+      oidc_token {
+        audience = "{{ audience }}"
+        service_account_email = "{{ service_account_email }}"
+      }
+      uri_override {
+        host = "{{ host }}"
+        port = "{{ port }}"
+        scheme = "{{ scheme }}"
+        uri_override_enforce_mode = "{{ uri_override_enforce_mode }}"
+        path_override {
+          path = "{{ path }}"
+        }
+        query_override {
+          query_params = "{{ query_params }}"
+        }
+      }
+    }
+    rate_limits {
+      max_concurrent_dispatches = {{ max_concurrent_dispatches }}
+      max_dispatches_per_second = {{ max_dispatches_per_second }}
+    }
+    retry_config {
+      max_attempts = {{ max_attempts }}
+      max_backoff = "{{ max_backoff }}"
+      max_doublings = {{ max_doublings }}
+      max_retry_duration = "{{ max_retry_duration }}"
+      min_backoff = "{{ min_backoff }}"
+    }
+    stackdriver_logging_config {
+      sampling_ratio = {{ sampling_ratio }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

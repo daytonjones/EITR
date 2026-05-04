@@ -1,0 +1,16 @@
+resource "awscc_omics_workflow_version" "example" {
+    accelerators = "{{ accelerators }}"
+    definition_uri = "{{ definition_uri }}"
+    description = "{{ description }}"
+    engine = "{{ engine }}"
+    main = "{{ main }}"
+    parameter_template = "{{ parameter_template }}"
+    storage_capacity = {{ storage_capacity }}
+    storage_type = "{{ storage_type }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    version_name = "{{ version_name }}"
+    workflow_bucket_owner_id = "{{ workflow_bucket_owner_id }}"
+    workflow_id = "{{ workflow_id }}"
+}

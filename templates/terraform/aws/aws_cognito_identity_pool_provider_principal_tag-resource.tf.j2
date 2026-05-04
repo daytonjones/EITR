@@ -2,6 +2,9 @@ resource "aws_cognito_identity_pool_provider_principal_tag" "example" {
     id = "{{ id }}"
     identity_pool_id = "{{ identity_pool_id }}"
     identity_provider_name = "{{ identity_provider_name }}"
-    principal_tags = "{{ principal_tags }}"
-    use_defaults = "{{ use_defaults }}"
+    principal_tags = {
+        key = "{{ principal_tags_value }}"
+      }
+    region = "{{ region }}"
+    use_defaults = {{ use_defaults }}
 }

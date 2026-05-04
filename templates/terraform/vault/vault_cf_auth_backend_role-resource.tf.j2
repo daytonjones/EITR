@@ -1,0 +1,22 @@
+resource "vault_cf_auth_backend_role" "example" {
+    alias_metadata = {
+        key = "{{ alias_metadata_value }}"
+      }
+    bound_application_ids = ["{{ bound_application_ids }}"]
+    bound_instance_ids = ["{{ bound_instance_ids }}"]
+    bound_organization_ids = ["{{ bound_organization_ids }}"]
+    bound_space_ids = ["{{ bound_space_ids }}"]
+    disable_ip_matching = {{ disable_ip_matching }}
+    mount = "{{ mount }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    token_bound_cidrs = ["{{ token_bound_cidrs }}"]
+    token_explicit_max_ttl = {{ token_explicit_max_ttl }}
+    token_max_ttl = {{ token_max_ttl }}
+    token_no_default_policy = {{ token_no_default_policy }}
+    token_num_uses = {{ token_num_uses }}
+    token_period = {{ token_period }}
+    token_policies = ["{{ token_policies }}"]
+    token_ttl = {{ token_ttl }}
+    token_type = "{{ token_type }}"
+}

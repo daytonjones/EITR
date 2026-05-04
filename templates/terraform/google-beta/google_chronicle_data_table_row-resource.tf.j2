@@ -1,0 +1,14 @@
+resource "google_chronicle_data_table_row" "example" {
+    data_table_id = "{{ data_table_id }}"
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    row_time_to_live = "{{ row_time_to_live }}"
+    values = ["{{ values }}"]
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

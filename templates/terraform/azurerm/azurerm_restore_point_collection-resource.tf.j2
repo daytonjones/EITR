@@ -4,5 +4,13 @@ resource "azurerm_restore_point_collection" "example" {
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     source_virtual_machine_id = "{{ source_virtual_machine_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

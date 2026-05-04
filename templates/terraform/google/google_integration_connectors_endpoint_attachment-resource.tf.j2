@@ -1,15 +1,17 @@
 resource "google_integration_connectors_endpoint_attachment" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
-    endpoint_global_access = "{{ endpoint_global_access }}"
-    endpoint_ip = "{{ endpoint_ip }}"
+    endpoint_global_access = {{ endpoint_global_access }}
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
     service_attachment = "{{ service_attachment }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

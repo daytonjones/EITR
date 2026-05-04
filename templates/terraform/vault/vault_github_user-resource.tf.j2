@@ -2,6 +2,6 @@ resource "vault_github_user" "example" {
     backend = "{{ backend }}"
     id = "{{ id }}"
     namespace = "{{ namespace }}"
-    policies = "{{ policies }}"
+    policies = ["{{ policies }}"]
     user = "{{ user }}"
 }

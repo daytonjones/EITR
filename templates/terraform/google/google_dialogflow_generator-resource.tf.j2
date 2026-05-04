@@ -1,0 +1,57 @@
+resource "google_dialogflow_generator" "example" {
+    description = "{{ description }}"
+    generator_id = "{{ generator_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    published_model = "{{ published_model }}"
+    trigger_event = "{{ trigger_event }}"
+    inference_parameter {
+      max_output_tokens = {{ max_output_tokens }}
+      temperature = {{ temperature }}
+      top_k = {{ top_k }}
+      top_p = {{ top_p }}
+    }
+    summarization_context {
+      output_language_code = "{{ output_language_code }}"
+      version = "{{ version }}"
+      few_shot_examples {
+        extra_info = {
+        key = "{{ extra_info_value }}"
+      }
+        conversation_context {
+          message_entries {
+            create_time = "{{ create_time }}"
+            language_code = "{{ language_code }}"
+            role = "{{ role }}"
+            text = "{{ text }}"
+          }
+        }
+        output {
+          summary_suggestion {
+            summary_sections {
+              section = "{{ section }}"
+              summary = "{{ summary }}"
+            }
+          }
+        }
+        summarization_section_list {
+          summarization_sections {
+            definition = "{{ definition }}"
+            key = "{{ key }}"
+            type = "{{ type }}"
+          }
+        }
+      }
+      summarization_sections {
+        definition = "{{ definition }}"
+        key = "{{ key }}"
+        type = "{{ type }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

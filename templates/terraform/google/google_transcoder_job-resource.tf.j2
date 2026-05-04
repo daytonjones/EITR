@@ -1,14 +1,119 @@
 resource "google_transcoder_job" "example" {
-    create_time = "{{ create_time }}"
-    effective_labels = "{{ effective_labels }}"
-    end_time = "{{ end_time }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    start_time = "{{ start_time }}"
-    state = "{{ state }}"
     template_id = "{{ template_id }}"
-    terraform_labels = "{{ terraform_labels }}"
+    config {
+      ad_breaks {
+        start_time_offset = "{{ start_time_offset }}"
+      }
+      edit_list {
+        inputs = ["{{ inputs }}"]
+        key = "{{ key }}"
+        start_time_offset = "{{ start_time_offset }}"
+      }
+      elementary_streams {
+        key = "{{ key }}"
+        audio_stream {
+          bitrate_bps = {{ bitrate_bps }}
+          channel_count = {{ channel_count }}
+          channel_layout = ["{{ channel_layout }}"]
+          codec = "{{ codec }}"
+          sample_rate_hertz = {{ sample_rate_hertz }}
+        }
+        video_stream {
+          h264 {
+            bitrate_bps = {{ bitrate_bps }}
+            crf_level = {{ crf_level }}
+            entropy_coder = "{{ entropy_coder }}"
+            frame_rate = {{ frame_rate }}
+            gop_duration = "{{ gop_duration }}"
+            height_pixels = {{ height_pixels }}
+            pixel_format = "{{ pixel_format }}"
+            preset = "{{ preset }}"
+            profile = "{{ profile }}"
+            rate_control_mode = "{{ rate_control_mode }}"
+            vbv_fullness_bits = {{ vbv_fullness_bits }}
+            vbv_size_bits = {{ vbv_size_bits }}
+            width_pixels = {{ width_pixels }}
+            hlg {
+            }
+            sdr {
+            }
+          }
+        }
+      }
+      encryptions {
+        id = "{{ id }}"
+        aes128 {
+        }
+        drm_systems {
+          clearkey {
+          }
+          fairplay {
+          }
+          playready {
+          }
+          widevine {
+          }
+        }
+        mpeg_cenc {
+          scheme = "{{ scheme }}"
+        }
+        sample_aes {
+        }
+        secret_manager_key_source {
+          secret_version = "{{ secret_version }}"
+        }
+      }
+      inputs {
+        key = "{{ key }}"
+        uri = "{{ uri }}"
+      }
+      manifests {
+        file_name = "{{ file_name }}"
+        mux_streams = ["{{ mux_streams }}"]
+        type = "{{ type }}"
+      }
+      mux_streams {
+        container = "{{ container }}"
+        elementary_streams = ["{{ elementary_streams }}"]
+        encryption_id = "{{ encryption_id }}"
+        file_name = "{{ file_name }}"
+        key = "{{ key }}"
+        segment_settings {
+          segment_duration = "{{ segment_duration }}"
+        }
+      }
+      output {
+        uri = "{{ uri }}"
+      }
+      overlays {
+        animations {
+          animation_fade {
+            end_time_offset = "{{ end_time_offset }}"
+            fade_type = "{{ fade_type }}"
+            start_time_offset = "{{ start_time_offset }}"
+            xy {
+              x = {{ x }}
+              y = {{ y }}
+            }
+          }
+        }
+        image {
+          uri = "{{ uri }}"
+        }
+      }
+      pubsub_destination {
+        topic = "{{ topic }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,17 @@
+resource "google_gemini_release_channel_setting_binding" "example" {
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    product = "{{ product }}"
+    project = "{{ project }}"
+    release_channel_setting_id = "{{ release_channel_setting_id }}"
+    setting_binding_id = "{{ setting_binding_id }}"
+    target = "{{ target }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

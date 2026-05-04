@@ -1,5 +1,9 @@
 resource "aws_inspector2_delegated_admin_account" "example" {
     account_id = "{{ account_id }}"
     id = "{{ id }}"
-    relationship_status = "{{ relationship_status }}"
+    region = "{{ region }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

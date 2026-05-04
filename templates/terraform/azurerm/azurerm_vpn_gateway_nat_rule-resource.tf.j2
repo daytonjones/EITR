@@ -5,4 +5,18 @@ resource "azurerm_vpn_gateway_nat_rule" "example" {
     name = "{{ name }}"
     type = "{{ type }}"
     vpn_gateway_id = "{{ vpn_gateway_id }}"
+    external_mapping {
+      address_space = "{{ address_space }}"
+      port_range = "{{ port_range }}"
+    }
+    internal_mapping {
+      address_space = "{{ address_space }}"
+      port_range = "{{ port_range }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,11 +1,44 @@
 resource "google_migration_center_preference_set" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
     display_name = "{{ display_name }}"
     id = "{{ id }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     preference_set_id = "{{ preference_set_id }}"
     project = "{{ project }}"
-    update_time = "{{ update_time }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    virtual_machine_preferences {
+      commitment_plan = "{{ commitment_plan }}"
+      sizing_optimization_strategy = "{{ sizing_optimization_strategy }}"
+      target_product = "{{ target_product }}"
+      compute_engine_preferences {
+        license_type = "{{ license_type }}"
+        persistent_disk_type = "{{ persistent_disk_type }}"
+        machine_preferences {
+          allowed_machine_series {
+            code = "{{ code }}"
+          }
+        }
+      }
+      region_preferences {
+        preferred_regions = ["{{ preferred_regions }}"]
+      }
+      sole_tenancy_preferences {
+        commitment_plan = "{{ commitment_plan }}"
+        cpu_overcommit_ratio = {{ cpu_overcommit_ratio }}
+        host_maintenance_policy = "{{ host_maintenance_policy }}"
+        node_types {
+          node_name = "{{ node_name }}"
+        }
+      }
+      vmware_engine_preferences {
+        commitment_plan = "{{ commitment_plan }}"
+        cpu_overcommit_ratio = {{ cpu_overcommit_ratio }}
+        memory_overcommit_ratio = {{ memory_overcommit_ratio }}
+        storage_deduplication_compression_ratio = {{ storage_deduplication_compression_ratio }}
+      }
+    }
 }

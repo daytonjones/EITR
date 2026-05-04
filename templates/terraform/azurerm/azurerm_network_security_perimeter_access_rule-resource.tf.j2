@@ -1,0 +1,16 @@
+resource "azurerm_network_security_perimeter_access_rule" "example" {
+    address_prefixes = ["{{ address_prefixes }}"]
+    direction = "{{ direction }}"
+    fqdns = ["{{ fqdns }}"]
+    id = "{{ id }}"
+    name = "{{ name }}"
+    network_security_perimeter_profile_id = "{{ network_security_perimeter_profile_id }}"
+    service_tags = ["{{ service_tags }}"]
+    subscription_ids = ["{{ subscription_ids }}"]
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

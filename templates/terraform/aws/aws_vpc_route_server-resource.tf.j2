@@ -1,0 +1,15 @@
+resource "aws_vpc_route_server" "example" {
+    amazon_side_asn = {{ amazon_side_asn }}
+    persist_routes = "{{ persist_routes }}"
+    persist_routes_duration = {{ persist_routes_duration }}
+    region = "{{ region }}"
+    sns_notifications_enabled = {{ sns_notifications_enabled }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

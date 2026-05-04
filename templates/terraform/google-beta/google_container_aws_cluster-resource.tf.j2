@@ -1,18 +1,85 @@
 resource "google_container_aws_cluster" "example" {
-    annotations = "{{ annotations }}"
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
     aws_region = "{{ aws_region }}"
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
-    effective_annotations = "{{ effective_annotations }}"
-    endpoint = "{{ endpoint }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    reconciling = "{{ reconciling }}"
-    state = "{{ state }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
-    workload_identity_config = "{{ workload_identity_config }}"
+    authorization {
+      admin_groups {
+        group = "{{ group }}"
+      }
+      admin_users {
+        username = "{{ username }}"
+      }
+    }
+    binary_authorization {
+      evaluation_mode = "{{ evaluation_mode }}"
+    }
+    control_plane {
+      iam_instance_profile = "{{ iam_instance_profile }}"
+      instance_type = "{{ instance_type }}"
+      security_group_ids = ["{{ security_group_ids }}"]
+      subnet_ids = ["{{ subnet_ids }}"]
+      tags = {
+        key = "{{ tags_value }}"
+      }
+      version = "{{ version }}"
+      aws_services_authentication {
+        role_arn = "{{ role_arn }}"
+        role_session_name = "{{ role_session_name }}"
+      }
+      config_encryption {
+        kms_key_arn = "{{ kms_key_arn }}"
+      }
+      database_encryption {
+        kms_key_arn = "{{ kms_key_arn }}"
+      }
+      instance_placement {
+        tenancy = "{{ tenancy }}"
+      }
+      main_volume {
+        iops = {{ iops }}
+        kms_key_arn = "{{ kms_key_arn }}"
+        size_gib = {{ size_gib }}
+        throughput = {{ throughput }}
+        volume_type = "{{ volume_type }}"
+      }
+      proxy_config {
+        secret_arn = "{{ secret_arn }}"
+        secret_version = "{{ secret_version }}"
+      }
+      root_volume {
+        iops = {{ iops }}
+        kms_key_arn = "{{ kms_key_arn }}"
+        size_gib = {{ size_gib }}
+        throughput = {{ throughput }}
+        volume_type = "{{ volume_type }}"
+      }
+      ssh_config {
+        ec2_key_pair = "{{ ec2_key_pair }}"
+      }
+    }
+    fleet {
+      project = "{{ project }}"
+    }
+    logging_config {
+      component_config {
+        enable_components = ["{{ enable_components }}"]
+      }
+    }
+    networking {
+      per_node_pool_sg_rules_disabled = {{ per_node_pool_sg_rules_disabled }}
+      pod_address_cidr_blocks = ["{{ pod_address_cidr_blocks }}"]
+      service_address_cidr_blocks = ["{{ service_address_cidr_blocks }}"]
+      vpc_id = "{{ vpc_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

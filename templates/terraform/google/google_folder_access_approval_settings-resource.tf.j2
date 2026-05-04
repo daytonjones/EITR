@@ -1,10 +1,15 @@
 resource "google_folder_access_approval_settings" "example" {
     active_key_version = "{{ active_key_version }}"
-    ancestor_has_active_key_version = "{{ ancestor_has_active_key_version }}"
-    enrolled_ancestor = "{{ enrolled_ancestor }}"
     folder_id = "{{ folder_id }}"
     id = "{{ id }}"
-    invalid_key_version = "{{ invalid_key_version }}"
-    name = "{{ name }}"
-    notification_emails = "{{ notification_emails }}"
+    notification_emails = ["{{ notification_emails }}"]
+    enrolled_services {
+      cloud_product = "{{ cloud_product }}"
+      enrollment_level = "{{ enrollment_level }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

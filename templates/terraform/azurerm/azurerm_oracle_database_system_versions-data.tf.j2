@@ -1,0 +1,12 @@
+data "azurerm_oracle_database_system_versions" "example" {
+    database_software_image_supported = {{ database_software_image_supported }}
+    database_system_shape = "{{ database_system_shape }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    shape_family = "{{ shape_family }}"
+    storage_management = "{{ storage_management }}"
+    upgrade_supported = {{ upgrade_supported }}
+    timeouts {
+      read = "{{ read }}"
+    }
+}

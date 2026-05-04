@@ -1,0 +1,21 @@
+resource "aws_neptunegraph_graph" "example" {
+    deletion_protection = {{ deletion_protection }}
+    graph_name = "{{ graph_name }}"
+    graph_name_prefix = "{{ graph_name_prefix }}"
+    kms_key_identifier = "{{ kms_key_identifier }}"
+    provisioned_memory = {{ provisioned_memory }}
+    public_connectivity = {{ public_connectivity }}
+    region = "{{ region }}"
+    replica_count = {{ replica_count }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    vector_search_configuration {
+      vector_search_dimension = {{ vector_search_dimension }}
+    }
+}

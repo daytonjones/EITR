@@ -1,11 +1,18 @@
 resource "google_compute_instance_group" "example" {
     description = "{{ description }}"
     id = "{{ id }}"
-    instances = "{{ instances }}"
+    instances = ["{{ instances }}"]
     name = "{{ name }}"
     network = "{{ network }}"
     project = "{{ project }}"
-    self_link = "{{ self_link }}"
-    size = "{{ size }}"
     zone = "{{ zone }}"
+    named_port {
+      name = "{{ name }}"
+      port = {{ port }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

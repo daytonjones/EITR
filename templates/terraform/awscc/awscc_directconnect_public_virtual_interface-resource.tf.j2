@@ -1,0 +1,9 @@
+resource "awscc_directconnect_public_virtual_interface" "example" {
+    allocate_public_virtual_interface_role_arn = "{{ allocate_public_virtual_interface_role_arn }}"
+    bgp_peers = "{{ bgp_peers }}"
+    connection_id = "{{ connection_id }}"
+    route_filter_prefixes = ["{{ route_filter_prefixes }}"]
+    tags = "{{ tags }}"
+    virtual_interface_name = "{{ virtual_interface_name }}"
+    vlan = {{ vlan }}
+}

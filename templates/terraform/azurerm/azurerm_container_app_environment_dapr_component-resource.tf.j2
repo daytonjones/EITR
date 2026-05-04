@@ -2,9 +2,26 @@ resource "azurerm_container_app_environment_dapr_component" "example" {
     component_type = "{{ component_type }}"
     container_app_environment_id = "{{ container_app_environment_id }}"
     id = "{{ id }}"
-    ignore_errors = "{{ ignore_errors }}"
+    ignore_errors = {{ ignore_errors }}
     init_timeout = "{{ init_timeout }}"
     name = "{{ name }}"
-    scopes = "{{ scopes }}"
+    scopes = ["{{ scopes }}"]
     version = "{{ version }}"
+    metadata {
+      name = "{{ name }}"
+      secret_name = "{{ secret_name }}"
+      value = "{{ value }}"
+    }
+    secret {
+      identity = "{{ identity }}"
+      key_vault_secret_id = "{{ key_vault_secret_id }}"
+      name = "{{ name }}"
+      value = "{{ value }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,13 +1,12 @@
 resource "aws_iam_service_linked_role" "example" {
-    arn = "{{ arn }}"
     aws_service_name = "{{ aws_service_name }}"
-    create_date = "{{ create_date }}"
     custom_suffix = "{{ custom_suffix }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    name = "{{ name }}"
-    path = "{{ path }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    unique_id = "{{ unique_id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

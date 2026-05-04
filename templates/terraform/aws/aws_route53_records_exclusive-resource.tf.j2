@@ -1,0 +1,45 @@
+resource "aws_route53_records_exclusive" "example" {
+    zone_id = "{{ zone_id }}"
+    resource_record_set {
+      failover = "{{ failover }}"
+      health_check_id = "{{ health_check_id }}"
+      multi_value_answer = {{ multi_value_answer }}
+      name = "{{ name }}"
+      region = "{{ region }}"
+      set_identifier = "{{ set_identifier }}"
+      traffic_policy_instance_id = "{{ traffic_policy_instance_id }}"
+      ttl = {{ ttl }}
+      type = "{{ type }}"
+      weight = {{ weight }}
+      alias_target {
+        dns_name = "{{ dns_name }}"
+        evaluate_target_health = {{ evaluate_target_health }}
+        hosted_zone_id = "{{ hosted_zone_id }}"
+      }
+      cidr_routing_config {
+        collection_id = "{{ collection_id }}"
+        location_name = "{{ location_name }}"
+      }
+      geolocation {
+        continent_code = "{{ continent_code }}"
+        country_code = "{{ country_code }}"
+        subdivision_code = "{{ subdivision_code }}"
+      }
+      geoproximity_location {
+        aws_region = "{{ aws_region }}"
+        bias = {{ bias }}
+        local_zone_group = "{{ local_zone_group }}"
+        coordinates {
+          latitude = "{{ latitude }}"
+          longitude = "{{ longitude }}"
+        }
+      }
+      resource_records {
+        value = "{{ value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
+}

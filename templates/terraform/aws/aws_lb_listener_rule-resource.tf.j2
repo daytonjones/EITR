@@ -1,8 +1,116 @@
 resource "aws_lb_listener_rule" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     listener_arn = "{{ listener_arn }}"
-    priority = "{{ priority }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    priority = {{ priority }}
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    action {
+      order = {{ order }}
+      target_group_arn = "{{ target_group_arn }}"
+      type = "{{ type }}"
+      authenticate_cognito {
+        authentication_request_extra_params = {
+        key = "{{ authentication_request_extra_params_value }}"
+      }
+        on_unauthenticated_request = "{{ on_unauthenticated_request }}"
+        scope = "{{ scope }}"
+        session_cookie_name = "{{ session_cookie_name }}"
+        session_timeout = {{ session_timeout }}
+        user_pool_arn = "{{ user_pool_arn }}"
+        user_pool_client_id = "{{ user_pool_client_id }}"
+        user_pool_domain = "{{ user_pool_domain }}"
+      }
+      authenticate_oidc {
+        authentication_request_extra_params = {
+        key = "{{ authentication_request_extra_params_value }}"
+      }
+        authorization_endpoint = "{{ authorization_endpoint }}"
+        client_id = "{{ client_id }}"
+        client_secret = "{{ client_secret }}"
+        issuer = "{{ issuer }}"
+        on_unauthenticated_request = "{{ on_unauthenticated_request }}"
+        scope = "{{ scope }}"
+        session_cookie_name = "{{ session_cookie_name }}"
+        session_timeout = {{ session_timeout }}
+        token_endpoint = "{{ token_endpoint }}"
+        user_info_endpoint = "{{ user_info_endpoint }}"
+      }
+      fixed_response {
+        content_type = "{{ content_type }}"
+        message_body = "{{ message_body }}"
+        status_code = "{{ status_code }}"
+      }
+      forward {
+        stickiness {
+          duration = {{ duration }}
+          enabled = {{ enabled }}
+        }
+        target_group {
+          arn = "{{ arn }}"
+          weight = {{ weight }}
+        }
+      }
+      jwt_validation {
+        issuer = "{{ issuer }}"
+        jwks_endpoint = "{{ jwks_endpoint }}"
+        additional_claim {
+          format = "{{ format }}"
+          name = "{{ name }}"
+          values = ["{{ values }}"]
+        }
+      }
+      redirect {
+        host = "{{ host }}"
+        path = "{{ path }}"
+        port = "{{ port }}"
+        protocol = "{{ protocol }}"
+        query = "{{ query }}"
+        status_code = "{{ status_code }}"
+      }
+    }
+    condition {
+      host_header {
+        regex_values = ["{{ regex_values }}"]
+        values = ["{{ values }}"]
+      }
+      http_header {
+        http_header_name = "{{ http_header_name }}"
+        regex_values = ["{{ regex_values }}"]
+        values = ["{{ values }}"]
+      }
+      http_request_method {
+        values = ["{{ values }}"]
+      }
+      path_pattern {
+        regex_values = ["{{ regex_values }}"]
+        values = ["{{ values }}"]
+      }
+      query_string {
+        key = "{{ key }}"
+        value = "{{ value }}"
+      }
+      source_ip {
+        values = ["{{ values }}"]
+      }
+    }
+    transform {
+      type = "{{ type }}"
+      host_header_rewrite_config {
+        rewrite {
+          regex = "{{ regex }}"
+          replace = "{{ replace }}"
+        }
+      }
+      url_rewrite_config {
+        rewrite {
+          regex = "{{ regex }}"
+          replace = "{{ replace }}"
+        }
+      }
+    }
 }

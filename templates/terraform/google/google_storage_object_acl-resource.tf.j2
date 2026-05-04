@@ -3,5 +3,5 @@ resource "google_storage_object_acl" "example" {
     id = "{{ id }}"
     object = "{{ object }}"
     predefined_acl = "{{ predefined_acl }}"
-    role_entity = "{{ role_entity }}"
+    role_entity = ["{{ role_entity }}"]
 }

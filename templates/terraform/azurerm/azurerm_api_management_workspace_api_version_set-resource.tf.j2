@@ -1,0 +1,16 @@
+resource "azurerm_api_management_workspace_api_version_set" "example" {
+    api_management_workspace_id = "{{ api_management_workspace_id }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    version_header_name = "{{ version_header_name }}"
+    version_query_name = "{{ version_query_name }}"
+    versioning_scheme = "{{ versioning_scheme }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

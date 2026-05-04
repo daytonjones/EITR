@@ -1,0 +1,23 @@
+resource "aws_s3tables_table" "example" {
+    encryption_configuration = {{ encryption_configuration }}
+    format = "{{ format }}"
+    maintenance_configuration = {{ maintenance_configuration }}
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    region = "{{ region }}"
+    table_bucket_arn = "{{ table_bucket_arn }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    metadata {
+      iceberg {
+        schema {
+          field {
+            name = "{{ name }}"
+            required = {{ required }}
+            type = "{{ type }}"
+          }
+        }
+      }
+    }
+}

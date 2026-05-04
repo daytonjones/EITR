@@ -1,16 +1,75 @@
 resource "google_dialogflow_cx_agent" "example" {
     avatar_uri = "{{ avatar_uri }}"
     default_language_code = "{{ default_language_code }}"
+    delete_chat_engine_on_destroy = {{ delete_chat_engine_on_destroy }}
     description = "{{ description }}"
     display_name = "{{ display_name }}"
-    enable_spell_correction = "{{ enable_spell_correction }}"
-    enable_stackdriver_logging = "{{ enable_stackdriver_logging }}"
+    enable_multi_language_training = {{ enable_multi_language_training }}
+    enable_spell_correction = {{ enable_spell_correction }}
+    enable_stackdriver_logging = {{ enable_stackdriver_logging }}
     id = "{{ id }}"
     location = "{{ location }}"
-    name = "{{ name }}"
+    locked = {{ locked }}
     project = "{{ project }}"
     security_settings = "{{ security_settings }}"
-    start_flow = "{{ start_flow }}"
-    supported_language_codes = "{{ supported_language_codes }}"
+    start_playbook = "{{ start_playbook }}"
+    supported_language_codes = ["{{ supported_language_codes }}"]
     time_zone = "{{ time_zone }}"
+    advanced_settings {
+      audio_export_gcs_destination {
+        uri = "{{ uri }}"
+      }
+      dtmf_settings {
+        enabled = {{ enabled }}
+        finish_digit = "{{ finish_digit }}"
+        max_digits = {{ max_digits }}
+      }
+      logging_settings {
+        enable_consent_based_redaction = {{ enable_consent_based_redaction }}
+        enable_interaction_logging = {{ enable_interaction_logging }}
+        enable_stackdriver_logging = {{ enable_stackdriver_logging }}
+      }
+      speech_settings {
+        endpointer_sensitivity = {{ endpointer_sensitivity }}
+        models = {
+        key = "{{ models_value }}"
+      }
+        no_speech_timeout = "{{ no_speech_timeout }}"
+        use_timeout_based_endpointing = {{ use_timeout_based_endpointing }}
+      }
+    }
+    answer_feedback_settings {
+      enable_answer_feedback = {{ enable_answer_feedback }}
+    }
+    client_certificate_settings {
+      passphrase = "{{ passphrase }}"
+      private_key = "{{ private_key }}"
+      ssl_certificate = "{{ ssl_certificate }}"
+    }
+    gen_app_builder_settings {
+      engine = "{{ engine }}"
+    }
+    git_integration_settings {
+      github_settings {
+        access_token = "{{ access_token }}"
+        branches = ["{{ branches }}"]
+        display_name = "{{ display_name }}"
+        repository_uri = "{{ repository_uri }}"
+        tracking_branch = "{{ tracking_branch }}"
+      }
+    }
+    personalization_settings {
+      default_end_user_metadata = "{{ default_end_user_metadata }}"
+    }
+    speech_to_text_settings {
+      enable_speech_adaptation = {{ enable_speech_adaptation }}
+    }
+    text_to_speech_settings {
+      synthesize_speech_configs = "{{ synthesize_speech_configs }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

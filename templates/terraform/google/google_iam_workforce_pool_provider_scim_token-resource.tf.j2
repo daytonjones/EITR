@@ -1,0 +1,14 @@
+resource "google_iam_workforce_pool_provider_scim_token" "example" {
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    provider_id = "{{ provider_id }}"
+    scim_tenant_id = "{{ scim_tenant_id }}"
+    scim_token_id = "{{ scim_token_id }}"
+    workforce_pool_id = "{{ workforce_pool_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

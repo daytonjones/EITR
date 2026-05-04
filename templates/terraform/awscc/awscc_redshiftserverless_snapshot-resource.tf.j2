@@ -1,0 +1,6 @@
+resource "awscc_redshiftserverless_snapshot" "example" {
+    namespace_name = "{{ namespace_name }}"
+    retention_period = {{ retention_period }}
+    snapshot_name = "{{ snapshot_name }}"
+    tags = "{{ tags }}"
+}

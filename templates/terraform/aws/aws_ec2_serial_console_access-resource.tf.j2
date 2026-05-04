@@ -1,4 +1,5 @@
 resource "aws_ec2_serial_console_access" "example" {
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
+    region = "{{ region }}"
 }

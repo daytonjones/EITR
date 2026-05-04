@@ -1,0 +1,9 @@
+resource "google_sql_provision_script" "example" {
+    database = "{{ database }}"
+    deletion_policy = "{{ deletion_policy }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    project = "{{ project }}"
+    script = "{{ script }}"
+}

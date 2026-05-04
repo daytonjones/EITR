@@ -1,0 +1,13 @@
+resource "awscc_scheduler_schedule" "example" {
+    description = "{{ description }}"
+    end_date = "{{ end_date }}"
+    flexible_time_window = "{{ flexible_time_window }}"
+    group_name = "{{ group_name }}"
+    kms_key_arn = "{{ kms_key_arn }}"
+    name = "{{ name }}"
+    schedule_expression = "{{ schedule_expression }}"
+    schedule_expression_timezone = "{{ schedule_expression_timezone }}"
+    start_date = "{{ start_date }}"
+    state = "{{ state }}"
+    target = "{{ target }}"
+}

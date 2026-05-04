@@ -1,8 +1,19 @@
 resource "google_data_catalog_tag" "example" {
     column = "{{ column }}"
     id = "{{ id }}"
-    name = "{{ name }}"
     parent = "{{ parent }}"
     template = "{{ template }}"
-    template_displayname = "{{ template_displayname }}"
+    fields {
+      bool_value = {{ bool_value }}
+      double_value = {{ double_value }}
+      enum_value = "{{ enum_value }}"
+      field_name = "{{ field_name }}"
+      string_value = "{{ string_value }}"
+      timestamp_value = "{{ timestamp_value }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

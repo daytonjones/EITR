@@ -1,14 +1,13 @@
 resource "aws_lightsail_bucket" "example" {
-    arn = "{{ arn }}"
-    availability_zone = "{{ availability_zone }}"
     bundle_id = "{{ bundle_id }}"
-    created_at = "{{ created_at }}"
-    force_delete = "{{ force_delete }}"
+    force_delete = {{ force_delete }}
     id = "{{ id }}"
     name = "{{ name }}"
     region = "{{ region }}"
-    support_code = "{{ support_code }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    url = "{{ url }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

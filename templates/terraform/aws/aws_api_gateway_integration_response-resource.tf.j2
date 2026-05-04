@@ -2,9 +2,14 @@ resource "aws_api_gateway_integration_response" "example" {
     content_handling = "{{ content_handling }}"
     http_method = "{{ http_method }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     resource_id = "{{ resource_id }}"
-    response_parameters = "{{ response_parameters }}"
-    response_templates = "{{ response_templates }}"
+    response_parameters = {
+        key = "{{ response_parameters_value }}"
+      }
+    response_templates = {
+        key = "{{ response_templates_value }}"
+      }
     rest_api_id = "{{ rest_api_id }}"
     selection_pattern = "{{ selection_pattern }}"
     status_code = "{{ status_code }}"

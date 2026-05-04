@@ -1,4 +1,12 @@
 resource "aws_ssm_resource_data_sync" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
+    s3_destination {
+      bucket_name = "{{ bucket_name }}"
+      kms_key_arn = "{{ kms_key_arn }}"
+      prefix = "{{ prefix }}"
+      region = "{{ region }}"
+      sync_format = "{{ sync_format }}"
+    }
 }

@@ -3,4 +3,10 @@ resource "azurerm_postgresql_flexible_server_configuration" "example" {
     name = "{{ name }}"
     server_id = "{{ server_id }}"
     value = "{{ value }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,16 @@
+resource "google_compute_preview_feature" "example" {
+    activation_status = "{{ activation_status }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    rollout_operation {
+      rollout_input {
+        predefined_rollout_plan = "{{ predefined_rollout_plan }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

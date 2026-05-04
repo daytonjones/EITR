@@ -4,4 +4,9 @@ resource "azurerm_signalr_service_custom_domain" "example" {
     name = "{{ name }}"
     signalr_custom_certificate_id = "{{ signalr_custom_certificate_id }}"
     signalr_service_id = "{{ signalr_service_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

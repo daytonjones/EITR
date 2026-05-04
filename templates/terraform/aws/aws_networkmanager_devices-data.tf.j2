@@ -1,7 +1,8 @@
 data "aws_networkmanager_devices" "example" {
     global_network_id = "{{ global_network_id }}"
     id = "{{ id }}"
-    ids = "{{ ids }}"
     site_id = "{{ site_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
 }

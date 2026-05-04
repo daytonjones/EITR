@@ -1,9 +1,4 @@
 resource "awscc_ec2_network_acl" "example" {
-    id = "{{ id }}"
-    network_acl_id = "{{ network_acl_id }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
     vpc_id = "{{ vpc_id }}"
 }

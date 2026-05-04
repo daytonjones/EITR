@@ -1,0 +1,15 @@
+resource "awscc_sagemaker_processing_job" "example" {
+    app_specification = "{{ app_specification }}"
+    environment = {
+        key = "{{ environment_value }}"
+      }
+    experiment_config = "{{ experiment_config }}"
+    network_config = "{{ network_config }}"
+    processing_inputs = "{{ processing_inputs }}"
+    processing_job_name = "{{ processing_job_name }}"
+    processing_output_config = "{{ processing_output_config }}"
+    processing_resources = "{{ processing_resources }}"
+    role_arn = "{{ role_arn }}"
+    stopping_condition = "{{ stopping_condition }}"
+    tags = "{{ tags }}"
+}

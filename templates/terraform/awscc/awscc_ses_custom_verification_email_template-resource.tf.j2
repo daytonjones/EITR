@@ -1,0 +1,9 @@
+resource "awscc_ses_custom_verification_email_template" "example" {
+    failure_redirection_url = "{{ failure_redirection_url }}"
+    from_email_address = "{{ from_email_address }}"
+    success_redirection_url = "{{ success_redirection_url }}"
+    tags = "{{ tags }}"
+    template_content = "{{ template_content }}"
+    template_name = "{{ template_name }}"
+    template_subject = "{{ template_subject }}"
+}

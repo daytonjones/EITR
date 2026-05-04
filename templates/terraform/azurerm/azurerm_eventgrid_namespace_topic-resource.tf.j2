@@ -1,0 +1,12 @@
+resource "azurerm_eventgrid_namespace_topic" "example" {
+    event_retention_in_days = {{ event_retention_in_days }}
+    eventgrid_namespace_id = "{{ eventgrid_namespace_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

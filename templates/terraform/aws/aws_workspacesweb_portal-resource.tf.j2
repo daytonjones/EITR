@@ -1,0 +1,20 @@
+resource "aws_workspacesweb_portal" "example" {
+    additional_encryption_context = {
+        key = "{{ additional_encryption_context_value }}"
+      }
+    authentication_type = "{{ authentication_type }}"
+    browser_settings_arn = "{{ browser_settings_arn }}"
+    customer_managed_key = "{{ customer_managed_key }}"
+    display_name = "{{ display_name }}"
+    instance_type = "{{ instance_type }}"
+    max_concurrent_sessions = {{ max_concurrent_sessions }}
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,6 +1,9 @@
 resource "aws_ebs_fast_snapshot_restore" "example" {
     availability_zone = "{{ availability_zone }}"
-    id = "{{ id }}"
+    region = "{{ region }}"
     snapshot_id = "{{ snapshot_id }}"
-    state = "{{ state }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

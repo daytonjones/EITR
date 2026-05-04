@@ -1,0 +1,24 @@
+resource "awscc_apigatewayv2_integration" "example" {
+    api_id = "{{ api_id }}"
+    connection_id = "{{ connection_id }}"
+    connection_type = "{{ connection_type }}"
+    content_handling_strategy = "{{ content_handling_strategy }}"
+    credentials_arn = "{{ credentials_arn }}"
+    description = "{{ description }}"
+    integration_method = "{{ integration_method }}"
+    integration_subtype = "{{ integration_subtype }}"
+    integration_type = "{{ integration_type }}"
+    integration_uri = "{{ integration_uri }}"
+    passthrough_behavior = "{{ passthrough_behavior }}"
+    payload_format_version = "{{ payload_format_version }}"
+    request_parameters = {
+        key = "{{ request_parameters_value }}"
+      }
+    request_templates = {
+        key = "{{ request_templates_value }}"
+      }
+    response_parameters = "{{ response_parameters }}"
+    template_selection_expression = "{{ template_selection_expression }}"
+    timeout_in_millis = {{ timeout_in_millis }}
+    tls_config = "{{ tls_config }}"
+}

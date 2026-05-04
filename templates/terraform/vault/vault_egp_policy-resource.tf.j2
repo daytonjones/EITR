@@ -3,6 +3,6 @@ resource "vault_egp_policy" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     namespace = "{{ namespace }}"
-    paths = "{{ paths }}"
+    paths = ["{{ paths }}"]
     policy = "{{ policy }}"
 }

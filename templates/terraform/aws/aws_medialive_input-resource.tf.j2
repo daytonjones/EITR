@@ -1,14 +1,37 @@
 resource "aws_medialive_input" "example" {
-    arn = "{{ arn }}"
-    attached_channels = "{{ attached_channels }}"
     id = "{{ id }}"
-    input_class = "{{ input_class }}"
-    input_partner_ids = "{{ input_partner_ids }}"
-    input_security_groups = "{{ input_security_groups }}"
-    input_source_type = "{{ input_source_type }}"
+    input_security_groups = ["{{ input_security_groups }}"]
     name = "{{ name }}"
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     type = "{{ type }}"
+    destinations {
+      stream_name = "{{ stream_name }}"
+    }
+    input_devices {
+      id = "{{ id }}"
+    }
+    media_connect_flows {
+      flow_arn = "{{ flow_arn }}"
+    }
+    sources {
+      password_param = "{{ password_param }}"
+      url = "{{ url }}"
+      username = "{{ username }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    vpc {
+      security_group_ids = ["{{ security_group_ids }}"]
+      subnet_ids = ["{{ subnet_ids }}"]
+    }
 }

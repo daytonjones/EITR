@@ -1,10 +1,18 @@
 resource "aws_controltower_landing_zone" "example" {
-    arn = "{{ arn }}"
-    drift_status = "{{ drift_status }}"
     id = "{{ id }}"
-    latest_available_version = "{{ latest_available_version }}"
     manifest_json = "{{ manifest_json }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    remediation_types = ["{{ remediation_types }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     version = "{{ version }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

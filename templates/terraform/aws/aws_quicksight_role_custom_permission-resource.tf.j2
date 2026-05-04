@@ -1,0 +1,7 @@
+resource "aws_quicksight_role_custom_permission" "example" {
+    aws_account_id = "{{ aws_account_id }}"
+    custom_permissions_name = "{{ custom_permissions_name }}"
+    namespace = "{{ namespace }}"
+    region = "{{ region }}"
+    role = "{{ role }}"
+}

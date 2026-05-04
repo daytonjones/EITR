@@ -1,0 +1,31 @@
+resource "aws_odb_cloud_exadata_infrastructure" "example" {
+    availability_zone = "{{ availability_zone }}"
+    availability_zone_id = "{{ availability_zone_id }}"
+    compute_count = {{ compute_count }}
+    customer_contacts_to_send_to_oci = ["{{ customer_contacts_to_send_to_oci }}"]
+    database_server_type = "{{ database_server_type }}"
+    display_name = "{{ display_name }}"
+    region = "{{ region }}"
+    shape = "{{ shape }}"
+    storage_count = {{ storage_count }}
+    storage_server_type = "{{ storage_server_type }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    maintenance_window {
+      custom_action_timeout_in_mins = {{ custom_action_timeout_in_mins }}
+      days_of_week = ["{{ days_of_week }}"]
+      hours_of_day = ["{{ hours_of_day }}"]
+      is_custom_action_timeout_enabled = {{ is_custom_action_timeout_enabled }}
+      lead_time_in_weeks = {{ lead_time_in_weeks }}
+      months = ["{{ months }}"]
+      patching_mode = "{{ patching_mode }}"
+      preference = "{{ preference }}"
+      weeks_of_month = ["{{ weeks_of_month }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

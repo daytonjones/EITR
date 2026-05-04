@@ -1,0 +1,20 @@
+resource "aws_bedrockagentcore_code_interpreter" "example" {
+    description = "{{ description }}"
+    execution_role_arn = "{{ execution_role_arn }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    network_configuration {
+      network_mode = "{{ network_mode }}"
+      vpc_config {
+        security_groups = ["{{ security_groups }}"]
+        subnets = ["{{ subnets }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

@@ -1,0 +1,12 @@
+resource "awscc_mediaconnect_router_input" "example" {
+    availability_zone = "{{ availability_zone }}"
+    configuration = "{{ configuration }}"
+    maintenance_configuration = "{{ maintenance_configuration }}"
+    maximum_bitrate = {{ maximum_bitrate }}
+    name = "{{ name }}"
+    region_name = "{{ region_name }}"
+    routing_scope = "{{ routing_scope }}"
+    tags = "{{ tags }}"
+    tier = "{{ tier }}"
+    transit_encryption = "{{ transit_encryption }}"
+}

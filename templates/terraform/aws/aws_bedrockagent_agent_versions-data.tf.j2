@@ -1,3 +1,8 @@
 data "aws_bedrockagent_agent_versions" "example" {
     agent_id = "{{ agent_id }}"
+    region = "{{ region }}"
+    agent_version_summaries {
+      guardrail_configuration {
+      }
+    }
 }

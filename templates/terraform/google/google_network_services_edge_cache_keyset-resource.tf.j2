@@ -1,9 +1,22 @@
 resource "google_network_services_edge_cache_keyset" "example" {
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
     project = "{{ project }}"
-    terraform_labels = "{{ terraform_labels }}"
+    public_key {
+      id = "{{ id }}"
+      managed = {{ managed }}
+      value = "{{ value }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    validation_shared_keys {
+      secret_version = "{{ secret_version }}"
+    }
 }

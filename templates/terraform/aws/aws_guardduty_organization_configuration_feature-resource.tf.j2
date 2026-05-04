@@ -3,4 +3,9 @@ resource "aws_guardduty_organization_configuration_feature" "example" {
     detector_id = "{{ detector_id }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
+    additional_configuration {
+      auto_enable = "{{ auto_enable }}"
+      name = "{{ name }}"
+    }
 }

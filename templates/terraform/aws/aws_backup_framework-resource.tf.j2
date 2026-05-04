@@ -1,11 +1,31 @@
 resource "aws_backup_framework" "example" {
-    arn = "{{ arn }}"
-    creation_time = "{{ creation_time }}"
-    deployment_status = "{{ deployment_status }}"
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    control {
+      name = "{{ name }}"
+      input_parameter {
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+      scope {
+        compliance_resource_ids = ["{{ compliance_resource_ids }}"]
+        compliance_resource_types = ["{{ compliance_resource_types }}"]
+        tags = {
+        key = "{{ tags_value }}"
+      }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

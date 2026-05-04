@@ -1,8 +1,15 @@
 resource "google_compute_network_peering_routes_config" "example" {
-    export_custom_routes = "{{ export_custom_routes }}"
+    export_custom_routes = {{ export_custom_routes }}
+    export_subnet_routes_with_public_ip = {{ export_subnet_routes_with_public_ip }}
     id = "{{ id }}"
-    import_custom_routes = "{{ import_custom_routes }}"
+    import_custom_routes = {{ import_custom_routes }}
+    import_subnet_routes_with_public_ip = {{ import_subnet_routes_with_public_ip }}
     network = "{{ network }}"
     peering = "{{ peering }}"
     project = "{{ project }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

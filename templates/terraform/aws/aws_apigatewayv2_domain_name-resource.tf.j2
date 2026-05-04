@@ -1,8 +1,27 @@
 resource "aws_apigatewayv2_domain_name" "example" {
-    api_mapping_selection_expression = "{{ api_mapping_selection_expression }}"
-    arn = "{{ arn }}"
     domain_name = "{{ domain_name }}"
     id = "{{ id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    routing_mode = "{{ routing_mode }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    domain_name_configuration {
+      certificate_arn = "{{ certificate_arn }}"
+      endpoint_type = "{{ endpoint_type }}"
+      ip_address_type = "{{ ip_address_type }}"
+      ownership_verification_certificate_arn = "{{ ownership_verification_certificate_arn }}"
+      security_policy = "{{ security_policy }}"
+    }
+    mutual_tls_authentication {
+      truststore_uri = "{{ truststore_uri }}"
+      truststore_version = "{{ truststore_version }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,3 +1,19 @@
 data "aws_ecr_lifecycle_policy_document" "example" {
-    json = "{{ json }}"
+    rule {
+      description = "{{ description }}"
+      priority = {{ priority }}
+      action {
+        target_storage_class = "{{ target_storage_class }}"
+        type = "{{ type }}"
+      }
+      selection {
+        count_number = {{ count_number }}
+        count_type = "{{ count_type }}"
+        count_unit = "{{ count_unit }}"
+        storage_class = "{{ storage_class }}"
+        tag_pattern_list = ["{{ tag_pattern_list }}"]
+        tag_prefix_list = ["{{ tag_prefix_list }}"]
+        tag_status = "{{ tag_status }}"
+      }
+    }
 }

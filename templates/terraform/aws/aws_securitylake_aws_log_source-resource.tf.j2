@@ -1,3 +1,9 @@
 resource "aws_securitylake_aws_log_source" "example" {
-    id = "{{ id }}"
+    region = "{{ region }}"
+    source {
+      accounts = ["{{ accounts }}"]
+      regions = ["{{ regions }}"]
+      source_name = "{{ source_name }}"
+      source_version = "{{ source_version }}"
+    }
 }

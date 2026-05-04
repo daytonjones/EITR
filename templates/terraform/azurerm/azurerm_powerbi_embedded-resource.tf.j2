@@ -1,10 +1,18 @@
 resource "azurerm_powerbi_embedded" "example" {
-    administrators = "{{ administrators }}"
+    administrators = ["{{ administrators }}"]
     id = "{{ id }}"
     location = "{{ location }}"
     mode = "{{ mode }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     sku_name = "{{ sku_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

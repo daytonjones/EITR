@@ -1,0 +1,11 @@
+resource "awscc_cloudfront_distribution_tenant" "example" {
+    connection_group_id = "{{ connection_group_id }}"
+    customizations = "{{ customizations }}"
+    distribution_id = "{{ distribution_id }}"
+    domains = ["{{ domains }}"]
+    enabled = {{ enabled }}
+    managed_certificate_request = "{{ managed_certificate_request }}"
+    name = "{{ name }}"
+    parameters = "{{ parameters }}"
+    tags = "{{ tags }}"
+}

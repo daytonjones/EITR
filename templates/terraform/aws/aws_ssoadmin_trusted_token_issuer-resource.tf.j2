@@ -1,10 +1,18 @@
 resource "aws_ssoadmin_trusted_token_issuer" "example" {
-    arn = "{{ arn }}"
     client_token = "{{ client_token }}"
-    id = "{{ id }}"
     instance_arn = "{{ instance_arn }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     trusted_token_issuer_type = "{{ trusted_token_issuer_type }}"
+    trusted_token_issuer_configuration {
+      oidc_jwt_configuration {
+        claim_attribute_path = "{{ claim_attribute_path }}"
+        identity_store_attribute_path = "{{ identity_store_attribute_path }}"
+        issuer_url = "{{ issuer_url }}"
+        jwks_retrieval_option = "{{ jwks_retrieval_option }}"
+      }
+    }
 }

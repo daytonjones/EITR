@@ -1,13 +1,60 @@
 resource "azurerm_spring_cloud_gateway" "example" {
-    application_performance_monitoring_ids = "{{ application_performance_monitoring_ids }}"
-    application_performance_monitoring_types = "{{ application_performance_monitoring_types }}"
-    environment_variables = "{{ environment_variables }}"
-    https_only = "{{ https_only }}"
+    application_performance_monitoring_ids = ["{{ application_performance_monitoring_ids }}"]
+    application_performance_monitoring_types = ["{{ application_performance_monitoring_types }}"]
+    environment_variables = {
+        key = "{{ environment_variables_value }}"
+      }
+    https_only = {{ https_only }}
     id = "{{ id }}"
-    instance_count = "{{ instance_count }}"
+    instance_count = {{ instance_count }}
     name = "{{ name }}"
-    public_network_access_enabled = "{{ public_network_access_enabled }}"
-    sensitive_environment_variables = "{{ sensitive_environment_variables }}"
+    public_network_access_enabled = {{ public_network_access_enabled }}
+    sensitive_environment_variables = {
+        key = "{{ sensitive_environment_variables_value }}"
+      }
     spring_cloud_service_id = "{{ spring_cloud_service_id }}"
-    url = "{{ url }}"
+    api_metadata {
+      description = "{{ description }}"
+      documentation_url = "{{ documentation_url }}"
+      server_url = "{{ server_url }}"
+      title = "{{ title }}"
+      version = "{{ version }}"
+    }
+    client_authorization {
+      certificate_ids = ["{{ certificate_ids }}"]
+      verification_enabled = {{ verification_enabled }}
+    }
+    cors {
+      allowed_headers = ["{{ allowed_headers }}"]
+      allowed_methods = ["{{ allowed_methods }}"]
+      allowed_origin_patterns = ["{{ allowed_origin_patterns }}"]
+      allowed_origins = ["{{ allowed_origins }}"]
+      credentials_allowed = {{ credentials_allowed }}
+      exposed_headers = ["{{ exposed_headers }}"]
+      max_age_seconds = {{ max_age_seconds }}
+    }
+    local_response_cache_per_instance {
+      size = "{{ size }}"
+      time_to_live = "{{ time_to_live }}"
+    }
+    local_response_cache_per_route {
+      size = "{{ size }}"
+      time_to_live = "{{ time_to_live }}"
+    }
+    quota {
+      cpu = "{{ cpu }}"
+      memory = "{{ memory }}"
+    }
+    sso {
+      client_id = "{{ client_id }}"
+      client_secret = "{{ client_secret }}"
+      issuer_uri = "{{ issuer_uri }}"
+      scope = ["{{ scope }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,10 @@
+data "azurerm_role_assignments" "example" {
+    id = "{{ id }}"
+    limit_at_scope = {{ limit_at_scope }}
+    principal_id = "{{ principal_id }}"
+    scope = "{{ scope }}"
+    tenant_id = "{{ tenant_id }}"
+    timeouts {
+      read = "{{ read }}"
+    }
+}

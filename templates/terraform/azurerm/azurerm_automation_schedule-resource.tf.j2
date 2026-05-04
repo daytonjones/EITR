@@ -4,11 +4,21 @@ resource "azurerm_automation_schedule" "example" {
     expiry_time = "{{ expiry_time }}"
     frequency = "{{ frequency }}"
     id = "{{ id }}"
-    interval = "{{ interval }}"
-    month_days = "{{ month_days }}"
+    interval = {{ interval }}
+    month_days = ["{{ month_days }}"]
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     start_time = "{{ start_time }}"
     timezone = "{{ timezone }}"
-    week_days = "{{ week_days }}"
+    week_days = ["{{ week_days }}"]
+    monthly_occurrence {
+      day = "{{ day }}"
+      occurrence = {{ occurrence }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

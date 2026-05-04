@@ -1,0 +1,18 @@
+resource "google_managed_kafka_acl" "example" {
+    acl_id = "{{ acl_id }}"
+    cluster = "{{ cluster }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    acl_entries {
+      host = "{{ host }}"
+      operation = "{{ operation }}"
+      permission_type = "{{ permission_type }}"
+      principal = "{{ principal }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

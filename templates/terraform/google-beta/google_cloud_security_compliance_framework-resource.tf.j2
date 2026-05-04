@@ -1,0 +1,39 @@
+resource "google_cloud_security_compliance_framework" "example" {
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    framework_id = "{{ framework_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    organization = "{{ organization }}"
+    cloud_control_details {
+      major_revision_id = "{{ major_revision_id }}"
+      name = "{{ name }}"
+      parameters {
+        name = "{{ name }}"
+        parameter_value {
+          bool_value = {{ bool_value }}
+          number_value = {{ number_value }}
+          string_value = "{{ string_value }}"
+          oneof_value {
+            name = "{{ name }}"
+            parameter_value {
+              bool_value = {{ bool_value }}
+              number_value = {{ number_value }}
+              string_value = "{{ string_value }}"
+              string_list_value {
+                values = ["{{ values }}"]
+              }
+            }
+          }
+          string_list_value {
+            values = ["{{ values }}"]
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,13 +1,29 @@
 resource "azurerm_private_link_service" "example" {
-    alias = "{{ alias }}"
-    auto_approval_subscription_ids = "{{ auto_approval_subscription_ids }}"
-    enable_proxy_protocol = "{{ enable_proxy_protocol }}"
-    fqdns = "{{ fqdns }}"
+    auto_approval_subscription_ids = ["{{ auto_approval_subscription_ids }}"]
+    destination_ip_address = "{{ destination_ip_address }}"
+    enable_proxy_protocol = {{ enable_proxy_protocol }}
+    fqdns = ["{{ fqdns }}"]
     id = "{{ id }}"
-    load_balancer_frontend_ip_configuration_ids = "{{ load_balancer_frontend_ip_configuration_ids }}"
+    load_balancer_frontend_ip_configuration_ids = ["{{ load_balancer_frontend_ip_configuration_ids }}"]
     location = "{{ location }}"
     name = "{{ name }}"
+    proxy_protocol_enabled = {{ proxy_protocol_enabled }}
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
-    visibility_subscription_ids = "{{ visibility_subscription_ids }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    visibility_subscription_ids = ["{{ visibility_subscription_ids }}"]
+    nat_ip_configuration {
+      name = "{{ name }}"
+      primary = {{ primary }}
+      private_ip_address = "{{ private_ip_address }}"
+      private_ip_address_version = "{{ private_ip_address_version }}"
+      subnet_id = "{{ subnet_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

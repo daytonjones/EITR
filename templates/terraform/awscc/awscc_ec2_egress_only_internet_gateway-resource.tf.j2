@@ -1,5 +1,4 @@
 resource "awscc_ec2_egress_only_internet_gateway" "example" {
-    egress_only_internet_gateway_id = "{{ egress_only_internet_gateway_id }}"
-    id = "{{ id }}"
+    tags = "{{ tags }}"
     vpc_id = "{{ vpc_id }}"
 }

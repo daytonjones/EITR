@@ -1,9 +1,25 @@
 data "kubernetes_storage_class" "example" {
-    allow_volume_expansion = "{{ allow_volume_expansion }}"
+    allow_volume_expansion = {{ allow_volume_expansion }}
     id = "{{ id }}"
-    mount_options = "{{ mount_options }}"
-    parameters = "{{ parameters }}"
+    mount_options = ["{{ mount_options }}"]
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
     reclaim_policy = "{{ reclaim_policy }}"
-    storage_provisioner = "{{ storage_provisioner }}"
     volume_binding_mode = "{{ volume_binding_mode }}"
+    allowed_topologies {
+      match_label_expressions {
+        key = "{{ key }}"
+        values = ["{{ values }}"]
+      }
+    }
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      name = "{{ name }}"
+    }
 }

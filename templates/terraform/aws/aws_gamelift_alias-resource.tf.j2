@@ -1,8 +1,17 @@
 resource "aws_gamelift_alias" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    routing_strategy {
+      fleet_id = "{{ fleet_id }}"
+      message = "{{ message }}"
+      type = "{{ type }}"
+    }
 }

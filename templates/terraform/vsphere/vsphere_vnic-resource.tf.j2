@@ -4,8 +4,20 @@ resource "vsphere_vnic" "example" {
     host = "{{ host }}"
     id = "{{ id }}"
     mac = "{{ mac }}"
-    mtu = "{{ mtu }}"
+    mtu = {{ mtu }}
     netstack = "{{ netstack }}"
     portgroup = "{{ portgroup }}"
-    services = "{{ services }}"
+    services = ["{{ services }}"]
+    ipv4 {
+      dhcp = {{ dhcp }}
+      gw = "{{ gw }}"
+      ip = "{{ ip }}"
+      netmask = "{{ netmask }}"
+    }
+    ipv6 {
+      addresses = ["{{ addresses }}"]
+      autoconfig = {{ autoconfig }}
+      dhcp = {{ dhcp }}
+      gw = "{{ gw }}"
+    }
 }

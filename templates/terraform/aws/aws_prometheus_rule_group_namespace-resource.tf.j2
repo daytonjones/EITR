@@ -2,5 +2,12 @@ resource "aws_prometheus_rule_group_namespace" "example" {
     data = "{{ data }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     workspace_id = "{{ workspace_id }}"
 }

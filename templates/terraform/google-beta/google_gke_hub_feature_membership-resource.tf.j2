@@ -5,4 +5,114 @@ resource "google_gke_hub_feature_membership" "example" {
     membership = "{{ membership }}"
     membership_location = "{{ membership_location }}"
     project = "{{ project }}"
+    configmanagement {
+      management = "{{ management }}"
+      version = "{{ version }}"
+      config_sync {
+        enabled = {{ enabled }}
+        metrics_gcp_service_account_email = "{{ metrics_gcp_service_account_email }}"
+        prevent_drift = {{ prevent_drift }}
+        source_format = "{{ source_format }}"
+        stop_syncing = {{ stop_syncing }}
+        deployment_overrides {
+          deployment_name = "{{ deployment_name }}"
+          deployment_namespace = "{{ deployment_namespace }}"
+          containers {
+            container_name = "{{ container_name }}"
+            cpu_limit = "{{ cpu_limit }}"
+            cpu_request = "{{ cpu_request }}"
+            memory_limit = "{{ memory_limit }}"
+            memory_request = "{{ memory_request }}"
+          }
+        }
+        git {
+          gcp_service_account_email = "{{ gcp_service_account_email }}"
+          https_proxy = "{{ https_proxy }}"
+          policy_dir = "{{ policy_dir }}"
+          secret_type = "{{ secret_type }}"
+          sync_branch = "{{ sync_branch }}"
+          sync_repo = "{{ sync_repo }}"
+          sync_rev = "{{ sync_rev }}"
+          sync_wait_secs = "{{ sync_wait_secs }}"
+        }
+        oci {
+          gcp_service_account_email = "{{ gcp_service_account_email }}"
+          policy_dir = "{{ policy_dir }}"
+          secret_type = "{{ secret_type }}"
+          sync_repo = "{{ sync_repo }}"
+          sync_wait_secs = "{{ sync_wait_secs }}"
+        }
+      }
+      hierarchy_controller {
+        enable_hierarchical_resource_quota = {{ enable_hierarchical_resource_quota }}
+        enable_pod_tree_labels = {{ enable_pod_tree_labels }}
+        enabled = {{ enabled }}
+      }
+      policy_controller {
+        audit_interval_seconds = "{{ audit_interval_seconds }}"
+        enabled = {{ enabled }}
+        exemptable_namespaces = ["{{ exemptable_namespaces }}"]
+        log_denies_enabled = {{ log_denies_enabled }}
+        mutation_enabled = {{ mutation_enabled }}
+        referential_rules_enabled = {{ referential_rules_enabled }}
+        template_library_installed = {{ template_library_installed }}
+        monitoring {
+          backends = ["{{ backends }}"]
+        }
+      }
+    }
+    mesh {
+      control_plane = "{{ control_plane }}"
+      management = "{{ management }}"
+    }
+    policycontroller {
+      version = "{{ version }}"
+      policy_controller_hub_config {
+        audit_interval_seconds = {{ audit_interval_seconds }}
+        constraint_violation_limit = {{ constraint_violation_limit }}
+        exemptable_namespaces = ["{{ exemptable_namespaces }}"]
+        install_spec = "{{ install_spec }}"
+        log_denies_enabled = {{ log_denies_enabled }}
+        mutation_enabled = {{ mutation_enabled }}
+        referential_rules_enabled = {{ referential_rules_enabled }}
+        deployment_configs {
+          component_name = "{{ component_name }}"
+          pod_affinity = "{{ pod_affinity }}"
+          replica_count = {{ replica_count }}
+          container_resources {
+            limits {
+              cpu = "{{ cpu }}"
+              memory = "{{ memory }}"
+            }
+            requests {
+              cpu = "{{ cpu }}"
+              memory = "{{ memory }}"
+            }
+          }
+          pod_tolerations {
+            effect = "{{ effect }}"
+            key = "{{ key }}"
+            operator = "{{ operator }}"
+            value = "{{ value }}"
+          }
+        }
+        monitoring {
+          backends = ["{{ backends }}"]
+        }
+        policy_content {
+          bundles {
+            bundle_name = "{{ bundle_name }}"
+            exempted_namespaces = ["{{ exempted_namespaces }}"]
+          }
+          template_library {
+            installation = "{{ installation }}"
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

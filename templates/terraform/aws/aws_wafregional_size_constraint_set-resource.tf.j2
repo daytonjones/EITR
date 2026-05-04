@@ -1,5 +1,14 @@
 resource "aws_wafregional_size_constraint_set" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
+    size_constraints {
+      comparison_operator = "{{ comparison_operator }}"
+      size = {{ size }}
+      text_transformation = "{{ text_transformation }}"
+      field_to_match {
+        data = "{{ data }}"
+        type = "{{ type }}"
+      }
+    }
 }

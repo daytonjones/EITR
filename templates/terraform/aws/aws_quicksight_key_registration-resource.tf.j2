@@ -1,0 +1,8 @@
+resource "aws_quicksight_key_registration" "example" {
+    aws_account_id = "{{ aws_account_id }}"
+    region = "{{ region }}"
+    key_registration {
+      default_key = {{ default_key }}
+      key_arn = "{{ key_arn }}"
+    }
+}

@@ -2,6 +2,15 @@ resource "aws_workspaces_ip_group" "example" {
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    rules {
+      description = "{{ description }}"
+      source = "{{ source }}"
+    }
 }

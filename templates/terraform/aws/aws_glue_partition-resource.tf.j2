@@ -1,11 +1,47 @@
 resource "aws_glue_partition" "example" {
     catalog_id = "{{ catalog_id }}"
-    creation_time = "{{ creation_time }}"
     database_name = "{{ database_name }}"
     id = "{{ id }}"
-    last_accessed_time = "{{ last_accessed_time }}"
-    last_analyzed_time = "{{ last_analyzed_time }}"
-    parameters = "{{ parameters }}"
-    partition_values = "{{ partition_values }}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
+    partition_values = ["{{ partition_values }}"]
+    region = "{{ region }}"
     table_name = "{{ table_name }}"
+    storage_descriptor {
+      additional_locations = ["{{ additional_locations }}"]
+      bucket_columns = ["{{ bucket_columns }}"]
+      compressed = {{ compressed }}
+      input_format = "{{ input_format }}"
+      location = "{{ location }}"
+      number_of_buckets = {{ number_of_buckets }}
+      output_format = "{{ output_format }}"
+      parameters = {
+        key = "{{ parameters_value }}"
+      }
+      stored_as_sub_directories = {{ stored_as_sub_directories }}
+      columns {
+        comment = "{{ comment }}"
+        name = "{{ name }}"
+        type = "{{ type }}"
+      }
+      ser_de_info {
+        name = "{{ name }}"
+        parameters = {
+        key = "{{ parameters_value }}"
+      }
+        serialization_library = "{{ serialization_library }}"
+      }
+      skewed_info {
+        skewed_column_names = ["{{ skewed_column_names }}"]
+        skewed_column_value_location_maps = {
+        key = "{{ skewed_column_value_location_maps_value }}"
+      }
+        skewed_column_values = ["{{ skewed_column_values }}"]
+      }
+      sort_columns {
+        column = "{{ column }}"
+        sort_order = {{ sort_order }}
+      }
+    }
 }

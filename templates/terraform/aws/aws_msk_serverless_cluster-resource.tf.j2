@@ -1,8 +1,26 @@
 resource "aws_msk_serverless_cluster" "example" {
-    arn = "{{ arn }}"
     cluster_name = "{{ cluster_name }}"
-    cluster_uuid = "{{ cluster_uuid }}"
     id = "{{ id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    client_authentication {
+      sasl {
+        iam {
+          enabled = {{ enabled }}
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+    vpc_config {
+      security_group_ids = ["{{ security_group_ids }}"]
+      subnet_ids = ["{{ subnet_ids }}"]
+    }
 }

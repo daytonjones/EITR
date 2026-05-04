@@ -1,0 +1,6 @@
+resource "awscc_groundstation_dataflow_endpoint_group_v2" "example" {
+    contact_post_pass_duration_seconds = {{ contact_post_pass_duration_seconds }}
+    contact_pre_pass_duration_seconds = {{ contact_pre_pass_duration_seconds }}
+    endpoints = "{{ endpoints }}"
+    tags = "{{ tags }}"
+}

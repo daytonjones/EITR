@@ -1,15 +1,8 @@
 resource "awscc_appconfig_environment" "example" {
     application_id = "{{ application_id }}"
+    deletion_protection_check = "{{ deletion_protection_check }}"
     description = "{{ description }}"
-    environment_id = "{{ environment_id }}"
-    id = "{{ id }}"
-    monitors = "{
-    alarm_arn = {{ alarm_arn }}
-    alarm_role_arn = {{ alarm_role_arn }}
-}"
+    monitors = "{{ monitors }}"
     name = "{{ name }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
 }

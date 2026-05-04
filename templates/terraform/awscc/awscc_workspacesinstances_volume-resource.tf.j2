@@ -1,0 +1,11 @@
+resource "awscc_workspacesinstances_volume" "example" {
+    availability_zone = "{{ availability_zone }}"
+    encrypted = {{ encrypted }}
+    iops = {{ iops }}
+    kms_key_id = "{{ kms_key_id }}"
+    size_in_gb = {{ size_in_gb }}
+    snapshot_id = "{{ snapshot_id }}"
+    tag_specifications = "{{ tag_specifications }}"
+    throughput = {{ throughput }}
+    volume_type = "{{ volume_type }}"
+}

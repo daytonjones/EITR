@@ -1,0 +1,17 @@
+resource "google_gemini_gemini_gcp_enablement_setting" "example" {
+    disable_web_grounding = {{ disable_web_grounding }}
+    enable_customer_data_sharing = {{ enable_customer_data_sharing }}
+    gemini_gcp_enablement_setting_id = "{{ gemini_gcp_enablement_setting_id }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    web_grounding_type = "{{ web_grounding_type }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

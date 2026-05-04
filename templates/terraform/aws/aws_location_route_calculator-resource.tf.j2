@@ -1,11 +1,18 @@
 resource "aws_location_route_calculator" "example" {
-    calculator_arn = "{{ calculator_arn }}"
     calculator_name = "{{ calculator_name }}"
-    create_time = "{{ create_time }}"
     data_source = "{{ data_source }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    update_time = "{{ update_time }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

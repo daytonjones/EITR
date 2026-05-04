@@ -1,9 +1,17 @@
 resource "aws_dx_hosted_private_virtual_interface_accepter" "example" {
-    arn = "{{ arn }}"
     dx_gateway_id = "{{ dx_gateway_id }}"
     id = "{{ id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     virtual_interface_id = "{{ virtual_interface_id }}"
     vpn_gateway_id = "{{ vpn_gateway_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

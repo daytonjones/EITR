@@ -1,6 +1,8 @@
 resource "azurerm_data_factory_dataset_cosmosdb_sqlapi" "example" {
-    additional_properties = "{{ additional_properties }}"
-    annotations = "{{ annotations }}"
+    additional_properties = {
+        key = "{{ additional_properties_value }}"
+      }
+    annotations = ["{{ annotations }}"]
     collection_name = "{{ collection_name }}"
     data_factory_id = "{{ data_factory_id }}"
     description = "{{ description }}"
@@ -8,5 +10,18 @@ resource "azurerm_data_factory_dataset_cosmosdb_sqlapi" "example" {
     id = "{{ id }}"
     linked_service_name = "{{ linked_service_name }}"
     name = "{{ name }}"
-    parameters = "{{ parameters }}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
+    schema_column {
+      description = "{{ description }}"
+      name = "{{ name }}"
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

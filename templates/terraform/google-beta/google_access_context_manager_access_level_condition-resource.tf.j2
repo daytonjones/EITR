@@ -1,9 +1,30 @@
 resource "google_access_context_manager_access_level_condition" "example" {
     access_level = "{{ access_level }}"
     id = "{{ id }}"
-    ip_subnetworks = "{{ ip_subnetworks }}"
-    members = "{{ members }}"
-    negate = "{{ negate }}"
-    regions = "{{ regions }}"
-    required_access_levels = "{{ required_access_levels }}"
+    ip_subnetworks = ["{{ ip_subnetworks }}"]
+    members = ["{{ members }}"]
+    negate = {{ negate }}
+    regions = ["{{ regions }}"]
+    required_access_levels = ["{{ required_access_levels }}"]
+    device_policy {
+      allowed_device_management_levels = ["{{ allowed_device_management_levels }}"]
+      allowed_encryption_statuses = ["{{ allowed_encryption_statuses }}"]
+      require_admin_approval = {{ require_admin_approval }}
+      require_corp_owned = {{ require_corp_owned }}
+      require_screen_lock = {{ require_screen_lock }}
+      os_constraints {
+        minimum_version = "{{ minimum_version }}"
+        os_type = "{{ os_type }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+    vpc_network_sources {
+      vpc_subnetwork {
+        network = "{{ network }}"
+        vpc_ip_subnetworks = ["{{ vpc_ip_subnetworks }}"]
+      }
+    }
 }

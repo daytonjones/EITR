@@ -1,4 +1,13 @@
 resource "aws_lightsail_instance_public_ports" "example" {
     id = "{{ id }}"
     instance_name = "{{ instance_name }}"
+    region = "{{ region }}"
+    port_info {
+      cidr_list_aliases = ["{{ cidr_list_aliases }}"]
+      cidrs = ["{{ cidrs }}"]
+      from_port = {{ from_port }}
+      ipv6_cidrs = ["{{ ipv6_cidrs }}"]
+      protocol = "{{ protocol }}"
+      to_port = {{ to_port }}
+    }
 }

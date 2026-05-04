@@ -4,4 +4,10 @@ resource "azurerm_bot_channel_alexa" "example" {
     location = "{{ location }}"
     resource_group_name = "{{ resource_group_name }}"
     skill_id = "{{ skill_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

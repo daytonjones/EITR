@@ -1,19 +1,42 @@
 resource "aws_fsx_file_cache" "example" {
-    arn = "{{ arn }}"
-    copy_tags_to_data_repository_associations = "{{ copy_tags_to_data_repository_associations }}"
-    data_repository_association_ids = "{{ data_repository_association_ids }}"
-    dns_name = "{{ dns_name }}"
-    file_cache_id = "{{ file_cache_id }}"
+    copy_tags_to_data_repository_associations = {{ copy_tags_to_data_repository_associations }}
     file_cache_type = "{{ file_cache_type }}"
     file_cache_type_version = "{{ file_cache_type_version }}"
     id = "{{ id }}"
     kms_key_id = "{{ kms_key_id }}"
-    network_interface_ids = "{{ network_interface_ids }}"
-    owner_id = "{{ owner_id }}"
-    security_group_ids = "{{ security_group_ids }}"
-    storage_capacity = "{{ storage_capacity }}"
-    subnet_ids = "{{ subnet_ids }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    vpc_id = "{{ vpc_id }}"
+    region = "{{ region }}"
+    security_group_ids = ["{{ security_group_ids }}"]
+    storage_capacity = {{ storage_capacity }}
+    subnet_ids = ["{{ subnet_ids }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    data_repository_association {
+      data_repository_path = "{{ data_repository_path }}"
+      data_repository_subdirectories = ["{{ data_repository_subdirectories }}"]
+      file_cache_path = "{{ file_cache_path }}"
+      tags = {
+        key = "{{ tags_value }}"
+      }
+      nfs {
+        dns_ips = ["{{ dns_ips }}"]
+        version = "{{ version }}"
+      }
+    }
+    lustre_configuration {
+      deployment_type = "{{ deployment_type }}"
+      per_unit_storage_throughput = {{ per_unit_storage_throughput }}
+      weekly_maintenance_start_time = "{{ weekly_maintenance_start_time }}"
+      metadata_configuration {
+        storage_capacity = {{ storage_capacity }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

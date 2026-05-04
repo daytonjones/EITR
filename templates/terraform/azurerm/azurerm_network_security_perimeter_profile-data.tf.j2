@@ -1,0 +1,8 @@
+data "azurerm_network_security_perimeter_profile" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    network_security_perimeter_id = "{{ network_security_perimeter_id }}"
+    timeouts {
+      read = "{{ read }}"
+    }
+}

@@ -1,0 +1,13 @@
+resource "azurerm_mongo_cluster_firewall_rule" "example" {
+    end_ip_address = "{{ end_ip_address }}"
+    id = "{{ id }}"
+    mongo_cluster_id = "{{ mongo_cluster_id }}"
+    name = "{{ name }}"
+    start_ip_address = "{{ start_ip_address }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

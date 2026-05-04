@@ -2,4 +2,27 @@ resource "azurerm_datadog_monitor_tag_rule" "example" {
     datadog_monitor_id = "{{ datadog_monitor_id }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    log {
+      aad_log_enabled = {{ aad_log_enabled }}
+      resource_log_enabled = {{ resource_log_enabled }}
+      subscription_log_enabled = {{ subscription_log_enabled }}
+      filter {
+        action = "{{ action }}"
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+    }
+    metric {
+      filter {
+        action = "{{ action }}"
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

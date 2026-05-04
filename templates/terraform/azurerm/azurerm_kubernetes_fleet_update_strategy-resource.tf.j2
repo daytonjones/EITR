@@ -2,4 +2,17 @@ resource "azurerm_kubernetes_fleet_update_strategy" "example" {
     id = "{{ id }}"
     kubernetes_fleet_manager_id = "{{ kubernetes_fleet_manager_id }}"
     name = "{{ name }}"
+    stage {
+      after_stage_wait_in_seconds = {{ after_stage_wait_in_seconds }}
+      name = "{{ name }}"
+      group {
+        name = "{{ name }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

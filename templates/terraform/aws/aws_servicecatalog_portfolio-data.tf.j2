@@ -1,10 +1,11 @@
 data "aws_servicecatalog_portfolio" "example" {
     accept_language = "{{ accept_language }}"
-    arn = "{{ arn }}"
-    created_time = "{{ created_time }}"
-    description = "{{ description }}"
     id = "{{ id }}"
-    name = "{{ name }}"
-    provider_name = "{{ provider_name }}"
-    tags = "{{ tags }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      read = "{{ read }}"
+    }
 }

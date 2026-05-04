@@ -1,0 +1,47 @@
+resource "azurerm_system_center_virtual_machine_manager_virtual_machine_instance" "example" {
+    custom_location_id = "{{ custom_location_id }}"
+    id = "{{ id }}"
+    scoped_resource_id = "{{ scoped_resource_id }}"
+    system_center_virtual_machine_manager_availability_set_ids = ["{{ system_center_virtual_machine_manager_availability_set_ids }}"]
+    hardware {
+      cpu_count = {{ cpu_count }}
+      dynamic_memory_max_in_mb = {{ dynamic_memory_max_in_mb }}
+      dynamic_memory_min_in_mb = {{ dynamic_memory_min_in_mb }}
+      limit_cpu_for_migration_enabled = {{ limit_cpu_for_migration_enabled }}
+      memory_in_mb = {{ memory_in_mb }}
+    }
+    infrastructure {
+      checkpoint_type = "{{ checkpoint_type }}"
+      system_center_virtual_machine_manager_cloud_id = "{{ system_center_virtual_machine_manager_cloud_id }}"
+      system_center_virtual_machine_manager_inventory_item_id = "{{ system_center_virtual_machine_manager_inventory_item_id }}"
+      system_center_virtual_machine_manager_template_id = "{{ system_center_virtual_machine_manager_template_id }}"
+      system_center_virtual_machine_manager_virtual_machine_server_id = "{{ system_center_virtual_machine_manager_virtual_machine_server_id }}"
+    }
+    network_interface {
+      ipv4_address_type = "{{ ipv4_address_type }}"
+      ipv6_address_type = "{{ ipv6_address_type }}"
+      mac_address_type = "{{ mac_address_type }}"
+      name = "{{ name }}"
+      virtual_network_id = "{{ virtual_network_id }}"
+    }
+    operating_system {
+      admin_password = "{{ admin_password }}"
+      computer_name = "{{ computer_name }}"
+    }
+    storage_disk {
+      bus = {{ bus }}
+      bus_type = "{{ bus_type }}"
+      disk_size_gb = {{ disk_size_gb }}
+      lun = {{ lun }}
+      name = "{{ name }}"
+      storage_qos_policy_name = "{{ storage_qos_policy_name }}"
+      template_disk_id = "{{ template_disk_id }}"
+      vhd_type = "{{ vhd_type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

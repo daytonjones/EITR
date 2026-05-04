@@ -5,4 +5,14 @@ resource "azurerm_bot_channel_facebook" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
     resource_group_name = "{{ resource_group_name }}"
+    page {
+      access_token = "{{ access_token }}"
+      id = "{{ id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

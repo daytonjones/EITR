@@ -1,8 +1,7 @@
 resource "aws_mq_broker" "example" {
-    apply_immediately = "{{ apply_immediately }}"
-    arn = "{{ arn }}"
+    apply_immediately = {{ apply_immediately }}
     authentication_strategy = "{{ authentication_strategy }}"
-    auto_minor_version_upgrade = "{{ auto_minor_version_upgrade }}"
+    auto_minor_version_upgrade = {{ auto_minor_version_upgrade }}
     broker_name = "{{ broker_name }}"
     data_replication_mode = "{{ data_replication_mode }}"
     data_replication_primary_broker_arn = "{{ data_replication_primary_broker_arn }}"
@@ -11,12 +10,57 @@ resource "aws_mq_broker" "example" {
     engine_version = "{{ engine_version }}"
     host_instance_type = "{{ host_instance_type }}"
     id = "{{ id }}"
-    instances = "{{ instances }}"
-    pending_data_replication_mode = "{{ pending_data_replication_mode }}"
-    publicly_accessible = "{{ publicly_accessible }}"
-    security_groups = "{{ security_groups }}"
+    publicly_accessible = {{ publicly_accessible }}
+    region = "{{ region }}"
+    security_groups = ["{{ security_groups }}"]
     storage_type = "{{ storage_type }}"
-    subnet_ids = "{{ subnet_ids }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    subnet_ids = ["{{ subnet_ids }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    configuration {
+      id = "{{ id }}"
+      revision = {{ revision }}
+    }
+    encryption_options {
+      kms_key_id = "{{ kms_key_id }}"
+      use_aws_owned_key = {{ use_aws_owned_key }}
+    }
+    ldap_server_metadata {
+      hosts = ["{{ hosts }}"]
+      role_base = "{{ role_base }}"
+      role_name = "{{ role_name }}"
+      role_search_matching = "{{ role_search_matching }}"
+      role_search_subtree = {{ role_search_subtree }}
+      service_account_password = "{{ service_account_password }}"
+      service_account_username = "{{ service_account_username }}"
+      user_base = "{{ user_base }}"
+      user_role_name = "{{ user_role_name }}"
+      user_search_matching = "{{ user_search_matching }}"
+      user_search_subtree = {{ user_search_subtree }}
+    }
+    logs {
+      audit = "{{ audit }}"
+      general = {{ general }}
+    }
+    maintenance_window_start_time {
+      day_of_week = "{{ day_of_week }}"
+      time_of_day = "{{ time_of_day }}"
+      time_zone = "{{ time_zone }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    user {
+      console_access = {{ console_access }}
+      groups = ["{{ groups }}"]
+      password = "{{ password }}"
+      replication_user = {{ replication_user }}
+      username = "{{ username }}"
+    }
 }

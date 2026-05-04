@@ -1,21 +1,100 @@
 resource "google_privateca_certificate" "example" {
     certificate_authority = "{{ certificate_authority }}"
-    certificate_description = "{{ certificate_description }}"
     certificate_template = "{{ certificate_template }}"
-    create_time = "{{ create_time }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    issuer_certificate_authority = "{{ issuer_certificate_authority }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     lifetime = "{{ lifetime }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    pem_certificate = "{{ pem_certificate }}"
-    pem_certificate_chain = "{{ pem_certificate_chain }}"
     pem_csr = "{{ pem_csr }}"
     pool = "{{ pool }}"
     project = "{{ project }}"
-    revocation_details = "{{ revocation_details }}"
-    terraform_labels = "{{ terraform_labels }}"
-    update_time = "{{ update_time }}"
+    config {
+      public_key {
+        format = "{{ format }}"
+        key = "{{ key }}"
+      }
+      subject_config {
+        subject {
+          common_name = "{{ common_name }}"
+          country_code = "{{ country_code }}"
+          locality = "{{ locality }}"
+          organization = "{{ organization }}"
+          organizational_unit = "{{ organizational_unit }}"
+          postal_code = "{{ postal_code }}"
+          province = "{{ province }}"
+          street_address = "{{ street_address }}"
+        }
+        subject_alt_name {
+          dns_names = ["{{ dns_names }}"]
+          email_addresses = ["{{ email_addresses }}"]
+          ip_addresses = ["{{ ip_addresses }}"]
+          uris = ["{{ uris }}"]
+        }
+      }
+      subject_key_id {
+        key_id = "{{ key_id }}"
+      }
+      x509_config {
+        aia_ocsp_servers = ["{{ aia_ocsp_servers }}"]
+        additional_extensions {
+          critical = {{ critical }}
+          value = "{{ value }}"
+          object_id {
+            object_id_path = ["{{ object_id_path }}"]
+          }
+        }
+        ca_options {
+          is_ca = {{ is_ca }}
+          max_issuer_path_length = {{ max_issuer_path_length }}
+          non_ca = {{ non_ca }}
+          zero_max_issuer_path_length = {{ zero_max_issuer_path_length }}
+        }
+        key_usage {
+          base_key_usage {
+            cert_sign = {{ cert_sign }}
+            content_commitment = {{ content_commitment }}
+            crl_sign = {{ crl_sign }}
+            data_encipherment = {{ data_encipherment }}
+            decipher_only = {{ decipher_only }}
+            digital_signature = {{ digital_signature }}
+            encipher_only = {{ encipher_only }}
+            key_agreement = {{ key_agreement }}
+            key_encipherment = {{ key_encipherment }}
+          }
+          extended_key_usage {
+            client_auth = {{ client_auth }}
+            code_signing = {{ code_signing }}
+            email_protection = {{ email_protection }}
+            ocsp_signing = {{ ocsp_signing }}
+            server_auth = {{ server_auth }}
+            time_stamping = {{ time_stamping }}
+          }
+          unknown_extended_key_usages {
+            object_id_path = ["{{ object_id_path }}"]
+          }
+        }
+        name_constraints {
+          critical = {{ critical }}
+          excluded_dns_names = ["{{ excluded_dns_names }}"]
+          excluded_email_addresses = ["{{ excluded_email_addresses }}"]
+          excluded_ip_ranges = ["{{ excluded_ip_ranges }}"]
+          excluded_uris = ["{{ excluded_uris }}"]
+          permitted_dns_names = ["{{ permitted_dns_names }}"]
+          permitted_email_addresses = ["{{ permitted_email_addresses }}"]
+          permitted_ip_ranges = ["{{ permitted_ip_ranges }}"]
+          permitted_uris = ["{{ permitted_uris }}"]
+        }
+        policy_ids {
+          object_id_path = ["{{ object_id_path }}"]
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

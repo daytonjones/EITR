@@ -1,0 +1,11 @@
+resource "awscc_appconfig_deployment" "example" {
+    application_id = "{{ application_id }}"
+    configuration_profile_id = "{{ configuration_profile_id }}"
+    configuration_version = "{{ configuration_version }}"
+    deployment_strategy_id = "{{ deployment_strategy_id }}"
+    description = "{{ description }}"
+    dynamic_extension_parameters = "{{ dynamic_extension_parameters }}"
+    environment_id = "{{ environment_id }}"
+    kms_key_identifier = "{{ kms_key_identifier }}"
+    tags = "{{ tags }}"
+}

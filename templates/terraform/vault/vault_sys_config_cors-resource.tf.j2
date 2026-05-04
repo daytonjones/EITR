@@ -1,0 +1,4 @@
+resource "vault_sys_config_cors" "example" {
+    allowed_headers = ["{{ allowed_headers }}"]
+    allowed_origins = ["{{ allowed_origins }}"]
+}

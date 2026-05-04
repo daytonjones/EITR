@@ -2,6 +2,11 @@ resource "aws_codecatalyst_project" "example" {
     description = "{{ description }}"
     display_name = "{{ display_name }}"
     id = "{{ id }}"
-    name = "{{ name }}"
+    region = "{{ region }}"
     space_name = "{{ space_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

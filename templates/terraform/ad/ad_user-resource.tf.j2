@@ -1,5 +1,5 @@
 resource "ad_user" "example" {
-    cannot_change_password = "{{ cannot_change_password }}"
+    cannot_change_password = {{ cannot_change_password }}
     city = "{{ city }}"
     company = "{{ company }}"
     container = "{{ container }}"
@@ -9,11 +9,10 @@ resource "ad_user" "example" {
     description = "{{ description }}"
     display_name = "{{ display_name }}"
     division = "{{ division }}"
-    dn = "{{ dn }}"
     email_address = "{{ email_address }}"
     employee_id = "{{ employee_id }}"
     employee_number = "{{ employee_number }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     fax = "{{ fax }}"
     given_name = "{{ given_name }}"
     home_directory = "{{ home_directory }}"
@@ -28,16 +27,15 @@ resource "ad_user" "example" {
     office_phone = "{{ office_phone }}"
     organization = "{{ organization }}"
     other_name = "{{ other_name }}"
-    password_never_expires = "{{ password_never_expires }}"
+    password_never_expires = {{ password_never_expires }}
     po_box = "{{ po_box }}"
     postal_code = "{{ postal_code }}"
     principal_name = "{{ principal_name }}"
     sam_account_name = "{{ sam_account_name }}"
-    sid = "{{ sid }}"
-    smart_card_logon_required = "{{ smart_card_logon_required }}"
+    smart_card_logon_required = {{ smart_card_logon_required }}
     state = "{{ state }}"
     street_address = "{{ street_address }}"
     surname = "{{ surname }}"
     title = "{{ title }}"
-    trusted_for_delegation = "{{ trusted_for_delegation }}"
+    trusted_for_delegation = {{ trusted_for_delegation }}
 }

@@ -3,10 +3,57 @@ resource "google_cloud_scheduler_job" "example" {
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    paused = "{{ paused }}"
+    paused = {{ paused }}
     project = "{{ project }}"
     region = "{{ region }}"
     schedule = "{{ schedule }}"
-    state = "{{ state }}"
     time_zone = "{{ time_zone }}"
+    app_engine_http_target {
+      body = "{{ body }}"
+      headers = {
+        key = "{{ headers_value }}"
+      }
+      http_method = "{{ http_method }}"
+      relative_uri = "{{ relative_uri }}"
+      app_engine_routing {
+        instance = "{{ instance }}"
+        service = "{{ service }}"
+        version = "{{ version }}"
+      }
+    }
+    http_target {
+      body = "{{ body }}"
+      headers = {
+        key = "{{ headers_value }}"
+      }
+      http_method = "{{ http_method }}"
+      uri = "{{ uri }}"
+      oauth_token {
+        scope = "{{ scope }}"
+        service_account_email = "{{ service_account_email }}"
+      }
+      oidc_token {
+        audience = "{{ audience }}"
+        service_account_email = "{{ service_account_email }}"
+      }
+    }
+    pubsub_target {
+      attributes = {
+        key = "{{ attributes_value }}"
+      }
+      data = "{{ data }}"
+      topic_name = "{{ topic_name }}"
+    }
+    retry_config {
+      max_backoff_duration = "{{ max_backoff_duration }}"
+      max_doublings = {{ max_doublings }}
+      max_retry_duration = "{{ max_retry_duration }}"
+      min_backoff_duration = "{{ min_backoff_duration }}"
+      retry_count = {{ retry_count }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

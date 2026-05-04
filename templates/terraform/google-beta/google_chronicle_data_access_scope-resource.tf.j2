@@ -1,0 +1,32 @@
+resource "google_chronicle_data_access_scope" "example" {
+    allow_all = {{ allow_all }}
+    data_access_scope_id = "{{ data_access_scope_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    allowed_data_access_labels {
+      asset_namespace = "{{ asset_namespace }}"
+      data_access_label = "{{ data_access_label }}"
+      log_type = "{{ log_type }}"
+      ingestion_label {
+        ingestion_label_key = "{{ ingestion_label_key }}"
+        ingestion_label_value = "{{ ingestion_label_value }}"
+      }
+    }
+    denied_data_access_labels {
+      asset_namespace = "{{ asset_namespace }}"
+      data_access_label = "{{ data_access_label }}"
+      log_type = "{{ log_type }}"
+      ingestion_label {
+        ingestion_label_key = "{{ ingestion_label_key }}"
+        ingestion_label_value = "{{ ingestion_label_value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

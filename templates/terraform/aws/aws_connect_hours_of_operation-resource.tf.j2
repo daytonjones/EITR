@@ -1,11 +1,25 @@
 resource "aws_connect_hours_of_operation" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
-    hours_of_operation_id = "{{ hours_of_operation_id }}"
     id = "{{ id }}"
     instance_id = "{{ instance_id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     time_zone = "{{ time_zone }}"
+    config {
+      day = "{{ day }}"
+      end_time {
+        hours = {{ hours }}
+        minutes = {{ minutes }}
+      }
+      start_time {
+        hours = {{ hours }}
+        minutes = {{ minutes }}
+      }
+    }
 }

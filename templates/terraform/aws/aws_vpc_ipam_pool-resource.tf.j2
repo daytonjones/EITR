@@ -1,23 +1,37 @@
 resource "aws_vpc_ipam_pool" "example" {
     address_family = "{{ address_family }}"
-    allocation_default_netmask_length = "{{ allocation_default_netmask_length }}"
-    allocation_max_netmask_length = "{{ allocation_max_netmask_length }}"
-    allocation_min_netmask_length = "{{ allocation_min_netmask_length }}"
-    allocation_resource_tags = "{{ allocation_resource_tags }}"
-    arn = "{{ arn }}"
-    auto_import = "{{ auto_import }}"
+    allocation_default_netmask_length = {{ allocation_default_netmask_length }}
+    allocation_max_netmask_length = {{ allocation_max_netmask_length }}
+    allocation_min_netmask_length = {{ allocation_min_netmask_length }}
+    allocation_resource_tags = {
+        key = "{{ allocation_resource_tags_value }}"
+      }
+    auto_import = {{ auto_import }}
     aws_service = "{{ aws_service }}"
-    cascade = "{{ cascade }}"
+    cascade = {{ cascade }}
     description = "{{ description }}"
     id = "{{ id }}"
     ipam_scope_id = "{{ ipam_scope_id }}"
-    ipam_scope_type = "{{ ipam_scope_type }}"
     locale = "{{ locale }}"
-    pool_depth = "{{ pool_depth }}"
     public_ip_source = "{{ public_ip_source }}"
-    publicly_advertisable = "{{ publicly_advertisable }}"
+    publicly_advertisable = {{ publicly_advertisable }}
+    region = "{{ region }}"
     source_ipam_pool_id = "{{ source_ipam_pool_id }}"
-    state = "{{ state }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    source_resource {
+      resource_id = "{{ resource_id }}"
+      resource_owner = "{{ resource_owner }}"
+      resource_region = "{{ resource_region }}"
+      resource_type = "{{ resource_type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

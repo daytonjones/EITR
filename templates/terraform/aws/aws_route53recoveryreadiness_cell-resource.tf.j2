@@ -1,9 +1,14 @@
 resource "aws_route53recoveryreadiness_cell" "example" {
-    arn = "{{ arn }}"
     cell_name = "{{ cell_name }}"
-    cells = "{{ cells }}"
+    cells = ["{{ cells }}"]
     id = "{{ id }}"
-    parent_readiness_scopes = "{{ parent_readiness_scopes }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    timeouts {
+      delete = "{{ delete }}"
+    }
 }

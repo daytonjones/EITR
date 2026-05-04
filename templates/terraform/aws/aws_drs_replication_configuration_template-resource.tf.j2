@@ -1,19 +1,33 @@
 resource "aws_drs_replication_configuration_template" "example" {
-    arn = "{{ arn }}"
-    associate_default_security_group = "{{ associate_default_security_group }}"
-    auto_replicate_new_disks = "{{ auto_replicate_new_disks }}"
-    bandwidth_throttling = "{{ bandwidth_throttling }}"
-    create_public_ip = "{{ create_public_ip }}"
+    associate_default_security_group = {{ associate_default_security_group }}
+    auto_replicate_new_disks = {{ auto_replicate_new_disks }}
+    bandwidth_throttling = {{ bandwidth_throttling }}
+    create_public_ip = {{ create_public_ip }}
     data_plane_routing = "{{ data_plane_routing }}"
     default_large_staging_disk_type = "{{ default_large_staging_disk_type }}"
     ebs_encryption = "{{ ebs_encryption }}"
     ebs_encryption_key_arn = "{{ ebs_encryption_key_arn }}"
-    id = "{{ id }}"
+    region = "{{ region }}"
     replication_server_instance_type = "{{ replication_server_instance_type }}"
-    replication_servers_security_groups_ids = "{{ replication_servers_security_groups_ids }}"
+    replication_servers_security_groups_ids = ["{{ replication_servers_security_groups_ids }}"]
     staging_area_subnet_id = "{{ staging_area_subnet_id }}"
-    staging_area_tags = "{{ staging_area_tags }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    use_dedicated_replication_server = "{{ use_dedicated_replication_server }}"
+    staging_area_tags = {
+        key = "{{ staging_area_tags_value }}"
+      }
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    use_dedicated_replication_server = {{ use_dedicated_replication_server }}
+    pit_policy {
+      enabled = {{ enabled }}
+      interval = {{ interval }}
+      retention_duration = {{ retention_duration }}
+      rule_id = {{ rule_id }}
+      units = "{{ units }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

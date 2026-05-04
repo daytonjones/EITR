@@ -1,0 +1,22 @@
+resource "google_chronicle_reference_list" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    reference_list_id = "{{ reference_list_id }}"
+    syntax_type = "{{ syntax_type }}"
+    entries {
+      value = "{{ value }}"
+    }
+    scope_info {
+      reference_list_scope {
+        scope_names = ["{{ scope_names }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

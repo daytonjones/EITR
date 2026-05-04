@@ -1,12 +1,248 @@
 resource "google_data_loss_prevention_job_trigger" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
     display_name = "{{ display_name }}"
     id = "{{ id }}"
-    last_run_time = "{{ last_run_time }}"
-    name = "{{ name }}"
     parent = "{{ parent }}"
     status = "{{ status }}"
     trigger_id = "{{ trigger_id }}"
-    update_time = "{{ update_time }}"
+    inspect_job {
+      inspect_template_name = "{{ inspect_template_name }}"
+      actions {
+        deidentify {
+          cloud_storage_output = "{{ cloud_storage_output }}"
+          file_types_to_transform = ["{{ file_types_to_transform }}"]
+          transformation_config {
+            deidentify_template = "{{ deidentify_template }}"
+            image_redact_template = "{{ image_redact_template }}"
+            structured_deidentify_template = "{{ structured_deidentify_template }}"
+          }
+          transformation_details_storage_config {
+            table {
+              dataset_id = "{{ dataset_id }}"
+              project_id = "{{ project_id }}"
+              table_id = "{{ table_id }}"
+            }
+          }
+        }
+        job_notification_emails {
+        }
+        pub_sub {
+          topic = "{{ topic }}"
+        }
+        publish_findings_to_cloud_data_catalog {
+        }
+        publish_findings_to_dataplex_catalog {
+        }
+        publish_summary_to_cscc {
+        }
+        publish_to_stackdriver {
+        }
+        save_findings {
+          output_config {
+            output_schema = "{{ output_schema }}"
+            storage_path {
+              path = "{{ path }}"
+            }
+            table {
+              dataset_id = "{{ dataset_id }}"
+              project_id = "{{ project_id }}"
+              table_id = "{{ table_id }}"
+            }
+          }
+        }
+      }
+      inspect_config {
+        exclude_info_types = {{ exclude_info_types }}
+        include_quote = {{ include_quote }}
+        min_likelihood = "{{ min_likelihood }}"
+        custom_info_types {
+          exclusion_type = "{{ exclusion_type }}"
+          likelihood = "{{ likelihood }}"
+          dictionary {
+            cloud_storage_path {
+              path = "{{ path }}"
+            }
+            word_list {
+              words = ["{{ words }}"]
+            }
+          }
+          info_type {
+            name = "{{ name }}"
+            version = "{{ version }}"
+            sensitivity_score {
+              score = "{{ score }}"
+            }
+          }
+          regex {
+            group_indexes = ["{{ group_indexes }}"]
+            pattern = "{{ pattern }}"
+          }
+          sensitivity_score {
+            score = "{{ score }}"
+          }
+          stored_type {
+            name = "{{ name }}"
+          }
+          surrogate_type {
+          }
+        }
+        info_types {
+          name = "{{ name }}"
+          version = "{{ version }}"
+          sensitivity_score {
+            score = "{{ score }}"
+          }
+        }
+        limits {
+          max_findings_per_item = {{ max_findings_per_item }}
+          max_findings_per_request = {{ max_findings_per_request }}
+          max_findings_per_info_type {
+            max_findings = {{ max_findings }}
+            info_type {
+              name = "{{ name }}"
+              version = "{{ version }}"
+              sensitivity_score {
+                score = "{{ score }}"
+              }
+            }
+          }
+        }
+        rule_set {
+          info_types {
+            name = "{{ name }}"
+            version = "{{ version }}"
+            sensitivity_score {
+              score = "{{ score }}"
+            }
+          }
+          rules {
+            exclusion_rule {
+              matching_type = "{{ matching_type }}"
+              dictionary {
+                cloud_storage_path {
+                  path = "{{ path }}"
+                }
+                word_list {
+                  words = ["{{ words }}"]
+                }
+              }
+              exclude_by_hotword {
+                hotword_regex {
+                  group_indexes = ["{{ group_indexes }}"]
+                  pattern = "{{ pattern }}"
+                }
+                proximity {
+                  window_after = {{ window_after }}
+                  window_before = {{ window_before }}
+                }
+              }
+              exclude_info_types {
+                info_types {
+                  name = "{{ name }}"
+                  version = "{{ version }}"
+                  sensitivity_score {
+                    score = "{{ score }}"
+                  }
+                }
+              }
+              regex {
+                group_indexes = ["{{ group_indexes }}"]
+                pattern = "{{ pattern }}"
+              }
+            }
+            hotword_rule {
+              hotword_regex {
+                group_indexes = ["{{ group_indexes }}"]
+                pattern = "{{ pattern }}"
+              }
+              likelihood_adjustment {
+                fixed_likelihood = "{{ fixed_likelihood }}"
+                relative_likelihood = {{ relative_likelihood }}
+              }
+              proximity {
+                window_after = {{ window_after }}
+                window_before = {{ window_before }}
+              }
+            }
+          }
+        }
+      }
+      storage_config {
+        big_query_options {
+          rows_limit = {{ rows_limit }}
+          rows_limit_percent = {{ rows_limit_percent }}
+          sample_method = "{{ sample_method }}"
+          excluded_fields {
+            name = "{{ name }}"
+          }
+          identifying_fields {
+            name = "{{ name }}"
+          }
+          included_fields {
+            name = "{{ name }}"
+          }
+          table_reference {
+            dataset_id = "{{ dataset_id }}"
+            project_id = "{{ project_id }}"
+            table_id = "{{ table_id }}"
+          }
+        }
+        cloud_storage_options {
+          bytes_limit_per_file = {{ bytes_limit_per_file }}
+          bytes_limit_per_file_percent = {{ bytes_limit_per_file_percent }}
+          file_types = ["{{ file_types }}"]
+          files_limit_percent = {{ files_limit_percent }}
+          sample_method = "{{ sample_method }}"
+          file_set {
+            url = "{{ url }}"
+            regex_file_set {
+              bucket_name = "{{ bucket_name }}"
+              exclude_regex = ["{{ exclude_regex }}"]
+              include_regex = ["{{ include_regex }}"]
+            }
+          }
+        }
+        datastore_options {
+          kind {
+            name = "{{ name }}"
+          }
+          partition_id {
+            namespace_id = "{{ namespace_id }}"
+            project_id = "{{ project_id }}"
+          }
+        }
+        hybrid_options {
+          description = "{{ description }}"
+          labels = {
+        key = "{{ labels_value }}"
+      }
+          required_finding_label_keys = ["{{ required_finding_label_keys }}"]
+          table_options {
+            identifying_fields {
+              name = "{{ name }}"
+            }
+          }
+        }
+        timespan_config {
+          enable_auto_population_of_timespan_config = {{ enable_auto_population_of_timespan_config }}
+          end_time = "{{ end_time }}"
+          start_time = "{{ start_time }}"
+          timestamp_field {
+            name = "{{ name }}"
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    triggers {
+      manual {
+      }
+      schedule {
+        recurrence_period_duration = "{{ recurrence_period_duration }}"
+      }
+    }
 }

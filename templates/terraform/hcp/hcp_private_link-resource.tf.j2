@@ -1,0 +1,16 @@
+resource "hcp_private_link" "example" {
+    consumer_accounts = ["{{ consumer_accounts }}"]
+    consumer_ip_ranges = ["{{ consumer_ip_ranges }}"]
+    consumer_regions = ["{{ consumer_regions }}"]
+    hvn_id = "{{ hvn_id }}"
+    id = "{{ id }}"
+    private_link_id = "{{ private_link_id }}"
+    project_id = "{{ project_id }}"
+    vault_cluster_id = "{{ vault_cluster_id }}"
+    timeouts {
+      create = "{{ create }}"
+      default = "{{ default }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

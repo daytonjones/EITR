@@ -3,7 +3,12 @@ resource "azurerm_search_shared_private_link_service" "example" {
     name = "{{ name }}"
     request_message = "{{ request_message }}"
     search_service_id = "{{ search_service_id }}"
-    status = "{{ status }}"
     subresource_name = "{{ subresource_name }}"
     target_resource_id = "{{ target_resource_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

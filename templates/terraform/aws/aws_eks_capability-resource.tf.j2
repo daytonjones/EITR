@@ -1,0 +1,35 @@
+resource "aws_eks_capability" "example" {
+    capability_name = "{{ capability_name }}"
+    cluster_name = "{{ cluster_name }}"
+    delete_propagation_policy = "{{ delete_propagation_policy }}"
+    region = "{{ region }}"
+    role_arn = "{{ role_arn }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    type = "{{ type }}"
+    configuration {
+      argo_cd {
+        namespace = "{{ namespace }}"
+        aws_idc {
+          idc_instance_arn = "{{ idc_instance_arn }}"
+          idc_region = "{{ idc_region }}"
+        }
+        network_access {
+          vpce_ids = ["{{ vpce_ids }}"]
+        }
+        rbac_role_mapping {
+          role = "{{ role }}"
+          identity {
+            id = "{{ id }}"
+            type = "{{ type }}"
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

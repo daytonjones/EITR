@@ -1,5 +1,11 @@
 resource "aws_waf_xss_match_set" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    xss_match_tuples {
+      text_transformation = "{{ text_transformation }}"
+      field_to_match {
+        data = "{{ data }}"
+        type = "{{ type }}"
+      }
+    }
 }

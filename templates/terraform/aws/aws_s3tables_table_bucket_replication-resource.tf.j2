@@ -1,0 +1,10 @@
+resource "aws_s3tables_table_bucket_replication" "example" {
+    region = "{{ region }}"
+    role = "{{ role }}"
+    table_bucket_arn = "{{ table_bucket_arn }}"
+    rule {
+      destination {
+        destination_table_bucket_arn = "{{ destination_table_bucket_arn }}"
+      }
+    }
+}

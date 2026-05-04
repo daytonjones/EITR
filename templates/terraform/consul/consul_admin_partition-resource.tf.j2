@@ -1,5 +1,6 @@
 resource "consul_admin_partition" "example" {
     description = "{{ description }}"
+    disable_gossip = {{ disable_gossip }}
     id = "{{ id }}"
     name = "{{ name }}"
 }

@@ -1,0 +1,23 @@
+resource "google_memorystore_instance_desired_user_created_endpoints" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    desired_user_created_endpoints {
+      connections {
+        psc_connection {
+          forwarding_rule = "{{ forwarding_rule }}"
+          ip_address = "{{ ip_address }}"
+          network = "{{ network }}"
+          project_id = "{{ project_id }}"
+          psc_connection_id = "{{ psc_connection_id }}"
+          service_attachment = "{{ service_attachment }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

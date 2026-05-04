@@ -1,0 +1,15 @@
+resource "aws_sagemaker_model_card" "example" {
+    content = "{{ content }}"
+    model_card_name = "{{ model_card_name }}"
+    model_card_status = "{{ model_card_status }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    security_config {
+      kms_key_id = "{{ kms_key_id }}"
+    }
+    timeouts {
+      delete = "{{ delete }}"
+    }
+}

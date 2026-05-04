@@ -1,11 +1,28 @@
 resource "aws_rum_app_monitor" "example" {
-    app_monitor_id = "{{ app_monitor_id }}"
-    arn = "{{ arn }}"
-    cw_log_enabled = "{{ cw_log_enabled }}"
-    cw_log_group = "{{ cw_log_group }}"
+    cw_log_enabled = {{ cw_log_enabled }}
     domain = "{{ domain }}"
+    domain_list = ["{{ domain_list }}"]
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    app_monitor_configuration {
+      allow_cookies = {{ allow_cookies }}
+      enable_xray = {{ enable_xray }}
+      excluded_pages = ["{{ excluded_pages }}"]
+      favorite_pages = ["{{ favorite_pages }}"]
+      guest_role_arn = "{{ guest_role_arn }}"
+      identity_pool_id = "{{ identity_pool_id }}"
+      included_pages = ["{{ included_pages }}"]
+      session_sample_rate = {{ session_sample_rate }}
+      telemetries = ["{{ telemetries }}"]
+    }
+    custom_events {
+      status = "{{ status }}"
+    }
 }

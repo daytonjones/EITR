@@ -1,0 +1,22 @@
+resource "google_network_security_sac_attachment" "example" {
+    country = "{{ country }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    name = "{{ name }}"
+    ncc_gateway = "{{ ncc_gateway }}"
+    project = "{{ project }}"
+    sac_realm = "{{ sac_realm }}"
+    time_zone = "{{ time_zone }}"
+    symantec_options {
+      symantec_location_name = "{{ symantec_location_name }}"
+      symantec_site = "{{ symantec_site }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

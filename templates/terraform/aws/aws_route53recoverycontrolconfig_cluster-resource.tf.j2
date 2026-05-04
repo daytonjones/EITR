@@ -1,7 +1,11 @@
 resource "aws_route53recoverycontrolconfig_cluster" "example" {
-    arn = "{{ arn }}"
-    cluster_endpoints = "{{ cluster_endpoints }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    status = "{{ status }}"
+    network_type = "{{ network_type }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

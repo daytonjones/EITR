@@ -1,9 +1,19 @@
 resource "aws_gamelift_build" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
     operating_system = "{{ operating_system }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     version = "{{ version }}"
+    storage_location {
+      bucket = "{{ bucket }}"
+      key = "{{ key }}"
+      object_version = "{{ object_version }}"
+      role_arn = "{{ role_arn }}"
+    }
 }

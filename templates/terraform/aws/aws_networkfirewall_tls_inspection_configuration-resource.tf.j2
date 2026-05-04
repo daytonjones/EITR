@@ -1,14 +1,43 @@
 resource "aws_networkfirewall_tls_inspection_configuration" "example" {
-    arn = "{{ arn }}"
-    certificate_authority = "{{ certificate_authority }}"
-    certificates = "{{ certificates }}"
     description = "{{ description }}"
-    encryption_configuration = "{{ encryption_configuration }}"
-    id = "{{ id }}"
+    encryption_configuration = ["{{ encryption_configuration }}"]
     name = "{{ name }}"
-    number_of_associations = "{{ number_of_associations }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    tls_inspection_configuration_id = "{{ tls_inspection_configuration_id }}"
-    update_token = "{{ update_token }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    tls_inspection_configuration {
+      server_certificate_configuration {
+        certificate_authority_arn = "{{ certificate_authority_arn }}"
+        check_certificate_revocation_status {
+          revoked_status_action = "{{ revoked_status_action }}"
+          unknown_status_action = "{{ unknown_status_action }}"
+        }
+        scope {
+          protocols = ["{{ protocols }}"]
+          destination {
+            address_definition = "{{ address_definition }}"
+          }
+          destination_ports {
+            from_port = {{ from_port }}
+            to_port = {{ to_port }}
+          }
+          source {
+            address_definition = "{{ address_definition }}"
+          }
+          source_ports {
+            from_port = {{ from_port }}
+            to_port = {{ to_port }}
+          }
+        }
+        server_certificate {
+          resource_arn = "{{ resource_arn }}"
+        }
+      }
+    }
 }

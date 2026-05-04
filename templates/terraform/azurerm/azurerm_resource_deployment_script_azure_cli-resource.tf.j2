@@ -5,13 +5,36 @@ resource "azurerm_resource_deployment_script_azure_cli" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    outputs = "{{ outputs }}"
     primary_script_uri = "{{ primary_script_uri }}"
     resource_group_name = "{{ resource_group_name }}"
     retention_interval = "{{ retention_interval }}"
     script_content = "{{ script_content }}"
-    supporting_script_uris = "{{ supporting_script_uris }}"
-    tags = "{{ tags }}"
+    supporting_script_uris = ["{{ supporting_script_uris }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
     timeout = "{{ timeout }}"
     version = "{{ version }}"
+    container {
+      container_group_name = "{{ container_group_name }}"
+    }
+    environment_variable {
+      name = "{{ name }}"
+      secure_value = "{{ secure_value }}"
+      value = "{{ value }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    storage_account {
+      key = "{{ key }}"
+      name = "{{ name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

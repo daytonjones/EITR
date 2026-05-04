@@ -1,11 +1,15 @@
 resource "aws_guardduty_ipset" "example" {
-    activate = "{{ activate }}"
-    arn = "{{ arn }}"
+    activate = {{ activate }}
     detector_id = "{{ detector_id }}"
     format = "{{ format }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

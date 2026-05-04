@@ -1,20 +1,40 @@
 resource "google_database_migration_service_migration_job" "example" {
-    create_time = "{{ create_time }}"
     destination = "{{ destination }}"
     display_name = "{{ display_name }}"
     dump_path = "{{ dump_path }}"
     dump_type = "{{ dump_type }}"
-    effective_labels = "{{ effective_labels }}"
-    error = "{{ error }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     migration_job_id = "{{ migration_job_id }}"
-    name = "{{ name }}"
-    phase = "{{ phase }}"
     project = "{{ project }}"
     source = "{{ source }}"
-    state = "{{ state }}"
-    terraform_labels = "{{ terraform_labels }}"
     type = "{{ type }}"
+    dump_flags {
+      dump_flags {
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+    }
+    performance_config {
+      dump_parallel_level = "{{ dump_parallel_level }}"
+    }
+    reverse_ssh_connectivity {
+      vm = "{{ vm }}"
+      vm_ip = "{{ vm_ip }}"
+      vm_port = {{ vm_port }}
+      vpc = "{{ vpc }}"
+    }
+    static_ip_connectivity {
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    vpc_peering_connectivity {
+      vpc = "{{ vpc }}"
+    }
 }

@@ -4,4 +4,11 @@ resource "aws_guardduty_publishing_destination" "example" {
     detector_id = "{{ detector_id }}"
     id = "{{ id }}"
     kms_key_arn = "{{ kms_key_arn }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

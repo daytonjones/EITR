@@ -3,10 +3,36 @@ resource "azurerm_orbital_contact_profile" "example" {
     event_hub_uri = "{{ event_hub_uri }}"
     id = "{{ id }}"
     location = "{{ location }}"
-    minimum_elevation_degrees = "{{ minimum_elevation_degrees }}"
+    minimum_elevation_degrees = {{ minimum_elevation_degrees }}
     minimum_variable_contact_duration = "{{ minimum_variable_contact_duration }}"
     name = "{{ name }}"
     network_configuration_subnet_id = "{{ network_configuration_subnet_id }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    links {
+      direction = "{{ direction }}"
+      name = "{{ name }}"
+      polarization = "{{ polarization }}"
+      channels {
+        bandwidth_mhz = {{ bandwidth_mhz }}
+        center_frequency_mhz = {{ center_frequency_mhz }}
+        demodulation_configuration = "{{ demodulation_configuration }}"
+        modulation_configuration = "{{ modulation_configuration }}"
+        name = "{{ name }}"
+        end_point {
+          end_point_name = "{{ end_point_name }}"
+          ip_address = "{{ ip_address }}"
+          port = "{{ port }}"
+          protocol = "{{ protocol }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

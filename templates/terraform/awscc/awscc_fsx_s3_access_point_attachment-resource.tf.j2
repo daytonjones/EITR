@@ -1,0 +1,7 @@
+resource "awscc_fsx_s3_access_point_attachment" "example" {
+    name = "{{ name }}"
+    ontap_configuration = "{{ ontap_configuration }}"
+    open_zfs_configuration = "{{ open_zfs_configuration }}"
+    s3_access_point = "{{ s3_access_point }}"
+    type = "{{ type }}"
+}

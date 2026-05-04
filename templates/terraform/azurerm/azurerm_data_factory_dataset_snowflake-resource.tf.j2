@@ -1,13 +1,29 @@
 resource "azurerm_data_factory_dataset_snowflake" "example" {
-    additional_properties = "{{ additional_properties }}"
-    annotations = "{{ annotations }}"
+    additional_properties = {
+        key = "{{ additional_properties_value }}"
+      }
+    annotations = ["{{ annotations }}"]
     data_factory_id = "{{ data_factory_id }}"
     description = "{{ description }}"
     folder = "{{ folder }}"
     id = "{{ id }}"
     linked_service_name = "{{ linked_service_name }}"
     name = "{{ name }}"
-    parameters = "{{ parameters }}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
     schema_name = "{{ schema_name }}"
     table_name = "{{ table_name }}"
+    schema_column {
+      name = "{{ name }}"
+      precision = {{ precision }}
+      scale = {{ scale }}
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -10,10 +10,21 @@ resource "azurerm_bot_channels_registration" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
     microsoft_app_id = "{{ microsoft_app_id }}"
+    microsoft_app_tenant_id = "{{ microsoft_app_tenant_id }}"
+    microsoft_app_type = "{{ microsoft_app_type }}"
+    microsoft_app_user_assigned_identity_id = "{{ microsoft_app_user_assigned_identity_id }}"
     name = "{{ name }}"
-    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    public_network_access_enabled = {{ public_network_access_enabled }}
     resource_group_name = "{{ resource_group_name }}"
     sku = "{{ sku }}"
-    streaming_endpoint_enabled = "{{ streaming_endpoint_enabled }}"
-    tags = "{{ tags }}"
+    streaming_endpoint_enabled = {{ streaming_endpoint_enabled }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

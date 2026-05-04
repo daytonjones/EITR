@@ -1,4 +1,14 @@
 resource "azurerm_resource_provider_registration" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
+    feature {
+      name = "{{ name }}"
+      registered = {{ registered }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

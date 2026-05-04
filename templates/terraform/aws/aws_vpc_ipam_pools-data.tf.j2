@@ -1,4 +1,8 @@
 data "aws_vpc_ipam_pools" "example" {
     id = "{{ id }}"
-    ipam_pools = "{{ ipam_pools }}"
+    region = "{{ region }}"
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
 }

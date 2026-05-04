@@ -1,0 +1,14 @@
+resource "google_compute_region_backend_bucket" "example" {
+    bucket_name = "{{ bucket_name }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    load_balancing_scheme = "{{ load_balancing_scheme }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -8,4 +8,10 @@ resource "azurerm_bot_channel_direct_line_speech" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
     resource_group_name = "{{ resource_group_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

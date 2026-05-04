@@ -1,15 +1,34 @@
 resource "azurerm_static_web_app" "example" {
-    api_key = "{{ api_key }}"
-    app_settings = "{{ app_settings }}"
-    configuration_file_changes_enabled = "{{ configuration_file_changes_enabled }}"
-    default_host_name = "{{ default_host_name }}"
+    app_settings = {
+        key = "{{ app_settings_value }}"
+      }
+    configuration_file_changes_enabled = {{ configuration_file_changes_enabled }}
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    preview_environments_enabled = "{{ preview_environments_enabled }}"
-    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    preview_environments_enabled = {{ preview_environments_enabled }}
+    public_network_access_enabled = {{ public_network_access_enabled }}
+    repository_branch = "{{ repository_branch }}"
+    repository_token = "{{ repository_token }}"
+    repository_url = "{{ repository_url }}"
     resource_group_name = "{{ resource_group_name }}"
     sku_size = "{{ sku_size }}"
     sku_tier = "{{ sku_tier }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    basic_auth {
+      environments = "{{ environments }}"
+      password = "{{ password }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

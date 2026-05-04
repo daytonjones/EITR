@@ -1,0 +1,18 @@
+resource "aws_dsql_cluster" "example" {
+    deletion_protection_enabled = {{ deletion_protection_enabled }}
+    force_destroy = {{ force_destroy }}
+    kms_encryption_key = "{{ kms_encryption_key }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    multi_region_properties {
+      clusters = ["{{ clusters }}"]
+      witness_region = "{{ witness_region }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

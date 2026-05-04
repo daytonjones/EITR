@@ -1,0 +1,8 @@
+resource "aws_notifications_notification_configuration" "example" {
+    aggregation_duration = "{{ aggregation_duration }}"
+    description = "{{ description }}"
+    name = "{{ name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

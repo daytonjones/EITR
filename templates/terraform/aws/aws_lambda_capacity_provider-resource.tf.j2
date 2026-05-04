@@ -1,0 +1,22 @@
+resource "aws_lambda_capacity_provider" "example" {
+    capacity_provider_scaling_config = ["{{ capacity_provider_scaling_config }}"]
+    instance_requirements = ["{{ instance_requirements }}"]
+    kms_key_arn = "{{ kms_key_arn }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    permissions_config {
+      capacity_provider_operator_role_arn = "{{ capacity_provider_operator_role_arn }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    vpc_config {
+      security_group_ids = ["{{ security_group_ids }}"]
+      subnet_ids = ["{{ subnet_ids }}"]
+    }
+}

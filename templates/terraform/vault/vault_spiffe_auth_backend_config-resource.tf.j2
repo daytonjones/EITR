@@ -1,0 +1,12 @@
+resource "vault_spiffe_auth_backend_config" "example" {
+    audience = ["{{ audience }}"]
+    bundle = "{{ bundle }}"
+    defer_bundle_fetch = {{ defer_bundle_fetch }}
+    endpoint_root_ca_truststore_pem = "{{ endpoint_root_ca_truststore_pem }}"
+    endpoint_spiffe_id = "{{ endpoint_spiffe_id }}"
+    endpoint_url = "{{ endpoint_url }}"
+    mount = "{{ mount }}"
+    namespace = "{{ namespace }}"
+    profile = "{{ profile }}"
+    trust_domain = "{{ trust_domain }}"
+}

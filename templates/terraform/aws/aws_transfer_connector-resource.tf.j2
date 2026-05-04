@@ -1,11 +1,39 @@
 resource "aws_transfer_connector" "example" {
     access_role = "{{ access_role }}"
-    arn = "{{ arn }}"
-    connector_id = "{{ connector_id }}"
     id = "{{ id }}"
     logging_role = "{{ logging_role }}"
+    region = "{{ region }}"
     security_policy_name = "{{ security_policy_name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     url = "{{ url }}"
+    as2_config {
+      compression = "{{ compression }}"
+      encryption_algorithm = "{{ encryption_algorithm }}"
+      local_profile_id = "{{ local_profile_id }}"
+      mdn_response = "{{ mdn_response }}"
+      mdn_signing_algorithm = "{{ mdn_signing_algorithm }}"
+      message_subject = "{{ message_subject }}"
+      partner_profile_id = "{{ partner_profile_id }}"
+      signing_algorithm = "{{ signing_algorithm }}"
+    }
+    egress_config {
+      vpc_lattice {
+        port_number = {{ port_number }}
+        resource_configuration_arn = "{{ resource_configuration_arn }}"
+      }
+    }
+    sftp_config {
+      trusted_host_keys = ["{{ trusted_host_keys }}"]
+      user_secret_id = "{{ user_secret_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

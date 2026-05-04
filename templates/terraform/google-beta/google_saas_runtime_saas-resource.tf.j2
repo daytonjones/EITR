@@ -1,0 +1,20 @@
+resource "google_saas_runtime_saas" "example" {
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    saas_id = "{{ saas_id }}"
+    locations {
+      name = "{{ name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

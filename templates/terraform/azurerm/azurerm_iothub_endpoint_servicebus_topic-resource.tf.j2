@@ -8,4 +8,11 @@ resource "azurerm_iothub_endpoint_servicebus_topic" "example" {
     iothub_id = "{{ iothub_id }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
+    subscription_id = "{{ subscription_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

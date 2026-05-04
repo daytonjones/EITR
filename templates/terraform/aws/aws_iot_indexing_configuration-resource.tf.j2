@@ -1,3 +1,32 @@
 resource "aws_iot_indexing_configuration" "example" {
     id = "{{ id }}"
+    region = "{{ region }}"
+    thing_group_indexing_configuration {
+      thing_group_indexing_mode = "{{ thing_group_indexing_mode }}"
+      custom_field {
+        name = "{{ name }}"
+        type = "{{ type }}"
+      }
+      managed_field {
+        name = "{{ name }}"
+        type = "{{ type }}"
+      }
+    }
+    thing_indexing_configuration {
+      device_defender_indexing_mode = "{{ device_defender_indexing_mode }}"
+      named_shadow_indexing_mode = "{{ named_shadow_indexing_mode }}"
+      thing_connectivity_indexing_mode = "{{ thing_connectivity_indexing_mode }}"
+      thing_indexing_mode = "{{ thing_indexing_mode }}"
+      custom_field {
+        name = "{{ name }}"
+        type = "{{ type }}"
+      }
+      filter {
+        named_shadow_names = ["{{ named_shadow_names }}"]
+      }
+      managed_field {
+        name = "{{ name }}"
+        type = "{{ type }}"
+      }
+    }
 }

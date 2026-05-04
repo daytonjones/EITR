@@ -1,0 +1,7 @@
+resource "aws_xray_resource_policy" "example" {
+    bypass_policy_lockout_check = {{ bypass_policy_lockout_check }}
+    policy_document = "{{ policy_document }}"
+    policy_name = "{{ policy_name }}"
+    policy_revision_id = "{{ policy_revision_id }}"
+    region = "{{ region }}"
+}

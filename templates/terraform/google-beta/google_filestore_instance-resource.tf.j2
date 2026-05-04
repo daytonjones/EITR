@@ -1,18 +1,70 @@
 resource "google_filestore_instance" "example" {
-    create_time = "{{ create_time }}"
-    deletion_protection_enabled = "{{ deletion_protection_enabled }}"
+    deletion_protection_enabled = {{ deletion_protection_enabled }}
     deletion_protection_reason = "{{ deletion_protection_reason }}"
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
-    etag = "{{ etag }}"
+    desired_replica_state = "{{ desired_replica_state }}"
     id = "{{ id }}"
     kms_key_name = "{{ kms_key_name }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
     protocol = "{{ protocol }}"
-    terraform_labels = "{{ terraform_labels }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     tier = "{{ tier }}"
     zone = "{{ zone }}"
+    directory_services {
+      ldap {
+        domain = "{{ domain }}"
+        groups_ou = "{{ groups_ou }}"
+        servers = ["{{ servers }}"]
+        users_ou = "{{ users_ou }}"
+      }
+    }
+    file_shares {
+      capacity_gb = {{ capacity_gb }}
+      name = "{{ name }}"
+      source_backup = "{{ source_backup }}"
+      source_backupdr_backup = "{{ source_backupdr_backup }}"
+      nfs_export_options {
+        access_mode = "{{ access_mode }}"
+        anon_gid = {{ anon_gid }}
+        anon_uid = {{ anon_uid }}
+        ip_ranges = ["{{ ip_ranges }}"]
+        network = "{{ network }}"
+        squash_mode = "{{ squash_mode }}"
+      }
+    }
+    initial_replication {
+      role = "{{ role }}"
+      replicas {
+        peer_instance = "{{ peer_instance }}"
+      }
+    }
+    networks {
+      connect_mode = "{{ connect_mode }}"
+      modes = ["{{ modes }}"]
+      network = "{{ network }}"
+      reserved_ip_range = "{{ reserved_ip_range }}"
+      psc_config {
+        endpoint_project = "{{ endpoint_project }}"
+      }
+    }
+    performance_config {
+      fixed_iops {
+        max_iops = {{ max_iops }}
+      }
+      iops_per_tb {
+        max_iops_per_tb = {{ max_iops_per_tb }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,8 +1,12 @@
 resource "aws_vpclattice_service_network" "example" {
-    arn = "{{ arn }}"
     auth_type = "{{ auth_type }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

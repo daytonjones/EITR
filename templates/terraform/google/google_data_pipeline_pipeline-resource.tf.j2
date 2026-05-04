@@ -1,14 +1,99 @@
 resource "google_data_pipeline_pipeline" "example" {
-    create_time = "{{ create_time }}"
     display_name = "{{ display_name }}"
     id = "{{ id }}"
-    job_count = "{{ job_count }}"
-    last_update_time = "{{ last_update_time }}"
     name = "{{ name }}"
-    pipeline_sources = "{{ pipeline_sources }}"
+    pipeline_sources = {
+        key = "{{ pipeline_sources_value }}"
+      }
     project = "{{ project }}"
     region = "{{ region }}"
     scheduler_service_account_email = "{{ scheduler_service_account_email }}"
     state = "{{ state }}"
     type = "{{ type }}"
+    schedule_info {
+      schedule = "{{ schedule }}"
+      time_zone = "{{ time_zone }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    workload {
+      dataflow_flex_template_request {
+        location = "{{ location }}"
+        project_id = "{{ project_id }}"
+        validate_only = {{ validate_only }}
+        launch_parameter {
+          container_spec_gcs_path = "{{ container_spec_gcs_path }}"
+          job_name = "{{ job_name }}"
+          launch_options = {
+        key = "{{ launch_options_value }}"
+      }
+          parameters = {
+        key = "{{ parameters_value }}"
+      }
+          transform_name_mappings = {
+        key = "{{ transform_name_mappings_value }}"
+      }
+          update = {{ update }}
+          environment {
+            additional_experiments = ["{{ additional_experiments }}"]
+            additional_user_labels = {
+        key = "{{ additional_user_labels_value }}"
+      }
+            enable_streaming_engine = {{ enable_streaming_engine }}
+            flexrs_goal = "{{ flexrs_goal }}"
+            ip_configuration = "{{ ip_configuration }}"
+            kms_key_name = "{{ kms_key_name }}"
+            machine_type = "{{ machine_type }}"
+            max_workers = {{ max_workers }}
+            network = "{{ network }}"
+            num_workers = {{ num_workers }}
+            service_account_email = "{{ service_account_email }}"
+            subnetwork = "{{ subnetwork }}"
+            temp_location = "{{ temp_location }}"
+            worker_region = "{{ worker_region }}"
+            worker_zone = "{{ worker_zone }}"
+            zone = "{{ zone }}"
+          }
+        }
+      }
+      dataflow_launch_template_request {
+        gcs_path = "{{ gcs_path }}"
+        location = "{{ location }}"
+        project_id = "{{ project_id }}"
+        validate_only = {{ validate_only }}
+        launch_parameters {
+          job_name = "{{ job_name }}"
+          parameters = {
+        key = "{{ parameters_value }}"
+      }
+          transform_name_mapping = {
+        key = "{{ transform_name_mapping_value }}"
+      }
+          update = {{ update }}
+          environment {
+            additional_experiments = ["{{ additional_experiments }}"]
+            additional_user_labels = {
+        key = "{{ additional_user_labels_value }}"
+      }
+            bypass_temp_dir_validation = {{ bypass_temp_dir_validation }}
+            enable_streaming_engine = {{ enable_streaming_engine }}
+            ip_configuration = "{{ ip_configuration }}"
+            kms_key_name = "{{ kms_key_name }}"
+            machine_type = "{{ machine_type }}"
+            max_workers = {{ max_workers }}
+            network = "{{ network }}"
+            num_workers = {{ num_workers }}
+            service_account_email = "{{ service_account_email }}"
+            subnetwork = "{{ subnetwork }}"
+            temp_location = "{{ temp_location }}"
+            worker_region = "{{ worker_region }}"
+            worker_zone = "{{ worker_zone }}"
+            zone = "{{ zone }}"
+          }
+        }
+      }
+    }
 }

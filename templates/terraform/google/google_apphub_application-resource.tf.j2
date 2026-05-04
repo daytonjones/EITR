@@ -1,13 +1,36 @@
 resource "google_apphub_application" "example" {
     application_id = "{{ application_id }}"
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
     display_name = "{{ display_name }}"
     id = "{{ id }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    state = "{{ state }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
+    attributes {
+      business_owners {
+        display_name = "{{ display_name }}"
+        email = "{{ email }}"
+      }
+      criticality {
+        type = "{{ type }}"
+      }
+      developer_owners {
+        display_name = "{{ display_name }}"
+        email = "{{ email }}"
+      }
+      environment {
+        type = "{{ type }}"
+      }
+      operator_owners {
+        display_name = "{{ display_name }}"
+        email = "{{ email }}"
+      }
+    }
+    scope {
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

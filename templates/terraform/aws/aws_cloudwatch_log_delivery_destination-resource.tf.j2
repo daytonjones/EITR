@@ -1,0 +1,12 @@
+resource "aws_cloudwatch_log_delivery_destination" "example" {
+    delivery_destination_type = "{{ delivery_destination_type }}"
+    name = "{{ name }}"
+    output_format = "{{ output_format }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    delivery_destination_configuration {
+      destination_resource_arn = "{{ destination_resource_arn }}"
+    }
+}

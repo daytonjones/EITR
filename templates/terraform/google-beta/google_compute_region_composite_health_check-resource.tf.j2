@@ -1,0 +1,13 @@
+resource "google_compute_region_composite_health_check" "example" {
+    description = "{{ description }}"
+    health_destination = "{{ health_destination }}"
+    health_sources = ["{{ health_sources }}"]
+    name = "{{ name }}"
+    project = "{{ project }}"
+    region = "{{ region }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,0 +1,8 @@
+resource "awscc_bedrock_automated_reasoning_policy" "example" {
+    description = "{{ description }}"
+    force_delete = {{ force_delete }}
+    kms_key_id = "{{ kms_key_id }}"
+    name = "{{ name }}"
+    policy_definition = "{{ policy_definition }}"
+    tags = "{{ tags }}"
+}

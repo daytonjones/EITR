@@ -1,0 +1,8 @@
+resource "awscc_emr_step" "example" {
+    action_on_failure = "{{ action_on_failure }}"
+    encryption_key_arn = "{{ encryption_key_arn }}"
+    hadoop_jar_step = "{{ hadoop_jar_step }}"
+    job_flow_id = "{{ job_flow_id }}"
+    log_uri = "{{ log_uri }}"
+    name = "{{ name }}"
+}

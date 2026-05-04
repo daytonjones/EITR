@@ -1,14 +1,48 @@
 resource "aws_glue_trigger" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     schedule = "{{ schedule }}"
-    start_on_creation = "{{ start_on_creation }}"
-    state = "{{ state }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    start_on_creation = {{ start_on_creation }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     type = "{{ type }}"
     workflow_name = "{{ workflow_name }}"
+    actions {
+      arguments = {
+        key = "{{ arguments_value }}"
+      }
+      crawler_name = "{{ crawler_name }}"
+      job_name = "{{ job_name }}"
+      security_configuration = "{{ security_configuration }}"
+      timeout = {{ timeout }}
+      notification_property {
+        notify_delay_after = {{ notify_delay_after }}
+      }
+    }
+    event_batching_condition {
+      batch_size = {{ batch_size }}
+      batch_window = {{ batch_window }}
+    }
+    predicate {
+      logical = "{{ logical }}"
+      conditions {
+        crawl_state = "{{ crawl_state }}"
+        crawler_name = "{{ crawler_name }}"
+        job_name = "{{ job_name }}"
+        logical_operator = "{{ logical_operator }}"
+        state = "{{ state }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -4,5 +4,12 @@ resource "aws_elastic_beanstalk_configuration_template" "example" {
     environment_id = "{{ environment_id }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     solution_stack_name = "{{ solution_stack_name }}"
+    setting {
+      name = "{{ name }}"
+      namespace = "{{ namespace }}"
+      resource = "{{ resource }}"
+      value = "{{ value }}"
+    }
 }

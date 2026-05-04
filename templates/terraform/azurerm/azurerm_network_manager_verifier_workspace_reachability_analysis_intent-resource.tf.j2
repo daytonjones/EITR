@@ -1,0 +1,20 @@
+resource "azurerm_network_manager_verifier_workspace_reachability_analysis_intent" "example" {
+    description = "{{ description }}"
+    destination_resource_id = "{{ destination_resource_id }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    source_resource_id = "{{ source_resource_id }}"
+    verifier_workspace_id = "{{ verifier_workspace_id }}"
+    ip_traffic {
+      destination_ips = ["{{ destination_ips }}"]
+      destination_ports = ["{{ destination_ports }}"]
+      protocols = ["{{ protocols }}"]
+      source_ips = ["{{ source_ips }}"]
+      source_ports = ["{{ source_ports }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
+}

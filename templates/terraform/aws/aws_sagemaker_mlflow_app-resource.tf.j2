@@ -1,0 +1,18 @@
+resource "aws_sagemaker_mlflow_app" "example" {
+    account_default_status = "{{ account_default_status }}"
+    artifact_store_uri = "{{ artifact_store_uri }}"
+    default_domain_id_list = ["{{ default_domain_id_list }}"]
+    model_registration_mode = "{{ model_registration_mode }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+    role_arn = "{{ role_arn }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    weekly_maintenance_window_start = "{{ weekly_maintenance_window_start }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,13 +1,25 @@
 resource "aws_iot_domain_configuration" "example" {
-    arn = "{{ arn }}"
+    application_protocol = "{{ application_protocol }}"
+    authentication_type = "{{ authentication_type }}"
     domain_name = "{{ domain_name }}"
-    domain_type = "{{ domain_type }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    server_certificate_arns = "{{ server_certificate_arns }}"
+    region = "{{ region }}"
+    server_certificate_arns = ["{{ server_certificate_arns }}"]
     service_type = "{{ service_type }}"
     status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     validation_certificate_arn = "{{ validation_certificate_arn }}"
+    authorizer_config {
+      allow_authorizer_override = {{ allow_authorizer_override }}
+      default_authorizer_name = "{{ default_authorizer_name }}"
+    }
+    tls_config {
+      security_policy = "{{ security_policy }}"
+    }
 }

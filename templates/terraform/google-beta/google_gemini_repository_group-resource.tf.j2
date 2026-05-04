@@ -1,0 +1,19 @@
+resource "google_gemini_repository_group" "example" {
+    code_repository_index = "{{ code_repository_index }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    repository_group_id = "{{ repository_group_id }}"
+    repositories {
+      branch_pattern = "{{ branch_pattern }}"
+      resource = "{{ resource }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

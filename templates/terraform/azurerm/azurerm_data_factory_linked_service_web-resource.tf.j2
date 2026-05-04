@@ -1,14 +1,24 @@
 resource "azurerm_data_factory_linked_service_web" "example" {
-    additional_properties = "{{ additional_properties }}"
-    annotations = "{{ annotations }}"
+    additional_properties = {
+        key = "{{ additional_properties_value }}"
+      }
+    annotations = ["{{ annotations }}"]
     authentication_type = "{{ authentication_type }}"
     data_factory_id = "{{ data_factory_id }}"
     description = "{{ description }}"
     id = "{{ id }}"
     integration_runtime_name = "{{ integration_runtime_name }}"
     name = "{{ name }}"
-    parameters = "{{ parameters }}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
     password = "{{ password }}"
     url = "{{ url }}"
     username = "{{ username }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

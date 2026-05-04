@@ -3,4 +3,10 @@ resource "azuread_access_package_catalog_role_assignment" "example" {
     id = "{{ id }}"
     principal_object_id = "{{ principal_object_id }}"
     role_id = "{{ role_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

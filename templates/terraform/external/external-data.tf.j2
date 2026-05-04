@@ -1,7 +1,7 @@
 data "external" "example" {
-    id = "{{ id }}"
-    program = "{{ program }}"
-    query = "{{ query }}"
-    result = "{{ result }}"
+    program = ["{{ program }}"]
+    query = {
+        key = "{{ query_value }}"
+      }
     working_dir = "{{ working_dir }}"
 }

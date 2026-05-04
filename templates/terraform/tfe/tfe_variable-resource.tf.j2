@@ -1,12 +1,12 @@
 resource "tfe_variable" "example" {
     category = "{{ category }}"
     description = "{{ description }}"
-    hcl = "{{ hcl }}"
-    id = "{{ id }}"
+    hcl = {{ hcl }}
     key = "{{ key }}"
-    readable_value = "{{ readable_value }}"
-    sensitive = "{{ sensitive }}"
+    sensitive = {{ sensitive }}
     value = "{{ value }}"
+    value_wo = "{{ value_wo }}"
+    value_wo_version = {{ value_wo_version }}
     variable_set_id = "{{ variable_set_id }}"
     workspace_id = "{{ workspace_id }}"
 }

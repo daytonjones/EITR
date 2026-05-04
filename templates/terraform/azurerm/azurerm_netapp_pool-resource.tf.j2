@@ -1,5 +1,7 @@
 resource "azurerm_netapp_pool" "example" {
     account_name = "{{ account_name }}"
+    cool_access_enabled = {{ cool_access_enabled }}
+    custom_throughput_mibps = {{ custom_throughput_mibps }}
     encryption_type = "{{ encryption_type }}"
     id = "{{ id }}"
     location = "{{ location }}"
@@ -7,6 +9,14 @@ resource "azurerm_netapp_pool" "example" {
     qos_type = "{{ qos_type }}"
     resource_group_name = "{{ resource_group_name }}"
     service_level = "{{ service_level }}"
-    size_in_tb = "{{ size_in_tb }}"
-    tags = "{{ tags }}"
+    size_in_tb = {{ size_in_tb }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

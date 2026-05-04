@@ -1,8 +1,14 @@
 resource "aws_route53recoveryreadiness_recovery_group" "example" {
-    arn = "{{ arn }}"
-    cells = "{{ cells }}"
+    cells = ["{{ cells }}"]
     id = "{{ id }}"
     recovery_group_name = "{{ recovery_group_name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    timeouts {
+      delete = "{{ delete }}"
+    }
 }

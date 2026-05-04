@@ -2,7 +2,11 @@ resource "google_compute_instance_group_named_port" "example" {
     group = "{{ group }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    port = "{{ port }}"
+    port = {{ port }}
     project = "{{ project }}"
     zone = "{{ zone }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

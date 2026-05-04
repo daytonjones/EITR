@@ -1,0 +1,16 @@
+resource "google_chronicle_rule" "example" {
+    deletion_policy = "{{ deletion_policy }}"
+    etag = "{{ etag }}"
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    rule_id = "{{ rule_id }}"
+    scope = "{{ scope }}"
+    text = "{{ text }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

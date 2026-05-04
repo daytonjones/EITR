@@ -1,3 +1,189 @@
 resource "kubernetes_persistent_volume" "example" {
     id = "{{ id }}"
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      name = "{{ name }}"
+    }
+    spec {
+      access_modes = ["{{ access_modes }}"]
+      capacity = {
+        key = "{{ capacity_value }}"
+      }
+      mount_options = ["{{ mount_options }}"]
+      persistent_volume_reclaim_policy = "{{ persistent_volume_reclaim_policy }}"
+      storage_class_name = "{{ storage_class_name }}"
+      volume_mode = "{{ volume_mode }}"
+      claim_ref {
+        name = "{{ name }}"
+        namespace = "{{ namespace }}"
+      }
+      node_affinity {
+        required {
+          node_selector_term {
+            match_expressions {
+              key = "{{ key }}"
+              operator = "{{ operator }}"
+              values = ["{{ values }}"]
+            }
+            match_fields {
+              key = "{{ key }}"
+              operator = "{{ operator }}"
+              values = ["{{ values }}"]
+            }
+          }
+        }
+      }
+      persistent_volume_source {
+        aws_elastic_block_store {
+          fs_type = "{{ fs_type }}"
+          partition = {{ partition }}
+          read_only = {{ read_only }}
+          volume_id = "{{ volume_id }}"
+        }
+        azure_disk {
+          caching_mode = "{{ caching_mode }}"
+          data_disk_uri = "{{ data_disk_uri }}"
+          disk_name = "{{ disk_name }}"
+          fs_type = "{{ fs_type }}"
+          kind = "{{ kind }}"
+          read_only = {{ read_only }}
+        }
+        azure_file {
+          read_only = {{ read_only }}
+          secret_name = "{{ secret_name }}"
+          secret_namespace = "{{ secret_namespace }}"
+          share_name = "{{ share_name }}"
+        }
+        ceph_fs {
+          monitors = ["{{ monitors }}"]
+          path = "{{ path }}"
+          read_only = {{ read_only }}
+          secret_file = "{{ secret_file }}"
+          user = "{{ user }}"
+          secret_ref {
+            name = "{{ name }}"
+            namespace = "{{ namespace }}"
+          }
+        }
+        cinder {
+          fs_type = "{{ fs_type }}"
+          read_only = {{ read_only }}
+          volume_id = "{{ volume_id }}"
+        }
+        csi {
+          driver = "{{ driver }}"
+          fs_type = "{{ fs_type }}"
+          read_only = {{ read_only }}
+          volume_attributes = {
+        key = "{{ volume_attributes_value }}"
+      }
+          volume_handle = "{{ volume_handle }}"
+          controller_expand_secret_ref {
+            name = "{{ name }}"
+            namespace = "{{ namespace }}"
+          }
+          controller_publish_secret_ref {
+            name = "{{ name }}"
+            namespace = "{{ namespace }}"
+          }
+          node_publish_secret_ref {
+            name = "{{ name }}"
+            namespace = "{{ namespace }}"
+          }
+          node_stage_secret_ref {
+            name = "{{ name }}"
+            namespace = "{{ namespace }}"
+          }
+        }
+        fc {
+          fs_type = "{{ fs_type }}"
+          lun = {{ lun }}
+          read_only = {{ read_only }}
+          target_ww_ns = ["{{ target_ww_ns }}"]
+        }
+        flex_volume {
+          driver = "{{ driver }}"
+          fs_type = "{{ fs_type }}"
+          options = {
+        key = "{{ options_value }}"
+      }
+          read_only = {{ read_only }}
+          secret_ref {
+            name = "{{ name }}"
+            namespace = "{{ namespace }}"
+          }
+        }
+        flocker {
+          dataset_name = "{{ dataset_name }}"
+          dataset_uuid = "{{ dataset_uuid }}"
+        }
+        gce_persistent_disk {
+          fs_type = "{{ fs_type }}"
+          partition = {{ partition }}
+          pd_name = "{{ pd_name }}"
+          read_only = {{ read_only }}
+        }
+        glusterfs {
+          endpoints_name = "{{ endpoints_name }}"
+          path = "{{ path }}"
+          read_only = {{ read_only }}
+        }
+        host_path {
+          path = "{{ path }}"
+          type = "{{ type }}"
+        }
+        iscsi {
+          fs_type = "{{ fs_type }}"
+          iqn = "{{ iqn }}"
+          iscsi_interface = "{{ iscsi_interface }}"
+          lun = {{ lun }}
+          read_only = {{ read_only }}
+          target_portal = "{{ target_portal }}"
+        }
+        local {
+          path = "{{ path }}"
+        }
+        nfs {
+          path = "{{ path }}"
+          read_only = {{ read_only }}
+          server = "{{ server }}"
+        }
+        photon_persistent_disk {
+          fs_type = "{{ fs_type }}"
+          pd_id = "{{ pd_id }}"
+        }
+        quobyte {
+          group = "{{ group }}"
+          read_only = {{ read_only }}
+          registry = "{{ registry }}"
+          user = "{{ user }}"
+          volume = "{{ volume }}"
+        }
+        rbd {
+          ceph_monitors = ["{{ ceph_monitors }}"]
+          fs_type = "{{ fs_type }}"
+          keyring = "{{ keyring }}"
+          rados_user = "{{ rados_user }}"
+          rbd_image = "{{ rbd_image }}"
+          rbd_pool = "{{ rbd_pool }}"
+          read_only = {{ read_only }}
+          secret_ref {
+            name = "{{ name }}"
+            namespace = "{{ namespace }}"
+          }
+        }
+        vsphere_volume {
+          fs_type = "{{ fs_type }}"
+          volume_path = "{{ volume_path }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+    }
 }

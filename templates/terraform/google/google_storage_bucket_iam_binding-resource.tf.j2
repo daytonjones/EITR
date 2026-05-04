@@ -1,7 +1,14 @@
 resource "google_storage_bucket_iam_binding" "example" {
     bucket = "{{ bucket }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
-    members = "{{ members }}"
+    members = ["{{ members }}"]
     role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+    }
 }

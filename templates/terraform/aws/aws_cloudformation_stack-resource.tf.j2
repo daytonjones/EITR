@@ -1,18 +1,29 @@
 resource "aws_cloudformation_stack" "example" {
-    capabilities = "{{ capabilities }}"
-    disable_rollback = "{{ disable_rollback }}"
+    capabilities = ["{{ capabilities }}"]
+    disable_rollback = {{ disable_rollback }}
     iam_role_arn = "{{ iam_role_arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    notification_arns = "{{ notification_arns }}"
+    notification_arns = ["{{ notification_arns }}"]
     on_failure = "{{ on_failure }}"
-    outputs = "{{ outputs }}"
-    parameters = "{{ parameters }}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
     policy_body = "{{ policy_body }}"
     policy_url = "{{ policy_url }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     template_body = "{{ template_body }}"
     template_url = "{{ template_url }}"
-    timeout_in_minutes = "{{ timeout_in_minutes }}"
+    timeout_in_minutes = {{ timeout_in_minutes }}
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

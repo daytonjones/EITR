@@ -1,11 +1,50 @@
 resource "google_network_management_connectivity_test" "example" {
+    bypass_firewall_checks = {{ bypass_firewall_checks }}
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     name = "{{ name }}"
     project = "{{ project }}"
     protocol = "{{ protocol }}"
-    related_projects = "{{ related_projects }}"
-    terraform_labels = "{{ terraform_labels }}"
+    related_projects = ["{{ related_projects }}"]
+    round_trip = {{ round_trip }}
+    destination {
+      cloud_sql_instance = "{{ cloud_sql_instance }}"
+      forwarding_rule = "{{ forwarding_rule }}"
+      fqdn = "{{ fqdn }}"
+      gke_master_cluster = "{{ gke_master_cluster }}"
+      instance = "{{ instance }}"
+      ip_address = "{{ ip_address }}"
+      network = "{{ network }}"
+      port = {{ port }}
+      project_id = "{{ project_id }}"
+      redis_cluster = "{{ redis_cluster }}"
+      redis_instance = "{{ redis_instance }}"
+    }
+    source {
+      cloud_sql_instance = "{{ cloud_sql_instance }}"
+      gke_master_cluster = "{{ gke_master_cluster }}"
+      instance = "{{ instance }}"
+      ip_address = "{{ ip_address }}"
+      network = "{{ network }}"
+      network_type = "{{ network_type }}"
+      port = {{ port }}
+      project_id = "{{ project_id }}"
+      app_engine_version {
+        uri = "{{ uri }}"
+      }
+      cloud_function {
+        uri = "{{ uri }}"
+      }
+      cloud_run_revision {
+        uri = "{{ uri }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

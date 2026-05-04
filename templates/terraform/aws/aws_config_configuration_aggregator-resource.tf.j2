@@ -1,7 +1,21 @@
 resource "aws_config_configuration_aggregator" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    account_aggregation_source {
+      account_ids = ["{{ account_ids }}"]
+      all_regions = {{ all_regions }}
+      regions = ["{{ regions }}"]
+    }
+    organization_aggregation_source {
+      all_regions = {{ all_regions }}
+      regions = ["{{ regions }}"]
+      role_arn = "{{ role_arn }}"
+    }
 }

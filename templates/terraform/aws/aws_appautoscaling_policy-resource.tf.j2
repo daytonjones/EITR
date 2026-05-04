@@ -1,10 +1,139 @@
 resource "aws_appautoscaling_policy" "example" {
-    alarm_arns = "{{ alarm_arns }}"
-    arn = "{{ arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
     policy_type = "{{ policy_type }}"
+    region = "{{ region }}"
     resource_id = "{{ resource_id }}"
     scalable_dimension = "{{ scalable_dimension }}"
     service_namespace = "{{ service_namespace }}"
+    predictive_scaling_policy_configuration {
+      max_capacity_breach_behavior = "{{ max_capacity_breach_behavior }}"
+      max_capacity_buffer = {{ max_capacity_buffer }}
+      mode = "{{ mode }}"
+      scheduling_buffer_time = {{ scheduling_buffer_time }}
+      metric_specification {
+        target_value = "{{ target_value }}"
+        customized_capacity_metric_specification {
+          metric_data_query {
+            expression = "{{ expression }}"
+            id = "{{ id }}"
+            label = "{{ label }}"
+            return_data = {{ return_data }}
+            metric_stat {
+              stat = "{{ stat }}"
+              unit = "{{ unit }}"
+              metric {
+                metric_name = "{{ metric_name }}"
+                namespace = "{{ namespace }}"
+                dimension {
+                  name = "{{ name }}"
+                  value = "{{ value }}"
+                }
+              }
+            }
+          }
+        }
+        customized_load_metric_specification {
+          metric_data_query {
+            expression = "{{ expression }}"
+            id = "{{ id }}"
+            label = "{{ label }}"
+            return_data = {{ return_data }}
+            metric_stat {
+              stat = "{{ stat }}"
+              unit = "{{ unit }}"
+              metric {
+                metric_name = "{{ metric_name }}"
+                namespace = "{{ namespace }}"
+                dimension {
+                  name = "{{ name }}"
+                  value = "{{ value }}"
+                }
+              }
+            }
+          }
+        }
+        customized_scaling_metric_specification {
+          metric_data_query {
+            expression = "{{ expression }}"
+            id = "{{ id }}"
+            label = "{{ label }}"
+            return_data = {{ return_data }}
+            metric_stat {
+              stat = "{{ stat }}"
+              unit = "{{ unit }}"
+              metric {
+                metric_name = "{{ metric_name }}"
+                namespace = "{{ namespace }}"
+                dimension {
+                  name = "{{ name }}"
+                  value = "{{ value }}"
+                }
+              }
+            }
+          }
+        }
+        predefined_load_metric_specification {
+          predefined_metric_type = "{{ predefined_metric_type }}"
+          resource_label = "{{ resource_label }}"
+        }
+        predefined_metric_pair_specification {
+          predefined_metric_type = "{{ predefined_metric_type }}"
+          resource_label = "{{ resource_label }}"
+        }
+        predefined_scaling_metric_specification {
+          predefined_metric_type = "{{ predefined_metric_type }}"
+          resource_label = "{{ resource_label }}"
+        }
+      }
+    }
+    step_scaling_policy_configuration {
+      adjustment_type = "{{ adjustment_type }}"
+      cooldown = {{ cooldown }}
+      metric_aggregation_type = "{{ metric_aggregation_type }}"
+      min_adjustment_magnitude = {{ min_adjustment_magnitude }}
+      step_adjustment {
+        metric_interval_lower_bound = "{{ metric_interval_lower_bound }}"
+        metric_interval_upper_bound = "{{ metric_interval_upper_bound }}"
+        scaling_adjustment = {{ scaling_adjustment }}
+      }
+    }
+    target_tracking_scaling_policy_configuration {
+      disable_scale_in = {{ disable_scale_in }}
+      scale_in_cooldown = {{ scale_in_cooldown }}
+      scale_out_cooldown = {{ scale_out_cooldown }}
+      target_value = {{ target_value }}
+      customized_metric_specification {
+        metric_name = "{{ metric_name }}"
+        namespace = "{{ namespace }}"
+        statistic = "{{ statistic }}"
+        unit = "{{ unit }}"
+        dimensions {
+          name = "{{ name }}"
+          value = "{{ value }}"
+        }
+        metrics {
+          expression = "{{ expression }}"
+          id = "{{ id }}"
+          label = "{{ label }}"
+          return_data = {{ return_data }}
+          metric_stat {
+            stat = "{{ stat }}"
+            unit = "{{ unit }}"
+            metric {
+              metric_name = "{{ metric_name }}"
+              namespace = "{{ namespace }}"
+              dimensions {
+                name = "{{ name }}"
+                value = "{{ value }}"
+              }
+            }
+          }
+        }
+      }
+      predefined_metric_specification {
+        predefined_metric_type = "{{ predefined_metric_type }}"
+        resource_label = "{{ resource_label }}"
+      }
+    }
 }

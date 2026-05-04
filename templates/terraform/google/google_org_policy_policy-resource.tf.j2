@@ -1,6 +1,50 @@
 resource "google_org_policy_policy" "example" {
-    etag = "{{ etag }}"
     id = "{{ id }}"
     name = "{{ name }}"
     parent = "{{ parent }}"
+    dry_run_spec {
+      inherit_from_parent = {{ inherit_from_parent }}
+      reset = {{ reset }}
+      rules {
+        allow_all = "{{ allow_all }}"
+        deny_all = "{{ deny_all }}"
+        enforce = "{{ enforce }}"
+        parameters = "{{ parameters }}"
+        condition {
+          description = "{{ description }}"
+          expression = "{{ expression }}"
+          location = "{{ location }}"
+          title = "{{ title }}"
+        }
+        values {
+          allowed_values = ["{{ allowed_values }}"]
+          denied_values = ["{{ denied_values }}"]
+        }
+      }
+    }
+    spec {
+      inherit_from_parent = {{ inherit_from_parent }}
+      reset = {{ reset }}
+      rules {
+        allow_all = "{{ allow_all }}"
+        deny_all = "{{ deny_all }}"
+        enforce = "{{ enforce }}"
+        parameters = "{{ parameters }}"
+        condition {
+          description = "{{ description }}"
+          expression = "{{ expression }}"
+          location = "{{ location }}"
+          title = "{{ title }}"
+        }
+        values {
+          allowed_values = ["{{ allowed_values }}"]
+          denied_values = ["{{ denied_values }}"]
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

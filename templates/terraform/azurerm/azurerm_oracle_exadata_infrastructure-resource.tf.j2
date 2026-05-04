@@ -1,13 +1,32 @@
 resource "azurerm_oracle_exadata_infrastructure" "example" {
-    compute_count = "{{ compute_count }}"
-    customer_contacts = "{{ customer_contacts }}"
+    compute_count = {{ compute_count }}
+    customer_contacts = ["{{ customer_contacts }}"]
+    database_server_type = "{{ database_server_type }}"
     display_name = "{{ display_name }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     shape = "{{ shape }}"
-    storage_count = "{{ storage_count }}"
-    tags = "{{ tags }}"
-    zones = "{{ zones }}"
+    storage_count = {{ storage_count }}
+    storage_server_type = "{{ storage_server_type }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    zones = ["{{ zones }}"]
+    maintenance_window {
+      days_of_week = ["{{ days_of_week }}"]
+      hours_of_day = ["{{ hours_of_day }}"]
+      lead_time_in_weeks = {{ lead_time_in_weeks }}
+      months = ["{{ months }}"]
+      patching_mode = "{{ patching_mode }}"
+      preference = "{{ preference }}"
+      weeks_of_month = ["{{ weeks_of_month }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

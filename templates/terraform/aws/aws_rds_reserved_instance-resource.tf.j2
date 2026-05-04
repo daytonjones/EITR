@@ -1,21 +1,18 @@
 resource "aws_rds_reserved_instance" "example" {
-    arn = "{{ arn }}"
-    currency_code = "{{ currency_code }}"
-    db_instance_class = "{{ db_instance_class }}"
-    duration = "{{ duration }}"
-    fixed_price = "{{ fixed_price }}"
     id = "{{ id }}"
-    instance_count = "{{ instance_count }}"
-    lease_id = "{{ lease_id }}"
-    multi_az = "{{ multi_az }}"
+    instance_count = {{ instance_count }}
     offering_id = "{{ offering_id }}"
-    offering_type = "{{ offering_type }}"
-    product_description = "{{ product_description }}"
-    recurring_charges = "{{ recurring_charges }}"
+    region = "{{ region }}"
     reservation_id = "{{ reservation_id }}"
-    start_time = "{{ start_time }}"
-    state = "{{ state }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    usage_price = "{{ usage_price }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

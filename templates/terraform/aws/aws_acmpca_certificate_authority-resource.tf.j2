@@ -1,17 +1,51 @@
 resource "aws_acmpca_certificate_authority" "example" {
-    arn = "{{ arn }}"
-    certificate = "{{ certificate }}"
-    certificate_chain = "{{ certificate_chain }}"
-    certificate_signing_request = "{{ certificate_signing_request }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     key_storage_security_standard = "{{ key_storage_security_standard }}"
-    not_after = "{{ not_after }}"
-    not_before = "{{ not_before }}"
-    permanent_deletion_time_in_days = "{{ permanent_deletion_time_in_days }}"
-    serial = "{{ serial }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    permanent_deletion_time_in_days = {{ permanent_deletion_time_in_days }}
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     type = "{{ type }}"
     usage_mode = "{{ usage_mode }}"
+    certificate_authority_configuration {
+      key_algorithm = "{{ key_algorithm }}"
+      signing_algorithm = "{{ signing_algorithm }}"
+      subject {
+        common_name = "{{ common_name }}"
+        country = "{{ country }}"
+        distinguished_name_qualifier = "{{ distinguished_name_qualifier }}"
+        generation_qualifier = "{{ generation_qualifier }}"
+        given_name = "{{ given_name }}"
+        initials = "{{ initials }}"
+        locality = "{{ locality }}"
+        organization = "{{ organization }}"
+        organizational_unit = "{{ organizational_unit }}"
+        pseudonym = "{{ pseudonym }}"
+        state = "{{ state }}"
+        surname = "{{ surname }}"
+        title = "{{ title }}"
+      }
+    }
+    revocation_configuration {
+      crl_configuration {
+        custom_cname = "{{ custom_cname }}"
+        custom_path = "{{ custom_path }}"
+        enabled = {{ enabled }}
+        expiration_in_days = {{ expiration_in_days }}
+        s3_bucket_name = "{{ s3_bucket_name }}"
+        s3_object_acl = "{{ s3_object_acl }}"
+      }
+      ocsp_configuration {
+        enabled = {{ enabled }}
+        ocsp_custom_cname = "{{ ocsp_custom_cname }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+    }
 }

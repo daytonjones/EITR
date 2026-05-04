@@ -4,4 +4,10 @@ resource "azurerm_synapse_workspace_sql_aad_admin" "example" {
     object_id = "{{ object_id }}"
     synapse_workspace_id = "{{ synapse_workspace_id }}"
     tenant_id = "{{ tenant_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

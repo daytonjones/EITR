@@ -1,0 +1,14 @@
+resource "nomad_dynamic_host_volume_registration" "example" {
+    capacity = "{{ capacity }}"
+    host_path = "{{ host_path }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    node_id = "{{ node_id }}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
+    capability {
+      access_mode = "{{ access_mode }}"
+      attachment_mode = "{{ attachment_mode }}"
+    }
+}

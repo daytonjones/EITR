@@ -1,0 +1,16 @@
+resource "google_chronicle_retrohunt" "example" {
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    retrohunt = "{{ retrohunt }}"
+    rule = "{{ rule }}"
+    process_interval {
+      end_time = "{{ end_time }}"
+      start_time = "{{ start_time }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

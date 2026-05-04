@@ -6,4 +6,10 @@ resource "azurerm_spring_cloud_app_mysql_association" "example" {
     password = "{{ password }}"
     spring_cloud_app_id = "{{ spring_cloud_app_id }}"
     username = "{{ username }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

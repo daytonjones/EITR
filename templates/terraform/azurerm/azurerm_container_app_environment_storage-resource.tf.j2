@@ -5,5 +5,12 @@ resource "azurerm_container_app_environment_storage" "example" {
     container_app_environment_id = "{{ container_app_environment_id }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    nfs_server_url = "{{ nfs_server_url }}"
     share_name = "{{ share_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

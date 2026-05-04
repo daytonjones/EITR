@@ -1,10 +1,27 @@
 resource "aws_connect_quick_connect" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     id = "{{ id }}"
     instance_id = "{{ instance_id }}"
     name = "{{ name }}"
-    quick_connect_id = "{{ quick_connect_id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    quick_connect_config {
+      quick_connect_type = "{{ quick_connect_type }}"
+      phone_config {
+        phone_number = "{{ phone_number }}"
+      }
+      queue_config {
+        contact_flow_id = "{{ contact_flow_id }}"
+        queue_id = "{{ queue_id }}"
+      }
+      user_config {
+        contact_flow_id = "{{ contact_flow_id }}"
+        user_id = "{{ user_id }}"
+      }
+    }
 }

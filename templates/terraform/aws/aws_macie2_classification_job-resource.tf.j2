@@ -1,17 +1,105 @@
 resource "aws_macie2_classification_job" "example" {
-    created_at = "{{ created_at }}"
-    custom_data_identifier_ids = "{{ custom_data_identifier_ids }}"
+    custom_data_identifier_ids = ["{{ custom_data_identifier_ids }}"]
     description = "{{ description }}"
     id = "{{ id }}"
-    initial_run = "{{ initial_run }}"
-    job_arn = "{{ job_arn }}"
-    job_id = "{{ job_id }}"
+    initial_run = {{ initial_run }}
     job_status = "{{ job_status }}"
     job_type = "{{ job_type }}"
     name = "{{ name }}"
     name_prefix = "{{ name_prefix }}"
-    sampling_percentage = "{{ sampling_percentage }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    user_paused_details = "{{ user_paused_details }}"
+    region = "{{ region }}"
+    sampling_percentage = {{ sampling_percentage }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    s3_job_definition {
+      bucket_criteria {
+        excludes {
+          and {
+            simple_criterion {
+              comparator = "{{ comparator }}"
+              key = "{{ key }}"
+              values = ["{{ values }}"]
+            }
+            tag_criterion {
+              comparator = "{{ comparator }}"
+              tag_values {
+                key = "{{ key }}"
+                value = "{{ value }}"
+              }
+            }
+          }
+        }
+        includes {
+          and {
+            simple_criterion {
+              comparator = "{{ comparator }}"
+              key = "{{ key }}"
+              values = ["{{ values }}"]
+            }
+            tag_criterion {
+              comparator = "{{ comparator }}"
+              tag_values {
+                key = "{{ key }}"
+                value = "{{ value }}"
+              }
+            }
+          }
+        }
+      }
+      bucket_definitions {
+        account_id = "{{ account_id }}"
+        buckets = ["{{ buckets }}"]
+      }
+      scoping {
+        excludes {
+          and {
+            simple_scope_term {
+              comparator = "{{ comparator }}"
+              key = "{{ key }}"
+              values = ["{{ values }}"]
+            }
+            tag_scope_term {
+              comparator = "{{ comparator }}"
+              key = "{{ key }}"
+              target = "{{ target }}"
+              tag_values {
+                key = "{{ key }}"
+                value = "{{ value }}"
+              }
+            }
+          }
+        }
+        includes {
+          and {
+            simple_scope_term {
+              comparator = "{{ comparator }}"
+              key = "{{ key }}"
+              values = ["{{ values }}"]
+            }
+            tag_scope_term {
+              comparator = "{{ comparator }}"
+              key = "{{ key }}"
+              target = "{{ target }}"
+              tag_values {
+                key = "{{ key }}"
+                value = "{{ value }}"
+              }
+            }
+          }
+        }
+      }
+    }
+    schedule_frequency {
+      daily_schedule = {{ daily_schedule }}
+      monthly_schedule = {{ monthly_schedule }}
+      weekly_schedule = "{{ weekly_schedule }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
 }

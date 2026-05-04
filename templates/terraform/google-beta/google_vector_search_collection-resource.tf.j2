@@ -1,0 +1,33 @@
+resource "google_vector_search_collection" "example" {
+    collection_id = "{{ collection_id }}"
+    data_schema = "{{ data_schema }}"
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    encryption_spec {
+      crypto_key_name = "{{ crypto_key_name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    vector_schema {
+      field_name = "{{ field_name }}"
+      dense_vector {
+        dimensions = {{ dimensions }}
+        vertex_embedding_config {
+          model_id = "{{ model_id }}"
+          task_type = "{{ task_type }}"
+          text_template = "{{ text_template }}"
+        }
+      }
+      sparse_vector {
+      }
+    }
+}

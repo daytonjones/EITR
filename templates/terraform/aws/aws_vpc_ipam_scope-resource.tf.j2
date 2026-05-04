@@ -1,12 +1,17 @@
 resource "aws_vpc_ipam_scope" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    ipam_arn = "{{ ipam_arn }}"
     ipam_id = "{{ ipam_id }}"
-    ipam_scope_type = "{{ ipam_scope_type }}"
-    is_default = "{{ is_default }}"
-    pool_count = "{{ pool_count }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

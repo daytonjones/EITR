@@ -1,0 +1,6 @@
+resource "awscc_braket_spending_limit" "example" {
+    device_arn = "{{ device_arn }}"
+    spending_limit = "{{ spending_limit }}"
+    tags = "{{ tags }}"
+    time_period = "{{ time_period }}"
+}

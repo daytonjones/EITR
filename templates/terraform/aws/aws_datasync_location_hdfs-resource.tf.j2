@@ -1,8 +1,7 @@
 resource "aws_datasync_location_hdfs" "example" {
-    agent_arns = "{{ agent_arns }}"
-    arn = "{{ arn }}"
+    agent_arns = ["{{ agent_arns }}"]
     authentication_type = "{{ authentication_type }}"
-    block_size = "{{ block_size }}"
+    block_size = {{ block_size }}
     id = "{{ id }}"
     kerberos_keytab = "{{ kerberos_keytab }}"
     kerberos_keytab_base64 = "{{ kerberos_keytab_base64 }}"
@@ -10,10 +9,22 @@ resource "aws_datasync_location_hdfs" "example" {
     kerberos_krb5_conf_base64 = "{{ kerberos_krb5_conf_base64 }}"
     kerberos_principal = "{{ kerberos_principal }}"
     kms_key_provider_uri = "{{ kms_key_provider_uri }}"
-    replication_factor = "{{ replication_factor }}"
+    region = "{{ region }}"
+    replication_factor = {{ replication_factor }}
     simple_user = "{{ simple_user }}"
     subdirectory = "{{ subdirectory }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    uri = "{{ uri }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    name_node {
+      hostname = "{{ hostname }}"
+      port = {{ port }}
+    }
+    qop_configuration {
+      data_transfer_protection = "{{ data_transfer_protection }}"
+      rpc_protection = "{{ rpc_protection }}"
+    }
 }

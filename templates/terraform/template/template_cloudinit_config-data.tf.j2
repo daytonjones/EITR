@@ -1,6 +1,11 @@
 data "template_cloudinit_config" "example" {
-    base64_encode = "{{ base64_encode }}"
-    gzip = "{{ gzip }}"
+    base64_encode = {{ base64_encode }}
+    gzip = {{ gzip }}
     id = "{{ id }}"
-    rendered = "{{ rendered }}"
+    part {
+      content = "{{ content }}"
+      content_type = "{{ content_type }}"
+      filename = "{{ filename }}"
+      merge_type = "{{ merge_type }}"
+    }
 }

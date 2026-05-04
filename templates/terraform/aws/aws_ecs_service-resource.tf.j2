@@ -1,24 +1,176 @@
 resource "aws_ecs_service" "example" {
     availability_zone_rebalancing = "{{ availability_zone_rebalancing }}"
     cluster = "{{ cluster }}"
-    deployment_maximum_percent = "{{ deployment_maximum_percent }}"
-    deployment_minimum_healthy_percent = "{{ deployment_minimum_healthy_percent }}"
-    desired_count = "{{ desired_count }}"
-    enable_ecs_managed_tags = "{{ enable_ecs_managed_tags }}"
-    enable_execute_command = "{{ enable_execute_command }}"
-    force_delete = "{{ force_delete }}"
-    force_new_deployment = "{{ force_new_deployment }}"
-    health_check_grace_period_seconds = "{{ health_check_grace_period_seconds }}"
+    deployment_maximum_percent = {{ deployment_maximum_percent }}
+    deployment_minimum_healthy_percent = {{ deployment_minimum_healthy_percent }}
+    desired_count = {{ desired_count }}
+    enable_ecs_managed_tags = {{ enable_ecs_managed_tags }}
+    enable_execute_command = {{ enable_execute_command }}
+    force_delete = {{ force_delete }}
+    force_new_deployment = {{ force_new_deployment }}
+    health_check_grace_period_seconds = {{ health_check_grace_period_seconds }}
     iam_role = "{{ iam_role }}"
     id = "{{ id }}"
     launch_type = "{{ launch_type }}"
     name = "{{ name }}"
     platform_version = "{{ platform_version }}"
     propagate_tags = "{{ propagate_tags }}"
+    region = "{{ region }}"
     scheduling_strategy = "{{ scheduling_strategy }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    sigint_rollback = {{ sigint_rollback }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     task_definition = "{{ task_definition }}"
-    triggers = "{{ triggers }}"
-    wait_for_steady_state = "{{ wait_for_steady_state }}"
+    triggers = {
+        key = "{{ triggers_value }}"
+      }
+    wait_for_steady_state = {{ wait_for_steady_state }}
+    alarms {
+      alarm_names = ["{{ alarm_names }}"]
+      enable = {{ enable }}
+      rollback = {{ rollback }}
+    }
+    capacity_provider_strategy {
+      base = {{ base }}
+      capacity_provider = "{{ capacity_provider }}"
+      weight = {{ weight }}
+    }
+    deployment_circuit_breaker {
+      enable = {{ enable }}
+      rollback = {{ rollback }}
+    }
+    deployment_configuration {
+      bake_time_in_minutes = "{{ bake_time_in_minutes }}"
+      strategy = "{{ strategy }}"
+      canary_configuration {
+        canary_bake_time_in_minutes = "{{ canary_bake_time_in_minutes }}"
+        canary_percent = {{ canary_percent }}
+      }
+      lifecycle_hook {
+        hook_details = "{{ hook_details }}"
+        hook_target_arn = "{{ hook_target_arn }}"
+        lifecycle_stages = ["{{ lifecycle_stages }}"]
+        role_arn = "{{ role_arn }}"
+      }
+      linear_configuration {
+        step_bake_time_in_minutes = "{{ step_bake_time_in_minutes }}"
+        step_percent = {{ step_percent }}
+      }
+    }
+    deployment_controller {
+      type = "{{ type }}"
+    }
+    load_balancer {
+      container_name = "{{ container_name }}"
+      container_port = {{ container_port }}
+      elb_name = "{{ elb_name }}"
+      target_group_arn = "{{ target_group_arn }}"
+      advanced_configuration {
+        alternate_target_group_arn = "{{ alternate_target_group_arn }}"
+        production_listener_rule = "{{ production_listener_rule }}"
+        role_arn = "{{ role_arn }}"
+        test_listener_rule = "{{ test_listener_rule }}"
+      }
+    }
+    network_configuration {
+      assign_public_ip = {{ assign_public_ip }}
+      security_groups = ["{{ security_groups }}"]
+      subnets = ["{{ subnets }}"]
+    }
+    ordered_placement_strategy {
+      field = "{{ field }}"
+      type = "{{ type }}"
+    }
+    placement_constraints {
+      expression = "{{ expression }}"
+      type = "{{ type }}"
+    }
+    service_connect_configuration {
+      enabled = {{ enabled }}
+      namespace = "{{ namespace }}"
+      access_log_configuration {
+        format = "{{ format }}"
+        include_query_parameters = "{{ include_query_parameters }}"
+      }
+      log_configuration {
+        log_driver = "{{ log_driver }}"
+        options = {
+        key = "{{ options_value }}"
+      }
+        secret_option {
+          name = "{{ name }}"
+          value_from = "{{ value_from }}"
+        }
+      }
+      service {
+        discovery_name = "{{ discovery_name }}"
+        ingress_port_override = {{ ingress_port_override }}
+        port_name = "{{ port_name }}"
+        client_alias {
+          dns_name = "{{ dns_name }}"
+          port = {{ port }}
+          test_traffic_rules {
+            header {
+              name = "{{ name }}"
+              value {
+                exact = "{{ exact }}"
+              }
+            }
+          }
+        }
+        timeout {
+          idle_timeout_seconds = {{ idle_timeout_seconds }}
+          per_request_timeout_seconds = {{ per_request_timeout_seconds }}
+        }
+        tls {
+          kms_key = "{{ kms_key }}"
+          role_arn = "{{ role_arn }}"
+          issuer_cert_authority {
+            aws_pca_authority_arn = "{{ aws_pca_authority_arn }}"
+          }
+        }
+      }
+    }
+    service_registries {
+      container_name = "{{ container_name }}"
+      container_port = {{ container_port }}
+      port = {{ port }}
+      registry_arn = "{{ registry_arn }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    volume_configuration {
+      name = "{{ name }}"
+      managed_ebs_volume {
+        encrypted = {{ encrypted }}
+        file_system_type = "{{ file_system_type }}"
+        iops = {{ iops }}
+        kms_key_id = "{{ kms_key_id }}"
+        role_arn = "{{ role_arn }}"
+        size_in_gb = {{ size_in_gb }}
+        snapshot_id = "{{ snapshot_id }}"
+        throughput = {{ throughput }}
+        volume_initialization_rate = {{ volume_initialization_rate }}
+        volume_type = "{{ volume_type }}"
+        tag_specifications {
+          propagate_tags = "{{ propagate_tags }}"
+          resource_type = "{{ resource_type }}"
+          tags = {
+        key = "{{ tags_value }}"
+      }
+        }
+      }
+    }
+    vpc_lattice_configurations {
+      port_name = "{{ port_name }}"
+      role_arn = "{{ role_arn }}"
+      target_group_arn = "{{ target_group_arn }}"
+    }
 }

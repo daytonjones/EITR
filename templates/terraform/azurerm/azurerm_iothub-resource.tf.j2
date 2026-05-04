@@ -1,23 +1,66 @@
 resource "azurerm_iothub" "example" {
-    endpoint = "{{ endpoint }}"
-    enrichment = "{{ enrichment }}"
-    event_hub_events_endpoint = "{{ event_hub_events_endpoint }}"
-    event_hub_events_namespace = "{{ event_hub_events_namespace }}"
-    event_hub_events_path = "{{ event_hub_events_path }}"
-    event_hub_operations_endpoint = "{{ event_hub_operations_endpoint }}"
-    event_hub_operations_path = "{{ event_hub_operations_path }}"
-    event_hub_partition_count = "{{ event_hub_partition_count }}"
-    event_hub_retention_in_days = "{{ event_hub_retention_in_days }}"
-    hostname = "{{ hostname }}"
+    endpoint = ["{{ endpoint }}"]
+    enrichment = ["{{ enrichment }}"]
+    event_hub_partition_count = {{ event_hub_partition_count }}
+    event_hub_retention_in_days = {{ event_hub_retention_in_days }}
     id = "{{ id }}"
-    local_authentication_enabled = "{{ local_authentication_enabled }}"
+    local_authentication_enabled = {{ local_authentication_enabled }}
     location = "{{ location }}"
     min_tls_version = "{{ min_tls_version }}"
     name = "{{ name }}"
-    public_network_access_enabled = "{{ public_network_access_enabled }}"
+    public_network_access_enabled = {{ public_network_access_enabled }}
     resource_group_name = "{{ resource_group_name }}"
-    route = "{{ route }}"
-    shared_access_policy = "{{ shared_access_policy }}"
-    tags = "{{ tags }}"
-    type = "{{ type }}"
+    route = ["{{ route }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    cloud_to_device {
+      default_ttl = "{{ default_ttl }}"
+      max_delivery_count = {{ max_delivery_count }}
+      feedback {
+        lock_duration = "{{ lock_duration }}"
+        max_delivery_count = {{ max_delivery_count }}
+        time_to_live = "{{ time_to_live }}"
+      }
+    }
+    fallback_route {
+      condition = "{{ condition }}"
+      enabled = {{ enabled }}
+      endpoint_names = ["{{ endpoint_names }}"]
+      source = "{{ source }}"
+    }
+    file_upload {
+      authentication_type = "{{ authentication_type }}"
+      connection_string = "{{ connection_string }}"
+      container_name = "{{ container_name }}"
+      default_ttl = "{{ default_ttl }}"
+      identity_id = "{{ identity_id }}"
+      lock_duration = "{{ lock_duration }}"
+      max_delivery_count = {{ max_delivery_count }}
+      notifications = {{ notifications }}
+      sas_ttl = "{{ sas_ttl }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    network_rule_set {
+      apply_to_builtin_eventhub_endpoint = {{ apply_to_builtin_eventhub_endpoint }}
+      default_action = "{{ default_action }}"
+      ip_rule {
+        action = "{{ action }}"
+        ip_mask = "{{ ip_mask }}"
+        name = "{{ name }}"
+      }
+    }
+    sku {
+      capacity = {{ capacity }}
+      name = "{{ name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

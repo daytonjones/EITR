@@ -1,10 +1,23 @@
 resource "aws_ecrpublic_repository" "example" {
-    arn = "{{ arn }}"
-    force_destroy = "{{ force_destroy }}"
+    force_destroy = {{ force_destroy }}
     id = "{{ id }}"
-    registry_id = "{{ registry_id }}"
+    region = "{{ region }}"
     repository_name = "{{ repository_name }}"
-    repository_uri = "{{ repository_uri }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    catalog_data {
+      about_text = "{{ about_text }}"
+      architectures = ["{{ architectures }}"]
+      description = "{{ description }}"
+      logo_image_blob = "{{ logo_image_blob }}"
+      operating_systems = ["{{ operating_systems }}"]
+      usage_text = "{{ usage_text }}"
+    }
+    timeouts {
+      delete = "{{ delete }}"
+    }
 }

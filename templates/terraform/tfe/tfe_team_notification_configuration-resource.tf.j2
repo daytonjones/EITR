@@ -1,0 +1,13 @@
+resource "tfe_team_notification_configuration" "example" {
+    destination_type = "{{ destination_type }}"
+    email_addresses = ["{{ email_addresses }}"]
+    email_user_ids = ["{{ email_user_ids }}"]
+    enabled = {{ enabled }}
+    name = "{{ name }}"
+    team_id = "{{ team_id }}"
+    token = "{{ token }}"
+    token_wo = "{{ token_wo }}"
+    token_wo_version = {{ token_wo_version }}
+    triggers = ["{{ triggers }}"]
+    url = "{{ url }}"
+}

@@ -6,7 +6,39 @@ resource "azurerm_monitor_alert_prometheus_rule_group" "example" {
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    rule_group_enabled = "{{ rule_group_enabled }}"
-    scopes = "{{ scopes }}"
-    tags = "{{ tags }}"
+    rule_group_enabled = {{ rule_group_enabled }}
+    scopes = ["{{ scopes }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    rule {
+      alert = "{{ alert }}"
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      enabled = {{ enabled }}
+      expression = "{{ expression }}"
+      for = "{{ for }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      record = "{{ record }}"
+      severity = {{ severity }}
+      action {
+        action_group_id = "{{ action_group_id }}"
+        action_properties = {
+        key = "{{ action_properties_value }}"
+      }
+      }
+      alert_resolution {
+        auto_resolved = {{ auto_resolved }}
+        time_to_resolve = "{{ time_to_resolve }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

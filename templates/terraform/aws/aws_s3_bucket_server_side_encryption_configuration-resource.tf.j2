@@ -2,4 +2,13 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
     bucket = "{{ bucket }}"
     expected_bucket_owner = "{{ expected_bucket_owner }}"
     id = "{{ id }}"
+    region = "{{ region }}"
+    rule {
+      blocked_encryption_types = ["{{ blocked_encryption_types }}"]
+      bucket_key_enabled = {{ bucket_key_enabled }}
+      apply_server_side_encryption_by_default {
+        kms_master_key_id = "{{ kms_master_key_id }}"
+        sse_algorithm = "{{ sse_algorithm }}"
+      }
+    }
 }

@@ -1,0 +1,213 @@
+resource "aws_wafv2_web_acl_rule_group_association" "example" {
+    override_action = "{{ override_action }}"
+    priority = {{ priority }}
+    region = "{{ region }}"
+    rule_name = "{{ rule_name }}"
+    web_acl_arn = "{{ web_acl_arn }}"
+    managed_rule_group {
+      name = "{{ name }}"
+      vendor_name = "{{ vendor_name }}"
+      version = "{{ version }}"
+      managed_rule_group_configs {
+        aws_managed_rules_acfp_rule_set {
+          creation_path = "{{ creation_path }}"
+          enable_regex_in_path = {{ enable_regex_in_path }}
+          registration_page_path = "{{ registration_page_path }}"
+          request_inspection {
+            payload_type = "{{ payload_type }}"
+            address_fields {
+              identifiers = ["{{ identifiers }}"]
+            }
+            email_field {
+              identifier = "{{ identifier }}"
+            }
+            password_field {
+              identifier = "{{ identifier }}"
+            }
+            phone_number_fields {
+              identifiers = ["{{ identifiers }}"]
+            }
+            username_field {
+              identifier = "{{ identifier }}"
+            }
+          }
+          response_inspection {
+            body_contains {
+              failure_strings = ["{{ failure_strings }}"]
+              success_strings = ["{{ success_strings }}"]
+            }
+            header {
+              failure_values = ["{{ failure_values }}"]
+              name = "{{ name }}"
+              success_values = ["{{ success_values }}"]
+            }
+            json {
+              failure_values = ["{{ failure_values }}"]
+              identifier = "{{ identifier }}"
+              success_values = ["{{ success_values }}"]
+            }
+            status_code {
+              failure_codes = ["{{ failure_codes }}"]
+              success_codes = ["{{ success_codes }}"]
+            }
+          }
+        }
+        aws_managed_rules_anti_ddos_rule_set {
+          sensitivity_to_block = "{{ sensitivity_to_block }}"
+          client_side_action_config {
+            challenge {
+              sensitivity = "{{ sensitivity }}"
+              usage_of_action = "{{ usage_of_action }}"
+              exempt_uri_regular_expression {
+                regex_string = "{{ regex_string }}"
+              }
+            }
+          }
+        }
+        aws_managed_rules_atp_rule_set {
+          enable_regex_in_path = {{ enable_regex_in_path }}
+          login_path = "{{ login_path }}"
+          request_inspection {
+            payload_type = "{{ payload_type }}"
+            password_field {
+              identifier = "{{ identifier }}"
+            }
+            username_field {
+              identifier = "{{ identifier }}"
+            }
+          }
+          response_inspection {
+            body_contains {
+              failure_strings = ["{{ failure_strings }}"]
+              success_strings = ["{{ success_strings }}"]
+            }
+            header {
+              failure_values = ["{{ failure_values }}"]
+              name = "{{ name }}"
+              success_values = ["{{ success_values }}"]
+            }
+            json {
+              failure_values = ["{{ failure_values }}"]
+              identifier = "{{ identifier }}"
+              success_values = ["{{ success_values }}"]
+            }
+            status_code {
+              failure_codes = ["{{ failure_codes }}"]
+              success_codes = ["{{ success_codes }}"]
+            }
+          }
+        }
+        aws_managed_rules_bot_control_rule_set {
+          enable_machine_learning = {{ enable_machine_learning }}
+          inspection_level = "{{ inspection_level }}"
+        }
+      }
+      rule_action_override {
+        name = "{{ name }}"
+        action_to_use {
+          allow {
+            custom_request_handling {
+              insert_header {
+                name = "{{ name }}"
+                value = "{{ value }}"
+              }
+            }
+          }
+          block {
+            custom_response {
+              custom_response_body_key = "{{ custom_response_body_key }}"
+              response_code = {{ response_code }}
+              response_header {
+                name = "{{ name }}"
+                value = "{{ value }}"
+              }
+            }
+          }
+          captcha {
+            custom_request_handling {
+              insert_header {
+                name = "{{ name }}"
+                value = "{{ value }}"
+              }
+            }
+          }
+          challenge {
+            custom_request_handling {
+              insert_header {
+                name = "{{ name }}"
+                value = "{{ value }}"
+              }
+            }
+          }
+          count {
+            custom_request_handling {
+              insert_header {
+                name = "{{ name }}"
+                value = "{{ value }}"
+              }
+            }
+          }
+        }
+      }
+    }
+    rule_group_reference {
+      arn = "{{ arn }}"
+      rule_action_override {
+        name = "{{ name }}"
+        action_to_use {
+          allow {
+            custom_request_handling {
+              insert_header {
+                name = "{{ name }}"
+                value = "{{ value }}"
+              }
+            }
+          }
+          block {
+            custom_response {
+              custom_response_body_key = "{{ custom_response_body_key }}"
+              response_code = {{ response_code }}
+              response_header {
+                name = "{{ name }}"
+                value = "{{ value }}"
+              }
+            }
+          }
+          captcha {
+            custom_request_handling {
+              insert_header {
+                name = "{{ name }}"
+                value = "{{ value }}"
+              }
+            }
+          }
+          challenge {
+            custom_request_handling {
+              insert_header {
+                name = "{{ name }}"
+                value = "{{ value }}"
+              }
+            }
+          }
+          count {
+            custom_request_handling {
+              insert_header {
+                name = "{{ name }}"
+                value = "{{ value }}"
+              }
+            }
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    visibility_config {
+      cloudwatch_metrics_enabled = {{ cloudwatch_metrics_enabled }}
+      metric_name = "{{ metric_name }}"
+      sampled_requests_enabled = {{ sampled_requests_enabled }}
+    }
+}

@@ -3,7 +3,11 @@ resource "google_compute_region_network_firewall_policy_association" "example" {
     firewall_policy = "{{ firewall_policy }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    priority = {{ priority }}
     project = "{{ project }}"
     region = "{{ region }}"
-    short_name = "{{ short_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

@@ -1,10 +1,14 @@
 resource "google_dataplex_task_iam_binding" "example" {
-    etag = "{{ etag }}"
     id = "{{ id }}"
     lake = "{{ lake }}"
     location = "{{ location }}"
-    members = "{{ members }}"
+    members = ["{{ members }}"]
     project = "{{ project }}"
     role = "{{ role }}"
     task_id = "{{ task_id }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
 }

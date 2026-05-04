@@ -1,11 +1,24 @@
 resource "aws_eks_fargate_profile" "example" {
-    arn = "{{ arn }}"
     cluster_name = "{{ cluster_name }}"
     fargate_profile_name = "{{ fargate_profile_name }}"
     id = "{{ id }}"
     pod_execution_role_arn = "{{ pod_execution_role_arn }}"
-    status = "{{ status }}"
-    subnet_ids = "{{ subnet_ids }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    subnet_ids = ["{{ subnet_ids }}"]
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    selector {
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      namespace = "{{ namespace }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

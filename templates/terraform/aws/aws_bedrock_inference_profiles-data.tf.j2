@@ -1,3 +1,4 @@
 data "aws_bedrock_inference_profiles" "example" {
-    inference_profile_summaries = "{{ inference_profile_summaries }}"
+    region = "{{ region }}"
+    type = "{{ type }}"
 }

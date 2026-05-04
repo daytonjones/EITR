@@ -1,27 +1,89 @@
 resource "azurerm_logic_app_standard" "example" {
     app_service_plan_id = "{{ app_service_plan_id }}"
-    app_settings = "{{ app_settings }}"
+    app_settings = {
+        key = "{{ app_settings_value }}"
+      }
     bundle_version = "{{ bundle_version }}"
-    client_affinity_enabled = "{{ client_affinity_enabled }}"
+    client_affinity_enabled = {{ client_affinity_enabled }}
     client_certificate_mode = "{{ client_certificate_mode }}"
-    custom_domain_verification_id = "{{ custom_domain_verification_id }}"
-    default_hostname = "{{ default_hostname }}"
-    enabled = "{{ enabled }}"
-    https_only = "{{ https_only }}"
+    enabled = {{ enabled }}
+    ftp_publish_basic_authentication_enabled = {{ ftp_publish_basic_authentication_enabled }}
+    https_only = {{ https_only }}
     id = "{{ id }}"
-    kind = "{{ kind }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    outbound_ip_addresses = "{{ outbound_ip_addresses }}"
-    possible_outbound_ip_addresses = "{{ possible_outbound_ip_addresses }}"
     public_network_access = "{{ public_network_access }}"
     resource_group_name = "{{ resource_group_name }}"
-    site_credential = "{{ site_credential }}"
+    scm_publish_basic_authentication_enabled = {{ scm_publish_basic_authentication_enabled }}
     storage_account_access_key = "{{ storage_account_access_key }}"
     storage_account_name = "{{ storage_account_name }}"
     storage_account_share_name = "{{ storage_account_share_name }}"
-    tags = "{{ tags }}"
-    use_extension_bundle = "{{ use_extension_bundle }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    use_extension_bundle = {{ use_extension_bundle }}
     version = "{{ version }}"
     virtual_network_subnet_id = "{{ virtual_network_subnet_id }}"
+    vnet_content_share_enabled = {{ vnet_content_share_enabled }}
+    connection_string {
+      name = "{{ name }}"
+      type = "{{ type }}"
+      value = "{{ value }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    site_config {
+      always_on = {{ always_on }}
+      app_scale_limit = {{ app_scale_limit }}
+      dotnet_framework_version = "{{ dotnet_framework_version }}"
+      elastic_instance_minimum = {{ elastic_instance_minimum }}
+      ftps_state = "{{ ftps_state }}"
+      health_check_path = "{{ health_check_path }}"
+      http2_enabled = {{ http2_enabled }}
+      ip_restriction_default_action = "{{ ip_restriction_default_action }}"
+      linux_fx_version = "{{ linux_fx_version }}"
+      min_tls_version = "{{ min_tls_version }}"
+      pre_warmed_instance_count = {{ pre_warmed_instance_count }}
+      public_network_access_enabled = {{ public_network_access_enabled }}
+      runtime_scale_monitoring_enabled = {{ runtime_scale_monitoring_enabled }}
+      scm_ip_restriction_default_action = "{{ scm_ip_restriction_default_action }}"
+      scm_min_tls_version = "{{ scm_min_tls_version }}"
+      scm_type = "{{ scm_type }}"
+      scm_use_main_ip_restriction = {{ scm_use_main_ip_restriction }}
+      use_32_bit_worker_process = {{ use_32_bit_worker_process }}
+      vnet_route_all_enabled = {{ vnet_route_all_enabled }}
+      websockets_enabled = {{ websockets_enabled }}
+      cors {
+        allowed_origins = ["{{ allowed_origins }}"]
+        support_credentials = {{ support_credentials }}
+      }
+      ip_restriction {
+        action = "{{ action }}"
+        description = "{{ description }}"
+        headers = ["{{ headers }}"]
+        ip_address = "{{ ip_address }}"
+        name = "{{ name }}"
+        priority = {{ priority }}
+        service_tag = "{{ service_tag }}"
+        virtual_network_subnet_id = "{{ virtual_network_subnet_id }}"
+      }
+      scm_ip_restriction {
+        action = "{{ action }}"
+        description = "{{ description }}"
+        headers = ["{{ headers }}"]
+        ip_address = "{{ ip_address }}"
+        name = "{{ name }}"
+        priority = {{ priority }}
+        service_tag = "{{ service_tag }}"
+        virtual_network_subnet_id = "{{ virtual_network_subnet_id }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

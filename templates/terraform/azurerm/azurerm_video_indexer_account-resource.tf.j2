@@ -2,6 +2,23 @@ resource "azurerm_video_indexer_account" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
+    public_network_access = "{{ public_network_access }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    storage {
+      storage_account_id = "{{ storage_account_id }}"
+      user_assigned_identity_id = "{{ user_assigned_identity_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

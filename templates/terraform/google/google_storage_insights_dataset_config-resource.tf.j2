@@ -1,0 +1,45 @@
+resource "google_storage_insights_dataset_config" "example" {
+    activity_data_retention_period_days = {{ activity_data_retention_period_days }}
+    dataset_config_id = "{{ dataset_config_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    include_newly_created_buckets = {{ include_newly_created_buckets }}
+    link_dataset = {{ link_dataset }}
+    location = "{{ location }}"
+    organization_number = "{{ organization_number }}"
+    organization_scope = {{ organization_scope }}
+    project = "{{ project }}"
+    retention_period_days = {{ retention_period_days }}
+    exclude_cloud_storage_buckets {
+      cloud_storage_buckets {
+        bucket_name = "{{ bucket_name }}"
+        bucket_prefix_regex = "{{ bucket_prefix_regex }}"
+      }
+    }
+    exclude_cloud_storage_locations {
+      locations = ["{{ locations }}"]
+    }
+    identity {
+      type = "{{ type }}"
+    }
+    include_cloud_storage_buckets {
+      cloud_storage_buckets {
+        bucket_name = "{{ bucket_name }}"
+        bucket_prefix_regex = "{{ bucket_prefix_regex }}"
+      }
+    }
+    include_cloud_storage_locations {
+      locations = ["{{ locations }}"]
+    }
+    source_folders {
+      folder_numbers = ["{{ folder_numbers }}"]
+    }
+    source_projects {
+      project_numbers = ["{{ project_numbers }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

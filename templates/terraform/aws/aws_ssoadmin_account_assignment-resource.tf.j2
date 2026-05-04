@@ -4,6 +4,11 @@ resource "aws_ssoadmin_account_assignment" "example" {
     permission_set_arn = "{{ permission_set_arn }}"
     principal_id = "{{ principal_id }}"
     principal_type = "{{ principal_type }}"
+    region = "{{ region }}"
     target_id = "{{ target_id }}"
     target_type = "{{ target_type }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

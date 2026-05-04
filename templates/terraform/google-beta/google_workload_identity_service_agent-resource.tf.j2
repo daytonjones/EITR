@@ -1,0 +1,8 @@
+resource "google_workload_identity_service_agent" "example" {
+    id = "{{ id }}"
+    parent = "{{ parent }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

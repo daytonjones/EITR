@@ -1,0 +1,46 @@
+resource "google_beyondcorp_security_gateway" "example" {
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    security_gateway_id = "{{ security_gateway_id }}"
+    hubs {
+      region = "{{ region }}"
+      internet_gateway {
+      }
+    }
+    logging {
+    }
+    proxy_protocol_config {
+      allowed_client_headers = ["{{ allowed_client_headers }}"]
+      client_ip = {{ client_ip }}
+      gateway_identity = "{{ gateway_identity }}"
+      metadata_headers = {
+        key = "{{ metadata_headers_value }}"
+      }
+      contextual_headers {
+        output_type = "{{ output_type }}"
+        device_info {
+          output_type = "{{ output_type }}"
+        }
+        group_info {
+          output_type = "{{ output_type }}"
+        }
+        user_info {
+          output_type = "{{ output_type }}"
+        }
+      }
+    }
+    service_discovery {
+      api_gateway {
+        resource_override {
+          path = "{{ path }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

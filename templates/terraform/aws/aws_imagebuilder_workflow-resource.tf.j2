@@ -1,15 +1,17 @@
 resource "aws_imagebuilder_workflow" "example" {
-    arn = "{{ arn }}"
     change_description = "{{ change_description }}"
     data = "{{ data }}"
-    date_created = "{{ date_created }}"
     description = "{{ description }}"
     id = "{{ id }}"
     kms_key_id = "{{ kms_key_id }}"
     name = "{{ name }}"
-    owner = "{{ owner }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     type = "{{ type }}"
     uri = "{{ uri }}"
     version = "{{ version }}"

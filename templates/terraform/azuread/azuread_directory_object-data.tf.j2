@@ -1,5 +1,7 @@
 data "azuread_directory_object" "example" {
     id = "{{ id }}"
     object_id = "{{ object_id }}"
-    type = "{{ type }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

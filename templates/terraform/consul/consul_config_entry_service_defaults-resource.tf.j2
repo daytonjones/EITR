@@ -2,14 +2,92 @@ resource "consul_config_entry_service_defaults" "example" {
     balance_inbound_connections = "{{ balance_inbound_connections }}"
     external_sni = "{{ external_sni }}"
     id = "{{ id }}"
-    local_connect_timeout_ms = "{{ local_connect_timeout_ms }}"
-    local_request_timeout_ms = "{{ local_request_timeout_ms }}"
-    max_inbound_connections = "{{ max_inbound_connections }}"
-    meta = "{{ meta }}"
+    local_connect_timeout_ms = {{ local_connect_timeout_ms }}
+    local_request_timeout_ms = {{ local_request_timeout_ms }}
+    max_inbound_connections = {{ max_inbound_connections }}
+    meta = {
+        key = "{{ meta_value }}"
+      }
     mode = "{{ mode }}"
     mutual_tls_mode = "{{ mutual_tls_mode }}"
     name = "{{ name }}"
     namespace = "{{ namespace }}"
     partition = "{{ partition }}"
     protocol = "{{ protocol }}"
+    destination {
+      addresses = ["{{ addresses }}"]
+      port = {{ port }}
+    }
+    envoy_extensions {
+      arguments = {
+        key = "{{ arguments_value }}"
+      }
+      consul_version = "{{ consul_version }}"
+      envoy_version = "{{ envoy_version }}"
+      name = "{{ name }}"
+      required = {{ required }}
+    }
+    expose {
+      checks = {{ checks }}
+      paths {
+        listener_port = {{ listener_port }}
+        local_path_port = {{ local_path_port }}
+        path = "{{ path }}"
+        protocol = "{{ protocol }}"
+      }
+    }
+    mesh_gateway {
+      mode = "{{ mode }}"
+    }
+    transparent_proxy {
+      dialed_directly = {{ dialed_directly }}
+      outbound_listener_port = {{ outbound_listener_port }}
+    }
+    upstream_config {
+      defaults {
+        balance_outbound_connections = "{{ balance_outbound_connections }}"
+        connect_timeout_ms = {{ connect_timeout_ms }}
+        protocol = "{{ protocol }}"
+        limits {
+          max_concurrent_requests = {{ max_concurrent_requests }}
+          max_connections = {{ max_connections }}
+          max_pending_requests = {{ max_pending_requests }}
+        }
+        mesh_gateway {
+          mode = "{{ mode }}"
+        }
+        passive_health_check {
+          base_ejection_time = "{{ base_ejection_time }}"
+          enforcing_consecutive_5xx = {{ enforcing_consecutive_5xx }}
+          interval = "{{ interval }}"
+          max_ejection_percent = {{ max_ejection_percent }}
+          max_failures = {{ max_failures }}
+        }
+      }
+      overrides {
+        balance_outbound_connections = "{{ balance_outbound_connections }}"
+        connect_timeout_ms = {{ connect_timeout_ms }}
+        envoy_listener_json = "{{ envoy_listener_json }}"
+        name = "{{ name }}"
+        namespace = "{{ namespace }}"
+        partition = "{{ partition }}"
+        peer = "{{ peer }}"
+        protocol = "{{ protocol }}"
+        limits {
+          max_concurrent_requests = {{ max_concurrent_requests }}
+          max_connections = {{ max_connections }}
+          max_pending_requests = {{ max_pending_requests }}
+        }
+        mesh_gateway {
+          mode = "{{ mode }}"
+        }
+        passive_health_check {
+          base_ejection_time = "{{ base_ejection_time }}"
+          enforcing_consecutive_5xx = {{ enforcing_consecutive_5xx }}
+          interval = "{{ interval }}"
+          max_ejection_percent = {{ max_ejection_percent }}
+          max_failures = {{ max_failures }}
+        }
+      }
+    }
 }

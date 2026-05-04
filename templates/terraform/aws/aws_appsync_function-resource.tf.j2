@@ -1,14 +1,24 @@
 resource "aws_appsync_function" "example" {
     api_id = "{{ api_id }}"
-    arn = "{{ arn }}"
     code = "{{ code }}"
     data_source = "{{ data_source }}"
     description = "{{ description }}"
-    function_id = "{{ function_id }}"
     function_version = "{{ function_version }}"
     id = "{{ id }}"
-    max_batch_size = "{{ max_batch_size }}"
+    max_batch_size = {{ max_batch_size }}
     name = "{{ name }}"
+    region = "{{ region }}"
     request_mapping_template = "{{ request_mapping_template }}"
     response_mapping_template = "{{ response_mapping_template }}"
+    runtime {
+      name = "{{ name }}"
+      runtime_version = "{{ runtime_version }}"
+    }
+    sync_config {
+      conflict_detection = "{{ conflict_detection }}"
+      conflict_handler = "{{ conflict_handler }}"
+      lambda_conflict_handler_config {
+        lambda_conflict_handler_arn = "{{ lambda_conflict_handler_arn }}"
+      }
+    }
 }

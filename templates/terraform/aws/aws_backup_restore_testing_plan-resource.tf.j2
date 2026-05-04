@@ -1,9 +1,17 @@
 resource "aws_backup_restore_testing_plan" "example" {
-    arn = "{{ arn }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     schedule_expression = "{{ schedule_expression }}"
     schedule_expression_timezone = "{{ schedule_expression_timezone }}"
-    start_window_hours = "{{ start_window_hours }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    start_window_hours = {{ start_window_hours }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    recovery_point_selection {
+      algorithm = "{{ algorithm }}"
+      exclude_vaults = ["{{ exclude_vaults }}"]
+      include_vaults = ["{{ include_vaults }}"]
+      recovery_point_types = ["{{ recovery_point_types }}"]
+      selection_window_days = {{ selection_window_days }}
+    }
 }

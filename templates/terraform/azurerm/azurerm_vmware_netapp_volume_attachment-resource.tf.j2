@@ -3,4 +3,9 @@ resource "azurerm_vmware_netapp_volume_attachment" "example" {
     name = "{{ name }}"
     netapp_volume_id = "{{ netapp_volume_id }}"
     vmware_cluster_id = "{{ vmware_cluster_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

@@ -1,0 +1,27 @@
+resource "google_ces_deployment" "example" {
+    app = "{{ app }}"
+    app_version = "{{ app_version }}"
+    display_name = "{{ display_name }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    channel_profile {
+      channel_type = "{{ channel_type }}"
+      disable_barge_in_control = {{ disable_barge_in_control }}
+      disable_dtmf = {{ disable_dtmf }}
+      profile_id = "{{ profile_id }}"
+      persona_property {
+        persona = "{{ persona }}"
+      }
+      web_widget_config {
+        modality = "{{ modality }}"
+        theme = "{{ theme }}"
+        web_widget_title = "{{ web_widget_title }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

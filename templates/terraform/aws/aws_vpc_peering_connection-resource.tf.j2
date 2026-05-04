@@ -1,11 +1,26 @@
 resource "aws_vpc_peering_connection" "example" {
-    accept_status = "{{ accept_status }}"
-    auto_accept = "{{ auto_accept }}"
+    auto_accept = {{ auto_accept }}
     id = "{{ id }}"
     peer_owner_id = "{{ peer_owner_id }}"
     peer_region = "{{ peer_region }}"
     peer_vpc_id = "{{ peer_vpc_id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     vpc_id = "{{ vpc_id }}"
+    accepter {
+      allow_remote_vpc_dns_resolution = {{ allow_remote_vpc_dns_resolution }}
+    }
+    requester {
+      allow_remote_vpc_dns_resolution = {{ allow_remote_vpc_dns_resolution }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

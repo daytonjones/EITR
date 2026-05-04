@@ -1,0 +1,18 @@
+resource "google_compute_interconnect_group" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    intent {
+      topology_capability = "{{ topology_capability }}"
+    }
+    interconnects {
+      interconnect = "{{ interconnect }}"
+      name = "{{ name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

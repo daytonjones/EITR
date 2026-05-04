@@ -3,4 +3,16 @@ resource "azurerm_bot_channel_web_chat" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
     resource_group_name = "{{ resource_group_name }}"
+    site {
+      endpoint_parameters_enabled = {{ endpoint_parameters_enabled }}
+      name = "{{ name }}"
+      storage_enabled = {{ storage_enabled }}
+      user_upload_enabled = {{ user_upload_enabled }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,18 +1,45 @@
 resource "aws_ecs_task_set" "example" {
-    arn = "{{ arn }}"
     cluster = "{{ cluster }}"
     external_id = "{{ external_id }}"
-    force_delete = "{{ force_delete }}"
+    force_delete = {{ force_delete }}
     id = "{{ id }}"
     launch_type = "{{ launch_type }}"
     platform_version = "{{ platform_version }}"
+    region = "{{ region }}"
     service = "{{ service }}"
-    stability_status = "{{ stability_status }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     task_definition = "{{ task_definition }}"
-    task_set_id = "{{ task_set_id }}"
-    wait_until_stable = "{{ wait_until_stable }}"
+    wait_until_stable = {{ wait_until_stable }}
     wait_until_stable_timeout = "{{ wait_until_stable_timeout }}"
+    capacity_provider_strategy {
+      base = {{ base }}
+      capacity_provider = "{{ capacity_provider }}"
+      weight = {{ weight }}
+    }
+    load_balancer {
+      container_name = "{{ container_name }}"
+      container_port = {{ container_port }}
+      load_balancer_name = "{{ load_balancer_name }}"
+      target_group_arn = "{{ target_group_arn }}"
+    }
+    network_configuration {
+      assign_public_ip = {{ assign_public_ip }}
+      security_groups = ["{{ security_groups }}"]
+      subnets = ["{{ subnets }}"]
+    }
+    scale {
+      unit = "{{ unit }}"
+      value = {{ value }}
+    }
+    service_registries {
+      container_name = "{{ container_name }}"
+      container_port = {{ container_port }}
+      port = {{ port }}
+      registry_arn = "{{ registry_arn }}"
+    }
 }

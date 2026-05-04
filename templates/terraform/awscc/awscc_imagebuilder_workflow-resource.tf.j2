@@ -1,12 +1,12 @@
 resource "awscc_imagebuilder_workflow" "example" {
-    arn = "{{ arn }}"
     change_description = "{{ change_description }}"
     data = "{{ data }}"
     description = "{{ description }}"
-    id = "{{ id }}"
     kms_key_id = "{{ kms_key_id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     type = "{{ type }}"
     uri = "{{ uri }}"
     version = "{{ version }}"

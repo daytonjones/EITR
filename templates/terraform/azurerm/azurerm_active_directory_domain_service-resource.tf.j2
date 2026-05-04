@@ -1,16 +1,42 @@
 resource "azurerm_active_directory_domain_service" "example" {
-    deployment_id = "{{ deployment_id }}"
     domain_configuration_type = "{{ domain_configuration_type }}"
     domain_name = "{{ domain_name }}"
-    filtered_sync_enabled = "{{ filtered_sync_enabled }}"
+    filtered_sync_enabled = {{ filtered_sync_enabled }}
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    resource_id = "{{ resource_id }}"
     sku = "{{ sku }}"
-    sync_owner = "{{ sync_owner }}"
-    tags = "{{ tags }}"
-    tenant_id = "{{ tenant_id }}"
-    version = "{{ version }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    initial_replica_set {
+      subnet_id = "{{ subnet_id }}"
+    }
+    notifications {
+      additional_recipients = ["{{ additional_recipients }}"]
+      notify_dc_admins = {{ notify_dc_admins }}
+      notify_global_admins = {{ notify_global_admins }}
+    }
+    secure_ldap {
+      enabled = {{ enabled }}
+      external_access_enabled = {{ external_access_enabled }}
+      pfx_certificate = "{{ pfx_certificate }}"
+      pfx_certificate_password = "{{ pfx_certificate_password }}"
+    }
+    security {
+      kerberos_armoring_enabled = {{ kerberos_armoring_enabled }}
+      kerberos_rc4_encryption_enabled = {{ kerberos_rc4_encryption_enabled }}
+      ntlm_v1_enabled = {{ ntlm_v1_enabled }}
+      sync_kerberos_passwords = {{ sync_kerberos_passwords }}
+      sync_ntlm_passwords = {{ sync_ntlm_passwords }}
+      sync_on_prem_passwords = {{ sync_on_prem_passwords }}
+      tls_v1_enabled = {{ tls_v1_enabled }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

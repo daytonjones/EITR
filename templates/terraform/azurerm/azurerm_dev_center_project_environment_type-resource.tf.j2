@@ -1,9 +1,25 @@
 resource "azurerm_dev_center_project_environment_type" "example" {
-    creator_role_assignment_roles = "{{ creator_role_assignment_roles }}"
+    creator_role_assignment_roles = ["{{ creator_role_assignment_roles }}"]
     deployment_target_id = "{{ deployment_target_id }}"
     dev_center_project_id = "{{ dev_center_project_id }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    user_role_assignment {
+      roles = ["{{ roles }}"]
+      user_id = "{{ user_id }}"
+    }
 }

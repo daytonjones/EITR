@@ -8,7 +8,7 @@ provider "hcs" {
     azure_msi_endpoint = "{{ azure_msi_endpoint }}"
     azure_subscription_id = "{{ azure_subscription_id }}"
     azure_tenant_id = "{{ azure_tenant_id }}"
-    azure_use_msi = "{{ azure_use_msi }}"
+    azure_use_msi = {{ azure_use_msi }}
     hcp_api_domain = "{{ hcp_api_domain }}"
     hcs_marketplace_product_name = "{{ hcs_marketplace_product_name }}"
 }

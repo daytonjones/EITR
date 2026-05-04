@@ -1,0 +1,12 @@
+resource "aws_ram_permission" "example" {
+    name = "{{ name }}"
+    policy_template = "{{ policy_template }}"
+    region = "{{ region }}"
+    resource_type = "{{ resource_type }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      delete = "{{ delete }}"
+    }
+}

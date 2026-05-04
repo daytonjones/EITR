@@ -1,13 +1,20 @@
 resource "aws_kinesis_video_stream" "example" {
-    arn = "{{ arn }}"
-    creation_time = "{{ creation_time }}"
-    data_retention_in_hours = "{{ data_retention_in_hours }}"
+    data_retention_in_hours = {{ data_retention_in_hours }}
     device_name = "{{ device_name }}"
     id = "{{ id }}"
     kms_key_id = "{{ kms_key_id }}"
     media_type = "{{ media_type }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    version = "{{ version }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

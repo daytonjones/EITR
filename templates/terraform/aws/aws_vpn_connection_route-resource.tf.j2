@@ -1,5 +1,6 @@
 resource "aws_vpn_connection_route" "example" {
     destination_cidr_block = "{{ destination_cidr_block }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     vpn_connection_id = "{{ vpn_connection_id }}"
 }

@@ -1,23 +1,87 @@
 resource "hcp_vault_cluster" "example" {
-    cloud_provider = "{{ cloud_provider }}"
     cluster_id = "{{ cluster_id }}"
-    created_at = "{{ created_at }}"
     hvn_id = "{{ hvn_id }}"
     id = "{{ id }}"
     min_vault_version = "{{ min_vault_version }}"
-    namespace = "{{ namespace }}"
-    organization_id = "{{ organization_id }}"
-    paths_filter = "{{ paths_filter }}"
+    paths_filter = ["{{ paths_filter }}"]
     primary_link = "{{ primary_link }}"
     project_id = "{{ project_id }}"
     proxy_endpoint = "{{ proxy_endpoint }}"
-    public_endpoint = "{{ public_endpoint }}"
-    region = "{{ region }}"
-    self_link = "{{ self_link }}"
-    state = "{{ state }}"
+    public_endpoint = {{ public_endpoint }}
     tier = "{{ tier }}"
-    vault_private_endpoint_url = "{{ vault_private_endpoint_url }}"
-    vault_proxy_endpoint_url = "{{ vault_proxy_endpoint_url }}"
-    vault_public_endpoint_url = "{{ vault_public_endpoint_url }}"
-    vault_version = "{{ vault_version }}"
+    audit_log_config {
+      cloudwatch_access_key_id = "{{ cloudwatch_access_key_id }}"
+      cloudwatch_region = "{{ cloudwatch_region }}"
+      cloudwatch_secret_access_key = "{{ cloudwatch_secret_access_key }}"
+      datadog_api_key = "{{ datadog_api_key }}"
+      datadog_region = "{{ datadog_region }}"
+      elasticsearch_endpoint = "{{ elasticsearch_endpoint }}"
+      elasticsearch_password = "{{ elasticsearch_password }}"
+      elasticsearch_user = "{{ elasticsearch_user }}"
+      grafana_endpoint = "{{ grafana_endpoint }}"
+      grafana_password = "{{ grafana_password }}"
+      grafana_user = "{{ grafana_user }}"
+      http_basic_password = "{{ http_basic_password }}"
+      http_basic_user = "{{ http_basic_user }}"
+      http_bearer_token = "{{ http_bearer_token }}"
+      http_codec = "{{ http_codec }}"
+      http_compression = {{ http_compression }}
+      http_headers = {
+        key = "{{ http_headers_value }}"
+      }
+      http_method = "{{ http_method }}"
+      http_payload_prefix = "{{ http_payload_prefix }}"
+      http_payload_suffix = "{{ http_payload_suffix }}"
+      http_uri = "{{ http_uri }}"
+      newrelic_account_id = "{{ newrelic_account_id }}"
+      newrelic_license_key = "{{ newrelic_license_key }}"
+      newrelic_region = "{{ newrelic_region }}"
+      splunk_hecendpoint = "{{ splunk_hecendpoint }}"
+      splunk_token = "{{ splunk_token }}"
+    }
+    ip_allowlist {
+      address = "{{ address }}"
+      description = "{{ description }}"
+    }
+    major_version_upgrade_config {
+      maintenance_window_day = "{{ maintenance_window_day }}"
+      maintenance_window_time = "{{ maintenance_window_time }}"
+      upgrade_type = "{{ upgrade_type }}"
+    }
+    metrics_config {
+      cloudwatch_access_key_id = "{{ cloudwatch_access_key_id }}"
+      cloudwatch_region = "{{ cloudwatch_region }}"
+      cloudwatch_secret_access_key = "{{ cloudwatch_secret_access_key }}"
+      datadog_api_key = "{{ datadog_api_key }}"
+      datadog_region = "{{ datadog_region }}"
+      elasticsearch_endpoint = "{{ elasticsearch_endpoint }}"
+      elasticsearch_password = "{{ elasticsearch_password }}"
+      elasticsearch_user = "{{ elasticsearch_user }}"
+      grafana_endpoint = "{{ grafana_endpoint }}"
+      grafana_password = "{{ grafana_password }}"
+      grafana_user = "{{ grafana_user }}"
+      http_basic_password = "{{ http_basic_password }}"
+      http_basic_user = "{{ http_basic_user }}"
+      http_bearer_token = "{{ http_bearer_token }}"
+      http_codec = "{{ http_codec }}"
+      http_compression = {{ http_compression }}
+      http_headers = {
+        key = "{{ http_headers_value }}"
+      }
+      http_method = "{{ http_method }}"
+      http_payload_prefix = "{{ http_payload_prefix }}"
+      http_payload_suffix = "{{ http_payload_suffix }}"
+      http_uri = "{{ http_uri }}"
+      newrelic_account_id = "{{ newrelic_account_id }}"
+      newrelic_license_key = "{{ newrelic_license_key }}"
+      newrelic_region = "{{ newrelic_region }}"
+      splunk_hecendpoint = "{{ splunk_hecendpoint }}"
+      splunk_token = "{{ splunk_token }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      default = "{{ default }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

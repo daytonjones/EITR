@@ -1,12 +1,16 @@
 resource "google_tags_tag_key" "example" {
-    create_time = "{{ create_time }}"
+    allowed_values_regex = "{{ allowed_values_regex }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    name = "{{ name }}"
-    namespaced_name = "{{ namespaced_name }}"
     parent = "{{ parent }}"
     purpose = "{{ purpose }}"
-    purpose_data = "{{ purpose_data }}"
+    purpose_data = {
+        key = "{{ purpose_data_value }}"
+      }
     short_name = "{{ short_name }}"
-    update_time = "{{ update_time }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

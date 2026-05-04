@@ -1,13 +1,21 @@
 resource "azurerm_public_ip_prefix" "example" {
+    custom_ip_prefix_id = "{{ custom_ip_prefix_id }}"
     id = "{{ id }}"
-    ip_prefix = "{{ ip_prefix }}"
     ip_version = "{{ ip_version }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    prefix_length = "{{ prefix_length }}"
+    prefix_length = {{ prefix_length }}
     resource_group_name = "{{ resource_group_name }}"
     sku = "{{ sku }}"
     sku_tier = "{{ sku_tier }}"
-    tags = "{{ tags }}"
-    zones = "{{ zones }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    zones = ["{{ zones }}"]
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

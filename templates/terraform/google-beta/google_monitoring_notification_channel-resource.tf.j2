@@ -1,13 +1,31 @@
 resource "google_monitoring_notification_channel" "example" {
     description = "{{ description }}"
     display_name = "{{ display_name }}"
-    enabled = "{{ enabled }}"
-    force_delete = "{{ force_delete }}"
+    enabled = {{ enabled }}
+    force_delete = {{ force_delete }}
     id = "{{ id }}"
-    labels = "{{ labels }}"
-    name = "{{ name }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     project = "{{ project }}"
     type = "{{ type }}"
-    user_labels = "{{ user_labels }}"
-    verification_status = "{{ verification_status }}"
+    user_labels = {
+        key = "{{ user_labels_value }}"
+      }
+    sensitive_labels {
+      auth_token = "{{ auth_token }}"
+      auth_token_wo = "{{ auth_token_wo }}"
+      auth_token_wo_version = "{{ auth_token_wo_version }}"
+      password = "{{ password }}"
+      password_wo = "{{ password_wo }}"
+      password_wo_version = "{{ password_wo_version }}"
+      service_key = "{{ service_key }}"
+      service_key_wo = "{{ service_key_wo }}"
+      service_key_wo_version = "{{ service_key_wo_version }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

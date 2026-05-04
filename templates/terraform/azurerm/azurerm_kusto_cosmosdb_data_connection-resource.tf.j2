@@ -8,4 +8,9 @@ resource "azurerm_kusto_cosmosdb_data_connection" "example" {
     name = "{{ name }}"
     retrieval_start_date = "{{ retrieval_start_date }}"
     table_name = "{{ table_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

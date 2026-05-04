@@ -1,17 +1,83 @@
 resource "google_container_aws_node_pool" "example" {
-    annotations = "{{ annotations }}"
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
     cluster = "{{ cluster }}"
-    create_time = "{{ create_time }}"
-    effective_annotations = "{{ effective_annotations }}"
-    etag = "{{ etag }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    reconciling = "{{ reconciling }}"
-    state = "{{ state }}"
     subnet_id = "{{ subnet_id }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
     version = "{{ version }}"
+    autoscaling {
+      max_node_count = {{ max_node_count }}
+      min_node_count = {{ min_node_count }}
+    }
+    config {
+      iam_instance_profile = "{{ iam_instance_profile }}"
+      image_type = "{{ image_type }}"
+      instance_type = "{{ instance_type }}"
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      security_group_ids = ["{{ security_group_ids }}"]
+      tags = {
+        key = "{{ tags_value }}"
+      }
+      autoscaling_metrics_collection {
+        granularity = "{{ granularity }}"
+        metrics = ["{{ metrics }}"]
+      }
+      config_encryption {
+        kms_key_arn = "{{ kms_key_arn }}"
+      }
+      instance_placement {
+        tenancy = "{{ tenancy }}"
+      }
+      proxy_config {
+        secret_arn = "{{ secret_arn }}"
+        secret_version = "{{ secret_version }}"
+      }
+      root_volume {
+        iops = {{ iops }}
+        kms_key_arn = "{{ kms_key_arn }}"
+        size_gib = {{ size_gib }}
+        throughput = {{ throughput }}
+        volume_type = "{{ volume_type }}"
+      }
+      spot_config {
+        instance_types = ["{{ instance_types }}"]
+      }
+      ssh_config {
+        ec2_key_pair = "{{ ec2_key_pair }}"
+      }
+      taints {
+        effect = "{{ effect }}"
+        key = "{{ key }}"
+        value = "{{ value }}"
+      }
+    }
+    kubelet_config {
+      cpu_cfs_quota = {{ cpu_cfs_quota }}
+      cpu_cfs_quota_period = "{{ cpu_cfs_quota_period }}"
+      cpu_manager_policy = "{{ cpu_manager_policy }}"
+      pod_pids_limit = {{ pod_pids_limit }}
+    }
+    management {
+      auto_repair = {{ auto_repair }}
+    }
+    max_pods_constraint {
+      max_pods_per_node = {{ max_pods_per_node }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    update_settings {
+      surge_settings {
+        max_surge = {{ max_surge }}
+        max_unavailable = {{ max_unavailable }}
+      }
+    }
 }

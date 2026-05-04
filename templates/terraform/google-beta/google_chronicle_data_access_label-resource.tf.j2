@@ -1,0 +1,14 @@
+resource "google_chronicle_data_access_label" "example" {
+    data_access_label_id = "{{ data_access_label_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    udm_query = "{{ udm_query }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

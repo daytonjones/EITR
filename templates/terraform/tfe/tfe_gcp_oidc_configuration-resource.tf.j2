@@ -1,0 +1,6 @@
+resource "tfe_gcp_oidc_configuration" "example" {
+    organization = "{{ organization }}"
+    project_number = "{{ project_number }}"
+    service_account_email = "{{ service_account_email }}"
+    workload_provider_name = "{{ workload_provider_name }}"
+}

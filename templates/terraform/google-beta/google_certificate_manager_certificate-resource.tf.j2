@@ -1,12 +1,27 @@
 resource "google_certificate_manager_certificate" "example" {
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    san_dnsnames = "{{ san_dnsnames }}"
     scope = "{{ scope }}"
-    terraform_labels = "{{ terraform_labels }}"
+    managed {
+      dns_authorizations = ["{{ dns_authorizations }}"]
+      domains = ["{{ domains }}"]
+      issuance_config = "{{ issuance_config }}"
+    }
+    self_managed {
+      certificate_pem = "{{ certificate_pem }}"
+      pem_certificate = "{{ pem_certificate }}"
+      pem_private_key = "{{ pem_private_key }}"
+      private_key_pem = "{{ private_key_pem }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

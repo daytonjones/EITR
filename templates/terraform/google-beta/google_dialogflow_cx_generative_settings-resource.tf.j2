@@ -1,0 +1,37 @@
+resource "google_dialogflow_cx_generative_settings" "example" {
+    id = "{{ id }}"
+    language_code = "{{ language_code }}"
+    parent = "{{ parent }}"
+    fallback_settings {
+      selected_prompt = "{{ selected_prompt }}"
+      prompt_templates {
+        display_name = "{{ display_name }}"
+        frozen = {{ frozen }}
+        prompt_text = "{{ prompt_text }}"
+      }
+    }
+    generative_safety_settings {
+      default_banned_phrase_match_strategy = "{{ default_banned_phrase_match_strategy }}"
+      banned_phrases {
+        language_code = "{{ language_code }}"
+        text = "{{ text }}"
+      }
+    }
+    knowledge_connector_settings {
+      agent = "{{ agent }}"
+      agent_identity = "{{ agent_identity }}"
+      agent_scope = "{{ agent_scope }}"
+      business = "{{ business }}"
+      business_description = "{{ business_description }}"
+      disable_data_store_fallback = {{ disable_data_store_fallback }}
+    }
+    llm_model_settings {
+      model = "{{ model }}"
+      prompt_text = "{{ prompt_text }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

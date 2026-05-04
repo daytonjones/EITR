@@ -4,6 +4,6 @@ resource "aws_codeartifact_repository_permissions_policy" "example" {
     id = "{{ id }}"
     policy_document = "{{ policy_document }}"
     policy_revision = "{{ policy_revision }}"
+    region = "{{ region }}"
     repository = "{{ repository }}"
-    resource_arn = "{{ resource_arn }}"
 }

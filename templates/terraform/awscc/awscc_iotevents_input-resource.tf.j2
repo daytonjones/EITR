@@ -1,14 +1,6 @@
 resource "awscc_iotevents_input" "example" {
-    id = "{{ id }}"
-    input_definition = "{
-    attributes = {
-    json_path = {{ json_path }}
-}
-}"
+    input_definition = "{{ input_definition }}"
     input_description = "{{ input_description }}"
     input_name = "{{ input_name }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
 }

@@ -1,4 +1,7 @@
 resource "aws_servicecatalog_organizations_access" "example" {
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

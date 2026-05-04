@@ -1,0 +1,7 @@
+resource "aws_quicksight_role_membership" "example" {
+    aws_account_id = "{{ aws_account_id }}"
+    member_name = "{{ member_name }}"
+    namespace = "{{ namespace }}"
+    region = "{{ region }}"
+    role = "{{ role }}"
+}

@@ -1,6 +1,13 @@
 resource "aws_api_gateway_documentation_part" "example" {
-    documentation_part_id = "{{ documentation_part_id }}"
     id = "{{ id }}"
     properties = "{{ properties }}"
+    region = "{{ region }}"
     rest_api_id = "{{ rest_api_id }}"
+    location {
+      method = "{{ method }}"
+      name = "{{ name }}"
+      path = "{{ path }}"
+      status_code = "{{ status_code }}"
+      type = "{{ type }}"
+    }
 }

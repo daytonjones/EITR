@@ -1,0 +1,22 @@
+resource "awscc_codedeploy_deployment_group" "example" {
+    alarm_configuration = "{{ alarm_configuration }}"
+    application_name = "{{ application_name }}"
+    auto_rollback_configuration = "{{ auto_rollback_configuration }}"
+    auto_scaling_groups = ["{{ auto_scaling_groups }}"]
+    blue_green_deployment_configuration = "{{ blue_green_deployment_configuration }}"
+    deployment = "{{ deployment }}"
+    deployment_config_name = "{{ deployment_config_name }}"
+    deployment_group_name = "{{ deployment_group_name }}"
+    deployment_style = "{{ deployment_style }}"
+    ec_2_tag_filters = "{{ ec_2_tag_filters }}"
+    ec_2_tag_set = "{{ ec_2_tag_set }}"
+    ecs_services = "{{ ecs_services }}"
+    load_balancer_info = "{{ load_balancer_info }}"
+    on_premises_instance_tag_filters = "{{ on_premises_instance_tag_filters }}"
+    on_premises_tag_set = "{{ on_premises_tag_set }}"
+    outdated_instances_strategy = "{{ outdated_instances_strategy }}"
+    service_role_arn = "{{ service_role_arn }}"
+    tags = "{{ tags }}"
+    termination_hook_enabled = {{ termination_hook_enabled }}
+    trigger_configurations = "{{ trigger_configurations }}"
+}

@@ -1,0 +1,17 @@
+resource "google_iam_workload_identity_pool_managed_identity" "example" {
+    description = "{{ description }}"
+    disabled = {{ disabled }}
+    id = "{{ id }}"
+    project = "{{ project }}"
+    workload_identity_pool_id = "{{ workload_identity_pool_id }}"
+    workload_identity_pool_managed_identity_id = "{{ workload_identity_pool_managed_identity_id }}"
+    workload_identity_pool_namespace_id = "{{ workload_identity_pool_namespace_id }}"
+    attestation_rules {
+      google_cloud_resource = "{{ google_cloud_resource }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

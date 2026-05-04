@@ -1,15 +1,49 @@
 resource "google_network_services_edge_cache_origin" "example" {
     description = "{{ description }}"
-    effective_labels = "{{ effective_labels }}"
     failover_origin = "{{ failover_origin }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
-    max_attempts = "{{ max_attempts }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    max_attempts = {{ max_attempts }}
     name = "{{ name }}"
     origin_address = "{{ origin_address }}"
-    port = "{{ port }}"
+    port = {{ port }}
     project = "{{ project }}"
     protocol = "{{ protocol }}"
-    retry_conditions = "{{ retry_conditions }}"
-    terraform_labels = "{{ terraform_labels }}"
+    retry_conditions = ["{{ retry_conditions }}"]
+    aws_v4_authentication {
+      access_key_id = "{{ access_key_id }}"
+      origin_region = "{{ origin_region }}"
+      secret_access_key_version = "{{ secret_access_key_version }}"
+    }
+    flex_shielding {
+      flex_shielding_regions = ["{{ flex_shielding_regions }}"]
+    }
+    origin_override_action {
+      header_action {
+        request_headers_to_add {
+          header_name = "{{ header_name }}"
+          header_value = "{{ header_value }}"
+          replace = {{ replace }}
+        }
+      }
+      url_rewrite {
+        host_rewrite = "{{ host_rewrite }}"
+      }
+    }
+    origin_redirect {
+      redirect_conditions = ["{{ redirect_conditions }}"]
+    }
+    timeout {
+      connect_timeout = "{{ connect_timeout }}"
+      max_attempts_timeout = "{{ max_attempts_timeout }}"
+      read_timeout = "{{ read_timeout }}"
+      response_timeout = "{{ response_timeout }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,7 +1,19 @@
 resource "aws_quicksight_refresh_schedule" "example" {
-    arn = "{{ arn }}"
     aws_account_id = "{{ aws_account_id }}"
     data_set_id = "{{ data_set_id }}"
-    id = "{{ id }}"
+    region = "{{ region }}"
     schedule_id = "{{ schedule_id }}"
+    schedule {
+      refresh_type = "{{ refresh_type }}"
+      start_after_date_time = "{{ start_after_date_time }}"
+      schedule_frequency {
+        interval = "{{ interval }}"
+        time_of_the_day = "{{ time_of_the_day }}"
+        timezone = "{{ timezone }}"
+        refresh_on_day {
+          day_of_month = "{{ day_of_month }}"
+          day_of_week = "{{ day_of_week }}"
+        }
+      }
+    }
 }

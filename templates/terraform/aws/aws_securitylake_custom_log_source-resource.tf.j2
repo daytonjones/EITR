@@ -1,8 +1,15 @@
 resource "aws_securitylake_custom_log_source" "example" {
-    attributes = "{{ attributes }}"
-    event_classes = "{{ event_classes }}"
-    id = "{{ id }}"
-    provider_details = "{{ provider_details }}"
+    event_classes = ["{{ event_classes }}"]
+    region = "{{ region }}"
     source_name = "{{ source_name }}"
     source_version = "{{ source_version }}"
+    configuration {
+      crawler_configuration {
+        role_arn = "{{ role_arn }}"
+      }
+      provider_identity {
+        external_id = "{{ external_id }}"
+        principal = "{{ principal }}"
+      }
+    }
 }

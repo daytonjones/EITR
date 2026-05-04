@@ -1,0 +1,17 @@
+resource "aws_rds_shard_group" "example" {
+    compute_redundancy = {{ compute_redundancy }}
+    db_cluster_identifier = "{{ db_cluster_identifier }}"
+    db_shard_group_identifier = "{{ db_shard_group_identifier }}"
+    max_acu = {{ max_acu }}
+    min_acu = {{ min_acu }}
+    publicly_accessible = {{ publicly_accessible }}
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

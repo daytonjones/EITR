@@ -1,8 +1,44 @@
 resource "vsphere_guest_os_customization" "example" {
-    change_version = "{{ change_version }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    last_update_time = "{{ last_update_time }}"
     name = "{{ name }}"
     type = "{{ type }}"
+    spec {
+      dns_server_list = ["{{ dns_server_list }}"]
+      dns_suffix_list = ["{{ dns_suffix_list }}"]
+      ipv4_gateway = "{{ ipv4_gateway }}"
+      ipv6_gateway = "{{ ipv6_gateway }}"
+      windows_sysprep_text = "{{ windows_sysprep_text }}"
+      linux_options {
+        domain = "{{ domain }}"
+        host_name = "{{ host_name }}"
+        hw_clock_utc = {{ hw_clock_utc }}
+        script_text = "{{ script_text }}"
+        time_zone = "{{ time_zone }}"
+      }
+      network_interface {
+        dns_domain = "{{ dns_domain }}"
+        dns_server_list = ["{{ dns_server_list }}"]
+        ipv4_address = "{{ ipv4_address }}"
+        ipv4_netmask = {{ ipv4_netmask }}
+        ipv6_address = "{{ ipv6_address }}"
+        ipv6_netmask = {{ ipv6_netmask }}
+      }
+      windows_options {
+        admin_password = "{{ admin_password }}"
+        auto_logon = {{ auto_logon }}
+        auto_logon_count = {{ auto_logon_count }}
+        computer_name = "{{ computer_name }}"
+        domain_admin_password = "{{ domain_admin_password }}"
+        domain_admin_user = "{{ domain_admin_user }}"
+        domain_ou = "{{ domain_ou }}"
+        full_name = "{{ full_name }}"
+        join_domain = "{{ join_domain }}"
+        organization_name = "{{ organization_name }}"
+        product_key = "{{ product_key }}"
+        run_once_command_list = ["{{ run_once_command_list }}"]
+        time_zone = {{ time_zone }}
+        workgroup = "{{ workgroup }}"
+      }
+    }
 }

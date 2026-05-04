@@ -1,6 +1,10 @@
 resource "tfe_project" "example" {
+    auto_destroy_activity_duration = "{{ auto_destroy_activity_duration }}"
     description = "{{ description }}"
-    id = "{{ id }}"
+    ignore_additional_tags = {{ ignore_additional_tags }}
     name = "{{ name }}"
     organization = "{{ organization }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
 }

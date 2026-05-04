@@ -1,5 +1,4 @@
 resource "aws_servicequotas_template_association" "example" {
-    id = "{{ id }}"
-    skip_destroy = "{{ skip_destroy }}"
-    status = "{{ status }}"
+    region = "{{ region }}"
+    skip_destroy = {{ skip_destroy }}
 }

@@ -4,7 +4,14 @@ resource "azurerm_key_vault_managed_storage_account_sas_token_definition" "examp
     name = "{{ name }}"
     sas_template_uri = "{{ sas_template_uri }}"
     sas_type = "{{ sas_type }}"
-    secret_id = "{{ secret_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     validity_period = "{{ validity_period }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

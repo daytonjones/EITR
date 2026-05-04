@@ -3,8 +3,28 @@ resource "google_apigee_target_server" "example" {
     env_id = "{{ env_id }}"
     host = "{{ host }}"
     id = "{{ id }}"
-    is_enabled = "{{ is_enabled }}"
+    is_enabled = {{ is_enabled }}
     name = "{{ name }}"
-    port = "{{ port }}"
+    port = {{ port }}
     protocol = "{{ protocol }}"
+    s_sl_info {
+      ciphers = ["{{ ciphers }}"]
+      client_auth_enabled = {{ client_auth_enabled }}
+      enabled = {{ enabled }}
+      enforce = {{ enforce }}
+      ignore_validation_errors = {{ ignore_validation_errors }}
+      key_alias = "{{ key_alias }}"
+      key_store = "{{ key_store }}"
+      protocols = ["{{ protocols }}"]
+      trust_store = "{{ trust_store }}"
+      common_name {
+        value = "{{ value }}"
+        wildcard_match = {{ wildcard_match }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

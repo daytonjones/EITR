@@ -6,4 +6,16 @@ resource "azurerm_storage_data_lake_gen2_path" "example" {
     path = "{{ path }}"
     resource = "{{ resource }}"
     storage_account_id = "{{ storage_account_id }}"
+    ace {
+      id = "{{ id }}"
+      permissions = "{{ permissions }}"
+      scope = "{{ scope }}"
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

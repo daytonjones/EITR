@@ -1,12 +1,8 @@
 resource "awscc_verifiedpermissions_policy_store" "example" {
-    arn = "{{ arn }}"
+    deletion_protection = "{{ deletion_protection }}"
     description = "{{ description }}"
-    id = "{{ id }}"
-    policy_store_id = "{{ policy_store_id }}"
-    schema = "{
-    cedar_json = {{ cedar_json }}
-}"
-    validation_settings = "{
-    mode = {{ mode }}
-}"
+    encryption_settings = "{{ encryption_settings }}"
+    schema = "{{ schema }}"
+    tags = "{{ tags }}"
+    validation_settings = "{{ validation_settings }}"
 }

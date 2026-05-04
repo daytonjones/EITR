@@ -3,4 +3,18 @@ resource "azurerm_nginx_configuration" "example" {
     nginx_deployment_id = "{{ nginx_deployment_id }}"
     package_data = "{{ package_data }}"
     root_file = "{{ root_file }}"
+    config_file {
+      content = "{{ content }}"
+      virtual_path = "{{ virtual_path }}"
+    }
+    protected_file {
+      content = "{{ content }}"
+      virtual_path = "{{ virtual_path }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

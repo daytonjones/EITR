@@ -1,6 +1,33 @@
 resource "google_firebase_hosting_version" "example" {
     id = "{{ id }}"
-    name = "{{ name }}"
     site_id = "{{ site_id }}"
-    version_id = "{{ version_id }}"
+    config {
+      headers {
+        glob = "{{ glob }}"
+        headers = {
+        key = "{{ headers_value }}"
+      }
+        regex = "{{ regex }}"
+      }
+      redirects {
+        glob = "{{ glob }}"
+        location = "{{ location }}"
+        regex = "{{ regex }}"
+        status_code = {{ status_code }}
+      }
+      rewrites {
+        function = "{{ function }}"
+        glob = "{{ glob }}"
+        path = "{{ path }}"
+        regex = "{{ regex }}"
+        run {
+          region = "{{ region }}"
+          service_id = "{{ service_id }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

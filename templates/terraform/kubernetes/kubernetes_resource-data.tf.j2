@@ -2,4 +2,8 @@ data "kubernetes_resource" "example" {
     api_version = "{{ api_version }}"
     kind = "{{ kind }}"
     object = "{{ object }}"
+    metadata {
+      name = "{{ name }}"
+      namespace = "{{ namespace }}"
+    }
 }

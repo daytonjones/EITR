@@ -1,6 +1,7 @@
 resource "aws_autoscaling_notification" "example" {
-    group_names = "{{ group_names }}"
+    group_names = ["{{ group_names }}"]
     id = "{{ id }}"
-    notifications = "{{ notifications }}"
+    notifications = ["{{ notifications }}"]
+    region = "{{ region }}"
     topic_arn = "{{ topic_arn }}"
 }

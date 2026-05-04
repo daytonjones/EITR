@@ -1,0 +1,8 @@
+resource "awscc_ssm_maintenance_window_target" "example" {
+    description = "{{ description }}"
+    name = "{{ name }}"
+    owner_information = "{{ owner_information }}"
+    resource_type = "{{ resource_type }}"
+    targets = "{{ targets }}"
+    window_id = "{{ window_id }}"
+}

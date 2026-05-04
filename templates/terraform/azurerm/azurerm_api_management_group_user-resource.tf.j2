@@ -4,4 +4,9 @@ resource "azurerm_api_management_group_user" "example" {
     id = "{{ id }}"
     resource_group_name = "{{ resource_group_name }}"
     user_id = "{{ user_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

@@ -3,6 +3,12 @@ resource "azurerm_palo_alto_local_rulestack_prefix_list" "example" {
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    prefix_list = "{{ prefix_list }}"
+    prefix_list = ["{{ prefix_list }}"]
     rulestack_id = "{{ rulestack_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

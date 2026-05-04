@@ -1,6 +1,7 @@
 resource "aws_ec2_tag" "example" {
     id = "{{ id }}"
     key = "{{ key }}"
+    region = "{{ region }}"
     resource_id = "{{ resource_id }}"
     value = "{{ value }}"
 }

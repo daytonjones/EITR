@@ -4,4 +4,10 @@ resource "azurerm_logic_app_integration_account_session" "example" {
     integration_account_name = "{{ integration_account_name }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

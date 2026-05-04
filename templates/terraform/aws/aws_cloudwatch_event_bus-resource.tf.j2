@@ -1,10 +1,21 @@
 resource "aws_cloudwatch_event_bus" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
     event_source_name = "{{ event_source_name }}"
     id = "{{ id }}"
     kms_key_identifier = "{{ kms_key_identifier }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    dead_letter_config {
+      arn = "{{ arn }}"
+    }
+    log_config {
+      include_detail = "{{ include_detail }}"
+      level = "{{ level }}"
+    }
 }

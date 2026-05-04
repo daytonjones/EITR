@@ -1,0 +1,8 @@
+resource "awscc_invoicing_invoice_unit" "example" {
+    description = "{{ description }}"
+    invoice_receiver = "{{ invoice_receiver }}"
+    name = "{{ name }}"
+    resource_tags = "{{ resource_tags }}"
+    rule = "{{ rule }}"
+    tax_inheritance_disabled = {{ tax_inheritance_disabled }}
+}

@@ -1,6 +1,14 @@
 data "aws_ec2_local_gateway_virtual_interface_groups" "example" {
     id = "{{ id }}"
-    ids = "{{ ids }}"
-    local_gateway_virtual_interface_ids = "{{ local_gateway_virtual_interface_ids }}"
-    tags = "{{ tags }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
+    timeouts {
+      read = "{{ read }}"
+    }
 }

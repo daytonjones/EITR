@@ -5,5 +5,23 @@ resource "azurerm_mssql_virtual_machine_group" "example" {
     resource_group_name = "{{ resource_group_name }}"
     sql_image_offer = "{{ sql_image_offer }}"
     sql_image_sku = "{{ sql_image_sku }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    wsfc_domain_profile {
+      cluster_bootstrap_account_name = "{{ cluster_bootstrap_account_name }}"
+      cluster_operator_account_name = "{{ cluster_operator_account_name }}"
+      cluster_subnet_type = "{{ cluster_subnet_type }}"
+      fqdn = "{{ fqdn }}"
+      organizational_unit_path = "{{ organizational_unit_path }}"
+      sql_service_account_name = "{{ sql_service_account_name }}"
+      storage_account_primary_key = "{{ storage_account_primary_key }}"
+      storage_account_url = "{{ storage_account_url }}"
+    }
 }

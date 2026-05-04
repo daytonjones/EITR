@@ -1,0 +1,5 @@
+resource "aws_s3vectors_vector_bucket_policy" "example" {
+    policy = "{{ policy }}"
+    region = "{{ region }}"
+    vector_bucket_arn = "{{ vector_bucket_arn }}"
+}

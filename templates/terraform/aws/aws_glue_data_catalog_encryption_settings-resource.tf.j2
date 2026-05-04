@@ -1,4 +1,16 @@
 resource "aws_glue_data_catalog_encryption_settings" "example" {
     catalog_id = "{{ catalog_id }}"
     id = "{{ id }}"
+    region = "{{ region }}"
+    data_catalog_encryption_settings {
+      connection_password_encryption {
+        aws_kms_key_id = "{{ aws_kms_key_id }}"
+        return_connection_password_encrypted = {{ return_connection_password_encrypted }}
+      }
+      encryption_at_rest {
+        catalog_encryption_mode = "{{ catalog_encryption_mode }}"
+        catalog_encryption_service_role = "{{ catalog_encryption_service_role }}"
+        sse_aws_kms_key_id = "{{ sse_aws_kms_key_id }}"
+      }
+    }
 }

@@ -2,8 +2,17 @@ resource "aws_lexv2models_bot_locale" "example" {
     bot_id = "{{ bot_id }}"
     bot_version = "{{ bot_version }}"
     description = "{{ description }}"
-    id = "{{ id }}"
     locale_id = "{{ locale_id }}"
-    n_lu_intent_confidence_threshold = "{{ n_lu_intent_confidence_threshold }}"
+    n_lu_intent_confidence_threshold = {{ n_lu_intent_confidence_threshold }}
     name = "{{ name }}"
+    region = "{{ region }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    voice_settings {
+      engine = "{{ engine }}"
+      voice_id = "{{ voice_id }}"
+    }
 }

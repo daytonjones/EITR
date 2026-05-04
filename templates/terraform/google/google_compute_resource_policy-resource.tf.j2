@@ -4,5 +4,64 @@ resource "google_compute_resource_policy" "example" {
     name = "{{ name }}"
     project = "{{ project }}"
     region = "{{ region }}"
-    self_link = "{{ self_link }}"
+    disk_consistency_group_policy {
+      enabled = {{ enabled }}
+    }
+    group_placement_policy {
+      availability_domain_count = {{ availability_domain_count }}
+      collocation = "{{ collocation }}"
+      gpu_topology = "{{ gpu_topology }}"
+      vm_count = {{ vm_count }}
+    }
+    instance_schedule_policy {
+      expiration_time = "{{ expiration_time }}"
+      start_time = "{{ start_time }}"
+      time_zone = "{{ time_zone }}"
+      vm_start_schedule {
+        schedule = "{{ schedule }}"
+      }
+      vm_stop_schedule {
+        schedule = "{{ schedule }}"
+      }
+    }
+    snapshot_schedule_policy {
+      retention_policy {
+        max_retention_days = {{ max_retention_days }}
+        on_source_disk_delete = "{{ on_source_disk_delete }}"
+      }
+      schedule {
+        daily_schedule {
+          days_in_cycle = {{ days_in_cycle }}
+          start_time = "{{ start_time }}"
+        }
+        hourly_schedule {
+          hours_in_cycle = {{ hours_in_cycle }}
+          start_time = "{{ start_time }}"
+        }
+        weekly_schedule {
+          day_of_weeks {
+            day = "{{ day }}"
+            start_time = "{{ start_time }}"
+          }
+        }
+      }
+      snapshot_properties {
+        chain_name = "{{ chain_name }}"
+        guest_flush = {{ guest_flush }}
+        labels = {
+        key = "{{ labels_value }}"
+      }
+        storage_locations = ["{{ storage_locations }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    workload_policy {
+      accelerator_topology = "{{ accelerator_topology }}"
+      max_topology_distance = "{{ max_topology_distance }}"
+      type = "{{ type }}"
+    }
 }

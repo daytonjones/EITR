@@ -1,17 +1,51 @@
 resource "google_eventarc_trigger" "example" {
     channel = "{{ channel }}"
-    conditions = "{{ conditions }}"
-    create_time = "{{ create_time }}"
-    effective_labels = "{{ effective_labels }}"
-    etag = "{{ etag }}"
     event_data_content_type = "{{ event_data_content_type }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
     service_account = "{{ service_account }}"
-    terraform_labels = "{{ terraform_labels }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
+    destination {
+      workflow = "{{ workflow }}"
+      cloud_run_service {
+        path = "{{ path }}"
+        region = "{{ region }}"
+        service = "{{ service }}"
+      }
+      gke {
+        cluster = "{{ cluster }}"
+        location = "{{ location }}"
+        namespace = "{{ namespace }}"
+        path = "{{ path }}"
+        service = "{{ service }}"
+      }
+      http_endpoint {
+        uri = "{{ uri }}"
+      }
+      network_config {
+        network_attachment = "{{ network_attachment }}"
+      }
+    }
+    matching_criteria {
+      attribute = "{{ attribute }}"
+      operator = "{{ operator }}"
+      value = "{{ value }}"
+    }
+    retry_policy {
+      max_attempts = {{ max_attempts }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    transport {
+      pubsub {
+        topic = "{{ topic }}"
+      }
+    }
 }

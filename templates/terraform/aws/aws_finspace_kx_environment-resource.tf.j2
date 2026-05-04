@@ -1,14 +1,39 @@
 resource "aws_finspace_kx_environment" "example" {
-    arn = "{{ arn }}"
-    availability_zones = "{{ availability_zones }}"
-    created_timestamp = "{{ created_timestamp }}"
     description = "{{ description }}"
-    id = "{{ id }}"
-    infrastructure_account_id = "{{ infrastructure_account_id }}"
     kms_key_id = "{{ kms_key_id }}"
-    last_modified_timestamp = "{{ last_modified_timestamp }}"
     name = "{{ name }}"
-    status = "{{ status }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    custom_dns_configuration {
+      custom_dns_server_ip = "{{ custom_dns_server_ip }}"
+      custom_dns_server_name = "{{ custom_dns_server_name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    transit_gateway_configuration {
+      routable_cidr_space = "{{ routable_cidr_space }}"
+      transit_gateway_id = "{{ transit_gateway_id }}"
+      attachment_network_acl_configuration {
+        cidr_block = "{{ cidr_block }}"
+        protocol = "{{ protocol }}"
+        rule_action = "{{ rule_action }}"
+        rule_number = {{ rule_number }}
+        icmp_type_code {
+          code = {{ code }}
+          type = {{ type }}
+        }
+        port_range {
+          from = {{ from }}
+          to = {{ to }}
+        }
+      }
+    }
 }

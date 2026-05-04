@@ -1,10 +1,752 @@
 resource "google_data_loss_prevention_deidentify_template" "example" {
-    create_time = "{{ create_time }}"
     description = "{{ description }}"
     display_name = "{{ display_name }}"
     id = "{{ id }}"
-    name = "{{ name }}"
     parent = "{{ parent }}"
     template_id = "{{ template_id }}"
-    update_time = "{{ update_time }}"
+    deidentify_config {
+      image_transformations {
+        transforms {
+          all_info_types {
+          }
+          all_text {
+          }
+          redaction_color {
+            blue = {{ blue }}
+            green = {{ green }}
+            red = {{ red }}
+          }
+          selected_info_types {
+            info_types {
+              name = "{{ name }}"
+              version = "{{ version }}"
+              sensitivity_score {
+                score = "{{ score }}"
+              }
+            }
+          }
+        }
+      }
+      info_type_transformations {
+        transformations {
+          info_types {
+            name = "{{ name }}"
+            version = "{{ version }}"
+            sensitivity_score {
+              score = "{{ score }}"
+            }
+          }
+          primitive_transformation {
+            replace_with_info_type_config = {{ replace_with_info_type_config }}
+            bucketing_config {
+              buckets {
+                max {
+                  day_of_week_value = "{{ day_of_week_value }}"
+                  float_value = {{ float_value }}
+                  integer_value = "{{ integer_value }}"
+                  string_value = "{{ string_value }}"
+                  timestamp_value = "{{ timestamp_value }}"
+                  date_value {
+                    day = {{ day }}
+                    month = {{ month }}
+                    year = {{ year }}
+                  }
+                  time_value {
+                    hours = {{ hours }}
+                    minutes = {{ minutes }}
+                    nanos = {{ nanos }}
+                    seconds = {{ seconds }}
+                  }
+                }
+                min {
+                  day_of_week_value = "{{ day_of_week_value }}"
+                  float_value = {{ float_value }}
+                  integer_value = "{{ integer_value }}"
+                  string_value = "{{ string_value }}"
+                  timestamp_value = "{{ timestamp_value }}"
+                  date_value {
+                    day = {{ day }}
+                    month = {{ month }}
+                    year = {{ year }}
+                  }
+                  time_value {
+                    hours = {{ hours }}
+                    minutes = {{ minutes }}
+                    nanos = {{ nanos }}
+                    seconds = {{ seconds }}
+                  }
+                }
+                replacement_value {
+                  day_of_week_value = "{{ day_of_week_value }}"
+                  float_value = {{ float_value }}
+                  integer_value = "{{ integer_value }}"
+                  string_value = "{{ string_value }}"
+                  timestamp_value = "{{ timestamp_value }}"
+                  date_value {
+                    day = {{ day }}
+                    month = {{ month }}
+                    year = {{ year }}
+                  }
+                  time_value {
+                    hours = {{ hours }}
+                    minutes = {{ minutes }}
+                    nanos = {{ nanos }}
+                    seconds = {{ seconds }}
+                  }
+                }
+              }
+            }
+            character_mask_config {
+              masking_character = "{{ masking_character }}"
+              number_to_mask = {{ number_to_mask }}
+              reverse_order = {{ reverse_order }}
+              characters_to_ignore {
+                characters_to_skip = "{{ characters_to_skip }}"
+                common_characters_to_ignore = "{{ common_characters_to_ignore }}"
+              }
+            }
+            crypto_deterministic_config {
+              context {
+                name = "{{ name }}"
+              }
+              crypto_key {
+                kms_wrapped {
+                  crypto_key_name = "{{ crypto_key_name }}"
+                  wrapped_key = "{{ wrapped_key }}"
+                }
+                transient {
+                  name = "{{ name }}"
+                }
+                unwrapped {
+                  key = "{{ key }}"
+                }
+              }
+              surrogate_info_type {
+                name = "{{ name }}"
+                version = "{{ version }}"
+                sensitivity_score {
+                  score = "{{ score }}"
+                }
+              }
+            }
+            crypto_hash_config {
+              crypto_key {
+                kms_wrapped {
+                  crypto_key_name = "{{ crypto_key_name }}"
+                  wrapped_key = "{{ wrapped_key }}"
+                }
+                transient {
+                  name = "{{ name }}"
+                }
+                unwrapped {
+                  key = "{{ key }}"
+                }
+              }
+            }
+            crypto_replace_ffx_fpe_config {
+              common_alphabet = "{{ common_alphabet }}"
+              custom_alphabet = "{{ custom_alphabet }}"
+              radix = {{ radix }}
+              context {
+                name = "{{ name }}"
+              }
+              crypto_key {
+                kms_wrapped {
+                  crypto_key_name = "{{ crypto_key_name }}"
+                  wrapped_key = "{{ wrapped_key }}"
+                }
+                transient {
+                  name = "{{ name }}"
+                }
+                unwrapped {
+                  key = "{{ key }}"
+                }
+              }
+              surrogate_info_type {
+                name = "{{ name }}"
+                version = "{{ version }}"
+                sensitivity_score {
+                  score = "{{ score }}"
+                }
+              }
+            }
+            date_shift_config {
+              lower_bound_days = {{ lower_bound_days }}
+              upper_bound_days = {{ upper_bound_days }}
+              context {
+                name = "{{ name }}"
+              }
+              crypto_key {
+                kms_wrapped {
+                  crypto_key_name = "{{ crypto_key_name }}"
+                  wrapped_key = "{{ wrapped_key }}"
+                }
+                transient {
+                  name = "{{ name }}"
+                }
+                unwrapped {
+                  key = "{{ key }}"
+                }
+              }
+            }
+            fixed_size_bucketing_config {
+              bucket_size = {{ bucket_size }}
+              lower_bound {
+                float_value = {{ float_value }}
+                integer_value = "{{ integer_value }}"
+              }
+              upper_bound {
+                float_value = {{ float_value }}
+                integer_value = "{{ integer_value }}"
+              }
+            }
+            redact_config {
+            }
+            replace_config {
+              new_value {
+                boolean_value = {{ boolean_value }}
+                day_of_week_value = "{{ day_of_week_value }}"
+                float_value = {{ float_value }}
+                integer_value = {{ integer_value }}
+                string_value = "{{ string_value }}"
+                timestamp_value = "{{ timestamp_value }}"
+                date_value {
+                  day = {{ day }}
+                  month = {{ month }}
+                  year = {{ year }}
+                }
+                time_value {
+                  hours = {{ hours }}
+                  minutes = {{ minutes }}
+                  nanos = {{ nanos }}
+                  seconds = {{ seconds }}
+                }
+              }
+            }
+            replace_dictionary_config {
+              word_list {
+                words = ["{{ words }}"]
+              }
+            }
+            time_part_config {
+              part_to_extract = "{{ part_to_extract }}"
+            }
+          }
+        }
+      }
+      record_transformations {
+        field_transformations {
+          condition {
+            expressions {
+              logical_operator = "{{ logical_operator }}"
+              conditions {
+                conditions {
+                  operator = "{{ operator }}"
+                  field {
+                    name = "{{ name }}"
+                  }
+                  value {
+                    boolean_value = {{ boolean_value }}
+                    day_of_week_value = "{{ day_of_week_value }}"
+                    float_value = {{ float_value }}
+                    integer_value = "{{ integer_value }}"
+                    string_value = "{{ string_value }}"
+                    timestamp_value = "{{ timestamp_value }}"
+                    date_value {
+                      day = {{ day }}
+                      month = {{ month }}
+                      year = {{ year }}
+                    }
+                    time_value {
+                      hours = {{ hours }}
+                      minutes = {{ minutes }}
+                      nanos = {{ nanos }}
+                      seconds = {{ seconds }}
+                    }
+                  }
+                }
+              }
+            }
+          }
+          fields {
+            name = "{{ name }}"
+          }
+          info_type_transformations {
+            transformations {
+              info_types {
+                name = "{{ name }}"
+                version = "{{ version }}"
+                sensitivity_score {
+                  score = "{{ score }}"
+                }
+              }
+              primitive_transformation {
+                bucketing_config {
+                  buckets {
+                    max {
+                      day_of_week_value = "{{ day_of_week_value }}"
+                      float_value = {{ float_value }}
+                      integer_value = "{{ integer_value }}"
+                      string_value = "{{ string_value }}"
+                      timestamp_value = "{{ timestamp_value }}"
+                      date_value {
+                        day = {{ day }}
+                        month = {{ month }}
+                        year = {{ year }}
+                      }
+                      time_value {
+                        hours = {{ hours }}
+                        minutes = {{ minutes }}
+                        nanos = {{ nanos }}
+                        seconds = {{ seconds }}
+                      }
+                    }
+                    min {
+                      day_of_week_value = "{{ day_of_week_value }}"
+                      float_value = {{ float_value }}
+                      integer_value = "{{ integer_value }}"
+                      string_value = "{{ string_value }}"
+                      timestamp_value = "{{ timestamp_value }}"
+                      date_value {
+                        day = {{ day }}
+                        month = {{ month }}
+                        year = {{ year }}
+                      }
+                      time_value {
+                        hours = {{ hours }}
+                        minutes = {{ minutes }}
+                        nanos = {{ nanos }}
+                        seconds = {{ seconds }}
+                      }
+                    }
+                    replacement_value {
+                      day_of_week_value = "{{ day_of_week_value }}"
+                      float_value = {{ float_value }}
+                      integer_value = "{{ integer_value }}"
+                      string_value = "{{ string_value }}"
+                      timestamp_value = "{{ timestamp_value }}"
+                      date_value {
+                        day = {{ day }}
+                        month = {{ month }}
+                        year = {{ year }}
+                      }
+                      time_value {
+                        hours = {{ hours }}
+                        minutes = {{ minutes }}
+                        nanos = {{ nanos }}
+                        seconds = {{ seconds }}
+                      }
+                    }
+                  }
+                }
+                character_mask_config {
+                  masking_character = "{{ masking_character }}"
+                  number_to_mask = {{ number_to_mask }}
+                  reverse_order = {{ reverse_order }}
+                  characters_to_ignore {
+                    characters_to_skip = "{{ characters_to_skip }}"
+                    common_characters_to_ignore = "{{ common_characters_to_ignore }}"
+                  }
+                }
+                crypto_deterministic_config {
+                  context {
+                    name = "{{ name }}"
+                  }
+                  crypto_key {
+                    kms_wrapped {
+                      crypto_key_name = "{{ crypto_key_name }}"
+                      wrapped_key = "{{ wrapped_key }}"
+                    }
+                    transient {
+                      name = "{{ name }}"
+                    }
+                    unwrapped {
+                      key = "{{ key }}"
+                    }
+                  }
+                  surrogate_info_type {
+                    name = "{{ name }}"
+                    version = "{{ version }}"
+                    sensitivity_score {
+                      score = "{{ score }}"
+                    }
+                  }
+                }
+                crypto_hash_config {
+                  crypto_key {
+                    kms_wrapped {
+                      crypto_key_name = "{{ crypto_key_name }}"
+                      wrapped_key = "{{ wrapped_key }}"
+                    }
+                    transient {
+                      name = "{{ name }}"
+                    }
+                    unwrapped {
+                      key = "{{ key }}"
+                    }
+                  }
+                }
+                crypto_replace_ffx_fpe_config {
+                  common_alphabet = "{{ common_alphabet }}"
+                  custom_alphabet = "{{ custom_alphabet }}"
+                  radix = {{ radix }}
+                  context {
+                    name = "{{ name }}"
+                  }
+                  crypto_key {
+                    kms_wrapped {
+                      crypto_key_name = "{{ crypto_key_name }}"
+                      wrapped_key = "{{ wrapped_key }}"
+                    }
+                    transient {
+                      name = "{{ name }}"
+                    }
+                    unwrapped {
+                      key = "{{ key }}"
+                    }
+                  }
+                  surrogate_info_type {
+                    name = "{{ name }}"
+                    version = "{{ version }}"
+                    sensitivity_score {
+                      score = "{{ score }}"
+                    }
+                  }
+                }
+                date_shift_config {
+                  lower_bound_days = {{ lower_bound_days }}
+                  upper_bound_days = {{ upper_bound_days }}
+                  context {
+                    name = "{{ name }}"
+                  }
+                  crypto_key {
+                    kms_wrapped {
+                      crypto_key_name = "{{ crypto_key_name }}"
+                      wrapped_key = "{{ wrapped_key }}"
+                    }
+                    transient {
+                      name = "{{ name }}"
+                    }
+                    unwrapped {
+                      key = "{{ key }}"
+                    }
+                  }
+                }
+                fixed_size_bucketing_config {
+                  bucket_size = {{ bucket_size }}
+                  lower_bound {
+                    float_value = {{ float_value }}
+                    integer_value = "{{ integer_value }}"
+                  }
+                  upper_bound {
+                    float_value = {{ float_value }}
+                    integer_value = "{{ integer_value }}"
+                  }
+                }
+                redact_config {
+                }
+                replace_config {
+                  new_value {
+                    boolean_value = {{ boolean_value }}
+                    day_of_week_value = "{{ day_of_week_value }}"
+                    float_value = {{ float_value }}
+                    integer_value = "{{ integer_value }}"
+                    string_value = "{{ string_value }}"
+                    timestamp_value = "{{ timestamp_value }}"
+                    date_value {
+                      day = {{ day }}
+                      month = {{ month }}
+                      year = {{ year }}
+                    }
+                    time_value {
+                      hours = {{ hours }}
+                      minutes = {{ minutes }}
+                      nanos = {{ nanos }}
+                      seconds = {{ seconds }}
+                    }
+                  }
+                }
+                replace_dictionary_config {
+                  word_list {
+                    words = ["{{ words }}"]
+                  }
+                }
+                replace_with_info_type_config {
+                }
+                time_part_config {
+                  part_to_extract = "{{ part_to_extract }}"
+                }
+              }
+            }
+          }
+          primitive_transformation {
+            bucketing_config {
+              buckets {
+                max {
+                  boolean_value = {{ boolean_value }}
+                  day_of_week_value = "{{ day_of_week_value }}"
+                  float_value = {{ float_value }}
+                  integer_value = "{{ integer_value }}"
+                  string_value = "{{ string_value }}"
+                  timestamp_value = "{{ timestamp_value }}"
+                  date_value {
+                    day = {{ day }}
+                    month = {{ month }}
+                    year = {{ year }}
+                  }
+                  time_value {
+                    hours = {{ hours }}
+                    minutes = {{ minutes }}
+                    nanos = {{ nanos }}
+                    seconds = {{ seconds }}
+                  }
+                }
+                min {
+                  boolean_value = {{ boolean_value }}
+                  day_of_week_value = "{{ day_of_week_value }}"
+                  float_value = {{ float_value }}
+                  integer_value = "{{ integer_value }}"
+                  string_value = "{{ string_value }}"
+                  timestamp_value = "{{ timestamp_value }}"
+                  date_value {
+                    day = {{ day }}
+                    month = {{ month }}
+                    year = {{ year }}
+                  }
+                  time_value {
+                    hours = {{ hours }}
+                    minutes = {{ minutes }}
+                    nanos = {{ nanos }}
+                    seconds = {{ seconds }}
+                  }
+                }
+                replacement_value {
+                  boolean_value = {{ boolean_value }}
+                  day_of_week_value = "{{ day_of_week_value }}"
+                  float_value = {{ float_value }}
+                  integer_value = "{{ integer_value }}"
+                  string_value = "{{ string_value }}"
+                  timestamp_value = "{{ timestamp_value }}"
+                  date_value {
+                    day = {{ day }}
+                    month = {{ month }}
+                    year = {{ year }}
+                  }
+                  time_value {
+                    hours = {{ hours }}
+                    minutes = {{ minutes }}
+                    nanos = {{ nanos }}
+                    seconds = {{ seconds }}
+                  }
+                }
+              }
+            }
+            character_mask_config {
+              masking_character = "{{ masking_character }}"
+              number_to_mask = {{ number_to_mask }}
+              reverse_order = {{ reverse_order }}
+              characters_to_ignore {
+                characters_to_skip = "{{ characters_to_skip }}"
+                common_characters_to_ignore = "{{ common_characters_to_ignore }}"
+              }
+            }
+            crypto_deterministic_config {
+              context {
+                name = "{{ name }}"
+              }
+              crypto_key {
+                kms_wrapped {
+                  crypto_key_name = "{{ crypto_key_name }}"
+                  wrapped_key = "{{ wrapped_key }}"
+                }
+                transient {
+                  name = "{{ name }}"
+                }
+                unwrapped {
+                  key = "{{ key }}"
+                }
+              }
+              surrogate_info_type {
+                name = "{{ name }}"
+                version = "{{ version }}"
+                sensitivity_score {
+                  score = "{{ score }}"
+                }
+              }
+            }
+            crypto_hash_config {
+              crypto_key {
+                kms_wrapped {
+                  crypto_key_name = "{{ crypto_key_name }}"
+                  wrapped_key = "{{ wrapped_key }}"
+                }
+                transient {
+                  name = "{{ name }}"
+                }
+                unwrapped {
+                  key = "{{ key }}"
+                }
+              }
+            }
+            crypto_replace_ffx_fpe_config {
+              common_alphabet = "{{ common_alphabet }}"
+              custom_alphabet = "{{ custom_alphabet }}"
+              radix = {{ radix }}
+              context {
+                name = "{{ name }}"
+              }
+              crypto_key {
+                kms_wrapped {
+                  crypto_key_name = "{{ crypto_key_name }}"
+                  wrapped_key = "{{ wrapped_key }}"
+                }
+                transient {
+                  name = "{{ name }}"
+                }
+                unwrapped {
+                  key = "{{ key }}"
+                }
+              }
+              surrogate_info_type {
+                name = "{{ name }}"
+                version = "{{ version }}"
+                sensitivity_score {
+                  score = "{{ score }}"
+                }
+              }
+            }
+            date_shift_config {
+              lower_bound_days = {{ lower_bound_days }}
+              upper_bound_days = {{ upper_bound_days }}
+              context {
+                name = "{{ name }}"
+              }
+              crypto_key {
+                kms_wrapped {
+                  crypto_key_name = "{{ crypto_key_name }}"
+                  wrapped_key = "{{ wrapped_key }}"
+                }
+                transient {
+                  name = "{{ name }}"
+                }
+                unwrapped {
+                  key = "{{ key }}"
+                }
+              }
+            }
+            fixed_size_bucketing_config {
+              bucket_size = {{ bucket_size }}
+              lower_bound {
+                boolean_value = {{ boolean_value }}
+                day_of_week_value = "{{ day_of_week_value }}"
+                float_value = {{ float_value }}
+                integer_value = "{{ integer_value }}"
+                string_value = "{{ string_value }}"
+                timestamp_value = "{{ timestamp_value }}"
+                date_value {
+                  day = {{ day }}
+                  month = {{ month }}
+                  year = {{ year }}
+                }
+                time_value {
+                  hours = {{ hours }}
+                  minutes = {{ minutes }}
+                  nanos = {{ nanos }}
+                  seconds = {{ seconds }}
+                }
+              }
+              upper_bound {
+                boolean_value = {{ boolean_value }}
+                day_of_week_value = "{{ day_of_week_value }}"
+                float_value = {{ float_value }}
+                integer_value = "{{ integer_value }}"
+                string_value = "{{ string_value }}"
+                timestamp_value = "{{ timestamp_value }}"
+                date_value {
+                  day = {{ day }}
+                  month = {{ month }}
+                  year = {{ year }}
+                }
+                time_value {
+                  hours = {{ hours }}
+                  minutes = {{ minutes }}
+                  nanos = {{ nanos }}
+                  seconds = {{ seconds }}
+                }
+              }
+            }
+            redact_config {
+            }
+            replace_config {
+              new_value {
+                boolean_value = {{ boolean_value }}
+                day_of_week_value = "{{ day_of_week_value }}"
+                float_value = {{ float_value }}
+                integer_value = "{{ integer_value }}"
+                string_value = "{{ string_value }}"
+                timestamp_value = "{{ timestamp_value }}"
+                date_value {
+                  day = {{ day }}
+                  month = {{ month }}
+                  year = {{ year }}
+                }
+                time_value {
+                  hours = {{ hours }}
+                  minutes = {{ minutes }}
+                  nanos = {{ nanos }}
+                  seconds = {{ seconds }}
+                }
+              }
+            }
+            replace_dictionary_config {
+              word_list {
+                words = ["{{ words }}"]
+              }
+            }
+            time_part_config {
+              part_to_extract = "{{ part_to_extract }}"
+            }
+          }
+        }
+        record_suppressions {
+          condition {
+            expressions {
+              logical_operator = "{{ logical_operator }}"
+              conditions {
+                conditions {
+                  operator = "{{ operator }}"
+                  field {
+                    name = "{{ name }}"
+                  }
+                  value {
+                    boolean_value = {{ boolean_value }}
+                    day_of_week_value = "{{ day_of_week_value }}"
+                    float_value = {{ float_value }}
+                    integer_value = "{{ integer_value }}"
+                    string_value = "{{ string_value }}"
+                    timestamp_value = "{{ timestamp_value }}"
+                    date_value {
+                      day = {{ day }}
+                      month = {{ month }}
+                      year = {{ year }}
+                    }
+                    time_value {
+                      hours = {{ hours }}
+                      minutes = {{ minutes }}
+                      nanos = {{ nanos }}
+                      seconds = {{ seconds }}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

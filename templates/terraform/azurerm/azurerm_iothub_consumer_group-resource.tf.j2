@@ -4,4 +4,9 @@ resource "azurerm_iothub_consumer_group" "example" {
     iothub_name = "{{ iothub_name }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

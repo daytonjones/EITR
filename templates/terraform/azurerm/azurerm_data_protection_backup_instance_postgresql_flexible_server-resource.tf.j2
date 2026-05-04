@@ -5,4 +5,10 @@ resource "azurerm_data_protection_backup_instance_postgresql_flexible_server" "e
     name = "{{ name }}"
     server_id = "{{ server_id }}"
     vault_id = "{{ vault_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

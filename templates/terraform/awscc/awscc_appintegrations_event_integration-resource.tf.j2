@@ -1,14 +1,7 @@
 resource "awscc_appintegrations_event_integration" "example" {
     description = "{{ description }}"
     event_bridge_bus = "{{ event_bridge_bus }}"
-    event_filter = "{
-    source = {{ source }}
-}"
-    event_integration_arn = "{{ event_integration_arn }}"
-    id = "{{ id }}"
+    event_filter = "{{ event_filter }}"
     name = "{{ name }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
 }

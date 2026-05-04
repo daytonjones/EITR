@@ -3,4 +3,9 @@ resource "aws_load_balancer_policy" "example" {
     load_balancer_name = "{{ load_balancer_name }}"
     policy_name = "{{ policy_name }}"
     policy_type_name = "{{ policy_type_name }}"
+    region = "{{ region }}"
+    policy_attribute {
+      name = "{{ name }}"
+      value = "{{ value }}"
+    }
 }

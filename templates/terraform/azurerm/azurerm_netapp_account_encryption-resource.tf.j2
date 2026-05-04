@@ -1,7 +1,15 @@
 resource "azurerm_netapp_account_encryption" "example" {
+    cross_tenant_key_vault_resource_id = "{{ cross_tenant_key_vault_resource_id }}"
     encryption_key = "{{ encryption_key }}"
+    federated_client_id = "{{ federated_client_id }}"
     id = "{{ id }}"
     netapp_account_id = "{{ netapp_account_id }}"
     system_assigned_identity_principal_id = "{{ system_assigned_identity_principal_id }}"
     user_assigned_identity_id = "{{ user_assigned_identity_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

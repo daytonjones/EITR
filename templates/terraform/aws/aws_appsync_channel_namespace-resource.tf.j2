@@ -1,0 +1,35 @@
+resource "aws_appsync_channel_namespace" "example" {
+    api_id = "{{ api_id }}"
+    code_handlers = "{{ code_handlers }}"
+    name = "{{ name }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    handler_configs {
+      on_publish {
+        behavior = "{{ behavior }}"
+        integration {
+          data_source_name = "{{ data_source_name }}"
+          lambda_config {
+            invoke_type = "{{ invoke_type }}"
+          }
+        }
+      }
+      on_subscribe {
+        behavior = "{{ behavior }}"
+        integration {
+          data_source_name = "{{ data_source_name }}"
+          lambda_config {
+            invoke_type = "{{ invoke_type }}"
+          }
+        }
+      }
+    }
+    publish_auth_mode {
+      auth_type = "{{ auth_type }}"
+    }
+    subscribe_auth_mode {
+      auth_type = "{{ auth_type }}"
+    }
+}

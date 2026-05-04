@@ -1,0 +1,7 @@
+resource "awscc_s3files_access_point" "example" {
+    client_token = "{{ client_token }}"
+    file_system_id = "{{ file_system_id }}"
+    posix_user = "{{ posix_user }}"
+    root_directory = "{{ root_directory }}"
+    tags = "{{ tags }}"
+}

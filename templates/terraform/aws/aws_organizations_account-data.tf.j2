@@ -1,0 +1,7 @@
+data "aws_organizations_account" "example" {
+    account_id = "{{ account_id }}"
+    id = "{{ id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

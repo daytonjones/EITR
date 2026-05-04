@@ -1,9 +1,12 @@
 resource "aws_timestreamwrite_database" "example" {
-    arn = "{{ arn }}"
     database_name = "{{ database_name }}"
     id = "{{ id }}"
     kms_key_id = "{{ kms_key_id }}"
-    table_count = "{{ table_count }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

@@ -1,0 +1,13 @@
+resource "awscc_route53resolver_resolver_endpoint" "example" {
+    direction = "{{ direction }}"
+    ip_addresses = "{{ ip_addresses }}"
+    name = "{{ name }}"
+    outpost_arn = "{{ outpost_arn }}"
+    preferred_instance_type = "{{ preferred_instance_type }}"
+    protocols = ["{{ protocols }}"]
+    resolver_endpoint_type = "{{ resolver_endpoint_type }}"
+    rni_enhanced_metrics_enabled = {{ rni_enhanced_metrics_enabled }}
+    security_group_ids = ["{{ security_group_ids }}"]
+    tags = "{{ tags }}"
+    target_name_server_metrics_enabled = {{ target_name_server_metrics_enabled }}
+}

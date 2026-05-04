@@ -3,9 +3,25 @@ resource "google_dataform_repository_workflow_config" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    recent_scheduled_execution_records = "{{ recent_scheduled_execution_records }}"
     region = "{{ region }}"
     release_config = "{{ release_config }}"
     repository = "{{ repository }}"
     time_zone = "{{ time_zone }}"
+    invocation_config {
+      fully_refresh_incremental_tables_enabled = {{ fully_refresh_incremental_tables_enabled }}
+      included_tags = ["{{ included_tags }}"]
+      service_account = "{{ service_account }}"
+      transitive_dependencies_included = {{ transitive_dependencies_included }}
+      transitive_dependents_included = {{ transitive_dependents_included }}
+      included_targets {
+        database = "{{ database }}"
+        name = "{{ name }}"
+        schema = "{{ schema }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

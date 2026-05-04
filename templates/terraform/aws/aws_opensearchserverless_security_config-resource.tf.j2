@@ -1,7 +1,12 @@
 resource "aws_opensearchserverless_security_config" "example" {
-    config_version = "{{ config_version }}"
     description = "{{ description }}"
-    id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     type = "{{ type }}"
+    saml_options {
+      group_attribute = "{{ group_attribute }}"
+      metadata = "{{ metadata }}"
+      session_timeout = {{ session_timeout }}
+      user_attribute = "{{ user_attribute }}"
+    }
 }

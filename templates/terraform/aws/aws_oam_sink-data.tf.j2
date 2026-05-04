@@ -1,8 +1,8 @@
 data "aws_oam_sink" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
-    name = "{{ name }}"
-    sink_id = "{{ sink_id }}"
+    region = "{{ region }}"
     sink_identifier = "{{ sink_identifier }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
 }

@@ -1,8 +1,11 @@
 resource "aws_media_store_container" "example" {
-    arn = "{{ arn }}"
-    endpoint = "{{ endpoint }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

@@ -1,0 +1,10 @@
+resource "awscc_sagemaker_model" "example" {
+    containers = "{{ containers }}"
+    enable_network_isolation = {{ enable_network_isolation }}
+    execution_role_arn = "{{ execution_role_arn }}"
+    inference_execution_config = "{{ inference_execution_config }}"
+    model_name = "{{ model_name }}"
+    primary_container = "{{ primary_container }}"
+    tags = "{{ tags }}"
+    vpc_config = "{{ vpc_config }}"
+}

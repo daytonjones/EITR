@@ -1,0 +1,15 @@
+resource "google_dataproc_metastore_table_iam_member" "example" {
+    database_id = "{{ database_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    member = "{{ member }}"
+    project = "{{ project }}"
+    role = "{{ role }}"
+    service_id = "{{ service_id }}"
+    table = "{{ table }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

@@ -1,22 +1,27 @@
 resource "google_cloudfunctions_function" "example" {
-    available_memory_mb = "{{ available_memory_mb }}"
-    build_environment_variables = "{{ build_environment_variables }}"
+    available_memory_mb = {{ available_memory_mb }}
+    build_environment_variables = {
+        key = "{{ build_environment_variables_value }}"
+      }
     build_service_account = "{{ build_service_account }}"
     build_worker_pool = "{{ build_worker_pool }}"
     description = "{{ description }}"
     docker_registry = "{{ docker_registry }}"
     docker_repository = "{{ docker_repository }}"
-    effective_labels = "{{ effective_labels }}"
     entry_point = "{{ entry_point }}"
-    environment_variables = "{{ environment_variables }}"
+    environment_variables = {
+        key = "{{ environment_variables_value }}"
+      }
     https_trigger_security_level = "{{ https_trigger_security_level }}"
     https_trigger_url = "{{ https_trigger_url }}"
     id = "{{ id }}"
     ingress_settings = "{{ ingress_settings }}"
     kms_key_name = "{{ kms_key_name }}"
-    labels = "{{ labels }}"
-    max_instances = "{{ max_instances }}"
-    min_instances = "{{ min_instances }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    max_instances = {{ max_instances }}
+    min_instances = {{ min_instances }}
     name = "{{ name }}"
     project = "{{ project }}"
     region = "{{ region }}"
@@ -24,11 +29,43 @@ resource "google_cloudfunctions_function" "example" {
     service_account_email = "{{ service_account_email }}"
     source_archive_bucket = "{{ source_archive_bucket }}"
     source_archive_object = "{{ source_archive_object }}"
-    status = "{{ status }}"
-    terraform_labels = "{{ terraform_labels }}"
-    timeout = "{{ timeout }}"
-    trigger_http = "{{ trigger_http }}"
-    version_id = "{{ version_id }}"
+    timeout = {{ timeout }}
+    trigger_http = {{ trigger_http }}
     vpc_connector = "{{ vpc_connector }}"
     vpc_connector_egress_settings = "{{ vpc_connector_egress_settings }}"
+    automatic_update_policy {
+    }
+    event_trigger {
+      event_type = "{{ event_type }}"
+      resource = "{{ resource }}"
+      failure_policy {
+        retry = {{ retry }}
+      }
+    }
+    on_deploy_update_policy {
+    }
+    secret_environment_variables {
+      key = "{{ key }}"
+      project_id = "{{ project_id }}"
+      secret = "{{ secret }}"
+      version = "{{ version }}"
+    }
+    secret_volumes {
+      mount_path = "{{ mount_path }}"
+      project_id = "{{ project_id }}"
+      secret = "{{ secret }}"
+      versions {
+        path = "{{ path }}"
+        version = "{{ version }}"
+      }
+    }
+    source_repository {
+      url = "{{ url }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

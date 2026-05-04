@@ -1,0 +1,16 @@
+resource "aws_rds_cluster_snapshot_copy" "example" {
+    copy_tags = {{ copy_tags }}
+    destination_region = "{{ destination_region }}"
+    kms_key_id = "{{ kms_key_id }}"
+    presigned_url = "{{ presigned_url }}"
+    region = "{{ region }}"
+    shared_accounts = ["{{ shared_accounts }}"]
+    source_db_cluster_snapshot_identifier = "{{ source_db_cluster_snapshot_identifier }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    target_db_cluster_snapshot_identifier = "{{ target_db_cluster_snapshot_identifier }}"
+    timeouts {
+      create = "{{ create }}"
+    }
+}

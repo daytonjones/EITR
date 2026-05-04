@@ -1,0 +1,9 @@
+resource "awscc_route53globalresolver_firewall_domain_list" "example" {
+    client_token = "{{ client_token }}"
+    description = "{{ description }}"
+    domain_file_url = "{{ domain_file_url }}"
+    domains = ["{{ domains }}"]
+    global_resolver_id = "{{ global_resolver_id }}"
+    name = "{{ name }}"
+    tags = "{{ tags }}"
+}

@@ -3,4 +3,10 @@ resource "nomad_acl_policy" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     rules_hcl = "{{ rules_hcl }}"
+    job_acl {
+      group = "{{ group }}"
+      job_id = "{{ job_id }}"
+      namespace = "{{ namespace }}"
+      task = "{{ task }}"
+    }
 }

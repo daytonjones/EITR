@@ -1,0 +1,11 @@
+resource "azurerm_data_protection_backup_vault_customer_managed_key" "example" {
+    data_protection_backup_vault_id = "{{ data_protection_backup_vault_id }}"
+    id = "{{ id }}"
+    key_vault_key_id = "{{ key_vault_key_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

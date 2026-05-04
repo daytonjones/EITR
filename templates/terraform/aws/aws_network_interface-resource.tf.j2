@@ -1,28 +1,40 @@
 resource "aws_network_interface" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
+    enable_primary_ipv6 = {{ enable_primary_ipv6 }}
     id = "{{ id }}"
     interface_type = "{{ interface_type }}"
-    ipv4_prefix_count = "{{ ipv4_prefix_count }}"
-    ipv4_prefixes = "{{ ipv4_prefixes }}"
-    ipv6_address_count = "{{ ipv6_address_count }}"
-    ipv6_address_list = "{{ ipv6_address_list }}"
-    ipv6_address_list_enabled = "{{ ipv6_address_list_enabled }}"
-    ipv6_addresses = "{{ ipv6_addresses }}"
-    ipv6_prefix_count = "{{ ipv6_prefix_count }}"
-    ipv6_prefixes = "{{ ipv6_prefixes }}"
-    mac_address = "{{ mac_address }}"
-    outpost_arn = "{{ outpost_arn }}"
-    owner_id = "{{ owner_id }}"
-    private_dns_name = "{{ private_dns_name }}"
+    ipv4_prefix_count = {{ ipv4_prefix_count }}
+    ipv4_prefixes = ["{{ ipv4_prefixes }}"]
+    ipv6_address_count = {{ ipv6_address_count }}
+    ipv6_address_list = ["{{ ipv6_address_list }}"]
+    ipv6_address_list_enabled = {{ ipv6_address_list_enabled }}
+    ipv6_addresses = ["{{ ipv6_addresses }}"]
+    ipv6_prefix_count = {{ ipv6_prefix_count }}
+    ipv6_prefixes = ["{{ ipv6_prefixes }}"]
     private_ip = "{{ private_ip }}"
-    private_ip_list = "{{ private_ip_list }}"
-    private_ip_list_enabled = "{{ private_ip_list_enabled }}"
-    private_ips = "{{ private_ips }}"
-    private_ips_count = "{{ private_ips_count }}"
-    security_groups = "{{ security_groups }}"
-    source_dest_check = "{{ source_dest_check }}"
+    private_ip_list = ["{{ private_ip_list }}"]
+    private_ip_list_enabled = {{ private_ip_list_enabled }}
+    private_ips = ["{{ private_ips }}"]
+    private_ips_count = {{ private_ips_count }}
+    region = "{{ region }}"
+    security_groups = ["{{ security_groups }}"]
+    source_dest_check = {{ source_dest_check }}
     subnet_id = "{{ subnet_id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    attachment {
+      device_index = {{ device_index }}
+      instance = "{{ instance }}"
+      network_card_index = {{ network_card_index }}
+    }
+    ena_srd_specification {
+      ena_srd_enabled = {{ ena_srd_enabled }}
+      ena_srd_udp_specification {
+        ena_srd_udp_enabled = {{ ena_srd_udp_enabled }}
+      }
+    }
 }

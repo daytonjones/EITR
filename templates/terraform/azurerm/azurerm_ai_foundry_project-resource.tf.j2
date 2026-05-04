@@ -1,0 +1,23 @@
+resource "azurerm_ai_foundry_project" "example" {
+    ai_services_hub_id = "{{ ai_services_hub_id }}"
+    description = "{{ description }}"
+    friendly_name = "{{ friendly_name }}"
+    high_business_impact_enabled = {{ high_business_impact_enabled }}
+    id = "{{ id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    primary_user_assigned_identity = "{{ primary_user_assigned_identity }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

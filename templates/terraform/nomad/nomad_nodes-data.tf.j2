@@ -1,0 +1,7 @@
+data "nomad_nodes" "example" {
+    filter = "{{ filter }}"
+    id = "{{ id }}"
+    os = {{ os }}
+    prefix = "{{ prefix }}"
+    resources = {{ resources }}
+}

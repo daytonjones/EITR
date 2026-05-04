@@ -1,6 +1,6 @@
 data "hcp_consul_versions" "example" {
-    available = "{{ available }}"
     id = "{{ id }}"
-    preview = "{{ preview }}"
-    recommended = "{{ recommended }}"
+    timeouts {
+      default = "{{ default }}"
+    }
 }

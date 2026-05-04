@@ -1,5 +1,6 @@
 resource "aws_lightsail_bucket_resource_access" "example" {
     bucket_name = "{{ bucket_name }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     resource_name = "{{ resource_name }}"
 }

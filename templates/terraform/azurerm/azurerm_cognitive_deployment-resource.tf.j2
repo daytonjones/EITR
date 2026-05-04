@@ -1,7 +1,26 @@
 resource "azurerm_cognitive_deployment" "example" {
     cognitive_account_id = "{{ cognitive_account_id }}"
+    dynamic_throttling_enabled = {{ dynamic_throttling_enabled }}
     id = "{{ id }}"
     name = "{{ name }}"
     rai_policy_name = "{{ rai_policy_name }}"
     version_upgrade_option = "{{ version_upgrade_option }}"
+    model {
+      format = "{{ format }}"
+      name = "{{ name }}"
+      version = "{{ version }}"
+    }
+    sku {
+      capacity = {{ capacity }}
+      family = "{{ family }}"
+      name = "{{ name }}"
+      size = "{{ size }}"
+      tier = "{{ tier }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

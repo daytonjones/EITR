@@ -1,0 +1,13 @@
+resource "aws_ssoadmin_customer_managed_policy_attachments_exclusive" "example" {
+    instance_arn = "{{ instance_arn }}"
+    permission_set_arn = "{{ permission_set_arn }}"
+    region = "{{ region }}"
+    customer_managed_policy_reference {
+      name = "{{ name }}"
+      path = "{{ path }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
+}

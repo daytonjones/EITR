@@ -1,10 +1,25 @@
 resource "azurerm_confidential_ledger" "example" {
     id = "{{ id }}"
-    identity_service_endpoint = "{{ identity_service_endpoint }}"
-    ledger_endpoint = "{{ ledger_endpoint }}"
     ledger_type = "{{ ledger_type }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    azuread_based_service_principal {
+      ledger_role_name = "{{ ledger_role_name }}"
+      principal_id = "{{ principal_id }}"
+      tenant_id = "{{ tenant_id }}"
+    }
+    certificate_based_security_principal {
+      ledger_role_name = "{{ ledger_role_name }}"
+      pem_public_key = "{{ pem_public_key }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

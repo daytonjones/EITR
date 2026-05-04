@@ -6,6 +6,36 @@ resource "google_compute_region_per_instance_config" "example" {
     project = "{{ project }}"
     region = "{{ region }}"
     region_instance_group_manager = "{{ region_instance_group_manager }}"
-    remove_instance_on_destroy = "{{ remove_instance_on_destroy }}"
-    remove_instance_state_on_destroy = "{{ remove_instance_state_on_destroy }}"
+    remove_instance_on_destroy = {{ remove_instance_on_destroy }}
+    remove_instance_state_on_destroy = {{ remove_instance_state_on_destroy }}
+    preserved_state {
+      metadata = {
+        key = "{{ metadata_value }}"
+      }
+      disk {
+        delete_rule = "{{ delete_rule }}"
+        device_name = "{{ device_name }}"
+        mode = "{{ mode }}"
+        source = "{{ source }}"
+      }
+      external_ip {
+        auto_delete = "{{ auto_delete }}"
+        interface_name = "{{ interface_name }}"
+        ip_address {
+          address = "{{ address }}"
+        }
+      }
+      internal_ip {
+        auto_delete = "{{ auto_delete }}"
+        interface_name = "{{ interface_name }}"
+        ip_address {
+          address = "{{ address }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

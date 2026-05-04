@@ -4,11 +4,24 @@ resource "google_dialogflow_cx_security_settings" "example" {
     id = "{{ id }}"
     inspect_template = "{{ inspect_template }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    purge_data_types = "{{ purge_data_types }}"
+    purge_data_types = ["{{ purge_data_types }}"]
     redaction_scope = "{{ redaction_scope }}"
     redaction_strategy = "{{ redaction_strategy }}"
     retention_strategy = "{{ retention_strategy }}"
-    retention_window_days = "{{ retention_window_days }}"
+    retention_window_days = {{ retention_window_days }}
+    audio_export_settings {
+      audio_export_pattern = "{{ audio_export_pattern }}"
+      audio_format = "{{ audio_format }}"
+      enable_audio_redaction = {{ enable_audio_redaction }}
+      gcs_bucket = "{{ gcs_bucket }}"
+    }
+    insights_export_settings {
+      enable_insights_export = {{ enable_insights_export }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

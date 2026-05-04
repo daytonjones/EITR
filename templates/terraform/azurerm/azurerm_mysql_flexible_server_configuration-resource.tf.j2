@@ -4,4 +4,10 @@ resource "azurerm_mysql_flexible_server_configuration" "example" {
     resource_group_name = "{{ resource_group_name }}"
     server_name = "{{ server_name }}"
     value = "{{ value }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

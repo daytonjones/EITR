@@ -1,0 +1,70 @@
+resource "google_ces_agent" "example" {
+    agent_id = "{{ agent_id }}"
+    app = "{{ app }}"
+    child_agents = ["{{ child_agents }}"]
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    guardrails = ["{{ guardrails }}"]
+    id = "{{ id }}"
+    instruction = "{{ instruction }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    tools = ["{{ tools }}"]
+    after_agent_callbacks {
+      description = "{{ description }}"
+      disabled = {{ disabled }}
+      python_code = "{{ python_code }}"
+    }
+    after_model_callbacks {
+      description = "{{ description }}"
+      disabled = {{ disabled }}
+      python_code = "{{ python_code }}"
+    }
+    after_tool_callbacks {
+      description = "{{ description }}"
+      disabled = {{ disabled }}
+      python_code = "{{ python_code }}"
+    }
+    before_agent_callbacks {
+      description = "{{ description }}"
+      disabled = {{ disabled }}
+      python_code = "{{ python_code }}"
+    }
+    before_model_callbacks {
+      description = "{{ description }}"
+      disabled = {{ disabled }}
+      python_code = "{{ python_code }}"
+    }
+    before_tool_callbacks {
+      description = "{{ description }}"
+      disabled = {{ disabled }}
+      python_code = "{{ python_code }}"
+    }
+    llm_agent {
+    }
+    model_settings {
+      model = "{{ model }}"
+      temperature = {{ temperature }}
+    }
+    remote_dialogflow_agent {
+      agent = "{{ agent }}"
+      environment_id = "{{ environment_id }}"
+      flow_id = "{{ flow_id }}"
+      input_variable_mapping = {
+        key = "{{ input_variable_mapping_value }}"
+      }
+      output_variable_mapping = {
+        key = "{{ output_variable_mapping_value }}"
+      }
+      respect_response_interruption_settings = {{ respect_response_interruption_settings }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    toolsets {
+      tool_ids = ["{{ tool_ids }}"]
+      toolset = "{{ toolset }}"
+    }
+}

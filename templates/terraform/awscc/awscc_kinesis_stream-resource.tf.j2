@@ -1,18 +1,11 @@
 resource "awscc_kinesis_stream" "example" {
-    arn = "{{ arn }}"
-    id = "{{ id }}"
+    desired_shard_level_metrics = ["{{ desired_shard_level_metrics }}"]
+    max_record_size_in_ki_b = {{ max_record_size_in_ki_b }}
     name = "{{ name }}"
-    retention_period_hours = "{{ retention_period_hours }}"
-    shard_count = "{{ shard_count }}"
-    stream_encryption = "{
-    encryption_type = {{ encryption_type }}
-    key_id = {{ key_id }}
-}"
-    stream_mode_details = "{
-    stream_mode = {{ stream_mode }}
-}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    retention_period_hours = {{ retention_period_hours }}
+    shard_count = {{ shard_count }}
+    stream_encryption = "{{ stream_encryption }}"
+    stream_mode_details = "{{ stream_mode_details }}"
+    tags = "{{ tags }}"
+    warm_throughput_mi_bps = {{ warm_throughput_mi_bps }}
 }

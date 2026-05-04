@@ -1,14 +1,53 @@
 resource "azurerm_data_factory_linked_service_azure_databricks" "example" {
     access_token = "{{ access_token }}"
     adb_domain = "{{ adb_domain }}"
-    additional_properties = "{{ additional_properties }}"
-    annotations = "{{ annotations }}"
+    additional_properties = {
+        key = "{{ additional_properties_value }}"
+      }
+    annotations = ["{{ annotations }}"]
     data_factory_id = "{{ data_factory_id }}"
     description = "{{ description }}"
     existing_cluster_id = "{{ existing_cluster_id }}"
     id = "{{ id }}"
     integration_runtime_name = "{{ integration_runtime_name }}"
     msi_work_space_resource_id = "{{ msi_work_space_resource_id }}"
+    msi_workspace_id = "{{ msi_workspace_id }}"
     name = "{{ name }}"
-    parameters = "{{ parameters }}"
+    parameters = {
+        key = "{{ parameters_value }}"
+      }
+    instance_pool {
+      cluster_version = "{{ cluster_version }}"
+      instance_pool_id = "{{ instance_pool_id }}"
+      max_number_of_workers = {{ max_number_of_workers }}
+      min_number_of_workers = {{ min_number_of_workers }}
+    }
+    key_vault_password {
+      linked_service_name = "{{ linked_service_name }}"
+      secret_name = "{{ secret_name }}"
+    }
+    new_cluster_config {
+      cluster_version = "{{ cluster_version }}"
+      custom_tags = {
+        key = "{{ custom_tags_value }}"
+      }
+      driver_node_type = "{{ driver_node_type }}"
+      init_scripts = ["{{ init_scripts }}"]
+      log_destination = "{{ log_destination }}"
+      max_number_of_workers = {{ max_number_of_workers }}
+      min_number_of_workers = {{ min_number_of_workers }}
+      node_type = "{{ node_type }}"
+      spark_config = {
+        key = "{{ spark_config_value }}"
+      }
+      spark_environment_variables = {
+        key = "{{ spark_environment_variables_value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,12 +1,36 @@
 resource "azurerm_point_to_site_vpn_gateway" "example" {
-    dns_servers = "{{ dns_servers }}"
+    dns_servers = ["{{ dns_servers }}"]
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    routing_preference_internet_enabled = "{{ routing_preference_internet_enabled }}"
-    scale_unit = "{{ scale_unit }}"
-    tags = "{{ tags }}"
+    routing_preference_internet_enabled = {{ routing_preference_internet_enabled }}
+    scale_unit = {{ scale_unit }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
     virtual_hub_id = "{{ virtual_hub_id }}"
     vpn_server_configuration_id = "{{ vpn_server_configuration_id }}"
+    connection_configuration {
+      internet_security_enabled = {{ internet_security_enabled }}
+      name = "{{ name }}"
+      route {
+        associated_route_table_id = "{{ associated_route_table_id }}"
+        inbound_route_map_id = "{{ inbound_route_map_id }}"
+        outbound_route_map_id = "{{ outbound_route_map_id }}"
+        propagated_route_table {
+          ids = ["{{ ids }}"]
+          labels = ["{{ labels }}"]
+        }
+      }
+      vpn_client_address_pool {
+        address_prefixes = ["{{ address_prefixes }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

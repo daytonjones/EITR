@@ -1,11 +1,6 @@
 resource "awscc_iam_virtual_mfa_device" "example" {
-    id = "{{ id }}"
     path = "{{ path }}"
-    serial_number = "{{ serial_number }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
-    users = "{{ users }}"
+    tags = "{{ tags }}"
+    users = ["{{ users }}"]
     virtual_mfa_device_name = "{{ virtual_mfa_device_name }}"
 }

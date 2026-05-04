@@ -1,15 +1,23 @@
 resource "aws_vpc_ipam" "example" {
-    arn = "{{ arn }}"
-    cascade = "{{ cascade }}"
-    default_resource_discovery_association_id = "{{ default_resource_discovery_association_id }}"
-    default_resource_discovery_id = "{{ default_resource_discovery_id }}"
+    cascade = {{ cascade }}
     description = "{{ description }}"
-    enable_private_gua = "{{ enable_private_gua }}"
+    enable_private_gua = {{ enable_private_gua }}
     id = "{{ id }}"
-    private_default_scope_id = "{{ private_default_scope_id }}"
-    public_default_scope_id = "{{ public_default_scope_id }}"
-    scope_count = "{{ scope_count }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    metered_account = "{{ metered_account }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     tier = "{{ tier }}"
+    operating_regions {
+      region_name = "{{ region_name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,6 +1,52 @@
 data "aws_lb_listener_rule" "example" {
     arn = "{{ arn }}"
     listener_arn = "{{ listener_arn }}"
-    priority = "{{ priority }}"
-    tags = "{{ tags }}"
+    priority = {{ priority }}
+    region = "{{ region }}"
+    action {
+      authenticate_cognito {
+      }
+      authenticate_oidc {
+      }
+      fixed_response {
+      }
+      forward {
+        stickiness {
+        }
+        target_group {
+        }
+      }
+      jwt_validation {
+        additional_claim {
+        }
+      }
+      redirect {
+      }
+    }
+    condition {
+      host_header {
+      }
+      http_header {
+      }
+      http_request_method {
+      }
+      path_pattern {
+      }
+      query_string {
+        values {
+        }
+      }
+      source_ip {
+      }
+    }
+    transform {
+      host_header_rewrite_config {
+        rewrite {
+        }
+      }
+      url_rewrite_config {
+        rewrite {
+        }
+      }
+    }
 }

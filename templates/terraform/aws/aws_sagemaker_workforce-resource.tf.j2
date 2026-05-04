@@ -1,6 +1,31 @@
 resource "aws_sagemaker_workforce" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
-    subdomain = "{{ subdomain }}"
+    region = "{{ region }}"
     workforce_name = "{{ workforce_name }}"
+    cognito_config {
+      client_id = "{{ client_id }}"
+      user_pool = "{{ user_pool }}"
+    }
+    oidc_config {
+      authentication_request_extra_params = {
+        key = "{{ authentication_request_extra_params_value }}"
+      }
+      authorization_endpoint = "{{ authorization_endpoint }}"
+      client_id = "{{ client_id }}"
+      client_secret = "{{ client_secret }}"
+      issuer = "{{ issuer }}"
+      jwks_uri = "{{ jwks_uri }}"
+      logout_endpoint = "{{ logout_endpoint }}"
+      scope = "{{ scope }}"
+      token_endpoint = "{{ token_endpoint }}"
+      user_info_endpoint = "{{ user_info_endpoint }}"
+    }
+    source_ip_config {
+      cidrs = ["{{ cidrs }}"]
+    }
+    workforce_vpc_config {
+      security_group_ids = ["{{ security_group_ids }}"]
+      subnets = ["{{ subnets }}"]
+      vpc_id = "{{ vpc_id }}"
+    }
 }

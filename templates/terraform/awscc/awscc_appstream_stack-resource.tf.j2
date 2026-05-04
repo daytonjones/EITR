@@ -1,0 +1,16 @@
+resource "awscc_appstream_stack" "example" {
+    access_endpoints = "{{ access_endpoints }}"
+    application_settings = "{{ application_settings }}"
+    attributes_to_delete = ["{{ attributes_to_delete }}"]
+    delete_storage_connectors = {{ delete_storage_connectors }}
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    embed_host_domains = ["{{ embed_host_domains }}"]
+    feedback_url = "{{ feedback_url }}"
+    name = "{{ name }}"
+    redirect_url = "{{ redirect_url }}"
+    storage_connectors = "{{ storage_connectors }}"
+    streaming_experience_settings = "{{ streaming_experience_settings }}"
+    tags = "{{ tags }}"
+    user_settings = "{{ user_settings }}"
+}

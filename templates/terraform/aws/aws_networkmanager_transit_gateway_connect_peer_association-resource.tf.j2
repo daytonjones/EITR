@@ -4,4 +4,8 @@ resource "aws_networkmanager_transit_gateway_connect_peer_association" "example"
     id = "{{ id }}"
     link_id = "{{ link_id }}"
     transit_gateway_connect_peer_arn = "{{ transit_gateway_connect_peer_arn }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

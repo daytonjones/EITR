@@ -1,10 +1,15 @@
 data "aws_availability_zones" "example" {
-    all_availability_zones = "{{ all_availability_zones }}"
-    exclude_names = "{{ exclude_names }}"
-    exclude_zone_ids = "{{ exclude_zone_ids }}"
-    group_names = "{{ group_names }}"
+    all_availability_zones = {{ all_availability_zones }}
+    exclude_names = ["{{ exclude_names }}"]
+    exclude_zone_ids = ["{{ exclude_zone_ids }}"]
     id = "{{ id }}"
-    names = "{{ names }}"
+    region = "{{ region }}"
     state = "{{ state }}"
-    zone_ids = "{{ zone_ids }}"
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
+    timeouts {
+      read = "{{ read }}"
+    }
 }

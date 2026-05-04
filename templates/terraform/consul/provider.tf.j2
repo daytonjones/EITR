@@ -7,10 +7,42 @@ provider "consul" {
     cert_pem = "{{ cert_pem }}"
     datacenter = "{{ datacenter }}"
     http_auth = "{{ http_auth }}"
-    insecure_https = "{{ insecure_https }}"
+    insecure_https = {{ insecure_https }}
     key_file = "{{ key_file }}"
     key_pem = "{{ key_pem }}"
     namespace = "{{ namespace }}"
     scheme = "{{ scheme }}"
     token = "{{ token }}"
+    auth_jwt {
+      auth_method = "{{ auth_method }}"
+      bearer_token = "{{ bearer_token }}"
+      meta = {
+        key = "{{ meta_value }}"
+      }
+      use_terraform_cloud_workload_identity = {{ use_terraform_cloud_workload_identity }}
+    }
+    auth_login_aws {
+      auth_method = "{{ auth_method }}"
+      aws_access_key_id = "{{ aws_access_key_id }}"
+      aws_iam_endpoint = "{{ aws_iam_endpoint }}"
+      aws_profile = "{{ aws_profile }}"
+      aws_region = "{{ aws_region }}"
+      aws_role_arn = "{{ aws_role_arn }}"
+      aws_role_session_name = "{{ aws_role_session_name }}"
+      aws_secret_access_key = "{{ aws_secret_access_key }}"
+      aws_session_token = "{{ aws_session_token }}"
+      aws_shared_credentials_file = "{{ aws_shared_credentials_file }}"
+      aws_sts_endpoint = "{{ aws_sts_endpoint }}"
+      aws_web_identity_token_file = "{{ aws_web_identity_token_file }}"
+      meta = {
+        key = "{{ meta_value }}"
+      }
+      namespace = "{{ namespace }}"
+      partition = "{{ partition }}"
+      server_id_header_value = "{{ server_id_header_value }}"
+    }
+    header {
+      name = "{{ name }}"
+      value = "{{ value }}"
+    }
 }

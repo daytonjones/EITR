@@ -1,13 +1,43 @@
 resource "google_compute_backend_bucket" "example" {
     bucket_name = "{{ bucket_name }}"
     compression_mode = "{{ compression_mode }}"
-    creation_timestamp = "{{ creation_timestamp }}"
-    custom_response_headers = "{{ custom_response_headers }}"
+    custom_response_headers = ["{{ custom_response_headers }}"]
     description = "{{ description }}"
     edge_security_policy = "{{ edge_security_policy }}"
-    enable_cdn = "{{ enable_cdn }}"
+    enable_cdn = {{ enable_cdn }}
     id = "{{ id }}"
+    load_balancing_scheme = "{{ load_balancing_scheme }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    self_link = "{{ self_link }}"
+    cdn_policy {
+      cache_mode = "{{ cache_mode }}"
+      client_ttl = {{ client_ttl }}
+      default_ttl = {{ default_ttl }}
+      max_ttl = {{ max_ttl }}
+      negative_caching = {{ negative_caching }}
+      request_coalescing = {{ request_coalescing }}
+      serve_while_stale = {{ serve_while_stale }}
+      signed_url_cache_max_age_sec = {{ signed_url_cache_max_age_sec }}
+      bypass_cache_on_request_headers {
+        header_name = "{{ header_name }}"
+      }
+      cache_key_policy {
+        include_http_headers = ["{{ include_http_headers }}"]
+        query_string_whitelist = ["{{ query_string_whitelist }}"]
+      }
+      negative_caching_policy {
+        code = {{ code }}
+        ttl = {{ ttl }}
+      }
+    }
+    params {
+      resource_manager_tags = {
+        key = "{{ resource_manager_tags_value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

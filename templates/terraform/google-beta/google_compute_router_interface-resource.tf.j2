@@ -11,4 +11,8 @@ resource "google_compute_router_interface" "example" {
     router = "{{ router }}"
     subnetwork = "{{ subnetwork }}"
     vpn_tunnel = "{{ vpn_tunnel }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

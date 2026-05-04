@@ -1,9 +1,13 @@
 resource "aws_m2_deployment" "example" {
     application_id = "{{ application_id }}"
-    application_version = "{{ application_version }}"
-    deployment_id = "{{ deployment_id }}"
+    application_version = {{ application_version }}
     environment_id = "{{ environment_id }}"
-    force_stop = "{{ force_stop }}"
-    id = "{{ id }}"
-    start = "{{ start }}"
+    force_stop = {{ force_stop }}
+    region = "{{ region }}"
+    start = {{ start }}
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

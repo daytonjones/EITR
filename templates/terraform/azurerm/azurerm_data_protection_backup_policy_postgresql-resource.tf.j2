@@ -1,9 +1,26 @@
 resource "azurerm_data_protection_backup_policy_postgresql" "example" {
-    backup_repeating_time_intervals = "{{ backup_repeating_time_intervals }}"
+    backup_repeating_time_intervals = ["{{ backup_repeating_time_intervals }}"]
     default_retention_duration = "{{ default_retention_duration }}"
     id = "{{ id }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     time_zone = "{{ time_zone }}"
     vault_name = "{{ vault_name }}"
+    retention_rule {
+      duration = "{{ duration }}"
+      name = "{{ name }}"
+      priority = {{ priority }}
+      criteria {
+        absolute_criteria = "{{ absolute_criteria }}"
+        days_of_week = ["{{ days_of_week }}"]
+        months_of_year = ["{{ months_of_year }}"]
+        scheduled_backup_times = ["{{ scheduled_backup_times }}"]
+        weeks_of_month = ["{{ weeks_of_month }}"]
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

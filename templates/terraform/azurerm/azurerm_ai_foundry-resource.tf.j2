@@ -1,0 +1,36 @@
+resource "azurerm_ai_foundry" "example" {
+    application_insights_id = "{{ application_insights_id }}"
+    container_registry_id = "{{ container_registry_id }}"
+    description = "{{ description }}"
+    friendly_name = "{{ friendly_name }}"
+    high_business_impact_enabled = {{ high_business_impact_enabled }}
+    id = "{{ id }}"
+    key_vault_id = "{{ key_vault_id }}"
+    location = "{{ location }}"
+    name = "{{ name }}"
+    primary_user_assigned_identity = "{{ primary_user_assigned_identity }}"
+    public_network_access = "{{ public_network_access }}"
+    resource_group_name = "{{ resource_group_name }}"
+    storage_account_id = "{{ storage_account_id }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    encryption {
+      key_id = "{{ key_id }}"
+      key_vault_id = "{{ key_vault_id }}"
+      user_assigned_identity_id = "{{ user_assigned_identity_id }}"
+    }
+    identity {
+      identity_ids = ["{{ identity_ids }}"]
+      type = "{{ type }}"
+    }
+    managed_network {
+      isolation_mode = "{{ isolation_mode }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

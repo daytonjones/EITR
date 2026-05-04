@@ -3,4 +3,9 @@ resource "aws_route53_vpc_association_authorization" "example" {
     vpc_id = "{{ vpc_id }}"
     vpc_region = "{{ vpc_region }}"
     zone_id = "{{ zone_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

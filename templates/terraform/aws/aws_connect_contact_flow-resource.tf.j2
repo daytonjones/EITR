@@ -1,6 +1,4 @@
 resource "aws_connect_contact_flow" "example" {
-    arn = "{{ arn }}"
-    contact_flow_id = "{{ contact_flow_id }}"
     content = "{{ content }}"
     content_hash = "{{ content_hash }}"
     description = "{{ description }}"
@@ -8,7 +6,12 @@ resource "aws_connect_contact_flow" "example" {
     id = "{{ id }}"
     instance_id = "{{ instance_id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     type = "{{ type }}"
 }

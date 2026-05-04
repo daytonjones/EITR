@@ -1,9 +1,54 @@
 resource "aws_appsync_datasource" "example" {
     api_id = "{{ api_id }}"
-    arn = "{{ arn }}"
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     service_role_arn = "{{ service_role_arn }}"
     type = "{{ type }}"
+    dynamodb_config {
+      region = "{{ region }}"
+      table_name = "{{ table_name }}"
+      use_caller_credentials = {{ use_caller_credentials }}
+      versioned = {{ versioned }}
+      delta_sync_config {
+        base_table_ttl = {{ base_table_ttl }}
+        delta_sync_table_name = "{{ delta_sync_table_name }}"
+        delta_sync_table_ttl = {{ delta_sync_table_ttl }}
+      }
+    }
+    elasticsearch_config {
+      endpoint = "{{ endpoint }}"
+      region = "{{ region }}"
+    }
+    event_bridge_config {
+      event_bus_arn = "{{ event_bus_arn }}"
+    }
+    http_config {
+      endpoint = "{{ endpoint }}"
+      authorization_config {
+        authorization_type = "{{ authorization_type }}"
+        aws_iam_config {
+          signing_region = "{{ signing_region }}"
+          signing_service_name = "{{ signing_service_name }}"
+        }
+      }
+    }
+    lambda_config {
+      function_arn = "{{ function_arn }}"
+    }
+    opensearchservice_config {
+      endpoint = "{{ endpoint }}"
+      region = "{{ region }}"
+    }
+    relational_database_config {
+      source_type = "{{ source_type }}"
+      http_endpoint_config {
+        aws_secret_store_arn = "{{ aws_secret_store_arn }}"
+        database_name = "{{ database_name }}"
+        db_cluster_identifier = "{{ db_cluster_identifier }}"
+        region = "{{ region }}"
+        schema = "{{ schema }}"
+      }
+    }
 }

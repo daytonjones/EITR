@@ -1,8 +1,23 @@
 resource "aws_cloudwatch_event_endpoint" "example" {
-    arn = "{{ arn }}"
     description = "{{ description }}"
-    endpoint_url = "{{ endpoint_url }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
+    event_bus {
+      event_bus_arn = "{{ event_bus_arn }}"
+    }
+    replication_config {
+      state = "{{ state }}"
+    }
+    routing_config {
+      failover_config {
+        primary {
+          health_check = "{{ health_check }}"
+        }
+        secondary {
+          route = "{{ route }}"
+        }
+      }
+    }
 }

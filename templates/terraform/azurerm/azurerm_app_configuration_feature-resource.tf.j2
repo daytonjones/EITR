@@ -1,13 +1,39 @@
 resource "azurerm_app_configuration_feature" "example" {
     configuration_store_id = "{{ configuration_store_id }}"
     description = "{{ description }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     etag = "{{ etag }}"
     id = "{{ id }}"
     key = "{{ key }}"
     label = "{{ label }}"
-    locked = "{{ locked }}"
+    locked = {{ locked }}
     name = "{{ name }}"
-    percentage_filter_value = "{{ percentage_filter_value }}"
-    tags = "{{ tags }}"
+    percentage_filter_value = {{ percentage_filter_value }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    custom_filter {
+      name = "{{ name }}"
+      parameters = {
+        key = "{{ parameters_value }}"
+      }
+    }
+    targeting_filter {
+      default_rollout_percentage = {{ default_rollout_percentage }}
+      users = ["{{ users }}"]
+      groups {
+        name = "{{ name }}"
+        rollout_percentage = {{ rollout_percentage }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+    timewindow_filter {
+      end = "{{ end }}"
+      start = "{{ start }}"
+    }
 }

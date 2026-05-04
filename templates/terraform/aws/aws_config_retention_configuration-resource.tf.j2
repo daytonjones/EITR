@@ -1,5 +1,4 @@
 resource "aws_config_retention_configuration" "example" {
-    id = "{{ id }}"
-    name = "{{ name }}"
-    retention_period_in_days = "{{ retention_period_in_days }}"
+    region = "{{ region }}"
+    retention_period_in_days = {{ retention_period_in_days }}
 }

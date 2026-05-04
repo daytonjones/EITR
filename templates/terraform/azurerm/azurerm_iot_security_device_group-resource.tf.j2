@@ -2,4 +2,22 @@ resource "azurerm_iot_security_device_group" "example" {
     id = "{{ id }}"
     iothub_id = "{{ iothub_id }}"
     name = "{{ name }}"
+    allow_rule {
+      connection_from_ips_not_allowed = ["{{ connection_from_ips_not_allowed }}"]
+      connection_to_ips_not_allowed = ["{{ connection_to_ips_not_allowed }}"]
+      local_users_not_allowed = ["{{ local_users_not_allowed }}"]
+      processes_not_allowed = ["{{ processes_not_allowed }}"]
+    }
+    range_rule {
+      duration = "{{ duration }}"
+      max = {{ max }}
+      min = {{ min }}
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,19 @@
+resource "google_compute_interconnect_attachment_group" "example" {
+    description = "{{ description }}"
+    id = "{{ id }}"
+    interconnect_group = "{{ interconnect_group }}"
+    name = "{{ name }}"
+    project = "{{ project }}"
+    attachments {
+      attachment = "{{ attachment }}"
+      name = "{{ name }}"
+    }
+    intent {
+      availability_sla = "{{ availability_sla }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

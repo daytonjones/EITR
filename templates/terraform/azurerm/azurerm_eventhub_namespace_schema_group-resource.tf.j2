@@ -4,4 +4,9 @@ resource "azurerm_eventhub_namespace_schema_group" "example" {
     namespace_id = "{{ namespace_id }}"
     schema_compatibility = "{{ schema_compatibility }}"
     schema_type = "{{ schema_type }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

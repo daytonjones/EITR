@@ -1,0 +1,10 @@
+resource "awscc_route53globalresolver_dns_view" "example" {
+    client_token = "{{ client_token }}"
+    description = "{{ description }}"
+    dnssec_validation = "{{ dnssec_validation }}"
+    edns_client_subnet = "{{ edns_client_subnet }}"
+    firewall_rules_fail_open = "{{ firewall_rules_fail_open }}"
+    global_resolver_id = "{{ global_resolver_id }}"
+    name = "{{ name }}"
+    tags = "{{ tags }}"
+}

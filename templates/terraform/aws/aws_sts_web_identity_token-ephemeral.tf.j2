@@ -1,0 +1,8 @@
+ephemeral "aws_sts_web_identity_token" "example" {
+    audience = ["{{ audience }}"]
+    duration_seconds = {{ duration_seconds }}
+    signing_algorithm = "{{ signing_algorithm }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

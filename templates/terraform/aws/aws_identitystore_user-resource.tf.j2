@@ -1,15 +1,42 @@
 resource "aws_identitystore_user" "example" {
     display_name = "{{ display_name }}"
-    external_ids = "{{ external_ids }}"
     id = "{{ id }}"
     identity_store_id = "{{ identity_store_id }}"
     locale = "{{ locale }}"
     nickname = "{{ nickname }}"
     preferred_language = "{{ preferred_language }}"
     profile_url = "{{ profile_url }}"
+    region = "{{ region }}"
     timezone = "{{ timezone }}"
     title = "{{ title }}"
-    user_id = "{{ user_id }}"
     user_name = "{{ user_name }}"
     user_type = "{{ user_type }}"
+    addresses {
+      country = "{{ country }}"
+      formatted = "{{ formatted }}"
+      locality = "{{ locality }}"
+      postal_code = "{{ postal_code }}"
+      primary = {{ primary }}
+      region = "{{ region }}"
+      street_address = "{{ street_address }}"
+      type = "{{ type }}"
+    }
+    emails {
+      primary = {{ primary }}
+      type = "{{ type }}"
+      value = "{{ value }}"
+    }
+    name {
+      family_name = "{{ family_name }}"
+      formatted = "{{ formatted }}"
+      given_name = "{{ given_name }}"
+      honorific_prefix = "{{ honorific_prefix }}"
+      honorific_suffix = "{{ honorific_suffix }}"
+      middle_name = "{{ middle_name }}"
+    }
+    phone_numbers {
+      primary = {{ primary }}
+      type = "{{ type }}"
+      value = "{{ value }}"
+    }
 }

@@ -1,5 +1,10 @@
 resource "azuread_application_fallback_public_client" "example" {
     application_id = "{{ application_id }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

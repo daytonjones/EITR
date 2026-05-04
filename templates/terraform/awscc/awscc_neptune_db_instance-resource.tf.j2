@@ -1,0 +1,14 @@
+resource "awscc_neptune_db_instance" "example" {
+    allow_major_version_upgrade = {{ allow_major_version_upgrade }}
+    auto_minor_version_upgrade = {{ auto_minor_version_upgrade }}
+    availability_zone = "{{ availability_zone }}"
+    db_cluster_identifier = "{{ db_cluster_identifier }}"
+    db_instance_class = "{{ db_instance_class }}"
+    db_instance_identifier = "{{ db_instance_identifier }}"
+    db_parameter_group_name = "{{ db_parameter_group_name }}"
+    db_snapshot_identifier = "{{ db_snapshot_identifier }}"
+    db_subnet_group_name = "{{ db_subnet_group_name }}"
+    preferred_maintenance_window = "{{ preferred_maintenance_window }}"
+    publicly_accessible = {{ publicly_accessible }}
+    tags = "{{ tags }}"
+}

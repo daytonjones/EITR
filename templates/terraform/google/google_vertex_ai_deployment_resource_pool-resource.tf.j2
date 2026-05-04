@@ -1,7 +1,23 @@
 resource "google_vertex_ai_deployment_resource_pool" "example" {
-    create_time = "{{ create_time }}"
     id = "{{ id }}"
     name = "{{ name }}"
     project = "{{ project }}"
     region = "{{ region }}"
+    dedicated_resources {
+      max_replica_count = {{ max_replica_count }}
+      min_replica_count = {{ min_replica_count }}
+      autoscaling_metric_specs {
+        metric_name = "{{ metric_name }}"
+        target = {{ target }}
+      }
+      machine_spec {
+        accelerator_count = {{ accelerator_count }}
+        accelerator_type = "{{ accelerator_type }}"
+        machine_type = "{{ machine_type }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

@@ -1,7 +1,12 @@
 data "azurerm_storage_queue" "example" {
     id = "{{ id }}"
-    metadata = "{{ metadata }}"
+    metadata = {
+        key = "{{ metadata_value }}"
+      }
     name = "{{ name }}"
-    resource_manager_id = "{{ resource_manager_id }}"
+    storage_account_id = "{{ storage_account_id }}"
     storage_account_name = "{{ storage_account_name }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

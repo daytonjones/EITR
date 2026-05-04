@@ -1,7 +1,17 @@
 data "consul_services" "example" {
-    datacenter = "{{ datacenter }}"
     id = "{{ id }}"
-    names = "{{ names }}"
-    services = "{{ services }}"
-    tags = "{{ tags }}"
+    query_options {
+      allow_stale = {{ allow_stale }}
+      datacenter = "{{ datacenter }}"
+      namespace = "{{ namespace }}"
+      near = "{{ near }}"
+      node_meta = {
+        key = "{{ node_meta_value }}"
+      }
+      partition = "{{ partition }}"
+      require_consistent = {{ require_consistent }}
+      token = "{{ token }}"
+      wait_index = {{ wait_index }}
+      wait_time = "{{ wait_time }}"
+    }
 }

@@ -1,0 +1,9 @@
+resource "aws_s3vectors_vector_bucket" "example" {
+    encryption_configuration = ["{{ encryption_configuration }}"]
+    force_destroy = {{ force_destroy }}
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    vector_bucket_name = "{{ vector_bucket_name }}"
+}

@@ -1,15 +1,61 @@
 resource "google_discovery_engine_data_store" "example" {
     content_config = "{{ content_config }}"
-    create_advanced_site_search = "{{ create_advanced_site_search }}"
-    create_time = "{{ create_time }}"
+    create_advanced_site_search = {{ create_advanced_site_search }}
     data_store_id = "{{ data_store_id }}"
-    default_schema_id = "{{ default_schema_id }}"
     display_name = "{{ display_name }}"
     id = "{{ id }}"
     industry_vertical = "{{ industry_vertical }}"
+    kms_key_name = "{{ kms_key_name }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    skip_default_schema_creation = "{{ skip_default_schema_creation }}"
-    solution_types = "{{ solution_types }}"
+    skip_default_schema_creation = {{ skip_default_schema_creation }}
+    solution_types = ["{{ solution_types }}"]
+    advanced_site_search_config {
+      disable_automatic_refresh = {{ disable_automatic_refresh }}
+      disable_initial_index = {{ disable_initial_index }}
+    }
+    document_processing_config {
+      chunking_config {
+        layout_based_chunking_config {
+          chunk_size = {{ chunk_size }}
+          include_ancestor_headings = {{ include_ancestor_headings }}
+        }
+      }
+      default_parsing_config {
+        digital_parsing_config {
+        }
+        layout_parsing_config {
+          enable_image_annotation = {{ enable_image_annotation }}
+          enable_table_annotation = {{ enable_table_annotation }}
+          exclude_html_classes = ["{{ exclude_html_classes }}"]
+          exclude_html_elements = ["{{ exclude_html_elements }}"]
+          exclude_html_ids = ["{{ exclude_html_ids }}"]
+          structured_content_types = ["{{ structured_content_types }}"]
+        }
+        ocr_parsing_config {
+          use_native_text = {{ use_native_text }}
+        }
+      }
+      parsing_config_overrides {
+        file_type = "{{ file_type }}"
+        digital_parsing_config {
+        }
+        layout_parsing_config {
+          enable_image_annotation = {{ enable_image_annotation }}
+          enable_table_annotation = {{ enable_table_annotation }}
+          exclude_html_classes = ["{{ exclude_html_classes }}"]
+          exclude_html_elements = ["{{ exclude_html_elements }}"]
+          exclude_html_ids = ["{{ exclude_html_ids }}"]
+          structured_content_types = ["{{ structured_content_types }}"]
+        }
+        ocr_parsing_config {
+          use_native_text = {{ use_native_text }}
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

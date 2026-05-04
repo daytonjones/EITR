@@ -1,10 +1,16 @@
 resource "aws_glue_workflow" "example" {
-    arn = "{{ arn }}"
-    default_run_properties = "{{ default_run_properties }}"
+    default_run_properties = {
+        key = "{{ default_run_properties_value }}"
+      }
     description = "{{ description }}"
     id = "{{ id }}"
-    max_concurrent_runs = "{{ max_concurrent_runs }}"
+    max_concurrent_runs = {{ max_concurrent_runs }}
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
 }

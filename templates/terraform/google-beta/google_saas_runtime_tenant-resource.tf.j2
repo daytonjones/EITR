@@ -1,0 +1,19 @@
+resource "google_saas_runtime_tenant" "example" {
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
+    consumer_resource = "{{ consumer_resource }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    saas = "{{ saas }}"
+    tenant_id = "{{ tenant_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

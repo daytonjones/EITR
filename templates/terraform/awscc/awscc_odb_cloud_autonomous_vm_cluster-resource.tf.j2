@@ -1,0 +1,19 @@
+resource "awscc_odb_cloud_autonomous_vm_cluster" "example" {
+    autonomous_data_storage_size_in_t_bs = {{ autonomous_data_storage_size_in_t_bs }}
+    cloud_exadata_infrastructure_id = "{{ cloud_exadata_infrastructure_id }}"
+    cpu_core_count_per_node = {{ cpu_core_count_per_node }}
+    db_servers = ["{{ db_servers }}"]
+    description = "{{ description }}"
+    display_name = "{{ display_name }}"
+    iam_roles = "{{ iam_roles }}"
+    is_mtls_enabled_vm_cluster = {{ is_mtls_enabled_vm_cluster }}
+    license_model = "{{ license_model }}"
+    maintenance_window = "{{ maintenance_window }}"
+    memory_per_oracle_compute_unit_in_g_bs = {{ memory_per_oracle_compute_unit_in_g_bs }}
+    odb_network_id = "{{ odb_network_id }}"
+    scan_listener_port_non_tls = {{ scan_listener_port_non_tls }}
+    scan_listener_port_tls = {{ scan_listener_port_tls }}
+    tags = "{{ tags }}"
+    time_zone = "{{ time_zone }}"
+    total_container_databases = {{ total_container_databases }}
+}

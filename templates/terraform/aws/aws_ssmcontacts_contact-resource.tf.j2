@@ -1,9 +1,13 @@
 resource "aws_ssmcontacts_contact" "example" {
     alias = "{{ alias }}"
-    arn = "{{ arn }}"
     display_name = "{{ display_name }}"
     id = "{{ id }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     type = "{{ type }}"
 }

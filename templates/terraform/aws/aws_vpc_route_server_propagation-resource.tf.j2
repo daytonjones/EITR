@@ -1,0 +1,9 @@
+resource "aws_vpc_route_server_propagation" "example" {
+    region = "{{ region }}"
+    route_server_id = "{{ route_server_id }}"
+    route_table_id = "{{ route_table_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

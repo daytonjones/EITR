@@ -1,12 +1,7 @@
 resource "awscc_ivs_playback_restriction_policy" "example" {
-    allowed_countries = "{{ allowed_countries }}"
-    allowed_origins = "{{ allowed_origins }}"
-    arn = "{{ arn }}"
-    enable_strict_origin_enforcement = "{{ enable_strict_origin_enforcement }}"
-    id = "{{ id }}"
+    allowed_countries = ["{{ allowed_countries }}"]
+    allowed_origins = ["{{ allowed_origins }}"]
+    enable_strict_origin_enforcement = {{ enable_strict_origin_enforcement }}
     name = "{{ name }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
 }

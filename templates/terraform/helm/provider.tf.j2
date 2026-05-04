@@ -1,8 +1,12 @@
 provider "helm" {
-    burst_limit = "{{ burst_limit }}"
-    debug = "{{ debug }}"
+    burst_limit = {{ burst_limit }}
+    debug = {{ debug }}
+    experiments = "{{ experiments }}"
     helm_driver = "{{ helm_driver }}"
+    kubernetes = "{{ kubernetes }}"
     plugins_path = "{{ plugins_path }}"
+    qps = {{ qps }}
+    registries = "{{ registries }}"
     registry_config_path = "{{ registry_config_path }}"
     repository_cache = "{{ repository_cache }}"
     repository_config_path = "{{ repository_config_path }}"

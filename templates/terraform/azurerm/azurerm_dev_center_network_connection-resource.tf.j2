@@ -9,5 +9,13 @@ resource "azurerm_dev_center_network_connection" "example" {
     organization_unit = "{{ organization_unit }}"
     resource_group_name = "{{ resource_group_name }}"
     subnet_id = "{{ subnet_id }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

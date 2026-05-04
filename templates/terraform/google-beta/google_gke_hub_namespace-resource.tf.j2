@@ -1,17 +1,18 @@
 resource "google_gke_hub_namespace" "example" {
-    create_time = "{{ create_time }}"
-    delete_time = "{{ delete_time }}"
-    effective_labels = "{{ effective_labels }}"
     id = "{{ id }}"
-    labels = "{{ labels }}"
-    name = "{{ name }}"
-    namespace_labels = "{{ namespace_labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    namespace_labels = {
+        key = "{{ namespace_labels_value }}"
+      }
     project = "{{ project }}"
     scope = "{{ scope }}"
     scope_id = "{{ scope_id }}"
     scope_namespace_id = "{{ scope_namespace_id }}"
-    state = "{{ state }}"
-    terraform_labels = "{{ terraform_labels }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

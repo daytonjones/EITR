@@ -1,5 +1,9 @@
 resource "tfe_data_retention_policy" "example" {
-    id = "{{ id }}"
     organization = "{{ organization }}"
     workspace_id = "{{ workspace_id }}"
+    delete_older_than {
+      days = {{ days }}
+    }
+    dont_delete {
+    }
 }

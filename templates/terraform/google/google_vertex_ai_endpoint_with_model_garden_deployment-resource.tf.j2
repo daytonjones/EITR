@@ -1,0 +1,160 @@
+resource "google_vertex_ai_endpoint_with_model_garden_deployment" "example" {
+    hugging_face_model_id = "{{ hugging_face_model_id }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    publisher_model_name = "{{ publisher_model_name }}"
+    deploy_config {
+      fast_tryout_enabled = {{ fast_tryout_enabled }}
+      system_labels = {
+        key = "{{ system_labels_value }}"
+      }
+      dedicated_resources {
+        max_replica_count = {{ max_replica_count }}
+        min_replica_count = {{ min_replica_count }}
+        required_replica_count = {{ required_replica_count }}
+        spot = {{ spot }}
+        autoscaling_metric_specs {
+          metric_name = "{{ metric_name }}"
+          target = {{ target }}
+        }
+        machine_spec {
+          accelerator_count = {{ accelerator_count }}
+          accelerator_type = "{{ accelerator_type }}"
+          machine_type = "{{ machine_type }}"
+          multihost_gpu_node_count = {{ multihost_gpu_node_count }}
+          tpu_topology = "{{ tpu_topology }}"
+          reservation_affinity {
+            key = "{{ key }}"
+            reservation_affinity_type = "{{ reservation_affinity_type }}"
+            values = ["{{ values }}"]
+          }
+        }
+      }
+    }
+    endpoint_config {
+      dedicated_endpoint_enabled = {{ dedicated_endpoint_enabled }}
+      endpoint_display_name = "{{ endpoint_display_name }}"
+      private_service_connect_config {
+        enable_private_service_connect = {{ enable_private_service_connect }}
+        project_allowlist = ["{{ project_allowlist }}"]
+        psc_automation_configs {
+          network = "{{ network }}"
+          project_id = "{{ project_id }}"
+        }
+      }
+    }
+    model_config {
+      accept_eula = {{ accept_eula }}
+      hugging_face_access_token = "{{ hugging_face_access_token }}"
+      hugging_face_cache_enabled = {{ hugging_face_cache_enabled }}
+      model_display_name = "{{ model_display_name }}"
+      container_spec {
+        args = ["{{ args }}"]
+        command = ["{{ command }}"]
+        deployment_timeout = "{{ deployment_timeout }}"
+        health_route = "{{ health_route }}"
+        image_uri = "{{ image_uri }}"
+        predict_route = "{{ predict_route }}"
+        shared_memory_size_mb = "{{ shared_memory_size_mb }}"
+        env {
+          name = "{{ name }}"
+          value = "{{ value }}"
+        }
+        grpc_ports {
+          container_port = {{ container_port }}
+        }
+        health_probe {
+          failure_threshold = {{ failure_threshold }}
+          initial_delay_seconds = {{ initial_delay_seconds }}
+          period_seconds = {{ period_seconds }}
+          success_threshold = {{ success_threshold }}
+          timeout_seconds = {{ timeout_seconds }}
+          exec {
+            command = ["{{ command }}"]
+          }
+          grpc {
+            port = {{ port }}
+            service = "{{ service }}"
+          }
+          http_get {
+            host = "{{ host }}"
+            path = "{{ path }}"
+            port = {{ port }}
+            scheme = "{{ scheme }}"
+            http_headers {
+              name = "{{ name }}"
+              value = "{{ value }}"
+            }
+          }
+          tcp_socket {
+            host = "{{ host }}"
+            port = {{ port }}
+          }
+        }
+        liveness_probe {
+          failure_threshold = {{ failure_threshold }}
+          initial_delay_seconds = {{ initial_delay_seconds }}
+          period_seconds = {{ period_seconds }}
+          success_threshold = {{ success_threshold }}
+          timeout_seconds = {{ timeout_seconds }}
+          exec {
+            command = ["{{ command }}"]
+          }
+          grpc {
+            port = {{ port }}
+            service = "{{ service }}"
+          }
+          http_get {
+            host = "{{ host }}"
+            path = "{{ path }}"
+            port = {{ port }}
+            scheme = "{{ scheme }}"
+            http_headers {
+              name = "{{ name }}"
+              value = "{{ value }}"
+            }
+          }
+          tcp_socket {
+            host = "{{ host }}"
+            port = {{ port }}
+          }
+        }
+        ports {
+          container_port = {{ container_port }}
+        }
+        startup_probe {
+          failure_threshold = {{ failure_threshold }}
+          initial_delay_seconds = {{ initial_delay_seconds }}
+          period_seconds = {{ period_seconds }}
+          success_threshold = {{ success_threshold }}
+          timeout_seconds = {{ timeout_seconds }}
+          exec {
+            command = ["{{ command }}"]
+          }
+          grpc {
+            port = {{ port }}
+            service = "{{ service }}"
+          }
+          http_get {
+            host = "{{ host }}"
+            path = "{{ path }}"
+            port = {{ port }}
+            scheme = "{{ scheme }}"
+            http_headers {
+              name = "{{ name }}"
+              value = "{{ value }}"
+            }
+          }
+          tcp_socket {
+            host = "{{ host }}"
+            port = {{ port }}
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
+}

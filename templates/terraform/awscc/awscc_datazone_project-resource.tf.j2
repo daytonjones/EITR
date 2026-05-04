@@ -1,12 +1,11 @@
 resource "awscc_datazone_project" "example" {
-    created_at = "{{ created_at }}"
-    created_by = "{{ created_by }}"
     description = "{{ description }}"
-    domain_id = "{{ domain_id }}"
     domain_identifier = "{{ domain_identifier }}"
-    glossary_terms = "{{ glossary_terms }}"
-    id = "{{ id }}"
-    last_updated_at = "{{ last_updated_at }}"
+    domain_unit_id = "{{ domain_unit_id }}"
+    glossary_terms = ["{{ glossary_terms }}"]
     name = "{{ name }}"
-    project_id = "{{ project_id }}"
+    project_profile_id = "{{ project_profile_id }}"
+    project_profile_version = "{{ project_profile_version }}"
+    resource_tags = "{{ resource_tags }}"
+    user_parameters = "{{ user_parameters }}"
 }

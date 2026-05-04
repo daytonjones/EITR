@@ -1,0 +1,13 @@
+resource "google_bigtable_materialized_view" "example" {
+    deletion_protection = {{ deletion_protection }}
+    id = "{{ id }}"
+    instance = "{{ instance }}"
+    materialized_view_id = "{{ materialized_view_id }}"
+    project = "{{ project }}"
+    query = "{{ query }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

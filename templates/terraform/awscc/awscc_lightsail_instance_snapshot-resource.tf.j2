@@ -1,0 +1,5 @@
+resource "awscc_lightsail_instance_snapshot" "example" {
+    instance_name = "{{ instance_name }}"
+    instance_snapshot_name = "{{ instance_snapshot_name }}"
+    tags = "{{ tags }}"
+}

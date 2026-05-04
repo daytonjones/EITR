@@ -1,7 +1,12 @@
 resource "tfe_no_code_module" "example" {
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     organization = "{{ organization }}"
     registry_module = "{{ registry_module }}"
     version_pin = "{{ version_pin }}"
+    variable_options {
+      name = "{{ name }}"
+      options = ["{{ options }}"]
+      type = "{{ type }}"
+    }
 }

@@ -5,4 +5,9 @@ resource "azurerm_stream_analytics_managed_private_endpoint" "example" {
     stream_analytics_cluster_name = "{{ stream_analytics_cluster_name }}"
     subresource_name = "{{ subresource_name }}"
     target_resource_id = "{{ target_resource_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

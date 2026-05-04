@@ -1,0 +1,14 @@
+resource "google_gemini_repository_group_iam_member" "example" {
+    code_repository_index = "{{ code_repository_index }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    member = "{{ member }}"
+    project = "{{ project }}"
+    repository_group_id = "{{ repository_group_id }}"
+    role = "{{ role }}"
+    condition {
+      description = "{{ description }}"
+      expression = "{{ expression }}"
+      title = "{{ title }}"
+    }
+}

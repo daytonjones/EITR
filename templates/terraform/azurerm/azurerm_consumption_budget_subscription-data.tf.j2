@@ -1,10 +1,8 @@
 data "azurerm_consumption_budget_subscription" "example" {
-    amount = "{{ amount }}"
-    filter = "{{ filter }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    notification = "{{ notification }}"
     subscription_id = "{{ subscription_id }}"
-    time_grain = "{{ time_grain }}"
-    time_period = "{{ time_period }}"
+    timeouts {
+      read = "{{ read }}"
+    }
 }

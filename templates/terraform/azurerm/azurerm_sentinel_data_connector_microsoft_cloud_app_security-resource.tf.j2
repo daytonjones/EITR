@@ -1,8 +1,14 @@
 resource "azurerm_sentinel_data_connector_microsoft_cloud_app_security" "example" {
-    alerts_enabled = "{{ alerts_enabled }}"
-    discovery_logs_enabled = "{{ discovery_logs_enabled }}"
+    alerts_enabled = {{ alerts_enabled }}
+    discovery_logs_enabled = {{ discovery_logs_enabled }}
     id = "{{ id }}"
     log_analytics_workspace_id = "{{ log_analytics_workspace_id }}"
     name = "{{ name }}"
     tenant_id = "{{ tenant_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

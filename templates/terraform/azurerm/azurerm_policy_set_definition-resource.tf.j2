@@ -7,4 +7,24 @@ resource "azurerm_policy_set_definition" "example" {
     name = "{{ name }}"
     parameters = "{{ parameters }}"
     policy_type = "{{ policy_type }}"
+    policy_definition_group {
+      additional_metadata_resource_id = "{{ additional_metadata_resource_id }}"
+      category = "{{ category }}"
+      description = "{{ description }}"
+      display_name = "{{ display_name }}"
+      name = "{{ name }}"
+    }
+    policy_definition_reference {
+      parameter_values = "{{ parameter_values }}"
+      policy_definition_id = "{{ policy_definition_id }}"
+      policy_group_names = ["{{ policy_group_names }}"]
+      reference_id = "{{ reference_id }}"
+      version = "{{ version }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

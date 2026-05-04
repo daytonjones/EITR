@@ -5,4 +5,9 @@ resource "azurerm_redis_cache_access_policy_assignment" "example" {
     object_id = "{{ object_id }}"
     object_id_alias = "{{ object_id_alias }}"
     redis_cache_id = "{{ redis_cache_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

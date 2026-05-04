@@ -1,6 +1,19 @@
 resource "azurerm_security_center_assessment" "example" {
-    additional_data = "{{ additional_data }}"
+    additional_data = {
+        key = "{{ additional_data_value }}"
+      }
     assessment_policy_id = "{{ assessment_policy_id }}"
     id = "{{ id }}"
     target_resource_id = "{{ target_resource_id }}"
+    status {
+      cause = "{{ cause }}"
+      code = "{{ code }}"
+      description = "{{ description }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,9 +1,22 @@
 resource "azurestack_local_network_gateway" "example" {
-    address_space = "{{ address_space }}"
+    address_space = ["{{ address_space }}"]
     gateway_address = "{{ gateway_address }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    bgp_settings {
+      asn = {{ asn }}
+      bgp_peering_address = "{{ bgp_peering_address }}"
+      peer_weight = {{ peer_weight }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

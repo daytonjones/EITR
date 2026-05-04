@@ -1,0 +1,221 @@
+resource "google_os_config_v2_policy_orchestrator_for_organization" "example" {
+    action = "{{ action }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    organization_id = "{{ organization_id }}"
+    policy_orchestrator_id = "{{ policy_orchestrator_id }}"
+    state = "{{ state }}"
+    orchestrated_resource {
+      id = "{{ id }}"
+      os_policy_assignment_v1_payload {
+        description = "{{ description }}"
+        etag = "{{ etag }}"
+        name = "{{ name }}"
+        instance_filter {
+          all = {{ all }}
+          exclusion_labels {
+            labels = {
+        key = "{{ labels_value }}"
+      }
+          }
+          inclusion_labels {
+            labels = {
+        key = "{{ labels_value }}"
+      }
+          }
+          inventories {
+            os_short_name = "{{ os_short_name }}"
+            os_version = "{{ os_version }}"
+          }
+        }
+        os_policies {
+          allow_no_resource_group_match = {{ allow_no_resource_group_match }}
+          description = "{{ description }}"
+          id = "{{ id }}"
+          mode = "{{ mode }}"
+          resource_groups {
+            inventory_filters {
+              os_short_name = "{{ os_short_name }}"
+              os_version = "{{ os_version }}"
+            }
+            resources {
+              id = "{{ id }}"
+              exec {
+                enforce {
+                  args = ["{{ args }}"]
+                  interpreter = "{{ interpreter }}"
+                  output_file_path = "{{ output_file_path }}"
+                  script = "{{ script }}"
+                  file {
+                    allow_insecure = {{ allow_insecure }}
+                    local_path = "{{ local_path }}"
+                    gcs {
+                      bucket = "{{ bucket }}"
+                      generation = "{{ generation }}"
+                      object = "{{ object }}"
+                    }
+                    remote {
+                      sha256_checksum = "{{ sha256_checksum }}"
+                      uri = "{{ uri }}"
+                    }
+                  }
+                }
+                validate {
+                  args = ["{{ args }}"]
+                  interpreter = "{{ interpreter }}"
+                  output_file_path = "{{ output_file_path }}"
+                  script = "{{ script }}"
+                  file {
+                    allow_insecure = {{ allow_insecure }}
+                    local_path = "{{ local_path }}"
+                    gcs {
+                      bucket = "{{ bucket }}"
+                      generation = "{{ generation }}"
+                      object = "{{ object }}"
+                    }
+                    remote {
+                      sha256_checksum = "{{ sha256_checksum }}"
+                      uri = "{{ uri }}"
+                    }
+                  }
+                }
+              }
+              file {
+                content = "{{ content }}"
+                path = "{{ path }}"
+                permissions = "{{ permissions }}"
+                state = "{{ state }}"
+                file {
+                  allow_insecure = {{ allow_insecure }}
+                  local_path = "{{ local_path }}"
+                  gcs {
+                    bucket = "{{ bucket }}"
+                    generation = "{{ generation }}"
+                    object = "{{ object }}"
+                  }
+                  remote {
+                    sha256_checksum = "{{ sha256_checksum }}"
+                    uri = "{{ uri }}"
+                  }
+                }
+              }
+              pkg {
+                desired_state = "{{ desired_state }}"
+                apt {
+                  name = "{{ name }}"
+                }
+                deb {
+                  pull_deps = {{ pull_deps }}
+                  source {
+                    allow_insecure = {{ allow_insecure }}
+                    local_path = "{{ local_path }}"
+                    gcs {
+                      bucket = "{{ bucket }}"
+                      generation = "{{ generation }}"
+                      object = "{{ object }}"
+                    }
+                    remote {
+                      sha256_checksum = "{{ sha256_checksum }}"
+                      uri = "{{ uri }}"
+                    }
+                  }
+                }
+                googet {
+                  name = "{{ name }}"
+                }
+                msi {
+                  properties = ["{{ properties }}"]
+                  source {
+                    allow_insecure = {{ allow_insecure }}
+                    local_path = "{{ local_path }}"
+                    gcs {
+                      bucket = "{{ bucket }}"
+                      generation = "{{ generation }}"
+                      object = "{{ object }}"
+                    }
+                    remote {
+                      sha256_checksum = "{{ sha256_checksum }}"
+                      uri = "{{ uri }}"
+                    }
+                  }
+                }
+                rpm {
+                  pull_deps = {{ pull_deps }}
+                  source {
+                    allow_insecure = {{ allow_insecure }}
+                    local_path = "{{ local_path }}"
+                    gcs {
+                      bucket = "{{ bucket }}"
+                      generation = "{{ generation }}"
+                      object = "{{ object }}"
+                    }
+                    remote {
+                      sha256_checksum = "{{ sha256_checksum }}"
+                      uri = "{{ uri }}"
+                    }
+                  }
+                }
+                yum {
+                  name = "{{ name }}"
+                }
+                zypper {
+                  name = "{{ name }}"
+                }
+              }
+              repository {
+                apt {
+                  archive_type = "{{ archive_type }}"
+                  components = ["{{ components }}"]
+                  distribution = "{{ distribution }}"
+                  gpg_key = "{{ gpg_key }}"
+                  uri = "{{ uri }}"
+                }
+                goo {
+                  name = "{{ name }}"
+                  url = "{{ url }}"
+                }
+                yum {
+                  base_url = "{{ base_url }}"
+                  display_name = "{{ display_name }}"
+                  gpg_keys = ["{{ gpg_keys }}"]
+                  id = "{{ id }}"
+                }
+                zypper {
+                  base_url = "{{ base_url }}"
+                  display_name = "{{ display_name }}"
+                  gpg_keys = ["{{ gpg_keys }}"]
+                  id = "{{ id }}"
+                }
+              }
+            }
+          }
+        }
+        rollout {
+          min_wait_duration = "{{ min_wait_duration }}"
+          disruption_budget {
+            fixed = {{ fixed }}
+            percent = {{ percent }}
+          }
+        }
+      }
+    }
+    orchestration_scope {
+      selectors {
+        location_selector {
+          included_locations = ["{{ included_locations }}"]
+        }
+        resource_hierarchy_selector {
+          included_folders = ["{{ included_folders }}"]
+          included_projects = ["{{ included_projects }}"]
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,0 +1,5 @@
+resource "awscc_glue_identity_center_configuration" "example" {
+    instance_arn = "{{ instance_arn }}"
+    scopes = ["{{ scopes }}"]
+    user_background_sessions_enabled = {{ user_background_sessions_enabled }}
+}

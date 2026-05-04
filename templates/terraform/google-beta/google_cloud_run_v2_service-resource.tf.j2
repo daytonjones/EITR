@@ -1,38 +1,222 @@
 resource "google_cloud_run_v2_service" "example" {
-    annotations = "{{ annotations }}"
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
     client = "{{ client }}"
     client_version = "{{ client_version }}"
-    conditions = "{{ conditions }}"
-    create_time = "{{ create_time }}"
-    creator = "{{ creator }}"
-    custom_audiences = "{{ custom_audiences }}"
-    default_uri_disabled = "{{ default_uri_disabled }}"
-    delete_time = "{{ delete_time }}"
-    deletion_protection = "{{ deletion_protection }}"
+    custom_audiences = ["{{ custom_audiences }}"]
+    default_uri_disabled = {{ default_uri_disabled }}
+    deletion_protection = {{ deletion_protection }}
     description = "{{ description }}"
-    effective_annotations = "{{ effective_annotations }}"
-    effective_labels = "{{ effective_labels }}"
-    etag = "{{ etag }}"
-    expire_time = "{{ expire_time }}"
-    generation = "{{ generation }}"
+    iap_enabled = {{ iap_enabled }}
     id = "{{ id }}"
     ingress = "{{ ingress }}"
-    invoker_iam_disabled = "{{ invoker_iam_disabled }}"
-    labels = "{{ labels }}"
-    last_modifier = "{{ last_modifier }}"
-    latest_created_revision = "{{ latest_created_revision }}"
-    latest_ready_revision = "{{ latest_ready_revision }}"
+    invoker_iam_disabled = {{ invoker_iam_disabled }}
+    labels = {
+        key = "{{ labels_value }}"
+      }
     launch_stage = "{{ launch_stage }}"
     location = "{{ location }}"
     name = "{{ name }}"
-    observed_generation = "{{ observed_generation }}"
     project = "{{ project }}"
-    reconciling = "{{ reconciling }}"
-    terminal_condition = "{{ terminal_condition }}"
-    terraform_labels = "{{ terraform_labels }}"
-    traffic_statuses = "{{ traffic_statuses }}"
-    uid = "{{ uid }}"
-    update_time = "{{ update_time }}"
-    uri = "{{ uri }}"
-    urls = "{{ urls }}"
+    binary_authorization {
+      breakglass_justification = "{{ breakglass_justification }}"
+      policy = "{{ policy }}"
+      use_default = {{ use_default }}
+    }
+    build_config {
+      base_image = "{{ base_image }}"
+      enable_automatic_updates = {{ enable_automatic_updates }}
+      environment_variables = {
+        key = "{{ environment_variables_value }}"
+      }
+      function_target = "{{ function_target }}"
+      image_uri = "{{ image_uri }}"
+      service_account = "{{ service_account }}"
+      source_location = "{{ source_location }}"
+      worker_pool = "{{ worker_pool }}"
+    }
+    multi_region_settings {
+      regions = ["{{ regions }}"]
+    }
+    scaling {
+      manual_instance_count = {{ manual_instance_count }}
+      max_instance_count = {{ max_instance_count }}
+      min_instance_count = {{ min_instance_count }}
+      scaling_mode = "{{ scaling_mode }}"
+    }
+    template {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      encryption_key = "{{ encryption_key }}"
+      execution_environment = "{{ execution_environment }}"
+      gpu_zonal_redundancy_disabled = {{ gpu_zonal_redundancy_disabled }}
+      health_check_disabled = {{ health_check_disabled }}
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      max_instance_request_concurrency = {{ max_instance_request_concurrency }}
+      revision = "{{ revision }}"
+      service_account = "{{ service_account }}"
+      session_affinity = {{ session_affinity }}
+      timeout = "{{ timeout }}"
+      containers {
+        args = ["{{ args }}"]
+        base_image_uri = "{{ base_image_uri }}"
+        command = ["{{ command }}"]
+        depends_on = ["{{ depends_on }}"]
+        image = "{{ image }}"
+        name = "{{ name }}"
+        working_dir = "{{ working_dir }}"
+        env {
+          name = "{{ name }}"
+          value = "{{ value }}"
+          value_source {
+            secret_key_ref {
+              secret = "{{ secret }}"
+              version = "{{ version }}"
+            }
+          }
+        }
+        liveness_probe {
+          failure_threshold = {{ failure_threshold }}
+          initial_delay_seconds = {{ initial_delay_seconds }}
+          period_seconds = {{ period_seconds }}
+          timeout_seconds = {{ timeout_seconds }}
+          grpc {
+            port = {{ port }}
+            service = "{{ service }}"
+          }
+          http_get {
+            path = "{{ path }}"
+            port = {{ port }}
+            http_headers {
+              name = "{{ name }}"
+              value = "{{ value }}"
+            }
+          }
+          tcp_socket {
+            port = {{ port }}
+          }
+        }
+        ports {
+          container_port = {{ container_port }}
+          name = "{{ name }}"
+        }
+        readiness_probe {
+          failure_threshold = {{ failure_threshold }}
+          period_seconds = {{ period_seconds }}
+          success_threshold = {{ success_threshold }}
+          timeout_seconds = {{ timeout_seconds }}
+          grpc {
+            port = {{ port }}
+            service = "{{ service }}"
+          }
+          http_get {
+            path = "{{ path }}"
+            port = {{ port }}
+          }
+        }
+        resources {
+          cpu_idle = {{ cpu_idle }}
+          limits = {
+        key = "{{ limits_value }}"
+      }
+          startup_cpu_boost = {{ startup_cpu_boost }}
+        }
+        source_code {
+          cloud_storage_source {
+            bucket = "{{ bucket }}"
+            generation = "{{ generation }}"
+            object = "{{ object }}"
+          }
+        }
+        startup_probe {
+          failure_threshold = {{ failure_threshold }}
+          initial_delay_seconds = {{ initial_delay_seconds }}
+          period_seconds = {{ period_seconds }}
+          timeout_seconds = {{ timeout_seconds }}
+          grpc {
+            port = {{ port }}
+            service = "{{ service }}"
+          }
+          http_get {
+            path = "{{ path }}"
+            port = {{ port }}
+            http_headers {
+              name = "{{ name }}"
+              value = "{{ value }}"
+            }
+          }
+          tcp_socket {
+            port = {{ port }}
+          }
+        }
+        volume_mounts {
+          mount_path = "{{ mount_path }}"
+          name = "{{ name }}"
+          sub_path = "{{ sub_path }}"
+        }
+      }
+      node_selector {
+        accelerator = "{{ accelerator }}"
+      }
+      scaling {
+        max_instance_count = {{ max_instance_count }}
+        min_instance_count = {{ min_instance_count }}
+      }
+      service_mesh {
+        mesh = "{{ mesh }}"
+      }
+      volumes {
+        name = "{{ name }}"
+        cloud_sql_instance {
+          instances = ["{{ instances }}"]
+        }
+        empty_dir {
+          medium = "{{ medium }}"
+          size_limit = "{{ size_limit }}"
+        }
+        gcs {
+          bucket = "{{ bucket }}"
+          mount_options = ["{{ mount_options }}"]
+          read_only = {{ read_only }}
+        }
+        nfs {
+          path = "{{ path }}"
+          read_only = {{ read_only }}
+          server = "{{ server }}"
+        }
+        secret {
+          default_mode = {{ default_mode }}
+          secret = "{{ secret }}"
+          items {
+            mode = {{ mode }}
+            path = "{{ path }}"
+            version = "{{ version }}"
+          }
+        }
+      }
+      vpc_access {
+        connector = "{{ connector }}"
+        egress = "{{ egress }}"
+        network_interfaces {
+          network = "{{ network }}"
+          subnetwork = "{{ subnetwork }}"
+          tags = ["{{ tags }}"]
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    traffic {
+      percent = {{ percent }}
+      revision = "{{ revision }}"
+      tag = "{{ tag }}"
+      type = "{{ type }}"
+    }
 }

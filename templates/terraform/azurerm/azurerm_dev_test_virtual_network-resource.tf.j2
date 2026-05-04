@@ -4,6 +4,23 @@ resource "azurerm_dev_test_virtual_network" "example" {
     lab_name = "{{ lab_name }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
-    unique_identifier = "{{ unique_identifier }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    subnet {
+      use_in_virtual_machine_creation = "{{ use_in_virtual_machine_creation }}"
+      use_public_ip_address = "{{ use_public_ip_address }}"
+      shared_public_ip_address {
+        allowed_ports {
+          backend_port = {{ backend_port }}
+          transport_protocol = "{{ transport_protocol }}"
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

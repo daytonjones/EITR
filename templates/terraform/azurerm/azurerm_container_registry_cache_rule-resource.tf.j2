@@ -5,4 +5,10 @@ resource "azurerm_container_registry_cache_rule" "example" {
     name = "{{ name }}"
     source_repo = "{{ source_repo }}"
     target_repo = "{{ target_repo }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

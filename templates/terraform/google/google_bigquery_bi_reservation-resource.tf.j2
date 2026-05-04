@@ -1,8 +1,16 @@
 resource "google_bigquery_bi_reservation" "example" {
     id = "{{ id }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     project = "{{ project }}"
-    size = "{{ size }}"
-    update_time = "{{ update_time }}"
+    size = {{ size }}
+    preferred_tables {
+      dataset_id = "{{ dataset_id }}"
+      project_id = "{{ project_id }}"
+      table_id = "{{ table_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

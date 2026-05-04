@@ -1,0 +1,21 @@
+resource "google_firebase_app_hosting_traffic" "example" {
+    backend = "{{ backend }}"
+    id = "{{ id }}"
+    location = "{{ location }}"
+    project = "{{ project }}"
+    rollout_policy {
+      codebase_branch = "{{ codebase_branch }}"
+      disabled = {{ disabled }}
+    }
+    target {
+      splits {
+        build = "{{ build }}"
+        percent = {{ percent }}
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

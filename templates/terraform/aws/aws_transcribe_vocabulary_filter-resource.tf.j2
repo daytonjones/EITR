@@ -1,11 +1,14 @@
 resource "aws_transcribe_vocabulary_filter" "example" {
-    arn = "{{ arn }}"
-    download_uri = "{{ download_uri }}"
     id = "{{ id }}"
     language_code = "{{ language_code }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     vocabulary_filter_file_uri = "{{ vocabulary_filter_file_uri }}"
     vocabulary_filter_name = "{{ vocabulary_filter_name }}"
-    words = "{{ words }}"
+    words = ["{{ words }}"]
 }

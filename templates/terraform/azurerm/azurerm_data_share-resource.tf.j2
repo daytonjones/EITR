@@ -5,4 +5,15 @@ resource "azurerm_data_share" "example" {
     kind = "{{ kind }}"
     name = "{{ name }}"
     terms = "{{ terms }}"
+    snapshot_schedule {
+      name = "{{ name }}"
+      recurrence = "{{ recurrence }}"
+      start_time = "{{ start_time }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

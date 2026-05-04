@@ -1,6 +1,6 @@
 resource "azurestack_virtual_network_gateway_connection" "example" {
     authorization_key = "{{ authorization_key }}"
-    enable_bgp = "{{ enable_bgp }}"
+    enable_bgp = {{ enable_bgp }}
     express_route_circuit_id = "{{ express_route_circuit_id }}"
     id = "{{ id }}"
     local_network_gateway_id = "{{ local_network_gateway_id }}"
@@ -8,10 +8,28 @@ resource "azurestack_virtual_network_gateway_connection" "example" {
     name = "{{ name }}"
     peer_virtual_network_gateway_id = "{{ peer_virtual_network_gateway_id }}"
     resource_group_name = "{{ resource_group_name }}"
-    routing_weight = "{{ routing_weight }}"
+    routing_weight = {{ routing_weight }}
     shared_key = "{{ shared_key }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     type = "{{ type }}"
-    use_policy_based_traffic_selectors = "{{ use_policy_based_traffic_selectors }}"
+    use_policy_based_traffic_selectors = {{ use_policy_based_traffic_selectors }}
     virtual_network_gateway_id = "{{ virtual_network_gateway_id }}"
+    ipsec_policy {
+      dh_group = "{{ dh_group }}"
+      ike_encryption = "{{ ike_encryption }}"
+      ike_integrity = "{{ ike_integrity }}"
+      ipsec_encryption = "{{ ipsec_encryption }}"
+      ipsec_integrity = "{{ ipsec_integrity }}"
+      pfs_group = "{{ pfs_group }}"
+      sa_datasize = {{ sa_datasize }}
+      sa_lifetime = {{ sa_lifetime }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

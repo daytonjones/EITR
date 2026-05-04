@@ -1,7 +1,81 @@
 resource "aws_fis_experiment_template" "example" {
     description = "{{ description }}"
     id = "{{ id }}"
+    region = "{{ region }}"
     role_arn = "{{ role_arn }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    action {
+      action_id = "{{ action_id }}"
+      description = "{{ description }}"
+      name = "{{ name }}"
+      start_after = ["{{ start_after }}"]
+      parameter {
+        key = "{{ key }}"
+        value = "{{ value }}"
+      }
+      target {
+        key = "{{ key }}"
+        value = "{{ value }}"
+      }
+    }
+    experiment_options {
+      account_targeting = "{{ account_targeting }}"
+      empty_target_resolution_mode = "{{ empty_target_resolution_mode }}"
+    }
+    experiment_report_configuration {
+      post_experiment_duration = "{{ post_experiment_duration }}"
+      pre_experiment_duration = "{{ pre_experiment_duration }}"
+      data_sources {
+        cloudwatch_dashboard {
+          dashboard_arn = "{{ dashboard_arn }}"
+        }
+      }
+      outputs {
+        s3_configuration {
+          bucket_name = "{{ bucket_name }}"
+          prefix = "{{ prefix }}"
+        }
+      }
+    }
+    log_configuration {
+      log_schema_version = {{ log_schema_version }}
+      cloudwatch_logs_configuration {
+        log_group_arn = "{{ log_group_arn }}"
+      }
+      s3_configuration {
+        bucket_name = "{{ bucket_name }}"
+        prefix = "{{ prefix }}"
+      }
+    }
+    stop_condition {
+      source = "{{ source }}"
+      value = "{{ value }}"
+    }
+    target {
+      name = "{{ name }}"
+      parameters = {
+        key = "{{ parameters_value }}"
+      }
+      resource_arns = ["{{ resource_arns }}"]
+      resource_type = "{{ resource_type }}"
+      selection_mode = "{{ selection_mode }}"
+      filter {
+        path = "{{ path }}"
+        values = ["{{ values }}"]
+      }
+      resource_tag {
+        key = "{{ key }}"
+        value = "{{ value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

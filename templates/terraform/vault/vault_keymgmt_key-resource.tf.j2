@@ -1,0 +1,9 @@
+resource "vault_keymgmt_key" "example" {
+    deletion_allowed = {{ deletion_allowed }}
+    min_enabled_version = {{ min_enabled_version }}
+    mount = "{{ mount }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+    replica_regions = ["{{ replica_regions }}"]
+    type = "{{ type }}"
+}

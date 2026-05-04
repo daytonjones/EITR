@@ -1,0 +1,10 @@
+resource "aws_s3tables_table_bucket" "example" {
+    encryption_configuration = {{ encryption_configuration }}
+    force_destroy = {{ force_destroy }}
+    maintenance_configuration = {{ maintenance_configuration }}
+    name = "{{ name }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

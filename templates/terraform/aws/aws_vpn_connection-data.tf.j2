@@ -1,0 +1,8 @@
+data "aws_vpn_connection" "example" {
+    region = "{{ region }}"
+    vpn_connection_id = "{{ vpn_connection_id }}"
+    filter {
+      name = "{{ name }}"
+      values = ["{{ values }}"]
+    }
+}

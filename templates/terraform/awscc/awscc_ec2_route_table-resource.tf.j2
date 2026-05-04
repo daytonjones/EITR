@@ -1,9 +1,4 @@
 resource "awscc_ec2_route_table" "example" {
-    id = "{{ id }}"
-    route_table_id = "{{ route_table_id }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
     vpc_id = "{{ vpc_id }}"
 }

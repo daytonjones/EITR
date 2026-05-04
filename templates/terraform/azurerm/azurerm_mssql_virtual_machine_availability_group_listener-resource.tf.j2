@@ -2,6 +2,30 @@ resource "azurerm_mssql_virtual_machine_availability_group_listener" "example" {
     availability_group_name = "{{ availability_group_name }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    port = "{{ port }}"
+    port = {{ port }}
     sql_virtual_machine_group_id = "{{ sql_virtual_machine_group_id }}"
+    load_balancer_configuration {
+      load_balancer_id = "{{ load_balancer_id }}"
+      private_ip_address = "{{ private_ip_address }}"
+      probe_port = {{ probe_port }}
+      sql_virtual_machine_ids = ["{{ sql_virtual_machine_ids }}"]
+      subnet_id = "{{ subnet_id }}"
+    }
+    multi_subnet_ip_configuration {
+      private_ip_address = "{{ private_ip_address }}"
+      sql_virtual_machine_id = "{{ sql_virtual_machine_id }}"
+      subnet_id = "{{ subnet_id }}"
+    }
+    replica {
+      commit = "{{ commit }}"
+      failover_mode = "{{ failover_mode }}"
+      readable_secondary = "{{ readable_secondary }}"
+      role = "{{ role }}"
+      sql_virtual_machine_id = "{{ sql_virtual_machine_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

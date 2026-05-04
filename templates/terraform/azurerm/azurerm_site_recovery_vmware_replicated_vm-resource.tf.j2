@@ -20,4 +20,23 @@ resource "azurerm_site_recovery_vmware_replicated_vm" "example" {
     target_vm_size = "{{ target_vm_size }}"
     target_zone = "{{ target_zone }}"
     test_network_id = "{{ test_network_id }}"
+    managed_disk {
+      disk_id = "{{ disk_id }}"
+      log_storage_account_id = "{{ log_storage_account_id }}"
+      target_disk_encryption_set_id = "{{ target_disk_encryption_set_id }}"
+      target_disk_type = "{{ target_disk_type }}"
+    }
+    network_interface {
+      is_primary = {{ is_primary }}
+      source_mac_address = "{{ source_mac_address }}"
+      target_static_ip = "{{ target_static_ip }}"
+      target_subnet_name = "{{ target_subnet_name }}"
+      test_subnet_name = "{{ test_subnet_name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

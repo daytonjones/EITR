@@ -1,0 +1,15 @@
+resource "awscc_vpclattice_resource_configuration" "example" {
+    allow_association_to_sharable_service_network = {{ allow_association_to_sharable_service_network }}
+    custom_domain_name = "{{ custom_domain_name }}"
+    domain_verification_id = "{{ domain_verification_id }}"
+    group_domain = "{{ group_domain }}"
+    name = "{{ name }}"
+    port_ranges = ["{{ port_ranges }}"]
+    protocol_type = "{{ protocol_type }}"
+    resource_configuration_auth_type = "{{ resource_configuration_auth_type }}"
+    resource_configuration_definition = "{{ resource_configuration_definition }}"
+    resource_configuration_group_id = "{{ resource_configuration_group_id }}"
+    resource_configuration_type = "{{ resource_configuration_type }}"
+    resource_gateway_id = "{{ resource_gateway_id }}"
+    tags = "{{ tags }}"
+}

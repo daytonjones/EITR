@@ -4,4 +4,9 @@ resource "azurerm_management_lock" "example" {
     name = "{{ name }}"
     notes = "{{ notes }}"
     scope = "{{ scope }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

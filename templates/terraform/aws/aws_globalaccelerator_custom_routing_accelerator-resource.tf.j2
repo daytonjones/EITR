@@ -1,12 +1,22 @@
 resource "aws_globalaccelerator_custom_routing_accelerator" "example" {
-    dns_name = "{{ dns_name }}"
-    enabled = "{{ enabled }}"
-    hosted_zone_id = "{{ hosted_zone_id }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     ip_address_type = "{{ ip_address_type }}"
-    ip_addresses = "{{ ip_addresses }}"
-    ip_sets = "{{ ip_sets }}"
+    ip_addresses = ["{{ ip_addresses }}"]
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    attributes {
+      flow_logs_enabled = {{ flow_logs_enabled }}
+      flow_logs_s3_bucket = "{{ flow_logs_s3_bucket }}"
+      flow_logs_s3_prefix = "{{ flow_logs_s3_prefix }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      update = "{{ update }}"
+    }
 }

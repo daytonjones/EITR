@@ -1,8 +1,33 @@
 resource "aws_route53recoveryreadiness_resource_set" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     resource_set_name = "{{ resource_set_name }}"
     resource_set_type = "{{ resource_set_type }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    resources {
+      readiness_scopes = ["{{ readiness_scopes }}"]
+      resource_arn = "{{ resource_arn }}"
+      dns_target_resource {
+        domain_name = "{{ domain_name }}"
+        hosted_zone_arn = "{{ hosted_zone_arn }}"
+        record_set_id = "{{ record_set_id }}"
+        record_type = "{{ record_type }}"
+        target_resource {
+          nlb_resource {
+            arn = "{{ arn }}"
+          }
+          r53_resource {
+            domain_name = "{{ domain_name }}"
+            record_set_id = "{{ record_set_id }}"
+          }
+        }
+      }
+    }
+    timeouts {
+      delete = "{{ delete }}"
+    }
 }

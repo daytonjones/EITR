@@ -1,0 +1,15 @@
+resource "azurerm_cognitive_account_rai_blocklist" "example" {
+    cognitive_account_id = "{{ cognitive_account_id }}"
+    description = "{{ description }}"
+    id = "{{ id }}"
+    name = "{{ name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
+}

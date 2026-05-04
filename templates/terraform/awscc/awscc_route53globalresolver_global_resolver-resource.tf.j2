@@ -1,0 +1,9 @@
+resource "awscc_route53globalresolver_global_resolver" "example" {
+    client_token = "{{ client_token }}"
+    description = "{{ description }}"
+    ip_address_type = "{{ ip_address_type }}"
+    name = "{{ name }}"
+    observability_region = "{{ observability_region }}"
+    regions = ["{{ regions }}"]
+    tags = "{{ tags }}"
+}

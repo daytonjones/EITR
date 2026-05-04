@@ -4,7 +4,10 @@ resource "aws_lambda_invocation" "example" {
     input = "{{ input }}"
     lifecycle_scope = "{{ lifecycle_scope }}"
     qualifier = "{{ qualifier }}"
-    result = "{{ result }}"
+    region = "{{ region }}"
+    tenant_id = "{{ tenant_id }}"
     terraform_key = "{{ terraform_key }}"
-    triggers = "{{ triggers }}"
+    triggers = {
+        key = "{{ triggers_value }}"
+      }
 }

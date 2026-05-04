@@ -3,4 +3,14 @@ resource "google_compute_network_endpoints" "example" {
     network_endpoint_group = "{{ network_endpoint_group }}"
     project = "{{ project }}"
     zone = "{{ zone }}"
+    network_endpoints {
+      instance = "{{ instance }}"
+      ip_address = "{{ ip_address }}"
+      port = {{ port }}
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

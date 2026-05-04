@@ -1,0 +1,10 @@
+resource "google_folder_service_identity" "example" {
+    folder = "{{ folder }}"
+    id = "{{ id }}"
+    service = "{{ service }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
+}

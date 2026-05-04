@@ -1,0 +1,10 @@
+resource "azurerm_resource_provider_feature_registration" "example" {
+    id = "{{ id }}"
+    name = "{{ name }}"
+    provider_name = "{{ provider_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
+}

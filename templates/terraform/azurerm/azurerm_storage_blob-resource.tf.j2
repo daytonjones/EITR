@@ -5,15 +5,22 @@ resource "azurerm_storage_blob" "example" {
     content_type = "{{ content_type }}"
     encryption_scope = "{{ encryption_scope }}"
     id = "{{ id }}"
-    metadata = "{{ metadata }}"
+    metadata = {
+        key = "{{ metadata_value }}"
+      }
     name = "{{ name }}"
-    parallelism = "{{ parallelism }}"
-    size = "{{ size }}"
+    parallelism = {{ parallelism }}
+    size = {{ size }}
     source = "{{ source }}"
     source_content = "{{ source_content }}"
     source_uri = "{{ source_uri }}"
     storage_account_name = "{{ storage_account_name }}"
     storage_container_name = "{{ storage_container_name }}"
     type = "{{ type }}"
-    url = "{{ url }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

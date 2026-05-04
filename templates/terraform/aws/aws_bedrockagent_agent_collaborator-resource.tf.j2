@@ -1,0 +1,17 @@
+resource "aws_bedrockagent_agent_collaborator" "example" {
+    agent_id = "{{ agent_id }}"
+    agent_version = "{{ agent_version }}"
+    collaboration_instruction = "{{ collaboration_instruction }}"
+    collaborator_name = "{{ collaborator_name }}"
+    prepare_agent = {{ prepare_agent }}
+    region = "{{ region }}"
+    relay_conversation_history = "{{ relay_conversation_history }}"
+    agent_descriptor {
+      alias_arn = "{{ alias_arn }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,7 +1,35 @@
 resource "aws_ecs_cluster" "example" {
-    arn = "{{ arn }}"
     id = "{{ id }}"
     name = "{{ name }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    configuration {
+      execute_command_configuration {
+        kms_key_id = "{{ kms_key_id }}"
+        logging = "{{ logging }}"
+        log_configuration {
+          cloud_watch_encryption_enabled = {{ cloud_watch_encryption_enabled }}
+          cloud_watch_log_group_name = "{{ cloud_watch_log_group_name }}"
+          s3_bucket_encryption_enabled = {{ s3_bucket_encryption_enabled }}
+          s3_bucket_name = "{{ s3_bucket_name }}"
+          s3_key_prefix = "{{ s3_key_prefix }}"
+        }
+      }
+      managed_storage_configuration {
+        fargate_ephemeral_storage_kms_key_id = "{{ fargate_ephemeral_storage_kms_key_id }}"
+        kms_key_id = "{{ kms_key_id }}"
+      }
+    }
+    service_connect_defaults {
+      namespace = "{{ namespace }}"
+    }
+    setting {
+      name = "{{ name }}"
+      value = "{{ value }}"
+    }
 }

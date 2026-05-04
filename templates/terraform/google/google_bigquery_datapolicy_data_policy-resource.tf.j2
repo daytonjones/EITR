@@ -3,7 +3,15 @@ resource "google_bigquery_datapolicy_data_policy" "example" {
     data_policy_type = "{{ data_policy_type }}"
     id = "{{ id }}"
     location = "{{ location }}"
-    name = "{{ name }}"
     policy_tag = "{{ policy_tag }}"
     project = "{{ project }}"
+    data_masking_policy {
+      predefined_expression = "{{ predefined_expression }}"
+      routine = "{{ routine }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

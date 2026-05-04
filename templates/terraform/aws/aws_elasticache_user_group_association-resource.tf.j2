@@ -1,5 +1,10 @@
 resource "aws_elasticache_user_group_association" "example" {
     id = "{{ id }}"
+    region = "{{ region }}"
     user_group_id = "{{ user_group_id }}"
     user_id = "{{ user_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+    }
 }

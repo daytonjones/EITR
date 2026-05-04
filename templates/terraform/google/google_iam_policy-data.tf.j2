@@ -1,4 +1,19 @@
 data "google_iam_policy" "example" {
     id = "{{ id }}"
-    policy_data = "{{ policy_data }}"
+    audit_config {
+      service = "{{ service }}"
+      audit_log_configs {
+        exempted_members = ["{{ exempted_members }}"]
+        log_type = "{{ log_type }}"
+      }
+    }
+    binding {
+      members = ["{{ members }}"]
+      role = "{{ role }}"
+      condition {
+        description = "{{ description }}"
+        expression = "{{ expression }}"
+        title = "{{ title }}"
+      }
+    }
 }

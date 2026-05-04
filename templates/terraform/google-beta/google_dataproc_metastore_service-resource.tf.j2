@@ -1,21 +1,82 @@
 resource "google_dataproc_metastore_service" "example" {
-    artifact_gcs_uri = "{{ artifact_gcs_uri }}"
     database_type = "{{ database_type }}"
-    deletion_protection = "{{ deletion_protection }}"
-    effective_labels = "{{ effective_labels }}"
-    endpoint_uri = "{{ endpoint_uri }}"
+    deletion_protection = {{ deletion_protection }}
     id = "{{ id }}"
-    labels = "{{ labels }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
     location = "{{ location }}"
-    name = "{{ name }}"
     network = "{{ network }}"
-    port = "{{ port }}"
+    port = {{ port }}
     project = "{{ project }}"
     release_channel = "{{ release_channel }}"
     service_id = "{{ service_id }}"
-    state = "{{ state }}"
-    state_message = "{{ state_message }}"
-    terraform_labels = "{{ terraform_labels }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     tier = "{{ tier }}"
-    uid = "{{ uid }}"
+    encryption_config {
+      kms_key = "{{ kms_key }}"
+    }
+    hive_metastore_config {
+      config_overrides = {
+        key = "{{ config_overrides_value }}"
+      }
+      endpoint_protocol = "{{ endpoint_protocol }}"
+      version = "{{ version }}"
+      auxiliary_versions {
+        config_overrides = {
+        key = "{{ config_overrides_value }}"
+      }
+        key = "{{ key }}"
+        version = "{{ version }}"
+      }
+      kerberos_config {
+        krb5_config_gcs_uri = "{{ krb5_config_gcs_uri }}"
+        principal = "{{ principal }}"
+        keytab {
+          cloud_secret = "{{ cloud_secret }}"
+        }
+      }
+    }
+    maintenance_window {
+      day_of_week = "{{ day_of_week }}"
+      hour_of_day = {{ hour_of_day }}
+    }
+    metadata_integration {
+      data_catalog_config {
+        enabled = {{ enabled }}
+      }
+    }
+    network_config {
+      custom_routes_enabled = {{ custom_routes_enabled }}
+      consumers {
+        subnetwork = "{{ subnetwork }}"
+      }
+    }
+    scaling_config {
+      instance_size = "{{ instance_size }}"
+      scaling_factor = {{ scaling_factor }}
+      autoscaling_config {
+        autoscaling_enabled = {{ autoscaling_enabled }}
+        limit_config {
+          max_scaling_factor = {{ max_scaling_factor }}
+          min_scaling_factor = {{ min_scaling_factor }}
+        }
+      }
+    }
+    scheduled_backup {
+      backup_location = "{{ backup_location }}"
+      cron_schedule = "{{ cron_schedule }}"
+      enabled = {{ enabled }}
+      time_zone = "{{ time_zone }}"
+    }
+    telemetry_config {
+      log_format = "{{ log_format }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

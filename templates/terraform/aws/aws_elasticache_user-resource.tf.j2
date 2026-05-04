@@ -1,12 +1,28 @@
 resource "aws_elasticache_user" "example" {
     access_string = "{{ access_string }}"
-    arn = "{{ arn }}"
     engine = "{{ engine }}"
     id = "{{ id }}"
-    no_password_required = "{{ no_password_required }}"
-    passwords = "{{ passwords }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    no_password_required = {{ no_password_required }}
+    passwords = ["{{ passwords }}"]
+    passwords_wo = "{{ passwords_wo }}"
+    passwords_wo_version = {{ passwords_wo_version }}
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
     user_id = "{{ user_id }}"
     user_name = "{{ user_name }}"
+    authentication_mode {
+      passwords = ["{{ passwords }}"]
+      type = "{{ type }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

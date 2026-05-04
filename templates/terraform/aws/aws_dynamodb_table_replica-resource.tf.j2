@@ -1,10 +1,20 @@
 resource "aws_dynamodb_table_replica" "example" {
-    arn = "{{ arn }}"
+    deletion_protection_enabled = {{ deletion_protection_enabled }}
     global_table_arn = "{{ global_table_arn }}"
     id = "{{ id }}"
     kms_key_arn = "{{ kms_key_arn }}"
-    point_in_time_recovery = "{{ point_in_time_recovery }}"
+    point_in_time_recovery = {{ point_in_time_recovery }}
+    region = "{{ region }}"
     table_class_override = "{{ table_class_override }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

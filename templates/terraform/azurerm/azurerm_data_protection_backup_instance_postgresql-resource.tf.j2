@@ -6,4 +6,10 @@ resource "azurerm_data_protection_backup_instance_postgresql" "example" {
     location = "{{ location }}"
     name = "{{ name }}"
     vault_id = "{{ vault_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

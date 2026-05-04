@@ -1,5 +1,4 @@
 resource "azurerm_attestation_provider" "example" {
-    attestation_uri = "{{ attestation_uri }}"
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
@@ -8,7 +7,14 @@ resource "azurerm_attestation_provider" "example" {
     resource_group_name = "{{ resource_group_name }}"
     sev_snp_policy_base64 = "{{ sev_snp_policy_base64 }}"
     sgx_enclave_policy_base64 = "{{ sgx_enclave_policy_base64 }}"
-    tags = "{{ tags }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
     tpm_policy_base64 = "{{ tpm_policy_base64 }}"
-    trust_model = "{{ trust_model }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

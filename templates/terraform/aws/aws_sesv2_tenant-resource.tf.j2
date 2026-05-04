@@ -1,0 +1,7 @@
+resource "aws_sesv2_tenant" "example" {
+    region = "{{ region }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tenant_name = "{{ tenant_name }}"
+}

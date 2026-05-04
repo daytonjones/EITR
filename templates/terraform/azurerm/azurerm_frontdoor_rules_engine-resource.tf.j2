@@ -1,8 +1,37 @@
 resource "azurerm_frontdoor_rules_engine" "example" {
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     frontdoor_name = "{{ frontdoor_name }}"
     id = "{{ id }}"
-    location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
+    rule {
+      name = "{{ name }}"
+      priority = {{ priority }}
+      action {
+        request_header {
+          header_action_type = "{{ header_action_type }}"
+          header_name = "{{ header_name }}"
+          value = "{{ value }}"
+        }
+        response_header {
+          header_action_type = "{{ header_action_type }}"
+          header_name = "{{ header_name }}"
+          value = "{{ value }}"
+        }
+      }
+      match_condition {
+        negate_condition = {{ negate_condition }}
+        operator = "{{ operator }}"
+        selector = "{{ selector }}"
+        transform = ["{{ transform }}"]
+        value = ["{{ value }}"]
+        variable = "{{ variable }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

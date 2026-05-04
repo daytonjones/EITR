@@ -4,4 +4,10 @@ resource "azurestack_subnet" "example" {
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     virtual_network_name = "{{ virtual_network_name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -4,6 +4,7 @@ resource "aws_signer_signing_profile_permission" "example" {
     principal = "{{ principal }}"
     profile_name = "{{ profile_name }}"
     profile_version = "{{ profile_version }}"
+    region = "{{ region }}"
     statement_id = "{{ statement_id }}"
     statement_id_prefix = "{{ statement_id_prefix }}"
 }

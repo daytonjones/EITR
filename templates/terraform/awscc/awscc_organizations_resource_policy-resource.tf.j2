@@ -1,10 +1,4 @@
 resource "awscc_organizations_resource_policy" "example" {
-    arn = "{{ arn }}"
     content = "{{ content }}"
-    id = "{{ id }}"
-    resource_policy_id = "{{ resource_policy_id }}"
-    tags = "{
-    key = {{ key }}
-    value = {{ value }}
-}"
+    tags = "{{ tags }}"
 }

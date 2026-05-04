@@ -3,7 +3,53 @@ resource "azurerm_vpn_server_configuration" "example" {
     location = "{{ location }}"
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
-    tags = "{{ tags }}"
-    vpn_authentication_types = "{{ vpn_authentication_types }}"
-    vpn_protocols = "{{ vpn_protocols }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    vpn_authentication_types = ["{{ vpn_authentication_types }}"]
+    vpn_protocols = ["{{ vpn_protocols }}"]
+    azure_active_directory_authentication {
+      audience = "{{ audience }}"
+      issuer = "{{ issuer }}"
+      tenant = "{{ tenant }}"
+    }
+    client_revoked_certificate {
+      name = "{{ name }}"
+      thumbprint = "{{ thumbprint }}"
+    }
+    client_root_certificate {
+      name = "{{ name }}"
+      public_cert_data = "{{ public_cert_data }}"
+    }
+    ipsec_policy {
+      dh_group = "{{ dh_group }}"
+      ike_encryption = "{{ ike_encryption }}"
+      ike_integrity = "{{ ike_integrity }}"
+      ipsec_encryption = "{{ ipsec_encryption }}"
+      ipsec_integrity = "{{ ipsec_integrity }}"
+      pfs_group = "{{ pfs_group }}"
+      sa_data_size_kilobytes = {{ sa_data_size_kilobytes }}
+      sa_lifetime_seconds = {{ sa_lifetime_seconds }}
+    }
+    radius {
+      client_root_certificate {
+        name = "{{ name }}"
+        thumbprint = "{{ thumbprint }}"
+      }
+      server {
+        address = "{{ address }}"
+        score = {{ score }}
+        secret = "{{ secret }}"
+      }
+      server_root_certificate {
+        name = "{{ name }}"
+        public_cert_data = "{{ public_cert_data }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

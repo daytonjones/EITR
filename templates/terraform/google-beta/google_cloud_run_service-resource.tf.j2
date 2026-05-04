@@ -1,8 +1,178 @@
 resource "google_cloud_run_service" "example" {
-    autogenerate_revision_name = "{{ autogenerate_revision_name }}"
+    autogenerate_revision_name = {{ autogenerate_revision_name }}
     id = "{{ id }}"
     location = "{{ location }}"
     name = "{{ name }}"
     project = "{{ project }}"
-    status = "{{ status }}"
+    metadata {
+      annotations = {
+        key = "{{ annotations_value }}"
+      }
+      labels = {
+        key = "{{ labels_value }}"
+      }
+      namespace = "{{ namespace }}"
+    }
+    template {
+      metadata {
+        annotations = {
+        key = "{{ annotations_value }}"
+      }
+        labels = {
+        key = "{{ labels_value }}"
+      }
+        name = "{{ name }}"
+        namespace = "{{ namespace }}"
+      }
+      spec {
+        container_concurrency = {{ container_concurrency }}
+        node_selector = {
+        key = "{{ node_selector_value }}"
+      }
+        service_account_name = "{{ service_account_name }}"
+        timeout_seconds = {{ timeout_seconds }}
+        containers {
+          args = ["{{ args }}"]
+          command = ["{{ command }}"]
+          image = "{{ image }}"
+          name = "{{ name }}"
+          working_dir = "{{ working_dir }}"
+          env {
+            name = "{{ name }}"
+            value = "{{ value }}"
+            value_from {
+              secret_key_ref {
+                key = "{{ key }}"
+                name = "{{ name }}"
+              }
+            }
+          }
+          env_from {
+            prefix = "{{ prefix }}"
+            config_map_ref {
+              optional = {{ optional }}
+              local_object_reference {
+                name = "{{ name }}"
+              }
+            }
+            secret_ref {
+              optional = {{ optional }}
+              local_object_reference {
+                name = "{{ name }}"
+              }
+            }
+          }
+          liveness_probe {
+            failure_threshold = {{ failure_threshold }}
+            initial_delay_seconds = {{ initial_delay_seconds }}
+            period_seconds = {{ period_seconds }}
+            timeout_seconds = {{ timeout_seconds }}
+            grpc {
+              port = {{ port }}
+              service = "{{ service }}"
+            }
+            http_get {
+              path = "{{ path }}"
+              port = {{ port }}
+              http_headers {
+                name = "{{ name }}"
+                value = "{{ value }}"
+              }
+            }
+          }
+          ports {
+            container_port = {{ container_port }}
+            name = "{{ name }}"
+            protocol = "{{ protocol }}"
+          }
+          readiness_probe {
+            failure_threshold = {{ failure_threshold }}
+            period_seconds = {{ period_seconds }}
+            success_threshold = {{ success_threshold }}
+            timeout_seconds = {{ timeout_seconds }}
+            grpc {
+              port = {{ port }}
+              service = "{{ service }}"
+            }
+            http_get {
+              path = "{{ path }}"
+              port = {{ port }}
+            }
+          }
+          resources {
+            limits = {
+        key = "{{ limits_value }}"
+      }
+            requests = {
+        key = "{{ requests_value }}"
+      }
+          }
+          startup_probe {
+            failure_threshold = {{ failure_threshold }}
+            initial_delay_seconds = {{ initial_delay_seconds }}
+            period_seconds = {{ period_seconds }}
+            timeout_seconds = {{ timeout_seconds }}
+            grpc {
+              port = {{ port }}
+              service = "{{ service }}"
+            }
+            http_get {
+              path = "{{ path }}"
+              port = {{ port }}
+              http_headers {
+                name = "{{ name }}"
+                value = "{{ value }}"
+              }
+            }
+            tcp_socket {
+              port = {{ port }}
+            }
+          }
+          volume_mounts {
+            mount_path = "{{ mount_path }}"
+            name = "{{ name }}"
+            sub_path = "{{ sub_path }}"
+          }
+        }
+        volumes {
+          name = "{{ name }}"
+          csi {
+            driver = "{{ driver }}"
+            read_only = {{ read_only }}
+            volume_attributes = {
+        key = "{{ volume_attributes_value }}"
+      }
+          }
+          empty_dir {
+            medium = "{{ medium }}"
+            size_limit = "{{ size_limit }}"
+          }
+          nfs {
+            path = "{{ path }}"
+            read_only = {{ read_only }}
+            server = "{{ server }}"
+          }
+          secret {
+            default_mode = {{ default_mode }}
+            secret_name = "{{ secret_name }}"
+            items {
+              key = "{{ key }}"
+              mode = {{ mode }}
+              path = "{{ path }}"
+            }
+          }
+        }
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+    traffic {
+      latest_revision = {{ latest_revision }}
+      percent = {{ percent }}
+      revision_name = "{{ revision_name }}"
+      tag = "{{ tag }}"
+    }
 }

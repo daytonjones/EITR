@@ -2,4 +2,36 @@ resource "nomad_quota_specification" "example" {
     description = "{{ description }}"
     id = "{{ id }}"
     name = "{{ name }}"
+    limits {
+      region = "{{ region }}"
+      region_limit {
+        cores = {{ cores }}
+        cpu = {{ cpu }}
+        memory_max_mb = {{ memory_max_mb }}
+        memory_mb = {{ memory_mb }}
+        devices {
+          count = {{ count }}
+          name = "{{ name }}"
+        }
+        node_pools {
+          cores = {{ cores }}
+          cpu = {{ cpu }}
+          memory_max_mb = {{ memory_max_mb }}
+          memory_mb = {{ memory_mb }}
+          node_pool = "{{ node_pool }}"
+          devices {
+            count = {{ count }}
+            name = "{{ name }}"
+          }
+          storage {
+            host_volumes_mb = {{ host_volumes_mb }}
+            variables_mb = {{ variables_mb }}
+          }
+        }
+        storage {
+          host_volumes_mb = {{ host_volumes_mb }}
+          variables_mb = {{ variables_mb }}
+        }
+      }
+    }
 }

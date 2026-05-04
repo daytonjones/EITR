@@ -3,13 +3,49 @@ resource "azurerm_automation_runbook" "example" {
     content = "{{ content }}"
     description = "{{ description }}"
     id = "{{ id }}"
-    job_schedule = "{{ job_schedule }}"
+    job_schedule = ["{{ job_schedule }}"]
     location = "{{ location }}"
-    log_activity_trace_level = "{{ log_activity_trace_level }}"
-    log_progress = "{{ log_progress }}"
-    log_verbose = "{{ log_verbose }}"
+    log_activity_trace_level = {{ log_activity_trace_level }}
+    log_progress = {{ log_progress }}
+    log_verbose = {{ log_verbose }}
     name = "{{ name }}"
     resource_group_name = "{{ resource_group_name }}"
     runbook_type = "{{ runbook_type }}"
-    tags = "{{ tags }}"
+    runtime_environment_name = "{{ runtime_environment_name }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    draft {
+      edit_mode_enabled = {{ edit_mode_enabled }}
+      output_types = ["{{ output_types }}"]
+      content_link {
+        uri = "{{ uri }}"
+        version = "{{ version }}"
+        hash {
+          algorithm = "{{ algorithm }}"
+          value = "{{ value }}"
+        }
+      }
+      parameters {
+        default_value = "{{ default_value }}"
+        key = "{{ key }}"
+        mandatory = {{ mandatory }}
+        position = {{ position }}
+        type = "{{ type }}"
+      }
+    }
+    publish_content_link {
+      uri = "{{ uri }}"
+      version = "{{ version }}"
+      hash {
+        algorithm = "{{ algorithm }}"
+        value = "{{ value }}"
+      }
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

@@ -1,0 +1,31 @@
+resource "google_developer_connect_insights_config" "example" {
+    annotations = {
+        key = "{{ annotations_value }}"
+      }
+    app_hub_application = "{{ app_hub_application }}"
+    id = "{{ id }}"
+    insights_config_id = "{{ insights_config_id }}"
+    labels = {
+        key = "{{ labels_value }}"
+      }
+    location = "{{ location }}"
+    project = "{{ project }}"
+    artifact_configs {
+      uri = "{{ uri }}"
+      google_artifact_analysis {
+        project_id = "{{ project_id }}"
+      }
+      google_artifact_registry {
+        artifact_registry_package = "{{ artifact_registry_package }}"
+        project_id = "{{ project_id }}"
+      }
+    }
+    target_projects {
+      project_ids = ["{{ project_ids }}"]
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

@@ -1,10 +1,12 @@
 resource "azurerm_sentinel_alert_rule_scheduled" "example" {
     alert_rule_template_guid = "{{ alert_rule_template_guid }}"
     alert_rule_template_version = "{{ alert_rule_template_version }}"
-    custom_details = "{{ custom_details }}"
+    custom_details = {
+        key = "{{ custom_details_value }}"
+      }
     description = "{{ description }}"
     display_name = "{{ display_name }}"
-    enabled = "{{ enabled }}"
+    enabled = {{ enabled }}
     id = "{{ id }}"
     log_analytics_workspace_id = "{{ log_analytics_workspace_id }}"
     name = "{{ name }}"
@@ -13,9 +15,50 @@ resource "azurerm_sentinel_alert_rule_scheduled" "example" {
     query_period = "{{ query_period }}"
     severity = "{{ severity }}"
     suppression_duration = "{{ suppression_duration }}"
-    suppression_enabled = "{{ suppression_enabled }}"
-    tactics = "{{ tactics }}"
-    techniques = "{{ techniques }}"
+    suppression_enabled = {{ suppression_enabled }}
+    tactics = ["{{ tactics }}"]
+    techniques = ["{{ techniques }}"]
     trigger_operator = "{{ trigger_operator }}"
-    trigger_threshold = "{{ trigger_threshold }}"
+    trigger_threshold = {{ trigger_threshold }}
+    alert_details_override {
+      description_format = "{{ description_format }}"
+      display_name_format = "{{ display_name_format }}"
+      severity_column_name = "{{ severity_column_name }}"
+      tactics_column_name = "{{ tactics_column_name }}"
+      dynamic_property {
+        name = "{{ name }}"
+        value = "{{ value }}"
+      }
+    }
+    entity_mapping {
+      entity_type = "{{ entity_type }}"
+      field_mapping {
+        column_name = "{{ column_name }}"
+        identifier = "{{ identifier }}"
+      }
+    }
+    event_grouping {
+      aggregation_method = "{{ aggregation_method }}"
+    }
+    incident {
+      create_incident_enabled = {{ create_incident_enabled }}
+      grouping {
+        by_alert_details = ["{{ by_alert_details }}"]
+        by_custom_details = ["{{ by_custom_details }}"]
+        by_entities = ["{{ by_entities }}"]
+        enabled = {{ enabled }}
+        entity_matching_method = "{{ entity_matching_method }}"
+        lookback_duration = "{{ lookback_duration }}"
+        reopen_closed_incidents = {{ reopen_closed_incidents }}
+      }
+    }
+    sentinel_entity_mapping {
+      column_name = "{{ column_name }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

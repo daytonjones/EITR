@@ -6,4 +6,10 @@ resource "azurerm_healthcare_medtech_service_fhir_destination" "example" {
     location = "{{ location }}"
     medtech_service_id = "{{ medtech_service_id }}"
     name = "{{ name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+      update = "{{ update }}"
+    }
 }

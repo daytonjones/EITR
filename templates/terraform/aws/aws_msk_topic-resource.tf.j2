@@ -1,0 +1,13 @@
+resource "aws_msk_topic" "example" {
+    cluster_arn = "{{ cluster_arn }}"
+    configs = "{{ configs }}"
+    name = "{{ name }}"
+    partition_count = {{ partition_count }}
+    region = "{{ region }}"
+    replication_factor = {{ replication_factor }}
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

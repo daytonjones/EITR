@@ -2,4 +2,9 @@ resource "azurerm_site_recovery_services_vault_hyperv_site" "example" {
     id = "{{ id }}"
     name = "{{ name }}"
     recovery_vault_id = "{{ recovery_vault_id }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }

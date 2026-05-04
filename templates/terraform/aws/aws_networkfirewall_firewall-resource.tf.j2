@@ -1,15 +1,36 @@
 resource "aws_networkfirewall_firewall" "example" {
-    arn = "{{ arn }}"
-    delete_protection = "{{ delete_protection }}"
+    availability_zone_change_protection = {{ availability_zone_change_protection }}
+    delete_protection = {{ delete_protection }}
     description = "{{ description }}"
+    enabled_analysis_types = ["{{ enabled_analysis_types }}"]
     firewall_policy_arn = "{{ firewall_policy_arn }}"
-    firewall_policy_change_protection = "{{ firewall_policy_change_protection }}"
-    firewall_status = "{{ firewall_status }}"
+    firewall_policy_change_protection = {{ firewall_policy_change_protection }}
     id = "{{ id }}"
     name = "{{ name }}"
-    subnet_change_protection = "{{ subnet_change_protection }}"
-    tags = "{{ tags }}"
-    tags_all = "{{ tags_all }}"
-    update_token = "{{ update_token }}"
+    region = "{{ region }}"
+    subnet_change_protection = {{ subnet_change_protection }}
+    tags = {
+        key = "{{ tags_value }}"
+      }
+    tags_all = {
+        key = "{{ tags_all_value }}"
+      }
+    transit_gateway_id = "{{ transit_gateway_id }}"
     vpc_id = "{{ vpc_id }}"
+    availability_zone_mapping {
+      availability_zone_id = "{{ availability_zone_id }}"
+    }
+    encryption_configuration {
+      key_id = "{{ key_id }}"
+      type = "{{ type }}"
+    }
+    subnet_mapping {
+      ip_address_type = "{{ ip_address_type }}"
+      subnet_id = "{{ subnet_id }}"
+    }
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

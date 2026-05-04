@@ -1,0 +1,10 @@
+resource "vault_keymgmt_azure_kms" "example" {
+    credentials_wo = {
+        key = "{{ credentials_wo_value }}"
+      }
+    credentials_wo_version = {{ credentials_wo_version }}
+    key_collection = "{{ key_collection }}"
+    mount = "{{ mount }}"
+    name = "{{ name }}"
+    namespace = "{{ namespace }}"
+}

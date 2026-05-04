@@ -1,0 +1,14 @@
+resource "aws_cognito_managed_login_branding" "example" {
+    client_id = "{{ client_id }}"
+    region = "{{ region }}"
+    settings = "{{ settings }}"
+    use_cognito_provided_values = {{ use_cognito_provided_values }}
+    user_pool_id = "{{ user_pool_id }}"
+    asset {
+      bytes = "{{ bytes }}"
+      category = "{{ category }}"
+      color_mode = "{{ color_mode }}"
+      extension = "{{ extension }}"
+      resource_id = "{{ resource_id }}"
+    }
+}

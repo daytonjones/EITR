@@ -1,0 +1,11 @@
+resource "google_storage_folder" "example" {
+    bucket = "{{ bucket }}"
+    force_destroy = {{ force_destroy }}
+    id = "{{ id }}"
+    name = "{{ name }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

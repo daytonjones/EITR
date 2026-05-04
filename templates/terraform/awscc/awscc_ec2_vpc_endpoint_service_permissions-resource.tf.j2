@@ -1,5 +1,4 @@
 resource "awscc_ec2_vpc_endpoint_service_permissions" "example" {
-    allowed_principals = "{{ allowed_principals }}"
-    id = "{{ id }}"
+    allowed_principals = ["{{ allowed_principals }}"]
     service_id = "{{ service_id }}"
 }

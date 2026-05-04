@@ -1,6 +1,12 @@
 resource "aws_ec2_instance_state" "example" {
-    force = "{{ force }}"
+    force = {{ force }}
     id = "{{ id }}"
     instance_id = "{{ instance_id }}"
+    region = "{{ region }}"
     state = "{{ state }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
 }

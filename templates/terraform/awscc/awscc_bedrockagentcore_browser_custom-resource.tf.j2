@@ -1,0 +1,11 @@
+resource "awscc_bedrockagentcore_browser_custom" "example" {
+    browser_signing = "{{ browser_signing }}"
+    description = "{{ description }}"
+    execution_role_arn = "{{ execution_role_arn }}"
+    name = "{{ name }}"
+    network_configuration = "{{ network_configuration }}"
+    recording_config = "{{ recording_config }}"
+    tags = {
+        key = "{{ tags_value }}"
+      }
+}

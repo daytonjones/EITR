@@ -1,0 +1,12 @@
+resource "google_observability_folder_settings" "example" {
+    default_storage_location = "{{ default_storage_location }}"
+    folder = "{{ folder }}"
+    id = "{{ id }}"
+    kms_key_name = "{{ kms_key_name }}"
+    location = "{{ location }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      update = "{{ update }}"
+    }
+}

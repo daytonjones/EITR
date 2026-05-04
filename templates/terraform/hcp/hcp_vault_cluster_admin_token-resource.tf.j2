@@ -1,7 +1,10 @@
 resource "hcp_vault_cluster_admin_token" "example" {
     cluster_id = "{{ cluster_id }}"
-    created_at = "{{ created_at }}"
     id = "{{ id }}"
     project_id = "{{ project_id }}"
-    token = "{{ token }}"
+    timeouts {
+      create = "{{ create }}"
+      delete = "{{ delete }}"
+      read = "{{ read }}"
+    }
 }
